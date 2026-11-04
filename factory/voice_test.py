@@ -1,7 +1,6 @@
-"""One-off listening test: the same lines in Kokoro, Gemini and Chatterbox.
+"""One-off listening test: the same lines in Kokoro and Gemini.
 
     python -m factory.voice_test kokoro gemini     # writes voice-test/*.wav
-    python -m factory.voice_test chatterbox        # needs voice-test/ref_*.wav from kokoro
 
 Each engine gets one file per page: curious.wav (narrator) and drama.wav (scene).
 """
@@ -119,25 +118,7 @@ def gemini(lines, page: str) -> np.ndarray:
     return _join(parts)
 
 
-def chatterbox(lines, page: str) -> np.ndarray:
-    import torch
-    from chatterbox.tts import ChatterboxTTS
-
-    model = ChatterboxTTS.from_pretrained(device="cpu")
-    parts = []
-    for spk, text, style in lines:
-        ref = OUT / f"ref_{'curious' if page == 'curious' else spk}.wav"
-        big = any(w in style for w in ("outraged", "panicked", "gasping"))
-        wav = model.generate(text, audio_prompt_path=str(ref), exaggeration=0.8 if big else 0.5,
-                             cfg_weight=0.3 if big else 0.5)
-        a = wav.squeeze().detach().cpu().numpy() if isinstance(wav, torch.Tensor) else np.asarray(wav)
-        if model.sr != SR:
-            a = np.interp(np.linspace(0, len(a), int(len(a) * SR / model.sr), endpoint=False), np.arange(len(a)), a)
-        parts.append(a)
-    return _join(parts)
-
-
-ENGINES = {"kokoro": kokoro, "gemini": gemini, "chatterbox": chatterbox}
+ENGINES = {"kokoro": kokoro, "gemini": gemini}
 
 if __name__ == "__main__":
     OUT.mkdir(exist_ok=True)

@@ -107,9 +107,15 @@ def gemini(lines, page: str) -> np.ndarray:
                     "annotations": [{"type": "speech_metadata", "style": style}]}]}],
                 "response_format": {"type": "audio"},
                 "generation_config": {"speech_config": [{"voice": voice}]}}
-        r = requests.post("https://generativelanguage.googleapis.com/v1beta/interactions",
-                          headers={"x-goog-api-key": key, "Content-Type": "application/json"},
-                          json=body, timeout=120)
+        import time
+        for attempt in range(6):  # free tier: 3 requests a minute, so pace and retry
+            r = requests.post("https://generativelanguage.googleapis.com/v1beta/interactions",
+                              headers={"x-goog-api-key": key, "Content-Type": "application/json"},
+                              json=body, timeout=120)
+            if r.status_code != 429:
+                break
+            time.sleep(25)
+        time.sleep(21)
         if r.status_code >= 400:
             raise RuntimeError(f"Gemini HTTP {r.status_code}: {r.text[:400]}")
         data = _gemini_audio(r.json())

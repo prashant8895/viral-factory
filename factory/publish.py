@@ -9,13 +9,14 @@ never double-posts.
 from __future__ import annotations
 
 import json
+import os
 import subprocess
 import sys
 import traceback
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
 
-from . import channels, platforms
+from . import channels, notify, platforms
 
 ROOT = Path(__file__).resolve().parent.parent
 STATE = ROOT / "state"
@@ -83,10 +84,18 @@ def main(argv: list[str]) -> int:
     else:
         states = [s for s in states if is_due(s, now)]
     failed = False
+    final = os.environ.get("FINAL_TRY") == "true"
     for s in states:
         if set(platforms.enabled_platforms(prefix(s))) - set(s.get("platforms", {})):
             s = publish(s)
             failed |= bool(s.get("errors"))
+            title = f"Posting failed: {s['id']}"
+            if s.get("errors"):
+                detail = "; ".join(f"{k}: {v}" for k, v in s["errors"].items())
+                done = ", ".join(s.get("platforms", {})) or "none yet"
+                notify.main("still" if final else "fail", title, f"Posted so far: {done}. Failed: {detail}")
+            else:
+                notify.main("fixed", title, "Posted everywhere.")
     if not states:
         print("Nothing due.")
     return 1 if failed else 0

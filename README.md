@@ -46,3 +46,13 @@ Each platform on each page switches on by itself once its secrets exist.
 
 Actions → "Render video" → Run workflow → `jobs/curious/example-sleep.json` or `jobs/drama/example-ep1.json`.
 Actions → "Publish" → Run workflow → force_id to post one job now.
+
+## When something fails
+
+- Every picture and animation is tried 4 times (waits of 30 s, 2 min, 5 min). If one still fails,
+  the whole video is tried again twice more, 10 minutes apart.
+- A video that still fails is not released and not posted. Nothing half-done goes out.
+- Posting retries at 19:30, 20:00 and 21:00 IST (07:00 and 07:30 for the morning slot), only
+  for the platforms still missing, so nothing is posted twice.
+- Failures open a GitHub issue in this repo that mentions the owner, so GitHub emails and
+  notifies Prashant. The issue closes itself when a retry works.

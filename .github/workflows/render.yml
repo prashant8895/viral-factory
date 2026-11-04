@@ -13,6 +13,7 @@ on:
 
 permissions:
   contents: write
+  issues: write
 
 concurrency:
   group: repo-writes
@@ -21,7 +22,7 @@ concurrency:
 jobs:
   render:
     runs-on: ubuntu-latest
-    timeout-minutes: 90
+    timeout-minutes: 240
     env:
       IMAGE_PROVIDER: ${{ vars.IMAGE_PROVIDER || 'pollinations' }}
       POLLINATIONS_KEY: ${{ secrets.POLLINATIONS_KEY }}
@@ -65,19 +66,41 @@ jobs:
 
       - run: pip install -r requirements.txt
 
-      - name: Render
+      - name: Render (3 tries per video, nothing half-done is released)
+        id: render
         run: |
+          failed=""
           for f in ${{ steps.find.outputs.files }}; do
             id=$(python -c "import json,sys;print(json.load(open('$f'))['id'])")
-            python -m factory.render "$f"
+            ok=""
+            for try in 1 2 3; do
+              if python -m factory.render "$f" 2>&1 | tee "render-$id.log"; [ "${PIPESTATUS[0]}" -eq 0 ]; then
+                ok=1; break
+              fi
+              err=$(grep -E "StepFailed|Error|error" "render-$id.log" | tail -3 || true)
+              [ "$try" -eq 1 ] && { python -m factory.notify fail "Render failed: $id" "Try 1 failed: $err" || true; } || true
+              [ "$try" -lt 3 ] && echo "Waiting 10 minutes before try $((try+1))" && sleep 600
+            done
+            if [ -z "$ok" ]; then
+              python -m factory.notify still "Render failed: $id" "$err" || true
+              failed="$failed $id"
+              continue
+            fi
+            python -m factory.notify fixed "Render failed: $id" "Video $id is made." || true
             gh release delete "job-$id" -y --cleanup-tag 2>/dev/null || true
             gh release create "job-$id" out/$id/final.mp4 out/$id/thumb.jpg out/$id/meta.json \
               --title "$id" --notes "Rendered from $f" --prerelease
           done
+          echo "failed=$failed" >> "$GITHUB_OUTPUT"
 
       - name: Save state
+        if: always()
         run: |
           git config user.name "video-factory"
           git config user.email "actions@github.com"
           git add state channels/*/cast
           git diff --cached --quiet || (git commit -m "Rendered: ${{ steps.find.outputs.files }}" && git pull --rebase && git push)
+
+      - name: Mark the run red if any video failed
+        if: steps.render.outputs.failed != ''
+        run: echo "Failed:${{ steps.render.outputs.failed }}" && exit 1

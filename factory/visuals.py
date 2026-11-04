@@ -99,11 +99,27 @@ def make_image(job: dict, scene: dict, index: int, out: Path, cast: dict | None 
     refs = [cast_dir / f"{n.lower()}.png" for n in scene.get("cast", [])] if cast_dir else []
     refs = [r for r in refs if r.exists()]
     if refs and provider != "placeholder" and _model("IMAGE_EDIT_MODEL"):
-        try:
-            return same_cast_image(prompt, refs, out)
-        except Exception as e:  # fall back to text-only description
-            print("  cast image failed, using description only:", e)
+        # No quiet fallback: an off-model cast picture would be a half-done post.
+        return with_retries(lambda: same_cast_image(prompt, refs, out), "cast picture")
     return PROVIDERS[provider](prompt, seed, out)
+
+
+class StepFailed(RuntimeError):
+    """A step that still failed after every retry. The video is not made or posted."""
+
+
+def with_retries(fn, what: str, waits=(30, 120, 300)):
+    """Try, then retry after 30 s, 2 min and 5 min. Raise if it never works."""
+    last = None
+    for attempt, wait in enumerate((0,) + tuple(waits)):
+        if wait:
+            print(f"  {what}: retry {attempt} in {wait}s ({last})", flush=True)
+            time.sleep(wait)
+        try:
+            return fn()
+        except Exception as e:  # noqa: BLE001 - every failure gets the same retry treatment
+            last = f"{type(e).__name__}: {e}"[:300]
+    raise StepFailed(f"{what} failed after {len(waits) + 1} tries: {last}")
 
 
 def make_reference(name: str, look: str, style: str, out: Path, seed: int = 11) -> Path:
@@ -116,7 +132,8 @@ def make_reference(name: str, look: str, style: str, out: Path, seed: int = 11) 
 
 # ---------------- Pollinations paid models (animation + same-cast pictures) ----------------
 # One key (POLLINATIONS_KEY) covers free pictures and paid models. Paid models draw on
-# Pollen bought at enter.pollinations.ai; with no Pollen they fail and we fall back to stills.
+# Pollen bought at enter.pollinations.ai. Once a model is set, its step must succeed
+# (with retries) or the whole video stops: nothing half-done is ever posted.
 
 GEN = "https://gen.pollinations.ai"
 
@@ -183,39 +200,47 @@ def same_cast_image(prompt: str, refs: list[Path], out: Path) -> Path:
     return out
 
 
-def video_clip(image: Path, prompt: str, seconds: float, out: Path) -> Path | None:
-    """Animate one picture into a ~5 s clip. Returns None if no video model is set or it fails,
-    and the factory uses camera motion on the still instead."""
-    model = _model("VIDEO_MODEL")
-    if not model or not os.environ.get("POLLINATIONS_KEY"):
-        return None
-    try:
-        start = upload(image)
-        text = prompt + " Smooth natural motion, expressive acting, camera mostly steady. No text."
-        url = f"{GEN}/video/{urllib.parse.quote(text)}"
-        params = {"model": model, "duration": int(os.environ.get("VIDEO_SECONDS", "5")),
-                  "aspectRatio": "9:16", "image": start}
-        headers = {**_auth(), "Prefer": "respond-async"}
+def _video_once(image: Path, prompt: str, out: Path, model: str) -> Path:
+    start = upload(image)
+    text = prompt + " Smooth natural motion, expressive acting, camera mostly steady. No text."
+    url = f"{GEN}/video/{urllib.parse.quote(text)}"
+    params = {"model": model, "duration": int(os.environ.get("VIDEO_SECONDS", "5")),
+              "aspectRatio": "9:16", "image": start}
+    headers = {**_auth(), "Prefer": "respond-async"}
+    r = requests.get(url, params=params, headers=headers, timeout=120)
+    if r.status_code == 400:  # model doesn't take that duration: use its default
+        params.pop("duration")
         r = requests.get(url, params=params, headers=headers, timeout=120)
-        if r.status_code == 400:  # model doesn't take that duration: use its default
-            params.pop("duration")
-            r = requests.get(url, params=params, headers=headers, timeout=120)
-        if r.status_code == 200 and r.headers.get("content-type", "").startswith("video"):
-            out.write_bytes(r.content)  # already made earlier: served from cache
+    if r.status_code == 402:
+        raise RuntimeError("Out of Pollen: top up at enter.pollinations.ai")
+    if r.status_code == 200 and r.headers.get("content-type", "").startswith("video"):
+        out.write_bytes(r.content)  # made before: served from cache, not charged again
+        return out
+    r.raise_for_status()
+    job = r.json()["id"]
+    for _ in range(180):  # up to 15 minutes
+        st = requests.get(f"{GEN}/v1/jobs/{job}", headers=_auth(), timeout=30).json()
+        if st.get("status") == "succeeded":
+            res = requests.get(f"{GEN}/v1/jobs/{job}/result", headers=_auth(), timeout=300)
+            res.raise_for_status()
+            out.write_bytes(res.content)
+            if out.stat().st_size < 50_000:
+                raise RuntimeError("clip came back empty")
             return out
-        r.raise_for_status()
-        job = r.json()["id"]
-        for _ in range(180):  # up to 15 minutes
-            st = requests.get(f"{GEN}/v1/jobs/{job}", headers=_auth(), timeout=30).json()
-            if st.get("status") == "succeeded":
-                res = requests.get(f"{GEN}/v1/jobs/{job}/result", headers=_auth(), timeout=300)
-                res.raise_for_status()
-                out.write_bytes(res.content)
-                return out
-            if st.get("status") in ("failed", "error", "cancelled"):
-                raise RuntimeError(f"video job {st.get('status')}: {str(st)[:300]}")
-            time.sleep(5)
-        raise RuntimeError("video job timed out")
-    except Exception as e:
-        print("  animation failed, using still with camera motion:", e)
+        if st.get("status") in ("failed", "error", "cancelled"):
+            raise RuntimeError(f"video job {st.get('status')}: {str(st)[:300]}")
+        time.sleep(5)
+    raise RuntimeError("video job timed out")
+
+
+def video_clip(image: Path, prompt: str, seconds: float, out: Path) -> Path | None:
+    """Animate one picture into a ~5 s clip, with retries.
+
+    Returns None only when no VIDEO_MODEL is set (the free, pictures-only test runs).
+    Once a model is set, a clip that keeps failing stops the whole video."""
+    model = _model("VIDEO_MODEL")
+    if not model:
         return None
+    if out.exists() and out.stat().st_size > 50_000:  # kept from an earlier try
+        return out
+    return with_retries(lambda: _video_once(image, prompt, out, model), f"animation {out.stem}")

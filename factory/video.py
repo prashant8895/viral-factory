@@ -142,8 +142,15 @@ Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
                                 (words[i + len(chunk)].start if i + len(chunk) < len(words) else w.end + 0.25))
                 parts = []
                 for j, cw in enumerate(chunk):
-                    txt = _esc(cw.text.upper().strip('"“”'))
-                    parts.append(r"{\c&H0000E6FF&}" + txt + r"{\c&H00FFFFFF&}" if j == k else txt)
+                    txt = _esc(cw.text.upper().strip('"“”*'))
+                    if cw.emph:  # key word: orange and bigger, pops harder when spoken
+                        size = "128" if j == k else "115"
+                        parts.append(r"{\c&H0000A5FF&\fscx" + size + r"\fscy" + size + "}" + txt
+                                     + r"{\c&H00FFFFFF&\fscx100\fscy100}")
+                    elif j == k:
+                        parts.append(r"{\c&H0000E6FF&}" + txt + r"{\c&H00FFFFFF&}")
+                    else:
+                        parts.append(txt)
                 pop = r"{\fscx88\fscy88\t(0,90,\fscx100\fscy100)}" if k == 0 else ""
                 lines.append(f"Dialogue: 0,{_ts(start)},{_ts(end)},Cap,,0,0,0,,{pop}" + " ".join(parts))
             i += len(chunk)
@@ -154,7 +161,17 @@ Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
 
 # ---------- final assembly ----------
 
-def assemble(shots: list[Path], scenes: list[SceneAudio], ass: Path, music: Path | None, out: Path) -> Path:
+def _punch_filter(punches: list[float]) -> str:
+    """A quick 8% zoom-in that eases back over 0.3 s at each punch time (hook, booms)."""
+    if not punches:
+        return ""
+    z = "+".join(f"0.08*between(t,{a:.2f},{a + 0.3:.2f})*(1-(t-{a:.2f})/0.3)" for a in punches)
+    return (f"scale=w='trunc(iw*(1+{z})/2)*2':h='trunc(ih*(1+{z})/2)*2':eval=frame,"
+            f"crop={W}:{H},")
+
+
+def assemble(shots: list[Path], scenes: list[SceneAudio], ass: Path, music: Path | None, out: Path,
+             sfx_track: Path | None = None, punches: list[float] | None = None) -> Path:
     work = ass.parent
     lst = work / "shots.txt"
     lst.write_text("".join(f"file '{p.resolve()}'\n" for p in shots))
@@ -168,16 +185,26 @@ def assemble(shots: list[Path], scenes: list[SceneAudio], ass: Path, music: Path
 
     total = sum(s.duration for s in scenes)
     cmd = ["ffmpeg", "-y", "-i", str(silent), "-i", str(voice)]
+    chain, mix, n = ["[1:a]aresample=48000,asplit=2[v][vs]"], ["[v]"], 2
+    if sfx_track:
+        cmd += ["-i", str(sfx_track)]
+        chain.append(f"[{n}:a]aresample=48000,volume=0.9[fx]")
+        mix.append("[fx]")
+        n += 1
     if music:
         cmd += ["-stream_loop", "-1", "-i", str(music)]
-        af = ("[1:a]aresample=48000,asplit=2[v][vs];[2:a]aresample=48000,volume=0.12,"
-              f"afade=t=out:st={max(0, total - 1.5):.2f}:d=1.5[m];"
-              "[m][vs]sidechaincompress=threshold=0.05:ratio=6[md];"
-              "[v][md]amix=inputs=2:normalize=0,loudnorm=I=-14:TP=-1.5:LRA=11[a]")
+        chain.append(f"[{n}:a]aresample=48000,volume=0.12,afade=t=in:d=0.5,"
+                     f"afade=t=out:st={max(0, total - 1.5):.2f}:d=1.5[m]")
+        chain.append("[m][vs]sidechaincompress=threshold=0.05:ratio=6[md]")  # music dips under the voice
+        mix.append("[md]")
+        n += 1
     else:
-        af = "[1:a]aresample=48000,loudnorm=I=-14:TP=-1.5:LRA=11[a]"
+        chain.append("[vs]anullsink")
+    chain.append("".join(mix) + f"amix=inputs={len(mix)}:normalize=0:duration=first,"
+                 "loudnorm=I=-14:TP=-1.5:LRA=11[a]")
+    af = ";".join(chain)
     sub = str(ass).replace(":", r"\:")
-    cmd += ["-filter_complex", f"[0:v]ass='{sub}':fontsdir='{FONT_DIR}'[vout];{af}",
+    cmd += ["-filter_complex", f"[0:v]{_punch_filter(punches or [])}ass='{sub}':fontsdir='{FONT_DIR}'[vout];{af}",
             "-map", "[vout]", "-map", "[a]", "-t", f"{total:.3f}",
             "-c:v", "libx264", "-preset", "veryfast", "-crf", "20", "-pix_fmt", "yuv420p",
             "-r", str(FPS), "-c:a", "aac", "-b:a", "192k", "-ar", "48000",

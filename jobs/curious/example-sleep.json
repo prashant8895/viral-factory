@@ -10,35 +10,40 @@
   "hook_text": "11 DAYS WITHOUT SLEEP?",
   "scenes": [
     {
-      "narration": "This is what happens to your body if you stay awake for eleven days.",
+      "narration": "This is what happens to your body if you stay awake for *eleven* days.",
       "visual": "close-up of {character} staring at a glowing phone in a dark bedroom at night, wide bloodshot eyes",
       "motion": "zoom_in",
       "action": "the tired man's eyes twitch and widen as the phone light flickers on his face, slow push in"
     },
     {
-      "narration": "After just one night, your reaction time drops like you've had a few drinks.",
+      "narration": "After just one night, your reaction time *drops* like you've had a few drinks.",
       "visual": "{character} slumped at an office desk, coffee cups piled up, blurry computer screen",
-      "motion": "pan_right"
+      "motion": "pan_right",
+      "sfx": "thud"
     },
     {
-      "narration": "By day three, your brain starts taking tiny naps without asking you. They're called microsleeps.",
+      "narration": "By day three, your brain starts taking tiny naps without asking you. They're called *microsleeps*.",
       "visual": "inside a glowing cartoon human brain, small sections switching off like light bulbs",
-      "motion": "zoom_out"
+      "motion": "zoom_out",
+      "sfx": "tick"
     },
     {
       "narration": "By day five, you can start seeing and hearing things that aren't there.",
       "visual": "{character} in a dim hallway, strange shadow figures on the walls, eerie blue light",
-      "motion": "zoom_in"
+      "motion": "zoom_in",
+      "sfx": "riser"
     },
     {
       "narration": "In 1964, a teenager named Randy Gardner made it to eleven days. Scientists watched him the whole time.",
       "visual": "retro 1960s science lab, scientists in white coats with clipboards watching a tired teenager",
-      "motion": "pan_left"
+      "motion": "pan_left",
+      "sfx": "ding"
     },
     {
       "narration": "And after all that? He slept fourteen hours and woke up fine. So the next time you scroll at 3 AM, remember what happens to your body if you stay awake for eleven days.",
       "visual": "{character} finally asleep in a cosy bed, warm morning sunlight through the window",
-      "motion": "zoom_out"
+      "motion": "zoom_out",
+      "sfx": "sparkle"
     }
   ],
   "youtube": {

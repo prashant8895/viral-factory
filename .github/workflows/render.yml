@@ -26,6 +26,7 @@ jobs:
     env:
       IMAGE_PROVIDER: ${{ vars.IMAGE_PROVIDER || 'pollinations' }}
       POLLINATIONS_KEY: ${{ secrets.POLLINATIONS_KEY }}
+      GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
       VIDEO_MODEL: ${{ vars.VIDEO_MODEL }}
       IMAGE_EDIT_MODEL: ${{ vars.IMAGE_EDIT_MODEL }}
       GH_TOKEN: ${{ github.token }}

@@ -11,7 +11,7 @@ import random
 import sys
 from pathlib import Path
 
-from . import channels, tts, video, visuals
+from . import channels, sfx, tts, video, visuals
 
 ROOT = Path(__file__).resolve().parent.parent
 
@@ -52,6 +52,8 @@ def render(job_path: Path) -> Path:
     work.mkdir(parents=True, exist_ok=True)
 
     voices = {**ch["voices"], **{n: c["voice"] for n, c in cast.items() if c.get("voice")}}
+    styles = {**ch.get("styles", {}), **{n: c["voice_style"] for n, c in cast.items() if c.get("voice_style")}}
+    engine = ch.get("tts", "kokoro")
     if job.get("voice"):
         voices["narrator"] = job["voice"]
     speed = float(job.get("speed", ch.get("speed", 1.0)))
@@ -60,7 +62,7 @@ def render(job_path: Path) -> Path:
     scene_audio, shots = [], []
     for i, scene in enumerate(job["scenes"]):
         print(f"[scene {i + 1}/{len(job['scenes'])}] voice", flush=True)
-        sa = tts.synthesize(scene, work / f"voice_{i}.wav", voices, speed)
+        sa = tts.synthesize(scene, work / f"voice_{i}.wav", voices, speed, engine, styles)
         scene_audio.append(sa)
 
         print(f"[scene {i + 1}] picture", flush=True)
@@ -77,13 +79,35 @@ def render(job_path: Path) -> Path:
                                    int(job.get("seed", 1)) + i, work, f"s{i}", clip)
 
     ass = video.captions_ass(scene_audio, job["hook_text"], work / "captions.ass")
-    tracks = sorted((ROOT / "assets" / "music").glob("*.mp3"))
-    use_music = job.get("music", ch.get("music", True))
-    music = random.Random(job["id"]).choice(tracks) if tracks and use_music else None
+
+    # Sound effects: a soft whoosh on every scene cut, plus the effect Claude picked per scene.
+    cues, punches, t = [], [], 0.0
+    for i, (scene, sa) in enumerate(zip(job["scenes"], scene_audio)):
+        pick = scene.get("sfx") or ("boom" if i == 0 else None)
+        if i > 0 and pick != "riser":
+            cues.append((max(0.0, t - 0.12), "whoosh"))
+        if pick:
+            cues.append((t + float(scene.get("sfx_at", 0)), pick))
+        if i == 0 or scene.get("punch") or pick in ("boom", "thud", "crash"):
+            punches.append(t + float(scene.get("sfx_at", 0)))
+        t += sa.duration
+    fx = sfx.build_track(cues, t, work / "sfx.wav") if job.get("sfx", True) else None
+
+    # Music bed: picked by mood from assets/music/<mood>-*.mp3. If the page uses music,
+    # a missing library stops the video rather than posting it without music.
+    use_music = job.get("music", ch.get("music", False))
+    music = None
+    if use_music:
+        lib = ROOT / "assets" / "music"
+        mood = job.get("music_mood") or ch.get("music_mood", "")
+        tracks = sorted(lib.glob(f"{mood}-*.mp3")) or sorted(lib.glob("*.mp3"))
+        if not tracks:
+            raise RuntimeError("This page uses music but assets/music has no tracks yet")
+        music = random.Random(job["id"]).choice(tracks)
 
     final = out_dir / "final.mp4"
     print("[assemble]", flush=True)
-    video.assemble(shots, scene_audio, ass, music, final)
+    video.assemble(shots, scene_audio, ass, music, final, fx, punches)
     video.thumbnail(final, out_dir / "thumb.jpg")
 
     meta = {k: job[k] for k in ("id", "channel", "youtube", "instagram", "facebook", "hook_text")}

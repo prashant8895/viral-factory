@@ -2,25 +2,29 @@
   "Mochi": {
     "look": "a small fluffy orange tabby cat with huge green eyes, a tiny pink collar with a gold bell, very expressive eyebrows",
     "personality": "Dramatic diva. Believes she owns the house. Overreacts to everything, plots revenge, secretly soft-hearted.",
-    "voice": "af_sky",
-    "seed": 101
+    "voice": "Leda",
+    "seed": 101,
+    "voice_style": "dramatic diva cat, theatrical, big reactions"
   },
   "Bruno": {
     "look": "a big clumsy golden retriever with floppy ears, a red bandana, always a little muddy, goofy wide smile",
     "personality": "Sweet, loyal, not very bright. Always gets blamed. Usually guilty. Loves Mochi, who pretends to hate him.",
-    "voice": "am_adam",
-    "seed": 202
+    "voice": "Puck",
+    "seed": 202,
+    "voice_style": "sweet, goofy, eager big dog"
   },
   "Granny": {
     "look": "a kind elderly woman with round glasses, silver hair in a bun, a purple knitted cardigan, slippers",
     "personality": "The human. Sees everything, says little. Her one-line verdicts end most fights.",
-    "voice": "bf_emma",
-    "seed": 303
+    "voice": "Gacrux",
+    "seed": 303,
+    "voice_style": "dry, calm, unimpressed elderly woman"
   },
   "Pip": {
     "look": "a tiny grey mouse with oversized ears, a little blue scarf, sharp clever eyes",
     "personality": "Mochi's secret ally and the house's information broker. Trades gossip for cheese.",
-    "voice": "af_nicole",
-    "seed": 404
+    "voice": "Zephyr",
+    "seed": 404,
+    "voice_style": "quick, sly, whispery little mouse"
   }
 }

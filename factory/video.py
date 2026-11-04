@@ -22,26 +22,21 @@ def run(cmd: list[str]) -> None:
 S = 1.5  # work at 1.5x resolution so the camera move stays smooth
 
 
-def _motion_filter(move: str, dur: float, focus_y: float) -> str:
-    """Grow the image over time (zoom) and slide a fixed window over it (pan)."""
+def _motion_filter(z0: float, z1: float, x0: float, x1: float, dur: float, focus_y: float) -> str:
+    """Steady, linear camera move (no easing, so nothing bounces): zoom from z0 to z1 and
+    drift the frame from x0 to x1 (0 = left edge, 0.5 = centre, 1 = right edge)."""
     p = f"min(t/{dur:.3f},1)"
-    ease = f"(0.5-0.5*cos(PI*{p}))"
-    z0, z1 = {"zoom_in": (1.0, 1.16), "zoom_out": (1.16, 1.0)}.get(move, (1.14, 1.14))
-    z = f"({z0}+({z1}-{z0})*{ease})"
+    z = f"({z0}+({z1 - z0})*{p})"
     cw, ch = int(W * S), int(H * S)
-    scale = (f"scale=w='trunc({cw}*{z}/2)*2':h='trunc({ch}*{z}/2)*2':eval=frame:flags=bicubic")
-    if move == "pan_right":
-        x = f"(iw-ow)*{ease}"
-    elif move == "pan_left":
-        x = f"(iw-ow)*(1-{ease})"
-    else:
-        x = "(iw-ow)/2"
+    scale = f"scale=w='trunc({cw}*{z}/2)*2':h='trunc({ch}*{z}/2)*2':eval=frame:flags=bicubic"
+    x = f"(iw-ow)*({x0}+({x1 - x0})*{p})"
     y = f"(ih-oh)*{focus_y:.2f}"
     return f"{scale},crop={cw}:{ch}:'{x}':'{y}'"
 
 
-def still_shot(image: Path, dur: float, move: str, focus_y: float, out: Path) -> Path:
-    vf = (f"fps={FPS},{_motion_filter(move, dur, focus_y)},"
+def still_shot(image: Path, dur: float, z0: float, z1: float, out: Path, x0: float = 0.5,
+               x1: float = 0.5, focus_y: float = 0.45) -> Path:
+    vf = (f"fps={FPS},{_motion_filter(z0, z1, x0, x1, dur, focus_y)},"
           f"scale={W}:{H}:flags=lanczos,setsar=1,format=yuv420p")
     run(["ffmpeg", "-y", "-loop", "1", "-t", f"{dur:.3f}", "-i", str(image), "-vf", vf,
          "-c:v", "libx264", "-preset", "veryfast", "-crf", "18", "-an", str(out)])
@@ -68,19 +63,42 @@ def last_frame(clip: Path, out: Path) -> Path:
     return out
 
 
-def _stills(image: Path, dur: float, first_move: str, rnd: random.Random, workdir: Path, tag: str) -> list[Path]:
-    """Split time into 2–3 s shots with different camera moves, for a fast rhythm."""
+# Camera moves a scene can ask for ("motion" in the script). Each is calm and purposeful:
+#   push  - slow push towards the subject, with cut-ins to tighter framings (default)
+#   pull  - slow pull back, for a reveal
+#   drift_left / drift_right - slow sideways glide at a fixed framing
+MOTIONS = {"push", "pull", "drift_left", "drift_right"}
+LEGACY = {"zoom_in": "push", "zoom_out": "pull", "pan_left": "drift_left", "pan_right": "drift_right"}
+
+
+def _stills(image: Path, dur: float, motion: str, workdir: Path, tag: str) -> list[Path]:
+    """Cut every 2–3 s, but every cut follows the same move, so the camera feels directed."""
+    motion = LEGACY.get(motion, motion)
+    if motion not in MOTIONS:
+        raise ValueError(f"Unknown motion '{motion}'. Use one of: {', '.join(sorted(MOTIONS))}")
     n = max(1, round(dur / SHOT))
-    moves = [first_move] + [rnd.choice(["zoom_in", "zoom_out", "pan_left", "pan_right"]) for _ in range(n - 1)]
-    return [still_shot(image, dur / n, m, [0.5, 0.25, 0.7][i % 3], workdir / f"{tag}_{i}.mp4")
-            for i, m in enumerate(moves)]
+    d = dur / n
+    shots = []
+    for i in range(n):
+        f = workdir / f"{tag}_{i}.mp4"
+        if motion == "push":  # wide -> medium -> close, each cut slowly pushing in
+            z = 1.0 + 0.12 * i
+            shots.append(still_shot(image, d, z, z + 0.05, f))
+        elif motion == "pull":
+            z = 1.0 + 0.12 * (n - 1 - i)
+            shots.append(still_shot(image, d, z + 0.05, z, f))
+        else:
+            span = 0.5 / n
+            x0 = span * i if motion == "drift_right" else 1 - span * i
+            x1 = x0 + span if motion == "drift_right" else x0 - span
+            shots.append(still_shot(image, d, 1.12, 1.12, f, x0=x0, x1=x1))
+    return shots
 
 
 def scene_shots(image: Path, dur: float, first_move: str, seed: int, workdir: Path, tag: str,
                 clip: Path | None = None) -> list[Path]:
-    rnd = random.Random(seed)
     if clip is None:
-        return _stills(image, dur, first_move, rnd, workdir, tag)
+        return _stills(image, dur, first_move, workdir, tag)
     length = probe_duration(clip)
     if dur <= length:
         return [clip_shot(clip, dur, workdir / f"{tag}_clip.mp4")]
@@ -89,7 +107,7 @@ def scene_shots(image: Path, dur: float, first_move: str, seed: int, workdir: Pa
     # Line runs long: play the clip, then hold on its last frame with a slow push-in.
     shots = [clip_shot(clip, length, workdir / f"{tag}_clip.mp4")]
     end = last_frame(clip, workdir / f"{tag}_last.jpg")
-    return shots + _stills(end, dur - length, "zoom_in", rnd, workdir, tag + "h")
+    return shots + _stills(end, dur - length, "push", workdir, tag + "h")
 
 
 # ---------- captions ----------

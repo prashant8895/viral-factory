@@ -10,6 +10,7 @@ Providers:
 from __future__ import annotations
 
 import os
+import shutil
 import time
 import urllib.parse
 from pathlib import Path
@@ -100,12 +101,28 @@ def make_image(job: dict, scene: dict, index: int, out: Path, cast: dict | None 
     refs = [r for r in refs if r.exists()]
     if refs and provider != "placeholder" and _model("IMAGE_EDIT_MODEL"):
         # No quiet fallback: an off-model cast picture would be a half-done post.
-        return with_retries(lambda: same_cast_image(prompt, refs, out), "cast picture")
+        key = paid.fingerprint(kind="cast-picture", prompt=prompt, refs=[r for r in refs],
+                               model=_model("IMAGE_EDIT_MODEL"))
+        hit = paid.cached(key, ".jpg")
+        if hit:
+            shutil.copyfile(hit, out)
+            return out
+
+        def once():
+            paid.charge(f"cast picture {out.stem}")
+            return same_cast_image(prompt, refs, out)
+        with_retries(once, "cast picture")
+        paid.save(key, ".jpg", out)
+        return out
     return PROVIDERS[provider](prompt, seed, out)
 
 
 class StepFailed(RuntimeError):
     """A step that still failed after every retry. The video is not made or posted."""
+
+
+from .paid import BudgetCap as BudgetStop  # noqa: E402  (re-exported for tts)
+from . import paid  # noqa: E402
 
 
 def with_retries(fn, what: str, waits=(30, 120, 300)):
@@ -117,8 +134,12 @@ def with_retries(fn, what: str, waits=(30, 120, 300)):
             time.sleep(wait)
         try:
             return fn()
+        except BudgetStop:
+            raise  # the spending cap is never retried
         except Exception as e:  # noqa: BLE001 - every failure gets the same retry treatment
             last = f"{type(e).__name__}: {e}"[:300]
+            if "Out of Pollen" in last or "HTTP 402" in last:
+                break  # retrying can't fix an empty balance; stop and alert
     raise StepFailed(f"{what} failed after {len(waits) + 1} tries: {last}")
 
 
@@ -243,4 +264,16 @@ def video_clip(image: Path, prompt: str, seconds: float, out: Path) -> Path | No
         return None
     if out.exists() and out.stat().st_size > 50_000:  # kept from an earlier try
         return out
-    return with_retries(lambda: _video_once(image, prompt, out, model), f"animation {out.stem}")
+    key = paid.fingerprint(kind="clip", image=image, prompt=prompt, model=model,
+                           seconds=os.environ.get("VIDEO_SECONDS", "5"))
+    hit = paid.cached(key, ".mp4")
+    if hit:  # this exact picture was animated before: reuse it
+        shutil.copyfile(hit, out)
+        return out
+
+    def once():
+        paid.charge(f"animation {out.stem}")
+        return _video_once(image, prompt, out, model)
+    with_retries(once, f"animation {out.stem}")
+    paid.save(key, ".mp4", out)
+    return out

@@ -167,10 +167,27 @@ def _gemini_once(text: str, voice: str, style: str) -> tuple[np.ndarray, int]:
 
 
 def _speak_gemini(text: str, voice: str, style: str):
-    from .visuals import with_retries  # shared retry rule: 4 tries, then stop
+    import os
+    import tempfile
 
-    audio, sr = with_retries(lambda: _gemini_once(text, voice, style), "Gemini voice",
-                             waits=(30, 90, 240))
+    from . import paid
+    from .visuals import BudgetStop, with_retries  # shared retry rule: 4 tries, then stop
+
+    key = paid.fingerprint(kind="gemini-voice", text=text, voice=voice, style=style,
+                           model=os.environ.get("GEMINI_TTS_MODEL", "gemini-3.8-flash-tts"))
+    hit = paid.cached(key, ".wav")
+    if hit:  # said exactly this before: reuse, don't pay again
+        with wave.open(str(hit)) as f:
+            sr, frames = f.getframerate(), f.readframes(f.getnframes())
+        audio = np.frombuffer(frames, dtype=np.int16).astype(np.float32) / 32768
+    else:
+        def once():
+            paid.charge(f"Gemini voice: {text[:40]}")
+            return _gemini_once(text, voice, style)
+        audio, sr = with_retries(once, "Gemini voice", waits=(30, 90, 240))
+        tmp = Path(tempfile.mkstemp(suffix=".wav")[1])
+        _write(tmp, audio, sr)
+        paid.save(key, ".wav", tmp)
     if sr != 24000:
         audio = np.interp(np.linspace(0, len(audio), int(len(audio) * 24000 / sr), endpoint=False),
                           np.arange(len(audio)), audio).astype(np.float32)

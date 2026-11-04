@@ -75,7 +75,7 @@ def render(job_path: Path) -> Path:
             print(f"[scene {i + 1}] animation", flush=True)
             action = scene.get("action") or visuals.build_prompt(job, scene, cast)
             clip = visuals.video_clip(img, action, sa.duration, work / f"clip_{i}.mp4")
-        shots += video.scene_shots(img, sa.duration, scene.get("motion", "zoom_in"),
+        shots += video.scene_shots(img, sa.duration, scene.get("motion", "push"),
                                    int(job.get("seed", 1)) + i, work, f"s{i}", clip)
 
     ass = video.captions_ass(scene_audio, job["hook_text"], work / "captions.ass")

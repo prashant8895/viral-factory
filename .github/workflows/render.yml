@@ -24,6 +24,7 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 240
     env:
+      MAX_PAID_CALLS: ${{ vars.MAX_PAID_CALLS || '40' }}
       IMAGE_PROVIDER: ${{ vars.IMAGE_PROVIDER || 'pollinations' }}
       POLLINATIONS_KEY: ${{ secrets.POLLINATIONS_KEY }}
       GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
@@ -39,10 +40,17 @@ jobs:
         id: find
         run: |
           if [ -n "${{ github.event.inputs.job }}" ]; then
-            echo "files=${{ github.event.inputs.job }}" >> "$GITHUB_OUTPUT"
+            files="${{ github.event.inputs.job }}"   # run by hand: render exactly this one
           else
-            echo "files=$(git diff --name-only --diff-filter=AM HEAD~1 HEAD -- 'jobs/**/*.json' | tr '\n' ' ')" >> "$GITHUB_OUTPUT"
+            # On a push, only render real videos (publish: true). Editing an example or a
+            # draft never spends anything.
+            files=""
+            for f in $(git diff --name-only --diff-filter=AM HEAD~1 HEAD -- 'jobs/**/*.json'); do
+              python -c "import json,sys; sys.exit(0 if json.load(open('$f')).get('publish') else 1)" && files="$files $f"
+            done
           fi
+          echo "files=$files" >> "$GITHUB_OUTPUT"
+          [ -n "$files" ] || echo "Nothing to render."
 
       - uses: actions/setup-python@v5
         with:
@@ -67,8 +75,16 @@ jobs:
 
       - run: pip install -r requirements.txt
 
+      - name: Reuse paid results from earlier runs (never pay twice for the same thing)
+        uses: actions/cache/restore@v4
+        with:
+          path: paid-cache
+          key: paid-cache-${{ github.run_id }}
+          restore-keys: paid-cache-
+
       - name: Render (3 tries per video, nothing half-done is released)
         id: render
+        if: steps.find.outputs.files != ''
         run: |
           failed=""
           for f in ${{ steps.find.outputs.files }}; do
@@ -93,6 +109,13 @@ jobs:
               --title "$id" --notes "Rendered from $f" --prerelease
           done
           echo "failed=$failed" >> "$GITHUB_OUTPUT"
+
+      - name: Keep paid results, even if the run failed
+        if: always()
+        uses: actions/cache/save@v4
+        with:
+          path: paid-cache
+          key: paid-cache-${{ github.run_id }}
 
       - name: Save state
         if: always()

@@ -19,5 +19,6 @@
   "styles": {
     "narrator": "deep, dramatic trailer narrator, slow and weighty"
   },
-  "music_mood": "comedy"
+  "music_mood": "comedy",
+  "video_model": "grok-imagine-video-1.5-lite"
 }

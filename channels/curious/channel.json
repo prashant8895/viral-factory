@@ -11,5 +11,6 @@
   "animate_scenes": 1,
   "music": false,
   "tts": "kokoro",
-  "music_mood": "curious"
+  "music_mood": "curious",
+  "video_model": "grok-imagine-video-1.5-lite"
 }

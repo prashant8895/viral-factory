@@ -7,6 +7,7 @@ Writes out/<id>/final.mp4, thumb.jpg and meta.json, and state/<id>.json.
 from __future__ import annotations
 
 import json
+import os
 import random
 import sys
 from pathlib import Path
@@ -42,6 +43,8 @@ def render(job_path: Path) -> Path:
     job.setdefault("channel", job_path.parent.name)
     check_job(job)
     ch = channels.load(job["channel"])
+    if ch.get("video_model") and not os.environ.get("VIDEO_MODEL"):
+        os.environ["VIDEO_MODEL"] = ch["video_model"]  # a repo variable can still override it
     job.setdefault("style", ch["style"])
     cast = ch["cast"]
     if cast:

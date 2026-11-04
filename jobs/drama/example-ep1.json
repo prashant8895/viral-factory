@@ -1,0 +1,69 @@
+{
+  "id": "drama-example-ep1",
+  "channel": "drama",
+  "publish": false,
+  "date": "2026-11-05",
+  "slot": "19:00",
+  "bucket": "arc",
+  "episode": 1,
+  "seed": 777,
+  "hook_text": "WHO ATE THE CAKE?!",
+  "scenes": [
+    {
+      "cast": ["Mochi"],
+      "visual": "close-up of {Mochi} staring in horror at an empty cake plate with crumbs on a kitchen table",
+      "action": "Mochi's eyes go wide, her ears flatten, she gasps dramatically",
+      "lines": [{"speaker": "Mochi", "text": "My cake. My birthday cake. GONE."}]
+    },
+    {
+      "cast": ["Granny"],
+      "visual": "{Granny} in the kitchen this morning proudly placing a small pink cake with a fish on top on the table",
+      "action": "Granny smiles and sets the cake down gently",
+      "lines": [{"speaker": "narrator", "text": "This morning, Granny baked Mochi a birthday cake. With a fish on top."}]
+    },
+    {
+      "cast": ["Mochi"],
+      "visual": "{Mochi} on top of the sofa like a queen on a throne, eyes half closed, smug",
+      "action": "Mochi stretches slowly and smirks",
+      "lines": [{"speaker": "Mochi", "text": "Finally. The respect I deserve."}]
+    },
+    {
+      "cast": ["Bruno"],
+      "visual": "{Bruno} lying by the front door with pink frosting on his nose, looking innocent",
+      "action": "Bruno wags his tail and licks his nose",
+      "lines": [{"speaker": "narrator", "text": "One hour later, the cake was gone. And Bruno had frosting on his nose."}]
+    },
+    {
+      "cast": ["Mochi", "Bruno"],
+      "visual": "{Mochi} standing face to face with {Bruno} in the hallway, tiny cat glaring up at the big dog",
+      "action": "Mochi narrows her eyes and points a paw at Bruno, Bruno shrinks back",
+      "lines": [
+        {"speaker": "Mochi", "text": "You. Monster."},
+        {"speaker": "Bruno", "text": "I only licked the plate! I swear!"}
+      ]
+    },
+    {
+      "cast": ["Granny"],
+      "visual": "{Granny} in the doorway with arms crossed, looking over her round glasses",
+      "action": "Granny slowly raises one eyebrow",
+      "lines": [{"speaker": "Granny", "text": "Bruno. Outside. Now."}]
+    },
+    {
+      "cast": ["Pip"],
+      "visual": "{Pip} in a tiny hole behind the fridge, holding a fish-shaped cake topper, grinning",
+      "action": "Pip hides the fish topper behind his back and grins at the camera",
+      "lines": [{"speaker": "narrator", "text": "But nobody noticed the fish on top was missing too."}]
+    }
+  ],
+  "youtube": {
+    "title": "Mochi's birthday cake is GONE 😾 | Ep 1 #shorts",
+    "description": "Everyone thinks Bruno did it. Did he? Episode 1. AI animation.\n\n#cat #dog #catdrama #funnyanimals #shorts",
+    "tags": ["cat drama", "funny cat", "dog", "animated story", "mochi"]
+  },
+  "instagram": {
+    "caption": "Who really ate Mochi's cake? 😾🎂\nEpisode 1. Follow for tomorrow.\n\nAI animation\n#catdrama #funnycats #dogsofinstagram #animation"
+  },
+  "facebook": {
+    "description": "Who really ate Mochi's cake? Episode 1. Follow for tomorrow. AI animation."
+  }
+}

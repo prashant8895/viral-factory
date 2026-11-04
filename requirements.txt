@@ -1,0 +1,4 @@
+numpy>=2.0
+requests>=2.32
+pillow>=11.0
+kokoro-onnx @ git+https://github.com/thewh1teagle/kokoro-onnx@3596b26764286a7de9d90c363e988d50578918e5

@@ -1,0 +1,17 @@
+{
+  "key": "drama",
+  "name": "Drama page",
+  "secret_prefix": "DRAMA_",
+  "slot": "19:00",
+  "voices": {
+    "narrator": "bm_george",
+    "Mochi": "af_sky",
+    "Bruno": "am_adam",
+    "Granny": "bf_emma",
+    "Pip": "af_nicole"
+  },
+  "speed": 1.0,
+  "style": "cute 3D animated film still, Pixar-like soft lighting, warm cosy colours, expressive faces, vertical composition",
+  "animate_scenes": "all",
+  "music": true
+}

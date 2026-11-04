@@ -1,0 +1,61 @@
+{
+  "id": "curious-example-sleep",
+  "channel": "curious",
+  "publish": false,
+  "date": "2026-11-05",
+  "slot": "19:00",
+  "bucket": "what-if",
+  "character": "a tired young man with messy dark hair, grey hoodie",
+  "seed": 4242,
+  "hook_text": "11 DAYS WITHOUT SLEEP?",
+  "scenes": [
+    {
+      "narration": "This is what happens to your body if you stay awake for eleven days.",
+      "visual": "close-up of {character} staring at a glowing phone in a dark bedroom at night, wide bloodshot eyes",
+      "motion": "zoom_in",
+      "action": "the tired man's eyes twitch and widen as the phone light flickers on his face, slow push in"
+    },
+    {
+      "narration": "After just one night, your reaction time drops like you've had a few drinks.",
+      "visual": "{character} slumped at an office desk, coffee cups piled up, blurry computer screen",
+      "motion": "pan_right"
+    },
+    {
+      "narration": "By day three, your brain starts taking tiny naps without asking you. They're called microsleeps.",
+      "visual": "inside a glowing cartoon human brain, small sections switching off like light bulbs",
+      "motion": "zoom_out"
+    },
+    {
+      "narration": "By day five, you can start seeing and hearing things that aren't there.",
+      "visual": "{character} in a dim hallway, strange shadow figures on the walls, eerie blue light",
+      "motion": "zoom_in"
+    },
+    {
+      "narration": "In 1964, a teenager named Randy Gardner made it to eleven days. Scientists watched him the whole time.",
+      "visual": "retro 1960s science lab, scientists in white coats with clipboards watching a tired teenager",
+      "motion": "pan_left"
+    },
+    {
+      "narration": "And after all that? He slept fourteen hours and woke up fine. So the next time you scroll at 3 AM, remember what happens to your body if you stay awake for eleven days.",
+      "visual": "{character} finally asleep in a cosy bed, warm morning sunlight through the window",
+      "motion": "zoom_out"
+    }
+  ],
+  "youtube": {
+    "title": "What happens if you stay awake for 11 days? #shorts",
+    "description": "Day 1 feels like being drunk. Day 5 gets scary. AI animation.\n\n#sleep #science #whatif #shorts",
+    "tags": [
+      "sleep",
+      "science",
+      "what if",
+      "body facts",
+      "randy gardner"
+    ]
+  },
+  "instagram": {
+    "caption": "What happens if you stay awake for 11 days? 😳\nHow long would you last? 👇\n\nAI animation\n#sleep #science #whatif #facts"
+  },
+  "facebook": {
+    "description": "What happens if you stay awake for 11 days? How long would you last? AI animation."
+  }
+}

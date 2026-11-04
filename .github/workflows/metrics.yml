@@ -1,0 +1,45 @@
+name: Metrics
+
+# 06:15 IST (before Claude's 6:40 trend check) and 20:00 IST (first-hour speed of tonight's post).
+on:
+  schedule:
+    - cron: "45 0 * * *"
+    - cron: "30 14 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: repo-writes
+  cancel-in-progress: false
+
+jobs:
+  metrics:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      YT_CLIENT_ID: ${{ secrets.YT_CLIENT_ID }}
+      YT_CLIENT_SECRET: ${{ secrets.YT_CLIENT_SECRET }}
+      CURIOUS_YT_REFRESH_TOKEN: ${{ secrets.CURIOUS_YT_REFRESH_TOKEN }}
+      CURIOUS_META_PAGE_TOKEN: ${{ secrets.CURIOUS_META_PAGE_TOKEN }}
+      CURIOUS_IG_USER_ID: ${{ secrets.CURIOUS_IG_USER_ID }}
+      CURIOUS_FB_PAGE_ID: ${{ secrets.CURIOUS_FB_PAGE_ID }}
+      DRAMA_YT_REFRESH_TOKEN: ${{ secrets.DRAMA_YT_REFRESH_TOKEN }}
+      DRAMA_META_PAGE_TOKEN: ${{ secrets.DRAMA_META_PAGE_TOKEN }}
+      DRAMA_IG_USER_ID: ${{ secrets.DRAMA_IG_USER_ID }}
+      DRAMA_FB_PAGE_ID: ${{ secrets.DRAMA_FB_PAGE_ID }}
+      META_GRAPH_VERSION: ${{ vars.META_GRAPH_VERSION || 'v24.0' }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install requests
+      - run: python -m factory.metrics
+      - name: Save metrics
+        run: |
+          git config user.name "video-factory"
+          git config user.email "actions@github.com"
+          git add metrics
+          git diff --cached --quiet || (git commit -m "Metrics" && git pull --rebase && git push)

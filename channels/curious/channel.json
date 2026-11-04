@@ -1,0 +1,11 @@
+{
+  "key": "curious",
+  "name": "Curious page",
+  "secret_prefix": "CURIOUS_",
+  "slot": "19:00",
+  "voices": {"narrator": "am_michael"},
+  "speed": 1.05,
+  "style": "3D animated film still, soft cinematic lighting, rich colour, shallow depth of field, highly detailed, vertical composition",
+  "animate_scenes": 1,
+  "music": true
+}

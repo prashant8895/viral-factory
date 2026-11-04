@@ -1,0 +1,12 @@
+{
+  "id": "curious-example-sleep",
+  "channel": "curious",
+  "date": "2026-11-05",
+  "slot": "19:00",
+  "publish": false,
+  "bucket": "what-if",
+  "episode": null,
+  "hook_text": "11 DAYS WITHOUT SLEEP?",
+  "release": "job-curious-example-sleep",
+  "duration": 39.2
+}

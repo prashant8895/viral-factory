@@ -25,9 +25,8 @@ jobs:
     env:
       IMAGE_PROVIDER: ${{ vars.IMAGE_PROVIDER || 'pollinations' }}
       POLLINATIONS_KEY: ${{ secrets.POLLINATIONS_KEY }}
-      FAL_KEY: ${{ secrets.FAL_KEY }}
-      FAL_VIDEO_MODEL: ${{ vars.FAL_VIDEO_MODEL }}
-      FAL_IMAGE_EDIT_MODEL: ${{ vars.FAL_IMAGE_EDIT_MODEL }}
+      VIDEO_MODEL: ${{ vars.VIDEO_MODEL }}
+      IMAGE_EDIT_MODEL: ${{ vars.IMAGE_EDIT_MODEL }}
       GH_TOKEN: ${{ github.token }}
     steps:
       - uses: actions/checkout@v4

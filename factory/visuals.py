@@ -2,8 +2,9 @@
 
 Providers:
 - pollinations: free tier (needs a free key from enter.pollinations.ai). Default for weeks 1–2.
-- fal: paid. Image-to-video clips (FAL_VIDEO_MODEL) and, for the drama cast,
-  pictures that keep the same character (FAL_IMAGE_EDIT_MODEL). Needs FAL_KEY.
+- Pollinations paid models (same key, paid with Pollen): image-to-video clips
+  (VIDEO_MODEL) and, for the drama cast, pictures that keep the same character
+  (IMAGE_EDIT_MODEL).
 - placeholder: local tests only, draws a simple card.
 """
 from __future__ import annotations
@@ -97,9 +98,9 @@ def make_image(job: dict, scene: dict, index: int, out: Path, cast: dict | None 
     prompt = build_prompt(job, scene, cast)
     refs = [cast_dir / f"{n.lower()}.png" for n in scene.get("cast", [])] if cast_dir else []
     refs = [r for r in refs if r.exists()]
-    if refs and provider != "placeholder" and _fal_ready("FAL_IMAGE_EDIT_MODEL"):
+    if refs and provider != "placeholder" and _model("IMAGE_EDIT_MODEL"):
         try:
-            return fal_image(prompt, refs, out)
+            return same_cast_image(prompt, refs, out)
         except Exception as e:  # fall back to text-only description
             print("  cast image failed, using description only:", e)
     return PROVIDERS[provider](prompt, seed, out)
@@ -113,30 +114,40 @@ def make_reference(name: str, look: str, style: str, out: Path, seed: int = 11) 
     return PROVIDERS[provider](prompt, seed, out)
 
 
-# ---------------- fal.ai (paid) ----------------
+# ---------------- Pollinations paid models (animation + same-cast pictures) ----------------
+# One key (POLLINATIONS_KEY) covers free pictures and paid models. Paid models draw on
+# Pollen bought at enter.pollinations.ai; with no Pollen they fail and we fall back to stills.
 
-def _fal_ready(model_var: str) -> bool:
-    return bool(os.environ.get("FAL_KEY") and os.environ.get(model_var))
+GEN = "https://gen.pollinations.ai"
 
 
-def _data_uri(path: Path) -> str:
-    import base64
-    import mimetypes
+def _auth() -> dict:
+    return {"Authorization": f"Bearer {os.environ.get('POLLINATIONS_KEY', '')}"}
 
-    mime = mimetypes.guess_type(path.name)[0] or "image/jpeg"
-    return f"data:{mime};base64," + base64.b64encode(path.read_bytes()).decode()
+
+def _model(var: str) -> str | None:
+    return os.environ.get(var) or None
+
+
+def upload(path: Path) -> str:
+    """Put a local picture on Pollinations' media store so models can read it (kept 30 days)."""
+    with path.open("rb") as f:
+        r = requests.post("https://media.pollinations.ai/upload", headers=_auth(),
+                          files={"file": (path.name, f)}, timeout=120)
+    r.raise_for_status()
+    data = r.json()
+    url = data.get("url") or _find_url(data, (".png", ".jpg", ".jpeg", ".webp")) or data.get("id")
+    if url and not str(url).startswith("http"):
+        url = f"https://media.pollinations.ai/{url}"
+    if not url:
+        raise RuntimeError(f"Upload gave no URL: {str(data)[:200]}")
+    return url
 
 
 def _find_url(obj, exts: tuple[str, ...]) -> str | None:
-    """fal models answer in slightly different shapes; find the first media URL."""
     if isinstance(obj, str):
         return obj if obj.startswith("http") and obj.split("?")[0].lower().endswith(exts) else None
     if isinstance(obj, dict):
-        for k in ("video", "images", "image", "url", "output"):
-            if k in obj:
-                u = _find_url(obj[k], exts)
-                if u:
-                    return u
         for v in obj.values():
             u = _find_url(v, exts)
             if u:
@@ -149,64 +160,62 @@ def _find_url(obj, exts: tuple[str, ...]) -> str | None:
     return None
 
 
-def _fal_run(model: str, bodies: list[dict], exts: tuple[str, ...], timeout_s: int = 600) -> str:
-    """Try each input shape in turn (models differ on field names), then wait for the result."""
-    headers = {"Authorization": f"Key {os.environ['FAL_KEY']}", "Content-Type": "application/json"}
-    last = None
-    for body in bodies:
-        r = requests.post(f"https://queue.fal.run/{model}", json=body, headers=headers, timeout=120)
-        if r.status_code == 422:
-            last = r.text[:300]
-            continue
-        r.raise_for_status()
-        job = r.json()
-        waited = 0
-        while waited < timeout_s:
-            st = requests.get(job["status_url"], headers=headers, timeout=30).json()
-            if st.get("status") == "COMPLETED":
-                res = requests.get(job["response_url"], headers=headers, timeout=60)
-                res.raise_for_status()
-                url = _find_url(res.json(), exts)
-                if not url:
-                    raise RuntimeError(f"No media in fal answer: {str(res.json())[:300]}")
-                return url
-            if st.get("status") in ("FAILED", "ERROR"):
-                raise RuntimeError(f"fal failed: {st}")
-            time.sleep(5)
-            waited += 5
-        raise RuntimeError("fal timed out")
-    raise RuntimeError(f"fal rejected every input shape: {last}")
-
-
-def fal_image(prompt: str, refs: list[Path], out: Path) -> Path:
-    uris = [_data_uri(r) for r in refs]
-    bodies = [{"prompt": prompt, "image_urls": uris, "aspect_ratio": "9:16"},
-              {"prompt": prompt, "image_url": uris[0], "aspect_ratio": "9:16"},
-              {"prompt": prompt, "image_url": uris[0]}]
-    url = _fal_run(os.environ["FAL_IMAGE_EDIT_MODEL"], bodies, (".png", ".jpg", ".jpeg", ".webp"))
-    out.write_bytes(requests.get(url, timeout=120).content)
+def same_cast_image(prompt: str, refs: list[Path], out: Path) -> Path:
+    """A scene picture that keeps the cast's look, built from their reference pictures."""
+    model = _model("IMAGE_EDIT_MODEL")
+    urls = [upload(r) for r in refs]
+    body = {"prompt": prompt, "model": model, "image": urls if len(urls) > 1 else urls[0],
+            "size": "1080x1920", "response_format": "url"}
+    r = requests.post(f"{GEN}/v1/images/edits", json=body, headers=_auth(), timeout=300)
+    if r.status_code == 400 and len(urls) > 1:  # model takes one reference only
+        body["image"] = urls[0]
+        r = requests.post(f"{GEN}/v1/images/edits", json=body, headers=_auth(), timeout=300)
+    r.raise_for_status()
+    data = r.json()
+    item = (data.get("data") or [{}])[0]
+    if item.get("b64_json"):
+        import base64
+        out.write_bytes(base64.b64decode(item["b64_json"]))
+    else:
+        out.write_bytes(requests.get(item.get("url") or _find_url(data, (".png", ".jpg", ".jpeg", ".webp")),
+                                     timeout=120).content)
     _fit(Image.open(out)).save(out, quality=95)
     return out
 
 
 def video_clip(image: Path, prompt: str, seconds: float, out: Path) -> Path | None:
-    """Animate one picture into a short clip. Returns None when no video key is set,
-    and the factory falls back to camera motion on the still."""
-    if not _fal_ready("FAL_VIDEO_MODEL"):
+    """Animate one picture into a ~5 s clip. Returns None if no video model is set or it fails,
+    and the factory uses camera motion on the still instead."""
+    model = _model("VIDEO_MODEL")
+    if not model or not os.environ.get("POLLINATIONS_KEY"):
         return None
-    uri = _data_uri(image)
-    dur = 5 if seconds <= 6 else 10
-    motion = prompt + " Smooth natural motion, expressive acting, camera mostly steady."
-    bodies = [{"prompt": motion, "image_url": uri, "duration": str(dur), "aspect_ratio": "9:16"},
-              {"prompt": motion, "image_url": uri, "duration": dur},
-              {"prompt": motion, "image_url": uri}]
     try:
-        url = _fal_run(os.environ["FAL_VIDEO_MODEL"], bodies, (".mp4", ".mov", ".webm"), timeout_s=900)
+        start = upload(image)
+        text = prompt + " Smooth natural motion, expressive acting, camera mostly steady. No text."
+        url = f"{GEN}/video/{urllib.parse.quote(text)}"
+        params = {"model": model, "duration": int(os.environ.get("VIDEO_SECONDS", "5")),
+                  "aspectRatio": "9:16", "image": start}
+        headers = {**_auth(), "Prefer": "respond-async"}
+        r = requests.get(url, params=params, headers=headers, timeout=120)
+        if r.status_code == 400:  # model doesn't take that duration: use its default
+            params.pop("duration")
+            r = requests.get(url, params=params, headers=headers, timeout=120)
+        if r.status_code == 200 and r.headers.get("content-type", "").startswith("video"):
+            out.write_bytes(r.content)  # already made earlier: served from cache
+            return out
+        r.raise_for_status()
+        job = r.json()["id"]
+        for _ in range(180):  # up to 15 minutes
+            st = requests.get(f"{GEN}/v1/jobs/{job}", headers=_auth(), timeout=30).json()
+            if st.get("status") == "succeeded":
+                res = requests.get(f"{GEN}/v1/jobs/{job}/result", headers=_auth(), timeout=300)
+                res.raise_for_status()
+                out.write_bytes(res.content)
+                return out
+            if st.get("status") in ("failed", "error", "cancelled"):
+                raise RuntimeError(f"video job {st.get('status')}: {str(st)[:300]}")
+            time.sleep(5)
+        raise RuntimeError("video job timed out")
     except Exception as e:
-        print("  video clip failed, using still with camera motion:", e)
+        print("  animation failed, using still with camera motion:", e)
         return None
-    out.write_bytes(requests.get(url, timeout=300).content)
-    return out
-
-
-

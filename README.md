@@ -33,12 +33,12 @@ and posts it to YouTube Shorts, Instagram Reels and Facebook Reels.
 
 ## Secrets (Settings → Secrets and variables → Actions)
 
-Shared: `POLLINATIONS_KEY`, `FAL_KEY`, `YT_CLIENT_ID`, `YT_CLIENT_SECRET`.
+Shared: `POLLINATIONS_KEY` (pictures free; animation paid with Pollen on the same key), `YT_CLIENT_ID`, `YT_CLIENT_SECRET`.
 
 Per page (prefix `CURIOUS_` or `DRAMA_`): `YT_REFRESH_TOKEN`, `META_PAGE_TOKEN`, `IG_USER_ID`, `FB_PAGE_ID`.
 
-Variables (same screen, Variables tab): `FAL_VIDEO_MODEL` (picture → clip),
-`FAL_IMAGE_EDIT_MODEL` (keeps the drama cast looking the same).
+Variables (same screen, Variables tab): `VIDEO_MODEL` (picture → clip),
+`IMAGE_EDIT_MODEL` (keeps the drama cast looking the same). Both are Pollinations model ids.
 
 Each platform on each page switches on by itself once its secrets exist.
 

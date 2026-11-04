@@ -138,7 +138,7 @@ def with_retries(fn, what: str, waits=(30, 120, 300)):
             raise  # the spending cap is never retried
         except Exception as e:  # noqa: BLE001 - every failure gets the same retry treatment
             last = f"{type(e).__name__}: {e}"[:300]
-            if "Out of Pollen" in last or "HTTP 402" in last:
+            if "Out of Pollen" in last or "Out of xAI credit" in last or "HTTP 402" in last:
                 break  # retrying can't fix an empty balance; stop and alert
     raise StepFailed(f"{what} failed after {len(waits) + 1} tries: {last}")
 
@@ -254,6 +254,45 @@ def _video_once(image: Path, prompt: str, out: Path, model: str) -> Path:
     raise RuntimeError("video job timed out")
 
 
+XAI = "https://api.x.ai/v1"
+
+
+def _data_uri(path: Path) -> str:
+    import base64
+
+    mime = "image/png" if path.suffix.lower() == ".png" else "image/jpeg"
+    return f"data:{mime};base64," + base64.b64encode(path.read_bytes()).decode()
+
+
+def _xai_once(image: Path, prompt: str, out: Path, model: str, seconds: int) -> Path:
+    """Grok Imagine on xAI, bought direct (xAI's terms: you own the output)."""
+    key = os.environ["XAI_API_KEY"]
+    headers = {"Authorization": f"Bearer {key}", "Content-Type": "application/json"}
+    text = prompt + " Smooth natural motion, expressive acting, camera mostly steady. No text, no speech."
+    body = {"model": model, "prompt": text, "image": {"url": _data_uri(image)},
+            "duration": seconds, "resolution": os.environ.get("VIDEO_RESOLUTION", "720p")}
+    r = requests.post(f"{XAI}/videos/generations", json=body, headers=headers, timeout=120)
+    if r.status_code == 400 and "url" in r.text.lower():
+        body["image"] = {"url": upload(image)}  # needs a public URL: put it on the media store
+        r = requests.post(f"{XAI}/videos/generations", json=body, headers=headers, timeout=120)
+    if r.status_code == 402 or "credit" in r.text.lower() and r.status_code >= 400:
+        raise RuntimeError(f"Out of xAI credit (HTTP {r.status_code}): top up at console.x.ai")
+    r.raise_for_status()
+    rid = r.json()["request_id"]
+    for _ in range(180):  # up to 15 minutes
+        st = requests.get(f"{XAI}/videos/{rid}", headers=headers, timeout=30).json()
+        status = st.get("status")
+        if status == "done" or (st.get("video") or {}).get("url"):
+            out.write_bytes(requests.get(st["video"]["url"], timeout=300).content)
+            if out.stat().st_size < 50_000:
+                raise RuntimeError("clip came back empty")
+            return out
+        if status in ("failed", "expired", "error"):
+            raise RuntimeError(f"xAI video {status}: {str(st)[:300]}")
+        time.sleep(5)
+    raise RuntimeError("xAI video timed out")
+
+
 def video_clip(image: Path, prompt: str, seconds: float, out: Path) -> Path | None:
     """Animate one picture into a ~5 s clip, with retries.
 
@@ -264,15 +303,20 @@ def video_clip(image: Path, prompt: str, seconds: float, out: Path) -> Path | No
         return None
     if out.exists() and out.stat().st_size > 50_000:  # kept from an earlier try
         return out
-    key = paid.fingerprint(kind="clip", image=image, prompt=prompt, model=model,
-                           seconds=os.environ.get("VIDEO_SECONDS", "5"))
+    provider = os.environ.get("VIDEO_PROVIDER", "xai" if os.environ.get("XAI_API_KEY") else "pollinations")
+    # Pay only for the seconds the line needs (xAI bills per second, 1–15 s).
+    secs = max(2, min(15, int(-(-seconds // 1)))) if provider == "xai" else int(os.environ.get("VIDEO_SECONDS", "5"))
+    key = paid.fingerprint(kind="clip", image=image, prompt=prompt, model=model, provider=provider,
+                           seconds=secs, res=os.environ.get("VIDEO_RESOLUTION", "720p"))
     hit = paid.cached(key, ".mp4")
     if hit:  # this exact picture was animated before: reuse it
         shutil.copyfile(hit, out)
         return out
 
     def once():
-        paid.charge(f"animation {out.stem}")
+        paid.charge(f"animation {out.stem} ({secs}s, {provider})")
+        if provider == "xai":
+            return _xai_once(image, prompt, out, model, secs)
         return _video_once(image, prompt, out, model)
     with_retries(once, f"animation {out.stem}")
     paid.save(key, ".mp4", out)

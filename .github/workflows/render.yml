@@ -29,6 +29,9 @@ jobs:
       POLLINATIONS_KEY: ${{ secrets.POLLINATIONS_KEY }}
       GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
       VIDEO_MODEL: ${{ vars.VIDEO_MODEL }}
+      VIDEO_PROVIDER: ${{ vars.VIDEO_PROVIDER }}
+      VIDEO_RESOLUTION: ${{ vars.VIDEO_RESOLUTION || '720p' }}
+      XAI_API_KEY: ${{ secrets.XAI_API_KEY }}
       IMAGE_EDIT_MODEL: ${{ vars.IMAGE_EDIT_MODEL }}
       GH_TOKEN: ${{ github.token }}
     steps:

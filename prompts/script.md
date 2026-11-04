@@ -18,7 +18,7 @@ Work unattended. Do the steps below for each page (curious, drama).
 5. Write `jobs/<page>/<page>-<date>-<short-slug>.json` following the example exactly:
    `id` = file name without .json, `channel`, `publish: true`, `date`, `slot` and (drama)
    `episode` from the pitch doc. Curious: 5–7 scenes, 85–120 words, scene 1 has an `action`
-   line for the animated hook. Drama: 6–8 scenes, 60–110 words, every scene has `cast`,
+   line for the animated hook. Drama: 5–6 scenes, 40–60 words, every scene has `cast`,
    `visual` (with `{Name}` placeholders), `action` and `lines`.
 6. Commit and push. GitHub Actions renders it (curious ~10 min, drama ~25 min).
 7. Check the "Render video" run (gh CLI). If it fails, read the log, fix the job, push again

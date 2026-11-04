@@ -1,30 +1,37 @@
 {
   "Mochi": {
-    "look": "a small fluffy orange tabby cat with huge green eyes, a tiny pink collar with a gold bell, very expressive eyebrows",
-    "personality": "Dramatic diva. Believes she owns the house. Overreacts to everything, plots revenge, secretly soft-hearted.",
+    "look": "a small scruffy ginger street cat with a torn left ear, huge green eyes, thin, dusty orange fur, no collar",
+    "personality": "The underdog hero. Poor, proud, kind to those weaker than her. Never begs. Quietly brilliant at cooking fish.",
     "voice": "Leda",
-    "seed": 101,
-    "voice_style": "dramatic diva cat, theatrical, big reactions"
+    "voice_style": "young, proud, hurt but holding it together",
+    "seed": 111
+  },
+  "Duchess": {
+    "look": "a fluffy pure-white Persian cat with blue eyes, a pearl necklace, a tiny gold tiara, nose always in the air",
+    "personality": "The rich villain. Owns the market street. Cruel for fun, terrified of losing status.",
+    "voice": "Despina",
+    "voice_style": "posh, cold, slow and condescending",
+    "seed": 222
+  },
+  "Rocco": {
+    "look": "a big muscular grey bulldog in a black leather jacket and gold chain, permanent scowl",
+    "personality": "Duchess's bodyguard boyfriend. All muscle, laughs at his own jokes, secretly a softie.",
+    "voice": "Algenib",
+    "voice_style": "gruff, gravelly, smug",
+    "seed": 333
   },
   "Bruno": {
-    "look": "a big clumsy golden retriever with floppy ears, a red bandana, always a little muddy, goofy wide smile",
-    "personality": "Sweet, loyal, not very bright. Always gets blamed. Usually guilty. Loves Mochi, who pretends to hate him.",
+    "look": "a big clumsy golden retriever street dog with floppy ears, a faded red bandana, goofy loyal smile",
+    "personality": "Mochi's best friend. Not clever, endlessly loyal, the comic relief. Always has her back.",
     "voice": "Puck",
-    "seed": 202,
-    "voice_style": "sweet, goofy, eager big dog"
+    "voice_style": "warm, goofy, eager",
+    "seed": 444
   },
   "Granny": {
-    "look": "a kind elderly woman with round glasses, silver hair in a bun, a purple knitted cardigan, slippers",
-    "personality": "The human. Sees everything, says little. Her one-line verdicts end most fights.",
-    "voice": "Gacrux",
-    "seed": 303,
-    "voice_style": "dry, calm, unimpressed elderly woman"
-  },
-  "Pip": {
-    "look": "a tiny grey mouse with oversized ears, a little blue scarf, sharp clever eyes",
-    "personality": "Mochi's secret ally and the house's information broker. Trades gossip for cheese.",
-    "voice": "Zephyr",
-    "seed": 404,
-    "voice_style": "quick, sly, whispery little mouse"
+    "look": "a kind elderly woman with round glasses, silver hair in a bun, a purple knitted cardigan, an apron dusted with flour",
+    "personality": "Runs a tiny failing bakery. Feeds every stray. Sees Mochi's talent before anyone else.",
+    "voice": "Sulafat",
+    "voice_style": "warm, gentle, wise",
+    "seed": 555
   }
 }

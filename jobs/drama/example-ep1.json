@@ -6,132 +6,106 @@
   "slot": "19:00",
   "bucket": "arc",
   "episode": 1,
-  "seed": 777,
-  "hook_text": "WHO ATE THE CAKE?!",
+  "seed": 909,
+  "hook_text": "SHE POURED MILK ON HER ONLY FISH",
   "scenes": [
     {
       "cast": [
+        "Duchess",
         "Mochi"
       ],
-      "visual": "close-up of {Mochi} staring in horror at an empty cake plate with crumbs on a kitchen table",
-      "action": "Mochi's eyes go wide, her ears flatten, she gasps dramatically",
+      "visual": "a busy market street; {Duchess} on a velvet cushion tipping a jug of milk over a small fish on the ground; {Mochi} below her, frozen, staring at the ruined fish",
+      "action": "milk pours over the fish, Mochi's ears drop and her eyes fill with tears, Duchess smirks",
       "lines": [
         {
-          "speaker": "Mochi",
-          "text": "My cake. My birthday cake. GONE.",
-          "style": "gasping, outraged, theatrical diva"
+          "speaker": "Duchess",
+          "text": "Know your *place*, street cat. This street is *mine*.",
+          "style": "posh, cold, slow, enjoying it"
         }
       ],
       "sfx": "boom"
     },
     {
       "cast": [
-        "Granny"
+        "Rocco"
       ],
-      "visual": "{Granny} in the kitchen this morning proudly placing a small pink cake with a fish on top on the table",
-      "action": "Granny smiles and sets the cake down gently",
+      "visual": "{Rocco} standing behind Duchess, laughing loudly with his head thrown back, market cats watching in the background",
+      "action": "Rocco throws his head back and laughs, his gold chain swinging",
       "lines": [
         {
           "speaker": "narrator",
-          "text": "This morning, Granny baked Mochi a birthday cake. With a fish on top."
-        }
-      ],
-      "sfx": "sparkle"
-    },
-    {
-      "cast": [
-        "Mochi"
-      ],
-      "visual": "{Mochi} on top of the sofa like a queen on a throne, eyes half closed, smug",
-      "action": "Mochi stretches slowly and smirks",
-      "lines": [
-        {
-          "speaker": "Mochi",
-          "text": "Finally. The respect I deserve."
-        }
-      ]
-    },
-    {
-      "cast": [
-        "Bruno"
-      ],
-      "visual": "{Bruno} lying by the front door with pink frosting on his nose, looking innocent",
-      "action": "Bruno wags his tail and licks his nose",
-      "lines": [
-        {
-          "speaker": "narrator",
-          "text": "One hour later, the cake was gone. And Bruno had frosting on his nose."
-        }
-      ],
-      "sfx": "boing"
-    },
-    {
-      "cast": [
-        "Mochi",
-        "Bruno"
-      ],
-      "visual": "{Mochi} standing face to face with {Bruno} in the hallway, tiny cat glaring up at the big dog",
-      "action": "Mochi narrows her eyes and points a paw at Bruno, Bruno shrinks back",
-      "lines": [
-        {
-          "speaker": "Mochi",
-          "text": "You. Monster."
+          "text": "Mochi had saved that fish for three days. It was all she had."
         },
         {
-          "speaker": "Bruno",
-          "text": "I only licked the plate! I swear!",
-          "style": "panicked, guilty, talking fast"
+          "speaker": "Rocco",
+          "text": "Ha! Go eat garbage.",
+          "style": "gruff, smug, laughing"
         }
       ],
       "sfx": "thud"
     },
     {
       "cast": [
-        "Granny"
+        "Bruno",
+        "Mochi"
       ],
-      "visual": "{Granny} in the doorway with arms crossed, looking over her round glasses",
-      "action": "Granny slowly raises one eyebrow",
+      "visual": "{Bruno} stepping in front of {Mochi} protectively on the market street, chest out, facing the camera",
+      "action": "Bruno steps forward in front of Mochi and puffs out his chest, trembling but brave",
       "lines": [
         {
-          "speaker": "Granny",
-          "text": "Bruno. Outside. Now.",
-          "style": "dry, slow, unimpressed"
+          "speaker": "Bruno",
+          "text": "Hey! Leave her alone!",
+          "style": "scared but brave, voice cracking"
         }
-      ],
-      "sfx": "tick"
+      ]
     },
     {
       "cast": [
-        "Pip"
+        "Mochi"
       ],
-      "visual": "{Pip} in a tiny hole behind the fridge, holding a fish-shaped cake topper, grinning",
-      "action": "Pip hides the fish topper behind his back and grins at the camera",
+      "visual": "close-up of {Mochi} wiping her eye with a paw, chin lifting, a quiet fierce look",
+      "action": "Mochi slowly lifts her chin, her eyes go from teary to determined",
+      "lines": [
+        {
+          "speaker": "Mochi",
+          "text": "It's fine, Bruno. One day, they'll *remember* this.",
+          "style": "quiet, hurt, steely resolve"
+        }
+      ],
+      "motion": "push"
+    },
+    {
+      "cast": [
+        "Granny"
+      ],
+      "visual": "{Granny} in the doorway of a tiny old bakery at the end of the street, watching, holding a warm loaf",
+      "action": "Granny lowers her glasses and smiles slowly, as if she has a plan",
       "lines": [
         {
           "speaker": "narrator",
-          "text": "But nobody noticed the fish on top was missing too.",
-          "style": "low, mysterious, slowing down"
+          "text": "But someone at the end of the street had seen everything.",
+          "style": "low, slow, mysterious"
         }
       ],
-      "sfx": "riser"
+      "sfx": "riser",
+      "motion": "pull"
     }
   ],
   "youtube": {
-    "title": "Mochi's birthday cake is GONE 😾 | Ep 1 #shorts",
-    "description": "Everyone thinks Bruno did it. Did he? Episode 1. AI animation.\n\n#cat #dog #catdrama #funnyanimals #shorts",
+    "title": "She poured milk on her only fish 😿 | Ep 1 #shorts",
+    "description": "A rich cat humiliates a street cat. Big mistake. Episode 1. AI animation.\n\n#catdrama #cat #animation #shorts",
     "tags": [
       "cat drama",
-      "funny cat",
-      "dog",
+      "cat story",
       "animated story",
+      "underdog",
       "mochi"
     ]
   },
   "instagram": {
-    "caption": "Who really ate Mochi's cake? 😾🎂\nEpisode 1. Follow for tomorrow.\n\nAI animation\n#catdrama #funnycats #dogsofinstagram #animation"
+    "caption": "She poured milk on her only fish 😿\nEpisode 1. Mochi will remember this. Follow for Ep 2.\n\nAI animation\n#catdrama #catsofinstagram #animation #story"
   },
   "facebook": {
-    "description": "Who really ate Mochi's cake? Episode 1. Follow for tomorrow. AI animation."
-  },
-  "music_mood": "comedy"
+    "description": "A rich cat humiliates a street cat. Big mistake. Episode 1. Follow for Ep 2. AI animation."
+  }
 }

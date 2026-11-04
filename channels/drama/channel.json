@@ -6,17 +6,18 @@
   "voices": {
     "narrator": "Charon",
     "Mochi": "Leda",
+    "Duchess": "Despina",
+    "Rocco": "Algenib",
     "Bruno": "Puck",
-    "Granny": "Gacrux",
-    "Pip": "Zephyr"
+    "Granny": "Sulafat"
   },
   "speed": 1.0,
-  "style": "cute 3D animated film still, Pixar-like soft lighting, warm cosy colours, expressive faces, vertical composition",
+  "style": "cinematic 3D animated film still, Pixar-like, dramatic soft lighting, rich colour, expressive emotional faces, vertical composition",
   "animate_scenes": "all",
   "music": false,
   "tts": "gemini",
   "styles": {
-    "narrator": "warm, cosy storyteller with a hint of mischief"
+    "narrator": "deep, dramatic trailer narrator, slow and weighty"
   },
   "music_mood": "comedy"
 }

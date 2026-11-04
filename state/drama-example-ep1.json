@@ -1,0 +1,12 @@
+{
+  "id": "drama-example-ep1",
+  "channel": "drama",
+  "date": "2026-11-05",
+  "slot": "19:00",
+  "publish": false,
+  "bucket": "arc",
+  "episode": 1,
+  "hook_text": "WHO ATE THE CAKE?!",
+  "release": "job-drama-example-ep1",
+  "duration": 23.29
+}

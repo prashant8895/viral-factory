@@ -6,13 +6,16 @@ Work unattended.
 1. Pull the repo. Read `metrics/latest.json` and the `state/` files (what was posted, how it did).
 2. Do the trend check once: Google Trends daily (India, US, UK), Shorts/Reels trending
    topics (vidIQ connector if available), Reddit, safe big news, dates in the next 3 days.
-3. For each page in `channels/` (curious, drama):
+3. For each ACTIVE page (now only curious; drama is PAUSED, skip it):
    - Read its `playbook.md` (rules, scoring, hard no's, Learnings). For drama also read
      `cast.json` and `story.md` (the story so far and open threads).
    - Write 8–10 candidates, score each 1–5 on trend, curiosity, visual, share, evergreen,
      drop anything under 17/25 or breaking a hard no, and never repeat a topic from the
      last 14 days.
-   - Curious: pick 3, one per bucket (what if / how does it work / why does it happen).
+   - Curious: pick 3 from different buckets in the playbook (seen-but-never-noticed, myth
+     busted, why does it happen, careful health, India everyday). The test: anyone, any
+     education, has seen this thing and never wondered. One video serves both pages
+     (English and Hinglish).
      Drama: pick 3 directions for the next episode (continue the arc / trend tie-in /
      standalone gag), numbered with the next episode number.
    - For each: bucket, hook (first spoken line or the cold-open moment, ~12 words max),

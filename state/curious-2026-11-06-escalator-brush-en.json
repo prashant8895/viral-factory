@@ -8,5 +8,24 @@
   "episode": null,
   "hook_text": "IT'S *NOT* A SHOE CLEANER!",
   "release": "job-curious-2026-11-06-escalator-brush-en",
-  "duration": 42.75
+  "duration": 42.75,
+  "platforms": {
+    "youtube": {
+      "id": "Nq0c6O4KE-o",
+      "url": "https://youtube.com/shorts/Nq0c6O4KE-o",
+      "privacy": "public",
+      "posted_at": "2026-11-06T16:32+05:30"
+    },
+    "instagram": {
+      "id": "18155169400550999",
+      "url": "https://www.instagram.com/reel/DfZc-4yTrbH/",
+      "posted_at": "2026-11-06T16:32+05:30"
+    },
+    "facebook": {
+      "id": "1784349112827444",
+      "url": "https://www.facebook.com/reel/1784349112827444",
+      "posted_at": "2026-11-06T16:32+05:30"
+    }
+  },
+  "errors": {}
 }

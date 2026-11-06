@@ -21,7 +21,7 @@
   ],
   "scenes": [
     {
-      "visual": "extreme close-up of the black bristle brushes running along the steel side of a modern mall escalator, a white sneaker brushing against the bristles, subject in the lower half of the frame",
+      "visual": "close-up photo of the black nylon brush strip running along the bottom of a shopping mall escalator's steel side panel, one white sneaker standing on the step beside it, low angle, sharp focus on the brush",
       "narration": {
         "en": "You've been using this escalator brush wrong your whole life.",
         "hi": "Escalator pe ye brush dekha hai? Aap isse poori zindagi *galat* use kar rahe ho."
@@ -42,7 +42,7 @@
       ]
     },
     {
-      "visual": "a young man in an Indian shopping mall happily rubbing his shoe against the escalator side brushes, playful, lower half of frame",
+      "visual": "photo of a young Indian man on a mall escalator lifting one foot to rub his shoe against the black brush strip on the escalator's side panel, side view, full body, natural pose",
       "narration": {
         "en": "Most people rub their shoes on it, like it's a free shoe polish.",
         "hi": "Zyada tar log isse joote ragadte hain, jaise ye free ka *shoe polish* ho."
@@ -65,7 +65,7 @@
       ]
     },
     {
-      "visual": "macro view of the narrow gap between moving escalator steps and the shiny steel side panel, brushes running just above the gap, centered",
+      "visual": "macro photo looking straight down at the edge of a moving escalator step: the yellow step edge, a thin dark gap, then the black brush strip on the silver side panel",
       "narration": {
         "en": "Its real name is a *skirt deflector*. It guards a tiny gap between the moving steps and the side wall.",
         "hi": "Iska asli naam hai *skirt deflector*. Ye moving steps aur side wall ke beech ke chhote se gap ko guard karta hai."
@@ -90,7 +90,7 @@
       ]
     },
     {
-      "visual": "a loose shoelace and the end of a colourful dupatta dangerously close to the gap at the edge of an escalator step, tense dramatic lighting",
+      "visual": "close-up photo of an untied shoelace trailing on an escalator step right at the side edge, next to the black brush strip, tense dramatic light",
       "narration": {
         "en": "That gap can grab a shoelace, a dupatta, or a small finger, and pull it in.",
         "hi": "Ye gap joote ki lace, dupatta, ya bachche ki ungli tak ko *kheench* sakta hai."
@@ -115,7 +115,7 @@
       ]
     },
     {
-      "visual": "a small child's colourful soft plastic clog on an escalator step near the side edge, busy Tokyo station in soft focus behind",
+      "visual": "photo of a child's small pink plastic clog standing on a metal escalator step, a Tokyo train station softly blurred behind",
       "narration": {
         "en": "In Japan, shoes got stuck in escalators 65 times in just six months. About half were soft plastic shoes, often on small kids.",
         "hi": "Japan mein sirf chhe mahine mein *65 baar* joote escalator mein phanse. Inmein se aadhe soft plastic wale joote the, aksar chhote bachchon ke."
@@ -142,7 +142,7 @@
       ]
     },
     {
-      "visual": "a happy Indian family standing safely in the middle of escalator steps holding the handrail, bright mall, warm light",
+      "visual": "photo of a smiling Indian family of three standing in the middle of the escalator steps, holding the handrail, bright modern mall",
       "narration": {
         "en": "The bristles nudge your foot away from the edge. So stand in the middle, and never polish your shoes on it.",
         "hi": "Ye brush aapke pair ko edge se door rakhta hai. Toh hamesha *beech mein* khade raho, aur isse joote mat chamkao."
@@ -166,14 +166,14 @@
       ]
     },
     {
-      "visual": "two young friends laughing in a mall, one showing his phone to the other, an escalator behind them",
+      "visual": "photo of two young Indian friends laughing at a phone screen in a bright shopping mall, an escalator blurred behind them",
       "narration": {
-        "en": "Send this to the friend who still polishes his shoes on escalators.",
-        "hi": "Ye video us dost ko bhejo jo aaj bhi escalator pe joote chamkata hai."
+        "en": "Know someone who still polishes their shoes here? Send them this. And comment NEXT for one more everyday thing we all get wrong.",
+        "hi": "Koi dost hai jo yahan joote chamkata hai? Usse ye bhejo. Aur aisi aur cheezein jaan-ni hain toh comment mein NEXT likho."
       },
       "headline": {
-        "en": "SEND THIS TO *THAT* FRIEND",
-        "hi": "US *DOST* KO BHEJO"
+        "en": "COMMENT *NEXT*",
+        "hi": "COMMENT MEIN *NEXT*"
       },
       "motion": "pull",
       "sfx": "pop"

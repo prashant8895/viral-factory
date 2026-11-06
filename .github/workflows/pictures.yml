@@ -1,0 +1,36 @@
+name: Picture candidates
+
+# Free: makes a few picture options per scene for Claude to look at and pick from.
+on:
+  workflow_dispatch:
+    inputs:
+      job:
+        description: "Job file, e.g. jobs/curious/sample-escalator.json"
+        required: true
+      scenes:
+        description: "Only these scene numbers, space separated (optional)"
+        required: false
+
+permissions:
+  contents: write
+
+jobs:
+  pictures:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    env:
+      POLLINATIONS_KEY: ${{ secrets.POLLINATIONS_KEY }}
+      GH_TOKEN: ${{ github.token }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install requests pillow numpy
+      - run: python -m factory.pictures "${{ github.event.inputs.job }}" ${{ github.event.inputs.scenes }}
+      - name: Upload as a release
+        run: |
+          id=$(python -c "import json;print(json.load(open('${{ github.event.inputs.job }}'))['id'])")
+          cd out/pics/$id && zip -q -r ../../../pics.zip . && cd -
+          gh release delete "pics-$id" -y --cleanup-tag 2>/dev/null || true
+          gh release create "pics-$id" pics.zip out/pics/$id/sheet_*.jpg --title "Pictures: $id" --notes "Candidates" --prerelease

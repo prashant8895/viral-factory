@@ -19,6 +19,7 @@ import requests
 from PIL import Image, ImageDraw, ImageFont
 
 W, H = 1080, 1920
+ROOT = Path(__file__).resolve().parent.parent
 NEGATIVE = "text, letters, watermark, logo, signature, blurry, deformed hands, extra fingers"
 
 
@@ -38,11 +39,11 @@ def _fit(img: Image.Image) -> Image.Image:
     return img.crop((left, top, left + W, top + H))
 
 
-def pollinations(prompt: str, seed: int, out: Path) -> Path:
+def pollinations(prompt: str, seed: int, out: Path, model: str | None = None) -> Path:
     key = os.environ.get("POLLINATIONS_KEY", "")
     base = os.environ.get("POLLINATIONS_URL", "https://gen.pollinations.ai/image/")
     url = base + urllib.parse.quote(prompt)
-    params = {"model": os.environ.get("POLLINATIONS_MODEL", "flux"), "width": 1080, "height": 1920,
+    params = {"model": model or os.environ.get("POLLINATIONS_MODEL", "zimage"), "width": 1080, "height": 1920,
               "seed": seed, "nologo": "true", "negative_prompt": NEGATIVE}
     headers = {"Authorization": f"Bearer {key}"} if key else {}
     last = None
@@ -94,6 +95,10 @@ PROVIDERS = {"pollinations": pollinations, "placeholder": placeholder}
 
 def make_image(job: dict, scene: dict, index: int, out: Path, cast: dict | None = None,
                cast_dir: Path | None = None) -> Path:
+    if scene.get("image"):  # a picture Claude already chose (pictures step): use it as-is
+        src = ROOT / scene["image"]
+        _fit(Image.open(src)).save(out, quality=95)
+        return out
     provider = os.environ.get("IMAGE_PROVIDER", "pollinations")
     seed = int(job.get("seed", 1)) + index * 7
     prompt = build_prompt(job, scene, cast)

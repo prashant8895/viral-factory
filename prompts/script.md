@@ -10,15 +10,16 @@ Work unattended. Do the steps below for each page (curious, drama).
      `recommended` and write `approved: {n: recommended, auto: true, at}`.
 2. Set `status: "scripting"` (pin if_version).
 3. Pull the repo. Read `channels/<page>/playbook.md`, `channels/<page>/channel.json` and the
-   page's example job (`jobs/curious/example-sleep.json` or `jobs/drama/example-ep1.json`)
+   page's example job (`jobs/curious/sample-escalator.json` or `jobs/drama/example-ep1.json`)
    for the exact format. For drama also read `cast.json` and `story.md`.
 4. Curious: verify every fact against 2 sources (web search); drop what you can't verify.
    Drama: keep continuity with `story.md`; end on a cliffhanger.
    Apply Prashant's `approved.note` if there is one.
 5. Write `jobs/<page>/<page>-<date>-<short-slug>.json` following the example exactly:
    `id` = file name without .json, `channel`, `publish: true`, `date`, `slot` and (drama)
-   `episode` from the pitch doc. Curious: 5–7 scenes, 85–120 words, scene 1 has an `action`
-   line for the animated hook. Drama: 5–6 scenes, 40–60 words, every scene has `cast`,
+   `episode` from the pitch doc. Curious: ONE job in `jobs/curious/` with
+   `"languages": ["en", "hi"]`, both languages in every text field, 6–8 scenes,
+   85–130 words per language, headlines and overlays (format: `jobs/curious/sample-escalator.json`). Drama: 5–6 scenes, 40–60 words, every scene has `cast`,
    `visual` (with `{Name}` placeholders), `action` and `lines`.
 6. Commit and push. GitHub Actions renders it (curious ~10 min, drama ~25 min).
 7. Check the "Render video" run (gh CLI). If it fails, read the log, fix the job, push again

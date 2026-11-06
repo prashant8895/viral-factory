@@ -4,40 +4,47 @@ This file is the rulebook Claude follows every morning for the Curious page.
 Claude may edit the "Learnings" section at the bottom as the numbers come in.
 Everything else changes only when Prashant agrees.
 
-## 1. What the page is
+## 1. What the pages are
 
-Everyday things people never stop to think about, explained in 40 seconds.
-The topic changes daily and leans on what is trending. The style stays the
-same, so people recognise the page in a second:
+Two pages, one topic a day, made once and voiced twice:
 
-- 3D animated look (soft, cinematic, like an animated film)
-- The first 5–8 seconds are real animation of exactly what the hook says
-  (the brain switching off, the ice cracking). After that, AI pictures with
-  camera moves.
-- One calm, deep narrator voice
-- Big bold word-by-word captions in the middle of the screen
-- 30 to 45 seconds, vertical 9:16
+- **curious-en**: English (Kokoro voice, free)
+- **curious-hi**: Hinglish (Gemini voice, ~₹1 a video)
 
-## 2. Content buckets
+Both use the same pictures, so the second language costs nothing extra. After 10
+videos each, compare them and put more effort where the numbers are better.
 
-Each morning Claude pitches 3 ideas, one from each bucket. A trending topic
-can feed any bucket ("Why does India's air get worse every November?").
+**The idea:** things everyone sees every day but never questions. Anyone should get
+it, whatever their education. The test: "I've seen this a hundred times and never
+knew!" Example: the brushes on escalators aren't shoe cleaners; they keep feet and
+clothes away from a dangerous gap.
 
-| # | Bucket | Example hook | Why it spreads |
-|---|---|---|---|
-| 1 | What happens if… | "This is what happens if you stay awake for 11 days" | Curiosity + "send this to your friend who…" |
-| 2 | How does it work | "How your phone knows it's upside down" | Visual payoff, saves |
-| 3 | Why does it happen | "Why you always wake up 2 minutes before your alarm" | "I always wondered this" comments |
+**The look (all free):**
+- A poster-style opening title: huge, two lines, one key word in red ("SHOE CLEANER *NAHI* HAI!")
+- Realistic, dramatic AI pictures, one per line, top third kept clear for titles
+- A short headline at the top of every scene, key word in yellow
+- Code-made motion timed to the words: arrows, rings, crosses, ticks, labels, counters
+- Steady camera moves, sound effects, word-by-word captions in the lower third
 
-Good topics come from daily life: the body, the kitchen, the commute, the
-phone, the weather, animals around us. Skip anything that needs a diagram
-to understand.
+## 2. What makes a topic
 
-### The animated hook shot
+| Bucket | Example | Why it works |
+|---|---|---|
+| Seen but never noticed | Escalator brushes, the tiny hole in a padlock, the dimples on a golf ball, why pen caps have a hole | "I always wondered!" + tag a friend |
+| Everyday myth busted | "Cracking knuckles causes arthritis", "Shaving makes hair thicker" | People love being corrected, comment wars |
+| Why does it happen | Why onions make you cry, why you get goosebumps, why bread goes stale | Relatable, visual |
+| Body & health, carefully | Why your stomach growls, what happens if you hold a sneeze | Proven by big pages in this niche; facts only |
+| India everyday | Why Indian trains have yellow lines at the end, why autos are 3-wheeled | Hinglish page gold, still interesting in English |
 
-Scene 1 gets an `action` line: what moves in the 5-second clip, in plain
-words ("his eyes twitch and widen as the phone light flickers, slow push
-in"). One clear motion, one subject, no text.
+Rules for picking:
+- It must be **seen in daily life** by most people, in India and abroad
+- One surprising fact at the core, explainable in under a minute
+- It must be **visual**: every line can become a strong picture
+- Facts checked against 2 sources; put the sources in the caption
+- Health topics: facts only, no advice beyond basic safety, no scary claims without a source
+
+Length is an experiment: start at 40–50 s. Try 60–90 s on the strongest topics
+and keep whatever the watch-time numbers favour (record it in Learnings).
 
 ## 3. The daily trend check (6:40 AM IST)
 
@@ -61,14 +68,24 @@ Every idea gets a score out of 25. Only ideas scoring 17+ get pitched.
 
 ## 4. Script rules
 
-- Frame 1 is already mid-action. No intro, no logo, no "Hey guys".
-- On-screen hook text in frame 1, max 6 words, a question or a shock.
-- 0–2 s: hook. 2–8 s: the stakes ("and by day 4, your brain starts…").
-- Then 3 beats, each bigger than the last. A new image every 2–3 seconds.
-- Last line loops back into the first line, so the replay feels seamless.
-- 85 to 120 words total. Short words. One idea per sentence.
-- Every fact is checked against 2 sources before it goes in the script.
-- End with nothing. No "follow for more". The loop does the work.
+One job file, both languages: `"languages": ["en", "hi"]`, and every spoken or
+written field has both versions, e.g. `"narration": {"en": "...", "hi": "..."}`.
+Copy the format from `jobs/curious/sample-escalator.json`.
+
+- **Hinglish** = how young urban Indians actually talk: Hindi grammar, everyday English
+  words, written in English letters ("Ye gap joote ki lace tak ko kheench sakta hai").
+  Not a word-for-word translation of the English. Same facts, its own natural lines.
+- Line 1 is the hook, spoken over the poster title. It names the everyday thing and
+  breaks the belief ("You've been using this wrong your whole life").
+- `hook_text`: 3–6 words, one `*key word*` (shown red). Hinglish versions often use NAHI / ASLI / SACH.
+- 6–8 scenes, one idea each, 85–130 words per language. Last line = share prompt or loop.
+- Every scene after the first has a `headline` (2–4 words, one `*key word*`).
+- Every scene has a `visual` (realistic, dramatic, subject in the lower two-thirds, no text)
+  and ideally one overlay timed to a spoken word (`"on"`): arrow at the thing, ring around
+  the detail, cross on the myth, tick on the right way, counter on any number.
+- `motion`: push (default), pull (reveal), drift_left / drift_right.
+- `sfx`: boom on the hook; then one of thud, ding, riser, sparkle, pop, tick, boing, crash, whoosh.
+- Mark 1–2 key words per line with `*stars*` (shown bigger, in orange).
 
 ### Hook formulas that work
 

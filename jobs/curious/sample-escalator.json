@@ -31,15 +31,16 @@
       "overlays": [
         {
           "type": "arrow",
-          "x": 0.5,
-          "y": 0.62,
+          "x": 0.25,
+          "y": 0.47,
           "dir": "down",
           "on": {
             "en": "brush",
             "hi": "brush"
           }
         }
-      ]
+      ],
+      "image": "jobs/curious/pics/curious-sample-escalator/s1.jpg"
     },
     {
       "visual": "photo of a young Indian man on a mall escalator lifting one foot to rub his shoe against the black brush strip on the escalator's side panel, side view, full body, natural pose",
@@ -62,7 +63,8 @@
             "hi": "polish"
           }
         }
-      ]
+      ],
+      "image": "jobs/curious/pics/curious-sample-escalator/s2.jpg"
     },
     {
       "visual": "macro photo looking straight down at the edge of a moving escalator step: the yellow step edge, a thin dark gap, then the black brush strip on the silver side panel",
@@ -79,15 +81,16 @@
       "overlays": [
         {
           "type": "ring",
-          "x": 0.5,
-          "y": 0.62,
-          "r": 0.14,
+          "x": 0.575,
+          "y": 0.5,
+          "r": 0.1,
           "on": {
             "en": "gap",
             "hi": "gap"
           }
         }
-      ]
+      ],
+      "image": "jobs/curious/pics/curious-sample-escalator/s3.jpg"
     },
     {
       "visual": "close-up photo of an untied shoelace trailing on an escalator step right at the side edge, next to the black brush strip, tense dramatic light",
@@ -104,15 +107,16 @@
       "overlays": [
         {
           "type": "arrow",
-          "x": 0.5,
-          "y": 0.66,
+          "x": 0.7,
+          "y": 0.55,
           "dir": "down",
           "on": {
             "en": "grab",
             "hi": "kheench"
           }
         }
-      ]
+      ],
+      "image": "jobs/curious/pics/curious-sample-escalator/s4.jpg"
     },
     {
       "visual": "photo of a child's small pink plastic clog standing on a metal escalator step, a Tokyo train station softly blurred behind",
@@ -133,13 +137,14 @@
           "to": 65,
           "suffix": " TIMES",
           "x": 0.5,
-          "y": 0.44,
+          "y": 0.42,
           "on": {
             "en": "65",
             "hi": "65"
           }
         }
-      ]
+      ],
+      "image": "jobs/curious/pics/curious-sample-escalator/s5.jpg"
     },
     {
       "visual": "photo of a smiling Indian family of three standing in the middle of the escalator steps, holding the handrail, bright modern mall",
@@ -157,13 +162,14 @@
         {
           "type": "tick",
           "x": 0.5,
-          "y": 0.58,
+          "y": 0.44,
           "on": {
             "en": "middle",
             "hi": "beech"
           }
         }
-      ]
+      ],
+      "image": "jobs/curious/pics/curious-sample-escalator/s6.jpg"
     },
     {
       "visual": "photo of two young Indian friends laughing at a phone screen in a bright shopping mall, an escalator blurred behind them",
@@ -176,7 +182,8 @@
         "hi": "COMMENT MEIN *NEXT*"
       },
       "motion": "pull",
-      "sfx": "pop"
+      "sfx": "pop",
+      "image": "jobs/curious/pics/curious-sample-escalator/s7.jpg"
     }
   ],
   "youtube": {

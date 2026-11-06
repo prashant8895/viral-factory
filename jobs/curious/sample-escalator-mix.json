@@ -1,0 +1,213 @@
+{
+  "id": "curious-sample-escalator-mix",
+  "channel": "curious",
+  "languages": [
+    "en",
+    "hi"
+  ],
+  "publish": false,
+  "date": "2026-11-07",
+  "slot": "19:00",
+  "bucket": "seen-but-missed",
+  "seed": 3131,
+  "hook_text": {
+    "en": "IT'S *NOT* A SHOE CLEANER!",
+    "hi": "SHOE CLEANER *NAHI* HAI!"
+  },
+  "sources": [
+    "https://www.kone.us/blog/why-do-escalators-have-brushes.aspx",
+    "https://elevatorworld.com/blog/the-true-purpose-of-escalator-brushes/",
+    "https://www.japantimes.co.jp/news/2008/04/19/business/crocs-shoes-dangerous-on-escalators/"
+  ],
+  "scenes": [
+    {
+      "visual": "close-up photo of the black nylon brush strip running along the bottom of a shopping mall escalator's steel side panel, one white sneaker standing on the step beside it, low angle, sharp focus on the brush",
+      "narration": {
+        "en": "You've been using this escalator brush wrong your whole life.",
+        "hi": "Escalator pe ye brush dekha hai? Aap isse poori zindagi *galat* use kar rahe ho."
+      },
+      "motion": "push",
+      "sfx": "boom",
+      "overlays": [
+        {
+          "type": "arrow",
+          "x": 0.25,
+          "y": 0.47,
+          "dir": "down",
+          "on": {
+            "en": "brush",
+            "hi": "brush"
+          }
+        }
+      ],
+      "image": "jobs/curious/pics/curious-sample-escalator/s1.jpg"
+    },
+    {
+      "visual": "photo of a young Indian man on a mall escalator lifting one foot to rub his shoe against the black brush strip on the escalator's side panel, side view, full body, natural pose",
+      "narration": {
+        "en": "Most people rub their shoes on it, like it's a free shoe polish.",
+        "hi": "Zyada tar log isse joote ragadte hain, jaise ye free ka *shoe polish* ho."
+      },
+      "headline": {
+        "en": "FREE SHOE *POLISH*?",
+        "hi": "FREE KA *SHOE POLISH*?"
+      },
+      "motion": "drift_right",
+      "overlays": [
+        {
+          "type": "cross",
+          "x": 0.5,
+          "y": 0.6,
+          "on": {
+            "en": "polish",
+            "hi": "polish"
+          }
+        }
+      ],
+      "image": "jobs/curious/pics/curious-sample-escalator/s2.jpg"
+    },
+    {
+      "visual": "macro photo looking straight down at the edge of a moving escalator step: the yellow step edge, a thin dark gap, then the black brush strip on the silver side panel",
+      "narration": {
+        "en": "Its real name is a *skirt deflector*. It guards a tiny gap between the moving steps and the side wall.",
+        "hi": "Iska asli naam hai *skirt deflector*. Ye moving steps aur side wall ke beech ke chhote se gap ko guard karta hai."
+      },
+      "headline": {
+        "en": "*SKIRT DEFLECTOR*",
+        "hi": "ASLI NAAM: *SKIRT DEFLECTOR*"
+      },
+      "motion": "push",
+      "sfx": "ding",
+      "overlays": [],
+      "anim": "anims/escalator-gap.html"
+    },
+    {
+      "visual": "close-up photo of an untied shoelace trailing on an escalator step right at the side edge, next to the black brush strip, tense dramatic light",
+      "narration": {
+        "en": "That gap can grab a shoelace, a dupatta, or a small finger, and pull it in.",
+        "hi": "Ye gap joote ki lace, dupatta, ya bachche ki ungli tak ko *kheench* sakta hai."
+      },
+      "headline": {
+        "en": "THE GAP *PULLS*",
+        "hi": "GAP *KHEENCHTA* HAI"
+      },
+      "motion": "push",
+      "sfx": "thud",
+      "overlays": [
+        {
+          "type": "arrow",
+          "x": 0.7,
+          "y": 0.55,
+          "dir": "down",
+          "on": {
+            "en": "grab",
+            "hi": "kheench"
+          }
+        }
+      ],
+      "image": "jobs/curious/pics/curious-sample-escalator/s4.jpg"
+    },
+    {
+      "visual": "photo of a child's small pink plastic clog standing on a metal escalator step, a Tokyo train station softly blurred behind",
+      "narration": {
+        "en": "In Japan, shoes got stuck in escalators 65 times in just six months. About half were soft plastic shoes, often on small kids.",
+        "hi": "Japan mein sirf chhe mahine mein *65 baar* joote escalator mein phanse. Inmein se aadhe soft plastic wale joote the, aksar chhote bachchon ke."
+      },
+      "headline": {
+        "en": "JAPAN, *6 MONTHS*",
+        "hi": "JAPAN, *6 MAHINE*"
+      },
+      "motion": "pull",
+      "sfx": "riser",
+      "overlays": [],
+      "anim": "anims/count-shoes.html",
+      "anim_params": {
+        "total": 65,
+        "highlight": 33,
+        "months": 6
+      }
+    },
+    {
+      "visual": "photo of a smiling Indian family of three standing in the middle of the escalator steps, holding the handrail, bright modern mall",
+      "narration": {
+        "en": "The bristles nudge your foot away from the edge. So stand in the middle, and never polish your shoes on it.",
+        "hi": "Ye brush aapke pair ko edge se door rakhta hai. Toh hamesha *beech mein* khade raho, aur isse joote mat chamkao."
+      },
+      "headline": {
+        "en": "STAND IN THE *MIDDLE*",
+        "hi": "*BEECH MEIN* KHADE RAHO"
+      },
+      "motion": "push",
+      "sfx": "sparkle",
+      "overlays": [
+        {
+          "type": "tick",
+          "x": 0.5,
+          "y": 0.44,
+          "on": {
+            "en": "middle",
+            "hi": "beech"
+          }
+        }
+      ],
+      "image": "jobs/curious/pics/curious-sample-escalator/s6.jpg"
+    },
+    {
+      "visual": "photo of two young Indian friends laughing at a phone screen in a bright shopping mall, an escalator blurred behind them",
+      "narration": {
+        "en": "Know someone who still polishes their shoes here? Send them this. And comment NEXT for one more everyday thing we all get wrong.",
+        "hi": "Koi dost hai jo yahan joote chamkata hai? Usse ye bhejo. Aur aisi aur cheezein jaan-ni hain toh comment mein NEXT likho."
+      },
+      "headline": {
+        "en": "COMMENT *NEXT*",
+        "hi": "COMMENT MEIN *NEXT*"
+      },
+      "motion": "pull",
+      "sfx": "pop",
+      "anim": "anims/share-next.html",
+      "overlays": [],
+      "anim_params": {
+        "word": "NEXT",
+        "friend": "Rahul"
+      }
+    }
+  ],
+  "youtube": {
+    "en": {
+      "title": "That escalator brush is NOT a shoe cleaner #shorts",
+      "description": "It's a skirt deflector, and it's there for your safety. AI visuals.\n\nSources: KONE, Elevator World, Japan Times (METI data)\n#escalator #didyouknow #safety #shorts",
+      "tags": [
+        "escalator",
+        "did you know",
+        "safety",
+        "facts"
+      ]
+    },
+    "hi": {
+      "title": "Escalator ka brush shoe cleaner NAHI hai! #shorts",
+      "description": "Ye skirt deflector hai, aapki safety ke liye. AI visuals.\n\nSources: KONE, Elevator World, Japan Times (METI)\n#escalator #facts #hindi #shorts",
+      "tags": [
+        "escalator",
+        "facts in hindi",
+        "safety",
+        "hinglish"
+      ]
+    }
+  },
+  "instagram": {
+    "en": {
+      "caption": "That escalator brush is NOT a shoe cleaner 😳\nWho in your group still does this? 👇\n\nSources: KONE, Elevator World, Japan Times\nAI visuals\n#escalator #didyouknow #facts #safety"
+    },
+    "hi": {
+      "caption": "Escalator ka brush shoe cleaner NAHI hai 😳\nAapke group mein kaun ye karta hai? 👇\n\nSources: KONE, Elevator World, Japan Times\nAI visuals\n#escalator #facts #hinglish #safety"
+    }
+  },
+  "facebook": {
+    "en": {
+      "description": "That escalator brush is NOT a shoe cleaner. Who still does this? AI visuals."
+    },
+    "hi": {
+      "description": "Escalator ka brush shoe cleaner NAHI hai! Kaun ye karta hai? AI visuals."
+    }
+  }
+}

@@ -26,6 +26,9 @@ def render(html: Path, duration: float, out: Path, params: dict | None = None) -
         page = browser.new_page(viewport={"width": 1080, "height": 1920}, device_scale_factor=1)
         page.goto(html.resolve().as_uri())
         page.wait_for_function("typeof window.draw === 'function'")
+        font = (ROOT / "assets/fonts/Anton-Regular.ttf").resolve().as_uri()
+        page.add_style_tag(content=f"@font-face{{font-family:Anton;src:url('{font}')}}")
+        page.evaluate("document.fonts.load('100px Anton')")  # same title font as the captions
         for i in range(n):
             page.evaluate("([t, d, p]) => window.draw(t, d, p)", [i / FPS, duration, params or {}])
             page.screenshot(path=str(frames / f"f{i:05d}.png"))

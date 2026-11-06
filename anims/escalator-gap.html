@@ -12,12 +12,21 @@ const ease=t=>1-Math.pow(1-clamp(t),3), spring=t=>{t=clamp(t);return 1-Math.cos(
 function rr(px,py,w,h,r,f){x.beginPath();x.roundRect(px,py,w,h,r);x.fillStyle=f;x.fill()}
 function shoe(cx,cy,s){ // sneaker seen from above, toe pointing right
   x.save();x.translate(cx,cy);x.scale(s,s);
-  x.fillStyle=K.sole;x.beginPath();x.ellipse(0,0,175,78,0,0,7);x.fill();
-  x.fillStyle=K.shoe;x.beginPath();x.ellipse(-6,0,160,64,0,0,7);x.fill();
-  x.fillStyle='#e3e6ee';x.beginPath();x.ellipse(-95,0,52,40,0,0,7);x.fill();      // heel collar
-  x.strokeStyle=K.lace;x.lineWidth=9;x.lineCap='round';
-  for(let i=0;i<4;i++){const lx=-40+i*30;x.beginPath();x.moveTo(lx,-26);x.lineTo(lx+22,26);x.stroke();
-    x.beginPath();x.moveTo(lx,26);x.lineTo(lx+22,-26);x.stroke()}
+  const outline=(k)=>{x.beginPath();x.moveTo(-170*k,0);
+    x.bezierCurveTo(-170*k,-62*k,-110*k,-70*k,-40*k,-58*k);   // heel to waist (top)
+    x.bezierCurveTo(30*k,-48*k,90*k,-84*k,150*k,-62*k);        // waist to ball of foot
+    x.bezierCurveTo(205*k,-42*k,210*k,40*k,150*k,62*k);        // rounded toe
+    x.bezierCurveTo(90*k,80*k,30*k,52*k,-40*k,60*k);           // back along the inner side
+    x.bezierCurveTo(-110*k,70*k,-170*k,62*k,-170*k,0);x.closePath()};
+  x.fillStyle='rgba(0,0,0,.35)';x.save();x.translate(10,14);outline(1.05);x.fill();x.restore(); // shadow
+  x.fillStyle=K.sole;outline(1.06);x.fill();                     // sole rim
+  x.fillStyle=K.shoe;outline(0.97);x.fill();                     // upper
+  x.fillStyle='#d9dde6';x.beginPath();x.ellipse(-112,0,46,36,0,0,7);x.fill();   // heel opening
+  x.fillStyle='#b9bfcc';x.beginPath();x.ellipse(-112,0,30,22,0,0,7);x.fill();
+  x.fillStyle='#e8ebf2';x.beginPath();x.roundRect(-62,-30,150,60,24);x.fill();   // tongue
+  x.strokeStyle=K.lace;x.lineWidth=10;x.lineCap='round';          // laces across the foot
+  for(let i=0;i<5;i++){const lx=-48+i*30;x.beginPath();x.moveTo(lx,-34);x.lineTo(lx+8,34);x.stroke()}
+  x.strokeStyle='#c4c9d4';x.lineWidth=5;x.beginPath();x.arc(150,0,44,-1.1,1.1);x.stroke(); // toe cap seam
   x.restore()}
 window.draw=function(t,dur){
   const p=t/Math.max(dur,0.1);

@@ -90,6 +90,13 @@ CROSS = ("m -150 -125 l -125 -150 0 -25 125 -150 150 -125 25 0 150 125 125 150 0
 TICK = "m -140 10 l -100 -30 -40 30 110 -120 150 -80 -40 110"
 
 
+def _shift(shape: str) -> tuple[int, int]:
+    """libass draws a shape moved by its top-left corner (min x, min y) from the anchor.
+    Undo that, so the shape's own 0,0 point (arrow tip, ring centre) lands on the target."""
+    nums = [int(v) for v in shape.replace("m", " ").replace("l", " ").replace("b", " ").split()]
+    return -min(nums[0::2]), -min(nums[1::2])
+
+
 def _ring(r: int) -> str:
     k = int(r * 0.552)
     return (f"m {r} 0 b {r} {k} {k} {r} 0 {r} b {-k} {r} {-r} {k} {-r} 0 "
@@ -117,7 +124,9 @@ def scene_overlays(scene: dict, words, start: float, end: float) -> list[str]:
             t, flip = t0, False
             while t < t1:
                 seg = min(0.35, t1 - t)
+                sx, sy = _shift(ARROW)
                 a, b = ((x + dx, y + dy), (x, y)) if not flip else ((x, y), (x + dx, y + dy))
+                a, b = (a[0] + sx, a[1] + sy), (b[0] + sx, b[1] + sy)
                 out.append(f"Dialogue: 3,{_ts(t)},{_ts(t + seg)},Shape,,0,0,0,,"
                            + "{\\an2\\org(" + f"{x},{y}" + ")\\frz" + str(rot)
                            + "\\move(" + f"{a[0]},{a[1]},{b[0]},{b[1]}" + ")\\1c" + YELLOW
@@ -127,12 +136,13 @@ def scene_overlays(scene: dict, words, start: float, end: float) -> list[str]:
         elif kind == "ring":
             r = int(float(ov.get("r", 0.12)) * W)
             out.append(f"Dialogue: 3,{_ts(t0)},{_ts(t1)},Shape,,0,0,0,,"
-                       + "{\\an5\\pos(" + f"{x},{y}" + ")\\1a&HFF&\\3c" + YELLOW + "\\bord12"
+                       + "{\\an5\\pos(" + f"{x + r},{y + r}" + ")\\1a&HFF&\\3c" + YELLOW + "\\bord12"
                        + r"\fscx130\fscy130\t(0,200,\fscx100\fscy100)\p1}" + _ring(r) + "{\\p0}")
         elif kind in ("cross", "tick"):
             colour, shape = (RED, CROSS) if kind == "cross" else (GREEN, TICK)
+            sx, sy = _shift(shape)
             out.append(f"Dialogue: 4,{_ts(t0)},{_ts(t1)},Shape,,0,0,0,,"
-                       + "{\\an5\\pos(" + f"{x},{y}" + ")\\1c" + colour + "\\3c" + WHITE + "\\bord8"
+                       + "{\\an5\\pos(" + f"{x + sx},{y + sy}" + ")\\1c" + colour + "\\3c" + WHITE + "\\bord8"
                        + pop + "\\p1}" + shape + "{\\p0}")
         elif kind == "counter":
             a, b = int(ov.get("from", 0)), int(ov["to"])

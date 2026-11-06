@@ -37,7 +37,8 @@ def _yt_comments(p: str, video_id: str) -> list[dict]:
                      params={"part": "snippet,replies", "videoId": video_id, "maxResults": 100, "order": "time"})
     if r.status_code == 403 and "disabled" in r.text:
         return []
-    r.raise_for_status()
+    if r.status_code >= 400:
+        raise RuntimeError(f"{r.status_code}: {r.text[:300]}")
     out = []
     for it in r.json().get("items", []):
         top = it["snippet"]["topLevelComment"]

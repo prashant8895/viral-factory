@@ -88,7 +88,8 @@ def _rupload(p: str, url: str, video: Path) -> dict:
     with video.open("rb") as f:
         r = requests.post(url, data=f, timeout=900, headers={
             "Authorization": f"OAuth {_need(p, 'META_PAGE_TOKEN')}", "offset": "0", "file_size": str(size)})
-    r.raise_for_status()
+    if r.status_code >= 400:  # keep Meta's own reason in the error, it says what to fix
+        raise RuntimeError(f"Instagram upload refused ({r.status_code}): {r.text[:500]}")
     return r.json()
 
 
@@ -98,7 +99,8 @@ def instagram_upload(p: str, video: Path, meta: dict) -> dict:
     r = requests.post(f"{base}/{ig}/media", data={
         "media_type": "REELS", "upload_type": "resumable", "caption": meta["instagram"]["caption"],
         "share_to_feed": "true", "access_token": tok}, timeout=60)
-    r.raise_for_status()
+    if r.status_code >= 400:
+        raise RuntimeError(f"Instagram container refused ({r.status_code}): {r.text[:500]}")
     container = r.json()["id"]
     _rupload(p, f"https://rupload.facebook.com/ig-api-upload/{GRAPH}/{container}", video)
 

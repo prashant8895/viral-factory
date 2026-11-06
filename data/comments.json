@@ -1,8 +1,8 @@
 {
-  "updated": "2026-11-06T17:15+05:30",
+  "updated": "2026-11-06T17:16+05:30",
   "errors": {
-    "curious-en/youtube": "403 Client Error: Forbidden for url: https://www.googleapis.com/youtube/v3/commentThreads?part=snippet%2Creplies&videoId=Nq0c6O4KE-o&maxResults=100&order=time",
-    "curious-hi/youtube": "403 Client Error: Forbidden for url: https://www.googleapis.com/youtube/v3/commentThreads?part=snippet%2Creplies&videoId=OVihW7g7Cls&maxResults=100&order=time"
+    "curious-en/youtube": "403: {\n  \"error\": {\n    \"code\": 403,\n    \"message\": \"Request had insufficient authentication scopes.\",\n    \"errors\": [\n      {\n        \"message\": \"Insufficient Permission\",\n        \"domain\": \"global\",\n        \"reason\": \"insufficientPermissions\"\n      }\n    ],\n    \"status\": \"PERMISSION_DENIED\",\n    \"",
+    "curious-hi/youtube": "403: {\n  \"error\": {\n    \"code\": 403,\n    \"message\": \"Request had insufficient authentication scopes.\",\n    \"errors\": [\n      {\n        \"message\": \"Insufficient Permission\",\n        \"domain\": \"global\",\n        \"reason\": \"insufficientPermissions\"\n      }\n    ],\n    \"status\": \"PERMISSION_DENIED\",\n    \""
   },
   "comments": []
 }

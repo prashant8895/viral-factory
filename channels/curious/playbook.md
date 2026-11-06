@@ -87,6 +87,25 @@ Copy the format from `jobs/curious/sample-escalator.json`.
 - `sfx`: boom on the hook; then one of thud, ding, riser, sparkle, pop, tick, boing, crash, whoosh.
 - Mark 1–2 key words per line with `*stars*` (shown bigger, in orange).
 
+### RULE: every video mixes AI pictures and 2D animation
+
+- **AI pictures** where people must *recognise the real thing* (the escalator, the shoe,
+  the person doing it). Make them with the pictures step: candidates from several free
+  models, Claude looks and picks the best, then places arrows/rings on what is really there.
+- **2D animation** (`"anim": "anims/<name>.html"`) where something must be *explained*:
+  a mechanism, a cross-section, a number or comparison, a before/after.
+- At least **2 animated scenes** per video, never 2 animated scenes in a row, and the
+  first scene (hook) is always a picture.
+- Reuse animations from `anims/` when they fit (with `anim_params`); write a new one when
+  the topic needs it. Keep the top fifth and the lower third calm (titles and captions).
+
+### Calls to action (smart, never greedy)
+
+- At most one ask per video, in the last line, and it must offer something:
+  "Comment NEXT for one more everyday thing we all get wrong",
+  "Send this to the friend who does this", "Part 2 tomorrow: the other escalator myth".
+- Never "like and subscribe", never begging, never fake urgency.
+
 ### Hook formulas that work
 
 - "This is what happens if you…"

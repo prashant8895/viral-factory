@@ -43,7 +43,7 @@ def pollinations(prompt: str, seed: int, out: Path, model: str | None = None) ->
     key = os.environ.get("POLLINATIONS_KEY", "")
     base = os.environ.get("POLLINATIONS_URL", "https://gen.pollinations.ai/image/")
     url = base + urllib.parse.quote(prompt)
-    params = {"model": model or os.environ.get("POLLINATIONS_MODEL", "zimage"), "width": 1080, "height": 1920,
+    params = {"model": model or os.environ.get("POLLINATIONS_MODEL", "zimage"), "width": 1088, "height": 1920,  # multiples of 16 suit every model
               "seed": seed, "nologo": "true", "negative_prompt": NEGATIVE}
     headers = {"Authorization": f"Bearer {key}"} if key else {}
     last = None
@@ -55,6 +55,8 @@ def pollinations(prompt: str, seed: int, out: Path, model: str | None = None) ->
                 _fit(Image.open(out)).save(out, quality=95)
                 return out
             last = f"HTTP {r.status_code}: {r.text[:200]}"
+            if 400 <= r.status_code < 500 and r.status_code not in (408, 429):
+                break  # the request itself is wrong; retrying can't fix it
         except requests.RequestException as e:
             last = str(e)
         time.sleep(10 * (attempt + 1))

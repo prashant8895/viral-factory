@@ -12,7 +12,7 @@ import random
 import sys
 from pathlib import Path
 
-from . import channels, sfx, tts, video, visuals
+from . import anim, channels, sfx, tts, video, visuals
 
 ROOT = Path(__file__).resolve().parent.parent
 
@@ -95,6 +95,12 @@ def render_one(job: dict, img_dir: Path | None = None) -> Path:
         print(f"[scene {i + 1}/{len(job['scenes'])}] voice", flush=True)
         sa = tts.synthesize(scene, work / f"voice_{i}.wav", voices, speed, engine, styles)
         scene_audio.append(sa)
+
+        if scene.get("anim"):  # 2D animation drawn in code (free)
+            print(f"[scene {i + 1}] 2D animation", flush=True)
+            params = {**scene.get("anim_params", {}), "language": job.get("language")}
+            shots.append(anim.render(ROOT / scene["anim"], sa.duration, work / f"s{i}_anim.mp4", params))
+            continue
 
         print(f"[scene {i + 1}] picture", flush=True)
         (img_dir or work).mkdir(parents=True, exist_ok=True)

@@ -1,0 +1,37 @@
+<!doctype html><html><head><meta charset="utf-8">
+<style>html,body{margin:0;background:#1b1035}canvas{display:block}</style></head><body>
+<canvas id="c" width="1080" height="1920"></canvas>
+<script>
+// A grid of shoe icons fills up to `total`; then `highlight` of them turn pink (the soft plastic ones).
+// params: {total: 65, highlight: 33, months: 6}
+const c=document.getElementById('c'),x=c.getContext('2d'),W=1080,H=1920;
+const clamp=(v,a=0,b=1)=>Math.max(a,Math.min(b,v)), prog=(t,a,b)=>clamp((t-a)/(b-a));
+const back=t=>{t=clamp(t);const s=1.7;return 1+(s+1)*Math.pow(t-1,3)+s*Math.pow(t-1,2)};
+function shoe(cx,cy,s,col){x.save();x.translate(cx,cy);x.scale(s,s);
+  x.fillStyle=col;x.beginPath();x.moveTo(-34,8);x.quadraticCurveTo(-34,-26,-8,-28);x.lineTo(12,-28);
+  x.quadraticCurveTo(34,-20,36,8);x.closePath();x.fill();
+  x.fillStyle='rgba(0,0,0,.35)';x.beginPath();x.roundRect(-34,6,70,10,5);x.fill();x.restore()}
+window.draw=function(t,dur,P){
+  P=Object.assign({total:65,highlight:33,months:6},P||{});
+  const p=t/Math.max(dur,0.1);
+  x.setTransform(1,0,0,1,0,0);x.fillStyle='#1b1035';x.fillRect(0,0,W,H);
+  for(let i=0;i<40;i++){const s=Math.sin(i*127.1)*43758.5;const r=s-Math.floor(s);
+    x.fillStyle='rgba(255,255,255,.12)';x.beginPath();x.arc(r*W,((r*7919)%1)*H,3,0,7);x.fill()}
+  // calendar strip: months ticking by across the top
+  const mp=prog(p,0,0.6), cols=P.months, cw=760/cols;
+  for(let m=0;m<cols;m++){const on=mp*cols>m;
+    x.fillStyle=on?'#ffd23f':'rgba(255,255,255,.15)';x.beginPath();x.roundRect(160+m*cw+6,470,cw-12,70,14);x.fill()}
+  // shoe grid fills in as the count rises
+  const shown=Math.round(P.total*prog(p,0.05,0.6)), pinkOn=prog(p,0.62,0.85);
+  const perRow=10, gx=158, gy=650, sx=85, sy=92;
+  for(let i=0;i<P.total;i++){if(i>=shown)break;
+    const r=Math.floor(i/perRow), cI=i%perRow, pop=back(clamp((shown-i)/3));
+    const pink = i<P.highlight && pinkOn*P.highlight>i;
+    shoe(gx+cI*sx, gy+r*sy, 1.3*pop, pink?'#ff7eb6':'#e9e9f2')}
+  // the big number
+  x.font='900 220px Anton, Impact, sans-serif';x.textAlign='center';x.textBaseline='middle';
+  x.lineWidth=14;x.strokeStyle='#000';x.strokeText(pinkOn>0.5?String(P.highlight):String(shown),540,1360);
+  x.fillStyle=pinkOn>0.5?'#ff7eb6':'#ffd23f';x.fillText(pinkOn>0.5?String(P.highlight):String(shown),540,1360);
+};
+window.draw(0,6,{});
+</script></body></html>

@@ -1,0 +1,63 @@
+<!doctype html><html><head><meta charset="utf-8">
+<style>html,body{margin:0;background:#0f1630}canvas{display:block}</style></head><body>
+<canvas id="c" width="1080" height="1920"></canvas>
+<script>
+// Escalator edge, seen from the front: the step, the thin gap, the side panel with its brush.
+// A sneaker slides towards the edge, the bristles nudge it back; then the gap pulses red.
+const c=document.getElementById('c'),x=c.getContext('2d'),W=1080,H=1920;
+const K={bg:'#0f1630',bg2:'#18224a',step:'#5c6378',stepTop:'#737b93',edge:'#ffd23f',panel:'#c9ced8',panelDk:'#9aa1b0',
+  bristle:'#1c1c22',red:'#ff4757',green:'#2ed573',shoe:'#f5f5f5',sole:'#ff6b6b',lace:'#3a86ff'};
+const clamp=(v,a=0,b=1)=>Math.max(a,Math.min(b,v)), prog=(t,a,b)=>clamp((t-a)/(b-a));
+const ease=t=>1-Math.pow(1-clamp(t),3), spring=t=>{t=clamp(t);return 1-Math.cos(t*Math.PI*3)*Math.exp(-t*5)};
+function rr(px,py,w,h,r,f){x.beginPath();x.roundRect(px,py,w,h,r);x.fillStyle=f;x.fill()}
+function shoe(cx,cy,s){ // sneaker seen from above, toe pointing right
+  x.save();x.translate(cx,cy);x.scale(s,s);
+  x.fillStyle=K.sole;x.beginPath();x.ellipse(0,0,175,78,0,0,7);x.fill();
+  x.fillStyle=K.shoe;x.beginPath();x.ellipse(-6,0,160,64,0,0,7);x.fill();
+  x.fillStyle='#e3e6ee';x.beginPath();x.ellipse(-95,0,52,40,0,0,7);x.fill();      // heel collar
+  x.strokeStyle=K.lace;x.lineWidth=9;x.lineCap='round';
+  for(let i=0;i<4;i++){const lx=-40+i*30;x.beginPath();x.moveTo(lx,-26);x.lineTo(lx+22,26);x.stroke();
+    x.beginPath();x.moveTo(lx,26);x.lineTo(lx+22,-26);x.stroke()}
+  x.restore()}
+window.draw=function(t,dur){
+  const p=t/Math.max(dur,0.1);
+  x.setTransform(1,0,0,1,0,0);
+  // camera: slow push towards the edge in the second half
+  const z=1+0.3*ease(prog(p,0.58,1)); x.translate(W/2,H/2);x.scale(z,z);x.translate(-W/2-170*ease(prog(p,0.58,1)),-H/2);
+  x.fillStyle=K.bg;x.fillRect(-W,-H,W*3,H*3);
+  // TOP-DOWN VIEW. Step tread (moving grooves), yellow edge, the dark gap, then the side panel.
+  const stepL=40, stepR=760, top=640, bot=1380;
+  rr(stepL,top,stepR-stepL,bot-top,18,K.step);
+  x.save();x.beginPath();x.rect(stepL,top,stepR-stepL,bot-top);x.clip();
+  x.strokeStyle=K.stepTop;x.lineWidth=12;const off=(t*90)%46;
+  for(let gy=top-46+off;gy<bot+46;gy+=46){x.beginPath();x.moveTo(stepL,gy);x.lineTo(stepR,gy);x.stroke()}
+  x.restore();
+  rr(stepR-30,top,30,bot-top,6,K.edge);                                   // yellow side edge
+  const gapX=stepR+2, gapW=40;
+  const danger=prog(p,0.58,0.72), pulse=danger*(0.5+0.5*Math.sin(t*9));
+  x.fillStyle='#03050c';x.fillRect(gapX,top-60,gapW,bot-top+120);
+  if(danger>0){x.fillStyle=`rgba(255,71,87,${0.3+0.6*pulse})`;x.fillRect(gapX,top-60,gapW,bot-top+120)}
+  rr(gapX+gapW,top-160,320,bot-top+320,16,K.panel);                       // side panel ("skirt")
+  x.fillStyle=K.panelDk;x.fillRect(gapX+gapW,top-160,18,bot-top+320);
+  // brush strip along the panel: dense bristles reaching over the gap onto the step
+  const inP=ease(prog(p,0.04,0.36)), back=spring(prog(p,0.46,0.62));
+  const shoeY=1010, toe=gapX-30;
+  const shoeX=260+(toe-200-260)*inP-170*back;
+  const touch=clamp(((shoeX+175)-(gapX-110))/90);
+  rr(gapX+gapW-4,top-160,26,bot-top+320,6,'#2b2b33');                    // brush holder
+  x.lineCap='round';
+  for(let by=top-150;by<bot+150;by+=9){
+    const near=Math.exp(-Math.pow((by-shoeY)/90,2))*touch;                // bristles near the shoe bend
+    x.strokeStyle=(by/9)%2<1?'#15151a':'#3a3a44';x.lineWidth=6;
+    x.beginPath();x.moveTo(gapX+gapW,by);x.quadraticCurveTo(gapX-30,by-30*near,gapX-110+40*near,by-60*near);x.stroke()}
+  shoe(shoeX,shoeY,1.15);
+  // green "pushed away" marks when the bristles nudge the shoe back
+  const g=prog(p,0.46,0.62); if(g>0&&g<1){x.strokeStyle=K.green;x.lineWidth=12;x.globalAlpha=1-g;
+    for(let k=-1;k<=1;k++){x.beginPath();x.moveTo(gapX-150-60*g,shoeY+k*70);x.lineTo(gapX-230-60*g,shoeY+k*90);x.stroke()}
+    x.globalAlpha=1}
+  // a loose lace end creeping towards the gap, late in the scene
+  const lp=prog(p,0.64,0.95); if(lp>0){x.strokeStyle=K.lace;x.lineWidth=12;x.beginPath();
+    x.moveTo(shoeX+40,shoeY+40);x.bezierCurveTo(shoeX+120,shoeY+150,gapX-80,shoeY+170,gapX-60+70*lp,shoeY+190+40*lp);x.stroke()}
+};
+window.draw(0,6);
+</script></body></html>

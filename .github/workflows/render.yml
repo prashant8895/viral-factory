@@ -78,6 +78,13 @@ jobs:
 
       - run: pip install -r requirements.txt
 
+      - name: Browser for 2D animated scenes (only when a job has one)
+        if: steps.find.outputs.files != ''
+        run: |
+          if grep -l '"anim"' ${{ steps.find.outputs.files }} >/dev/null 2>&1; then
+            pip install playwright==1.48.0 && python -m playwright install --with-deps chromium
+          fi
+
       - name: Reuse paid results from earlier runs (never pay twice for the same thing)
         uses: actions/cache/restore@v4
         with:

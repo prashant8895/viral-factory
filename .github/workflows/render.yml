@@ -88,9 +88,15 @@ jobs:
 
       - name: Browser for 2D animated scenes (only when a job has one)
         if: steps.find.outputs.files != ''
+        timeout-minutes: 15
         run: |
           if grep -l '"anim"' ${{ steps.find.outputs.files }} >/dev/null 2>&1; then
-            pip install playwright==1.48.0 && python -m playwright install --with-deps chromium
+            pip install playwright==1.48.0
+            for i in 1 2 3; do
+              timeout 300 python -m playwright install --with-deps chromium && exit 0
+              echo "browser install try $i stalled, retrying"; sleep 20
+            done
+            exit 1
           fi
 
       - name: Reuse paid results from earlier runs (never pay twice for the same thing)

@@ -163,7 +163,7 @@ def render_one(job: dict, img_dir: Path | None = None) -> Path:
     state = json.loads(state_file.read_text()) if state_file.exists() else {}
     state.update({"id": job["id"], "channel": job["channel"], "date": job.get("date"),
                   "slot": job.get("slot", ch.get("slot", "19:00")), "publish": bool(job.get("publish", False)),
-                  "bucket": job.get("bucket"), "episode": job.get("episode"), "hook_text": job["hook_text"],
+                  "bucket": job.get("bucket"), "episode": job.get("episode"), "hook_text": job["hook_text"], "hook_style": job.get("hook_style"),
                   "release": f"job-{job['id']}", "duration": meta["duration"]})
     state_file.write_text(json.dumps(state, indent=2))
     print(f"done: {final} ({meta['duration']} s)")

@@ -47,14 +47,22 @@ def main() -> None:
             except Exception as e:
                 st = {"error": str(e)[:200]}
             rows.append({"checked": now.isoformat(timespec="minutes"), "channel": s["channel"], "id": s["id"],
-                         "bucket": s.get("bucket"), "hook": s.get("hook_text"), "slot": s.get("slot"),
+                         "bucket": s.get("bucket"), "hook": s.get("hook_text"), "hook_style": s.get("hook_style"), "slot": s.get("slot"),
                          "platform": name, "hours_live": hours, **st})
 
     (OUT / "latest.json").write_text(json.dumps(rows, indent=2))
     hist = OUT / "history.csv"
-    fields = ["checked", "channel", "id", "bucket", "hook", "slot", "platform", "hours_live", "views", "likes",
+    fields = ["checked", "channel", "id", "bucket", "hook", "hook_style", "slot", "platform", "hours_live", "views", "likes",
               "comments", "shares", "saved", "reach", "ig_reels_avg_watch_time", "blue_reels_play_count",
               "post_video_avg_time_watched", "privacy", "error"]
+    if hist.exists():  # add new columns to an older file without losing rows
+        with hist.open() as f:
+            old = list(csv.DictReader(f))
+        if old and set(fields) - set(old[0].keys()):
+            with hist.open("w", newline="") as f:
+                w = csv.DictWriter(f, fieldnames=fields, extrasaction="ignore")
+                w.writeheader()
+                w.writerows(old)
     new = not hist.exists()
     with hist.open("a", newline="") as f:
         w = csv.DictWriter(f, fieldnames=fields, extrasaction="ignore")

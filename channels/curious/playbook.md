@@ -106,6 +106,16 @@ Copy the format from `jobs/curious/sample-escalator.json`.
   "Send this to the friend who does this", "Part 2 tomorrow: the other escalator myth".
 - Never "like and subscribe", never begging, never fake urgency.
 
+### Hook A/B test (running)
+
+Two hook styles alternate by date, and the job records `"hook_style"`:
+- **Even dates → `myth`**: break a belief head-on. "It's NOT a shoe cleaner." / "Shoe cleaner NAHI hai."
+- **Odd dates → `question`**: an open question about the thing. "Why does every escalator have this brush?" /
+  "Har escalator pe ye brush kyun hota hai?"
+The Sunday review compares them (views at 24 h, average watch, shares). Once each style has
+5+ videos and one leads by 25%+, write `Hook winner: <style>` in Learnings and use it 5 days out
+of 7 (keep the other 2 as a check).
+
 ### Hook formulas that work
 
 - "This is what happens if you…"
@@ -123,6 +133,9 @@ Copy the format from `jobs/curious/sample-escalator.json`.
 | Time | 7:00 PM IST for weeks 1–2. Then test 6:30 AM IST (US evening) on alternate days |
 | Title (YouTube) | The hook, under 60 characters, ends with #shorts |
 | Caption (IG/FB) | Line 1 = the hook as a question. Line 2 = a comment bait ("Would you last 3 days?"). 3–5 hashtags only |
+| Hashtags | 3–5, always relevant: `#ohthatswhy` + 1–2 topic tags (#escalator) + 1–2 from `data/trends.json → hashtags` **only if they fit this video**. Never generic spam (#viral #fyp #trending), never off-topic trending tags |
+| Tagging | Only accounts that are genuinely in or about the video (a brand whose product it is, a source). Never random or famous accounts for reach: that is spam and gets pages restricted |
+| Stories | Every Reel is also posted to Instagram Stories automatically |
 | AI label | Always on where the platform lets us set it. Caption always says "AI animation" |
 
 ## 6. Hard no's

@@ -29,6 +29,10 @@ skip it until Prashant restarts it.
    Reuse what is in `anims/` first. If you need a new one, copy the `window.draw(t, dur, params)`
    pattern, keep the top fifth and the band from 70% to 85% height empty (headline and
    captions sit there), and check 4 frames with Playwright before pushing.
+5a. Set `"hook_style"` ("myth" on even IST dates, "question" on odd, or the playbook's
+   `Hook winner` 5 days out of 7) and write `hook_text` + line 1 in that style.
+   Hashtags: follow the playbook table (3–5, relevant, `#ohthatswhy` first; trending tags from
+   `data/trends.json` only if they genuinely fit). Never tag accounts that aren't in the video.
 5b. PICTURES (paid, about Rs 3 each, so think before you spend):
    - Write each picture scene's `visual` as ONE clear subject, where it is, camera angle,
      Indian setting where it fits. No text in the picture.

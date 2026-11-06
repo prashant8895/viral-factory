@@ -1,0 +1,34 @@
+name: Check connections
+
+# Signs in to every platform and prints the account names. Posts nothing.
+on:
+  workflow_dispatch:
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    env:
+      GH_TOKEN: ${{ github.token }}
+      YT_CLIENT_ID: ${{ secrets.YT_CLIENT_ID }}
+      YT_CLIENT_SECRET: ${{ secrets.YT_CLIENT_SECRET }}
+      CURIOUS_EN_YT_REFRESH_TOKEN: ${{ secrets.CURIOUS_EN_YT_REFRESH_TOKEN }}
+      CURIOUS_EN_META_PAGE_TOKEN: ${{ secrets.CURIOUS_EN_META_PAGE_TOKEN }}
+      CURIOUS_EN_IG_USER_ID: ${{ secrets.CURIOUS_EN_IG_USER_ID }}
+      CURIOUS_EN_FB_PAGE_ID: ${{ secrets.CURIOUS_EN_FB_PAGE_ID }}
+      CURIOUS_HI_YT_REFRESH_TOKEN: ${{ secrets.CURIOUS_HI_YT_REFRESH_TOKEN }}
+      CURIOUS_HI_META_PAGE_TOKEN: ${{ secrets.CURIOUS_HI_META_PAGE_TOKEN }}
+      CURIOUS_HI_IG_USER_ID: ${{ secrets.CURIOUS_HI_IG_USER_ID }}
+      CURIOUS_HI_FB_PAGE_ID: ${{ secrets.CURIOUS_HI_FB_PAGE_ID }}
+      DRAMA_YT_REFRESH_TOKEN: ${{ secrets.DRAMA_YT_REFRESH_TOKEN }}
+      DRAMA_META_PAGE_TOKEN: ${{ secrets.DRAMA_META_PAGE_TOKEN }}
+      DRAMA_IG_USER_ID: ${{ secrets.DRAMA_IG_USER_ID }}
+      DRAMA_FB_PAGE_ID: ${{ secrets.DRAMA_FB_PAGE_ID }}
+      META_GRAPH_VERSION: ${{ vars.META_GRAPH_VERSION || 'v24.0' }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install requests
+      - run: python -m factory.check

@@ -92,7 +92,56 @@ def placeholder(prompt: str, seed: int, out: Path) -> Path:
     return out
 
 
-PROVIDERS = {"pollinations": pollinations, "placeholder": placeholder}
+GEMINI_IMAGE_URL = "https://generativelanguage.googleapis.com/v1beta/interactions"
+
+
+def gemini_image(prompt: str, seed: int, out: Path, model: str | None = None) -> Path:
+    """Paid (about Rs 3 a picture on gemini-nano-banana-2.1). One call, no blind retries:
+    the raw reply is saved first so a parsing slip never costs a second picture."""
+    import base64
+    import json as _json
+
+    model = model or os.environ.get("GEMINI_IMAGE_MODEL", "gemini-nano-banana-2.1")
+    key = paid.fingerprint(kind="gemini-picture", prompt=prompt, model=model)
+    hit = paid.cached(key, ".jpg")
+    if hit:
+        shutil.copyfile(hit, out)
+        return out
+    paid.charge(f"gemini picture {out.stem}")
+    r = requests.post(GEMINI_IMAGE_URL, timeout=180,
+                      headers={"x-goog-api-key": os.environ["GEMINI_API_KEY"],
+                               "Content-Type": "application/json"},
+                      json={"model": model, "input": prompt,
+                            "response_format": {"type": "image", "mime_type": "image/jpeg",
+                                                "aspect_ratio": "9:16", "image_size": "1K"}})
+    raw = out.with_suffix(".json")
+    raw.write_text(r.text)
+    if r.status_code >= 400:
+        raise StepFailed(f"Gemini picture HTTP {r.status_code}: {r.text[:300]}")
+    js = r.json()
+    data = None
+
+    def walk(o):
+        nonlocal data
+        if isinstance(o, dict):
+            if isinstance(o.get("data"), str) and len(o["data"]) > 1000:
+                data = o["data"]
+            for v in o.values():
+                walk(v)
+        elif isinstance(o, list):
+            for v in o:
+                walk(v)
+    walk(js)
+    if not data:
+        raise StepFailed(f"Gemini gave no picture: {_json.dumps(js)[:300]}")
+    out.write_bytes(base64.b64decode(data))
+    Image.open(out).verify()
+    raw.unlink()
+    paid.save(key, ".jpg", out)
+    return out
+
+
+PROVIDERS = {"pollinations": pollinations, "placeholder": placeholder, "gemini": gemini_image}
 
 
 def make_image(job: dict, scene: dict, index: int, out: Path, cast: dict | None = None,

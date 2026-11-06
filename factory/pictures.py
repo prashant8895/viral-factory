@@ -51,9 +51,17 @@ def main(job_path: Path, only: list[int]) -> None:
             for n in range(PER_MODEL):
                 f = out / f"s{i}_{model.split('/')[-1]}_{n + 1}.jpg"
                 try:
-                    visuals.pollinations(prompt, int(job.get("seed", 1)) + i * 100 + n, f, model=model)
+                    seed = int(job.get("seed", 1)) + i * 100 + n
+                    if model.startswith("gemini:"):  # paid: one picture only, never repeats
+                        if n:
+                            continue
+                        visuals.gemini_image(prompt, seed, f, model=model.split(":", 1)[1])
+                    else:
+                        visuals.pollinations(prompt, seed, f, model=model)
                     files.append(f)
                     print("made", f.name, flush=True)
+                except visuals.BudgetStop:
+                    raise
                 except Exception as e:  # one model failing is fine; the others still give options
                     print("skip", f.name, e, flush=True)
         if files:

@@ -10,6 +10,14 @@ on:
       scenes:
         description: "Only these scene numbers, space separated (optional)"
         required: false
+      models:
+        description: "Picture models, comma separated. gemini:<model> is PAID (~Rs 3 each, 1 per scene)"
+        required: false
+        default: "zimage,klein,microsoft/mai-image-2.6-flash"
+      max_paid:
+        description: "Hard cap on paid pictures this run"
+        required: false
+        default: "0"
 
 permissions:
   contents: write
@@ -20,6 +28,9 @@ jobs:
     timeout-minutes: 30
     env:
       POLLINATIONS_KEY: ${{ secrets.POLLINATIONS_KEY }}
+      GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+      PICTURE_MODELS: ${{ github.event.inputs.models }}
+      MAX_PAID_CALLS: ${{ github.event.inputs.max_paid }}
       GH_TOKEN: ${{ github.token }}
     steps:
       - uses: actions/checkout@v4
@@ -31,6 +42,7 @@ jobs:
       - name: Upload as a release
         run: |
           id=$(python -c "import json;print(json.load(open('${{ github.event.inputs.job }}'))['id'])")
+          ls out/pics/$id/*.json 2>/dev/null && echo "raw replies kept for checking" || true
           cd out/pics/$id && zip -q -r ../../../pics.zip . && cd -
           gh release delete "pics-$id" -y --cleanup-tag 2>/dev/null || true
           gh release create "pics-$id" pics.zip out/pics/$id/sheet_*.jpg --title "Pictures: $id" --notes "Candidates" --prerelease

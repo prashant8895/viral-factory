@@ -30,6 +30,8 @@ def main() -> None:
 
     for s in states:
         for name, post in s["platforms"].items():
+            if name == "instagram_story":  # stories vanish after 24 h; the Reel carries the numbers
+                continue
             posted = datetime.fromisoformat(post["posted_at"])
             hours = round((now - posted).total_seconds() / 3600, 1)
             if hours > 24 * 30:

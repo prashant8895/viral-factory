@@ -93,35 +93,46 @@ def _rupload(p: str, url: str, video: Path) -> dict:
     return r.json()
 
 
-def instagram_upload(p: str, video: Path, meta: dict) -> dict:
+def _ig_publish(p: str, video: Path, media_type: str, caption: str | None) -> dict:
     ig, tok = _need(p, "IG_USER_ID"), _need(p, "META_PAGE_TOKEN")
     base = f"https://graph.facebook.com/{GRAPH}"
-    r = requests.post(f"{base}/{ig}/media", data={
-        "media_type": "REELS", "upload_type": "resumable", "caption": meta["instagram"]["caption"],
-        "share_to_feed": "true", "access_token": tok}, timeout=60)
+    data = {"media_type": media_type, "upload_type": "resumable", "access_token": tok}
+    if media_type == "REELS":
+        data.update(caption=caption or "", share_to_feed="true")
+    r = requests.post(f"{base}/{ig}/media", data=data, timeout=60)
     if r.status_code >= 400:
         raise RuntimeError(f"Instagram container refused ({r.status_code}): {r.text[:500]}")
     container = r.json()["id"]
     _rupload(p, f"https://rupload.facebook.com/ig-api-upload/{GRAPH}/{container}", video)
 
     for _ in range(60):  # Instagram processes the video before it can be published
-        s = requests.get(f"{base}/{container}", params={"fields": "status_code,status",
-                                                       "access_token": tok}, timeout=30).json()
-        if s.get("status_code") == "FINISHED":
+        st = requests.get(f"{base}/{container}", params={"fields": "status_code,status",
+                                                        "access_token": tok}, timeout=30).json()
+        if st.get("status_code") == "FINISHED":
             break
-        if s.get("status_code") in ("ERROR", "EXPIRED"):
-            raise RuntimeError(f"Instagram processing failed: {s}")
+        if st.get("status_code") in ("ERROR", "EXPIRED"):
+            raise RuntimeError(f"Instagram processing failed: {st}")
         time.sleep(10)
     else:
         raise RuntimeError("Instagram processing timed out")
 
     pub = requests.post(f"{base}/{ig}/media_publish", data={"creation_id": container, "access_token": tok},
                         timeout=60)
-    pub.raise_for_status()
+    if pub.status_code >= 400:
+        raise RuntimeError(f"Instagram publish refused ({pub.status_code}): {pub.text[:500]}")
     media_id = pub.json()["id"]
     link = requests.get(f"{base}/{media_id}", params={"fields": "permalink", "access_token": tok},
                         timeout=30).json().get("permalink")
     return {"id": media_id, "url": link}
+
+
+def instagram_upload(p: str, video: Path, meta: dict) -> dict:
+    return _ig_publish(p, video, "REELS", meta["instagram"]["caption"])
+
+
+def instagram_story_upload(p: str, video: Path, meta: dict) -> dict:
+    """The same video as a Story, right after the Reel: gives each post a second way in."""
+    return _ig_publish(p, video, "STORIES", None)
 
 
 def facebook_upload(p: str, video: Path, meta: dict) -> dict:
@@ -170,7 +181,8 @@ def facebook_stats(p: str, video_id: str) -> dict:
     return out
 
 
-UPLOADERS = {"youtube": youtube_upload, "instagram": instagram_upload, "facebook": facebook_upload}
+UPLOADERS = {"youtube": youtube_upload, "instagram": instagram_upload, "instagram_story": instagram_story_upload,
+             "facebook": facebook_upload}
 
 
 def enabled_platforms(p: str) -> list[str]:
@@ -180,6 +192,8 @@ def enabled_platforms(p: str) -> list[str]:
         ok.append("youtube")
     if secret(p, "META_PAGE_TOKEN") and secret(p, "IG_USER_ID"):
         ok.append("instagram")
+        if os.environ.get("IG_STORIES", "on") != "off":
+            ok.append("instagram_story")
     if secret(p, "META_PAGE_TOKEN") and secret(p, "FB_PAGE_ID"):
         ok.append("facebook")
     return ok

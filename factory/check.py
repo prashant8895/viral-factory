@@ -45,6 +45,14 @@ def main() -> int:
     for page in PAGES:
         p = json.loads((ROOT / "channels" / page / "channel.json").read_text())["secret_prefix"]
         on = platforms.enabled_platforms(p)
+        tok = secret(p, "META_PAGE_TOKEN")
+        if tok and "facebook" not in on:  # print the Page id so Facebook can be switched on later
+            try:
+                me = requests.get(f"https://graph.facebook.com/{platforms.GRAPH}/me",
+                                  params={"fields": "id,name", "access_token": tok}, timeout=30).json()
+                print(f"{page:11} facebook   page id for {p}FB_PAGE_ID: {me.get('id')} ({me.get('name')})")
+            except Exception as e:
+                print(f"{page:11} facebook   could not read page id: {str(e)[:100]}")
         for name in ("youtube", "instagram", "facebook"):
             if name not in on:
                 print(f"{page:11} {name:10} not set up yet")

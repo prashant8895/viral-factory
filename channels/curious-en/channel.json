@@ -1,0 +1,15 @@
+{
+  "key": "curious-en",
+  "name": "Curious (English)",
+  "secret_prefix": "CURIOUS_EN_",
+  "slot": "19:00",
+  "style": "hyper-realistic cinematic photo-illustration, dramatic lighting, rich contrast, shallow depth of field, highly detailed, vertical composition, leave the top third uncluttered for a title",
+  "animate_scenes": 0,
+  "music": false,
+  "look": "poster",
+  "speed": 1.05,
+  "tts": "kokoro",
+  "voices": {
+    "narrator": "am_michael"
+  }
+}

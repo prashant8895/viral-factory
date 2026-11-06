@@ -123,8 +123,13 @@ def _esc(s: str) -> str:
     return s.replace("{", "(").replace("}", ")").replace("\\", "")
 
 
-def captions_ass(scenes: list[SceneAudio], hook_text: str, out: Path) -> Path:
-    """Big centred captions, 1–3 words at a time, current word in yellow."""
+def captions_ass(scenes: list[SceneAudio], hook_text: str, out: Path, job_scenes: list[dict] | None = None,
+                 poster: bool = False) -> Path:
+    """Big captions, 1–3 words at a time, current word in yellow.
+
+    poster=True: the new look. A poster-style opening title, a headline at the top of each
+    scene, code-made overlays (arrows, labels...), and word captions moved to the lower third."""
+    from . import overlays
     header = f"""[Script Info]
 ScriptType: v4.00+
 PlayResX: {W}
@@ -135,14 +140,25 @@ WrapStyle: 0
 Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
 Style: Cap,Anton,128,&H00FFFFFF,&H00FFFFFF,&H00000000,&H64000000,0,0,0,0,100,100,1,0,1,9,4,5,60,60,0,1
 Style: Hook,Anton,108,&H0000E6FF,&H0000E6FF,&H00000000,&HB4000000,0,0,0,0,100,100,1,0,3,22,0,8,70,70,230,1
-
+{overlays.STYLES if poster else ""}
 [Events]
 Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
 """
+    if poster:  # word captions sit in the lower third, out of the way of headlines and overlays
+        header = header.replace(",1,9,4,5,60,60,0,1", ",1,9,4,2,60,60,330,1").replace("Style: Cap,Anton,128", "Style: Cap,Anton,104")
     lines = []
-    # Hook text: the first 2.8 s, top of the screen, pops in.
-    lines.append(f"Dialogue: 1,{_ts(0)},{_ts(2.8)},Hook,,0,0,0,,"
-                 r"{\fad(0,150)\fscx70\fscy70\t(0,120,\fscx100\fscy100)}" + _esc(hook_text.upper()))
+    if poster:
+        lines += overlays.poster(hook_text)
+        t = 0.0
+        for k, (sc, sa) in enumerate(zip(job_scenes or [], scenes)):
+            if sc.get("headline") and k > 0:  # scene 1 is covered by the poster title
+                lines.append(overlays.headline(sc["headline"], t, t + sa.duration))
+            lines += overlays.scene_overlays(sc, sa.words, t, t + sa.duration)
+            t += sa.duration
+    else:
+        # Hook text: the first 2.8 s, top of the screen, pops in.
+        lines.append(f"Dialogue: 1,{_ts(0)},{_ts(2.8)},Hook,,0,0,0,,"
+                     r"{\fad(0,150)\fscx70\fscy70\t(0,120,\fscx100\fscy100)}" + _esc(hook_text.upper().replace("*", "")))
 
     offset = 0.0
     for sc in scenes:

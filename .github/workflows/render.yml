@@ -107,9 +107,12 @@ jobs:
               continue
             fi
             python -m factory.notify fixed "Render failed: $id" "Video $id is made." || true
-            gh release delete "job-$id" -y --cleanup-tag 2>/dev/null || true
-            gh release create "job-$id" out/$id/final.mp4 out/$id/thumb.jpg out/$id/meta.json \
-              --title "$id" --notes "Rendered from $f" --prerelease
+            # one release per finished video (a two-language job makes two)
+            for vid in $(cat out/produced.txt); do
+              gh release delete "job-$vid" -y --cleanup-tag 2>/dev/null || true
+              gh release create "job-$vid" out/$vid/final.mp4 out/$vid/thumb.jpg out/$vid/meta.json \
+                --title "$vid" --notes "Rendered from $f" --prerelease
+            done
           done
           echo "failed=$failed" >> "$GITHUB_OUTPUT"
 

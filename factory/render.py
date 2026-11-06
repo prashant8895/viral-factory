@@ -38,9 +38,37 @@ def ensure_cast(ch: dict) -> None:
             visuals.make_reference(name, c["look"], ch["style"], ref, seed=c.get("seed", 11))
 
 
-def render(job_path: Path) -> Path:
+def _pick(obj, lang: str, langs: set):
+    """Resolve {"en": ..., "hi": ...} anywhere in the job to the one language."""
+    if isinstance(obj, dict):
+        if obj and set(obj) <= langs:
+            return _pick(obj.get(lang), lang, langs)
+        return {k: _pick(v, lang, langs) for k, v in obj.items()}
+    if isinstance(obj, list):
+        return [_pick(v, lang, langs) for v in obj]
+    return obj
+
+
+def render(job_path: Path) -> list[Path]:
+    """Render a job. A job with "languages": ["en", "hi"] becomes one video per language
+    (page <channel>-<lang>), all sharing the same pictures, so the second costs nothing extra."""
     job = json.loads(job_path.read_text())
     job.setdefault("channel", job_path.parent.name)
+    langs = job.pop("languages", None)
+    produced = []
+    if not langs:
+        produced.append(render_one(job))
+    else:
+        shared = ROOT / "out" / job["id"] / "shared"
+        for lang in langs:
+            one = _pick(job, lang, set(langs))
+            one["id"], one["channel"], one["language"] = f"{job['id']}-{lang}", f"{job['channel']}-{lang}", lang
+            produced.append(render_one(one, shared))
+    (ROOT / "out" / "produced.txt").write_text("\n".join(p.parent.name for p in produced) + "\n")
+    return produced
+
+
+def render_one(job: dict, img_dir: Path | None = None) -> Path:
     check_job(job)
     ch = channels.load(job["channel"])
     if ch.get("video_model") and not os.environ.get("VIDEO_MODEL"):
@@ -69,7 +97,8 @@ def render(job_path: Path) -> Path:
         scene_audio.append(sa)
 
         print(f"[scene {i + 1}] picture", flush=True)
-        img = work / f"img_{i}.jpg"
+        (img_dir or work).mkdir(parents=True, exist_ok=True)
+        img = (img_dir or work) / f"img_{i}.jpg"
         if not img.exists():
             visuals.make_image(job, scene, i, img, cast, ch["dir"] / "cast")
 
@@ -81,7 +110,8 @@ def render(job_path: Path) -> Path:
         shots += video.scene_shots(img, sa.duration, scene.get("motion", "push"),
                                    int(job.get("seed", 1)) + i, work, f"s{i}", clip)
 
-    ass = video.captions_ass(scene_audio, job["hook_text"], work / "captions.ass")
+    ass = video.captions_ass(scene_audio, job["hook_text"], work / "captions.ass", job["scenes"],
+                             poster=ch.get("look") == "poster")
 
     # Sound effects: a soft whoosh on every scene cut, plus the effect Claude picked per scene.
     cues, punches, t = [], [], 0.0
@@ -114,6 +144,7 @@ def render(job_path: Path) -> Path:
     video.thumbnail(final, out_dir / "thumb.jpg")
 
     meta = {k: job[k] for k in ("id", "channel", "youtube", "instagram", "facebook", "hook_text")}
+    meta["language"] = job.get("language")
     meta["duration"] = round(sum(s.duration for s in scene_audio), 2)
     meta["bucket"] = job.get("bucket")
     (out_dir / "meta.json").write_text(json.dumps(meta, indent=2))

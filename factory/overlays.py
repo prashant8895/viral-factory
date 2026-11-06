@@ -27,8 +27,27 @@ STYLES = (
     "Style: Poster,Anton,196,&H00FFFFFF,&H00FFFFFF,&H00000000,&H00000000,0,0,0,0,100,100,0,0,1,10,6,8,50,50,150,1\n"
     "Style: Head,Anton,118,&H00FFFFFF,&H00FFFFFF,&H00000000,&H00000000,0,0,0,0,100,100,0,0,1,9,5,8,50,50,170,1\n"
     "Style: Tag,Anton,84,&H00000000,&H00000000,&H0000E6FF,&H0000E6FF,0,0,0,0,100,100,1,0,3,18,0,5,0,0,0,1\n"
+    "Style: Mark,Anton,46,&H50FFFFFF,&H50FFFFFF,&H90000000,&H00000000,0,0,0,0,100,100,1,0,1,3,0,7,0,0,0,1\n"
     "Style: Shape,Arial,20,&H0000E6FF,&H0000E6FF,&H00000000,&H00000000,0,0,0,0,100,100,0,0,1,6,0,7,0,0,0,1\n"
 )
+
+
+# Where the handle sits, in turn. All clear of the Shorts/Reels buttons (right side, lower half),
+# the caption band and the bottom text, so the app's own UI never hides it.
+MARK_SPOTS = [(7, 40, 430), (9, 1040, 430), (7, 40, 1230)]
+
+
+def handle_mark(handle: str, total: float, every: float = 5.0) -> list[str]:
+    """The page handle burned into the video, hopping between corners every few seconds,
+    so a re-upload can't crop it out and still credits the page."""
+    out, t, k = [], 0.0, 0
+    while t < total:
+        an, x, y = MARK_SPOTS[k % len(MARK_SPOTS)]
+        end = min(total, t + every)
+        out.append(f"Dialogue: 2,{_ts(t)},{_ts(end)},Mark,,0,0,0,,"
+                   + "{\\an" + str(an) + "\\pos(" + f"{x},{y}" + ")\\fad(250,250)}" + handle)
+        t, k = end, k + 1
+    return out
 
 
 def _ts(t: float) -> str:

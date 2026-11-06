@@ -124,7 +124,7 @@ def _esc(s: str) -> str:
 
 
 def captions_ass(scenes: list[SceneAudio], hook_text: str, out: Path, job_scenes: list[dict] | None = None,
-                 poster: bool = False) -> Path:
+                 poster: bool = False, handle: str | None = None) -> Path:
     """Big captions, 1–3 words at a time, current word in yellow.
 
     poster=True: the new look. A poster-style opening title, a headline at the top of each
@@ -160,6 +160,8 @@ Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
         lines.append(f"Dialogue: 1,{_ts(0)},{_ts(2.8)},Hook,,0,0,0,,"
                      r"{\fad(0,150)\fscx70\fscy70\t(0,120,\fscx100\fscy100)}" + _esc(hook_text.upper().replace("*", "")))
 
+    if handle:  # the page's handle, burned in so a re-upload still credits the page
+        lines += overlays.handle_mark(handle, sum(sc.duration for sc in scenes))
     offset = 0.0
     for sc in scenes:
         words = sc.words

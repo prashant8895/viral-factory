@@ -117,7 +117,8 @@ def render_one(job: dict, img_dir: Path | None = None) -> Path:
                                    int(job.get("seed", 1)) + i, work, f"s{i}", clip)
 
     ass = video.captions_ass(scene_audio, job["hook_text"], work / "captions.ass", job["scenes"],
-                             poster=ch.get("look") == "poster")
+                             poster=ch.get("look") == "poster",
+                             handle=(ch.get("handles") or {}).get("instagram"))
 
     # Sound effects: a soft whoosh on every scene cut, plus the effect Claude picked per scene.
     cues, punches, t = [], [], 0.0

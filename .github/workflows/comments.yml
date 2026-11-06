@@ -1,0 +1,57 @@
+name: Comments
+
+# Collect comments (19:35, 20:35, 22:05 and 07:00 IST) and post Claude's replies when
+# data/replies.json changes. Replies are written one by one by Claude, never a canned line.
+on:
+  schedule:
+    - cron: "5 14 * * *"
+    - cron: "5 15 * * *"
+    - cron: "35 16 * * *"
+    - cron: "30 1 * * *"
+  push:
+    paths: ["data/replies.json"]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: repo-writes
+  cancel-in-progress: false
+
+jobs:
+  comments:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      YT_CLIENT_ID: ${{ secrets.YT_CLIENT_ID }}
+      YT_CLIENT_SECRET: ${{ secrets.YT_CLIENT_SECRET }}
+      CURIOUS_EN_YT_REFRESH_TOKEN: ${{ secrets.CURIOUS_EN_YT_REFRESH_TOKEN }}
+      CURIOUS_EN_META_PAGE_TOKEN: ${{ secrets.CURIOUS_EN_META_PAGE_TOKEN }}
+      CURIOUS_EN_IG_USER_ID: ${{ secrets.CURIOUS_EN_IG_USER_ID }}
+      CURIOUS_EN_FB_PAGE_ID: ${{ secrets.CURIOUS_EN_FB_PAGE_ID }}
+      CURIOUS_HI_YT_REFRESH_TOKEN: ${{ secrets.CURIOUS_HI_YT_REFRESH_TOKEN }}
+      CURIOUS_HI_META_PAGE_TOKEN: ${{ secrets.CURIOUS_HI_META_PAGE_TOKEN }}
+      CURIOUS_HI_IG_USER_ID: ${{ secrets.CURIOUS_HI_IG_USER_ID }}
+      CURIOUS_HI_FB_PAGE_ID: ${{ secrets.CURIOUS_HI_FB_PAGE_ID }}
+      DRAMA_YT_REFRESH_TOKEN: ${{ secrets.DRAMA_YT_REFRESH_TOKEN }}
+      DRAMA_META_PAGE_TOKEN: ${{ secrets.DRAMA_META_PAGE_TOKEN }}
+      DRAMA_IG_USER_ID: ${{ secrets.DRAMA_IG_USER_ID }}
+      DRAMA_FB_PAGE_ID: ${{ secrets.DRAMA_FB_PAGE_ID }}
+      META_GRAPH_VERSION: ${{ vars.META_GRAPH_VERSION || 'v24.0' }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install requests
+      - name: Post replies
+        if: github.event_name == 'push' || github.event_name == 'workflow_dispatch'
+        run: python -m factory.comments reply
+      - run: python -m factory.comments collect
+      - name: Save
+        run: |
+          git config user.name "video-factory"
+          git config user.email "actions@github.com"
+          git add data
+          git diff --cached --quiet || (git commit -m "Comments" && git pull --rebase && git push)

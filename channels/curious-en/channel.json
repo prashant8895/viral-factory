@@ -1,6 +1,6 @@
 {
   "key": "curious-en",
-  "name": "Curious (English)",
+  "name": "Oh That's Why English",
   "secret_prefix": "CURIOUS_EN_",
   "slot": "19:00",
   "style": "hyper-realistic cinematic photo-illustration, dramatic lighting, rich contrast, shallow depth of field, highly detailed, vertical composition, leave the top third uncluttered for a title",
@@ -11,5 +11,8 @@
   "tts": "kokoro",
   "voices": {
     "narrator": "am_michael"
+  },
+  "handles": {
+    "instagram": "@ohthatswhy.english"
   }
 }

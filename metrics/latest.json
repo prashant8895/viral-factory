@@ -1,6 +1,6 @@
 [
   {
-    "checked": "2026-11-07T01:59+05:30",
+    "checked": "2026-11-07T12:07+05:30",
     "channel": "curious-en",
     "id": "curious-2026-11-06-escalator-brush-en",
     "bucket": "seen-but-missed",
@@ -8,14 +8,14 @@
     "hook_style": null,
     "slot": "19:00",
     "platform": "youtube",
-    "hours_live": 9.5,
-    "views": 70,
+    "hours_live": 19.6,
+    "views": 79,
     "likes": 0,
     "comments": 0,
     "privacy": "public"
   },
   {
-    "checked": "2026-11-07T01:59+05:30",
+    "checked": "2026-11-07T12:07+05:30",
     "channel": "curious-en",
     "id": "curious-2026-11-06-escalator-brush-en",
     "bucket": "seen-but-missed",
@@ -23,12 +23,12 @@
     "hook_style": null,
     "slot": "19:00",
     "platform": "instagram",
-    "hours_live": 9.5,
+    "hours_live": 19.6,
     "likes": 0,
     "comments": 0
   },
   {
-    "checked": "2026-11-07T01:59+05:30",
+    "checked": "2026-11-07T12:07+05:30",
     "channel": "curious-en",
     "id": "curious-2026-11-06-escalator-brush-en",
     "bucket": "seen-but-missed",
@@ -36,10 +36,10 @@
     "hook_style": null,
     "slot": "19:00",
     "platform": "facebook",
-    "hours_live": 9.5
+    "hours_live": 19.6
   },
   {
-    "checked": "2026-11-07T01:59+05:30",
+    "checked": "2026-11-07T12:07+05:30",
     "channel": "curious-hi",
     "id": "curious-2026-11-06-escalator-brush-hi",
     "bucket": "seen-but-missed",
@@ -47,14 +47,14 @@
     "hook_style": null,
     "slot": "19:00",
     "platform": "youtube",
-    "hours_live": 9.4,
+    "hours_live": 19.6,
     "views": 1,
     "likes": 0,
     "comments": 0,
     "privacy": "public"
   },
   {
-    "checked": "2026-11-07T01:59+05:30",
+    "checked": "2026-11-07T12:07+05:30",
     "channel": "curious-hi",
     "id": "curious-2026-11-06-escalator-brush-hi",
     "bucket": "seen-but-missed",
@@ -62,10 +62,10 @@
     "hook_style": null,
     "slot": "19:00",
     "platform": "facebook",
-    "hours_live": 9.4
+    "hours_live": 19.6
   },
   {
-    "checked": "2026-11-07T01:59+05:30",
+    "checked": "2026-11-07T12:07+05:30",
     "channel": "curious-hi",
     "id": "curious-2026-11-06-escalator-brush-hi",
     "bucket": "seen-but-missed",
@@ -73,7 +73,7 @@
     "hook_style": null,
     "slot": "19:00",
     "platform": "instagram",
-    "hours_live": 9.4,
+    "hours_live": 19.5,
     "likes": 0,
     "comments": 0
   }

@@ -5,7 +5,7 @@
     "en",
     "hi"
   ],
-  "publish": false,
+  "publish": true,
   "date": "2026-11-07",
   "slot": "19:00",
   "bucket": "seen-but-missed",
@@ -31,7 +31,19 @@
       },
       "motion": "push",
       "sfx": "boom",
-      "overlays": []
+      "overlays": [
+        {
+          "type": "arrow",
+          "x": 0.36,
+          "y": 0.42,
+          "dir": "down",
+          "on": {
+            "en": "mesh",
+            "hi": "jaali"
+          }
+        }
+      ],
+      "image": "jobs/curious/pics/curious-2026-11-07-microwave-mesh/s1.jpg"
     },
     {
       "visual": "2D animation: side view of the oven, a red microwave bouncing wall to wall, one wavelength measured as 12 cm",
@@ -64,7 +76,19 @@
       },
       "motion": "push",
       "sfx": "ding",
-      "overlays": []
+      "overlays": [
+        {
+          "type": "ring",
+          "x": 0.5,
+          "y": 0.6,
+          "r": 0.05,
+          "on": {
+            "en": "holes",
+            "hi": "chhed"
+          }
+        }
+      ],
+      "image": "jobs/curious/pics/curious-2026-11-07-microwave-mesh/s3.jpg"
     },
     {
       "visual": "2D animation: a big red microwave hits the metal mesh and bounces back, tiny yellow light waves pass through to an eye",
@@ -98,7 +122,19 @@
       },
       "motion": "pull",
       "sfx": "sparkle",
-      "overlays": []
+      "overlays": [
+        {
+          "type": "ring",
+          "x": 0.29,
+          "y": 0.63,
+          "r": 0.12,
+          "on": {
+            "en": "watch",
+            "hi": "dekh"
+          }
+        }
+      ],
+      "image": "jobs/curious/pics/curious-2026-11-07-microwave-mesh/s5.jpg"
     },
     {
       "visual": "2D animation: phone with a microwave thumbnail, send to a friend, comment NEXT",

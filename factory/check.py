@@ -5,6 +5,7 @@ Posts nothing, changes nothing. Never prints a key.
 """
 from __future__ import annotations
 
+from datetime import datetime, timezone
 import json
 import sys
 from pathlib import Path
@@ -66,8 +67,24 @@ def main() -> int:
                     v = secret(p, k)
                     if v:
                         msg = msg.replace(v, "***")
-                print(f"{page:11} {name:10} FAILED: {msg[:200]}")
+                body = getattr(getattr(e, "response", None), "text", "") or ""
+                for k in ("YT_CLIENT_SECRET", "YT_REFRESH_TOKEN", "META_PAGE_TOKEN"):
+                    v = secret(p, k)
+                    if v:
+                        body = body.replace(v, "***")
+                print(f"{page:11} {name:10} FAILED: {msg[:200]} {body[:300]}")
                 bad += 1
+        if tok:  # say whether the Meta key is still alive and when it runs out
+            try:
+                d = requests.get(f"https://graph.facebook.com/{platforms.GRAPH}/debug_token",
+                                 params={"input_token": tok, "access_token": tok}, timeout=30).json()
+                info = d.get("data") or {}
+                exp = info.get("expires_at")
+                when = "never" if exp == 0 else (datetime.fromtimestamp(exp, timezone.utc).isoformat() if exp else "?")
+                print(f"{page:11} meta key   valid={info.get('is_valid')} type={info.get('type')} expires={when} "
+                      f"error={(info.get('error') or d.get('error') or {}).get('message', '')[:200]}")
+            except Exception as e:
+                print(f"{page:11} meta key   could not inspect: {str(e)[:100]}")
     return 1 if bad else 0
 
 

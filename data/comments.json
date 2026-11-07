@@ -1,10 +1,7 @@
 {
-  "updated": "2026-11-08T00:11+05:30",
+  "updated": "2026-11-08T00:52+05:30",
   "errors": {
-    "curious-en/instagram": "400 Client Error: Bad Request for url: https://graph.facebook.com/v24.0/18155169400550999/comments?fields=id%2Ctext%2Cusername%2Ctimestamp%2Clike_count%2Creplies%7Busername%2Cfrom%7D&access_token=EAAVljvMxII0BS5Cudgpz9bHo2xvUfRFnEnC6R5I0uJPq8OZAnDEuXV6ZAJ5vViAIseYDalOU76QPBkP5hDaxUxtg83AknA4cPn85lFa",
-    "curious-en/facebook": "400 Client Error: Bad Request for url: https://graph.facebook.com/v24.0/1784349112827444/comments?fields=id%2Cmessage%2Cfrom%2Ccreated_time%2Clike_count%2Ccomments%7Bfrom%7D&access_token=EAAVljvMxII0BS5Cudgpz9bHo2xvUfRFnEnC6R5I0uJPq8OZAnDEuXV6ZAJ5vViAIseYDalOU76QPBkP5hDaxUxtg83AknA4cPn85lFarPWTLUih5",
-    "curious-hi/facebook": "400 Client Error: Bad Request for url: https://graph.facebook.com/v24.0/1447587720908718/comments?fields=id%2Cmessage%2Cfrom%2Ccreated_time%2Clike_count%2Ccomments%7Bfrom%7D&access_token=EAAVljvMxII0BSZBAZCsNc7SJnnahjkGkPUw7Jsd067DHXGDL45AJ1eDNNYY8ptW5aJMXJ9okomF7DXeJ0ljoJZBig2VHpnoZBxtxH24jYwwQ5VKZ",
-    "curious-hi/instagram": "400 Client Error: Bad Request for url: https://graph.facebook.com/v24.0/17929004139424552/comments?fields=id%2Ctext%2Cusername%2Ctimestamp%2Clike_count%2Creplies%7Busername%2Cfrom%7D&access_token=EAAVljvMxII0BSZBAZCsNc7SJnnahjkGkPUw7Jsd067DHXGDL45AJ1eDNNYY8ptW5aJMXJ9okomF7DXeJ0ljoJZBig2VHpnoZBxtxH24"
+    "curious-hi/instagram": "400 Client Error: Bad Request for url: https://graph.facebook.com/v24.0/18393283948224566/comments?fields=id%2Ctext%2Cusername%2Ctimestamp%2Clike_count%2Creplies%7Busername%2Cfrom%7D&access_token=EAAVljvMxII0BSZBAZCsNc7SJnnahjkGkPUw7Jsd067DHXGDL45AJ1eDNNYY8ptW5aJMXJ9okomF7DXeJ0ljoJZBig2VHpnoZBxtxH24"
   },
   "comments": []
 }

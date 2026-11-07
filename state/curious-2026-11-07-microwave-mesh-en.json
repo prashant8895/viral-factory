@@ -16,11 +16,19 @@
       "url": "https://youtube.com/shorts/boeMBXEsnq4",
       "privacy": "public",
       "posted_at": "2026-11-07T20:52+05:30"
+    },
+    "instagram": {
+      "id": "17972324058187359",
+      "url": "https://www.instagram.com/reel/Dfc374EIlFX/",
+      "posted_at": "2026-11-08T00:26+05:30"
+    },
+    "facebook": {
+      "id": "1595560935164126",
+      "url": "https://www.facebook.com/reel/1595560935164126",
+      "posted_at": "2026-11-08T00:26+05:30"
     }
   },
   "errors": {
-    "instagram": "RuntimeError: Instagram container refused (400): {\"error\":{\"message\":\"Any of the pages_read_engagement, pages_manage_metadata,\\n        pages_read_user_content, pages_manage_ads, pages_show_list or\\n        pages_messaging permission(s) must be granted before impersonating a\\n        user's page.\",\"type\":\"OAuthException\",\"code\":190,\"fbtrace_id\":\"Amti_SFZJLdv9WHYNAGtbnj\"}}",
-    "instagram_story": "RuntimeError: Instagram container refused (400): {\"error\":{\"message\":\"Any of the pages_read_engagement, pages_manage_metadata,\\n        pages_read_user_content, pages_manage_ads, pages_show_list or\\n        pages_messaging permission(s) must be granted before impersonating a\\n        user's page.\",\"type\":\"OAuthException\",\"code\":190,\"fbtrace_id\":\"Ai-lRkyvyxBc3gcQNFw5Z24\"}}",
-    "facebook": "HTTPError: 400 Client Error: Bad Request for url: https://graph.facebook.com/v24.0/1356352170904049/video_reels"
+    "instagram_story": "RuntimeError: Instagram upload refused (400): {\"debug_info\":{\"retriable\":false,\"type\":\"ProcessingFailedError\",\"message\":\"Request processing failed\"}}"
   }
 }

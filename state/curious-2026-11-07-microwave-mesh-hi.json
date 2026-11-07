@@ -16,11 +16,22 @@
       "url": "https://youtube.com/shorts/Tf41XscEshI",
       "privacy": "public",
       "posted_at": "2026-11-07T20:52+05:30"
+    },
+    "instagram": {
+      "id": "18393283948224566",
+      "url": "https://www.instagram.com/reel/Dfc4FzjiFqF/",
+      "posted_at": "2026-11-08T00:27+05:30"
+    },
+    "instagram_story": {
+      "id": "18118730521997773",
+      "url": "https://www.instagram.com/stories/ohthatswhy.hindii/4025339137346771362",
+      "posted_at": "2026-11-08T00:27+05:30"
+    },
+    "facebook": {
+      "id": "1101386779333687",
+      "url": "https://www.facebook.com/reel/1101386779333687",
+      "posted_at": "2026-11-08T00:27+05:30"
     }
   },
-  "errors": {
-    "instagram": "RuntimeError: Instagram container refused (400): {\"error\":{\"message\":\"Any of the pages_read_engagement, pages_manage_metadata,\\n        pages_read_user_content, pages_manage_ads, pages_show_list or\\n        pages_messaging permission(s) must be granted before impersonating a\\n        user's page.\",\"type\":\"OAuthException\",\"code\":190,\"fbtrace_id\":\"AxZv4DMJkBggA548XuTm4Aw\"}}",
-    "instagram_story": "RuntimeError: Instagram container refused (400): {\"error\":{\"message\":\"Any of the pages_read_engagement, pages_manage_metadata,\\n        pages_read_user_content, pages_manage_ads, pages_show_list or\\n        pages_messaging permission(s) must be granted before impersonating a\\n        user's page.\",\"type\":\"OAuthException\",\"code\":190,\"fbtrace_id\":\"AWuktArAD90z6J3wV7BHF-R\"}}",
-    "facebook": "HTTPError: 400 Client Error: Bad Request for url: https://graph.facebook.com/v24.0/1331668576707152/video_reels"
-  }
+  "errors": {}
 }

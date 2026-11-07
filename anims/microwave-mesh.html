@@ -1,0 +1,96 @@
+<!doctype html><html><head><meta charset="utf-8">
+<style>html,body{margin:0;background:#0f1630}canvas{display:block}</style></head><body>
+<canvas id="c" width="1080" height="1920"></canvas>
+<script>
+// Microwave oven physics, two modes (params.mode):
+//  "waves": side view of the oven box, a microwave bounces wall to wall, then one wavelength is measured (params.label, e.g. "12 cm").
+//  "mesh":  a big red microwave hits the metal door mesh and bounces back; tiny yellow light waves slip through to an eye.
+// Keeps the top fifth (0-384) and the caption band (1344-1632) empty.
+const c=document.getElementById('c'),x=c.getContext('2d'),W=1080,H=1920;
+const K={bg:'#0f1630',red:'#ff4757',orange:'#ff9f43',yellow:'#ffd23f',green:'#2ed573',metal:'#c9ced8',metalDk:'#8d95ab',box:'#2a3354',white:'#ffffff'};
+const clamp=(v,a=0,b=1)=>Math.max(a,Math.min(b,v)), prog=(t,a,b)=>clamp((t-a)/(b-a));
+const ease=t=>1-Math.pow(1-clamp(t),3), back=t=>{t=clamp(t);const s=1.7;return 1+(s+1)*Math.pow(t-1,3)+s*Math.pow(t-1,2)};
+function rr(px,py,w,h,r,f){x.beginPath();x.roundRect(px,py,w,h,r);x.fillStyle=f;x.fill()}
+function txt(s,px,py,size,col,al){x.font=`700 ${size}px Anton, Impact, sans-serif`;x.textAlign=al||'center';x.textBaseline='middle';
+  x.lineWidth=size*0.16;x.lineJoin='round';x.strokeStyle='rgba(0,0,0,.7)';x.strokeText(s,px,py);x.fillStyle=col;x.fillText(s,px,py)}
+function wave(x0,x1,yc,amp,lam,phase,col,lw,glow){ // sine from x0 to x1
+  if(x1<=x0)return;x.save();x.strokeStyle=col;x.lineWidth=lw;x.lineCap='round';x.lineJoin='round';
+  if(glow){x.shadowColor=col;x.shadowBlur=glow}
+  x.beginPath();for(let px=x0;px<=x1;px+=3){const y=yc+amp*Math.sin((px/lam)*2*Math.PI+phase);px===x0?x.moveTo(px,y):x.lineTo(px,y)}
+  x.stroke();x.restore()}
+function eye(cx,cy,s,open){x.save();x.translate(cx,cy);x.scale(s,s);
+  x.fillStyle='#fff';x.beginPath();x.moveTo(-70,0);x.quadraticCurveTo(0,-60*open,70,0);x.quadraticCurveTo(0,60*open,-70,0);x.fill();
+  x.fillStyle='#3a86ff';x.beginPath();x.arc(0,0,26*open,0,7);x.fill();x.fillStyle='#0a0a12';x.beginPath();x.arc(0,0,12*open,0,7);x.fill();
+  x.strokeStyle='#0a0a12';x.lineWidth=6;x.beginPath();x.moveTo(-70,0);x.quadraticCurveTo(0,-60*open,70,0);x.quadraticCurveTo(0,60*open,-70,0);x.stroke();x.restore()}
+function bg(t){const g=x.createLinearGradient(0,0,0,H);g.addColorStop(0,'#0f1630');g.addColorStop(1,'#1a1240');x.fillStyle=g;x.fillRect(0,0,W,H);
+  for(let i=0;i<24;i++){const s=Math.sin(i*77.3)*43758.5,r=s-Math.floor(s);x.fillStyle='rgba(255,255,255,.06)';
+    x.beginPath();x.arc(r*W,(((r*3931)%1)*H+t*15*(1+r))%H,3+5*r,0,7);x.fill()}}
+
+function drawWaves(t,p,P){
+  // oven seen from the side: metal walls, a plate of food, a wave bouncing between the walls
+  const L=110,R=970,T=470,B=1230, a=ease(prog(p,0,0.12));
+  x.globalAlpha=a;
+  rr(L-30,T-30,R-L+60,B-T+60,36,K.metalDk);rr(L,T,R-L,B-T,20,'#1b2240');
+  // the turntable plate and a bowl
+  x.fillStyle='#e8ebf2';x.beginPath();x.ellipse((L+R)/2,B-50,260,34,0,0,7);x.fill();
+  x.fillStyle='#ff9f43';x.beginPath();x.moveTo((L+R)/2-150,B-120);x.quadraticCurveTo((L+R)/2,B-10,(L+R)/2+150,B-120);x.closePath();x.fill();
+  // food steam once it heats up
+  const heat=prog(p,0.2,0.9);
+  for(let k=0;k<3;k++){x.strokeStyle=`rgba(255,255,255,${0.5*heat})`;x.lineWidth=8;x.beginPath();
+    const sx=(L+R)/2-60+k*60;for(let j=0;j<=20;j++){const yy=B-130-j*7,xx=sx+12*Math.sin(j*0.6+t*4+k);j?x.lineTo(xx,yy):x.moveTo(xx,yy)}x.stroke()}
+  x.globalAlpha=1;
+  // the wave: grows from the right wall, reaches the left wall, then keeps sloshing (moving phase)
+  const lam=290, yc=(T+B)/2-80, grow=ease(prog(p,0.08,0.4));
+  const front=R-(R-L)*grow;
+  wave(Math.max(L+10,front),R-10,yc,110,lam,-t*7,K.red,16,30);
+  // little bounce flashes on the walls
+  const fl=prog(p,0.38,0.5); if(fl>0&&fl<1){x.strokeStyle=`rgba(255,210,63,${1-fl})`;x.lineWidth=10;
+    x.beginPath();x.arc(L,yc,40+120*fl,-1.2,1.2);x.stroke()}
+  // measure one wavelength
+  const m=ease(prog(p,0.5,0.66));
+  if(m>0){const mx0=(L+R)/2-lam/2, mx1=mx0+lam*m, my=yc-190;
+    x.strokeStyle=K.yellow;x.lineWidth=10;x.lineCap='round';
+    x.beginPath();x.moveTo(mx0,my-30);x.lineTo(mx0,my+30);x.moveTo(mx0,my);x.lineTo(mx1,my);if(m>0.98){x.moveTo(mx1,my-30);x.lineTo(mx1,my+30)}x.stroke();
+    const lb=back(prog(p,0.62,0.74)); if(lb>0){x.save();x.translate((L+R)/2,my-90);x.scale(lb,lb);txt(P.label||'12 cm',0,0,120,K.yellow);x.restore()}}
+}
+
+function drawMesh(t,p,P){
+  // the door mesh as a tall metal strip with tiny holes; microwave on the left, viewer on the right
+  const MX=560, MW=56, T=430, B=1300, yc=760, lam=360;
+  rr(MX,T,MW,B-T,10,K.metal);
+  x.fillStyle='#1b2240';for(let gy=T+14;gy<B-8;gy+=22)for(let gx=MX+12;gx<MX+MW-6;gx+=18){x.beginPath();x.arc(gx,gy,4,0,7);x.fill()}
+  const hit=prog(p,0.28,0.4), flash=hit>0&&hit<1?1-hit:0;
+  if(flash){x.fillStyle=`rgba(255,71,87,${0.6*flash})`;x.fillRect(MX-10,T,MW+20,B-T)}
+  // incoming microwave (left), then reflected back
+  const g=ease(prog(p,0.02,0.3)), front=40+(MX-40)*g;
+  const inA=1-prog(p,0.34,0.44);
+  if(inA>0){x.globalAlpha=inA;wave(40,front,yc,130,lam,-t*6,K.red,18,30);x.globalAlpha=1}
+  const rb=ease(prog(p,0.34,0.6));
+  if(rb>0){wave(MX-(MX-40)*rb,MX-6,yc,130,lam,t*6,K.orange,18,30);
+    // bounce arrow pointing back left
+    const ay=yc-230;x.strokeStyle=K.orange;x.lineWidth=14;x.lineCap='round';x.beginPath();x.arc(MX-120,ay+60,90,-0.2,-Math.PI*0.95,true);x.stroke();
+    x.fillStyle=K.orange;x.beginPath();x.moveTo(MX-215,ay+40);x.lineTo(MX-245,ay+95);x.lineTo(MX-180,ay+90);x.closePath();x.fill()}
+  // a cross where the microwave would have come out
+  const cr=back(prog(p,0.4,0.5)); if(cr>0){x.save();x.translate(MX+230,yc);x.scale(cr,cr);x.strokeStyle=K.red;x.lineWidth=26;x.lineCap='round';
+    x.beginPath();x.moveTo(-60,-60);x.lineTo(60,60);x.moveTo(60,-60);x.lineTo(-60,60);x.stroke();x.restore()}
+  const lbl=prog(p,0.06,0.16); if(lbl>0){x.globalAlpha=lbl;txt(P.micro||'MICROWAVES',290,yc+200,64,K.red);x.globalAlpha=1}
+  // light: many tiny wiggles that pass straight through
+  const lg=prog(p,0.55,0.95);
+  if(lg>0){const ly=1080;
+    for(let k=0;k<3;k++){const y=ly+(k-1)*55, f=40+(1000-40)*ease(prog(lg,k*0.08,0.7+k*0.08));
+      wave(40,Math.min(f,MX-4),y,9,26,-t*14,K.yellow,7,14);
+      if(f>MX+MW)wave(MX+MW+4,f,y,9,26,-t*14,K.yellow,7,14)}
+    x.globalAlpha=prog(lg,0,0.2);txt(P.light||'LIGHT',290,ly+120,64,K.yellow);x.globalAlpha=1;
+    const ep=back(prog(lg,0.45,0.7)); if(ep>0)eye(900,ly-20,1.3*ep,1);
+    const tk=back(prog(lg,0.7,0.85)); if(tk>0){x.save();x.translate(900,ly-170);x.scale(tk,tk);x.strokeStyle=K.green;x.lineWidth=22;x.lineCap='round';
+      x.beginPath();x.moveTo(-40,0);x.lineTo(-10,30);x.lineTo(45,-35);x.stroke();x.restore()}}
+}
+
+window.draw=function(t,dur,P){
+  P=Object.assign({mode:'waves'},P||{});
+  const p=t/Math.max(dur,0.1);
+  x.setTransform(1,0,0,1,0,0);bg(t);
+  if(P.mode==='mesh')drawMesh(t,p,P);else drawWaves(t,p,P);
+};
+window.draw(0,6,{});
+</script></body></html>

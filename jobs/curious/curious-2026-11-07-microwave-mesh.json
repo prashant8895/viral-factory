@@ -1,0 +1,164 @@
+{
+  "id": "curious-2026-11-07-microwave-mesh",
+  "channel": "curious",
+  "languages": [
+    "en",
+    "hi"
+  ],
+  "publish": false,
+  "date": "2026-11-07",
+  "slot": "19:00",
+  "bucket": "seen-but-missed",
+  "hook_style": "question",
+  "seed": 3307,
+  "hook_text": {
+    "en": "WHY THIS *MESH*?",
+    "hi": "YE *JAALI* KYUN?"
+  },
+  "sources": [
+    "https://hyperphysics.gsu.edu/hbase/waves/mwoven.html",
+    "https://www.straightdope.com/21343269/what-keeps-microwave-radiation-from-leaking-out-the-oven-door",
+    "https://howeverythingworks.org/?p=811",
+    "https://mentalfloss.com/posts/mesh-grate-microwave-purpose",
+    "https://www.swinburne.edu.my/?p=4929"
+  ],
+  "scenes": [
+    {
+      "visual": "close-up photo of the glass door of a white microwave oven on an Indian kitchen counter, the black dotted metal mesh behind the glass filling most of the frame, a bowl of dal glowing in the warm light inside, slight low angle, sharp focus on the mesh",
+      "narration": {
+        "en": "Why does every microwave door have this black *mesh*?",
+        "hi": "Microwave ke darwaze pe ye kaali *jaali* kyun hoti hai?"
+      },
+      "motion": "push",
+      "sfx": "boom",
+      "overlays": []
+    },
+    {
+      "visual": "2D animation: side view of the oven, a red microwave bouncing wall to wall, one wavelength measured as 12 cm",
+      "narration": {
+        "en": "Inside, the oven is full of microwaves. Each wave is about *12 centimetres* long.",
+        "hi": "Oven ke andar microwaves bhari hoti hain. Aur har wave lagbhag *12 centimetre* lambi hoti hai."
+      },
+      "headline": {
+        "en": "*12 CM* WAVES",
+        "hi": "*12 CM* KI WAVE"
+      },
+      "motion": "push",
+      "sfx": "whoosh",
+      "overlays": [],
+      "anim": "anims/microwave-mesh.html",
+      "anim_params": {
+        "mode": "waves",
+        "label": "12 cm"
+      }
+    },
+    {
+      "visual": "extreme macro photo of a microwave oven door: a black metal sheet full of tiny round holes in a neat grid, seen straight on through the glass, warm yellow light from inside glowing through the holes",
+      "narration": {
+        "en": "Now look closer. That mesh is *metal*, full of holes just a millimetre or two wide.",
+        "hi": "Ab zara paas se dekho. Ye jaali *metal* ki hai, aur iske chhed sirf ek-do millimetre ke hain."
+      },
+      "headline": {
+        "en": "TINY *HOLES*",
+        "hi": "CHHOTE *CHHED*"
+      },
+      "motion": "push",
+      "sfx": "ding",
+      "overlays": []
+    },
+    {
+      "visual": "2D animation: a big red microwave hits the metal mesh and bounces back, tiny yellow light waves pass through to an eye",
+      "narration": {
+        "en": "A 12 centimetre wave can't squeeze through a 1 millimetre hole. So it *bounces back* and heats your food.",
+        "hi": "12 centimetre ki wave, 1 millimetre ke chhed se nikal hi nahi sakti. Toh wo *wapas uchhal* ke aapka khaana garam karti hai."
+      },
+      "headline": {
+        "en": "IT *BOUNCES* BACK",
+        "hi": "WAVE *WAPAS*"
+      },
+      "motion": "push",
+      "sfx": "boing",
+      "overlays": [],
+      "anim": "anims/microwave-mesh.html",
+      "anim_params": {
+        "mode": "mesh",
+        "micro": "MICROWAVES",
+        "light": "LIGHT"
+      }
+    },
+    {
+      "visual": "photo of a young Indian woman in a home kitchen bending down to look through the glowing microwave door at a bowl of food turning inside, side view, warm evening light",
+      "narration": {
+        "en": "But light waves are thousands of times smaller than the holes, so they slip right through. That's why you can *watch* your food while the microwaves stay in. It's called a *Faraday cage*.",
+        "hi": "Lekin light ki waves in chhedon se hazaaron guna chhoti hain, toh wo aaraam se bahar aa jaati hain. Isliye aap khaana *dekh* sakte ho, aur microwaves andar hi rehti hain. Isse kehte hain *Faraday cage*."
+      },
+      "headline": {
+        "en": "A *FARADAY* CAGE",
+        "hi": "*FARADAY* CAGE"
+      },
+      "motion": "pull",
+      "sfx": "sparkle",
+      "overlays": []
+    },
+    {
+      "visual": "2D animation: phone with a microwave thumbnail, send to a friend, comment NEXT",
+      "narration": {
+        "en": "Send this to the friend who stares at the microwave every time. And comment NEXT for one more everyday thing we never question.",
+        "hi": "Us dost ko bhejo jo har baar microwave ko ghoorta rehta hai. Aur aisi aur cheezein jaan-ni hain toh comment mein NEXT likho."
+      },
+      "headline": {
+        "en": "COMMENT *NEXT*",
+        "hi": "COMMENT MEIN *NEXT*"
+      },
+      "motion": "pull",
+      "sfx": "pop",
+      "overlays": [],
+      "anim": "anims/share-next.html",
+      "anim_params": {
+        "word": "NEXT",
+        "friend": "Rahul",
+        "thumb": "microwave"
+      }
+    }
+  ],
+  "youtube": {
+    "en": {
+      "title": "Why does every microwave door have this mesh? #shorts",
+      "description": "The holes are far smaller than the 12 cm microwaves, so the waves bounce back, but light gets through. AI visuals.\n\nSources: HyperPhysics (Georgia State Univ.), The Straight Dope, How Everything Works, Mental Floss\n#ohthatswhy #microwave #science #didyouknow #shorts",
+      "tags": [
+        "microwave",
+        "microwave door mesh",
+        "faraday cage",
+        "did you know",
+        "science facts"
+      ]
+    },
+    "hi": {
+      "title": "Microwave ke darwaze pe ye jaali kyun hoti hai? #shorts",
+      "description": "Chhed 12 cm ki microwaves se bahut chhote hain, toh waves wapas uchhal jaati hain, par light bahar aa jaati hai. AI visuals.\n\nSources: HyperPhysics (Georgia State Univ.), The Straight Dope, How Everything Works, Mental Floss\n#ohthatswhy #microwave #science #hindi #shorts",
+      "tags": [
+        "microwave",
+        "facts in hindi",
+        "faraday cage",
+        "science hindi",
+        "hinglish"
+      ]
+    }
+  },
+  "instagram": {
+    "en": {
+      "caption": "Why does every microwave door have this black mesh? 🤔\nSend this to the friend who stares at the microwave every time 👇\n\nOne everyday 'oh, that's why!' every day. Follow @ohthatswhy.english\n\nSources: HyperPhysics, The Straight Dope, Mental Floss\nAI visuals\n#ohthatswhy #microwave #science #didyouknow"
+    },
+    "hi": {
+      "caption": "Microwave ke darwaze pe ye jaali kyun hoti hai? 🤔\nUs dost ko tag karo jo har baar microwave ko ghoorta hai 👇\n\nRoz ek 'oh, that's why!' ke liye follow karo @ohthatswhy.hindii\n\nSources: HyperPhysics, The Straight Dope, Mental Floss\nAI visuals\n#ohthatswhy #microwave #science #hinglish"
+    }
+  },
+  "facebook": {
+    "en": {
+      "description": "Why does every microwave door have this black mesh? The answer is tiny holes and big waves. AI visuals."
+    },
+    "hi": {
+      "description": "Microwave ke darwaze pe ye jaali kyun hoti hai? Jawab: chhote chhed, badi waves. AI visuals."
+    }
+  }
+}

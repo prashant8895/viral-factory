@@ -3,7 +3,7 @@
 <canvas id="c" width="1080" height="1920"></canvas>
 <script>
 // Friendly ending: a phone, a "send" arrow flies to a friend's chat, then a comment bubble types the word.
-// params: {word: "NEXT", friend: "Rahul"}. Keeps the top fifth and the lower third calm.
+// params: {word: "NEXT", friend: "Rahul", thumb: "escalator"|"microwave"}. Keeps the top fifth and the lower third calm.
 const c=document.getElementById('c'),x=c.getContext('2d'),W=1080,H=1920;
 const clamp=(v,a=0,b=1)=>Math.max(a,Math.min(b,v)), prog=(t,a,b)=>clamp((t-a)/(b-a));
 const ease=t=>1-Math.pow(1-clamp(t),3);
@@ -31,9 +31,15 @@ window.draw=function(t,dur,P){
   rr(px+pw/2-60,py+18,120,22,11,'#0a0a12');
   // video thumbnail on the phone (an escalator brush, drawn simply)
   rr(px+30,py+70,pw-60,360,28,'#26314f');
+  if(P.thumb==='microwave'){ // a microwave with its mesh door
+    rr(px+55,py+150,pw-110,220,18,'#d7dbe4');rr(px+75,py+170,220,180,10,'#14161f');
+    x.fillStyle='#3a3f52';for(let gy=py+180;gy<py+345;gy+=12)for(let gx=px+85;gx<px+290;gx+=12){x.beginPath();x.arc(gx,gy,3,0,7);x.fill()}
+    rr(px+305,py+180,30,160,6,'#8d95ab');x.fillStyle='#2ed573';x.fillRect(px+310,py+190,20,14);
+  }else{
   x.fillStyle='#8d95ab';x.fillRect(px+30,py+300,pw-60,130);
   x.strokeStyle='#5c6378';x.lineWidth=8;for(let k=0;k<6;k++){x.beginPath();x.moveTo(px+40,py+318+k*20);x.lineTo(px+pw-40,py+318+k*20);x.stroke()}
   x.strokeStyle='#15151a';x.lineWidth=7;for(let k=0;k<30;k++){x.beginPath();x.moveTo(px+50+k*11,py+300);x.lineTo(px+44+k*11,py+262);x.stroke()}
+  }
   // share button on the phone, pulses before it is "tapped"
   const tap=prog(p,0.18,0.3), pulse=1+0.08*Math.sin(t*10)*(1-tap);
   x.save();x.translate(px+pw/2,py+520);x.scale(pulse*(1-0.15*Math.sin(Math.PI*tap)),pulse*(1-0.15*Math.sin(Math.PI*tap)));

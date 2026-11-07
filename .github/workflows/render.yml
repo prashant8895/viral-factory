@@ -35,7 +35,7 @@ jobs:
       IMAGE_EDIT_MODEL: ${{ vars.IMAGE_EDIT_MODEL }}
       GH_TOKEN: ${{ github.token }}
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
         with:
           fetch-depth: 2
 
@@ -55,7 +55,7 @@ jobs:
           echo "files=$files" >> "$GITHUB_OUTPUT"
           [ -n "$files" ] || echo "Nothing to render."
 
-      - uses: actions/setup-python@v5
+      - uses: actions/setup-python@v6
         with:
           python-version: "3.12"
           cache: pip

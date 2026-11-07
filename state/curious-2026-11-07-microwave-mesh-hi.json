@@ -19,8 +19,8 @@
     }
   },
   "errors": {
-    "instagram": "RuntimeError: Instagram container refused (400): {\"error\":{\"message\":\"Any of the pages_read_engagement, pages_manage_metadata,\\n        pages_read_user_content, pages_manage_ads, pages_show_list or\\n        pages_messaging permission(s) must be granted before impersonating a\\n        user's page.\",\"type\":\"OAuthException\",\"code\":190,\"fbtrace_id\":\"AwLsNkdqYGrvnIqZdZ8mrS3\"}}",
-    "instagram_story": "RuntimeError: Instagram container refused (400): {\"error\":{\"message\":\"Any of the pages_read_engagement, pages_manage_metadata,\\n        pages_read_user_content, pages_manage_ads, pages_show_list or\\n        pages_messaging permission(s) must be granted before impersonating a\\n        user's page.\",\"type\":\"OAuthException\",\"code\":190,\"fbtrace_id\":\"AA83kgtWeAAG8r68z_-DIqK\"}}",
+    "instagram": "RuntimeError: Instagram container refused (400): {\"error\":{\"message\":\"Any of the pages_read_engagement, pages_manage_metadata,\\n        pages_read_user_content, pages_manage_ads, pages_show_list or\\n        pages_messaging permission(s) must be granted before impersonating a\\n        user's page.\",\"type\":\"OAuthException\",\"code\":190,\"fbtrace_id\":\"AxZv4DMJkBggA548XuTm4Aw\"}}",
+    "instagram_story": "RuntimeError: Instagram container refused (400): {\"error\":{\"message\":\"Any of the pages_read_engagement, pages_manage_metadata,\\n        pages_read_user_content, pages_manage_ads, pages_show_list or\\n        pages_messaging permission(s) must be granted before impersonating a\\n        user's page.\",\"type\":\"OAuthException\",\"code\":190,\"fbtrace_id\":\"AWuktArAD90z6J3wV7BHF-R\"}}",
     "facebook": "HTTPError: 400 Client Error: Bad Request for url: https://graph.facebook.com/v24.0/1331668576707152/video_reels"
   }
 }

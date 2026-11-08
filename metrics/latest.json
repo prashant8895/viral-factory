@@ -1,6 +1,6 @@
 [
   {
-    "checked": "2026-11-08T00:30+05:30",
+    "checked": "2026-11-08T12:13+05:30",
     "channel": "curious-en",
     "id": "curious-2026-11-06-escalator-brush-en",
     "bucket": "seen-but-missed",
@@ -8,14 +8,14 @@
     "hook_style": null,
     "slot": "19:00",
     "platform": "youtube",
-    "hours_live": 32.0,
-    "views": 198,
-    "likes": 0,
-    "comments": 0,
+    "hours_live": 43.7,
+    "views": 1052,
+    "likes": 7,
+    "comments": 1,
     "privacy": "public"
   },
   {
-    "checked": "2026-11-08T00:30+05:30",
+    "checked": "2026-11-08T12:13+05:30",
     "channel": "curious-en",
     "id": "curious-2026-11-06-escalator-brush-en",
     "bucket": "seen-but-missed",
@@ -23,17 +23,17 @@
     "hook_style": null,
     "slot": "19:00",
     "platform": "instagram",
-    "hours_live": 32.0,
+    "hours_live": 43.7,
     "likes": 14,
     "comments": 0,
-    "views": 2127,
+    "views": 2128,
     "reach": 1917,
     "shares": 8,
     "saved": 0,
-    "ig_reels_avg_watch_time": 17969
+    "ig_reels_avg_watch_time": 17961
   },
   {
-    "checked": "2026-11-08T00:30+05:30",
+    "checked": "2026-11-08T12:13+05:30",
     "channel": "curious-en",
     "id": "curious-2026-11-06-escalator-brush-en",
     "bucket": "seen-but-missed",
@@ -41,10 +41,10 @@
     "hook_style": null,
     "slot": "19:00",
     "platform": "facebook",
-    "hours_live": 32.0
+    "hours_live": 43.7
   },
   {
-    "checked": "2026-11-08T00:30+05:30",
+    "checked": "2026-11-08T12:13+05:30",
     "channel": "curious-hi",
     "id": "curious-2026-11-06-escalator-brush-hi",
     "bucket": "seen-but-missed",
@@ -52,14 +52,14 @@
     "hook_style": null,
     "slot": "19:00",
     "platform": "youtube",
-    "hours_live": 32.0,
-    "views": 1,
+    "hours_live": 43.7,
+    "views": 0,
     "likes": 0,
     "comments": 0,
     "privacy": "public"
   },
   {
-    "checked": "2026-11-08T00:30+05:30",
+    "checked": "2026-11-08T12:13+05:30",
     "channel": "curious-hi",
     "id": "curious-2026-11-06-escalator-brush-hi",
     "bucket": "seen-but-missed",
@@ -67,10 +67,10 @@
     "hook_style": null,
     "slot": "19:00",
     "platform": "facebook",
-    "hours_live": 31.9
+    "hours_live": 43.7
   },
   {
-    "checked": "2026-11-08T00:30+05:30",
+    "checked": "2026-11-08T12:13+05:30",
     "channel": "curious-hi",
     "id": "curious-2026-11-06-escalator-brush-hi",
     "bucket": "seen-but-missed",
@@ -78,17 +78,17 @@
     "hook_style": null,
     "slot": "19:00",
     "platform": "instagram",
-    "hours_live": 31.9,
+    "hours_live": 43.6,
     "likes": 1,
     "comments": 0,
     "views": 175,
     "reach": 151,
     "shares": 2,
     "saved": 0,
-    "ig_reels_avg_watch_time": 16779
+    "ig_reels_avg_watch_time": 16603
   },
   {
-    "checked": "2026-11-08T00:30+05:30",
+    "checked": "2026-11-08T12:13+05:30",
     "channel": "curious-en",
     "id": "curious-2026-11-07-microwave-mesh-en",
     "bucket": "seen-but-missed",
@@ -96,14 +96,14 @@
     "hook_style": "question",
     "slot": "19:00",
     "platform": "youtube",
-    "hours_live": 3.6,
-    "views": 132,
-    "likes": 9,
+    "hours_live": 15.4,
+    "views": 1166,
+    "likes": 28,
     "comments": 0,
     "privacy": "public"
   },
   {
-    "checked": "2026-11-08T00:30+05:30",
+    "checked": "2026-11-08T12:13+05:30",
     "channel": "curious-en",
     "id": "curious-2026-11-07-microwave-mesh-en",
     "bucket": "seen-but-missed",
@@ -111,17 +111,17 @@
     "hook_style": "question",
     "slot": "19:00",
     "platform": "instagram",
-    "hours_live": 0.1,
-    "likes": 0,
+    "hours_live": 11.8,
+    "likes": 8,
     "comments": 0,
-    "views": 0,
-    "reach": 0,
-    "shares": 0,
+    "views": 599,
+    "reach": 548,
+    "shares": 1,
     "saved": 0,
-    "ig_reels_avg_watch_time": 0
+    "ig_reels_avg_watch_time": 11734
   },
   {
-    "checked": "2026-11-08T00:30+05:30",
+    "checked": "2026-11-08T12:13+05:30",
     "channel": "curious-en",
     "id": "curious-2026-11-07-microwave-mesh-en",
     "bucket": "seen-but-missed",
@@ -129,10 +129,10 @@
     "hook_style": "question",
     "slot": "19:00",
     "platform": "facebook",
-    "hours_live": 0.1
+    "hours_live": 11.8
   },
   {
-    "checked": "2026-11-08T00:30+05:30",
+    "checked": "2026-11-08T12:13+05:30",
     "channel": "curious-hi",
     "id": "curious-2026-11-07-microwave-mesh-hi",
     "bucket": "seen-but-missed",
@@ -140,14 +140,14 @@
     "hook_style": "question",
     "slot": "19:00",
     "platform": "youtube",
-    "hours_live": 3.6,
+    "hours_live": 15.4,
     "views": 0,
     "likes": 0,
     "comments": 0,
     "privacy": "public"
   },
   {
-    "checked": "2026-11-08T00:30+05:30",
+    "checked": "2026-11-08T12:13+05:30",
     "channel": "curious-hi",
     "id": "curious-2026-11-07-microwave-mesh-hi",
     "bucket": "seen-but-missed",
@@ -155,17 +155,12 @@
     "hook_style": "question",
     "slot": "19:00",
     "platform": "instagram",
-    "hours_live": 0.1,
+    "hours_live": 11.8,
     "likes": 0,
-    "comments": 0,
-    "views": 0,
-    "reach": 0,
-    "shares": 0,
-    "saved": 0,
-    "ig_reels_avg_watch_time": 0
+    "comments": 0
   },
   {
-    "checked": "2026-11-08T00:30+05:30",
+    "checked": "2026-11-08T12:13+05:30",
     "channel": "curious-hi",
     "id": "curious-2026-11-07-microwave-mesh-hi",
     "bucket": "seen-but-missed",
@@ -173,6 +168,6 @@
     "hook_style": "question",
     "slot": "19:00",
     "platform": "facebook",
-    "hours_live": 0.1
+    "hours_live": 11.8
   }
 ]

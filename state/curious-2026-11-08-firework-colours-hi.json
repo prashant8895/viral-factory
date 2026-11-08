@@ -26,9 +26,12 @@
       "id": "2215341499417640",
       "url": "https://www.facebook.com/reel/2215341499417640",
       "posted_at": "2026-11-08T18:56+05:30"
+    },
+    "instagram_story": {
+      "id": "18387750724233057",
+      "url": "https://www.instagram.com/stories/ohthatswhy.hindii/4025910547522475767",
+      "posted_at": "2026-11-08T19:23+05:30"
     }
   },
-  "errors": {
-    "instagram_story": "RuntimeError: Instagram upload refused (400): {\"debug_info\":{\"retriable\":false,\"type\":\"ProcessingFailedError\",\"message\":\"Request processing failed\"}}"
-  }
+  "errors": {}
 }

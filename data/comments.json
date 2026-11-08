@@ -1,5 +1,5 @@
 {
-  "updated": "2026-11-08T18:57+05:30",
+  "updated": "2026-11-08T19:51+05:30",
   "errors": {
     "curious-hi/instagram": "400 Client Error: Bad Request for url: https://graph.facebook.com/v24.0/18393283948224566/comments?fields=id%2Ctext%2Cusername%2Ctimestamp%2Clike_count%2Creplies%7Busername%2Cfrom%7D&access_token=REDACTED"
   },
@@ -10,13 +10,13 @@
       "text": "Is AI",
       "time": "2026-11-08T03:06:07Z",
       "likes": 0,
-      "has_our_reply": false,
+      "has_our_reply": true,
       "platform": "youtube",
       "channel": "curious-en",
       "video": "curious-2026-11-06-escalator-brush-en",
       "hook": "IT'S *NOT* A SHOE CLEANER!",
       "post_id": "Nq0c6O4KE-o",
-      "replied": false
+      "replied": true
     }
   ]
 }

@@ -9,5 +9,26 @@
   "hook_text": "IT'S *NOT* DYE!",
   "hook_style": "myth",
   "release": "job-curious-2026-11-08-firework-colours-en",
-  "duration": 40.34
+  "duration": 40.34,
+  "platforms": {
+    "youtube": {
+      "id": "lMB923eNsOw",
+      "url": "https://youtube.com/shorts/lMB923eNsOw",
+      "privacy": "public",
+      "posted_at": "2026-11-08T18:53+05:30"
+    },
+    "instagram": {
+      "id": "18034629629884902",
+      "url": "https://www.instagram.com/reel/Dfe2wxyhre-/",
+      "posted_at": "2026-11-08T18:54+05:30"
+    },
+    "facebook": {
+      "id": "1139443215240562",
+      "url": "https://www.facebook.com/reel/1139443215240562",
+      "posted_at": "2026-11-08T18:54+05:30"
+    }
+  },
+  "errors": {
+    "instagram_story": "RuntimeError: Instagram upload refused (400): {\"debug_info\":{\"retriable\":false,\"type\":\"ProcessingFailedError\",\"message\":\"Request processing failed\"}}"
+  }
 }

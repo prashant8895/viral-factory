@@ -9,5 +9,26 @@
   "hook_text": "PAINT *NAHI* HAI!",
   "hook_style": "myth",
   "release": "job-curious-2026-11-08-firework-colours-hi",
-  "duration": 40.62
+  "duration": 40.62,
+  "platforms": {
+    "youtube": {
+      "id": "xYfJElcDlZo",
+      "url": "https://youtube.com/shorts/xYfJElcDlZo",
+      "privacy": "public",
+      "posted_at": "2026-11-08T18:54+05:30"
+    },
+    "instagram": {
+      "id": "18021820052947163",
+      "url": "https://www.instagram.com/reel/Dfe252PAWN-/",
+      "posted_at": "2026-11-08T18:55+05:30"
+    },
+    "facebook": {
+      "id": "2215341499417640",
+      "url": "https://www.facebook.com/reel/2215341499417640",
+      "posted_at": "2026-11-08T18:56+05:30"
+    }
+  },
+  "errors": {
+    "instagram_story": "RuntimeError: Instagram upload refused (400): {\"debug_info\":{\"retriable\":false,\"type\":\"ProcessingFailedError\",\"message\":\"Request processing failed\"}}"
+  }
 }

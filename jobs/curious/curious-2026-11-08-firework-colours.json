@@ -5,7 +5,7 @@
     "en",
     "hi"
   ],
-  "publish": false,
+  "publish": true,
   "date": "2026-11-08",
   "slot": "19:00",
   "bucket": "why does it happen",
@@ -29,7 +29,19 @@
       },
       "motion": "push",
       "sfx": "boom",
-      "overlays": []
+      "overlays": [
+        {
+          "type": "ring",
+          "x": 0.38,
+          "y": 0.46,
+          "r": 0.13,
+          "on": {
+            "en": "metal",
+            "hi": "metal"
+          }
+        }
+      ],
+      "image": "jobs/curious/pics/curious-2026-11-08-firework-colours/s1.jpg"
     },
     {
       "visual": "2D animation: a metal atom over a flame, the electron jumps to an outer ring, drops back and shoots out red light, then green",
@@ -80,7 +92,19 @@
       },
       "motion": "push",
       "sfx": "ding",
-      "overlays": []
+      "overlays": [
+        {
+          "type": "ring",
+          "x": 0.49,
+          "y": 0.5,
+          "r": 0.1,
+          "on": {
+            "en": "red",
+            "hi": "laal"
+          }
+        }
+      ],
+      "image": "jobs/curious/pics/curious-2026-11-08-firework-colours/s3.jpg"
     },
     {
       "visual": "2D animation: four firework bursts appear one by one with element tiles Sr red, Na yellow, Ba green, Cu blue",
@@ -132,7 +156,19 @@
       },
       "motion": "pull",
       "sfx": "riser",
-      "overlays": []
+      "overlays": [
+        {
+          "type": "ring",
+          "x": 0.5,
+          "y": 0.53,
+          "r": 0.28,
+          "on": {
+            "en": "hardest",
+            "hi": "mushkil"
+          }
+        }
+      ],
+      "image": "jobs/curious/pics/curious-2026-11-08-firework-colours/s5.jpg"
     },
     {
       "visual": "photo of a young Indian couple in festive clothes on a rooftop terrace at night, seen from behind, looking up at red and green fireworks in the sky, rows of diyas on the terrace ledge, warm glow",
@@ -146,7 +182,29 @@
       },
       "motion": "drift_right",
       "sfx": "sparkle",
-      "overlays": []
+      "overlays": [
+        {
+          "type": "arrow",
+          "x": 0.4,
+          "y": 0.4,
+          "dir": "down",
+          "on": {
+            "en": "strontium",
+            "hi": "strontium"
+          }
+        },
+        {
+          "type": "arrow",
+          "x": 0.47,
+          "y": 0.36,
+          "dir": "down",
+          "on": {
+            "en": "barium",
+            "hi": "barium"
+          }
+        }
+      ],
+      "image": "jobs/curious/pics/curious-2026-11-08-firework-colours/s6.jpg"
     },
     {
       "visual": "2D animation: phone with a fireworks thumbnail, send to a friend, comment NEXT",

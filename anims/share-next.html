@@ -35,6 +35,10 @@ window.draw=function(t,dur,P){
     rr(px+55,py+150,pw-110,220,18,'#d7dbe4');rr(px+75,py+170,220,180,10,'#14161f');
     x.fillStyle='#3a3f52';for(let gy=py+180;gy<py+345;gy+=12)for(let gx=px+85;gx<px+290;gx+=12){x.beginPath();x.arc(gx,gy,3,0,7);x.fill()}
     rr(px+305,py+180,30,160,6,'#8d95ab');x.fillStyle='#2ed573';x.fillRect(px+310,py+190,20,14);
+  }else if(P.thumb==='fireworks'){ // night sky with a red, a green and a blue burst
+    rr(px+30,py+70,pw-60,360,28,'#0b1026');
+    [[px+130,py+180,'#ff3b4e'],[px+270,py+230,'#2ee86a'],[px+180,py+340,'#3a8bff']].forEach(([bx,by,bc])=>{x.strokeStyle=bc;x.lineWidth=6;x.lineCap='round';
+      for(let k=0;k<12;k++){const a=k/12*6.283;x.beginPath();x.moveTo(bx+Math.cos(a)*14,by+Math.sin(a)*14);x.lineTo(bx+Math.cos(a)*62,by+Math.sin(a)*62);x.stroke()}});
   }else{
   x.fillStyle='#8d95ab';x.fillRect(px+30,py+300,pw-60,130);
   x.strokeStyle='#5c6378';x.lineWidth=8;for(let k=0;k<6;k++){x.beginPath();x.moveTo(px+40,py+318+k*20);x.lineTo(px+pw-40,py+318+k*20);x.stroke()}

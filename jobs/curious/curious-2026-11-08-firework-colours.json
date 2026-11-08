@@ -1,0 +1,212 @@
+{
+  "id": "curious-2026-11-08-firework-colours",
+  "channel": "curious",
+  "languages": [
+    "en",
+    "hi"
+  ],
+  "publish": false,
+  "date": "2026-11-08",
+  "slot": "19:00",
+  "bucket": "why does it happen",
+  "hook_style": "myth",
+  "seed": 3408,
+  "hook_text": {
+    "en": "IT'S *NOT* DYE!",
+    "hi": "PAINT *NAHI* HAI!"
+  },
+  "sources": [
+    "https://theconversation.com/red-white-but-rarely-blue-the-science-of-fireworks-colors-explained-119284",
+    "https://www.pbs.org/wgbh/nova/article/fireworks-chemistry-colors",
+    "https://www.scienceabc.com/eyeopeners/why-are-blue-fireworks-rare"
+  ],
+  "scenes": [
+    {
+      "visual": "photo of a night sky over Indian city rooftops on Diwali, one huge bright red firework burst and one green firework burst high in the sky, small oil lamps glowing along a terrace wall at the bottom of the frame, wide angle from the terrace, the bursts in the middle of the frame",
+      "narration": {
+        "en": "Firework colours are *not* dye. You're watching hot *metal* glow.",
+        "hi": "Patakhon ka rang dye *nahi* hai. Aap garam *metal* ko chamakte dekh rahe ho."
+      },
+      "motion": "push",
+      "sfx": "boom",
+      "overlays": []
+    },
+    {
+      "visual": "2D animation: a metal atom over a flame, the electron jumps to an outer ring, drops back and shoots out red light, then green",
+      "narration": {
+        "en": "The heat kicks tiny *electrons* up a level. When they drop back, they give off light of one exact *colour*.",
+        "hi": "Garmi se metal ke chhote *electrons* upar jump karte hain. Jab wo wapas girte hain, toh ek fixed *rang* ki light nikalti hai."
+      },
+      "headline": {
+        "en": "ELECTRONS *JUMP*",
+        "hi": "ELECTRON KA *JUMP*"
+      },
+      "motion": "push",
+      "sfx": "whoosh",
+      "overlays": [],
+      "anim": "anims/firework-colors.html",
+      "anim_params": {
+        "mode": "electron",
+        "colors": [
+          "red",
+          "green"
+        ],
+        "atom": "METAL",
+        "heat": {
+          "en": "HEAT",
+          "hi": "GARMI"
+        },
+        "label": {
+          "en": [
+            "RED",
+            "GREEN"
+          ],
+          "hi": [
+            "LAAL",
+            "HARA"
+          ]
+        }
+      }
+    },
+    {
+      "visual": "photo of a school chemistry lab bench, a thin metal wire loop held in the flame of a small Bunsen burner, the flame burning bright crimson red, dark background, side view, sharp focus on the red flame",
+      "narration": {
+        "en": "Every metal has its *own* colour. Put strontium in a flame and it turns bright *red*.",
+        "hi": "Har metal ka apna *alag* rang hota hai. Strontium ko aag mein daalo, toh flame ekdum *laal* ho jaati hai."
+      },
+      "headline": {
+        "en": "ONE METAL, ONE *COLOUR*",
+        "hi": "HAR METAL KA *RANG*"
+      },
+      "motion": "push",
+      "sfx": "ding",
+      "overlays": []
+    },
+    {
+      "visual": "2D animation: four firework bursts appear one by one with element tiles Sr red, Na yellow, Ba green, Cu blue",
+      "narration": {
+        "en": "Sodium gives *yellow*, barium gives *green*, and copper gives *blue*.",
+        "hi": "Sodium se *peela*, barium se *hara*, aur copper se *neela*."
+      },
+      "headline": {
+        "en": "THE COLOUR *RECIPE*",
+        "hi": "RANG KI *RECIPE*"
+      },
+      "motion": "push",
+      "sfx": "sparkle",
+      "overlays": [],
+      "anim": "anims/firework-colors.html",
+      "anim_params": {
+        "mode": "metals",
+        "words": {
+          "en": [
+            "RED",
+            "YELLOW",
+            "GREEN",
+            "BLUE"
+          ],
+          "hi": [
+            "LAAL",
+            "PEELA",
+            "HARA",
+            "NEELA"
+          ]
+        },
+        "starts": [
+          0.0,
+          0.12,
+          0.4,
+          0.68
+        ]
+      }
+    },
+    {
+      "visual": "photo of a single deep blue firework burst against a dark night sky above a silhouetted city skyline, its outer sparks fading to white, wide shot, the burst in the middle of the frame",
+      "narration": {
+        "en": "Blue is the *hardest*. If the flame gets too hot, the copper compound breaks apart and the blue fades to *white*.",
+        "hi": "Neela sabse *mushkil* hai. Flame zyada garam ho jaaye, toh copper wala compound toot jaata hai aur neela rang *safed* pad jaata hai."
+      },
+      "headline": {
+        "en": "BLUE IS *RARE*",
+        "hi": "NEELA SABSE *MUSHKIL*"
+      },
+      "motion": "pull",
+      "sfx": "riser",
+      "overlays": []
+    },
+    {
+      "visual": "photo of a young Indian couple in festive clothes on a rooftop terrace at night, seen from behind, looking up at red and green fireworks in the sky, rows of diyas on the terrace ledge, warm glow",
+      "narration": {
+        "en": "So this Diwali, when the sky turns red and green, you're watching *strontium* and *barium* light up.",
+        "hi": "Toh is Diwali jab aasmaan laal aur hara ho, samajh lena ye *strontium* aur *barium* chamak rahe hain."
+      },
+      "headline": {
+        "en": "LOOK *UP*",
+        "hi": "UPAR *DEKHO*"
+      },
+      "motion": "drift_right",
+      "sfx": "sparkle",
+      "overlays": []
+    },
+    {
+      "visual": "2D animation: phone with a fireworks thumbnail, send to a friend, comment NEXT",
+      "narration": {
+        "en": "Send this to the friend who thinks it's paint. And comment NEXT for one more everyday thing we never question.",
+        "hi": "Us dost ko bhejo jo sochta hai ye paint hai. Aur aisi aur cheezein jaan-ni hain toh comment mein NEXT likho."
+      },
+      "headline": {
+        "en": "COMMENT *NEXT*",
+        "hi": "COMMENT MEIN *NEXT*"
+      },
+      "motion": "pull",
+      "sfx": "pop",
+      "overlays": [],
+      "anim": "anims/share-next.html",
+      "anim_params": {
+        "word": "NEXT",
+        "friend": "Rahul",
+        "thumb": "fireworks"
+      }
+    }
+  ],
+  "youtube": {
+    "en": {
+      "title": "Firework colours are NOT dye. It's glowing metal #shorts",
+      "description": "Strontium = red, sodium = yellow, barium = green, copper = blue. Heat kicks electrons up; when they drop back they give off one exact colour. AI visuals.\n\nSources: The Conversation, PBS NOVA, ScienceABC\n#ohthatswhy #fireworks #diwali #science #shorts",
+      "tags": [
+        "fireworks",
+        "firework colours",
+        "diwali",
+        "chemistry",
+        "did you know"
+      ]
+    },
+    "hi": {
+      "title": "Patakhon ka rang paint NAHI, ye metal hai! #shorts",
+      "description": "Strontium se laal, sodium se peela, barium se hara, copper se neela. Garmi se electrons upar jaate hain, wapas girte hi ek fixed rang ki light nikalti hai. AI visuals.\n\nSources: The Conversation, PBS NOVA, ScienceABC\n#ohthatswhy #diwali #fireworks #science #shorts",
+      "tags": [
+        "patakhe",
+        "diwali",
+        "fireworks",
+        "science in hindi",
+        "hinglish"
+      ]
+    }
+  },
+  "instagram": {
+    "en": {
+      "caption": "Ever wondered where firework colours come from? 🎆\nSend this to the friend who thinks it's paint 👇\n\nOne everyday 'oh, that's why!' every day. Follow @ohthatswhy.english\n\nSources: The Conversation, PBS NOVA, ScienceABC\nAI visuals\n#ohthatswhy #fireworks #diwali #science"
+    },
+    "hi": {
+      "caption": "Patakhon mein rang aata kahan se hai? 🎆\nUs dost ko tag karo jo sochta hai ye paint hai 👇\n\nRoz ek 'oh, that's why!' ke liye follow karo @ohthatswhy.hindii\n\nSources: The Conversation, PBS NOVA, ScienceABC\nAI visuals\n#ohthatswhy #diwali #fireworks #science"
+    }
+  },
+  "facebook": {
+    "en": {
+      "description": "Firework colours are NOT dye. It's hot metal glowing: strontium red, barium green, copper blue. AI visuals."
+    },
+    "hi": {
+      "description": "Patakhon ka rang paint NAHI hai! Strontium laal, barium hara, copper neela. AI visuals."
+    }
+  }
+}

@@ -1,0 +1,97 @@
+<!doctype html><html><head><meta charset="utf-8">
+<style>html,body{margin:0;background:#0b1026}canvas{display:block}</style></head><body>
+<canvas id="c" width="1080" height="1920"></canvas>
+<script>
+// Firework colour chemistry, two modes (params.mode):
+//  "electron": an atom over a flame; heat kicks the electron to an outer ring, it drops back and
+//              shoots out a wave of one exact colour (params.colors, params.heat, params.label).
+//  "metals":   four bursts appear one by one: Sr red, Na yellow, Ba green, Cu blue
+//              (params.words = colour words in the scene's language).
+// Keeps the top fifth (0-384) and the caption band (1344-1632) empty.
+const c=document.getElementById('c'),x=c.getContext('2d'),W=1080,H=1920;
+const K={red:'#ff3b4e',yellow:'#ffd23f',green:'#2ee86a',blue:'#3a8bff',orange:'#ff9f43',white:'#ffffff'};
+const clamp=(v,a=0,b=1)=>Math.max(a,Math.min(b,v)), prog=(t,a,b)=>clamp((t-a)/(b-a));
+const ease=t=>1-Math.pow(1-clamp(t),3), back=t=>{t=clamp(t);const s=1.7;return 1+(s+1)*Math.pow(t-1,3)+s*Math.pow(t-1,2)};
+function txt(s,px,py,size,col,al){x.font=`700 ${size}px Anton, Impact, sans-serif`;x.textAlign=al||'center';x.textBaseline='middle';
+  x.lineWidth=size*0.16;x.lineJoin='round';x.strokeStyle='rgba(0,0,0,.75)';x.strokeText(s,px,py);x.fillStyle=col;x.fillText(s,px,py)}
+function bg(t){const g=x.createLinearGradient(0,0,0,H);g.addColorStop(0,'#0b1026');g.addColorStop(1,'#1a0f33');x.fillStyle=g;x.fillRect(0,0,W,H);
+  for(let i=0;i<40;i++){const s=Math.sin(i*63.1)*43758.5,r=s-Math.floor(s);const tw=0.5+0.5*Math.sin(t*2+i);
+    x.fillStyle=`rgba(255,255,255,${0.05+0.08*tw})`;x.beginPath();x.arc(r*W,((r*7919)%1)*H,2+3*r,0,7);x.fill()}}
+function glowDot(px,py,r,col,blur){x.save();x.shadowColor=col;x.shadowBlur=blur||30;x.fillStyle=col;x.beginPath();x.arc(px,py,r,0,7);x.fill();x.restore()}
+function flame(cx,cy,s,t,a){x.save();x.globalAlpha=a;x.translate(cx,cy);x.scale(s,s);
+  const f=1+0.06*Math.sin(t*18);
+  [['#ff5a1f',1],['#ffb03b',0.7],['#fff2b0',0.38]].forEach(([col,k])=>{x.fillStyle=col;x.beginPath();
+    x.moveTo(-90*k,0);x.quadraticCurveTo(-100*k,-120*k*f,0,-240*k*f);x.quadraticCurveTo(100*k,-120*k*f,90*k,0);
+    x.quadraticCurveTo(0,50*k,-90*k,0);x.fill()});x.restore()}
+function waveOut(x0,y0,ang,len,col,t){ // a wiggly light wave travelling outwards
+  x.save();x.translate(x0,y0);x.rotate(ang);x.strokeStyle=col;x.lineWidth=12;x.lineCap='round';x.shadowColor=col;x.shadowBlur=26;
+  x.beginPath();for(let d=0;d<=len;d+=4){const y=22*Math.sin(d/38*2*Math.PI-t*10);d?x.lineTo(d,y):x.moveTo(d,y)}x.stroke();
+  if(len>40){x.fillStyle=col;x.beginPath();x.moveTo(len+30,0);x.lineTo(len-10,-26);x.lineTo(len-10,26);x.closePath();x.fill()}
+  x.restore()}
+
+function drawElectron(t,p,P){
+  const cx=540, cy=820, r1=170, r2=320;
+  const cols=(P.colors||['red','green']).map(k=>K[k]||k);
+  const a=ease(prog(p,0,0.08));
+  x.globalAlpha=a;
+  // rings and nucleus
+  x.setLineDash([18,16]);x.lineWidth=6;x.strokeStyle='rgba(255,255,255,.35)';
+  x.beginPath();x.arc(cx,cy,r1,0,7);x.stroke();x.beginPath();x.arc(cx,cy,r2,0,7);x.stroke();x.setLineDash([]);
+  glowDot(cx,cy,92,'#ff9f43',40);x.font='700 46px Anton, Impact, sans-serif';x.textAlign='center';x.textBaseline='middle';x.fillStyle='#2a1200';x.fillText(P.atom||'METAL',cx,cy+3);
+  x.globalAlpha=1;
+  // flame below gives the heat
+  const fa=ease(prog(p,0.04,0.14));
+  flame(cx,1300,0.62,t,fa);
+  if(fa>0){x.globalAlpha=fa;txt(P.heat||'HEAT',cx+250,1210,70,K.orange);x.globalAlpha=1}
+  // two jump cycles: up (0.14-0.30) / down + wave (0.30-0.55), up (0.55-0.68) / down + wave (0.68-0.95)
+  const cyc=[[0.14,0.30,0.55],[0.55,0.68,0.95]];
+  let rad=r1, ang=-Math.PI/2+t*1.6;
+  cyc.forEach(([u0,u1,d1],i)=>{
+    const up=ease(prog(p,u0,u1)), dn=ease(prog(p,u1,u1+0.07));
+    if(p>=u0&&p<d1){rad=r1+(r2-r1)*up*(1-dn)}
+    // upward kick arrow
+    if(p>u0&&p<u1){x.globalAlpha=Math.sin(Math.PI*prog(p,u0,u1));x.strokeStyle=K.yellow;x.lineWidth=14;x.lineCap='round';
+      x.beginPath();x.moveTo(cx+220,cy+80);x.lineTo(cx+220,cy-120);x.stroke();
+      x.fillStyle=K.yellow;x.beginPath();x.moveTo(cx+190,cy-110);x.lineTo(cx+220,cy-160);x.lineTo(cx+250,cy-110);x.closePath();x.fill();x.globalAlpha=1}
+    // emitted light of one colour
+    const w=prog(p,u1+0.05,d1);
+    if(w>0&&w<1){const ex=cx+Math.cos(ang)*r1, ey=cy+Math.sin(ang)*r1;
+      x.globalAlpha=1-prog(w,0.75,1);waveOut(ex,ey,ang,40+190*ease(w),cols[i%cols.length],t);x.globalAlpha=1}
+    // colour word flash
+    if(P.label&&w>0.15&&w<1){const s=back(prog(w,0.15,0.35));x.save();x.translate(cx,470);x.scale(s,s);
+      x.globalAlpha=1-prog(w,0.85,1);txt((Array.isArray(P.label)?P.label[i]:P.label)||'',0,0,96,cols[i%cols.length]);x.restore();x.globalAlpha=1}
+  });
+  // the electron itself
+  if(a>0){const ex=cx+Math.cos(ang)*rad, ey=cy+Math.sin(ang)*rad;glowDot(ex,ey,30,'#7fd3ff',34);
+    x.fillStyle='#fff';x.font='700 40px Anton, Impact, sans-serif';x.textAlign='center';x.textBaseline='middle';x.fillText('–',ex,ey-2)}
+}
+
+function burst(cx,cy,R,col,t,k){ // a firework burst: rays + sparks
+  x.save();x.translate(cx,cy);x.shadowColor=col;x.shadowBlur=24;x.strokeStyle=col;x.lineCap='round';
+  for(let i=0;i<16;i++){const a=i/16*2*Math.PI+0.2;const r0=R*0.25*k, r1=R*k;
+    x.lineWidth=7;x.beginPath();x.moveTo(Math.cos(a)*r0,Math.sin(a)*r0);x.lineTo(Math.cos(a)*r1,Math.sin(a)*r1);x.stroke();
+    const tw=0.6+0.4*Math.sin(t*9+i);x.fillStyle=col;x.globalAlpha=tw;x.beginPath();x.arc(Math.cos(a)*(r1+14),Math.sin(a)*(r1+14),8,0,7);x.fill();x.globalAlpha=1}
+  x.restore()}
+function drawMetals(t,p,P){
+  const words=P.words||['RED','YELLOW','GREEN','BLUE'];
+  const items=[['Sr','red',270,660],['Na','yellow',810,660],['Ba','green',270,1070],['Cu','blue',810,1070]];
+  const starts=P.starts||[0.02,0.22,0.45,0.68];
+  items.forEach(([sym,col,cx,cy],i)=>{
+    const k=back(prog(p,starts[i],starts[i]+0.12)); if(k<=0)return;
+    const cc=K[col];
+    burst(cx,cy,190,cc,t,ease(prog(p,starts[i],starts[i]+0.18)));
+    x.save();x.translate(cx,cy);x.scale(k,k);
+    x.fillStyle='#10142c';x.strokeStyle=cc;x.lineWidth=10;x.beginPath();x.roundRect(-95,-95,190,190,26);x.fill();x.stroke();
+    txt(sym,0,-8,104,'#ffffff');x.restore();
+    const wa=prog(p,starts[i]+0.06,starts[i]+0.16);x.globalAlpha=wa;txt(words[i],cx,cy-150,70,cc);x.globalAlpha=1;
+  });
+}
+
+window.draw=function(t,dur,P){
+  P=Object.assign({mode:'electron'},P||{});
+  const p=t/Math.max(dur,0.1);
+  x.setTransform(1,0,0,1,0,0);x.globalAlpha=1;bg(t);
+  if(P.mode==='metals')drawMetals(t,p,P);else drawElectron(t,p,P);
+};
+window.draw(0,6,{});
+</script></body></html>

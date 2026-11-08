@@ -9,6 +9,7 @@ everyone) into data/replies.json and (2) turn "do one on X" asks into Morning Sl
 from __future__ import annotations
 
 import json
+import re
 import sys
 from datetime import datetime, timedelta
 from pathlib import Path
@@ -101,7 +102,7 @@ def collect() -> None:
                              post_id=post["id"], replied=c["has_our_reply"] or c["comment_id"] in replied)
                     rows.append(c)
             except Exception as e:
-                errors[f"{s['channel']}/{name}"] = str(e)[:300]
+                errors[f"{s['channel']}/{name}"] = re.sub(r"(access_token|key)=[^&\s\"']+", r"\1=REDACTED", str(e))[:300]
     rows.sort(key=lambda c: c.get("time") or "", reverse=True)
     DATA.mkdir(exist_ok=True)
     (DATA / "comments.json").write_text(json.dumps(

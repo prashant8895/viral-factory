@@ -157,4 +157,8 @@ Claude makes the top-scored pitch so the day is not missed.
 Claude updates this every Sunday from the metrics. Format: date, what we
 saw, what we change.
 
-- (empty — first update after week 1)
+- 2026-11-08: Week 1 (escalator, mesh; fireworks went live tonight, no numbers yet). English 4,945 views vs Hinglish 175 on the same pictures and topics, so the gap is the language/account, not the topic. Keep both until 10 videos each, then decide.
+- 2026-11-08: Hinglish YouTube shows 0 views on both videos while public (escalator-hi fell 1 → 0). Change: check the HI YouTube channel settings (audience/"made for kids", restrictions, Shorts eligibility) before the next HI upload.
+- 2026-11-08: Instagram carried escalator-en (2,128 views, 8 shares, 18.0 s avg watch = 42% of 43 s); its YouTube woke up late (198 views at 32 h → 1,052 at 44 h). Change: judge YouTube at 72 h, not 24 h.
+- 2026-11-08: Mesh-en (question hook) had our fastest YouTube start (1,166 views in 15 h, 28 likes) but weaker Instagram hold (11.7 s avg, 29%). Hook A/B: 1 myth vs 1 question with data, far from 5 each; no winner. Fireworks (myth, Diwali-timed search topic) is our first search-driven pick to compare against our own picks.
+- 2026-11-08: Data gaps: Facebook returns no metrics for any video, HI Instagram comments fail (400), posting times drifted (16:32, 20:52, 18:53 vs 19:00). Change: fix the Facebook metrics read and post closer to 19:00 so slot comparisons hold.

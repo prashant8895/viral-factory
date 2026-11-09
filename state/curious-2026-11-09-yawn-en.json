@@ -9,5 +9,22 @@
   "hook_text": "WHY DO WE *YAWN*?",
   "hook_style": "question",
   "release": "job-curious-2026-11-09-yawn-en",
-  "duration": 40.17
+  "duration": 40.17,
+  "platforms": {
+    "youtube": {
+      "id": "0wLW_qJTwN0",
+      "url": "https://youtube.com/shorts/0wLW_qJTwN0",
+      "privacy": "public",
+      "posted_at": "2026-11-09T18:59+05:30"
+    },
+    "facebook": {
+      "id": "1803053757420349",
+      "url": "https://www.facebook.com/reel/1803053757420349",
+      "posted_at": "2026-11-09T19:00+05:30"
+    }
+  },
+  "errors": {
+    "instagram": "RuntimeError: Instagram upload refused (400): {\"debug_info\":{\"retriable\":false,\"type\":\"ProcessingFailedError\",\"message\":\"Request processing failed\"}}",
+    "instagram_story": "RuntimeError: Instagram upload refused (400): {\"debug_info\":{\"retriable\":false,\"type\":\"ProcessingFailedError\",\"message\":\"Request processing failed\"}}"
+  }
 }

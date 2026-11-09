@@ -9,5 +9,26 @@
   "hook_text": "UBAASI *KYUN*?",
   "hook_style": "question",
   "release": "job-curious-2026-11-09-yawn-hi",
-  "duration": 37.22
+  "duration": 37.22,
+  "platforms": {
+    "youtube": {
+      "id": "cNqRcRRDR-M",
+      "url": "https://youtube.com/shorts/cNqRcRRDR-M",
+      "privacy": "public",
+      "posted_at": "2026-11-09T19:00+05:30"
+    },
+    "instagram_story": {
+      "id": "18091666268249493",
+      "url": "https://www.instagram.com/stories/ohthatswhy.hindii/4026624393140293108",
+      "posted_at": "2026-11-09T19:01+05:30"
+    },
+    "facebook": {
+      "id": "1612728960596705",
+      "url": "https://www.facebook.com/reel/1612728960596705",
+      "posted_at": "2026-11-09T19:01+05:30"
+    }
+  },
+  "errors": {
+    "instagram": "RuntimeError: Instagram upload refused (400): {\"debug_info\":{\"retriable\":false,\"type\":\"ProcessingFailedError\",\"message\":\"Request processing failed\"}}"
+  }
 }

@@ -1,0 +1,193 @@
+{
+  "id": "curious-2026-11-09-tyre-black",
+  "channel": "curious",
+  "languages": [
+    "en",
+    "hi"
+  ],
+  "publish": false,
+  "date": "2026-11-09",
+  "slot": "21:00",
+  "bucket": "seen-but-missed",
+  "hook_style": "question",
+  "seed": 7731,
+  "hook_text": {
+    "en": "WHY ARE TYRES *BLACK*?",
+    "hi": "TYRE *KAALE* KYUN?"
+  },
+  "keywords": {
+    "en": [
+      "why are tyres black",
+      "car tyre colour",
+      "carbon black"
+    ],
+    "hi": [
+      "tyre kaale kyun hote hain",
+      "car tyre black kyun",
+      "why are tyres black"
+    ]
+  },
+  "sources": [
+    "https://www.mentalfloss.com/transportation/cars-trucks/reason-why-car-tires-are-black",
+    "https://blog.ansi.org/ansi/why-car-tires-black-not-white-color-rubber/",
+    "https://www.slashgear.com/1902609/car-tires-why-always-black-explained-reason-color-matters/"
+  ],
+  "scenes": [
+    {
+      "visual": "photo of a close-up of a black car tyre on a silver alloy wheel, car parked on a sunlit Indian city street, low angle from the side at tyre height, deep black rubber with clear tread, the tyre filling the lower middle of the frame, blurred street and shops behind, no logos or text anywhere",
+      "narration": {
+        "en": "Why are car *tyres* always black? Here's the thing: they didn't *start* that way.",
+        "hi": "Car ke *tyre* hamesha kaale hi kyun hote hain? Sach ye hai, shuru mein ye kaale *the hi nahi*."
+      },
+      "motion": "push",
+      "sfx": "boom",
+      "overlays": []
+    },
+    {
+      "visual": "2D animation: a tapped rubber tree drips white latex into a cup, then a plain white tyre rolls in, WHITE RUBBER",
+      "narration": {
+        "en": "Rubber from the rubber tree is milky *white*. So the very first car tyres were white *too*.",
+        "hi": "Rubber ke ped se nikalne wala rubber doodh jaisa *safed* hota hai. Isliye pehle car tyre bhi safed *hote the*."
+      },
+      "headline": {
+        "en": "STARTED *WHITE*",
+        "hi": "PEHLE *SAFED*"
+      },
+      "motion": "push",
+      "sfx": "whoosh",
+      "overlays": [],
+      "anim": "anims/tyre.html",
+      "anim_params": {
+        "mode": "white",
+        "label": {
+          "en": "WHITE RUBBER",
+          "hi": "SAFED RUBBER"
+        }
+      }
+    },
+    {
+      "visual": "photo of a vintage 1910s open-top car with thin pale cream-white tyres on wooden spoke wheels, parked inside a museum hall, three-quarter view from the front at low height, the front tyre large in the lower middle of the frame, soft spotlights, dark background, no badges, logos or text anywhere",
+      "narration": {
+        "en": "Makers mixed in zinc oxide, but those pale tyres wore out *fast*, often in under *8,000 km*.",
+        "hi": "Usme zinc oxide milaya jaata tha, par wo tyre jaldi *ghis* jaate the, aksar *8,000 km* se pehle."
+      },
+      "headline": {
+        "en": "WORE OUT *FAST*",
+        "hi": "JALDI *GHIS GAYE*"
+      },
+      "motion": "drift_left",
+      "sfx": "thud",
+      "overlays": []
+    },
+    {
+      "visual": "2D animation: black carbon specks swirl into a spinning white tyre, it turns black, counter 1X to 10X LONGER LIFE",
+      "narration": {
+        "en": "Then came *carbon black*, a super-fine soot that's almost pure carbon. Tyres lasted about *ten times* longer.",
+        "hi": "Phir aaya *carbon black*, ek bahut barik kaalikh jo lagbhag pure carbon hai. Tyre ki life *10 guna* badh gayi."
+      },
+      "headline": {
+        "en": "THE *SOOT* TRICK",
+        "hi": "KAALIKH KA *KAMAAL*"
+      },
+      "motion": "push",
+      "sfx": "riser",
+      "overlays": [],
+      "anim": "anims/tyre.html",
+      "anim_params": {
+        "mode": "carbon",
+        "label": {
+          "en": "LONGER LIFE",
+          "hi": "ZYADA LIFE"
+        }
+      }
+    },
+    {
+      "visual": "photo of a close-up of a black car tyre rolling on a hot asphalt highway in India under harsh midday sun, heat haze shimmering above the road, low angle at road level from the side, the tyre in the lower middle of the frame, bright hazy sky behind, no logos or text anywhere",
+      "narration": {
+        "en": "The black also blocks the sun's *UV* rays that crack rubber, and helps spread road *heat* away.",
+        "hi": "Ye kaala rang dhoop ki *UV* rays ko rokta hai jo rubber ko crack karti hain, aur *garmi* bhi bahar nikalta hai."
+      },
+      "headline": {
+        "en": "SUN *SHIELD*",
+        "hi": "DHOOP SE *BACHAAV*"
+      },
+      "motion": "push",
+      "sfx": "sparkle",
+      "overlays": []
+    },
+    {
+      "visual": "photo of a classic 1950s car with whitewall tyres, black tread and a wide bright white sidewall band, parked on a quiet street at golden hour, side view at wheel height, the front whitewall tyre large in the lower middle of the frame, no badges, logos or text anywhere",
+      "narration": {
+        "en": "Carbon black was costly at first, so often only the tread got it. That's where *whitewall* tyres came from.",
+        "hi": "Shuru mein carbon black mehenga tha, toh aksar sirf tread mein daala jaata tha. Wahin se aaye *whitewall* tyre."
+      },
+      "headline": {
+        "en": "WHITEWALL *SECRET*",
+        "hi": "WHITEWALL KA *RAAZ*"
+      },
+      "motion": "pull",
+      "sfx": "ding",
+      "overlays": []
+    },
+    {
+      "visual": "2D animation: phone with a black tyre thumbnail, send to a friend, comment NEXT",
+      "narration": {
+        "en": "Comment *NEXT* for one more everyday thing nobody ever questions.",
+        "hi": "Aisi aur rozana ki cheezon ke liye comment mein *NEXT* likho."
+      },
+      "headline": {
+        "en": "COMMENT *NEXT*",
+        "hi": "COMMENT MEIN *NEXT*"
+      },
+      "motion": "pull",
+      "sfx": "pop",
+      "overlays": [],
+      "anim": "anims/share-next.html",
+      "anim_params": {
+        "word": "NEXT",
+        "friend": "Rahul",
+        "thumb": "tyre"
+      }
+    }
+  ],
+  "youtube": {
+    "en": {
+      "title": "Why are tyres black? They started WHITE #shorts",
+      "description": "Natural rubber is white, so the first car tyres were white too. Adding carbon black made them last about 10x longer, block UV and shed heat. AI visuals.\n\nSources: Mental Floss, ANSI, SlashGear\n#ohthatswhy #tyres #cars #science #shorts",
+      "tags": [
+        "why are tyres black",
+        "why are tires black",
+        "carbon black",
+        "car tyres",
+        "did you know"
+      ]
+    },
+    "hi": {
+      "title": "Tyre kaale kyun hote hain? Pehle SAFED the #shorts",
+      "description": "Rubber safed hota hai, isliye pehle tyre bhi safed the. Carbon black milane se tyre ki life lagbhag 10 guna badhi, aur ye UV aur garmi se bachata hai. AI visuals.\n\nSources: Mental Floss, ANSI, SlashGear\n#ohthatswhy #tyre #cars #science #shorts",
+      "tags": [
+        "tyre kaale kyun hote hain",
+        "why are tyres black",
+        "carbon black",
+        "science in hindi",
+        "hinglish"
+      ]
+    }
+  },
+  "instagram": {
+    "en": {
+      "caption": "Why are tyres black, when rubber is white? 🛞\nCar tyre colour comes from carbon black, a fine soot that made tyres last about 10x longer and blocks the sun's UV.\nDid you know the first car tyres were white?\n\nOne everyday 'oh, that's why!' every day. Follow @ohthatswhy.english\n\nSources: Mental Floss, ANSI, SlashGear\nAI animation\n#ohthatswhy #tyres #cars #science"
+    },
+    "hi": {
+      "caption": "Tyre kaale kyun hote hain, jab rubber safed hota hai? 🛞\nCar tyre black kyun? Carbon black ki wajah se, ek barik kaalikh jo tyre ki life lagbhag 10 guna badhati hai aur UV rokti hai. Why are tyres black, ab pata chala!\nKya aapko pata tha pehle tyre safed hote the?\n\nRoz ek 'oh, that's why!' ke liye follow karo @ohthatswhy.hindii\n\nSources: Mental Floss, ANSI, SlashGear\nAI animation\n#ohthatswhy #tyre #cars #science"
+    }
+  },
+  "facebook": {
+    "en": {
+      "description": "Why are tyres black? Rubber is white, and the first tyres were too. Carbon black made them last about 10x longer. AI animation."
+    },
+    "hi": {
+      "description": "Tyre kaale kyun hote hain? Rubber safed hota hai, pehle tyre bhi safed the. Carbon black se life lagbhag 10 guna badhi. AI animation."
+    }
+  }
+}

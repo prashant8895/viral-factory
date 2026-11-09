@@ -3,7 +3,7 @@
 <canvas id="c" width="1080" height="1920"></canvas>
 <script>
 // Friendly ending: a phone, a "send" arrow flies to a friend's chat, then a comment bubble types the word.
-// params: {word: "NEXT", friend: "Rahul", thumb: "escalator"|"microwave"|"fireworks"|"yawn"}. Keeps the top fifth and the lower third calm.
+// params: {word: "NEXT", friend: "Rahul", thumb: "escalator"|"microwave"|"fireworks"|"yawn"|"tyre"}. Keeps the top fifth and the lower third calm.
 const c=document.getElementById('c'),x=c.getContext('2d'),W=1080,H=1920;
 const clamp=(v,a=0,b=1)=>Math.max(a,Math.min(b,v)), prog=(t,a,b)=>clamp((t-a)/(b-a));
 const ease=t=>1-Math.pow(1-clamp(t),3);
@@ -42,6 +42,11 @@ window.draw=function(t,dur,P){
     x.beginPath();x.moveTo(fx-70,fy-40);x.quadraticCurveTo(fx-45,fy-25,fx-20,fy-40);x.moveTo(fx+20,fy-40);x.quadraticCurveTo(fx+45,fy-25,fx+70,fy-40);x.stroke();
     x.fillStyle='#5a1020';x.beginPath();x.ellipse(fx,fy+45,42,58,0,0,7);x.fill();
     x.fillStyle='#ff6b81';x.beginPath();x.ellipse(fx,fy+80,26,16,0,0,7);x.fill();
+  }else if(P.thumb==='tyre'){ // a black tyre on a grey road
+    rr(px+30,py+70,pw-60,360,28,'#2c3448');x.fillStyle='#55596a';x.fillRect(px+30,py+360,pw-60,70);
+    const tx=px+pw/2,ty=py+235;x.fillStyle='#16161c';x.beginPath();x.arc(tx,ty,125,0,7);x.fill();
+    x.fillStyle='#0a0a0e';for(let k=0;k<20;k++){const a=k/20*6.283;x.beginPath();x.arc(tx+Math.cos(a)*118,ty+Math.sin(a)*118,10,0,7);x.fill()}
+    x.fillStyle='#b8bfd0';x.beginPath();x.arc(tx,ty,68,0,7);x.fill();x.fillStyle='#e9ecf5';x.beginPath();x.arc(tx,ty,18,0,7);x.fill();
   }else if(P.thumb==='fireworks'){ // night sky with a red, a green and a blue burst
     rr(px+30,py+70,pw-60,360,28,'#0b1026');
     [[px+130,py+180,'#ff3b4e'],[px+270,py+230,'#2ee86a'],[px+180,py+340,'#3a8bff']].forEach(([bx,by,bc])=>{x.strokeStyle=bc;x.lineWidth=6;x.lineCap='round';

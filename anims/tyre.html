@@ -1,0 +1,78 @@
+<!doctype html><html><head><meta charset="utf-8">
+<style>html,body{margin:0;background:#141a36}canvas{display:block}</style></head><body>
+<canvas id="c" width="1080" height="1920"></canvas>
+<script>
+// Why tyres are black, two modes (params.mode):
+//  "white":  white latex drips from a tapped rubber tree into a cup, then a plain white tyre rolls in and
+//            params.label (e.g. "WHITE RUBBER") pops up.
+//  "carbon": a white tyre spins while black carbon specks swirl into it; it turns black and a counter
+//            climbs 1X -> 10X with params.label (e.g. "LONGER LIFE") under it.
+// Keeps the top fifth (0-384) and the caption band (1344-1632) empty.
+const c=document.getElementById('c'),x=c.getContext('2d'),W=1080,H=1920;
+const K={red:'#ff4757',orange:'#ff9f43',yellow:'#ffd23f',green:'#2ed573',blue:'#4dabf7',white:'#ffffff'};
+const clamp=(v,a=0,b=1)=>Math.max(a,Math.min(b,v)), prog=(t,a,b)=>clamp((t-a)/(b-a));
+const ease=t=>1-Math.pow(1-clamp(t),3), back=t=>{t=clamp(t);const s=1.7;return 1+(s+1)*Math.pow(t-1,3)+s*Math.pow(t-1,2)};
+const mix=(a,b,k)=>{const h=s=>[1,3,5].map(i=>parseInt(s.slice(i,i+2),16));const A=h(a),B=h(b);
+  return 'rgb('+A.map((v,i)=>Math.round(v+(B[i]-v)*k)).join(',')+')'};
+function rr(px,py,w,h,r,f){x.beginPath();x.roundRect(px,py,w,h,r);x.fillStyle=f;x.fill()}
+function txt(s,px,py,size,col,al){x.font=`700 ${size}px Anton, Impact, sans-serif`;x.textAlign=al||'center';x.textBaseline='middle';
+  x.lineWidth=size*0.16;x.lineJoin='round';x.strokeStyle='rgba(0,0,0,.7)';x.strokeText(s,px,py);x.fillStyle=col;x.fillText(s,px,py)}
+function bg(t){const g=x.createLinearGradient(0,0,0,H);g.addColorStop(0,'#141a36');g.addColorStop(1,'#22163f');x.fillStyle=g;x.fillRect(0,0,W,H);
+  for(let i=0;i<24;i++){const s=Math.sin(i*77.3)*43758.5,r=s-Math.floor(s);x.fillStyle='rgba(255,255,255,.06)';
+    x.beginPath();x.arc(r*W,(((r*3931)%1)*H+t*15*(1+r))%H,3+5*r,0,7);x.fill()}}
+
+function tyre(cx,cy,R,rot,col,edge){ // side view of a tyre: rubber ring with tread blocks, grey rim, hub
+  x.save();x.translate(cx,cy);x.rotate(rot);
+  x.fillStyle=col;x.beginPath();x.arc(0,0,R,0,7);x.fill();
+  // tread blocks around the edge
+  x.fillStyle=edge;for(let k=0;k<28;k++){x.save();x.rotate(k/28*Math.PI*2);x.fillRect(-R*0.05,-R,R*0.1,R*0.1);x.restore()}
+  x.strokeStyle=edge;x.lineWidth=R*0.03;x.beginPath();x.arc(0,0,R*0.86,0,7);x.stroke();
+  // rim and spokes
+  x.fillStyle='#b8bfd0';x.beginPath();x.arc(0,0,R*0.56,0,7);x.fill();
+  x.fillStyle='#8a92a8';x.beginPath();x.arc(0,0,R*0.48,0,7);x.fill();
+  x.strokeStyle='#d8dde8';x.lineWidth=R*0.07;x.lineCap='round';
+  for(let k=0;k<5;k++){const a=k/5*Math.PI*2;x.beginPath();x.moveTo(Math.cos(a)*R*0.12,Math.sin(a)*R*0.12);x.lineTo(Math.cos(a)*R*0.46,Math.sin(a)*R*0.46);x.stroke()}
+  x.fillStyle='#e9ecf5';x.beginPath();x.arc(0,0,R*0.13,0,7);x.fill();
+  x.restore()}
+
+function drawWhite(t,p,P){
+  // tree trunk on the left with a spiral cut, white latex dripping into a cup
+  const tr=ease(prog(p,0,0.1));x.globalAlpha=tr;
+  rr(90,400,190,900,40,'#6b4a2e');x.strokeStyle='#4a321e';x.lineWidth=10;
+  for(let k=0;k<5;k++){x.beginPath();x.moveTo(110,480+k*160);x.quadraticCurveTo(185,450+k*160,260,500+k*160);x.stroke()}
+  x.strokeStyle='#f6f1e4';x.lineWidth=16;x.beginPath();x.moveTo(100,880);x.lineTo(270,800);x.stroke(); // the tapping cut, latex in it
+  rr(150,1080,150,110,18,'#9aa3b8');rr(160,1090,130,40,12,'#f6f1e4'); // cup with latex
+  x.globalAlpha=1;
+  // drops falling from the cut into the cup
+  const dp=prog(p,0.08,0.6);
+  if(dp>0){for(let k=0;k<3;k++){const ph=(t*0.9+k/3)%1, dy=840+ph*240;x.fillStyle='#fffaf0';
+    x.beginPath();x.arc(225,dy,16,0,7);x.fill();x.beginPath();x.moveTo(209,dy);x.lineTo(225,dy-34);x.lineTo(241,dy);x.fill()}}
+  // a white tyre rolls in from the right
+  const rl=ease(prog(p,0.3,0.6)), cx=1400-(1400-690)*rl;
+  tyre(cx,860,270,-(1-rl)*6,'#f4efe2','#d8d0bc');
+  const lb=back(prog(p,0.6,0.72)); if(lb>0){x.save();x.translate(690,1230);x.scale(lb,lb);txt(P.label||'WHITE RUBBER',0,0,110,K.white);x.restore()}
+}
+
+function drawCarbon(t,p,P){
+  const cx=540,cy=760,R=290, k=ease(prog(p,0.2,0.65));
+  // black carbon specks swirl in from all sides
+  const sp=prog(p,0.05,0.7);
+  if(sp>0){for(let i=0;i<70;i++){const s=Math.sin(i*12.9898)*43758.5,r=s-Math.floor(s);
+    const a=r*6.283+t*1.5, ph=((t*0.5+r)%1), d=R*1.5-(R*1.5-R*0.6)*ph;
+    x.globalAlpha=Math.min(1,sp*3)*(1-prog(p,0.65,0.75));x.fillStyle='#0b0b0f';x.strokeStyle='rgba(255,255,255,.35)';x.lineWidth=2;
+    x.beginPath();x.arc(cx+Math.cos(a)*d,cy+Math.sin(a)*d*0.95,7+6*r,0,7);x.fill();x.stroke()}x.globalAlpha=1}
+  x.save();if(k>0.9){x.shadowColor='#4dabf7';x.shadowBlur=40*prog(p,0.65,0.75)}
+  tyre(cx,cy,R,t*1.2,mix('#f4efe2','#1a1a20',k),mix('#d8d0bc','#050507',k));x.restore();
+  // counter 1X -> 10X
+  const cs=back(prog(p,0.62,0.7)); if(cs>0){const n=1+Math.round(9*ease(prog(p,0.66,0.86)));
+    x.save();x.translate(cx,1200);x.scale(cs,cs);txt(n+'X',0,-30,150,K.yellow);txt(P.label||'LONGER LIFE',0,85,72,K.white);x.restore()}
+}
+
+window.draw=function(t,dur,P){
+  P=Object.assign({mode:'white'},P||{});
+  const p=t/Math.max(dur,0.1);
+  x.setTransform(1,0,0,1,0,0);x.globalAlpha=1;x.shadowBlur=0;bg(t);
+  if(P.mode==='carbon')drawCarbon(t,p,P);else drawWhite(t,p,P);
+};
+window.draw(0,6,{});
+</script></body></html>

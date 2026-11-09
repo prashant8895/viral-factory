@@ -54,6 +54,9 @@ def prefix(s: dict) -> str:
 
 def publish(s: dict) -> dict:
     video, meta = fetch_video(s)
+    repo = os.environ.get("GITHUB_REPOSITORY")
+    if repo and s.get("release"):  # public file Meta can fetch itself if the upload keeps failing
+        meta["video_url"] = f"https://github.com/{repo}/releases/download/{s['release']}/final.mp4"
     p = prefix(s)
     s.setdefault("platforms", {})
     s.setdefault("errors", {})

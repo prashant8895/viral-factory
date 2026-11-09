@@ -93,17 +93,23 @@ def _rupload(p: str, url: str, video: Path) -> dict:
     return r.json()
 
 
-def _ig_publish(p: str, video: Path, media_type: str, caption: str | None) -> dict:
+def _ig_try(p: str, video: Path, media_type: str, caption: str | None, video_url: str | None) -> dict:
+    """One attempt: new container, send the video (file upload, or Meta fetches video_url), publish."""
     ig, tok = _need(p, "IG_USER_ID"), _need(p, "META_PAGE_TOKEN")
     base = f"https://graph.facebook.com/{GRAPH}"
-    data = {"media_type": media_type, "upload_type": "resumable", "access_token": tok}
+    data = {"media_type": media_type, "access_token": tok}
+    if video_url:
+        data["video_url"] = video_url
+    else:
+        data["upload_type"] = "resumable"
     if media_type == "REELS":
         data.update(caption=caption or "", share_to_feed="true")
     r = requests.post(f"{base}/{ig}/media", data=data, timeout=60)
     if r.status_code >= 400:
         raise RuntimeError(f"Instagram container refused ({r.status_code}): {r.text[:500]}")
     container = r.json()["id"]
-    _rupload(p, f"https://rupload.facebook.com/ig-api-upload/{GRAPH}/{container}", video)
+    if not video_url:
+        _rupload(p, f"https://rupload.facebook.com/ig-api-upload/{GRAPH}/{container}", video)
 
     for _ in range(60):  # Instagram processes the video before it can be published
         st = requests.get(f"{base}/{container}", params={"fields": "status_code,status",
@@ -126,13 +132,36 @@ def _ig_publish(p: str, video: Path, media_type: str, caption: str | None) -> di
     return {"id": media_id, "url": link}
 
 
+def _ig_publish(p: str, video: Path, media_type: str, caption: str | None, video_url: str | None = None) -> dict:
+    """Meta's upload endpoint sometimes answers 'ProcessingFailedError' for a file it accepted the day
+    before. So: two file uploads (each on a fresh container), then let Meta fetch the public release
+    URL itself. Nothing is published until a container is FINISHED, so retries never double-post."""
+    if video_url:  # hand Meta the final signed file link, not GitHub's redirect (fresh for 30 min)
+        try:
+            loc = requests.head(video_url, allow_redirects=False, timeout=30).headers.get("Location")
+            video_url = loc or video_url
+        except requests.RequestException:
+            pass
+    tries = [None, None] + ([video_url] if video_url else [])
+    err = None
+    for i, url in enumerate(tries):
+        try:
+            return _ig_try(p, video, media_type, caption, url)
+        except Exception as e:  # noqa: BLE001 - keep Meta's message, try the next way
+            err = e
+            print(f"  instagram try {i + 1}/{len(tries)} ({'video_url' if url else 'upload'}) failed: {e}", flush=True)
+            if i + 1 < len(tries):
+                time.sleep(20)
+    raise err
+
+
 def instagram_upload(p: str, video: Path, meta: dict) -> dict:
-    return _ig_publish(p, video, "REELS", meta["instagram"]["caption"])
+    return _ig_publish(p, video, "REELS", meta["instagram"]["caption"], meta.get("video_url"))
 
 
 def instagram_story_upload(p: str, video: Path, meta: dict) -> dict:
     """The same video as a Story, right after the Reel: gives each post a second way in."""
-    return _ig_publish(p, video, "STORIES", None)
+    return _ig_publish(p, video, "STORIES", None, meta.get("video_url"))
 
 
 def facebook_upload(p: str, video: Path, meta: dict) -> dict:

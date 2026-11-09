@@ -21,10 +21,17 @@
       "id": "1803053757420349",
       "url": "https://www.facebook.com/reel/1803053757420349",
       "posted_at": "2026-11-09T19:00+05:30"
+    },
+    "instagram": {
+      "id": "18436535521146433",
+      "url": "https://www.instagram.com/reel/DfheIxPpFBl/",
+      "posted_at": "2026-11-09T19:17+05:30"
+    },
+    "instagram_story": {
+      "id": "18117895358105041",
+      "url": "https://www.instagram.com/stories/ohthatswhy.english/4026633055392583304",
+      "posted_at": "2026-11-09T19:18+05:30"
     }
   },
-  "errors": {
-    "instagram": "RuntimeError: Instagram upload refused (400): {\"debug_info\":{\"retriable\":false,\"type\":\"ProcessingFailedError\",\"message\":\"Request processing failed\"}}",
-    "instagram_story": "RuntimeError: Instagram upload refused (400): {\"debug_info\":{\"retriable\":false,\"type\":\"ProcessingFailedError\",\"message\":\"Request processing failed\"}}"
-  }
+  "errors": {}
 }

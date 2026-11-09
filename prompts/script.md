@@ -31,8 +31,14 @@ skip it until Prashant restarts it.
    captions sit there), and check 4 frames with Playwright before pushing.
 5a. Set `"hook_style"` ("myth" on even IST dates, "question" on odd, or the playbook's
    `Hook winner` 5 days out of 7) and write `hook_text` + line 1 in that style.
+   Search phrases: add `"keywords": {"en": [...], "hi": [...]}` with 2–3 phrases each that people
+   really type into search (main one first; Hindi gets Hinglish phrases plus one English phrase).
+   Put the main phrase in the YouTube title, the first line of the Instagram caption and the
+   first line of the Facebook description; use the other phrases in the caption's answer line.
+   The render check refuses the job if they're missing, so write them in naturally, not stuffed.
    Hashtags: follow the playbook table (3–5, relevant, `#ohthatswhy` first; trending tags from
-   `data/trends.json` only if they genuinely fit). Never tag accounts that aren't in the video.
+   `data/trends.json` only if they genuinely fit). Never more than 5. Never tag accounts that
+   aren't in the video. No "comment X to get Y" bait.
 5b. PICTURES (paid, about Rs 3 each, so think before you spend):
    - Write each picture scene's `visual` as ONE clear subject, where it is, camera angle,
      Indian setting where it fits. No text in the picture.

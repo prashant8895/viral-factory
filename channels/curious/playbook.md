@@ -131,8 +131,10 @@ of 7 (keep the other 2 as a check).
 |---|---|
 | Frequency | 1 video a day, same video on YouTube Shorts, Instagram Reels, Facebook Reels |
 | Time | 7:00 PM IST for weeks 1–2. Then test 6:30 AM IST (US evening) on alternate days |
-| Title (YouTube) | The hook, under 60 characters, ends with #shorts |
-| Caption (IG/FB) | Line 1 = the hook as a question. Line 2 = a comment bait ("Would you last 3 days?"). 3–5 hashtags only |
+| Search phrases | Every job has `keywords`: 2–3 plain phrases per language that people actually type into search ("microwave door mesh", "why microwave door has holes"). Main one first. Hindi page: Hinglish phrases plus one English phrase, since many people search in English. Instagram and YouTube now rank on these words, not on hashtags |
+| Title (YouTube) | The hook, under 60 characters, ends with #shorts, and contains the main search phrase |
+| Caption (IG/FB) | Line 1 = the hook as a question that contains the main search phrase in plain words. Line 2 = the short answer in one sentence, using the other search phrases naturally. Line 3 = a comment bait ("Would you last 3 days?"). Then sources, "AI visuals", and 3–5 hashtags. No "comment X to get Y" DM bait |
+| On-screen text | The hook headline names the topic in plain words (MICROWAVE MESH, not just THIS THING) so Instagram can read what the video is about |
 | Hashtags | 3–5, always relevant: `#ohthatswhy` + 1–2 topic tags (#escalator) + 1–2 from `data/trends.json → hashtags` **only if they fit this video**. Never generic spam (#viral #fyp #trending), never off-topic trending tags |
 | Tagging | Only accounts that are genuinely in or about the video (a brand whose product it is, a source). Never random or famous accounts for reach: that is spam and gets pages restricted |
 | Stories | Every Reel is also posted to Instagram Stories automatically |

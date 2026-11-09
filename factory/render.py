@@ -9,6 +9,7 @@ from __future__ import annotations
 import json
 import os
 import random
+import re
 import sys
 from pathlib import Path
 
@@ -25,6 +26,43 @@ def check_job(job: dict) -> None:
     words = sum(len(l["text"].split()) for s in job["scenes"] for l in tts.scene_lines(s))
     if not 40 <= words <= 160:
         raise ValueError(f"Spoken text is {words} words; playbook says 85–120 (drama 60–110)")
+    check_search_text(job)
+
+
+def _has(text: str, phrase: str) -> bool:
+    """True when every real word of the search phrase is in the text (any order, any case)."""
+    have = set(re.findall(r"[\w']+", text.lower()))
+    return all(w in have for w in re.findall(r"[\w']+", phrase.lower()) if len(w) > 2)
+
+
+def check_search_text(job: dict) -> None:
+    """Instagram now ranks on caption words and on-screen text, not hashtags (max 5).
+    So: the main search phrase must be in the first caption line and the titles,
+    every search phrase somewhere in the caption, and never more than 5 hashtags."""
+    texts = {
+        "instagram caption": (job.get("instagram") or {}).get("caption") or "",
+        "facebook description": (job.get("facebook") or {}).get("description") or "",
+        "youtube description": (job.get("youtube") or {}).get("description") or "",
+    }
+    for where, text in texts.items():
+        tags = re.findall(r"#\w+", text.replace("#shorts", ""))
+        if len(tags) > 5:
+            raise ValueError(f"{where} has {len(tags)} hashtags; Instagram allows 5, playbook says 3–5")
+    keys = job.get("keywords")
+    if not keys:
+        return  # older jobs had no keywords
+    main, caption = keys[0], texts["instagram caption"]
+    firsts = {
+        "instagram caption line 1": caption.split("\n", 1)[0],
+        "facebook description line 1": texts["facebook description"].split("\n", 1)[0],
+        "youtube title": (job.get("youtube") or {}).get("title") or "",
+    }
+    for where, text in firsts.items():
+        if not _has(text, main):
+            raise ValueError(f'{where} must contain the main search phrase "{main}": {text!r}')
+    for k in keys[1:]:
+        if not _has(caption, k):
+            raise ValueError(f'instagram caption should mention the search phrase "{k}" in a sentence')
 
 
 def ensure_cast(ch: dict) -> None:
@@ -150,6 +188,8 @@ def render_one(job: dict, img_dir: Path | None = None) -> Path:
     video.assemble(shots, scene_audio, ass, music, final, fx, punches)
     video.thumbnail(final, out_dir / "thumb.jpg")
 
+    yt = job["youtube"]  # the search phrases double as YouTube tags
+    yt["tags"] = list(dict.fromkeys(list(job.get("keywords") or []) + list(yt.get("tags") or [])))[:15]
     meta = {k: job[k] for k in ("id", "channel", "youtube", "instagram", "facebook", "hook_text")}
     meta["language"] = job.get("language")
     meta["duration"] = round(sum(s.duration for s in scene_audio), 2)

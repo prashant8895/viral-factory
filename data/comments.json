@@ -1,5 +1,5 @@
 {
-  "updated": "2026-11-09T19:02+05:30",
+  "updated": "2026-11-09T19:56+05:30",
   "errors": {
     "curious-hi/instagram": "400 Client Error: Bad Request for url: https://graph.facebook.com/v24.0/18393283948224566/comments?fields=id%2Ctext%2Cusername%2Ctimestamp%2Clike_count%2Creplies%7Busername%2Cfrom%7D&access_token=REDACTED"
   },
@@ -10,13 +10,13 @@
       "text": "No there is 1 microwaves not many",
       "time": "2026-11-09T12:36:28Z",
       "likes": 0,
-      "has_our_reply": false,
+      "has_our_reply": true,
       "platform": "youtube",
       "channel": "curious-en",
       "video": "curious-2026-11-07-microwave-mesh-en",
       "hook": "WHY THIS *MESH*?",
       "post_id": "boeMBXEsnq4",
-      "replied": false
+      "replied": true
     },
     {
       "comment_id": "UgzT4hdwzA1BGBMKO3p4AaABAg",

@@ -1,0 +1,95 @@
+<!doctype html><html><head><meta charset="utf-8">
+<style>html,body{margin:0;background:#141a36}canvas{display:block}</style></head><body>
+<canvas id="c" width="1080" height="1920"></canvas>
+<script>
+// Yawning, two modes (params.mode):
+//  "oxygen": a face yawns while O2 bubbles stream in, a question label appears (params.myth), then a red cross
+//            stamps over it and the verdict drops in (params.verdict, e.g. "MYTH").
+//  "cool":   a hot red brain with a thermometer; cool blue air flows in, the brain cools to pink and the
+//            thermometer falls from params.hot to params.cool.
+// Keeps the top fifth (0-384) and the caption band (1344-1632) empty.
+const c=document.getElementById('c'),x=c.getContext('2d'),W=1080,H=1920;
+const K={red:'#ff4757',orange:'#ff9f43',yellow:'#ffd23f',green:'#2ed573',blue:'#4dabf7',skin:'#ffc98a',ink:'#2a1a10',white:'#ffffff'};
+const clamp=(v,a=0,b=1)=>Math.max(a,Math.min(b,v)), prog=(t,a,b)=>clamp((t-a)/(b-a));
+const ease=t=>1-Math.pow(1-clamp(t),3), back=t=>{t=clamp(t);const s=1.7;return 1+(s+1)*Math.pow(t-1,3)+s*Math.pow(t-1,2)};
+const mix=(a,b,k)=>{const h=s=>[1,3,5].map(i=>parseInt(s.slice(i,i+2),16));const A=h(a),B=h(b);
+  return 'rgb('+A.map((v,i)=>Math.round(v+(B[i]-v)*k)).join(',')+')'};
+function rr(px,py,w,h,r,f){x.beginPath();x.roundRect(px,py,w,h,r);x.fillStyle=f;x.fill()}
+function txt(s,px,py,size,col,al){x.font=`700 ${size}px Anton, Impact, sans-serif`;x.textAlign=al||'center';x.textBaseline='middle';
+  x.lineWidth=size*0.16;x.lineJoin='round';x.strokeStyle='rgba(0,0,0,.7)';x.strokeText(s,px,py);x.fillStyle=col;x.fillText(s,px,py)}
+function bg(t){const g=x.createLinearGradient(0,0,0,H);g.addColorStop(0,'#141a36');g.addColorStop(1,'#22163f');x.fillStyle=g;x.fillRect(0,0,W,H);
+  for(let i=0;i<24;i++){const s=Math.sin(i*77.3)*43758.5,r=s-Math.floor(s);x.fillStyle='rgba(255,255,255,.06)';
+    x.beginPath();x.arc(r*W,(((r*3931)%1)*H+t*15*(1+r))%H,3+5*r,0,7);x.fill()}}
+
+function face(cx,cy,R,open){ // open 0..1 = how wide the yawn is
+  x.fillStyle=K.skin;x.beginPath();x.arc(cx,cy,R,0,7);x.fill();
+  x.fillStyle='#ffb36b';x.beginPath();x.arc(cx-R*0.62,cy+R*0.12,R*0.13,0,7);x.arc(cx+R*0.62,cy+R*0.12,R*0.13,0,7);x.fill();
+  // eyes squeeze shut as the mouth opens
+  x.strokeStyle=K.ink;x.lineWidth=12;x.lineCap='round';
+  for(const sx of [-1,1]){const ex=cx+sx*R*0.36,ey=cy-R*0.25;x.beginPath();
+    if(open<0.3){x.arc(ex,ey,R*0.09,0,7);x.fillStyle=K.ink;x.fill()}
+    else{x.moveTo(ex-R*0.14,ey);x.quadraticCurveTo(ex,ey+R*0.1*open,ex+R*0.14,ey);x.stroke()}}
+  const mh=R*(0.08+0.42*open), mw=R*(0.22+0.12*open);
+  x.fillStyle='#5a1020';x.beginPath();x.ellipse(cx,cy+R*0.42,mw,mh,0,0,7);x.fill();
+  x.fillStyle='#ff6b81';x.beginPath();x.ellipse(cx,cy+R*0.42+mh*0.55,mw*0.6,mh*0.3,0,0,7);x.fill();
+}
+
+function drawOxygen(t,p,P){
+  const cx=430,cy=860,R=250, open=ease(prog(p,0.05,0.3))*(1-0.15*Math.sin(t*2));
+  x.globalAlpha=ease(prog(p,0,0.08));face(cx,cy,R,open);x.globalAlpha=1;
+  // O2 bubbles stream from the right into the mouth
+  const mx=cx, my=cy+R*0.42, flow=prog(p,0.1,0.95);
+  for(let i=0;i<9;i++){const ph=((t*0.45+i/9)%1);if(flow<=0)break;
+    const bx=1010-(1010-mx-40)*ph, by=my-60+Math.sin(ph*9+i)*70, a=Math.min(1,flow*3)*(ph<0.85?1:(1-ph)/0.15);
+    x.globalAlpha=a;x.fillStyle='rgba(77,171,247,.85)';x.beginPath();x.arc(bx,by,46,0,7);x.fill();
+    x.strokeStyle='#d0ebff';x.lineWidth=5;x.stroke();
+    x.font='700 40px Anton, Impact, sans-serif';x.textAlign='center';x.textBaseline='middle';x.fillStyle='#fff';x.fillText('O₂',bx,by+2);x.globalAlpha=1}
+  // the question
+  const q=back(prog(p,0.3,0.42)); if(q>0){x.save();x.translate(540,500);x.scale(q,q);txt(P.myth||'MORE OXYGEN?',0,0,104,K.yellow);x.restore()}
+  // the red cross stamps over it
+  const xc=prog(p,0.55,0.68); if(xc>0){const s=1+1.2*(1-ease(xc));x.save();x.translate(470,900);x.scale(s,s);x.globalAlpha=ease(xc);
+    x.strokeStyle=K.red;x.lineWidth=60;x.lineCap='round';x.shadowColor=K.red;x.shadowBlur=30;
+    x.beginPath();x.moveTo(-250,-250);x.lineTo(250,250);x.moveTo(250,-250);x.lineTo(-250,250);x.stroke();x.restore()}
+  const v=back(prog(p,0.66,0.78)); if(v>0){x.save();x.translate(540,1230);x.scale(v,v);txt(P.verdict||'MYTH',0,0,150,K.red);x.restore()}
+}
+
+function brainPath(cx,cy,s){ // a cartoon brain: lumpy outline
+  x.beginPath();const n=14;
+  for(let i=0;i<=n;i++){const a=i/n*Math.PI*2, r=s*(1+0.09*Math.sin(a*7)), px=cx+Math.cos(a)*r*1.25, py=cy+Math.sin(a)*r*0.95;
+    i?x.lineTo(px,py):x.moveTo(px,py)}
+  x.closePath()}
+function drawCool(t,p,P){
+  const cx=430,cy=820,s=230, cool=ease(prog(p,0.3,0.8));
+  // heat glow fades as it cools
+  x.save();x.shadowColor=K.red;x.shadowBlur=90*(1-cool);
+  brainPath(cx,cy,s);x.fillStyle=mix('#ff5a4e','#ffa8c0',cool);x.fill();x.restore();
+  x.strokeStyle=mix('#a3201a','#d0607f',cool);x.lineWidth=12;x.lineCap='round';
+  x.beginPath();x.moveTo(cx,cy-s*0.85);x.bezierCurveTo(cx-40,cy-s*0.3,cx+40,cy+s*0.2,cx,cy+s*0.85);x.stroke();
+  for(const [ox,oy] of [[-160,-80],[-120,80],[140,-90],[170,70],[-40,-150],[60,150]]){
+    x.beginPath();x.arc(cx+ox,cy+oy,48,0.4,2.6);x.stroke()}
+  // heat squiggles above the brain (hot), fading out
+  if(cool<1){x.strokeStyle=`rgba(255,159,67,${0.9*(1-cool)})`;x.lineWidth=10;
+    for(let k=0;k<3;k++){const sx=cx-120+k*120;x.beginPath();for(let j=0;j<=16;j++){const yy=cy-s-30-j*9,xx=sx+14*Math.sin(j*0.7+t*5+k);j?x.lineTo(xx,yy):x.moveTo(xx,yy)}x.stroke()}}
+  // cool air flowing in from the left
+  const air=prog(p,0.15,0.9);
+  if(air>0){x.strokeStyle='rgba(77,171,247,.9)';x.lineWidth=14;x.lineCap='round';x.shadowColor=K.blue;x.shadowBlur=20;
+    for(let k=0;k<3;k++){const yy=cy-90+k*90, len=Math.min(1,air*2.2);x.beginPath();
+      for(let j=0;j<=30;j++){const xx=-20+j*(cx-s*1.1+20)/30*len, y2=yy+18*Math.sin(j*0.5-t*8+k);j?x.lineTo(xx,y2):x.moveTo(xx,y2)}x.stroke()}
+    x.shadowBlur=0}
+  // thermometer on the right
+  const TX=900,TT=470,TB=1150;
+  rr(TX-40,TT,80,TB-TT,40,'#e9ecf5');x.fillStyle='#e9ecf5';x.beginPath();x.arc(TX,TB+20,70,0,7);x.fill();
+  const lvl=0.92-0.55*cool, col=mix('#ff4757','#4dabf7',cool);
+  rr(TX-22,TT+20+(TB-TT-20)*(1-lvl),44,(TB-TT-20)*lvl+20,22,col);x.fillStyle=col;x.beginPath();x.arc(TX,TB+20,50,0,7);x.fill();
+  const lh=back(prog(p,0.05,0.18)); if(lh>0&&cool<0.6){x.globalAlpha=1-prog(cool,0.4,0.6);txt(P.hot||'HOT',TX,TT-60,80,K.red);x.globalAlpha=1}
+  const lc=back(prog(p,0.65,0.78)); if(lc>0){x.save();x.translate(TX-30,TT-60);x.scale(lc,lc);txt(P.cool||'COOL',0,0,80,K.blue);x.restore()}
+}
+
+window.draw=function(t,dur,P){
+  P=Object.assign({mode:'oxygen'},P||{});
+  const p=t/Math.max(dur,0.1);
+  x.setTransform(1,0,0,1,0,0);x.globalAlpha=1;x.shadowBlur=0;bg(t);
+  if(P.mode==='cool')drawCool(t,p,P);else drawOxygen(t,p,P);
+};
+window.draw(0,6,{});
+</script></body></html>

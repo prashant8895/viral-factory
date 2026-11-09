@@ -1,0 +1,189 @@
+{
+  "id": "curious-2026-11-09-yawn",
+  "channel": "curious",
+  "languages": [
+    "en",
+    "hi"
+  ],
+  "publish": false,
+  "date": "2026-11-09",
+  "slot": "21:00",
+  "bucket": "careful health",
+  "hook_style": "question",
+  "seed": 3409,
+  "hook_text": {
+    "en": "WHY DO WE *YAWN*?",
+    "hi": "UBAASI *KYUN*?"
+  },
+  "sources": [
+    "https://www.sciencedaily.com/releases/2007/06/070621161826.htm",
+    "https://faculty.washington.edu/chudler/yawning.html",
+    "https://www.mentalfloss.com/science/why-do-we-yawn"
+  ],
+  "scenes": [
+    {
+      "visual": "photo of a young Indian man in a checked shirt at an office desk at night, mid-yawn with his mouth wide open and eyes squeezed shut, one hand raised near his mouth, laptop glowing in front of him, warm desk lamp, medium close-up from the front, his face in the lower middle of the frame, dark empty office behind",
+      "narration": {
+        "en": "Why do we *yawn*? And why do you feel like yawning *right now*?",
+        "hi": "Hum *ubaasi* kyun lete hain? Aur abhi aapko bhi aane *wali* hai na?"
+      },
+      "motion": "push",
+      "sfx": "boom",
+      "overlays": []
+    },
+    {
+      "visual": "2D animation: a cartoon face yawns while O2 bubbles stream in, 'more oxygen?' then a red cross and MYTH",
+      "narration": {
+        "en": "Most people think a yawn grabs extra *oxygen*. But when scientists gave people pure oxygen, they yawned just as *much*.",
+        "hi": "Sab sochte hain ubaasi se extra *oxygen* milti hai. Par jab logon ko pure oxygen di gayi, tab bhi utni hi ubaasi *aayi*."
+      },
+      "headline": {
+        "en": "OXYGEN? *NO*",
+        "hi": "OXYGEN? *NAHI*"
+      },
+      "motion": "push",
+      "sfx": "crash",
+      "overlays": [],
+      "anim": "anims/yawn.html",
+      "anim_params": {
+        "mode": "oxygen",
+        "myth": {
+          "en": "MORE OXYGEN?",
+          "hi": "ZYADA OXYGEN?"
+        },
+        "verdict": {
+          "en": "MYTH",
+          "hi": "GALAT"
+        }
+      }
+    },
+    {
+      "visual": "photo of a young Indian woman sitting by a sunny window in a warm room, yawning hugely with her jaw stretched wide open and eyes closed, side profile, soft golden light, her face in the lower middle of the frame, plain wall behind",
+      "narration": {
+        "en": "The leading idea? Your *brain* runs warm. A big yawn stretches your jaw and pulls in a gulp of *cool* air.",
+        "hi": "Sabse strong theory? Aapka *dimaag* garam hota hai. Badi ubaasi mein jaw khulta hai aur *thandi* hawa andar aati hai."
+      },
+      "headline": {
+        "en": "BRAIN *COOLER*",
+        "hi": "DIMAAG KA *COOLER*"
+      },
+      "motion": "push",
+      "sfx": "whoosh",
+      "overlays": []
+    },
+    {
+      "visual": "2D animation: a hot red brain with a thermometer, cool blue air flows in, the brain cools and the thermometer drops",
+      "narration": {
+        "en": "It boosts *blood flow* to your head, and the cool air carries heat *away*.",
+        "hi": "Isse sir mein *blood flow* badhta hai, aur thandi hawa garmi ko *bahar* le jaati hai."
+      },
+      "headline": {
+        "en": "A HEAD *RADIATOR*",
+        "hi": "SIR KA *RADIATOR*"
+      },
+      "motion": "push",
+      "sfx": "riser",
+      "overlays": [],
+      "anim": "anims/yawn.html",
+      "anim_params": {
+        "mode": "cool",
+        "hot": {
+          "en": "HOT",
+          "hi": "GARAM"
+        },
+        "cool": {
+          "en": "COOL",
+          "hi": "THANDA"
+        }
+      }
+    },
+    {
+      "visual": "photo of a young Indian man sitting on a sofa holding a blue cold gel pack against his forehead with one hand, calm relaxed face, mouth closed, eyes open looking ahead, living room in soft evening light, medium shot from the front, his face and the gel pack in the lower middle of the frame",
+      "narration": {
+        "en": "In one test, people holding a *cold* pack on their forehead barely yawned at *all*.",
+        "hi": "Ek test mein jinke maathe pe *thanda* pack tha, unhe lagbhag ubaasi aayi hi *nahi*."
+      },
+      "headline": {
+        "en": "COLD = *NO YAWN*",
+        "hi": "THANDA = *NO UBAASI*"
+      },
+      "motion": "push",
+      "sfx": "ding",
+      "overlays": []
+    },
+    {
+      "visual": "photo inside a crowded Mumbai local train compartment in the evening, an Indian office worker in the middle yawning widely, the commuter standing next to him starting to yawn too, other passengers holding the overhead handles, warm interior lights, medium shot at eye level, the two yawning faces in the lower middle of the frame",
+      "narration": {
+        "en": "And yawns are *contagious*. Seeing one, hearing one, even *reading* about one can set you off.",
+        "hi": "Aur ubaasi *failti* hai. Kisi ko dekh ke, sun ke, yahan tak ki iske baare mein *padh* ke bhi aa jaati hai."
+      },
+      "headline": {
+        "en": "IT'S *CATCHING*",
+        "hi": "YE *FAILTI* HAI"
+      },
+      "motion": "drift_right",
+      "sfx": "pop",
+      "overlays": []
+    },
+    {
+      "visual": "2D animation: phone with a yawning face thumbnail, send to a friend, comment YAWN",
+      "narration": {
+        "en": "Send this to a friend and watch them *catch* it. And comment YAWN if it got you too.",
+        "hi": "Ye video kisi dost ko bhejo aur dekho usko bhi *aati* hai ya nahi. Aur aapko aayi toh comment mein YAWN likho."
+      },
+      "headline": {
+        "en": "COMMENT *YAWN*",
+        "hi": "COMMENT MEIN *YAWN*"
+      },
+      "motion": "pull",
+      "sfx": "pop",
+      "overlays": [],
+      "anim": "anims/share-next.html",
+      "anim_params": {
+        "word": "YAWN",
+        "friend": "Rahul",
+        "thumb": "yawn"
+      }
+    }
+  ],
+  "youtube": {
+    "en": {
+      "title": "Why do we yawn? It's NOT for oxygen #shorts",
+      "description": "Breathing pure oxygen doesn't change how much people yawn. The leading idea: a yawn helps cool your brain. And yes, it's contagious. AI visuals.\n\nSources: University at Albany (ScienceDaily 2007), Neuroscience for Kids (UW), Mental Floss\n#ohthatswhy #yawning #brain #science #shorts",
+      "tags": [
+        "why do we yawn",
+        "yawning",
+        "contagious yawn",
+        "brain",
+        "did you know"
+      ]
+    },
+    "hi": {
+      "title": "Ubaasi kyun aati hai? Oxygen NAHI hai wajah #shorts",
+      "description": "Pure oxygen dene pe bhi ubaasi kam nahi hoti. Sabse strong theory: ubaasi dimaag ko thanda karti hai. Aur haan, ye failti hai. AI visuals.\n\nSources: University at Albany (ScienceDaily 2007), Neuroscience for Kids (UW), Mental Floss\n#ohthatswhy #ubaasi #yawning #science #shorts",
+      "tags": [
+        "ubaasi kyun aati hai",
+        "why do we yawn",
+        "yawning",
+        "science in hindi",
+        "hinglish"
+      ]
+    }
+  },
+  "instagram": {
+    "en": {
+      "caption": "Why do we yawn? (Did you just yawn reading that?) 🥱\nSend this to the friend who always yawns first 👇\n\nOne everyday 'oh, that's why!' every day. Follow @ohthatswhy.english\n\nSources: University at Albany, UW Neuroscience for Kids, Mental Floss\nAI animation\n#ohthatswhy #yawning #brain #science"
+    },
+    "hi": {
+      "caption": "Ubaasi kyun aati hai? (Padhte padhte aa gayi na?) 🥱\nUs dost ko tag karo jo sabse pehle ubaasi leta hai 👇\n\nRoz ek 'oh, that's why!' ke liye follow karo @ohthatswhy.hindii\n\nSources: University at Albany, UW Neuroscience for Kids, Mental Floss\nAI animation\n#ohthatswhy #ubaasi #yawning #science"
+    }
+  },
+  "facebook": {
+    "en": {
+      "description": "Why do we yawn? Not for oxygen. The leading idea: it cools your brain. And it's contagious. AI animation."
+    },
+    "hi": {
+      "description": "Ubaasi kyun aati hai? Oxygen ke liye NAHI. Dimaag ko thanda karne ke liye. Aur ye failti hai. AI animation."
+    }
+  }
+}

@@ -5,7 +5,7 @@
     "en",
     "hi"
   ],
-  "publish": false,
+  "publish": true,
   "date": "2026-11-09",
   "slot": "21:00",
   "bucket": "seen-but-missed",
@@ -41,7 +41,19 @@
       },
       "motion": "push",
       "sfx": "boom",
-      "overlays": []
+      "overlays": [
+        {
+          "type": "ring",
+          "x": 0.3,
+          "y": 0.55,
+          "r": 0.09,
+          "on": {
+            "en": "black",
+            "hi": "kaale"
+          }
+        }
+      ],
+      "image": "jobs/curious/pics/curious-2026-11-09-tyre-black/s1.jpg"
     },
     {
       "visual": "2D animation: a tapped rubber tree drips white latex into a cup, then a plain white tyre rolls in, WHITE RUBBER",
@@ -77,7 +89,19 @@
       },
       "motion": "drift_left",
       "sfx": "thud",
-      "overlays": []
+      "overlays": [
+        {
+          "type": "ring",
+          "x": 0.41,
+          "y": 0.635,
+          "r": 0.07,
+          "on": {
+            "en": "pale",
+            "hi": "tyre"
+          }
+        }
+      ],
+      "image": "jobs/curious/pics/curious-2026-11-09-tyre-black/s3.jpg"
     },
     {
       "visual": "2D animation: black carbon specks swirl into a spinning white tyre, it turns black, counter 1X to 10X LONGER LIFE",
@@ -113,7 +137,19 @@
       },
       "motion": "push",
       "sfx": "sparkle",
-      "overlays": []
+      "overlays": [
+        {
+          "type": "ring",
+          "x": 0.53,
+          "y": 0.47,
+          "r": 0.09,
+          "on": {
+            "en": "UV",
+            "hi": "UV"
+          }
+        }
+      ],
+      "image": "jobs/curious/pics/curious-2026-11-09-tyre-black/s5.jpg"
     },
     {
       "visual": "photo of a classic 1950s car with whitewall tyres, black tread and a wide bright white sidewall band, parked on a quiet street at golden hour, side view at wheel height, the front whitewall tyre large in the lower middle of the frame, no badges, logos or text anywhere",
@@ -127,7 +163,29 @@
       },
       "motion": "pull",
       "sfx": "ding",
-      "overlays": []
+      "overlays": [
+        {
+          "type": "arrow",
+          "x": 0.62,
+          "y": 0.455,
+          "dir": "down",
+          "on": {
+            "en": "tread",
+            "hi": "tread"
+          }
+        },
+        {
+          "type": "ring",
+          "x": 0.47,
+          "y": 0.6,
+          "r": 0.06,
+          "on": {
+            "en": "whitewall",
+            "hi": "whitewall"
+          }
+        }
+      ],
+      "image": "jobs/curious/pics/curious-2026-11-09-tyre-black/s6.jpg"
     },
     {
       "visual": "2D animation: phone with a black tyre thumbnail, send to a friend, comment NEXT",

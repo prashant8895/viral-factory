@@ -9,5 +9,29 @@
   "hook_text": "WHY ARE TYRES *BLACK*?",
   "hook_style": "question",
   "release": "job-curious-2026-11-09-tyre-black-en",
-  "duration": 42.92
+  "duration": 42.92,
+  "platforms": {
+    "youtube": {
+      "id": "pLtN6yloJmg",
+      "url": "https://youtube.com/shorts/pLtN6yloJmg",
+      "privacy": "public",
+      "posted_at": "2026-11-10T04:33+05:30"
+    },
+    "instagram": {
+      "id": "17938069077145193",
+      "url": "https://www.instagram.com/reel/Dfid7H_uMfm/",
+      "posted_at": "2026-11-10T04:34+05:30"
+    },
+    "instagram_story": {
+      "id": "18027538583869494",
+      "url": "https://www.instagram.com/stories/ohthatswhy.english/4026912901623930746",
+      "posted_at": "2026-11-10T04:34+05:30"
+    },
+    "facebook": {
+      "id": "1458784636451595",
+      "url": "https://www.facebook.com/reel/1458784636451595",
+      "posted_at": "2026-11-10T04:34+05:30"
+    }
+  },
+  "errors": {}
 }

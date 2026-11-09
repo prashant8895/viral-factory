@@ -9,5 +9,29 @@
   "hook_text": "TYRE *KAALE* KYUN?",
   "hook_style": "question",
   "release": "job-curious-2026-11-09-tyre-black-hi",
-  "duration": 39.58
+  "duration": 39.58,
+  "platforms": {
+    "youtube": {
+      "id": "sqhlnEyg1dk",
+      "url": "https://youtube.com/shorts/sqhlnEyg1dk",
+      "privacy": "public",
+      "posted_at": "2026-11-10T04:34+05:30"
+    },
+    "instagram": {
+      "id": "18076782983721403",
+      "url": "https://www.instagram.com/reel/DfieEEkDtzg/",
+      "posted_at": "2026-11-10T04:35+05:30"
+    },
+    "instagram_story": {
+      "id": "17912930625311164",
+      "url": "https://www.instagram.com/stories/ohthatswhy.hindii/4026913500668273899",
+      "posted_at": "2026-11-10T04:35+05:30"
+    },
+    "facebook": {
+      "id": "1135661605879444",
+      "url": "https://www.facebook.com/reel/1135661605879444",
+      "posted_at": "2026-11-10T04:35+05:30"
+    }
+  },
+  "errors": {}
 }

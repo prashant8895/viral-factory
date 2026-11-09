@@ -5,7 +5,7 @@
     "en",
     "hi"
   ],
-  "publish": false,
+  "publish": true,
   "date": "2026-11-09",
   "slot": "21:00",
   "bucket": "careful health",
@@ -29,7 +29,19 @@
       },
       "motion": "push",
       "sfx": "boom",
-      "overlays": []
+      "overlays": [
+        {
+          "type": "ring",
+          "x": 0.555,
+          "y": 0.555,
+          "r": 0.08,
+          "on": {
+            "en": "yawn",
+            "hi": "ubaasi"
+          }
+        }
+      ],
+      "image": "jobs/curious/pics/curious-2026-11-09-yawn/s1.jpg"
     },
     {
       "visual": "2D animation: a cartoon face yawns while O2 bubbles stream in, 'more oxygen?' then a red cross and MYTH",
@@ -69,7 +81,19 @@
       },
       "motion": "push",
       "sfx": "whoosh",
-      "overlays": []
+      "overlays": [
+        {
+          "type": "ring",
+          "x": 0.67,
+          "y": 0.645,
+          "r": 0.08,
+          "on": {
+            "en": "jaw",
+            "hi": "jaw"
+          }
+        }
+      ],
+      "image": "jobs/curious/pics/curious-2026-11-09-yawn/s3.jpg"
     },
     {
       "visual": "2D animation: a hot red brain with a thermometer, cool blue air flows in, the brain cools and the thermometer drops",
@@ -109,7 +133,19 @@
       },
       "motion": "push",
       "sfx": "ding",
-      "overlays": []
+      "overlays": [
+        {
+          "type": "ring",
+          "x": 0.555,
+          "y": 0.53,
+          "r": 0.12,
+          "on": {
+            "en": "cold",
+            "hi": "thanda"
+          }
+        }
+      ],
+      "image": "jobs/curious/pics/curious-2026-11-09-yawn/s5.jpg"
     },
     {
       "visual": "photo inside a crowded Mumbai local train compartment in the evening, an Indian office worker in the middle yawning widely, the commuter standing next to him starting to yawn too, other passengers holding the overhead handles, warm interior lights, medium shot at eye level, the two yawning faces in the lower middle of the frame",
@@ -123,13 +159,35 @@
       },
       "motion": "drift_right",
       "sfx": "pop",
-      "overlays": []
+      "overlays": [
+        {
+          "type": "arrow",
+          "x": 0.52,
+          "y": 0.54,
+          "dir": "down",
+          "on": {
+            "en": "contagious",
+            "hi": "failti"
+          }
+        },
+        {
+          "type": "arrow",
+          "x": 0.755,
+          "y": 0.555,
+          "dir": "down",
+          "on": {
+            "en": "seeing",
+            "hi": "dekh"
+          }
+        }
+      ],
+      "image": "jobs/curious/pics/curious-2026-11-09-yawn/s6.jpg"
     },
     {
       "visual": "2D animation: phone with a yawning face thumbnail, send to a friend, comment YAWN",
       "narration": {
         "en": "Send this to a friend and watch them *catch* it. And comment YAWN if it got you too.",
-        "hi": "Ye video kisi dost ko bhejo aur dekho usko bhi *aati* hai ya nahi. Aur aapko aayi toh comment mein YAWN likho."
+        "hi": "Ye video kisi dost ko bhejo, dekho usko bhi *aati* hai ya nahi. Aapko aayi toh comment mein YAWN likho."
       },
       "headline": {
         "en": "COMMENT *YAWN*",

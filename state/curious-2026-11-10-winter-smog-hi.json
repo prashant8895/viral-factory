@@ -9,5 +9,29 @@
   "hook_text": "YE SIRF FOG *NAHI* HAI!",
   "hook_style": "myth",
   "release": "job-curious-2026-11-10-winter-smog-hi",
-  "duration": 43.74
+  "duration": 43.74,
+  "platforms": {
+    "youtube": {
+      "id": "-Kh58RZJLm0",
+      "url": "https://youtube.com/shorts/-Kh58RZJLm0",
+      "privacy": "public",
+      "posted_at": "2026-11-10T19:02+05:30"
+    },
+    "instagram": {
+      "id": "18122703538968581",
+      "url": "https://www.instagram.com/reel/DfkBYO1Cekl/",
+      "posted_at": "2026-11-10T19:03+05:30"
+    },
+    "instagram_story": {
+      "id": "18348472417285181",
+      "url": "https://www.instagram.com/stories/ohthatswhy.hindii/4027350311877833414",
+      "posted_at": "2026-11-10T19:03+05:30"
+    },
+    "facebook": {
+      "id": "1621489469184673",
+      "url": "https://www.facebook.com/reel/1621489469184673",
+      "posted_at": "2026-11-10T19:03+05:30"
+    }
+  },
+  "errors": {}
 }

@@ -9,5 +9,29 @@
   "hook_text": "WINTER HAZE? *NOT* JUST FOG",
   "hook_style": "myth",
   "release": "job-curious-2026-11-10-winter-smog-en",
-  "duration": 41.39
+  "duration": 41.39,
+  "platforms": {
+    "youtube": {
+      "id": "6ZM9GR11re8",
+      "url": "https://youtube.com/shorts/6ZM9GR11re8",
+      "privacy": "public",
+      "posted_at": "2026-11-10T18:57+05:30"
+    },
+    "instagram": {
+      "id": "18058381928810433",
+      "url": "https://www.instagram.com/reel/DfkA9ZLh_W-/",
+      "posted_at": "2026-11-10T18:59+05:30"
+    },
+    "instagram_story": {
+      "id": "18120745511062001",
+      "url": "https://www.instagram.com/stories/ohthatswhy.english/4027349603319165366",
+      "posted_at": "2026-11-10T19:02+05:30"
+    },
+    "facebook": {
+      "id": "1214142014618138",
+      "url": "https://www.facebook.com/reel/1214142014618138",
+      "posted_at": "2026-11-10T19:02+05:30"
+    }
+  },
+  "errors": {}
 }

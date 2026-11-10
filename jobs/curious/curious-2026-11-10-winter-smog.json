@@ -5,7 +5,7 @@
     "en",
     "hi"
   ],
-  "publish": false,
+  "publish": true,
   "date": "2026-11-10",
   "slot": "19:00",
   "bucket": "india everyday",
@@ -47,7 +47,19 @@
       },
       "motion": "push",
       "sfx": "boom",
-      "overlays": []
+      "overlays": [
+        {
+          "type": "arrow",
+          "x": 0.45,
+          "y": 0.5,
+          "dir": "down",
+          "on": {
+            "en": "smoke",
+            "hi": "dhuaan"
+          }
+        }
+      ],
+      "image": "jobs/curious/pics/curious-2026-11-10-winter-smog/s1.jpg"
     },
     {
       "visual": "2D animation: a city by day, smoke from the ground rises freely, yellow arrows up, WARM at the bottom, COOLER at the top",
@@ -87,7 +99,19 @@
       },
       "motion": "pull",
       "sfx": "riser",
-      "overlays": []
+      "overlays": [
+        {
+          "type": "ring",
+          "x": 0.72,
+          "y": 0.64,
+          "r": 0.08,
+          "on": {
+            "en": "ground",
+            "hi": "zameen"
+          }
+        }
+      ],
+      "image": "jobs/curious/pics/curious-2026-11-10-winter-smog/s3.jpg"
     },
     {
       "visual": "2D animation: night city, a glowing orange warm layer sits above cold air like a lid, smoke rises, hits the lid and spreads flat into a haze",
@@ -127,13 +151,25 @@
       },
       "motion": "drift_right",
       "sfx": "crash",
-      "overlays": []
+      "overlays": [
+        {
+          "type": "arrow",
+          "x": 0.56,
+          "y": 0.63,
+          "dir": "down",
+          "on": {
+            "en": "street",
+            "hi": "sadak"
+          }
+        }
+      ],
+      "image": "jobs/curious/pics/curious-2026-11-10-winter-smog/s5.jpg"
     },
     {
       "visual": "2D animation: the sun rises, the ground warms, the orange lid tears apart and the trapped smoke escapes upward, green arrow up",
       "narration": {
         "en": "Then the *sun* warms the ground, the lid breaks, and the haze can *rise*. So mornings often look worst.",
-        "hi": "Subah *dhoop* zameen garam karti hai, dhakkan toot jaata hai, dhuaan *upar* nikal jaata hai. Isliye subah aksar sabse buri dikhti hai."
+        "hi": "Phir *dhoop* zameen garam karti hai, dhakkan toot jaata hai, dhuaan *upar* nikal jaata hai. Isliye subah aksar sabse buri dikhti hai."
       },
       "headline": {
         "en": "THE SUN *BREAKS* IT",
@@ -167,7 +203,19 @@
       },
       "motion": "pull",
       "sfx": "pop",
-      "overlays": []
+      "overlays": [
+        {
+          "type": "ring",
+          "x": 0.5,
+          "y": 0.56,
+          "r": 0.1,
+          "on": {
+            "en": "Smog",
+            "hi": "smog"
+          }
+        }
+      ],
+      "image": "jobs/curious/pics/curious-2026-11-10-winter-smog/s7.jpg"
     }
   ],
   "youtube": {

@@ -3,7 +3,7 @@
   "channel": "curious-hi",
   "date": "2026-11-10",
   "slot": "19:00",
-  "publish": true,
+  "publish": false,
   "bucket": "india everyday",
   "episode": null,
   "hook_text": "YE SIRF FOG *NAHI* HAI!",
@@ -11,27 +11,33 @@
   "release": "job-curious-2026-11-10-winter-smog-hi",
   "duration": 43.74,
   "platforms": {
-    "youtube": {
-      "id": "-Kh58RZJLm0",
-      "url": "https://youtube.com/shorts/-Kh58RZJLm0",
-      "privacy": "public",
-      "posted_at": "2026-11-10T19:02+05:30"
-    },
     "instagram": {
       "id": "18122703538968581",
       "url": "https://www.instagram.com/reel/DfkBYO1Cekl/",
-      "posted_at": "2026-11-10T19:03+05:30"
+      "posted_at": "2026-11-10T19:03+05:30",
+      "takedown_error": "RuntimeError: Meta refused (400): {\"error\":{\"message\":\"(#10) Insufficient permissions to access this data\",\"code\":10,\"type\":\"OAuthException\",\"fbtrace_id\":\"AQ-mxsNCe17VCzKnudYiBjk\"}}"
     },
     "instagram_story": {
       "id": "18348472417285181",
       "url": "https://www.instagram.com/stories/ohthatswhy.hindii/4027350311877833414",
-      "posted_at": "2026-11-10T19:03+05:30"
+      "posted_at": "2026-11-10T19:03+05:30",
+      "takedown_error": "RuntimeError: Meta refused (400): {\"error\":{\"message\":\"(#10) Insufficient permissions to access this data\",\"code\":10,\"type\":\"OAuthException\",\"fbtrace_id\":\"APHXQTHEVbiCZetj9Yz-1WB\"}}"
+    }
+  },
+  "errors": {},
+  "taken_down": {
+    "youtube": {
+      "id": "-Kh58RZJLm0",
+      "url": "https://youtube.com/shorts/-Kh58RZJLm0",
+      "privacy": "public",
+      "posted_at": "2026-11-10T19:02+05:30",
+      "removed_at": "2026-11-10T20:57+05:30"
     },
     "facebook": {
       "id": "1621489469184673",
       "url": "https://www.facebook.com/reel/1621489469184673",
-      "posted_at": "2026-11-10T19:03+05:30"
+      "posted_at": "2026-11-10T19:03+05:30",
+      "removed_at": "2026-11-10T20:58+05:30"
     }
-  },
-  "errors": {}
+  }
 }

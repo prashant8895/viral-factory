@@ -3,7 +3,10 @@ from __future__ import annotations
 
 import random
 import subprocess
+import wave
 from pathlib import Path
+
+import numpy as np
 
 from .tts import SceneAudio
 
@@ -214,14 +217,13 @@ def assemble(shots: list[Path], scenes: list[SceneAudio], ass: Path, music: Path
     silent = work / "silent.mp4"
     run(["ffmpeg", "-y", "-f", "concat", "-safe", "0", "-i", str(lst), "-c", "copy", str(silent)])
 
-    alst = work / "voice.txt"
-    alst.write_text("".join(f"file '{s.path.resolve()}'\n" for s in scenes))
-    voice = work / "voice.wav"
-    run(["ffmpeg", "-y", "-f", "concat", "-safe", "0", "-i", str(alst), "-c", "copy", str(voice)])
+    voice = join_voice(scenes, work / "voice.wav")
 
     total = sum(s.duration for s in scenes)
     cmd = ["ffmpeg", "-y", "-i", str(silent), "-i", str(voice)]
-    chain, mix, n = ["[1:a]aresample=48000,asplit=2[v][vs]"], ["[v]"], 2
+    # The voice goes straight in; it is only split when music needs it to duck under the voice.
+    chain = [f"[1:a]aresample=48000,{'asplit=2[v][vs]' if music else 'anull[v]'}"]
+    mix, n = ["[v]"], 2
     if sfx_track:
         cmd += ["-i", str(sfx_track)]
         chain.append(f"[{n}:a]aresample=48000,volume=0.9[fx]")
@@ -234,8 +236,6 @@ def assemble(shots: list[Path], scenes: list[SceneAudio], ass: Path, music: Path
         chain.append("[m][vs]sidechaincompress=threshold=0.05:ratio=6[md]")  # music dips under the voice
         mix.append("[md]")
         n += 1
-    else:
-        chain.append("[vs]anullsink")
     chain.append("".join(mix) + f"amix=inputs={len(mix)}:normalize=0:duration=first,"
                  "loudnorm=I=-14:TP=-1.5:LRA=11[a]")
     af = ";".join(chain)
@@ -246,7 +246,69 @@ def assemble(shots: list[Path], scenes: list[SceneAudio], ass: Path, music: Path
             "-r", str(FPS), "-c:a", "aac", "-b:a", "192k", "-ar", "48000",
             "-movflags", "+faststart", str(out)]
     run(cmd)
+    check_audio(out, scenes)
     return out
+
+
+def join_voice(scenes: list[SceneAudio], out: Path) -> Path:
+    """All scene voices end to end, sample for sample (no ffmpeg concat, no timestamps to lose)."""
+    rate, parts = None, []
+    for s in scenes:
+        with wave.open(str(s.path), "rb") as f:
+            if f.getnchannels() != 1 or f.getsampwidth() != 2:
+                raise RuntimeError(f"{s.path.name}: voice must be mono 16-bit")
+            if rate is None:
+                rate = f.getframerate()
+            elif f.getframerate() != rate:
+                raise RuntimeError(f"{s.path.name}: voice is {f.getframerate()} Hz, others are {rate} Hz")
+            parts.append(f.readframes(f.getnframes()))
+    with wave.open(str(out), "wb") as f:
+        f.setnchannels(1)
+        f.setsampwidth(2)
+        f.setframerate(rate)
+        f.writeframes(b"".join(parts))
+    return out
+
+
+def check_audio(video: Path, scenes: list[SceneAudio]) -> None:
+    """Refuse a video whose sound has holes. Listens to the finished file itself:
+    1. the decoded sound must last as long as the video (holes in the AAC stream shorten it),
+    2. no gap between audio packets,
+    3. while each word is spoken, the sound must actually be there."""
+    total = sum(s.duration for s in scenes)
+    sr = 16000
+    pcm = subprocess.run(["ffmpeg", "-v", "error", "-i", str(video), "-vn", "-ac", "1", "-ar", str(sr),
+                          "-f", "f32le", "-"], check=True, capture_output=True).stdout
+    a = np.frombuffer(pcm, dtype=np.float32)
+    heard = len(a) / sr
+    if heard < total - 0.3:
+        raise RuntimeError(f"Audio check: only {heard:.1f} s of sound in a {total:.1f} s video (voice missing)")
+    pts = subprocess.run(["ffprobe", "-v", "error", "-select_streams", "a", "-show_entries", "packet=pts_time",
+                          "-of", "csv=p=0", str(video)], check=True, capture_output=True, text=True).stdout
+    times = [float(t.strip(", ")) for t in pts.split() if t.strip(", ")]
+    holes = [(x, y - x) for x, y in zip(times, times[1:]) if y - x > 0.1]
+    if holes:
+        where = ", ".join(f"{x:.1f}s ({d:.1f}s)" for x, d in holes[:5])
+        raise RuntimeError(f"Audio check: {len(holes)} hole(s) in the sound at {where}")
+    win = int(0.05 * sr)
+    silent, spoken, t0 = [], 0, 0.0
+    for k, s in enumerate(scenes):
+        for w in s.words:
+            i, j = int((t0 + w.start - 0.05) * sr), int((t0 + w.end + 0.05) * sr)
+            seg = a[max(0, i):j]
+            n = len(seg) // win
+            if n < 1:
+                continue
+            spoken += 1
+            # the loudest 50 ms inside the word: a real word always has a loud part
+            rms = float(np.sqrt((seg[: n * win].reshape(n, win) ** 2).mean(axis=1)).max())
+            if rms < 10 ** (-40 / 20):  # quieter than -40 dB while a word should be heard
+                silent.append(f"scene {k + 1} '{w.text}' at {t0 + w.start:.1f}s")
+        t0 += s.duration
+    if spoken and len(silent) > max(2, spoken // 20):
+        raise RuntimeError(f"Audio check: {len(silent)} of {spoken} words are silent: " + "; ".join(silent[:6]))
+    print(f"[audio check] ok: {heard:.1f} s of sound, no holes, {spoken - len(silent)}/{spoken} words heard",
+          flush=True)
 
 
 def thumbnail(video: Path, out: Path, at: float = 0.6) -> Path:

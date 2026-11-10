@@ -21,7 +21,7 @@ concurrency:
 
 jobs:
   render:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04  # pinned: ubuntu-latest moved to 26.04 on 2026-11-10 and its ffmpeg dropped seconds of voice
     timeout-minutes: 240
     env:
       MAX_PAID_CALLS: ${{ vars.MAX_PAID_CALLS || '40' }}

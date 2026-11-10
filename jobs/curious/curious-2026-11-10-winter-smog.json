@@ -1,0 +1,215 @@
+{
+  "id": "curious-2026-11-10-winter-smog",
+  "channel": "curious",
+  "languages": [
+    "en",
+    "hi"
+  ],
+  "publish": false,
+  "date": "2026-11-10",
+  "slot": "19:00",
+  "bucket": "india everyday",
+  "hook_style": "myth",
+  "seed": 4110,
+  "voice": {
+    "en": "af_heart",
+    "hi": "Puck"
+  },
+  "hook_text": {
+    "en": "WINTER HAZE? *NOT* JUST FOG",
+    "hi": "YE SIRF FOG *NAHI* HAI!"
+  },
+  "keywords": {
+    "en": [
+      "why is pollution worse in winter",
+      "temperature inversion",
+      "smog vs fog"
+    ],
+    "hi": [
+      "sardi mein pollution kyun badhta hai",
+      "smog kya hai",
+      "why is pollution worse in winter"
+    ]
+  },
+  "sources": [
+    "https://en.ilmatieteenlaitos.fi/temperature-inversions",
+    "https://physicstoday.aip.org/quick-study/waking-up-to-temperature-inversions",
+    "https://weather.com/science/weather-explainers/news/2019-11-06-poor-air-quality-western-united-states-late-fall-winter",
+    "https://weatherbug.com/news/Fog-vs-Smog-What-is-the-Difference",
+    "https://www.worldatlas.com/articles/what-is-the-difference-between-fog-and-smog.html"
+  ],
+  "scenes": [
+    {
+      "visual": "photo of a wide city street at early morning in winter, thick grey haze hiding the tall buildings in the distance, glowing street lamps fading into the haze, a few people in warm jackets walking on the footpath, cars with headlights on, eye level from the footpath, the street and people in the lower two-thirds, upper third is plain grey haze, no signs, no logos, no readable text",
+      "narration": {
+        "en": "That grey winter haze? It's *not* just fog. Much of it is *smoke* that can't escape.",
+        "hi": "Sardi ki grey subah? Ye sirf *fog* NAHI, *dhuaan* hai jo upar ja hi nahi pa raha."
+      },
+      "motion": "push",
+      "sfx": "boom",
+      "overlays": []
+    },
+    {
+      "visual": "2D animation: a city by day, smoke from the ground rises freely, yellow arrows up, WARM at the bottom, COOLER at the top",
+      "narration": {
+        "en": "Normally, the ground warms the air above it. Warm air *rises*, and carries the smoke up and *away*.",
+        "hi": "Normally zameen hawa ko garam karti hai. Garam hawa *upar* uthti hai aur dhuaan saath le jaati hai."
+      },
+      "headline": {
+        "en": "WARM AIR *RISES*",
+        "hi": "GARAM HAWA *UPAR*"
+      },
+      "motion": "push",
+      "sfx": "whoosh",
+      "overlays": [],
+      "anim": "anims/inversion.html",
+      "anim_params": {
+        "mode": "normal",
+        "warm": {
+          "en": "WARM",
+          "hi": "GARAM"
+        },
+        "cool": {
+          "en": "COOLER",
+          "hi": "THANDI"
+        }
+      }
+    },
+    {
+      "visual": "photo of a quiet city neighbourhood on a clear, cold winter night seen from a rooftop, dark clear sky with a few stars, rooftops and bare trees, a thin layer of white mist lying low over the empty street and the ground, still air, no people, wide shot, the low ground mist and street in the lower half, no signs, no readable text",
+      "narration": {
+        "en": "But on clear, *calm* winter nights, the ground cools fast and chills the air above it.",
+        "hi": "Par sardi ki saaf, *shaant* raat mein zameen jaldi thandi hoti hai, aur uske upar ki hawa bhi."
+      },
+      "headline": {
+        "en": "COLD *GROUND*",
+        "hi": "THANDI *ZAMEEN*"
+      },
+      "motion": "pull",
+      "sfx": "riser",
+      "overlays": []
+    },
+    {
+      "visual": "2D animation: night city, a glowing orange warm layer sits above cold air like a lid, smoke rises, hits the lid and spreads flat into a haze",
+      "narration": {
+        "en": "Now a warmer layer sits on top, like a *lid*: a temperature *inversion*. Smoke rises, hits the lid, and spreads flat.",
+        "hi": "Ab upar garam hawa ka *dhakkan* ban jaata hai: temperature *inversion*. Dhuaan isse takraake neeche hi phail jaata hai."
+      },
+      "headline": {
+        "en": "A WARM *LID*",
+        "hi": "HAWA KA *DHAKKAN*"
+      },
+      "motion": "push",
+      "sfx": "thud",
+      "overlays": [],
+      "anim": "anims/inversion.html",
+      "anim_params": {
+        "mode": "lid",
+        "lid": {
+          "en": "WARM LID",
+          "hi": "GARAM DHAKKAN"
+        },
+        "cold": {
+          "en": "COLD",
+          "hi": "THANDI"
+        }
+      }
+    },
+    {
+      "visual": "photo of a busy city road on a cold winter morning, a line of cars and a bus with grey exhaust fumes, light smoky haze hanging low just above the vehicles at street level, headlights glowing through the haze, low angle from the roadside, the traffic and the low smoke in the lower two-thirds, no number plates, no logos, no readable text",
+      "narration": {
+        "en": "And with barely any wind, smoke from *traffic*, fires and chimneys piles up right at *street level*.",
+        "hi": "Hawa bhi nahi chalti, toh *traffic*, aag aur chimney ka dhuaan *sadak* pe hi jama hota hai."
+      },
+      "headline": {
+        "en": "STUCK AT *STREET LEVEL*",
+        "hi": "SADAK PE *JAMA*"
+      },
+      "motion": "drift_right",
+      "sfx": "crash",
+      "overlays": []
+    },
+    {
+      "visual": "2D animation: the sun rises, the ground warms, the orange lid tears apart and the trapped smoke escapes upward, green arrow up",
+      "narration": {
+        "en": "Then the *sun* warms the ground, the lid breaks, and the haze can *rise*. So mornings often look worst.",
+        "hi": "Subah *dhoop* zameen garam karti hai, dhakkan toot jaata hai, dhuaan *upar* nikal jaata hai. Isliye subah aksar sabse buri dikhti hai."
+      },
+      "headline": {
+        "en": "THE SUN *BREAKS* IT",
+        "hi": "DHOOP *TODTI* HAI"
+      },
+      "motion": "push",
+      "sfx": "sparkle",
+      "overlays": [],
+      "anim": "anims/inversion.html",
+      "anim_params": {
+        "mode": "sun",
+        "lid": {
+          "en": "WARM LID",
+          "hi": "GARAM DHAKKAN"
+        },
+        "warm": {
+          "en": "WARM",
+          "hi": "GARAM"
+        }
+      }
+    },
+    {
+      "visual": "photo of two young friends, a man and a woman in sweaters, standing at a large window at home on a winter morning, looking out at a grey hazy city skyline, the man holding a phone, warm soft room light, seen from slightly behind and to the side, the two friends in the lower half of the frame, the hazy window view filling the middle, no readable text",
+      "narration": {
+        "en": "Fog is just water. *Smog* is smoke plus fog. Send this to the friend who calls it fog every *winter*.",
+        "hi": "Fog matlab paani, *smog* matlab dhuaan plus fog. Ye us dost ko bhejo jo har *sardi* ise fog bolta hai."
+      },
+      "headline": {
+        "en": "IT'S *SMOG*",
+        "hi": "YE HAI *SMOG*"
+      },
+      "motion": "pull",
+      "sfx": "pop",
+      "overlays": []
+    }
+  ],
+  "youtube": {
+    "en": {
+      "title": "Why is pollution worse in winter? Not just fog #shorts",
+      "description": "Why is pollution worse in winter? On clear, calm nights the ground cools fast and a warmer layer of air sits on top like a lid (a temperature inversion), so smoke stays near the street until the sun breaks it. Smog vs fog: fog is water droplets, smog is smoke plus fog. AI animation.\n\nSources: Finnish Meteorological Institute, Physics Today, The Weather Channel, WeatherBug, WorldAtlas\n#ohthatswhy #smog #airpollution #science #shorts",
+      "tags": [
+        "why is pollution worse in winter",
+        "temperature inversion",
+        "smog vs fog",
+        "air pollution",
+        "winter smog",
+        "science"
+      ]
+    },
+    "hi": {
+      "title": "Sardi mein pollution kyun badhta hai? Fog NAHI #shorts",
+      "description": "Sardi mein pollution kyun badhta hai? Saaf, shaant raaton mein zameen jaldi thandi hoti hai aur upar garam hawa ka dhakkan ban jaata hai (temperature inversion), toh dhuaan sadak ke paas hi phasa rehta hai jab tak dhoop use tod na de. Smog kya hai? Dhuaan plus fog. AI animation.\n\nSources: Finnish Meteorological Institute, Physics Today, The Weather Channel, WeatherBug, WorldAtlas\n#ohthatswhy #smog #pollution #science #shorts",
+      "tags": [
+        "sardi mein pollution kyun badhta hai",
+        "smog kya hai",
+        "why is pollution worse in winter",
+        "temperature inversion",
+        "science in hindi",
+        "hinglish"
+      ]
+    }
+  },
+  "instagram": {
+    "en": {
+      "caption": "Why is pollution worse in winter? It's not just fog 🌫️\nA warm layer of air traps smoke near the ground like a lid. It's called a temperature inversion, and it's the real answer to smog vs fog.\nWho in your group still calls it fog? 👇\n\nOne everyday 'oh, that's why!' every day. Follow @ohthatswhy.english\n\nSources: Finnish Meteorological Institute, Physics Today, The Weather Channel, WeatherBug, WorldAtlas\nAI animation\n#ohthatswhy #smog #airpollution #science"
+    },
+    "hi": {
+      "caption": "Sardi mein pollution kyun badhta hai? Ye sirf fog NAHI hai 🌫️\nSmog kya hai? Upar garam hawa ka dhakkan dhuaan ko neeche hi rok leta hai (temperature inversion). Many people search: why is pollution worse in winter. Ye hai jawab.\nAapke group mein kaun ise abhi bhi fog bolta hai? 👇\n\nRoz ek 'oh, that's why!' ke liye follow karo @ohthatswhy.hindii\n\nSources: Finnish Meteorological Institute, Physics Today, The Weather Channel, WeatherBug, WorldAtlas\nAI animation\n#ohthatswhy #smog #pollution #science"
+    }
+  },
+  "facebook": {
+    "en": {
+      "description": "Why is pollution worse in winter? It's not just fog. A warm layer of air traps smoke near the ground like a lid until the sun breaks it. AI animation."
+    },
+    "hi": {
+      "description": "Sardi mein pollution kyun badhta hai? Ye sirf fog NAHI hai. Garam hawa ka dhakkan dhuaan ko neeche rok leta hai, jab tak dhoop use tod na de. AI animation."
+    }
+  }
+}

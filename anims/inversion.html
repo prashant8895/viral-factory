@@ -1,0 +1,100 @@
+<!doctype html><html><head><meta charset="utf-8">
+<style>html,body{margin:0;background:#0f1730}canvas{display:block}</style></head><body>
+<canvas id="c" width="1080" height="1920"></canvas>
+<script>
+// Temperature inversion: smoke rising freely, getting trapped under a warm "lid", and the sun breaking the lid.
+// params: {mode: "normal"|"lid"|"sun", warm: "WARM", cold: "COLD", lid: "WARM LID", cool: "COOLER"}
+// Keeps the top fifth (0-384) and the caption band (70%-85%, 1344-1632) free of important drawing.
+const c=document.getElementById('c'),x=c.getContext('2d'),W=1080,H=1920;
+const clamp=(v,a=0,b=1)=>Math.max(a,Math.min(b,v)), prog=(t,a,b)=>clamp((t-a)/(b-a));
+const ease=t=>1-Math.pow(1-clamp(t),3), lerp=(a,b,t)=>a+(b-a)*t;
+const GROUND=1250, LIDTOP=760, LIDBOT=920;
+function rnd(i){const s=Math.sin(i*127.1)*43758.5453;return s-Math.floor(s)}
+function label(txt,cx,cy,col,size){x.font=`700 ${size||54}px Anton, Impact, sans-serif`;x.textAlign='center';x.textBaseline='middle';
+  const w=x.measureText(txt).width+44;x.fillStyle='rgba(10,14,30,.75)';x.beginPath();x.roundRect(cx-w/2,cy-40,w,80,40);x.fill();
+  x.fillStyle=col;x.fillText(txt,cx,cy+2)}
+function city(){ // simple generic skyline + road, no landmarks
+  x.fillStyle='#1a2038';
+  const b=[[40,170],[150,260],[250,200],[350,320],[470,230],[570,290],[690,190],[790,340],[900,240],[990,280]];
+  b.forEach(([bx,h],i)=>{x.fillRect(bx,GROUND-h,90,h);x.fillStyle='rgba(255,210,120,.35)';
+    for(let wy=GROUND-h+25;wy<GROUND-20;wy+=45)for(let wx=bx+14;wx<bx+80;wx+=28)if(rnd(i*31+wx+wy)>.55)x.fillRect(wx,wy,12,18);x.fillStyle='#1a2038'});
+  x.fillStyle='#2a2f45';x.fillRect(0,GROUND,W,H-GROUND);
+  x.fillStyle='#e8e2a0';for(let k=0;k<9;k++)x.fillRect(k*130+20,GROUND+40,70,8);
+}
+// smoke sources at ground level (chimneys / traffic), x positions
+const SRC=[180,420,640,880];
+function puff(px,py,r,a){const g=x.createRadialGradient(px,py,0,px,py,r);g.addColorStop(0,`rgba(125,122,130,${a})`);g.addColorStop(.6,`rgba(125,122,130,${a*.6})`);g.addColorStop(1,'rgba(125,122,130,0)');
+  x.fillStyle=g;x.beginPath();x.arc(px,py,r,0,7);x.fill()}
+window.draw=function(t,dur,P){
+  P=Object.assign({mode:'normal',warm:'WARM',cold:'COLD',lid:'WARM LID',cool:'COOLER'},P||{});
+  const p=t/Math.max(dur,0.1), m=P.mode;
+  x.setTransform(1,0,0,1,0,0);
+  // sky
+  let sunUp = m==='sun'? ease(prog(p,0,0.35)) : 0;
+  const g=x.createLinearGradient(0,0,0,GROUND);
+  if(m==='sun'){g.addColorStop(0,`rgb(${lerp(15,70,sunUp)|0},${lerp(23,120,sunUp)|0},${lerp(48,190,sunUp)|0})`);g.addColorStop(1,`rgb(${lerp(40,250,sunUp)|0},${lerp(50,190,sunUp)|0},${lerp(80,140,sunUp)|0})`)}
+  else if(m==='lid'){g.addColorStop(0,'#0c1228');g.addColorStop(1,'#26304f')}
+  else{g.addColorStop(0,'#3a6fb8');g.addColorStop(1,'#a9c9ec')}
+  x.fillStyle=g;x.fillRect(0,0,W,GROUND);
+  if(m==='lid'){for(let i=0;i<40;i++){x.fillStyle='rgba(255,255,255,.6)';x.beginPath();x.arc(rnd(i)*W,400+rnd(i+9)*300,2+2*rnd(i+3),0,7);x.fill()}}
+  // sun
+  if(m==='sun'||m==='normal'){const sy=m==='sun'?lerp(760,480,sunUp):470, sx=860;
+    const sg=x.createRadialGradient(sx,sy,0,sx,sy,170);sg.addColorStop(0,'rgba(255,240,170,1)');sg.addColorStop(.45,'rgba(255,210,90,.9)');sg.addColorStop(1,'rgba(255,200,80,0)');
+    x.fillStyle=sg;x.beginPath();x.arc(sx,sy,170,0,7);x.fill()}
+  // the lid layer
+  let lidA=0;
+  if(m==='lid') lidA=ease(prog(p,0.08,0.3));
+  if(m==='sun') lidA=1-ease(prog(p,0.6,0.92));
+  if(lidA>0){
+    const lg=x.createLinearGradient(0,LIDTOP,0,LIDBOT);lg.addColorStop(0,`rgba(255,140,60,${.0*lidA})`);lg.addColorStop(.5,`rgba(255,130,50,${.55*lidA})`);lg.addColorStop(1,`rgba(255,140,60,${.15*lidA})`);
+    x.fillStyle=lg;
+    if(m==='sun'&&p>0.45){ // the lid tears apart from the middle
+      const gap=ease(prog(p,0.45,0.75))*600;x.fillRect(0,LIDTOP,W/2-gap/2,LIDBOT-LIDTOP);x.fillRect(W/2+gap/2,LIDTOP,W/2,LIDBOT-LIDTOP)}
+    else x.fillRect(0,LIDTOP,W,LIDBOT-LIDTOP);
+    x.globalAlpha=lidA;label(P.lid,W/2,LIDTOP+80,'#ffb15c',60);x.globalAlpha=1;
+    // cold layer below lid
+    const cg=x.createLinearGradient(0,LIDBOT,0,GROUND);cg.addColorStop(0,`rgba(80,160,255,${.12*lidA})`);cg.addColorStop(1,`rgba(80,160,255,${.3*lidA})`);
+    x.fillStyle=cg;x.fillRect(0,LIDBOT,W,GROUND-LIDBOT);
+  }
+  city();
+  // smoke puffs
+  const N=70;
+  for(let k=0;k<N;k++){
+    const si=k%SRC.length, born=(rnd(k+1)*0.9)*dur, age=t-born; if(age<0)continue;
+    const life=age/2.8; // seconds to rise
+    let px=SRC[si]+Math.sin(age*1.5+k)*18, py, a=.75, r=26+age*14;
+    if(m==='normal'){ // rises freely and thins out high up
+      py=GROUND-40-life*560; a=.75*(1-clamp((GROUND-py-150)/650)); px+=(rnd(k+5)-.5)*age*40;
+      if(a<=0)continue;
+    }else if(m==='lid'){ // rises, hits the lid, spreads flat and piles up
+      const rise=Math.min(life*560, GROUND-40-LIDBOT-20); py=GROUND-40-rise;
+      const tHit=(GROUND-60-LIDBOT)/560*2.8, spread=Math.max(0,age-tHit);
+      px+=(rnd(k+7)-.5)*2*spread*170; py+=spread*rnd(k+11)*45; r=26+Math.min(age,4)*16;
+    }else{ // sun: starts trapped, then escapes up through the gap
+      const esc=ease(prog(p,0.5,1));
+      py=lerp(LIDBOT+40+rnd(k+3)*260, 420+rnd(k+13)*200, esc*clamp(age/2));
+      px=lerp(rnd(k+17)*W, W/2+(rnd(k+19)-.5)*500, esc);
+      a=.7*(1-esc*0.6); r=60+rnd(k)*40;
+    }
+    puff(px,py,r,a);
+  }
+  // ground haze in lid mode builds up over time
+  if(m==='lid'){const hz=ease(prog(p,0.35,1));x.fillStyle=`rgba(160,160,170,${.35*hz})`;x.fillRect(0,LIDBOT+20,W,GROUND-LIDBOT-20)}
+  // arrows + labels
+  if(m==='normal'){const a=ease(prog(p,0.1,0.3));x.globalAlpha=a;
+    x.strokeStyle='#ffd23f';x.lineWidth=14;x.lineCap='round';
+    [[300,1150,650],[760,1150,650]].forEach(([ax,y0,y1])=>{const yy=lerp(y0,y1,ease(prog(p,0.1,0.6)));x.beginPath();x.moveTo(ax,y0);x.lineTo(ax,yy);x.stroke();
+      x.fillStyle='#ffd23f';x.beginPath();x.moveTo(ax-30,yy+10);x.lineTo(ax,yy-35);x.lineTo(ax+30,yy+10);x.fill()});
+    label(P.warm,W/2,1170,'#ffb15c',58);label(P.cool,W/2,520,'#9fd4ff',58);x.globalAlpha=1}
+  if(m==='lid'){const a=ease(prog(p,0.2,0.35));x.globalAlpha=a;label(P.cold,W/2,1170,'#9fd4ff',58);x.globalAlpha=1;
+    // little "bounce" marks under the lid
+    const b=ease(prog(p,0.3,0.45));if(b>0){x.strokeStyle=`rgba(255,80,80,${b})`;x.lineWidth=10;x.lineCap='round';
+      [200,540,880].forEach(bx=>{x.beginPath();x.moveTo(bx-40,LIDBOT+40);x.lineTo(bx,LIDBOT+5);x.lineTo(bx+40,LIDBOT+40);x.stroke()})}}
+  if(m==='sun'){const a=ease(prog(p,0.15,0.35));x.globalAlpha=a;
+    const gg=x.createLinearGradient(0,GROUND-120,0,GROUND);gg.addColorStop(0,'rgba(255,170,60,0)');gg.addColorStop(1,'rgba(255,170,60,.45)');x.fillStyle=gg;x.fillRect(0,GROUND-120,W,120);
+    label(P.warm,W/2,1170,'#ffb15c',58);x.globalAlpha=1;
+    const e=ease(prog(p,0.55,0.8));if(e>0){x.globalAlpha=e;x.strokeStyle='#2ed573';x.lineWidth=14;x.lineCap='round';
+      const yy=lerp(1000,560,e);x.beginPath();x.moveTo(W/2,1000);x.lineTo(W/2,yy);x.stroke();x.fillStyle='#2ed573';x.beginPath();x.moveTo(W/2-34,yy+12);x.lineTo(W/2,yy-38);x.lineTo(W/2+34,yy+12);x.fill();x.globalAlpha=1}}
+};
+window.draw(0,6,{});
+</script></body></html>

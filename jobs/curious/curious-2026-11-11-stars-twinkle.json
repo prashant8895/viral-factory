@@ -37,7 +37,7 @@
       "visual": "photo of a young Indian man in a hoodie sitting on the parapet of a flat city rooftop at night, seen from behind and slightly to the side, looking up at a clear dark sky full of stars, one bright steady golden dot above the horizon, warm city lights glowing far below, the man and rooftop in the lower half of the frame, no readable text, no logos",
       "narration": {
         "en": "Why do *stars* twinkle at night, but *planets* don't?",
-        "hi": "Taare *timtimate* kyun hain, par *planets* nahi?"
+        "hi": "Taare *timtimate* kyun hain, lekin *planets* nahi?"
       },
       "motion": "push",
       "sfx": "boom",
@@ -59,7 +59,7 @@
       "visual": "2D animation: a star's light zig-zags through moving warm and cold air pockets down to an eye",
       "narration": {
         "en": "Starlight flies straight through space. Then it hits our *air*, full of moving warm and cold pockets, and each one *bends* it.",
-        "hi": "Taare ki roshni space mein seedhi aati hai. Phir hamari *hawa* mein garam aur thande pockets milte hain, aur har pocket use *mod* deta hai."
+        "hi": "Taare ki roshni space mein seedhi chalti hai. Phir hamari *hawa* mein garam aur thande pockets milte hain, aur har pocket use *mod* deta hai."
       },
       "headline": {
         "en": "AIR *BENDS* LIGHT",
@@ -85,7 +85,7 @@
       "visual": "photo of a deep dark night sky over a quiet Indian village, silhouetted coconut palm trees and a small house roof along the bottom, one very bright white star in the middle of the frame with a soft glow, many faint stars around it, no moon, no readable text",
       "narration": {
         "en": "A star is so far away, it's just one tiny *point* of light. So every bend makes it jump: *scintillation*.",
-        "hi": "Taara itna door hai ki wo bas ek chhota sa *point* dikhta hai. Toh har mod pe wo hilta hai. Ise kehte hain *scintillation*."
+        "hi": "Taara itna door hai ki wo bas ek chhota sa *point* lagta hai. Toh har mod pe wo hilta hai. Ise kehte hain *scintillation*."
       },
       "headline": {
         "en": "JUST ONE *POINT*",
@@ -111,7 +111,7 @@
       "visual": "2D animation: left a star as one point with one zig-zag ray (flickers), right a planet disc with many rays (steady)",
       "narration": {
         "en": "Planets are closer, so they're tiny *discs*. Their light comes from many points, and the wobbles *cancel out*.",
-        "hi": "Planets paas hain, isliye chhoti *disc* jaise dikhte hain. Roshni kai points se aati hai, toh jhatke *cancel* ho jaate hain."
+        "hi": "Planets paas hain, isliye chhoti *disc* jaise dikhte hain. Unki roshni kai points se aati hai, jhatke *cancel* ho jaate hain."
       },
       "headline": {
         "en": "PLANETS ARE *DISCS*",
@@ -145,7 +145,7 @@
       "visual": "photo of a calm beach in India just after sunset, deep blue sky with a thin orange glow at the horizon, one bright white star low in the sky just above the sea, a wooden fishing boat resting on the wet sand in the foreground, wide shot from the sand, no people, no readable text",
       "narration": {
         "en": "Stars low near the *horizon* twinkle the most, because their light crosses much *more air*.",
-        "hi": "*Horizon* ke paas wale taare sabse zyada timtimate hain, kyunki unki roshni bahut *zyada hawa* paar karti hai."
+        "hi": "*Horizon* ke paas wale taare sabse zyada timtimate hain, kyunki unki roshni bahut *zyada hawa* cross karti hai."
       },
       "headline": {
         "en": "LOW STARS *TWINKLE MORE*",
@@ -171,7 +171,7 @@
       "visual": "2D animation: above the air a satellite sees a steady star, below the air a person sees it twinkle",
       "narration": {
         "en": "And above the air, out in *space*, stars don't twinkle at all. They shine *steady*.",
-        "hi": "Aur hawa ke upar, *space* mein, taare bilkul nahi timtimate. Wahan wo *steady* chamakte hain."
+        "hi": "Aur hawa ke upar, *space* mein, taare bilkul nahi timtimate. Wahan wo *steady* dikhte hain."
       },
       "headline": {
         "en": "NO TWINKLE IN *SPACE*",
@@ -205,7 +205,7 @@
       "visual": "photo of two young Indian friends, a man and a woman in light jackets, standing on a city rooftop at night seen from behind, the woman pointing up at a bright steady golden dot in the dark starry sky, soft warm light from a doorway, the two friends in the lower half of the frame, no readable text",
       "narration": {
         "en": "Tonight, find a bright dot that *doesn't* twinkle. It's often a *planet*. Send this to your stargazing friend.",
-        "hi": "Aaj raat aisa chamakta dot dhoondo jo *timtimata nahi*. Wo aksar *planet* hota hai. Ye apne stargazing dost ko bhejo."
+        "hi": "Aaj raat aisa chamakta dot dhoondo jo *timtimata nahi*. Wo aksar *planet* hota hai. Ise apne stargazing dost ko bhejo."
       },
       "headline": {
         "en": "SPOT A *PLANET*",

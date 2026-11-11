@@ -9,5 +9,29 @@
   "hook_text": "WHY DO STARS *TWINKLE*?",
   "hook_style": "question",
   "release": "job-curious-2026-11-11-stars-twinkle-en",
-  "duration": 42.26
+  "duration": 42.26,
+  "platforms": {
+    "youtube": {
+      "id": "WHJTysLz42g",
+      "url": "https://youtube.com/shorts/WHJTysLz42g",
+      "privacy": "public",
+      "posted_at": "2026-11-12T01:46+05:30"
+    },
+    "instagram": {
+      "id": "18171448396470544",
+      "url": "https://www.instagram.com/reel/DfnUb7CsorD/",
+      "posted_at": "2026-11-12T01:47+05:30"
+    },
+    "instagram_story": {
+      "id": "18172054612482185",
+      "url": "https://www.instagram.com/stories/ohthatswhy.english/4028278523938628222",
+      "posted_at": "2026-11-12T01:47+05:30"
+    },
+    "facebook": {
+      "id": "4069454170016350",
+      "url": "https://www.facebook.com/reel/4069454170016350",
+      "posted_at": "2026-11-12T01:47+05:30"
+    }
+  },
+  "errors": {}
 }

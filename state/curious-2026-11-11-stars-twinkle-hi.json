@@ -9,5 +9,29 @@
   "hook_text": "TAARE *TIMTIMATE* KYUN?",
   "hook_style": "question",
   "release": "job-curious-2026-11-11-stars-twinkle-hi",
-  "duration": 42.94
+  "duration": 42.94,
+  "platforms": {
+    "youtube": {
+      "id": "hba8HFXslkY",
+      "url": "https://youtube.com/shorts/hba8HFXslkY",
+      "privacy": "public",
+      "posted_at": "2026-11-12T01:47+05:30"
+    },
+    "instagram": {
+      "id": "18137940838643734",
+      "url": "https://www.instagram.com/reel/DfnUkYjDJZj/",
+      "posted_at": "2026-11-12T01:48+05:30"
+    },
+    "instagram_story": {
+      "id": "17967300642245378",
+      "url": "https://www.instagram.com/stories/ohthatswhy.hindii/4028279105652578598",
+      "posted_at": "2026-11-12T01:48+05:30"
+    },
+    "facebook": {
+      "id": "895037500296598",
+      "url": "https://www.facebook.com/reel/895037500296598",
+      "posted_at": "2026-11-12T01:49+05:30"
+    }
+  },
+  "errors": {}
 }

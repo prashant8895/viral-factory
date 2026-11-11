@@ -5,7 +5,7 @@
     "en",
     "hi"
   ],
-  "publish": false,
+  "publish": true,
   "date": "2026-11-11",
   "slot": "19:00",
   "bucket": "why does it happen",
@@ -41,7 +41,19 @@
       },
       "motion": "push",
       "sfx": "boom",
-      "overlays": []
+      "overlays": [
+        {
+          "type": "ring",
+          "x": 0.495,
+          "y": 0.37,
+          "r": 0.06,
+          "on": {
+            "en": "planets",
+            "hi": "planets"
+          }
+        }
+      ],
+      "image": "jobs/curious/pics/curious-2026-11-11-stars-twinkle/s1.jpg"
     },
     {
       "visual": "2D animation: a star's light zig-zags through moving warm and cold air pockets down to an eye",
@@ -81,7 +93,19 @@
       },
       "motion": "push",
       "sfx": "sparkle",
-      "overlays": []
+      "overlays": [
+        {
+          "type": "ring",
+          "x": 0.5,
+          "y": 0.5,
+          "r": 0.08,
+          "on": {
+            "en": "point",
+            "hi": "point"
+          }
+        }
+      ],
+      "image": "jobs/curious/pics/curious-2026-11-11-stars-twinkle/s3.jpg"
     },
     {
       "visual": "2D animation: left a star as one point with one zig-zag ray (flickers), right a planet disc with many rays (steady)",
@@ -129,7 +153,19 @@
       },
       "motion": "pull",
       "sfx": "riser",
-      "overlays": []
+      "overlays": [
+        {
+          "type": "arrow",
+          "x": 0.433,
+          "y": 0.405,
+          "dir": "down",
+          "on": {
+            "en": "horizon",
+            "hi": "horizon"
+          }
+        }
+      ],
+      "image": "jobs/curious/pics/curious-2026-11-11-stars-twinkle/s5.jpg"
     },
     {
       "visual": "2D animation: above the air a satellite sees a steady star, below the air a person sees it twinkle",
@@ -177,7 +213,19 @@
       },
       "motion": "pull",
       "sfx": "pop",
-      "overlays": []
+      "overlays": [
+        {
+          "type": "ring",
+          "x": 0.513,
+          "y": 0.335,
+          "r": 0.05,
+          "on": {
+            "en": "planet",
+            "hi": "planet"
+          }
+        }
+      ],
+      "image": "jobs/curious/pics/curious-2026-11-11-stars-twinkle/s7.jpg"
     }
   ],
   "youtube": {

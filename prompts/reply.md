@@ -20,6 +20,11 @@ Work unattended. Never print any key.
    - For a topic ask: "Ooh good one, adding it to the list 👀" style, then ALSO add it to
      `data/asks.json` as `{"text", "author", "platform", "likes", "at"}` so the morning ideas see it.
    - At most one emoji. No hashtags. No links. No "follow us".
+3a. Quiz winners: for each `state/curious-*-en.json` with `shoutouts.names`, whose video is
+   posted, reply once under each winner's comment (`comment_id`, `platform`): short and happy,
+   e.g. "You got it first! You're in today's video 🎉" (vary it). Other right answers: "Yes! Spot on 👏"
+   style, and a gentle "Close! The answer's in tomorrow's video 😉" for wrong guesses on a video whose
+   quiz is still open. Never reveal tomorrow's answer in a reply.
 4. Append to `data/replies.json` (a JSON list) one object per reply:
    `{"platform", "channel", "comment_id", "text"}` copied exactly from the comment row.
    Max 40 per run, newest first.

@@ -203,11 +203,64 @@ The clouds Short (2 min, StarTalk podcast clip) works like this:
 - Reuse animations from `anims/` when they fit (with `anim_params`); write a new one when
   the topic needs it. Keep the top fifth and the lower third calm (titles and captions).
 
+### Hook and hold (Prashant, 2026-11-13): grab them in 2 seconds, keep them to the end
+
+Attention is gone in about two seconds, so every video is built as a chain of reasons to stay.
+Each content scene carries a `"beat"`, and the render refuses a job that skips one:
+
+| beat | where | what it does | example |
+|---|---|---|---|
+| `hook` | scene 1, max 14 words, picture | a surprising claim or a sharp question about something they've SEEN, plus the on-screen `hook_text` from frame 1 | "Those thin lines on a car's back window? They're NOT decoration." |
+| `loop` | scene 1 or 2 | a promise that's only paid off near the end, so leaving = never knowing | "Stick with me, the button at the end surprises everyone." |
+| `explain` / `build` | middle | the chain: one step per scene, max 30 words per scene (~9 s), so the picture keeps changing | |
+| `rehook` | middle (not first 2, not last) | a turn that resets attention: "But here's the weird part...", "Now this is where it gets strange...", a number that sounds wrong | "But here's the weird part. Push electricity through a thin wire..." |
+| `payoff` | second half | the reveal the loop promised, one clean line | "The back window? It gets its own heater, built right into the glass." |
+
+More rules for the hold:
+- Never give the answer away in the first half. Hint, tease, compare, but keep the reveal late.
+- Hook lines that work: a contradiction ("It's NOT for..."), a wrong-sounding number ("Your
+  phone screen has 2 million tiny lights"), "you've seen this a thousand times" + why-question,
+  a stake ("If this hole wasn't here, the window could crack"). Still vary the opener.
+- On-screen: `hook_text` is up from the first frame; every scene has a `headline` that is a
+  tease, not a summary when possible ("WAIT, WHAT?", "THE WEIRD PART").
+- The shoutout scene (if anyone answered yesterday) is itself a reason to stay to the end:
+  regulars watch through to see their name.
+
+### Daily quiz and shoutouts (Prashant, 2026-11-13): comments, shares, and a reason to come back
+
+Every video ends with a quick guess about **tomorrow's** topic. Tomorrow's video IS the answer,
+and starts paying it off from the hook. The first people (max **3**, across YouTube,
+Instagram and Facebook together) who answer right get their names on screen in that video.
+
+- `quiz` in the job: `theme` (the day's theme from `channels/curious-en/channel.json` →
+  `engagement.quiz_days`, by the day the video posts), `question` (short, ~8 words), `options`
+  {A, B} or {A, B, C} (short, both believable, the wrong one is the common belief), `answer`,
+  `keywords` (words per option, used to judge comments that don't say a letter), `next_topic`,
+  `next_title` (shown on screen), `sources` (2 for the answer).
+- Theme days (fun, recognisable; change the format, not the idea):
+  MYTH OR FACT MONDAY, GUESS THE NUMBER TUESDAY (options are ranges), THIS OR THAT WEDNESDAY,
+  ODD ONE OUT THURSDAY, FINISH THE FACT FRIDAY, SPOT THE SCIENCE SATURDAY, SUNDAY BRAIN TEASER.
+- The last scene is the quiz scene (`"quiz": true`, `anims/quiz.html`, ~12–20 words): tease
+  tomorrow, ask the guess, ask them to comment it, mention the shoutout. Add a share nudge only
+  if it fits ("ask your friend first, bet they get it wrong"). Never say the right answer.
+- Right before it: the shoutout scene (`"shoutout": true`, `anims/shoutout.html`, ~8–12 words)
+  whenever yesterday's video asked a quiz. Names are SHOWN, never spoken (the voice mangles
+  handles), and the count isn't known when you write it, so never say "three": "these legends
+  got it first". Always also write `narration_none` for when nobody got it right ("Nobody
+  cracked yesterday's one... let's see if you can beat today's."). The render reads the
+  comments, picks the names (factory/quiz.py) and drops the scene if yesterday had no quiz.
+- Fair: earliest right comment wins (by the platform's timestamp), one spot per person, names
+  that look like spam/links/slurs are skipped. YouTube and Instagram show the @handle, Facebook
+  shows "First L." only.
+- Put the quiz in the Instagram caption (and the YouTube/Facebook description) too: "Tomorrow's
+  quiz: ...? A) ... B) ... Comment your guess 👇". It's a real question with a real answer, which
+  is fine; never "comment YES if..." style bait.
+- The reply run congratulates the winners under their comment once the video is out.
+
 ### Calls to action (smart, never greedy)
 
-- At most one ask per video, in the last line, and it must offer something:
-  "Comment NEXT for one more everyday thing we all get wrong",
-  "Send this to the friend who does this", "Part 2 tomorrow: the other escalator myth".
+- The quiz IS the ask now (comment your guess + share with a friend to test them).
+  Never stack another ask on top.
 - Never "like and subscribe", never begging, never fake urgency.
 
 ### Hook A/B test (CLOSED 2026-11-12: every video opens with a varied curiosity question, hook_style `curiosity`)
@@ -272,3 +325,4 @@ saw, what we change.
 - 2026-11-12: Prashant's reset after 7 English videos. Hindi paused (858 views in 7 videos vs 8,324 English; Hindi YouTube near 0 every time). English moves to: Gemini voice with a clear neutral accent (Kokoro's accent was too strong for a wide audience), illustrated pictures instead of photo-real ones, and an "Ever wondered why ...?" opening on every video. The numbers review (`metrics/report.md`, `metrics/insights.json`) now runs after every metrics pull and feeds the morning ideas. Baseline to beat: median watch 24% of the video, seen-but-missed bucket 1,890 median views.
 - 2026-11-12: Voice trial agreed with Prashant: the next 5 videos use his cloned voice (`voice_trial` in `channels/curious-en/channel.json`). Once all 5 are 72 h old, the numbers review compares them with every other English video (views at 72 h, watch %, Instagram skip rate). Keep his voice if at least 2 of the 3 are within 10% of the others; otherwise go back to the stock Gemini voice. The script run applies the verdict and tells Prashant.
 - 2026-11-12: Prashant: "Ever wondered why car tyres are black?" is the idea, not a fixed opener: vary the first line, keep the curiosity question. Delivery reference = Neil deGrasse Tyson's clouds Short (youtube.com/shorts/BJfVpwvL8qc): a very human, friend-to-friend explanation. Added "How we talk" rules, per-scene `delivery` notes for the voice, and 100–150 words (45–60 s).
+- 2026-11-13: Prashant: no real hook and no reason to comment or come back. Added "Hook and hold" (beats: hook in max 14 words, open loop, mid re-hook, late payoff, max 30 words per scene) and the daily quiz about tomorrow's topic with themed days; the first 3 right answers get their names on screen the next day. Checked by the render; names picked from live comments at render time. Note: this lands during the voice trial, so the trial's numbers now mix two changes.

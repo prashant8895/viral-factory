@@ -1,0 +1,174 @@
+{
+  "id": "sample-hook-quiz",
+  "channel": "curious",
+  "languages": [
+    "en"
+  ],
+  "publish": false,
+  "date": "2026-11-13",
+  "bucket": "seen-but-missed",
+  "hook_style": "curiosity",
+  "seed": 1121,
+  "hook_text": "BACK WINDOW *LINES*?",
+  "keywords": [
+    "why do car rear windows have lines",
+    "rear window lines",
+    "rear defroster"
+  ],
+  "sources": [
+    "https://www.iflscience.com/why-do-some-cars-have-lines-on-the-rear-window-75686",
+    "https://jalopnik.com/1986247/rear-defroster-car-radio-antenna/",
+    "https://www.mentalfloss.com/transportation/cars-trucks/car-rear-windshield-lines",
+    "https://bgr.com/2161992/what-are-the-lines-on-car-rear-window-for/"
+  ],
+  "scenes": [
+    {
+      "visual": "illustration of the back of a small hatchback car parked on a quiet Indian street in the early morning, seen straight from behind, the rear window glass shows thin horizontal orange-brown lines running across it, the car in the lower two-thirds of the frame",
+      "narration": "Those thin lines on a car's back window? They're NOT decoration.",
+      "delivery": "curious",
+      "motion": "push",
+      "sfx": "boom",
+      "overlays": [
+        {
+          "type": "ring",
+          "x": 0.5,
+          "y": 0.62,
+          "r": 0.09,
+          "on": "lines"
+        }
+      ],
+      "beat": "hook"
+    },
+    {
+      "visual": "illustration of a young Indian man standing behind a parked car, scratching his head with a puzzled smile, looking at the thin lines on the car's rear window, side view",
+      "narration": "Most people never find out what they do. <short pause> Stick with me, the button at the end surprises everyone.",
+      "delivery": "light",
+      "headline": "JUST *DESIGN*?",
+      "motion": "drift_right",
+      "sfx": "thud",
+      "overlays": [],
+      "beat": "loop"
+    },
+    {
+      "visual": "2D animation: the rear glass with thin lines; a dashboard button is pressed and current runs along every line",
+      "narration": "Each line is a very thin strip of *metal*. Press a little button on the dashboard, and electricity runs through all of them.",
+      "delivery": "explain",
+      "headline": "THIN *METAL* LINES",
+      "motion": "push",
+      "sfx": "whoosh",
+      "overlays": [],
+      "anim": "anims/rear-window.html",
+      "anim_params": {
+        "mode": "grid",
+        "label": "THIN METAL LINES"
+      },
+      "beat": "explain"
+    },
+    {
+      "visual": "illustration of a cosy kitchen toaster with its thin heating coils glowing warm orange inside, two slices of bread above it, simple kitchen counter",
+      "narration": "But here's the weird part. Push electricity through a thin wire, and it pushes back... so the wire *warms up*.",
+      "delivery": "explain",
+      "headline": "LIKE A *TOASTER*",
+      "motion": "pull",
+      "sfx": "ding",
+      "overlays": [],
+      "beat": "rehook"
+    },
+    {
+      "visual": "2D animation: the fogged rear glass clears outward from each warm line while a counter drops from 100% to 0%",
+      "narration": "That gentle heat goes straight into the glass. So the *fog* just fades away, line by line... and on cold mornings, even the frost melts.",
+      "delivery": "build",
+      "headline": "FOG *GONE*",
+      "motion": "push",
+      "sfx": "sparkle",
+      "overlays": [],
+      "anim": "anims/rear-window.html",
+      "anim_params": {
+        "mode": "fog",
+        "label": "FOG"
+      },
+      "beat": "build"
+    },
+    {
+      "visual": "illustration of the view through a perfectly clear car rear window from the back seat, a sunny Indian street visible behind the car, thin orange lines across the glass",
+      "narration": "Your front windscreen clears fog with warm air from the vents. <short pause> The back window? It gets its own heater, built right into the glass.",
+      "delivery": "reveal",
+      "headline": "A HEATER IN THE *GLASS*",
+      "motion": "push",
+      "sfx": "pop",
+      "overlays": [],
+      "beat": "payoff"
+    },
+    {
+      "visual": "2D animation: yesterday's fastest right answers",
+      "shoutout": true,
+      "anim": "anims/shoutout.html",
+      "narration": "Yesterday's answer? <short pause> And these three got it first. Nicely done!",
+      "narration_none": "Nobody cracked yesterday's one... <chuckles> let's see if you can beat today's.",
+      "delivery": "warm",
+      "headline": "*SHOUTOUT*",
+      "motion": "push",
+      "sfx": "sparkle",
+      "overlays": []
+    },
+    {
+      "visual": "2D animation: the quiz about tomorrow's topic",
+      "quiz": true,
+      "anim": "anims/quiz.html",
+      "narration": "Tomorrow: why ice floats. Quick guess... A, or B? Comment your answer. First three to get it right are in tomorrow's video.",
+      "delivery": "curious",
+      "headline": "YOUR *GUESS*?",
+      "motion": "push",
+      "sfx": "pop",
+      "overlays": []
+    }
+  ],
+  "youtube": {
+    "title": "Why do car rear windows have lines? #shorts",
+    "description": "Why do car rear windows have lines? They're thin metal strips that carry electricity and warm the glass, so fog and frost clear from the back window. It's a heater built into the glass.\n\nSources: IFLScience, Jalopnik, Mental Floss, BGR\nAI visuals\n#ohthatswhy #cars #carfacts #didyouknow #shorts",
+    "tags": [
+      "rear window defroster",
+      "car facts",
+      "car window lines",
+      "driving tips",
+      "did you know"
+    ]
+  },
+  "instagram": {
+    "caption": "Why do car rear windows have lines? 🚗\nThose rear window lines are a rear defroster: thin metal strips that warm the glass so fog and frost clear away.\nDid you know what that button does? 👇\n\nSources: IFLScience, Jalopnik, Mental Floss, BGR\nAI visuals\n#ohthatswhy #cars #carfacts #didyouknow\n\nTomorrow's quiz: ice floats on water. Why? A) air bubbles inside B) water spreads out when it freezes. Comment A or B, first 3 right get a shoutout 👇"
+  },
+  "facebook": {
+    "description": "Why do car rear windows have lines? They're a heater built into the glass that clears fog and frost. AI visuals."
+  },
+  "quiz": {
+    "theme": "THIS OR THAT WEDNESDAY",
+    "next_topic": "why ice floats on water",
+    "next_title": "Why ice floats",
+    "question": "Ice floats on water. Why?",
+    "options": {
+      "A": "It has air bubbles inside",
+      "B": "Water spreads out when it freezes"
+    },
+    "answer": "B",
+    "keywords": {
+      "A": [
+        "bubble",
+        "bubbles",
+        "air"
+      ],
+      "B": [
+        "expand",
+        "expands",
+        "spreads",
+        "spread",
+        "less dense",
+        "density",
+        "lighter"
+      ]
+    },
+    "sources": [
+      "https://www.usgs.gov/special-topics/water-science-school/science/ice-and-water",
+      "https://www.britannica.com/science/ice"
+    ]
+  }
+}

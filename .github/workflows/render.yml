@@ -29,6 +29,13 @@ jobs:
       POLLINATIONS_KEY: ${{ secrets.POLLINATIONS_KEY }}
       GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
       CURIOUS_EN_VOICE_ID: ${{ secrets.CURIOUS_EN_VOICE_ID }}  # optional: cloned Gemini voice (tools/clone_voice.py)
+      # read-only use: yesterday's comments, to pick the quiz shoutouts (factory/quiz.py)
+      YT_CLIENT_ID: ${{ secrets.YT_CLIENT_ID }}
+      YT_CLIENT_SECRET: ${{ secrets.YT_CLIENT_SECRET }}
+      CURIOUS_EN_YT_REFRESH_TOKEN: ${{ secrets.CURIOUS_EN_YT_REFRESH_TOKEN }}
+      CURIOUS_EN_META_PAGE_TOKEN: ${{ secrets.CURIOUS_EN_META_PAGE_TOKEN }}
+      CURIOUS_EN_IG_USER_ID: ${{ secrets.CURIOUS_EN_IG_USER_ID }}
+      CURIOUS_EN_FB_PAGE_ID: ${{ secrets.CURIOUS_EN_FB_PAGE_ID }}
       VIDEO_MODEL: ${{ vars.VIDEO_MODEL }}
       VIDEO_PROVIDER: ${{ vars.VIDEO_PROVIDER }}
       VIDEO_RESOLUTION: ${{ vars.VIDEO_RESOLUTION || '720p' }}

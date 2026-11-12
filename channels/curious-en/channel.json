@@ -26,5 +26,22 @@
     "status": "running",
     "note": "Prashant's cloned voice for 5 videos. factory/analyze.py judges it once all 5 are 72 h old; the script run then sets status to kept or reverted. reverted = back to the stock Gemini voice in 'voices'."
   },
-  "delivery_note": "Scene 'delivery' is one of: warm, curious, lean-in, build, reveal, light, serious (factory/tts.py DELIVERY). Keep styles short: Google says long style text makes the voice drift."
+  "delivery_note": "Scene 'delivery' is one of: warm, curious, lean-in, build, reveal, light, serious (factory/tts.py DELIVERY). Keep styles short: Google says long style text makes the voice drift.",
+  "engagement": {
+    "since": "2026-11-13",
+    "note": "Prashant 2026-11-13: hook people in the first ~2 s and keep them (open loop, mid re-hook, late payoff); end every video with a guess about TOMORROW's topic; the first 3 right answers (across YouTube, Instagram, Facebook) get their names on screen in the next video. Checked by factory/render.py check_engagement; names picked by factory/quiz.py at render time.",
+    "hook_max_words": 14,
+    "scene_max_words": 30,
+    "max_shoutouts": 3,
+    "quiz_footer": "FIRST 3 RIGHT = SHOUTOUT TOMORROW",
+    "quiz_days": {
+      "Mon": "MYTH OR FACT MONDAY",
+      "Tue": "GUESS THE NUMBER TUESDAY",
+      "Wed": "THIS OR THAT WEDNESDAY",
+      "Thu": "ODD ONE OUT THURSDAY",
+      "Fri": "FINISH THE FACT FRIDAY",
+      "Sat": "SPOT THE SCIENCE SATURDAY",
+      "Sun": "SUNDAY BRAIN TEASER"
+    }
+  }
 }

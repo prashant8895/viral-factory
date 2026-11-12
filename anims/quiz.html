@@ -1,0 +1,60 @@
+<!doctype html><html><head><meta charset="utf-8">
+<style>html,body{margin:0;background:#16233a}canvas{display:block}</style></head><body>
+<canvas id="c" width="1080" height="1920"></canvas>
+<script>
+// End-of-video quiz about TOMORROW's topic. Same navy/orange look as the other anims.
+// params: {theme:"MYTH OR FACT MONDAY", question:"...", options:{A:"...",B:"..."}, next:"tomorrow's title",
+//          footer:"FIRST 3 RIGHT = SHOUTOUT TOMORROW"}
+// Keeps the top fifth (0-384) and the caption band (1344-1632) empty.
+const c=document.getElementById('c'),x=c.getContext('2d'),W=1080,H=1920;
+const NAVY='#16233a',YEL='#ffd23f',ORA='#ff9f1c',WHITE='#f4f1e8',TEAL='#3fc1c9',INK='#0e1626';
+const clamp=(v,a=0,b=1)=>Math.max(a,Math.min(b,v)), prog=(t,a,b)=>clamp((t-a)/(b-a));
+const ease=t=>1-Math.pow(1-clamp(t),3), back=t=>{t=clamp(t);const s=1.7;return 1+(s+1)*Math.pow(t-1,3)+s*Math.pow(t-1,2)};
+const rnd=i=>{const s=Math.sin(i*12.9898)*43758.5453;return s-Math.floor(s)};
+function font(size,w){x.font=`${w||700} ${size}px Anton, Impact, sans-serif`}
+function txt(s,px,py,size,col,align){font(size);x.textAlign=align||'center';x.textBaseline='middle';
+  if(col!==INK){x.lineWidth=size*0.14;x.lineJoin='round';x.strokeStyle='rgba(0,0,0,.55)';x.strokeText(s,px,py)}x.fillStyle=col;x.fillText(s,px,py)}
+function wrap(s,maxW,size){font(size);const out=[];let line='';
+  for(const w of String(s).split(/\s+/)){const t=line?line+' '+w:w;if(x.measureText(t).width>maxW&&line){out.push(line);line=w}else line=t}
+  if(line)out.push(line);return out}
+function fit(s,maxW,size,maxLines){while(size>40&&wrap(s,maxW,size).length>maxLines)size-=4;return [wrap(s,maxW,size),size]}
+function bg(){x.fillStyle=NAVY;x.fillRect(0,0,W,H);for(let i=0;i<220;i++){x.fillStyle='rgba(255,255,255,.035)';x.fillRect(rnd(i)*W,rnd(i+99)*H,3,3)}}
+function bubble(cx,cy,r,col){x.fillStyle=col;x.beginPath();x.roundRect(cx-r,cy-r*0.75,r*2,r*1.5,r*0.45);x.fill();
+  x.beginPath();x.moveTo(cx-r*0.45,cy+r*0.7);x.lineTo(cx-r*0.75,cy+r*1.15);x.lineTo(cx-r*0.05,cy+r*0.7);x.fill();
+  x.fillStyle=INK;for(let k=-1;k<=1;k++){x.beginPath();x.arc(cx+k*r*0.5,cy,r*0.13,0,7);x.fill()}}
+
+window.draw=function(t,dur,P){
+  P=Object.assign({theme:'QUIZ TIME',question:'Your guess?',options:{A:'This',B:'That'},footer:'FIRST 3 RIGHT = SHOUTOUT TOMORROW',next:''},P||{});
+  const p=t/Math.max(dur,0.1);
+  x.setTransform(1,0,0,1,0,0);x.globalAlpha=1;x.shadowBlur=0;bg();
+  // theme badge (stamps in)
+  const b=back(prog(t,0,0.45));
+  if(b>0){x.save();x.translate(540,430);x.rotate(-0.035);x.scale(b,b);
+    font(54);const bw=Math.min(980,x.measureText(P.theme).width+90);
+    x.fillStyle=ORA;x.beginPath();x.roundRect(-bw/2,-52,bw,104,26);x.fill();
+    txt(P.theme,0,4,54,INK);x.restore()}
+  // "TOMORROW:" + question
+  let y=560;
+  if(P.next){const a=ease(prog(t,0.25,0.7));x.globalAlpha=a;txt('TOMORROW: '+P.next.toUpperCase(),540,y,40,TEAL);x.globalAlpha=1;y+=70}
+  const [ql,qs]=fit(P.question,940,72,3);const qa=ease(prog(t,0.35,0.85));
+  x.globalAlpha=qa;ql.forEach((l,i)=>txt(l,540,y+i*qs*1.12+qs*0.5,qs,WHITE));x.globalAlpha=1;
+  y+=ql.length*qs*1.12+40;
+  // option cards pop in one by one, then gently pulse in turn (thinking...)
+  const keys=Object.keys(P.options), n=keys.length, ch=Math.min(150,(1240-y)/n-22);
+  keys.forEach((k,i)=>{const s=back(prog(t,0.7+i*0.3,1.1+i*0.3));if(s<=0)return;
+    const cy=y+i*(ch+22)+ch/2, think=(t>2.2)?Math.max(0,Math.sin((t*2.2-i*2.1)))*0.035:0;
+    x.save();x.translate(540,cy);x.scale(s*(1+think),s*(1+think));
+    x.fillStyle='rgba(244,241,232,.10)';x.strokeStyle=YEL;x.lineWidth=5;x.setLineDash([18,12]);
+    x.beginPath();x.roundRect(-460,-ch/2,920,ch,28);x.fill();x.stroke();x.setLineDash([]);
+    x.fillStyle=YEL;x.beginPath();x.arc(-385,0,ch*0.36,0,7);x.fill();txt(k,-385,4,ch*0.46,INK);
+    let [ol,os]=fit(P.options[k],720,Math.min(60,ch*0.46),2);while(os>34&&ol.length*os*1.1>ch-24){os-=3;ol=wrap(P.options[k],720,os)}
+    ol.forEach((l,j)=>txt(l,-320,(j-(ol.length-1)/2)*os*1.08+3,os,WHITE,'left'));
+    x.restore()});
+  // footer: comment bubble + the shoutout promise (pulses)
+  const f=back(prog(p,0.45,0.6));
+  if(f>0){const pulse=1+0.04*Math.sin(t*6);x.save();x.translate(540,1300);x.scale(f*pulse,f*pulse);
+    font(46);const fw=x.measureText(P.footer).width;
+    bubble(-fw/2-55,-4,34,TEAL);txt(P.footer,30,2,46,YEL);x.restore()}
+};
+window.draw(3,6,{});
+</script></body></html>

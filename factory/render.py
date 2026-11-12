@@ -13,7 +13,7 @@ import re
 import sys
 from pathlib import Path
 
-from . import anim, channels, sfx, tts, video, visuals
+from . import anim, channels, quiz, sfx, tts, video, visuals
 
 ROOT = Path(__file__).resolve().parent.parent
 
@@ -40,6 +40,7 @@ def check_job(job: dict) -> None:
     if not 40 <= words <= 160:
         raise ValueError(f"Spoken text is {words} words; playbook says 85–120 (drama 60–110)")
     check_search_text(job)
+    check_engagement(job)
     if job.get("hook_style") in ("ever-wondered", "curiosity"):  # Curious house hook since 2026-11-12
         first = tts.caption_text(tts.scene_lines(job["scenes"][0])[0]["text"]).replace("*", "").strip()
         if "?" not in first:
@@ -48,6 +49,64 @@ def check_job(job: dict) -> None:
         for prev in _recent_openers(job):
             if prev == opener:
                 raise ValueError(f'Line 1 starts like one of the last 3 videos ("{opener} ..."): vary the opening')
+
+
+def _engagement(job: dict) -> dict:
+    try:
+        eng = channels.load(job["channel"]).get("engagement") or {}
+    except Exception:
+        return {}
+    return eng if eng and str(job.get("date") or "") >= eng.get("since", "9999") else {}
+
+
+def check_engagement(job: dict) -> None:
+    """Hook + quiz rules (Prashant, 2026-11-13): grab people in the first second, re-hook in the
+    middle, pay off late, end with a guess about TOMORROW's topic, and thank yesterday's fastest."""
+    eng = _engagement(job)
+    if not eng:
+        return
+    sc = job["scenes"]
+    content = [s for s in sc if not s.get("quiz") and not s.get("shoutout")]
+    first = tts.caption_text(tts.scene_lines(sc[0])[0]["text"]).replace("*", "")
+    if len(first.split()) > eng.get("hook_max_words", 14):
+        raise ValueError(f"Hook line is {len(first.split())} words; the first ~2 seconds must land it "
+                         f"(max {eng.get('hook_max_words', 14)}): {first[:70]!r}")
+    beats = [s.get("beat") for s in content]
+    if beats[:1] != ["hook"]:
+        raise ValueError('Scene 1 needs "beat": "hook"')
+    if "loop" not in beats[:2]:
+        raise ValueError('Scene 1 or 2 must open a loop ("beat": "loop"): a promise the video only pays off near the end')
+    if "rehook" not in beats[2:-1]:
+        raise ValueError('Put a "beat": "rehook" in the middle (a twist/turn, e.g. "but here\'s the weird part")')
+    if "payoff" not in beats or beats.index("payoff") < len(content) // 2:
+        raise ValueError('The "payoff" scene must be in the second half: keep people waiting for it')
+    for s in content:
+        n = sum(len(tts.caption_text(l["text"]).split()) for l in tts.scene_lines(s))
+        if n > eng.get("scene_max_words", 30):
+            raise ValueError(f"A scene of {n} words sits on one picture too long; split it (max {eng.get('scene_max_words', 30)})")
+    q = job.get("quiz")
+    if not q:
+        raise ValueError('Job needs a "quiz": a guess about tomorrow\'s topic (see prompts/script.md)')
+    opts = q.get("options") or {}
+    if not 2 <= len(opts) <= 3 or q.get("answer") not in opts:
+        raise ValueError("quiz needs 2-3 options (A, B, C) and an answer that is one of them")
+    if set(q.get("keywords") or {}) != set(opts):
+        raise ValueError("quiz.keywords needs a word list for every option (to judge comments)")
+    for k in ("theme", "question", "next_topic"):
+        if not q.get(k):
+            raise ValueError(f"quiz.{k} is missing")
+    if not sc[-1].get("quiz"):
+        raise ValueError('The last scene must be the quiz scene ("quiz": true)')
+    shout = [i for i, s in enumerate(sc) if s.get("shoutout")]
+    if len(shout) > 1 or (shout and shout[0] != len(sc) - 2):
+        raise ValueError("At most one shoutout scene, right before the quiz scene")
+    if shout and not sc[shout[0]].get("narration_none"):
+        raise ValueError('The shoutout scene needs "narration_none" (said when nobody got it right)')
+    said = " ".join(tts.caption_text(l["text"]) for l in tts.scene_lines(sc[-1])).lower()
+    if "comment" not in said:
+        raise ValueError("The quiz scene must ask people to comment their guess")
+    if "comment" not in (job.get("instagram") or {}).get("caption", "").lower():
+        raise ValueError("Put the quiz question in the Instagram caption too (ask them to comment)")
 
 
 def _recent_openers(job: dict, n: int = 3) -> list[str]:
@@ -153,6 +212,14 @@ def render(job_path: Path) -> list[Path]:
 def render_one(job: dict, img_dir: Path | None = None) -> Path:
     check_job(job)
     ch = channels.load(job["channel"])
+    shout = quiz.apply(job)  # yesterday's fastest right answers (or the scene is dropped)
+    if job.get("quiz") and job["scenes"][-1].get("quiz"):
+        q, eng = job["quiz"], ch.get("engagement") or {}
+        job["scenes"][-1].setdefault("anim", "anims/quiz.html")
+        job["scenes"][-1]["anim_params"] = {"theme": q["theme"], "question": q["question"],
+                                            "options": q["options"], "next": q.get("next_title", ""),
+                                            "footer": eng.get("quiz_footer", "FIRST 3 RIGHT = SHOUTOUT TOMORROW"),
+                                            **job["scenes"][-1].get("anim_params", {})}
     if ch.get("video_model") and not os.environ.get("VIDEO_MODEL"):
         os.environ["VIDEO_MODEL"] = ch["video_model"]  # a repo variable can still override it
     job.setdefault("style", ch["style"])
@@ -263,6 +330,7 @@ def render_one(job: dict, img_dir: Path | None = None) -> Path:
                   "slot": job.get("slot", ch.get("slot", "19:00")), "publish": bool(job.get("publish", False)),
                   "bucket": job.get("bucket"), "episode": job.get("episode"), "hook_text": job["hook_text"], "hook_style": job.get("hook_style"),
                   "release": f"job-{job['id']}", "duration": meta["duration"],
+                  "quiz": job.get("quiz"), "shoutouts": shout or None,
                   # for the numbers review: which look and voice this video used
                   "picture_style": "illustration" if "illustration" in job["style"].lower() else "photo",
                   "voice": ("clone" if voices["narrator"].startswith("voice_")

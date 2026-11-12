@@ -27,11 +27,18 @@ skip it until Prashant restarts it.
      Never let a day go without a video just because the morning run failed.
 2. Set `status: "scripting"` (pin if_version).
 3. Pull the repo. Read `channels/<page>/playbook.md`, `channels/curious-en/channel.json`,
-   `metrics/insights.json` (the numbers review: follow its `rules`) and the example job
-   `jobs/curious/sample-ever-wondered.json` for the exact format. For drama also read `cast.json` and `story.md`.
+   `metrics/insights.json` (the numbers review: follow its `rules`) and the example jobs
+   `jobs/curious/sample-ever-wondered.json` and `jobs/curious/sample-hook-quiz.json` (beats, shoutout, quiz) for the exact format. For drama also read `cast.json` and `story.md`.
 4. Curious: verify every fact against 2 sources (web search); drop what you can't verify.
    Drama: keep continuity with `story.md`; end on a cliffhanger.
    Apply Prashant's `approved.note` if there is one.
+   TOMORROW IS LOCKED (since 2026-11-13): if the last posted English video (`state/curious-*-en.json`,
+   newest with `platforms`) has a `quiz`, TODAY's topic is its `quiz.next_topic`: its viewers
+   guessed and are waiting for the answer. Use it even if the slate picked something else (put the
+   slate's pick forward as tomorrow's topic instead). Only if its facts can't be verified, make the
+   slate's pick and still answer yesterday's quiz in one line.
+   Then pick TOMORROW's topic for today's quiz (the best other pitch on today's slate, or from
+   `data/asks.json`), and verify the quiz answer against 2 sources too.
 5. Write `jobs/<page>/<page>-<date>-<short-slug>.json` following the example exactly:
    `id` = file name without .json, `channel`, `date`, `slot` and (drama) `episode` from the
    pitch doc, and `publish: false` for now (a draft is never rendered). Curious: ONE job in
@@ -44,6 +51,15 @@ skip it until Prashant restarts it.
    Reuse what is in `anims/` first. If you need a new one, copy the `window.draw(t, dur, params)`
    pattern, keep the top fifth and the band from 70% to 85% height empty (headline and
    captions sit there), and check 4 frames with Playwright before pushing.
+5c. HOOK AND HOLD + QUIZ (Prashant, 2026-11-13; playbook "Hook and hold" and "Daily quiz and
+   shoutouts"; format `jobs/curious/sample-hook-quiz.json`): every content scene has a `beat`
+   (scene 1 `hook` in max 14 words; `loop` in scene 1 or 2; a `rehook` in the middle; `payoff` in
+   the second half; max 30 words per scene). Then, if yesterday's video asked a quiz, a `shoutout`
+   scene (`anims/shoutout.html`, with `narration_none`, never says how many names), and always a
+   last `quiz` scene (`anims/quiz.html`) plus the job's `quiz` block (theme of today's weekday from
+   `engagement.quiz_days`). Quiz + shoutout don't count toward the MIX RULE's 2 animations.
+   Instagram caption ends with the quiz ("Tomorrow's quiz: ... A) ... B) ... Comment your guess 👇");
+   YouTube and Facebook descriptions too. Total stays 100–160 words.
 5a. HOOK + DELIVERY: set `"hook_style": "curiosity"`. Line 1 opens a real question about the
    everyday thing ("Ever wondered why car tyres are black?" is the IDEA, not a fixed phrase: vary
    it, the render refuses an opener that repeats one of the last 3 videos). First surprising fact
@@ -56,7 +72,7 @@ skip it until Prashant restarts it.
    as spoken words. Before pushing, read the whole script aloud in your head once and fix any
    line you'd stumble on. Weave "oh, that's why" in at most once, smoothly inside a calm closing sentence, never as a
    shouted line on its own. Check every line (especially the ending) for accidental double meanings.
-   and don't make every line sound sure and punchy: mix in softer, wondering lines. 100–150 words. Last line = one friendly ask or loop, never pushy.
+   and don't make every line sound sure and punchy: mix in softer, wondering lines. 100–150 words. The last scene is the quiz (5c).
    Search phrases: add `"keywords": [...]` with 2–3 English phrases people really type into
    search (main one first, usually "why are tyres black").
    Put the main phrase in the YouTube title, the first line of the Instagram caption and the
@@ -64,7 +80,7 @@ skip it until Prashant restarts it.
    The render check refuses the job if they're missing, so write them in naturally, not stuffed.
    Hashtags: follow the playbook table (3–5, relevant, `#ohthatswhy` first; trending tags from
    `data/trends.json` only if they genuinely fit). Never more than 5. Never tag accounts that
-   aren't in the video. No "comment X to get Y" bait.
+   aren't in the video. No "comment X to get Y" bait (the quiz is a real question, which is fine).
 5b. PICTURES (paid, about Rs 3 each, so think before you spend):
    - Write each picture scene's `visual` as an ILLUSTRATION, not a photo: "illustration of ...",
      ONE clear subject, where it is, viewpoint, simple background, Indian setting where it fits.

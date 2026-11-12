@@ -1,0 +1,47 @@
+<!doctype html><html><head><meta charset="utf-8">
+<style>html,body{margin:0;background:#16233a}canvas{display:block}</style></head><body>
+<canvas id="c" width="1080" height="1920"></canvas>
+<script>
+// Yesterday's fastest right answers (max 3), filled in at render time by factory/quiz.py.
+// params: {names:["@a","@b","Riya S."], answer:"B", answer_text:"A heater", title:"YESTERDAY'S FASTEST"}
+// names empty -> "NOBODY GOT IT... CAN YOU BEAT TODAY'S?"
+// Keeps the top fifth (0-384) and the caption band (1344-1632) empty.
+const c=document.getElementById('c'),x=c.getContext('2d'),W=1080,H=1920;
+const NAVY='#16233a',YEL='#ffd23f',ORA='#ff9f1c',WHITE='#f4f1e8',TEAL='#3fc1c9',INK='#0e1626';
+const MEDAL=['#ffd23f','#d9dde6','#e3a06b'];
+const clamp=(v,a=0,b=1)=>Math.max(a,Math.min(b,v)), prog=(t,a,b)=>clamp((t-a)/(b-a));
+const ease=t=>1-Math.pow(1-clamp(t),3), back=t=>{t=clamp(t);const s=1.7;return 1+(s+1)*Math.pow(t-1,3)+s*Math.pow(t-1,2)};
+const rnd=i=>{const s=Math.sin(i*12.9898)*43758.5453;return s-Math.floor(s)};
+function font(size){x.font=`700 ${size}px Anton, Impact, sans-serif`}
+function txt(s,px,py,size,col,align){font(size);x.textAlign=align||'center';x.textBaseline='middle';
+  if(col!==INK){x.lineWidth=size*0.14;x.lineJoin='round';x.strokeStyle='rgba(0,0,0,.55)';x.strokeText(s,px,py)}x.fillStyle=col;x.fillText(s,px,py)}
+function fitSize(s,maxW,size){font(size);while(size>34&&x.measureText(s).width>maxW){size-=3;font(size)}return size}
+function bg(){x.fillStyle=NAVY;x.fillRect(0,0,W,H);for(let i=0;i<220;i++){x.fillStyle='rgba(255,255,255,.035)';x.fillRect(rnd(i)*W,rnd(i+99)*H,3,3)}}
+function confetti(t,t0){const cols=[YEL,ORA,TEAL,WHITE];for(let i=0;i<90;i++){const age=t-t0-rnd(i+5)*0.4;if(age<0)continue;
+  const px=rnd(i)*W+Math.sin(age*3+i)*30, py=380+age*(260+rnd(i+1)*260)-80*Math.max(0,1-age*2);if(py>1330)continue;
+  x.save();x.translate(px,py);x.rotate(age*4+i);x.fillStyle=cols[i%4];x.fillRect(-9,-5,18,10);x.restore()}}
+
+window.draw=function(t,dur,P){
+  P=Object.assign({names:[],answer:'',answer_text:'',title:"YESTERDAY'S FASTEST"},P||{});
+  x.setTransform(1,0,0,1,0,0);x.globalAlpha=1;x.shadowBlur=0;bg();
+  const names=(P.names||[]).slice(0,3);
+  const ts=back(prog(t,0,0.4));
+  if(ts>0){x.save();x.translate(540,440);x.scale(ts,ts);txt(names.length?P.title:'YESTERDAY\'S QUIZ',0,0,76,YEL);x.restore()}
+  // the answer chip
+  const a=ease(prog(t,0.3,0.7));
+  if(a>0&&P.answer){x.globalAlpha=a;const s='ANSWER: '+P.answer+(P.answer_text?'  ·  '+String(P.answer_text).toUpperCase():'');
+    const fs=fitSize(s,880,50);font(fs);const w=x.measureText(s).width+70;
+    x.fillStyle=TEAL;x.beginPath();x.roundRect(540-w/2,520,w,90,45);x.fill();txt(s,540,567,fs,INK);x.globalAlpha=1}
+  if(!names.length){const s=back(prog(t,0.6,1.0));if(s>0){x.save();x.translate(540,900);x.scale(s,s);
+      txt('NOBODY GOT IT...',0,-70,96,WHITE);txt("CAN YOU BEAT TODAY'S?",0,60,72,ORA);x.restore()}return}
+  confetti(t,0.6);
+  const top=700, gap=200;
+  names.forEach((n,i)=>{const s=back(prog(t,0.6+i*0.35,0.95+i*0.35));if(s<=0)return;
+    const cy=top+i*gap;x.save();x.translate(540,cy);x.scale(s,s);
+    x.fillStyle='rgba(244,241,232,.10)';x.beginPath();x.roundRect(-450,-75,900,150,36);x.fill();
+    x.strokeStyle=MEDAL[i];x.lineWidth=6;x.stroke();
+    x.fillStyle=MEDAL[i];x.beginPath();x.arc(-365,0,52,0,7);x.fill();txt(String(i+1),-365,4,64,INK);
+    const fs=fitSize(n,680,72);txt(n,-280,4,fs,WHITE,'left');x.restore()});
+};
+window.draw(3,5,{names:['@curious_riya','@tech.arjun','Neha S.'],answer:'B',answer_text:'A heater'});
+</script></body></html>

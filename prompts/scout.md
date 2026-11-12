@@ -13,6 +13,9 @@ Work unattended.
 2. Do the trend check once: Google Trends daily (India, US, UK), Shorts/Reels trending
    topics (vidIQ connector if available), Reddit, safe big news, dates in the next 3 days.
 3. For each ACTIVE page (now only curious; drama is PAUSED, skip it):
+   QUIZ LOCK (since 2026-11-13): if the last posted English video's state has `quiz.next_topic`,
+   that is today's topic (viewers guessed it yesterday): make it pitch 1 and `recommended`, and
+   the other pitches are candidates for TOMORROW's quiz (each with a fun A/B guess line).
    - Read its `playbook.md` (rules, scoring, hard no's, Learnings). For drama also read
      `cast.json` and `story.md` (the story so far and open threads).
    - Mine the signals first:

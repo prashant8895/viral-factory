@@ -77,6 +77,12 @@ def script_demo(script: Path, out_dir: Path, label: str) -> Path:
     out_dir.mkdir(parents=True, exist_ok=True)
     parts = [tts.synthesize(sc, out_dir / f"_s{i}.wav", voices, 1.0, "gemini", ch.get("styles"))
              for i, sc in enumerate(scenes)]
+    print("scene levels (dB):", [round(tts.speech_level(p.path), 1) for p in parts])
+    for i in tts.quiet_scenes(parts, 4.0):  # same guard as a render (a bit stricter here)
+        print(f"scene {i + 1} came out quiet: re-recording at full voice")
+        redo = {**scenes[i], "delivery": "full clear voice at normal speaking volume, not whispering"}
+        parts[i] = tts.synthesize(redo, out_dir / f"_s{i}.wav", voices, 1.0, "gemini", ch.get("styles"))
+    print("scene levels after (dB):", [round(tts.speech_level(p.path), 1) for p in parts])
     raw = video.join_voice(parts, out_dir / "_voice.wav")
     mp3 = out_dir / f"demo_{label}.mp3"
     polish = ("highpass=f=75,equalizer=f=200:t=q:w=1:g=-1.5,equalizer=f=3200:t=q:w=1.2:g=2.5,"

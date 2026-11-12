@@ -56,6 +56,9 @@ def main() -> None:
         sys.exit(f"Google refused the voice (HTTP {r.status_code}): {r.text[:400]}")
     js = r.json()
     voice_id = js.get("id") or (js.get("voice") or {}).get("id") or js.get("name", "").split("/")[-1]
+    if not voice_id.startswith("voice"):
+        sys.exit(f"Google answered, but not with a voice id I recognise. Send this to Claude: "
+                 f"{ {k: (str(v)[:80] if k != 'voice' else '...') for k, v in js.items()} }")
     print("Voice created:", voice_id)
 
     t = requests.post(f"{API}/interactions", headers=head, timeout=180, json={
@@ -71,7 +74,13 @@ def main() -> None:
                 if isinstance(c, dict) and c.get("data"):
                     data = base64.b64decode(c["data"])
         if data:
-            Path("clone_test.raw" if data[:4] != b"RIFF" else "clone_test.wav").write_bytes(data)
+            if data[:4] != b"RIFF":  # raw 24 kHz 16-bit mono: wrap it so any player opens it
+                import io, wave
+                buf = io.BytesIO()
+                with wave.open(buf, "wb") as w:
+                    w.setnchannels(1); w.setsampwidth(2); w.setframerate(24000); w.writeframes(data)
+                data = buf.getvalue()
+            Path("clone_test.wav").write_bytes(data)
             print("Listen to clone_test.wav (24 kHz). If you like it:")
     else:
         print("Test line failed:", t.status_code, t.text[:200])

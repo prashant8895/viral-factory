@@ -11,5 +11,29 @@
   "release": "job-curious-2026-11-12-rear-window-lines-en",
   "duration": 54.18,
   "picture_style": "illustration",
-  "voice": "clone"
+  "voice": "clone",
+  "platforms": {
+    "youtube": {
+      "id": "Fe81jSuf7KA",
+      "url": "https://youtube.com/shorts/Fe81jSuf7KA",
+      "privacy": "public",
+      "posted_at": "2026-11-12T21:28+05:30"
+    },
+    "instagram": {
+      "id": "18110194850218731",
+      "url": "https://www.instagram.com/reel/Dfpb5nQg6aD/",
+      "posted_at": "2026-11-12T21:31+05:30"
+    },
+    "instagram_story": {
+      "id": "18379424650208956",
+      "url": "https://www.instagram.com/stories/ohthatswhy.english/4028875439709003723",
+      "posted_at": "2026-11-12T21:34+05:30"
+    },
+    "facebook": {
+      "id": "1433867062276699",
+      "url": "https://www.facebook.com/reel/1433867062276699",
+      "posted_at": "2026-11-12T21:34+05:30"
+    }
+  },
+  "errors": {}
 }

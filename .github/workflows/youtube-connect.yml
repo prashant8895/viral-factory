@@ -59,10 +59,14 @@ jobs:
           scopes = ("https://www.googleapis.com/auth/youtube.upload https://www.googleapis.com/auth/youtube.readonly "
                     "https://www.googleapis.com/auth/yt-analytics.readonly")
           if os.environ["STEP"] == "url":
-              print("\nOPEN THIS LINK, sign in with the channel's account, click Allow:\n")
-              print("https://accounts.google.com/o/oauth2/v2/auth?" + urllib.parse.urlencode({
+              link = "https://accounts.google.com/o/oauth2/v2/auth?" + urllib.parse.urlencode({
                   "client_id": cid, "redirect_uri": redirect, "response_type": "code", "scope": scopes,
-                  "access_type": "offline", "prompt": "consent"}))
+                  "access_type": "offline", "prompt": "consent"})
+              # The client id is masked in logs (it's stored as a secret) but isn't secret itself:
+              # Google shows it in every sign-in link. Save the link to a file the Save step commits.
+              pathlib.Path("tokens").mkdir(exist_ok=True)
+              pathlib.Path("tokens/youtube-connect-link.txt").write_text(link + "\n")
+              print("Link saved to tokens/youtube-connect-link.txt")
               sys.exit(0)
           code = pathlib.Path("/tmp/code").read_text().strip()
           r = requests.post("https://oauth2.googleapis.com/token", timeout=30, data={
@@ -91,14 +95,14 @@ jobs:
                                 "-pass", "env:TOKEN_KEY"], input=rt, capture_output=True, text=True, check=True,
                                env={**os.environ, "TOKEN_KEY": sec}).stdout
           out.write_text(enc + "\n")
+          pathlib.Path("tokens/youtube-connect-link.txt").unlink(missing_ok=True)
           print("saved", out)
           if not a.ok:
               print("::warning::Token saved, but YouTube Analytics refused: enable 'YouTube Analytics API' in Google Cloud for this project")
           EOF
       - name: Save
-        if: github.event.inputs.step == 'code'
         run: |
           git config user.name "video-factory"
           git config user.email "actions@github.com"
-          git add tokens
-          git diff --cached --quiet || (git commit -m "YouTube token renewed (${{ github.event.inputs.page }})" && git pull --rebase && git push)
+          git add -A tokens
+          git diff --cached --quiet || (git commit -m "YouTube connect: ${{ github.event.inputs.step }} (${{ github.event.inputs.page }})" && git pull --rebase && git push)

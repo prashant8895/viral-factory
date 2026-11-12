@@ -28,29 +28,47 @@ LINES = [
 ]
 
 
-def _diagnose(voice: str) -> None:
-    """Explain an unknown cloned voice id without printing it (public logs)."""
+def _diagnose(voice: str) -> bool:
+    """Explain an unknown cloned voice id without printing it (public logs). True = usable."""
     import requests
-    print(f"voice id: {len(voice)} chars, starts with 'voice_': {voice.startswith('voice_')}, "
+    head = {"x-goog-api-key": os.environ["GEMINI_API_KEY"]}
+    pre = voice.split("_", 1)[0] if "_" in voice[:12] else "(no underscore)"
+    print(f"voice id: {len(voice)} chars, kind prefix: {pre!r}, "
           f"has spaces/quotes: {any(c in voice for c in ' \'\"')}")
-    r = requests.get("https://generativelanguage.googleapis.com/v1beta/voices", timeout=30,
-                     headers={"x-goog-api-key": os.environ["GEMINI_API_KEY"]})
-    if not r.ok:
-        print("could not list voices:", r.status_code, r.text[:200])
-        return
-    js = r.json()
-    items = js.get("voices") or js.get("data") or []
-    ids = [(v.get("id") or v.get("name", "").split("/")[-1]) for v in items]
-    print(f"voices on this Gemini key's project: {len(ids)}; the secret's id is among them: {voice in ids}")
-    for v in items:
-        print("  -", v.get("type"), v.get("display_name"), v.get("state") or v.get("status") or "")
+    ids, token, kinds = [], None, {}
+    for _ in range(20):
+        r = requests.get("https://generativelanguage.googleapis.com/v1beta/voices", timeout=30, headers=head,
+                         params={"page_size": 100, **({"page_token": token} if token else {})})
+        if not r.ok:
+            print("could not list voices:", r.status_code, r.text[:200])
+            break
+        js = r.json()
+        for v in js.get("voices") or js.get("data") or []:
+            vid = v.get("id") or v.get("name", "").split("/")[-1]
+            ids.append(vid)
+            kinds[v.get("type")] = kinds.get(v.get("type"), 0) + 1
+            if v.get("type") != "prebuilt":
+                print("  own voice:", v.get("type"), v.get("display_name"), "| same as secret:", vid == voice,
+                      "| state:", v.get("state") or v.get("status"))
+        token = js.get("next_page_token") or js.get("nextPageToken")
+        if not token:
+            break
+    print(f"voices on this Gemini key's project: {kinds}; the secret's id is among them: {voice in ids}")
+    t = requests.post("https://generativelanguage.googleapis.com/v1beta/interactions", timeout=120,
+                      headers={**head, "Content-Type": "application/json"}, json={
+                          "model": os.environ.get("GEMINI_TTS_MODEL", "gemini-3.8-flash-tts"),
+                          "input": [{"type": "user_input", "content": [{"type": "text", "text": "Hello there."}]}],
+                          "response_format": {"type": "audio"},
+                          "generation_config": {"speech_config": [{"voice": voice}]}})
+    print("one-line test with the secret's voice:", t.status_code, "" if t.ok else t.text[:200])
+    return t.ok
 
 
 def main(out_dir: Path = ROOT / "voice", label: str | None = None) -> Path:
     ch = json.loads((ROOT / "channels" / "curious-en" / "channel.json").read_text())
     voice = (os.environ.get("VOICE") or ch["voices"]["narrator"]).strip().removeprefix("voices/")
-    if os.environ.get("LABEL") == "clone":
-        _diagnose(voice)
+    if os.environ.get("LABEL") == "clone" and not _diagnose(voice):
+        raise SystemExit("The cloned voice id is not usable with this Gemini key (see above)")
     style = ch["styles"]["narrator"]
     parts = []
     for text in LINES:

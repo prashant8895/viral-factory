@@ -381,3 +381,89 @@ checked,channel,id,bucket,hook,hook_style,slot,platform,hours_live,views,likes,c
     ""message"": ""YouTube Analytics API has not been used in project 780456074790 before or "
 2026-11-12T14:14+05:30,curious-hi,curious-2026-11-11-stars-twinkle-hi,why does it happen,TAARE *TIMTIMATE* KYUN?,question,19:00,instagram,12.4,0,0,0,0,0,0,0,,,,,,,
 2026-11-12T14:14+05:30,curious-hi,curious-2026-11-11-stars-twinkle-hi,why does it happen,TAARE *TIMTIMATE* KYUN?,question,19:00,facebook,12.4,0,0,0,,,,,,,,,,,facebook insights: (#100) The value must be a valid insights metric
+2026-11-12T14:18+05:30,curious-en,curious-2026-11-06-escalator-brush-en,seen-but-missed,IT'S *NOT* A SHOE CLEANER!,,19:00,youtube,141.8,1060,6,3,,,,,,,,,,public,"youtube analytics: YouTube Analytics HTTP 403: {
+  ""error"": {
+    ""code"": 403,
+    ""message"": ""YouTube Analytics API has not been used in project 780456074790 before or "
+2026-11-12T14:18+05:30,curious-en,curious-2026-11-06-escalator-brush-en,seen-but-missed,IT'S *NOT* A SHOE CLEANER!,,19:00,instagram,141.8,2129,14,0,8,0,1920,17948,,,,,,,
+2026-11-12T14:18+05:30,curious-en,curious-2026-11-06-escalator-brush-en,seen-but-missed,IT'S *NOT* A SHOE CLEANER!,,19:00,facebook,141.8,239,0,0,,,,,,,,,,,
+2026-11-12T14:18+05:30,curious-hi,curious-2026-11-06-escalator-brush-hi,seen-but-missed,SHOE CLEANER *NAHI* HAI!,,19:00,youtube,141.8,0,0,0,,,,,,,,,,public,"youtube analytics: YouTube Analytics HTTP 403: {
+  ""error"": {
+    ""code"": 403,
+    ""message"": ""YouTube Analytics API has not been used in project 780456074790 before or "
+2026-11-12T14:18+05:30,curious-hi,curious-2026-11-06-escalator-brush-hi,seen-but-missed,SHOE CLEANER *NAHI* HAI!,,19:00,facebook,141.7,1,0,0,,,,,,,,,,,
+2026-11-12T14:18+05:30,curious-hi,curious-2026-11-06-escalator-brush-hi,seen-but-missed,SHOE CLEANER *NAHI* HAI!,,19:00,instagram,141.7,175,1,0,2,0,151,16603,,,,,,,
+2026-11-12T14:18+05:30,curious-en,curious-2026-11-07-microwave-mesh-en,seen-but-missed,WHY THIS *MESH*?,question,19:00,youtube,113.4,1288,38,2,,,,,,,,,,public,"youtube analytics: YouTube Analytics HTTP 403: {
+  ""error"": {
+    ""code"": 403,
+    ""message"": ""YouTube Analytics API has not been used in project 780456074790 before or "
+2026-11-12T14:18+05:30,curious-en,curious-2026-11-07-microwave-mesh-en,seen-but-missed,WHY THIS *MESH*?,question,19:00,instagram,109.9,602,8,0,1,0,552,11677,,,,,,,
+2026-11-12T14:18+05:30,curious-en,curious-2026-11-07-microwave-mesh-en,seen-but-missed,WHY THIS *MESH*?,question,19:00,facebook,109.9,243,1,0,,,,,,,,,,,
+2026-11-12T14:18+05:30,curious-hi,curious-2026-11-07-microwave-mesh-hi,seen-but-missed,YE *JAALI* KYUN?,question,19:00,youtube,113.4,2,0,0,,,,,,,,,,public,"youtube analytics: YouTube Analytics HTTP 403: {
+  ""error"": {
+    ""code"": 403,
+    ""message"": ""YouTube Analytics API has not been used in project 780456074790 before or "
+2026-11-12T14:18+05:30,curious-hi,curious-2026-11-07-microwave-mesh-hi,seen-but-missed,YE *JAALI* KYUN?,question,19:00,instagram,109.9,,0,0,,,,,,,,,,,
+2026-11-12T14:18+05:30,curious-hi,curious-2026-11-07-microwave-mesh-hi,seen-but-missed,YE *JAALI* KYUN?,question,19:00,facebook,109.9,0,0,0,,,,,,,,,,,
+2026-11-12T14:18+05:30,curious-en,curious-2026-11-08-firework-colours-en,why does it happen,IT'S *NOT* DYE!,myth,19:00,youtube,91.4,570,10,0,,,,,,,,,,public,"youtube analytics: YouTube Analytics HTTP 403: {
+  ""error"": {
+    ""code"": 403,
+    ""message"": ""YouTube Analytics API has not been used in project 780456074790 before or "
+2026-11-12T14:18+05:30,curious-en,curious-2026-11-08-firework-colours-en,why does it happen,IT'S *NOT* DYE!,myth,19:00,instagram,91.4,166,0,0,0,0,150,4298,,,,,,,
+2026-11-12T14:18+05:30,curious-en,curious-2026-11-08-firework-colours-en,why does it happen,IT'S *NOT* DYE!,myth,19:00,facebook,91.4,245,1,0,,,,,,,,,,,
+2026-11-12T14:18+05:30,curious-hi,curious-2026-11-08-firework-colours-hi,why does it happen,PAINT *NAHI* HAI!,myth,19:00,youtube,91.4,0,0,0,,,,,,,,,,public,"youtube analytics: YouTube Analytics HTTP 403: {
+  ""error"": {
+    ""code"": 403,
+    ""message"": ""YouTube Analytics API has not been used in project 780456074790 before or "
+2026-11-12T14:18+05:30,curious-hi,curious-2026-11-08-firework-colours-hi,why does it happen,PAINT *NAHI* HAI!,myth,19:00,instagram,91.4,339,7,0,4,2,312,12968,,,,,,,
+2026-11-12T14:18+05:30,curious-hi,curious-2026-11-08-firework-colours-hi,why does it happen,PAINT *NAHI* HAI!,myth,19:00,facebook,91.4,0,0,0,,,,,,,,,,,
+2026-11-12T14:18+05:30,curious-en,curious-2026-11-09-tyre-black-en,seen-but-missed,WHY ARE TYRES *BLACK*?,question,21:00,youtube,57.8,1226,25,0,,,,,,,,,,public,"youtube analytics: YouTube Analytics HTTP 403: {
+  ""error"": {
+    ""code"": 403,
+    ""message"": ""YouTube Analytics API has not been used in project 780456074790 before or "
+2026-11-12T14:18+05:30,curious-en,curious-2026-11-09-tyre-black-en,seen-but-missed,WHY ARE TYRES *BLACK*?,question,21:00,instagram,57.7,203,1,0,0,0,177,17895,,,,,,,
+2026-11-12T14:18+05:30,curious-en,curious-2026-11-09-tyre-black-en,seen-but-missed,WHY ARE TYRES *BLACK*?,question,21:00,facebook,57.7,266,0,0,,,,,,,,,,,
+2026-11-12T14:18+05:30,curious-hi,curious-2026-11-09-tyre-black-hi,seen-but-missed,TYRE *KAALE* KYUN?,question,21:00,youtube,57.7,1,0,0,,,,,,,,,,public,"youtube analytics: YouTube Analytics HTTP 403: {
+  ""error"": {
+    ""code"": 403,
+    ""message"": ""YouTube Analytics API has not been used in project 780456074790 before or "
+2026-11-12T14:18+05:30,curious-hi,curious-2026-11-09-tyre-black-hi,seen-but-missed,TYRE *KAALE* KYUN?,question,21:00,instagram,57.7,162,1,0,0,0,146,11073,,,,,,,
+2026-11-12T14:18+05:30,curious-hi,curious-2026-11-09-tyre-black-hi,seen-but-missed,TYRE *KAALE* KYUN?,question,21:00,facebook,57.7,0,0,0,,,,,,,,,,,
+2026-11-12T14:18+05:30,curious-en,curious-2026-11-09-yawn-en,careful health,WHY DO WE *YAWN*?,question,19:00,youtube,67.3,237,1,0,,,,,,,,,,public,"youtube analytics: YouTube Analytics HTTP 403: {
+  ""error"": {
+    ""code"": 403,
+    ""message"": ""YouTube Analytics API has not been used in project 780456074790 before or "
+2026-11-12T14:18+05:30,curious-en,curious-2026-11-09-yawn-en,careful health,WHY DO WE *YAWN*?,question,19:00,facebook,67.3,199,0,0,,,,,,,,,,,
+2026-11-12T14:18+05:30,curious-en,curious-2026-11-09-yawn-en,careful health,WHY DO WE *YAWN*?,question,19:00,instagram,67.0,220,5,0,0,1,189,7330,,,,,,,
+2026-11-12T14:18+05:30,curious-hi,curious-2026-11-09-yawn-hi,careful health,UBAASI *KYUN*?,question,19:00,youtube,67.3,0,0,0,,,,,,,,,,public,"youtube analytics: YouTube Analytics HTTP 403: {
+  ""error"": {
+    ""code"": 403,
+    ""message"": ""YouTube Analytics API has not been used in project 780456074790 before or "
+2026-11-12T14:18+05:30,curious-hi,curious-2026-11-09-yawn-hi,careful health,UBAASI *KYUN*?,question,19:00,facebook,67.3,0,0,0,,,,,,,,,,,
+2026-11-12T14:18+05:30,curious-hi,curious-2026-11-09-yawn-hi,careful health,UBAASI *KYUN*?,question,19:00,instagram,67.0,176,5,0,1,0,144,11273,,,,,,,
+2026-11-12T14:18+05:30,curious-en,curious-2026-11-10-winter-smog-en,india everyday,WINTER HAZE? *NOT* JUST FOG,myth,19:00,instagram,43.3,,0,0,,,,,,,,,,,
+2026-11-12T14:18+05:30,curious-hi,curious-2026-11-10-winter-smog-hi,india everyday,YE SIRF FOG *NAHI* HAI!,myth,19:00,instagram,43.3,,0,0,,,,,,,,,,,
+2026-11-12T14:18+05:30,curious-en,curious-2026-11-10-winter-smog-v2-en,india everyday,WINTER HAZE? *NOT* JUST FOG,myth,21:30,youtube,41.3,62,1,0,,,,,,,,,,public,"youtube analytics: YouTube Analytics HTTP 403: {
+  ""error"": {
+    ""code"": 403,
+    ""message"": ""YouTube Analytics API has not been used in project 780456074790 before or "
+2026-11-12T14:18+05:30,curious-en,curious-2026-11-10-winter-smog-v2-en,india everyday,WINTER HAZE? *NOT* JUST FOG,myth,21:30,instagram,41.3,144,0,0,0,0,122,9877,,,,,,,
+2026-11-12T14:18+05:30,curious-en,curious-2026-11-10-winter-smog-v2-en,india everyday,WINTER HAZE? *NOT* JUST FOG,myth,21:30,facebook,41.2,244,2,0,,,,,,,,,,,
+2026-11-12T14:18+05:30,curious-hi,curious-2026-11-10-winter-smog-v2-hi,india everyday,YE SIRF FOG *NAHI* HAI!,myth,21:30,youtube,41.2,0,0,0,,,,,,,,,,public,"youtube analytics: YouTube Analytics HTTP 403: {
+  ""error"": {
+    ""code"": 403,
+    ""message"": ""YouTube Analytics API has not been used in project 780456074790 before or "
+2026-11-12T14:18+05:30,curious-hi,curious-2026-11-10-winter-smog-v2-hi,india everyday,YE SIRF FOG *NAHI* HAI!,myth,21:30,instagram,41.2,3,0,0,0,0,1,27901,,,,,,,
+2026-11-12T14:18+05:30,curious-hi,curious-2026-11-10-winter-smog-v2-hi,india everyday,YE SIRF FOG *NAHI* HAI!,myth,21:30,facebook,41.2,0,0,0,,,,,,,,,,,
+2026-11-12T14:18+05:30,curious-en,curious-2026-11-11-stars-twinkle-en,why does it happen,WHY DO STARS *TWINKLE*?,question,19:00,youtube,12.5,416,13,0,,,,,,,,,,public,"youtube analytics: YouTube Analytics HTTP 403: {
+  ""error"": {
+    ""code"": 403,
+    ""message"": ""YouTube Analytics API has not been used in project 780456074790 before or "
+2026-11-12T14:18+05:30,curious-en,curious-2026-11-11-stars-twinkle-en,why does it happen,WHY DO STARS *TWINKLE*?,question,19:00,instagram,12.5,7,0,0,0,0,7,2515,,,,,,,
+2026-11-12T14:18+05:30,curious-en,curious-2026-11-11-stars-twinkle-en,why does it happen,WHY DO STARS *TWINKLE*?,question,19:00,facebook,12.5,242,0,0,,,,,,,,,,,
+2026-11-12T14:18+05:30,curious-hi,curious-2026-11-11-stars-twinkle-hi,why does it happen,TAARE *TIMTIMATE* KYUN?,question,19:00,youtube,12.5,0,0,0,,,,,,,,,,public,"youtube analytics: YouTube Analytics HTTP 403: {
+  ""error"": {
+    ""code"": 403,
+    ""message"": ""YouTube Analytics API has not been used in project 780456074790 before or "
+2026-11-12T14:18+05:30,curious-hi,curious-2026-11-11-stars-twinkle-hi,why does it happen,TAARE *TIMTIMATE* KYUN?,question,19:00,instagram,12.5,0,0,0,0,0,0,0,,,,,,,
+2026-11-12T14:18+05:30,curious-hi,curious-2026-11-11-stars-twinkle-hi,why does it happen,TAARE *TIMTIMATE* KYUN?,question,19:00,facebook,12.5,0,0,0,,,,,,,,,,,

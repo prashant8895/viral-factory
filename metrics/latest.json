@@ -1,6 +1,6 @@
 [
   {
-    "checked": "2026-11-12T14:14+05:30",
+    "checked": "2026-11-12T14:18+05:30",
     "channel": "curious-en",
     "id": "curious-2026-11-06-escalator-brush-en",
     "bucket": "seen-but-missed",
@@ -8,7 +8,7 @@
     "hook_style": null,
     "slot": "19:00",
     "platform": "youtube",
-    "hours_live": 141.7,
+    "hours_live": 141.8,
     "views": 1060,
     "likes": 6,
     "comments": 3,
@@ -16,7 +16,7 @@
     "error": "youtube analytics: YouTube Analytics HTTP 403: {\n  \"error\": {\n    \"code\": 403,\n    \"message\": \"YouTube Analytics API has not been used in project 780456074790 before or "
   },
   {
-    "checked": "2026-11-12T14:14+05:30",
+    "checked": "2026-11-12T14:18+05:30",
     "channel": "curious-en",
     "id": "curious-2026-11-06-escalator-brush-en",
     "bucket": "seen-but-missed",
@@ -24,7 +24,7 @@
     "hook_style": null,
     "slot": "19:00",
     "platform": "instagram",
-    "hours_live": 141.7,
+    "hours_live": 141.8,
     "likes": 14,
     "comments": 0,
     "views": 2129,
@@ -34,7 +34,7 @@
     "ig_reels_avg_watch_time": 17948
   },
   {
-    "checked": "2026-11-12T14:14+05:30",
+    "checked": "2026-11-12T14:18+05:30",
     "channel": "curious-en",
     "id": "curious-2026-11-06-escalator-brush-en",
     "bucket": "seen-but-missed",
@@ -42,14 +42,13 @@
     "hook_style": null,
     "slot": "19:00",
     "platform": "facebook",
-    "hours_live": 141.7,
-    "error": "facebook insights: (#100) The value must be a valid insights metric",
+    "hours_live": 141.8,
     "views": 239,
     "likes": 0,
     "comments": 0
   },
   {
-    "checked": "2026-11-12T14:14+05:30",
+    "checked": "2026-11-12T14:18+05:30",
     "channel": "curious-hi",
     "id": "curious-2026-11-06-escalator-brush-hi",
     "bucket": "seen-but-missed",
@@ -57,7 +56,7 @@
     "hook_style": null,
     "slot": "19:00",
     "platform": "youtube",
-    "hours_live": 141.7,
+    "hours_live": 141.8,
     "views": 0,
     "likes": 0,
     "comments": 0,
@@ -65,7 +64,7 @@
     "error": "youtube analytics: YouTube Analytics HTTP 403: {\n  \"error\": {\n    \"code\": 403,\n    \"message\": \"YouTube Analytics API has not been used in project 780456074790 before or "
   },
   {
-    "checked": "2026-11-12T14:14+05:30",
+    "checked": "2026-11-12T14:18+05:30",
     "channel": "curious-hi",
     "id": "curious-2026-11-06-escalator-brush-hi",
     "bucket": "seen-but-missed",
@@ -74,13 +73,12 @@
     "slot": "19:00",
     "platform": "facebook",
     "hours_live": 141.7,
-    "error": "facebook insights: (#100) The value must be a valid insights metric",
     "views": 1,
     "likes": 0,
     "comments": 0
   },
   {
-    "checked": "2026-11-12T14:14+05:30",
+    "checked": "2026-11-12T14:18+05:30",
     "channel": "curious-hi",
     "id": "curious-2026-11-06-escalator-brush-hi",
     "bucket": "seen-but-missed",
@@ -98,7 +96,7 @@
     "ig_reels_avg_watch_time": 16603
   },
   {
-    "checked": "2026-11-12T14:14+05:30",
+    "checked": "2026-11-12T14:18+05:30",
     "channel": "curious-en",
     "id": "curious-2026-11-07-microwave-mesh-en",
     "bucket": "seen-but-missed",
@@ -114,7 +112,7 @@
     "error": "youtube analytics: YouTube Analytics HTTP 403: {\n  \"error\": {\n    \"code\": 403,\n    \"message\": \"YouTube Analytics API has not been used in project 780456074790 before or "
   },
   {
-    "checked": "2026-11-12T14:14+05:30",
+    "checked": "2026-11-12T14:18+05:30",
     "channel": "curious-en",
     "id": "curious-2026-11-07-microwave-mesh-en",
     "bucket": "seen-but-missed",
@@ -122,7 +120,7 @@
     "hook_style": "question",
     "slot": "19:00",
     "platform": "instagram",
-    "hours_live": 109.8,
+    "hours_live": 109.9,
     "likes": 8,
     "comments": 0,
     "views": 602,
@@ -132,7 +130,7 @@
     "ig_reels_avg_watch_time": 11677
   },
   {
-    "checked": "2026-11-12T14:14+05:30",
+    "checked": "2026-11-12T14:18+05:30",
     "channel": "curious-en",
     "id": "curious-2026-11-07-microwave-mesh-en",
     "bucket": "seen-but-missed",
@@ -140,14 +138,13 @@
     "hook_style": "question",
     "slot": "19:00",
     "platform": "facebook",
-    "hours_live": 109.8,
-    "error": "facebook insights: (#100) The value must be a valid insights metric",
+    "hours_live": 109.9,
     "views": 243,
     "likes": 1,
     "comments": 0
   },
   {
-    "checked": "2026-11-12T14:14+05:30",
+    "checked": "2026-11-12T14:18+05:30",
     "channel": "curious-hi",
     "id": "curious-2026-11-07-microwave-mesh-hi",
     "bucket": "seen-but-missed",
@@ -163,7 +160,7 @@
     "error": "youtube analytics: YouTube Analytics HTTP 403: {\n  \"error\": {\n    \"code\": 403,\n    \"message\": \"YouTube Analytics API has not been used in project 780456074790 before or "
   },
   {
-    "checked": "2026-11-12T14:14+05:30",
+    "checked": "2026-11-12T14:18+05:30",
     "channel": "curious-hi",
     "id": "curious-2026-11-07-microwave-mesh-hi",
     "bucket": "seen-but-missed",
@@ -171,12 +168,12 @@
     "hook_style": "question",
     "slot": "19:00",
     "platform": "instagram",
-    "hours_live": 109.8,
+    "hours_live": 109.9,
     "likes": 0,
     "comments": 0
   },
   {
-    "checked": "2026-11-12T14:14+05:30",
+    "checked": "2026-11-12T14:18+05:30",
     "channel": "curious-hi",
     "id": "curious-2026-11-07-microwave-mesh-hi",
     "bucket": "seen-but-missed",
@@ -184,14 +181,13 @@
     "hook_style": "question",
     "slot": "19:00",
     "platform": "facebook",
-    "hours_live": 109.8,
-    "error": "facebook insights: (#100) The value must be a valid insights metric",
+    "hours_live": 109.9,
     "views": 0,
     "likes": 0,
     "comments": 0
   },
   {
-    "checked": "2026-11-12T14:14+05:30",
+    "checked": "2026-11-12T14:18+05:30",
     "channel": "curious-en",
     "id": "curious-2026-11-08-firework-colours-en",
     "bucket": "why does it happen",
@@ -207,7 +203,7 @@
     "error": "youtube analytics: YouTube Analytics HTTP 403: {\n  \"error\": {\n    \"code\": 403,\n    \"message\": \"YouTube Analytics API has not been used in project 780456074790 before or "
   },
   {
-    "checked": "2026-11-12T14:14+05:30",
+    "checked": "2026-11-12T14:18+05:30",
     "channel": "curious-en",
     "id": "curious-2026-11-08-firework-colours-en",
     "bucket": "why does it happen",
@@ -215,7 +211,7 @@
     "hook_style": "myth",
     "slot": "19:00",
     "platform": "instagram",
-    "hours_live": 91.3,
+    "hours_live": 91.4,
     "likes": 0,
     "comments": 0,
     "views": 166,
@@ -225,7 +221,7 @@
     "ig_reels_avg_watch_time": 4298
   },
   {
-    "checked": "2026-11-12T14:14+05:30",
+    "checked": "2026-11-12T14:18+05:30",
     "channel": "curious-en",
     "id": "curious-2026-11-08-firework-colours-en",
     "bucket": "why does it happen",
@@ -233,14 +229,13 @@
     "hook_style": "myth",
     "slot": "19:00",
     "platform": "facebook",
-    "hours_live": 91.3,
-    "error": "facebook insights: (#100) The value must be a valid insights metric",
+    "hours_live": 91.4,
     "views": 245,
     "likes": 1,
     "comments": 0
   },
   {
-    "checked": "2026-11-12T14:14+05:30",
+    "checked": "2026-11-12T14:18+05:30",
     "channel": "curious-hi",
     "id": "curious-2026-11-08-firework-colours-hi",
     "bucket": "why does it happen",
@@ -248,7 +243,7 @@
     "hook_style": "myth",
     "slot": "19:00",
     "platform": "youtube",
-    "hours_live": 91.3,
+    "hours_live": 91.4,
     "views": 0,
     "likes": 0,
     "comments": 0,
@@ -256,7 +251,7 @@
     "error": "youtube analytics: YouTube Analytics HTTP 403: {\n  \"error\": {\n    \"code\": 403,\n    \"message\": \"YouTube Analytics API has not been used in project 780456074790 before or "
   },
   {
-    "checked": "2026-11-12T14:14+05:30",
+    "checked": "2026-11-12T14:18+05:30",
     "channel": "curious-hi",
     "id": "curious-2026-11-08-firework-colours-hi",
     "bucket": "why does it happen",
@@ -264,7 +259,7 @@
     "hook_style": "myth",
     "slot": "19:00",
     "platform": "instagram",
-    "hours_live": 91.3,
+    "hours_live": 91.4,
     "likes": 7,
     "comments": 0,
     "views": 339,
@@ -274,7 +269,7 @@
     "ig_reels_avg_watch_time": 12968
   },
   {
-    "checked": "2026-11-12T14:14+05:30",
+    "checked": "2026-11-12T14:18+05:30",
     "channel": "curious-hi",
     "id": "curious-2026-11-08-firework-colours-hi",
     "bucket": "why does it happen",
@@ -282,14 +277,13 @@
     "hook_style": "myth",
     "slot": "19:00",
     "platform": "facebook",
-    "hours_live": 91.3,
-    "error": "facebook insights: (#100) The value must be a valid insights metric",
+    "hours_live": 91.4,
     "views": 0,
     "likes": 0,
     "comments": 0
   },
   {
-    "checked": "2026-11-12T14:14+05:30",
+    "checked": "2026-11-12T14:18+05:30",
     "channel": "curious-en",
     "id": "curious-2026-11-09-tyre-black-en",
     "bucket": "seen-but-missed",
@@ -297,7 +291,7 @@
     "hook_style": "question",
     "slot": "21:00",
     "platform": "youtube",
-    "hours_live": 57.7,
+    "hours_live": 57.8,
     "views": 1226,
     "likes": 25,
     "comments": 0,
@@ -305,7 +299,7 @@
     "error": "youtube analytics: YouTube Analytics HTTP 403: {\n  \"error\": {\n    \"code\": 403,\n    \"message\": \"YouTube Analytics API has not been used in project 780456074790 before or "
   },
   {
-    "checked": "2026-11-12T14:14+05:30",
+    "checked": "2026-11-12T14:18+05:30",
     "channel": "curious-en",
     "id": "curious-2026-11-09-tyre-black-en",
     "bucket": "seen-but-missed",
@@ -323,7 +317,7 @@
     "ig_reels_avg_watch_time": 17895
   },
   {
-    "checked": "2026-11-12T14:14+05:30",
+    "checked": "2026-11-12T14:18+05:30",
     "channel": "curious-en",
     "id": "curious-2026-11-09-tyre-black-en",
     "bucket": "seen-but-missed",
@@ -332,13 +326,12 @@
     "slot": "21:00",
     "platform": "facebook",
     "hours_live": 57.7,
-    "error": "facebook insights: (#100) The value must be a valid insights metric",
     "views": 266,
     "likes": 0,
     "comments": 0
   },
   {
-    "checked": "2026-11-12T14:14+05:30",
+    "checked": "2026-11-12T14:18+05:30",
     "channel": "curious-hi",
     "id": "curious-2026-11-09-tyre-black-hi",
     "bucket": "seen-but-missed",
@@ -354,7 +347,7 @@
     "error": "youtube analytics: YouTube Analytics HTTP 403: {\n  \"error\": {\n    \"code\": 403,\n    \"message\": \"YouTube Analytics API has not been used in project 780456074790 before or "
   },
   {
-    "checked": "2026-11-12T14:14+05:30",
+    "checked": "2026-11-12T14:18+05:30",
     "channel": "curious-hi",
     "id": "curious-2026-11-09-tyre-black-hi",
     "bucket": "seen-but-missed",
@@ -372,7 +365,7 @@
     "ig_reels_avg_watch_time": 11073
   },
   {
-    "checked": "2026-11-12T14:14+05:30",
+    "checked": "2026-11-12T14:18+05:30",
     "channel": "curious-hi",
     "id": "curious-2026-11-09-tyre-black-hi",
     "bucket": "seen-but-missed",
@@ -381,13 +374,12 @@
     "slot": "21:00",
     "platform": "facebook",
     "hours_live": 57.7,
-    "error": "facebook insights: (#100) The value must be a valid insights metric",
     "views": 0,
     "likes": 0,
     "comments": 0
   },
   {
-    "checked": "2026-11-12T14:14+05:30",
+    "checked": "2026-11-12T14:18+05:30",
     "channel": "curious-en",
     "id": "curious-2026-11-09-yawn-en",
     "bucket": "careful health",
@@ -403,7 +395,7 @@
     "error": "youtube analytics: YouTube Analytics HTTP 403: {\n  \"error\": {\n    \"code\": 403,\n    \"message\": \"YouTube Analytics API has not been used in project 780456074790 before or "
   },
   {
-    "checked": "2026-11-12T14:14+05:30",
+    "checked": "2026-11-12T14:18+05:30",
     "channel": "curious-en",
     "id": "curious-2026-11-09-yawn-en",
     "bucket": "careful health",
@@ -411,14 +403,13 @@
     "hook_style": "question",
     "slot": "19:00",
     "platform": "facebook",
-    "hours_live": 67.2,
-    "error": "facebook insights: (#100) The value must be a valid insights metric",
+    "hours_live": 67.3,
     "views": 199,
     "likes": 0,
     "comments": 0
   },
   {
-    "checked": "2026-11-12T14:14+05:30",
+    "checked": "2026-11-12T14:18+05:30",
     "channel": "curious-en",
     "id": "curious-2026-11-09-yawn-en",
     "bucket": "careful health",
@@ -436,7 +427,7 @@
     "ig_reels_avg_watch_time": 7330
   },
   {
-    "checked": "2026-11-12T14:14+05:30",
+    "checked": "2026-11-12T14:18+05:30",
     "channel": "curious-hi",
     "id": "curious-2026-11-09-yawn-hi",
     "bucket": "careful health",
@@ -444,7 +435,7 @@
     "hook_style": "question",
     "slot": "19:00",
     "platform": "youtube",
-    "hours_live": 67.2,
+    "hours_live": 67.3,
     "views": 0,
     "likes": 0,
     "comments": 0,
@@ -452,7 +443,7 @@
     "error": "youtube analytics: YouTube Analytics HTTP 403: {\n  \"error\": {\n    \"code\": 403,\n    \"message\": \"YouTube Analytics API has not been used in project 780456074790 before or "
   },
   {
-    "checked": "2026-11-12T14:14+05:30",
+    "checked": "2026-11-12T14:18+05:30",
     "channel": "curious-hi",
     "id": "curious-2026-11-09-yawn-hi",
     "bucket": "careful health",
@@ -460,14 +451,13 @@
     "hook_style": "question",
     "slot": "19:00",
     "platform": "facebook",
-    "hours_live": 67.2,
-    "error": "facebook insights: (#100) The value must be a valid insights metric",
+    "hours_live": 67.3,
     "views": 0,
     "likes": 0,
     "comments": 0
   },
   {
-    "checked": "2026-11-12T14:14+05:30",
+    "checked": "2026-11-12T14:18+05:30",
     "channel": "curious-hi",
     "id": "curious-2026-11-09-yawn-hi",
     "bucket": "careful health",
@@ -475,7 +465,7 @@
     "hook_style": "question",
     "slot": "19:00",
     "platform": "instagram",
-    "hours_live": 66.9,
+    "hours_live": 67.0,
     "likes": 5,
     "comments": 0,
     "views": 176,
@@ -485,7 +475,7 @@
     "ig_reels_avg_watch_time": 11273
   },
   {
-    "checked": "2026-11-12T14:14+05:30",
+    "checked": "2026-11-12T14:18+05:30",
     "channel": "curious-en",
     "id": "curious-2026-11-10-winter-smog-en",
     "bucket": "india everyday",
@@ -498,7 +488,7 @@
     "comments": 0
   },
   {
-    "checked": "2026-11-12T14:14+05:30",
+    "checked": "2026-11-12T14:18+05:30",
     "channel": "curious-hi",
     "id": "curious-2026-11-10-winter-smog-hi",
     "bucket": "india everyday",
@@ -506,12 +496,12 @@
     "hook_style": "myth",
     "slot": "19:00",
     "platform": "instagram",
-    "hours_live": 43.2,
+    "hours_live": 43.3,
     "likes": 0,
     "comments": 0
   },
   {
-    "checked": "2026-11-12T14:14+05:30",
+    "checked": "2026-11-12T14:18+05:30",
     "channel": "curious-en",
     "id": "curious-2026-11-10-winter-smog-v2-en",
     "bucket": "india everyday",
@@ -519,7 +509,7 @@
     "hook_style": "myth",
     "slot": "21:30",
     "platform": "youtube",
-    "hours_live": 41.2,
+    "hours_live": 41.3,
     "views": 62,
     "likes": 1,
     "comments": 0,
@@ -527,7 +517,7 @@
     "error": "youtube analytics: YouTube Analytics HTTP 403: {\n  \"error\": {\n    \"code\": 403,\n    \"message\": \"YouTube Analytics API has not been used in project 780456074790 before or "
   },
   {
-    "checked": "2026-11-12T14:14+05:30",
+    "checked": "2026-11-12T14:18+05:30",
     "channel": "curious-en",
     "id": "curious-2026-11-10-winter-smog-v2-en",
     "bucket": "india everyday",
@@ -535,7 +525,7 @@
     "hook_style": "myth",
     "slot": "21:30",
     "platform": "instagram",
-    "hours_live": 41.2,
+    "hours_live": 41.3,
     "likes": 0,
     "comments": 0,
     "views": 144,
@@ -545,7 +535,7 @@
     "ig_reels_avg_watch_time": 9877
   },
   {
-    "checked": "2026-11-12T14:14+05:30",
+    "checked": "2026-11-12T14:18+05:30",
     "channel": "curious-en",
     "id": "curious-2026-11-10-winter-smog-v2-en",
     "bucket": "india everyday",
@@ -554,13 +544,12 @@
     "slot": "21:30",
     "platform": "facebook",
     "hours_live": 41.2,
-    "error": "facebook insights: (#100) The value must be a valid insights metric",
     "views": 244,
     "likes": 2,
     "comments": 0
   },
   {
-    "checked": "2026-11-12T14:14+05:30",
+    "checked": "2026-11-12T14:18+05:30",
     "channel": "curious-hi",
     "id": "curious-2026-11-10-winter-smog-v2-hi",
     "bucket": "india everyday",
@@ -576,7 +565,7 @@
     "error": "youtube analytics: YouTube Analytics HTTP 403: {\n  \"error\": {\n    \"code\": 403,\n    \"message\": \"YouTube Analytics API has not been used in project 780456074790 before or "
   },
   {
-    "checked": "2026-11-12T14:14+05:30",
+    "checked": "2026-11-12T14:18+05:30",
     "channel": "curious-hi",
     "id": "curious-2026-11-10-winter-smog-v2-hi",
     "bucket": "india everyday",
@@ -594,7 +583,7 @@
     "ig_reels_avg_watch_time": 27901
   },
   {
-    "checked": "2026-11-12T14:14+05:30",
+    "checked": "2026-11-12T14:18+05:30",
     "channel": "curious-hi",
     "id": "curious-2026-11-10-winter-smog-v2-hi",
     "bucket": "india everyday",
@@ -602,14 +591,13 @@
     "hook_style": "myth",
     "slot": "21:30",
     "platform": "facebook",
-    "hours_live": 41.1,
-    "error": "facebook insights: (#100) The value must be a valid insights metric",
+    "hours_live": 41.2,
     "views": 0,
     "likes": 0,
     "comments": 0
   },
   {
-    "checked": "2026-11-12T14:14+05:30",
+    "checked": "2026-11-12T14:18+05:30",
     "channel": "curious-en",
     "id": "curious-2026-11-11-stars-twinkle-en",
     "bucket": "why does it happen",
@@ -625,7 +613,7 @@
     "error": "youtube analytics: YouTube Analytics HTTP 403: {\n  \"error\": {\n    \"code\": 403,\n    \"message\": \"YouTube Analytics API has not been used in project 780456074790 before or "
   },
   {
-    "checked": "2026-11-12T14:14+05:30",
+    "checked": "2026-11-12T14:18+05:30",
     "channel": "curious-en",
     "id": "curious-2026-11-11-stars-twinkle-en",
     "bucket": "why does it happen",
@@ -643,7 +631,7 @@
     "ig_reels_avg_watch_time": 2515
   },
   {
-    "checked": "2026-11-12T14:14+05:30",
+    "checked": "2026-11-12T14:18+05:30",
     "channel": "curious-en",
     "id": "curious-2026-11-11-stars-twinkle-en",
     "bucket": "why does it happen",
@@ -652,13 +640,12 @@
     "slot": "19:00",
     "platform": "facebook",
     "hours_live": 12.5,
-    "error": "facebook insights: (#100) The value must be a valid insights metric",
     "views": 242,
     "likes": 0,
     "comments": 0
   },
   {
-    "checked": "2026-11-12T14:14+05:30",
+    "checked": "2026-11-12T14:18+05:30",
     "channel": "curious-hi",
     "id": "curious-2026-11-11-stars-twinkle-hi",
     "bucket": "why does it happen",
@@ -674,7 +661,7 @@
     "error": "youtube analytics: YouTube Analytics HTTP 403: {\n  \"error\": {\n    \"code\": 403,\n    \"message\": \"YouTube Analytics API has not been used in project 780456074790 before or "
   },
   {
-    "checked": "2026-11-12T14:14+05:30",
+    "checked": "2026-11-12T14:18+05:30",
     "channel": "curious-hi",
     "id": "curious-2026-11-11-stars-twinkle-hi",
     "bucket": "why does it happen",
@@ -682,7 +669,7 @@
     "hook_style": "question",
     "slot": "19:00",
     "platform": "instagram",
-    "hours_live": 12.4,
+    "hours_live": 12.5,
     "likes": 0,
     "comments": 0,
     "views": 0,
@@ -692,7 +679,7 @@
     "ig_reels_avg_watch_time": 0
   },
   {
-    "checked": "2026-11-12T14:14+05:30",
+    "checked": "2026-11-12T14:18+05:30",
     "channel": "curious-hi",
     "id": "curious-2026-11-11-stars-twinkle-hi",
     "bucket": "why does it happen",
@@ -700,8 +687,7 @@
     "hook_style": "question",
     "slot": "19:00",
     "platform": "facebook",
-    "hours_live": 12.4,
-    "error": "facebook insights: (#100) The value must be a valid insights metric",
+    "hours_live": 12.5,
     "views": 0,
     "likes": 0,
     "comments": 0

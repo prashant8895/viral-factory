@@ -1,22 +1,21 @@
 {
-  "updated": "2026-11-12T14:01+05:30",
+  "updated": "2026-11-12T14:15+05:30",
   "videos": 7,
-  "total_views": 8324.0,
+  "total_views": 10008.0,
   "platform_views": {
-    "youtube": 4853.0,
+    "youtube": 4859.0,
     "instagram": 3471.0,
-    "facebook": 0
+    "facebook": 1678.0
   },
   "median_watch_pct": 23.9,
   "median_shares_per_1k": 0.0,
   "rules": [
     "Median watch is 24% of the video: people leave early. Get to the first surprising fact by second 5, cut setup lines, aim for 35-45 s.",
-    "Top videos so far: IT'S NOT A SHOE CLEANER! (seen-but-missed, 3,188 views); WHY THIS MESH? (seen-but-missed, 1,891 views); WHY ARE TYRES BLACK? (seen-but-missed, 1,423 views). Pitch more topics like these.",
-    "Weakest: IT'S NOT DYE! (why does it happen, 735); WHY DO WE YAWN? (careful health, 457); WINTER HAZE? NOT JUST FOG (india everyday, 206). Avoid these angles unless a new twist."
+    "Top videos so far: IT'S NOT A SHOE CLEANER! (seen-but-missed, 3,188 views); WHY THIS MESH? (seen-but-missed, 1,891 views); WHY ARE TYRES BLACK? (seen-but-missed, 1,695 views). Pitch more topics like these.",
+    "Weakest: IT'S NOT DYE! (why does it happen, 980); WHY DO WE YAWN? (careful health, 656); WINTER HAZE? NOT JUST FOG (india everyday, 450). Avoid these angles unless a new twist."
   ],
   "flags": [
     "4 of 7 videos went out more than 30 min off their slot: 2026-11-06-escalator-brush (-148 min), 2026-11-07-microwave-mesh (+112 min), 2026-11-09-tyre-black (+453 min), 2026-11-11-stars-twinkle (+406 min)",
-    "Facebook gives no view numbers for 7 videos (no error returned: the page token probably lacks read_insights)",
     "YouTube watch % is missing: re-run tools/get_youtube_token.py once (now asks for yt-analytics.readonly) and update CURIOUS_EN_YT_REFRESH_TOKEN."
   ],
   "groups": {
@@ -26,7 +25,7 @@
         "n": 3,
         "trusted": true,
         "median_v24": 1783.0,
-        "median_views": 1890.0,
+        "median_views": 2133.0,
         "median_watch_pct": 41.7,
         "median_shares_per_1k": 1.7
       },
@@ -34,8 +33,8 @@
         "group": "why does it happen",
         "n": 2,
         "trusted": false,
-        "median_v24": 698.0,
-        "median_views": 579.5,
+        "median_v24": 681.5,
+        "median_views": 823.0,
         "median_watch_pct": 8.35,
         "median_shares_per_1k": 0.0
       },
@@ -44,7 +43,7 @@
         "n": 1,
         "trusted": false,
         "median_v24": 438.0,
-        "median_views": 457.0,
+        "median_views": 656.0,
         "median_watch_pct": 18.2,
         "median_shares_per_1k": 0.0
       },
@@ -53,7 +52,7 @@
         "n": 1,
         "trusted": false,
         "median_v24": 203.0,
-        "median_views": 206.0,
+        "median_views": 450.0,
         "median_watch_pct": 23.9,
         "median_shares_per_1k": 0.0
       }
@@ -64,7 +63,7 @@
         "n": 1,
         "trusted": false,
         "median_v24": 2206.0,
-        "median_views": 3189.0,
+        "median_views": 3428.0,
         "median_watch_pct": 42.0,
         "median_shares_per_1k": 3.8
       },
@@ -72,8 +71,8 @@
         "group": "question",
         "n": 4,
         "trusted": true,
-        "median_v24": 1349.0,
-        "median_views": 940.0,
+        "median_v24": 1007.0,
+        "median_views": 1180.0,
         "median_watch_pct": 23.45,
         "median_shares_per_1k": 0.0
       },
@@ -82,7 +81,7 @@
         "n": 2,
         "trusted": false,
         "median_v24": 450.5,
-        "median_views": 471.0,
+        "median_views": 715.5,
         "median_watch_pct": 17.299999999999997,
         "median_shares_per_1k": 0.0
       }
@@ -92,8 +91,8 @@
         "group": "photo",
         "n": 7,
         "trusted": true,
-        "median_v24": 1023.5,
-        "median_views": 736.0,
+        "median_v24": 698.0,
+        "median_views": 981.0,
         "median_watch_pct": 23.9,
         "median_shares_per_1k": 0.0
       }
@@ -103,8 +102,8 @@
         "group": "kokoro",
         "n": 7,
         "trusted": true,
-        "median_v24": 1023.5,
-        "median_views": 736.0,
+        "median_v24": 698.0,
+        "median_views": 981.0,
         "median_watch_pct": 23.9,
         "median_shares_per_1k": 0.0
       }
@@ -114,8 +113,8 @@
         "group": "40-50s",
         "n": 7,
         "trusted": true,
-        "median_v24": 1023.5,
-        "median_views": 736.0,
+        "median_v24": 698.0,
+        "median_views": 981.0,
         "median_watch_pct": 23.9,
         "median_shares_per_1k": 0.0
       }
@@ -140,11 +139,11 @@
       "hook_style": "none",
       "duration": 42.75,
       "late_min": -148,
-      "views": 3189.0,
+      "views": 3428.0,
       "v24": 2206.0,
       "v72": 3188.0,
       "watch_pct": 42.0,
-      "likes_per_1k": 6.3,
+      "likes_per_1k": 5.8,
       "shares_per_1k": 3.8
     },
     {
@@ -155,11 +154,11 @@
       "hook_style": "question",
       "duration": 40.67,
       "late_min": 112,
-      "views": 1890.0,
+      "views": 2133.0,
       "v24": 1783.0,
       "v72": 1891.0,
       "watch_pct": 28.7,
-      "likes_per_1k": 24.3,
+      "likes_per_1k": 22.0,
       "shares_per_1k": 1.7
     },
     {
@@ -170,11 +169,11 @@
       "hook_style": "myth",
       "duration": 40.34,
       "late_min": -7,
-      "views": 736.0,
+      "views": 981.0,
       "v24": 698.0,
-      "v72": 735.0,
+      "v72": 980.0,
       "watch_pct": 10.7,
-      "likes_per_1k": 13.6,
+      "likes_per_1k": 11.2,
       "shares_per_1k": 0.0
     },
     {
@@ -185,11 +184,11 @@
       "hook_style": "question",
       "duration": 42.92,
       "late_min": 453,
-      "views": 1423.0,
+      "views": 1695.0,
       "v24": 1349.0,
-      "v72": 1423.0,
+      "v72": 1695.0,
       "watch_pct": 41.7,
-      "likes_per_1k": 18.3,
+      "likes_per_1k": 15.3,
       "shares_per_1k": 0.0
     },
     {
@@ -200,11 +199,11 @@
       "hook_style": "question",
       "duration": 40.17,
       "late_min": -1,
-      "views": 457.0,
+      "views": 656.0,
       "v24": 438.0,
-      "v72": 457.0,
+      "v72": 656.0,
       "watch_pct": 18.2,
-      "likes_per_1k": 13.1,
+      "likes_per_1k": 9.1,
       "shares_per_1k": 0.0
     },
     {
@@ -215,11 +214,11 @@
       "hook_style": "myth",
       "duration": 41.39,
       "late_min": -29,
-      "views": 206.0,
+      "views": 450.0,
       "v24": 203.0,
       "v72": null,
       "watch_pct": 23.9,
-      "likes_per_1k": 4.9,
+      "likes_per_1k": 6.7,
       "shares_per_1k": 0.0
     },
     {
@@ -230,11 +229,11 @@
       "hook_style": "question",
       "duration": 42.26,
       "late_min": 406,
-      "views": 423.0,
-      "v24": null,
+      "views": 665.0,
+      "v24": 665.0,
       "v72": null,
       "watch_pct": 6.0,
-      "likes_per_1k": 30.7,
+      "likes_per_1k": 19.5,
       "shares_per_1k": 0.0
     }
   ]

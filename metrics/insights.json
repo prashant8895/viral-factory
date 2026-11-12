@@ -1,5 +1,5 @@
 {
-  "updated": "2026-11-12T15:16+05:30",
+  "updated": "2026-11-12T15:17+05:30",
   "videos": 7,
   "total_views": 9988.0,
   "platform_views": {
@@ -17,6 +17,7 @@
   ],
   "flags": [
     "4 of 7 videos went out more than 30 min off their slot: 2026-11-06-escalator-brush (-148 min), 2026-11-07-microwave-mesh (+112 min), 2026-11-09-tyre-black (+453 min), 2026-11-11-stars-twinkle (+406 min)",
+    "Facebook watch time is missing: the Meta page token lacks read_insights. Make a new token with tools/get_meta_ids.py (the permission list is at the top) and update CURIOUS_EN_META_PAGE_TOKEN.",
     "YouTube watch % is missing: in Google Cloud (the project of YT_CLIENT_ID) enable 'YouTube Analytics API', then re-run tools/get_youtube_token.py once (it now asks for yt-analytics.readonly) and update CURIOUS_EN_YT_REFRESH_TOKEN."
   ],
   "groups": {

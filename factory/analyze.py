@@ -166,11 +166,10 @@ def main() -> None:
     if late:
         flags.append(f"{len(late)} of {len(live)} videos went out more than 30 min off their slot: "
                      + ", ".join(f"{v['id'][8:-3]} ({v['late_min']:+.0f} min)" for v in late[-5:]))
-    fb_empty = [v for v in live if "facebook" in v["platforms"] and v["platforms"]["facebook"]["views"] is None]
-    if fb_empty:
-        err = next((v["platforms"]["facebook"]["error"] for v in fb_empty if v["platforms"]["facebook"]["error"]), None)
-        flags.append(f"Facebook gives no view numbers for {len(fb_empty)} videos" + (f" (error: {err[:120]})" if err else
-                     " (no error returned: the page token probably lacks read_insights)"))
+    fb_noinsights = [v for v in live if "read_insights" in str((v["platforms"].get("facebook") or {}).get("error"))]
+    if fb_noinsights:
+        flags.append("Facebook watch time is missing: the Meta page token lacks read_insights. Make a new token "
+                     "with tools/get_meta_ids.py (the permission list is at the top) and update CURIOUS_EN_META_PAGE_TOKEN.")
     if not any(v.get("yt_pct_seen") for v in live):
         flags.append("YouTube watch % is missing: in Google Cloud (the project of YT_CLIENT_ID) enable "
                      "'YouTube Analytics API', then re-run tools/get_youtube_token.py once (it now asks for "

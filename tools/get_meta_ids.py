@@ -4,7 +4,12 @@ and find your Facebook Page id and Instagram account id.
     pip install requests
     python tools/get_meta_ids.py APP_ID APP_SECRET SHORT_USER_TOKEN
 
-Get SHORT_USER_TOKEN from the Graph API Explorer (see SETUP.md, step 4).
+Get SHORT_USER_TOKEN from the Graph API Explorer (developers.facebook.com/tools/explorer):
+pick your app, "Get User Access Token", and tick ALL of these permissions:
+  pages_show_list, pages_read_engagement, pages_read_user_content, pages_manage_posts,
+  pages_manage_engagement, publish_video, read_insights   (read_insights = Facebook views + watch time)
+  instagram_basic, instagram_content_publish, instagram_manage_comments, instagram_manage_insights,
+  business_management
 """
 import sys
 
@@ -19,6 +24,14 @@ def main(app_id: str, secret: str, short: str) -> None:
         "fb_exchange_token": short}, timeout=30)
     r.raise_for_status()
     long_user = r.json()["access_token"]
+    need = {"read_insights", "instagram_manage_insights", "pages_read_engagement", "instagram_content_publish",
+            "publish_video", "pages_manage_posts"}
+    perms = requests.get(f"https://graph.facebook.com/{V}/me/permissions",
+                         params={"access_token": long_user}, timeout=30).json().get("data", [])
+    have = {x["permission"] for x in perms if x.get("status") == "granted"}
+    if need - have:
+        print("WARNING: this token is missing", ", ".join(sorted(need - have)),
+              "- go back to the Graph API Explorer, tick them, and run this again.")
     pages = requests.get(f"https://graph.facebook.com/{V}/me/accounts", params={
         "fields": "id,name,access_token,instagram_business_account{id,username}",
         "access_token": long_user}, timeout=30).json()

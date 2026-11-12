@@ -1,6 +1,6 @@
 # Oh That's Why: numbers review
 
-Updated 12 Nov 2026, 15:16 IST. English page, 7 videos, 9,988 views in total (YouTube 4,838, Instagram 3,471, Facebook 1,679). Median watch 24%, median shares 0 per 1k views.
+Updated 12 Nov 2026, 15:17 IST. English page, 7 videos, 9,988 views in total (YouTube 4,838, Instagram 3,471, Facebook 1,679). Median watch 24%, median shares 0 per 1k views.
 
 Hindi page (paused 12 Nov): 7 videos, 859 views in total.
 
@@ -14,6 +14,7 @@ Hindi page (paused 12 Nov): 7 videos, 859 views in total.
 ## Problems in the data or posting
 
 - 4 of 7 videos went out more than 30 min off their slot: 2026-11-06-escalator-brush (-148 min), 2026-11-07-microwave-mesh (+112 min), 2026-11-09-tyre-black (+453 min), 2026-11-11-stars-twinkle (+406 min)
+- Facebook watch time is missing: the Meta page token lacks read_insights. Make a new token with tools/get_meta_ids.py (the permission list is at the top) and update CURIOUS_EN_META_PAGE_TOKEN.
 - YouTube watch % is missing: in Google Cloud (the project of YT_CLIENT_ID) enable 'YouTube Analytics API', then re-run tools/get_youtube_token.py once (it now asks for yt-analytics.readonly) and update CURIOUS_EN_YT_REFRESH_TOKEN.
 
 ## Every video

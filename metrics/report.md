@@ -1,6 +1,6 @@
 # Oh That's Why: numbers review
 
-Updated 12 Nov 2026, 14:19 IST. English page, 7 videos, 10,008 views in total (YouTube 4,859, Instagram 3,471, Facebook 1,678). Median watch 24%, median shares 0 per 1k views.
+Updated 12 Nov 2026, 15:15 IST. English page, 7 videos, 10,008 views in total (YouTube 4,859, Instagram 3,471, Facebook 1,678). Median watch 24%, median shares 0 per 1k views.
 
 Hindi page (paused 12 Nov): 7 videos, 859 views in total.
 
@@ -17,15 +17,15 @@ Hindi page (paused 12 Nov): 7 videos, 859 views in total.
 
 ## Every video
 
-| Date | Hook | Bucket | Hook style | Len | Late | 24 h | 72 h | Now | Watch | Shares/1k | YT | IG | FB |
-|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
-| 2026-11-11 | WHY DO STARS TWINKLE? | why does it happen | question | 42s | 406m | 665 | – | 665 | 6% | 0 | 416 | 7 | 242 |
-| 2026-11-10 | WINTER HAZE? NOT JUST FOG | india everyday | myth | 41s | -29m | 203 | – | 450 | 24% | 0 | 62 | 144 | 244 |
-| 2026-11-09 | WHY DO WE YAWN? | careful health | question | 40s | -1m | 438 | 656 | 656 | 18% | 0 | 237 | 220 | 199 |
-| 2026-11-09 | WHY ARE TYRES BLACK? | seen-but-missed | question | 43s | 453m | 1,349 | 1,695 | 1,695 | 42% | 0 | 1,226 | 203 | 266 |
-| 2026-11-08 | IT'S NOT DYE! | why does it happen | myth | 40s | -7m | 698 | 980 | 981 | 11% | 0 | 570 | 166 | 245 |
-| 2026-11-07 | WHY THIS MESH? | seen-but-missed | question | 41s | 112m | 1,783 | 1,891 | 2,133 | 29% | 1.7 | 1,288 | 602 | 243 |
-| 2026-11-06 | IT'S NOT A SHOE CLEANER! | seen-but-missed | none | 43s | -148m | 2,206 | 3,188 | 3,428 | 42% | 3.8 | 1,060 | 2,129 | 239 |
+| Date | Hook | Bucket | Hook style | Len | Late | 24 h | 72 h | Now | Watch YT / IG / FB | IG skip | Shares/1k | Follows | Views YT | IG | FB |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| 2026-11-11 | WHY DO STARS TWINKLE? | why does it happen | question | 42s | 406m | 665 | – | 665 | – / 6% / – | – | 0 | – | 416 | 7 | 242 |
+| 2026-11-10 | WINTER HAZE? NOT JUST FOG | india everyday | myth | 41s | -29m | 203 | – | 450 | – / 24% / – | – | 0 | – | 62 | 144 | 244 |
+| 2026-11-09 | WHY DO WE YAWN? | careful health | question | 40s | -1m | 438 | 656 | 656 | – / 18% / – | – | 0 | – | 237 | 220 | 199 |
+| 2026-11-09 | WHY ARE TYRES BLACK? | seen-but-missed | question | 43s | 453m | 1,349 | 1,695 | 1,695 | – / 42% / – | – | 0 | – | 1,226 | 203 | 266 |
+| 2026-11-08 | IT'S NOT DYE! | why does it happen | myth | 40s | -7m | 698 | 980 | 981 | – / 11% / – | – | 0 | – | 570 | 166 | 245 |
+| 2026-11-07 | WHY THIS MESH? | seen-but-missed | question | 41s | 112m | 1,783 | 1,891 | 2,133 | – / 29% / – | – | 1.7 | – | 1,288 | 602 | 243 |
+| 2026-11-06 | IT'S NOT A SHOE CLEANER! | seen-but-missed | none | 43s | -148m | 2,206 | 3,188 | 3,428 | – / 42% / – | – | 3.8 | – | 1,060 | 2,129 | 239 |
 
 ## By bucket
 

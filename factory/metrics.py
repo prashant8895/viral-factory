@@ -62,7 +62,8 @@ def main() -> None:
     hist = OUT / "history.csv"
     fields = ["checked", "channel", "id", "bucket", "hook", "hook_style", "slot", "platform", "hours_live", "views", "likes",
               "comments", "shares", "saved", "reach", "ig_reels_avg_watch_time", "blue_reels_play_count",
-              "post_video_avg_time_watched", "yt_avg_view_pct", "yt_avg_view_sec", "subs_gained", "privacy", "error"]
+              "post_video_avg_time_watched", "yt_avg_view_pct", "yt_avg_view_sec", "subs_gained", "reels_skip_rate",
+              "ig_reels_video_view_total_time", "reposts", "follows", "fb_insights_error", "privacy", "error"]
     if hist.exists():  # add new columns to an older file without losing rows
         with hist.open() as f:
             old = list(csv.DictReader(f))

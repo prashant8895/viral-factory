@@ -1,5 +1,5 @@
 {
-  "updated": "2026-11-12T14:19+05:30",
+  "updated": "2026-11-12T15:15+05:30",
   "videos": 7,
   "total_views": 10008.0,
   "platform_views": {
@@ -143,8 +143,13 @@
       "v24": 2206.0,
       "v72": 3188.0,
       "watch_pct": 42.0,
+      "skip_pct": null,
+      "follows": null,
       "likes_per_1k": 5.8,
-      "shares_per_1k": 3.8
+      "shares_per_1k": 3.8,
+      "youtube_watch_pct": null,
+      "instagram_watch_pct": 42.0,
+      "facebook_watch_pct": null
     },
     {
       "id": "curious-2026-11-07-microwave-mesh-en",
@@ -158,8 +163,13 @@
       "v24": 1783.0,
       "v72": 1891.0,
       "watch_pct": 28.7,
+      "skip_pct": null,
+      "follows": null,
       "likes_per_1k": 22.0,
-      "shares_per_1k": 1.7
+      "shares_per_1k": 1.7,
+      "youtube_watch_pct": null,
+      "instagram_watch_pct": 28.7,
+      "facebook_watch_pct": null
     },
     {
       "id": "curious-2026-11-08-firework-colours-en",
@@ -173,8 +183,13 @@
       "v24": 698.0,
       "v72": 980.0,
       "watch_pct": 10.7,
+      "skip_pct": null,
+      "follows": null,
       "likes_per_1k": 11.2,
-      "shares_per_1k": 0.0
+      "shares_per_1k": 0.0,
+      "youtube_watch_pct": null,
+      "instagram_watch_pct": 10.7,
+      "facebook_watch_pct": null
     },
     {
       "id": "curious-2026-11-09-tyre-black-en",
@@ -188,8 +203,13 @@
       "v24": 1349.0,
       "v72": 1695.0,
       "watch_pct": 41.7,
+      "skip_pct": null,
+      "follows": null,
       "likes_per_1k": 15.3,
-      "shares_per_1k": 0.0
+      "shares_per_1k": 0.0,
+      "youtube_watch_pct": null,
+      "instagram_watch_pct": 41.7,
+      "facebook_watch_pct": null
     },
     {
       "id": "curious-2026-11-09-yawn-en",
@@ -203,8 +223,13 @@
       "v24": 438.0,
       "v72": 656.0,
       "watch_pct": 18.2,
+      "skip_pct": null,
+      "follows": null,
       "likes_per_1k": 9.1,
-      "shares_per_1k": 0.0
+      "shares_per_1k": 0.0,
+      "youtube_watch_pct": null,
+      "instagram_watch_pct": 18.2,
+      "facebook_watch_pct": null
     },
     {
       "id": "curious-2026-11-10-winter-smog-v2-en",
@@ -218,8 +243,13 @@
       "v24": 203.0,
       "v72": null,
       "watch_pct": 23.9,
+      "skip_pct": null,
+      "follows": null,
       "likes_per_1k": 6.7,
-      "shares_per_1k": 0.0
+      "shares_per_1k": 0.0,
+      "youtube_watch_pct": null,
+      "instagram_watch_pct": 23.9,
+      "facebook_watch_pct": null
     },
     {
       "id": "curious-2026-11-11-stars-twinkle-en",
@@ -233,8 +263,13 @@
       "v24": 665.0,
       "v72": null,
       "watch_pct": 6.0,
+      "skip_pct": null,
+      "follows": null,
       "likes_per_1k": 19.5,
-      "shares_per_1k": 0.0
+      "shares_per_1k": 0.0,
+      "youtube_watch_pct": null,
+      "instagram_watch_pct": 6.0,
+      "facebook_watch_pct": null
     }
   ]
 }

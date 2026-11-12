@@ -96,7 +96,8 @@ def collect() -> list[dict]:
                 "shares": _f(last.get("shares")), "saved": _f(last.get("saved")),
                 "comments": _f(last.get("comments")),
                 "watch_pct": yt_pct if yt_pct is not None else (round(100 * avg_s / dur, 1) if avg_s and dur else None),
-                "error": last.get("error") or None,
+                "skip_pct": _f(last.get("reels_skip_rate")), "follows": _f(last.get("follows")),
+                "error": last.get("error") or last.get("fb_insights_error") or None,
             }
         if not plat:
             continue
@@ -117,6 +118,8 @@ def collect() -> list[dict]:
             "likes_per_1k": round(1000 * likes / views, 1) if likes is not None and views else None,
             "shares_per_1k": shares_rate,
             "watch_pct": _median([p["watch_pct"] for p in plat.values()]),
+            "skip_pct": (plat.get("instagram") or {}).get("skip_pct"),
+            "follows": tot("follows"),
             "platforms": plat,
             "yt_pct_seen": any(_f(r.get("yt_avg_view_pct")) is not None for r in vrows),
         })
@@ -191,6 +194,10 @@ def main() -> None:
         rules.append(f"Median watch is {wp:.0f}% of the video: people leave early. Get to the first surprising "
                      "fact by second 5, cut setup lines, aim for 35-45 s.")
     sp = _median([v["shares_per_1k"] for v in live])
+    skip = _median([v["skip_pct"] for v in live])
+    if skip is not None and skip > 50:
+        rules.append(f"Instagram skip rate is {skip:.0f}%: most people swipe away in the first 3 s. The opening "
+                     "picture + 'Ever wondered why' line must show the thing itself, big and clear, from frame 1.")
     if top:
         rules.append("Top videos so far: " + "; ".join(f"{v['hook']} ({v['bucket']}, {_fmt(v['v72'] or v['views'])} views)" for v in top)
                      + ". Pitch more topics like these.")
@@ -204,7 +211,9 @@ def main() -> None:
                 "rules": rules, "flags": flags, "groups": groups,
                 "top": [v["id"] for v in top], "bottom": [v["id"] for v in bottom],
                 "per_video": [{k: v[k] for k in ("id", "date", "bucket", "hook", "hook_style", "duration", "late_min",
-                                                 "views", "v24", "v72", "watch_pct", "likes_per_1k", "shares_per_1k")}
+                                                 "views", "v24", "v72", "watch_pct", "skip_pct", "follows",
+                                                 "likes_per_1k", "shares_per_1k")}
+                              | {f"{n}_watch_pct": v["platforms"].get(n, {}).get("watch_pct") for n in MAIN}
                               for v in live]}
     (OUT / "insights.json").write_text(json.dumps(insights, indent=2, ensure_ascii=False))
 
@@ -220,13 +229,14 @@ def main() -> None:
     if flags:
         L += ["", "## Problems in the data or posting", ""] + [f"- {f}" for f in flags]
     L += ["", "## Every video", "",
-          "| Date | Hook | Bucket | Hook style | Len | Late | 24 h | 72 h | Now | Watch | Shares/1k | YT | IG | FB |",
-          "|---|---|---|---|---|---|---|---|---|---|---|---|---|---|"]
+          "| Date | Hook | Bucket | Hook style | Len | Late | 24 h | 72 h | Now | Watch YT / IG / FB | IG skip | Shares/1k | Follows | Views YT | IG | FB |",
+          "|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|"]
     for v in reversed(live):
         p = v["platforms"]
         L.append(f"| {v['date']} | {(v['hook'] or '').replace('*', '')} | {v['bucket']} | {v['hook_style']} | "
                  f"{_fmt(v['duration'], 's')} | {_fmt(v['late_min'], 'm')} | {_fmt(v['v24'])} | {_fmt(v['v72'])} | "
-                 f"{_fmt(v['views'])} | {_fmt(v['watch_pct'], '%')} | {_fmt(v['shares_per_1k'])} | "
+                 f"{_fmt(v['views'])} | " + " / ".join(_fmt(p.get(n, {}).get("watch_pct"), "%") for n in MAIN)
+                 + f" | {_fmt(v['skip_pct'], '%')} | {_fmt(v['shares_per_1k'])} | {_fmt(v['follows'])} | "
                  + " | ".join(_fmt(p.get(n, {}).get("views")) for n in MAIN) + " |")
     for key, gs in groups.items():
         L += ["", f"## By {key.replace('_', ' ')}", "", "| Group | Videos | Median 24 h | Median views | Watch | Shares/1k |",

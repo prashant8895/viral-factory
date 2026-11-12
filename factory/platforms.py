@@ -186,13 +186,17 @@ def instagram_stats(p: str, media_id: str) -> dict:
     out["likes"] = basic.get("like_count", 0)
     out["comments"] = basic.get("comments_count", 0)
     # Metric names change between API versions, so ask one at a time and skip what fails.
-    for m in ["views", "reach", "shares", "saved", "ig_reels_avg_watch_time"]:
+    # reels_skip_rate = % who swiped away in the first 3 s (the hook test);
+    # ig_reels_video_view_total_time = total ms watched; follows = followers this Reel brought.
+    for m in ["views", "reach", "shares", "saved", "ig_reels_avg_watch_time", "reels_skip_rate",
+              "ig_reels_video_view_total_time", "reposts", "follows"]:
         r = requests.get(f"{base}/{media_id}/insights", params={"metric": m, "access_token": tok},
                          timeout=30).json()
         try:
             out[m] = r["data"][0]["values"][0]["value"]
         except (KeyError, IndexError):
-            pass
+            if r.get("error") and m in ("views", "ig_reels_avg_watch_time"):
+                out["error"] = f"instagram {m}: {r['error'].get('message', '')}"[:200]
     return out
 
 
@@ -206,6 +210,8 @@ def facebook_stats(p: str, video_id: str) -> dict:
               "post_video_social_actions", "post_video_likes_by_reaction_type"):
         r = requests.get(f"{base}/{video_id}/video_insights", timeout=30,
                          params={"metric": m, "access_token": tok}).json()
+        if r.get("error"):
+            out["fb_insights_error"] = f"{m}: {r['error'].get('message', '')}"[:200]
         for item in r.get("data", []):
             try:
                 val = item["values"][0]["value"]

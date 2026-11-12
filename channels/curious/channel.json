@@ -7,7 +7,7 @@
     "narrator": "Iapetus"
   },
   "speed": 1.05,
-  "style": "clean hand-drawn 2D editorial illustration, explainer-video style, bold simple shapes, soft flat colours with gentle grain texture, crisp dark outlines, warm friendly palette, simple uncluttered background, clear single subject, not a photo, not 3D render, vertical composition, leave the top third uncluttered for a title",
+  "style": "clean hand-drawn 2D editorial illustration, explainer-video style, bold simple shapes, soft flat colours with gentle grain texture, crisp dark outlines, one consistent palette for every scene: warm cream background, charcoal outlines, teal and soft orange accents, simple uncluttered background, clear single subject, not a photo, not 3D render, vertical composition, leave the top third uncluttered for a title",
   "animate_scenes": 0,
   "music": false,
   "tts": "gemini",

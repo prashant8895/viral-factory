@@ -1,0 +1,76 @@
+<!doctype html><html><head><meta charset="utf-8">
+<style>html,body{margin:0;background:#16233a}canvas{display:block}</style></head><body>
+<canvas id="c" width="1080" height="1920"></canvas>
+<script>
+// Why car rear windows have thin lines (the defroster). StarTalk-clouds style: dark navy,
+// one dashed outline object, one big orange number that moves with the words.
+// params.mode:
+//  "grid": the rear glass (dashed outline) with its thin lines; a dashboard button is pressed
+//          and current (glowing dots) runs along every line; lines warm from dark to orange.
+//          params.label (e.g. "THIN METAL LINES"), params.button (e.g. "ON").
+//  "fog":  the glass is fogged white; the lines glow and the fog clears outward from each line
+//          while a big counter drops 100% -> 0% with params.label (e.g. "FOG").
+// Keeps the top fifth (0-384) and the caption band (1344-1632) empty.
+const c=document.getElementById('c'),x=c.getContext('2d'),W=1080,H=1920;
+const NAVY='#16233a',YEL='#ffd23f',ORA='#ff9f1c',WHITE='#f4f1e8',TEAL='#3fc1c9';
+const clamp=(v,a=0,b=1)=>Math.max(a,Math.min(b,v)), prog=(t,a,b)=>clamp((t-a)/(b-a));
+const ease=t=>1-Math.pow(1-clamp(t),3), back=t=>{t=clamp(t);const s=1.7;return 1+(s+1)*Math.pow(t-1,3)+s*Math.pow(t-1,2)};
+const rnd=i=>{const s=Math.sin(i*12.9898)*43758.5453;return s-Math.floor(s)};
+const mix=(a,b,k)=>{const h=s=>[1,3,5].map(i=>parseInt(s.slice(i,i+2),16));const A=h(a),B=h(b);
+  return 'rgb('+A.map((v,i)=>Math.round(v+(B[i]-v)*k)).join(',')+')'};
+function txt(s,px,py,size,col){x.font=`700 ${size}px Anton, Impact, sans-serif`;x.textAlign='center';x.textBaseline='middle';
+  x.lineWidth=size*0.14;x.lineJoin='round';x.strokeStyle='rgba(0,0,0,.55)';x.strokeText(s,px,py);x.fillStyle=col;x.fillText(s,px,py)}
+function bg(){x.fillStyle=NAVY;x.fillRect(0,0,W,H);for(let i=0;i<220;i++){x.fillStyle='rgba(255,255,255,.035)';x.fillRect(rnd(i)*W,rnd(i+99)*H,3,3)}}
+// rear glass: a trapezoid, wider at the bottom
+const G={t:520,b:1060,tl:250,tr:830,bl:150,br:930};
+const edgeL=y=>G.tl+(G.bl-G.tl)*(y-G.t)/(G.b-G.t), edgeR=y=>G.tr+(G.br-G.tr)*(y-G.t)/(G.b-G.t);
+function glassPath(){x.beginPath();x.moveTo(G.tl,G.t);x.lineTo(G.tr,G.t);x.lineTo(G.br,G.b);x.lineTo(G.bl,G.b);x.closePath()}
+function glass(){x.save();glassPath();x.fillStyle='rgba(63,193,201,.12)';x.fill();
+  x.setLineDash([22,16]);x.lineWidth=7;x.strokeStyle=YEL;x.shadowColor=YEL;x.shadowBlur=18;glassPath();x.stroke();x.restore()}
+const LINES=[600,660,720,780,840,900,960,1020];
+function lines(warm){LINES.forEach(y=>{x.strokeStyle=mix('#4a5568','#ff9f1c',warm);x.lineWidth=7;
+  if(warm>0.3){x.shadowColor=ORA;x.shadowBlur=22*warm}x.beginPath();x.moveTo(edgeL(y)+24,y);x.lineTo(edgeR(y)-24,y);x.stroke();x.shadowBlur=0})}
+
+function drawGrid(t,p,P){
+  glass();
+  const on=prog(p,0.3,0.4), warm=ease(prog(p,0.4,0.85));
+  lines(warm);
+  // current: dots running along each line once switched on
+  if(on>0){LINES.forEach((y,k)=>{const L=edgeL(y)+24,R=edgeR(y)-24;
+    for(let d=0;d<5;d++){const ph=((t*0.45+d/5+k*0.13)%1);x.fillStyle=WHITE;x.globalAlpha=on;
+      x.beginPath();x.arc(L+(R-L)*ph,y,8,0,7);x.fill()}});x.globalAlpha=1}
+  // the dashboard button, pressed at 30%
+  const bx=540,by=1210,pr=prog(p,0.26,0.32),press=pr>0&&pr<1?0.92:1;
+  x.save();x.translate(bx,by);x.scale(press,press);
+  x.fillStyle=on>0?ORA:'#2b3a55';x.beginPath();x.roundRect(-110,-55,220,110,26);x.fill();
+  x.strokeStyle=WHITE;x.lineWidth=5;x.strokeRect(-52,-26,104,52);       // tiny window symbol
+  for(let k=0;k<3;k++){x.beginPath();x.moveTo(-36,-10+k*12);x.lineTo(36,-10+k*12);x.stroke()}
+  x.restore();
+  const ls=back(prog(p,0.55,0.68));if(ls>0){x.save();x.translate(540,450);x.scale(ls,ls);txt(P.label||'THIN METAL LINES',0,0,68,ORA);x.restore()}
+}
+
+function drawFog(t,p,P){
+  glass();
+  const warm=ease(prog(p,0.05,0.25));lines(warm);
+  // fog: white haze bands between the lines, shrinking away from each warm line
+  const clear=ease(prog(p,0.2,0.85));
+  x.save();glassPath();x.clip();
+  for(let i=0;i<LINES.length+1;i++){const y0=i?LINES[i-1]:G.t,y1=i<LINES.length?LINES[i]:G.b, mid=(y0+y1)/2, half=(y1-y0)/2;
+    const hh=half*(1-clear);if(hh<=0.5)continue;
+    for(let s=0;s<14;s++){const sx=G.bl+rnd(i*31+s)*(G.br-G.bl), r=40+rnd(i*7+s)*50;
+      x.fillStyle=`rgba(244,241,232,${0.22*(1-clear)+0.05})`;x.beginPath();x.ellipse(sx,mid,r,hh,0,0,7);x.fill()}}
+  x.restore();
+  // big counter
+  const pct=Math.round(100*(1-clear)), s=back(prog(p,0,0.1));
+  x.save();x.translate(540,1205);x.scale(s,s);txt(pct+'%',0,0,170,ORA);x.restore();
+  txt(P.label||'FOG',540,450,72,YEL);
+}
+
+window.draw=function(t,dur,P){
+  P=Object.assign({mode:'grid'},P||{});
+  const p=t/Math.max(dur,0.1);
+  x.setTransform(1,0,0,1,0,0);x.globalAlpha=1;x.shadowBlur=0;bg();
+  if(P.mode==='fog')drawFog(t,p,P);else drawGrid(t,p,P);
+};
+window.draw(0,6,{});
+</script></body></html>

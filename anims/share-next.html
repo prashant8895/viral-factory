@@ -3,7 +3,7 @@
 <canvas id="c" width="1080" height="1920"></canvas>
 <script>
 // Friendly ending: a phone, a "send" arrow flies to a friend's chat, then a comment bubble types the word.
-// params: {word: "NEXT", friend: "Rahul", thumb: "escalator"|"microwave"|"fireworks"|"yawn"|"tyre"|"plane"}. Keeps the top fifth and the lower third calm.
+// params: {word: "NEXT", friend: "Rahul", thumb: "escalator"|"microwave"|"fireworks"|"yawn"|"tyre"|"plane"|"car"}. Keeps the top fifth and the lower third calm.
 const c=document.getElementById('c'),x=c.getContext('2d'),W=1080,H=1920;
 const clamp=(v,a=0,b=1)=>Math.max(a,Math.min(b,v)), prog=(t,a,b)=>clamp((t-a)/(b-a));
 const ease=t=>1-Math.pow(1-clamp(t),3);
@@ -51,6 +51,12 @@ window.draw=function(t,dur,P){
     rr(px+30,py+70,pw-60,360,28,'#0b1026');
     [[px+130,py+180,'#ff3b4e'],[px+270,py+230,'#2ee86a'],[px+180,py+340,'#3a8bff']].forEach(([bx,by,bc])=>{x.strokeStyle=bc;x.lineWidth=6;x.lineCap='round';
       for(let k=0;k<12;k++){const a=k/12*6.283;x.beginPath();x.moveTo(bx+Math.cos(a)*14,by+Math.sin(a)*14);x.lineTo(bx+Math.cos(a)*62,by+Math.sin(a)*62);x.stroke()}});
+  }else if(P.thumb==='car'){ // the back of a car with the thin defroster lines on its rear glass
+    rr(px+30,py+70,pw-60,360,28,'#2c3448');
+    rr(px+70,py+150,pw-140,230,40,'#e86a4a');                       // car body
+    x.fillStyle='#9fd3d8';x.beginPath();x.moveTo(px+120,py+170);x.lineTo(px+pw-120,py+170);x.lineTo(px+pw-95,py+270);x.lineTo(px+95,py+270);x.fill();
+    x.strokeStyle='#ff9f1c';x.lineWidth=4;for(let k=0;k<5;k++){const yy=py+190+k*17;x.beginPath();x.moveTo(px+115-k*4,yy);x.lineTo(px+pw-115+k*4,yy);x.stroke()}
+    x.fillStyle='#ffd23f';rr(px+85,py+300,50,24,8,'#ffd23f');rr(px+pw-135,py+300,50,24,8,'#ffd23f');
   }else if(P.thumb==='plane'){ // an oval plane window with sky, clouds and the tiny hole
     rr(px+30,py+70,pw-60,360,28,'#d9dde6');
     const wx=px+pw/2,wy=py+250;x.fillStyle='#b8c0cf';x.beginPath();x.ellipse(wx,wy,120,160,0,0,7);x.fill();

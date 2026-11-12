@@ -1,6 +1,6 @@
 # Oh That's Why: numbers review
 
-Updated 12 Nov 2026, 15:37 IST. English page, 7 videos, 9,949 views in total (YouTube 4,908, Instagram 3,471, Facebook 1,570). Median watch 19%, median shares 0 per 1k views.
+Updated 12 Nov 2026, 17:29 IST. English page, 7 videos, 9,949 views in total (YouTube 4,908, Instagram 3,471, Facebook 1,570). Median watch 19%, median shares 0 per 1k views.
 
 Hindi page (paused 12 Nov): 7 videos, 860 views in total.
 
@@ -10,6 +10,7 @@ Hindi page (paused 12 Nov): 7 videos, 860 views in total.
 - Instagram skip rate is 55%: most people swipe away in the first 3 s. The opening picture + 'Ever wondered why' line must show the thing itself, big and clear, from frame 1.
 - Top videos so far: IT'S NOT A SHOE CLEANER! (seen-but-missed, 3,188 views); WHY THIS MESH? (seen-but-missed, 1,891 views); WHY ARE TYRES BLACK? (seen-but-missed, 1,677 views). Pitch more topics like these.
 - Weakest: IT'S NOT DYE! (why does it happen, 980); WHY DO WE YAWN? (careful health, 647); WINTER HAZE? NOT JUST FOG (india everyday, 436). Avoid these angles unless a new twist.
+- Voice trial (clone): 0/5 videos made, 0 at 72 h, verdict: waiting.
 
 ## Problems in the data or posting
 
@@ -26,6 +27,13 @@ Hindi page (paused 12 Nov): 7 videos, 860 views in total.
 | 2026-11-08 | IT'S NOT DYE! | why does it happen | myth | 40s | -7m | 698 | 980 | 970 | 44% / 11% / 6.8% | 68% | 0 | – | 570 | 166 | 234 |
 | 2026-11-07 | WHY THIS MESH? | seen-but-missed | question | 41s | 112m | 1,783 | 1,891 | 2,114 | 54% / 29% / 20% | 41% | 0.5 | – | 1,288 | 602 | 224 |
 | 2026-11-06 | IT'S NOT A SHOE CLEANER! | seen-but-missed | none | 43s | -148m | 2,206 | 3,188 | 3,414 | 54% / 42% / 15% | 34% | 2.6 | – | 1,060 | 2,129 | 225 |
+
+## Voice trial (Prashant's voice)
+
+- Videos: 0 made, 0 of 5 old enough to judge (72 h)
+- Your voice (median): – views at 72 h, watch –, IG skip –
+- Other videos (median): 1,891 views at 72 h, watch 29%, IG skip 41%
+- Verdict: **waiting**
 
 ## By bucket
 

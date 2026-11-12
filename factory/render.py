@@ -135,9 +135,14 @@ def render_one(job: dict, img_dir: Path | None = None) -> Path:
     engine = ch.get("tts", "kokoro")
     if job.get("voice"):
         voices["narrator"] = job["voice"]
-    elif engine == "gemini" and (channels.secret(ch, "VOICE_ID") or "").strip():
-        voices["_fallback"] = voices["narrator"]  # stock voice if the clone ever fails
-        voices["narrator"] = channels.secret(ch, "VOICE_ID").strip().removeprefix("voices/")  # cloned voice
+    elif engine == "gemini":
+        trial = ch.get("voice_trial") or {}
+        own = (channels.secret(ch, "VOICE_ID") or "").strip().removeprefix("voices/")
+        pick = trial.get("voice") if trial.get("status") in ("running", "kept") else None
+        pick = pick or (own if own.startswith("voice_") else None)  # ignore a secret that isn't a voice id
+        if pick:
+            voices["_fallback"] = voices["narrator"]  # stock voice if the clone ever fails
+            voices["narrator"] = pick
     speed = float(job.get("speed", ch.get("speed", 1.0)))
     n_anim = len(job["scenes"]) if ch.get("animate_scenes") == "all" else int(ch.get("animate_scenes", 0))
 
@@ -220,7 +225,8 @@ def render_one(job: dict, img_dir: Path | None = None) -> Path:
                   "release": f"job-{job['id']}", "duration": meta["duration"],
                   # for the numbers review: which look and voice this video used
                   "picture_style": "illustration" if "illustration" in job["style"].lower() else "photo",
-                  "voice": ("clone" if voices["narrator"].startswith("voice") else engine)})
+                  "voice": ("clone" if voices["narrator"].startswith("voice_")
+                            and voices["narrator"] not in tts._BAD_VOICES else engine)})
     state_file.write_text(json.dumps(state, indent=2))
     print(f"done: {final} ({meta['duration']} s)")
     return final

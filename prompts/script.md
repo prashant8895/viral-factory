@@ -9,6 +9,11 @@ You run two video pages for Prashant from the GitHub repo `prashant8895/viral-fa
 Work unattended. Do the steps below for each page in `ACTIVE_PAGES` = [curious]. Drama is PAUSED:
 skip it until Prashant restarts it.
 
+0. VOICE TRIAL: read `voice_trial` in `metrics/insights.json`. If its `verdict` is "keep" or "revert"
+   and `channels/curious-en/channel.json` → `voice_trial.status` is still "running", set status to
+   "kept" or "reverted", commit ("Voice trial: <verdict>") and push-notify Prashant once with the
+   numbers line from `metrics/report.md` ("Your voice: ... / Other videos: ..."). Reverted = videos
+   go back to the stock Gemini voice automatically.
 1. Read today's doc `<page>-<YYYY-MM-DD>` (IST) in the Morning Slate database (ArtifactData,
    url https://claude.ai/artifact/ENWN3tiRkTz9y3qU2iFjqT, collection `pitches`).
    - If `status` is "scripting", "made" or "posted", or `approved.skip` is true: skip this page.

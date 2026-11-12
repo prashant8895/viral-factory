@@ -204,10 +204,34 @@ def main() -> None:
         rules.append("Weakest: " + "; ".join(f"{v['hook']} ({v['bucket']}, {_fmt(v['v72'] or v['views'])})" for v in bottom)
                      + ". Avoid these angles unless a new twist.")
 
+    # Voice trial: Prashant's cloned voice for N videos, judged against every other English video.
+    trial = json.loads((ROOT / "channels" / "curious-en" / "channel.json").read_text()).get("voice_trial") or {}
+    vt = None
+    if trial:
+        name, need = trial.get("name", "clone"), int(trial.get("videos", 5))
+        tv = [v for v in live if v["voice"] == name]
+        base = [v for v in live if v["voice"] != name and v["hours"] >= 72]
+        ripe = [v for v in tv if v["hours"] >= 72][:need]
+        m = lambda vs, k: _median([v[k] for v in vs])
+        vt = {"status": trial.get("status"), "videos_made": len(tv), "videos_72h": len(ripe), "needed": need,
+              "trial": {k: m(ripe or tv, k) for k in ("v72", "watch_pct", "skip_pct")},
+              "baseline": {k: m(base, k) for k in ("v72", "watch_pct", "skip_pct")}, "verdict": "waiting"}
+        if len(ripe) >= need and base:
+            t, b = vt["trial"], vt["baseline"]
+            wins = sum([
+                t["v72"] is not None and b["v72"] is not None and t["v72"] >= 0.9 * b["v72"],
+                t["watch_pct"] is not None and b["watch_pct"] is not None and t["watch_pct"] >= 0.9 * b["watch_pct"],
+                t["skip_pct"] is not None and b["skip_pct"] is not None and t["skip_pct"] <= 1.1 * b["skip_pct"],
+            ])
+            vt["verdict"] = "keep" if wins >= 2 else "revert"
+            vt["why"] = (f"{wins} of 3 checks held up (views at 72 h, watch %, Instagram skip; each within 10% "
+                         f"of the {len(base)} other videos)")
+        rules.append(f"Voice trial ({name}): {len(tv)}/{need} videos made, {len(ripe)} at 72 h, verdict: {vt['verdict']}.")
+
     insights = {"updated": now.isoformat(timespec="minutes"), "videos": len(live),
                 "total_views": sum(v["views"] for v in live), "platform_views": plat_tot,
                 "median_watch_pct": wp, "median_shares_per_1k": sp,
-                "rules": rules, "flags": flags, "groups": groups,
+                "rules": rules, "flags": flags, "groups": groups, "voice_trial": vt,
                 "top": [v["id"] for v in top], "bottom": [v["id"] for v in bottom],
                 "per_video": [{k: v[k] for k in ("id", "date", "bucket", "hook", "hook_style", "duration", "late_min",
                                                  "views", "v24", "v72", "watch_pct", "skip_pct", "follows",
@@ -237,6 +261,12 @@ def main() -> None:
                  f"{_fmt(v['views'])} | " + " / ".join(_fmt(p.get(n, {}).get("watch_pct"), "%") for n in MAIN)
                  + f" | {_fmt(v['skip_pct'], '%')} | {_fmt(v['shares_per_1k'])} | {_fmt(v['follows'])} | "
                  + " | ".join(_fmt(p.get(n, {}).get("views")) for n in MAIN) + " |")
+    if vt:
+        f = lambda d: f"{_fmt(d['v72'])} views at 72 h, watch {_fmt(d['watch_pct'], '%')}, IG skip {_fmt(d['skip_pct'], '%')}"
+        L += ["", "## Voice trial (Prashant's voice)", "",
+              f"- Videos: {vt['videos_made']} made, {vt['videos_72h']} of {vt['needed']} old enough to judge (72 h)",
+              f"- Your voice (median): {f(vt['trial'])}", f"- Other videos (median): {f(vt['baseline'])}",
+              f"- Verdict: **{vt['verdict']}**" + (f" ({vt['why']})" if vt.get("why") else "")]
     for key, gs in groups.items():
         L += ["", f"## By {key.replace('_', ' ')}", "", "| Group | Videos | Median 24 h | Median views | Watch | Shares/1k |",
               "|---|---|---|---|---|---|"]

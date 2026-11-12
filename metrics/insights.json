@@ -1,5 +1,5 @@
 {
-  "updated": "2026-11-12T15:37+05:30",
+  "updated": "2026-11-12T17:29+05:30",
   "videos": 7,
   "total_views": 9949.0,
   "platform_views": {
@@ -13,7 +13,8 @@
     "Median watch is 19% of the video: people leave early. Get to the first surprising fact by second 5, cut setup lines, aim for 35-45 s.",
     "Instagram skip rate is 55%: most people swipe away in the first 3 s. The opening picture + 'Ever wondered why' line must show the thing itself, big and clear, from frame 1.",
     "Top videos so far: IT'S NOT A SHOE CLEANER! (seen-but-missed, 3,188 views); WHY THIS MESH? (seen-but-missed, 1,891 views); WHY ARE TYRES BLACK? (seen-but-missed, 1,677 views). Pitch more topics like these.",
-    "Weakest: IT'S NOT DYE! (why does it happen, 980); WHY DO WE YAWN? (careful health, 647); WINTER HAZE? NOT JUST FOG (india everyday, 436). Avoid these angles unless a new twist."
+    "Weakest: IT'S NOT DYE! (why does it happen, 980); WHY DO WE YAWN? (careful health, 647); WINTER HAZE? NOT JUST FOG (india everyday, 436). Avoid these angles unless a new twist.",
+    "Voice trial (clone): 0/5 videos made, 0 at 72 h, verdict: waiting."
   ],
   "flags": [
     "4 of 7 videos went out more than 30 min off their slot: 2026-11-06-escalator-brush (-148 min), 2026-11-07-microwave-mesh (+112 min), 2026-11-09-tyre-black (+453 min), 2026-11-11-stars-twinkle (+406 min)"
@@ -119,6 +120,23 @@
         "median_shares_per_1k": 0.0
       }
     ]
+  },
+  "voice_trial": {
+    "status": "running",
+    "videos_made": 0,
+    "videos_72h": 0,
+    "needed": 5,
+    "trial": {
+      "v72": null,
+      "watch_pct": null,
+      "skip_pct": null
+    },
+    "baseline": {
+      "v72": 1891.0,
+      "watch_pct": 28.7,
+      "skip_pct": 41.1
+    },
+    "verdict": "waiting"
   },
   "top": [
     "curious-2026-11-06-escalator-brush-en",

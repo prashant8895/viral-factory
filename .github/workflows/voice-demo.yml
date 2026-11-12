@@ -42,7 +42,7 @@ jobs:
           python-version: "3.12"
       - run: |
           sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg
-          pip install requests numpy
+          pip install requests numpy pillow
       - name: Speak the demo
         run: |
           python -m factory.voice_demo

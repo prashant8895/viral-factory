@@ -83,7 +83,11 @@ Copy the format from `jobs/curious/sample-ever-wondered.json`.
   with the same 3 words as any of the last 3 videos.
 - Scene 2 gives the first surprising fact within ~5 seconds. No slow setup.
 - Near the end, the reveal lands in one clean sentence ("So those bristles? They're a guard, not a
-  cleaner."). Say "that's why" only when it sounds natural, not every time.
+  cleaner.").
+- **Never say "Oh, that's why!" in the narration** (Prashant, 2026-11-12: it sounded weird and
+  abrupt; the render now refuses it). "Oh, that's why" is the feeling the viewer has, not a line we
+  say. A plain "so that's why..." is allowed only where it flows naturally out of the sentence before,
+  at most once, and usually it's better left out.
 - `hook_text`: 3–6 words, a short question with one `*key word*` (shown red): "WHY ARE TYRES *BLACK*?"
 - 6–8 scenes, one idea each, 100–150 words (45–60 s). Last line = one friendly ask or a loop.
 
@@ -101,8 +105,8 @@ facts. Every script must pass these:
   "Now here's the cool part.", "Wild, right?", "That's it. That's the whole trick."). At most one
   "I" moment per video. Never textbook words ("is composed of", "utilised", "phenomenon").
 - **Rhythm:** mix very short lines with longer ones; a pause ("...") right before the reveal.
-- **Land it:** the reveal is one clean sentence, then tie back to the opening image
-  ("Next time you see that brush, you'll know.").
+- **Land it:** the reveal is one clean, calm sentence (not a shout), then tie back to the opening
+  image ("Next time you see that brush, you'll know.").
 - Give every scene a `delivery` word for the voice (see "The narrator's voice" below).
 - Read it out loud in your head: if it sounds like a documentary, rewrite it.
 
@@ -129,6 +133,13 @@ guy who just found out something cool and can't wait to tell you. Same habits ev
   words back to back. Read it aloud in your head; if you'd stumble, rewrite.
 - Mark 1–2 stressed words per scene with `*stars*`: the voice says them in CAPS-style emphasis
   and the captions show them bigger. Stress the word that carries the surprise, not "very".
+
+**Not everything confident.** A real person explaining isn't certain and punchy on every line.
+Mix it: some lines wondering or soft ("which is kind of wild, when you think about it"), honest
+small hedges where true ("turns out", "mostly", "about"), and save the firm, sure tone for the one
+fact that matters. No line should sound like a slogan or an announcement; no exclamation marks
+except at most one, where real surprise fits. If a line would sound odd said out loud to a friend,
+cut it.
 
 **Pauses: placed on purpose.** The voice obeys punctuation and two inline tags:
 - `,` short breath · `—` micro-pause mid-thought · `...` a trailing beat (max 1 per scene).

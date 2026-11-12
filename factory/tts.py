@@ -88,8 +88,8 @@ DELIVERY = {
     "warm": "warm and conversational",
     "curious": "curious and playful",
     "lean-in": "leaning in, speaking slowly and intimately",
-    "build": "building excitement",
-    "reveal": "delighted, landing a satisfying reveal",
+    "build": "a little more animated",
+    "reveal": "quietly pleased, like sharing a neat secret",
     "light": "light and grinning",
     "serious": "calm and sincere",
 }

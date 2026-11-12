@@ -29,6 +29,9 @@ def check_job(job: dict) -> None:
             bad = [t for t in tts.TAG_RE.findall(l["text"]) if t.lower().strip() not in tts.VOICE_TAGS]
             if bad:
                 raise ValueError(f"Unknown voice tag(s) {bad} in: {l['text'][:60]!r}")
+            if re.search(r"\boh,?\s+that'?s\s+why\b", tts.caption_text(l["text"]), re.I):
+                raise ValueError("Don't say 'Oh, that's why' in the narration (Prashant: it sounds abrupt). "
+                                 "It's the feeling we leave the viewer with, not a line.")
             if len(tts.TAG_RE.findall(l["text"])) > 2:
                 raise ValueError(f"Max 2 voice tags per scene: {l['text'][:60]!r}")
     if not 40 <= words <= 160:

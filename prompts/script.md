@@ -54,7 +54,8 @@ skip it until Prashant restarts it.
    the list (warm, curious, lean-in, build, reveal, light, serious), 1–2 `*stressed*` words, and
    the video gets 1–2 `<short pause>` tags placed before the reveal/punchline. Numbers written
    as spoken words. Before pushing, read the whole script aloud in your head once and fix any
-   line you'd stumble on. 100–150 words. Last line = one friendly ask or loop, never pushy.
+   line you'd stumble on. Never write "Oh, that's why!" (it sounds abrupt; the render refuses it),
+   and don't make every line sound sure and punchy: mix in softer, wondering lines. 100–150 words. Last line = one friendly ask or loop, never pushy.
    Search phrases: add `"keywords": [...]` with 2–3 English phrases people really type into
    search (main one first, usually "why are tyres black").
    Put the main phrase in the YouTube title, the first line of the Instagram caption and the

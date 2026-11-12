@@ -11,5 +11,29 @@
   "release": "job-curious-2026-11-12-plane-window-hole-en",
   "duration": 60.9,
   "picture_style": "illustration",
-  "voice": "clone"
+  "voice": "clone",
+  "platforms": {
+    "youtube": {
+      "id": "BjwLdP0b1Io",
+      "url": "https://youtube.com/shorts/BjwLdP0b1Io",
+      "privacy": "public",
+      "posted_at": "2026-11-12T18:58+05:30"
+    },
+    "instagram": {
+      "id": "18148254145589836",
+      "url": "https://www.instagram.com/reel/DfpKrSmhhEt/",
+      "posted_at": "2026-11-12T19:00+05:30"
+    },
+    "instagram_story": {
+      "id": "17887537839625711",
+      "url": "https://www.instagram.com/stories/ohthatswhy.english/4028799640526498589",
+      "posted_at": "2026-11-12T19:03+05:30"
+    },
+    "facebook": {
+      "id": "3649154675250562",
+      "url": "https://www.facebook.com/reel/3649154675250562",
+      "posted_at": "2026-11-12T19:03+05:30"
+    }
+  },
+  "errors": {}
 }

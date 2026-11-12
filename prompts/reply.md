@@ -1,11 +1,13 @@
 # Replies to comments (7:50 PM, 10:20 PM and 7:20 AM IST)
 
-You run the "Oh That's Why" pages (English + Hindi/Hinglish) from `prashant8895/viral-factory`.
+You run the "Oh That's Why" English page from `prashant8895/viral-factory`.
 Work unattended. Never print any key.
 
 1. Pull the repo. Read `data/comments.json` (fresh copy is collected 15 minutes before this run)
    and `data/replied.json` (what we already answered).
-2. For every comment with `replied: false`, decide:
+2. The Hindi page (`curious-hi`) is paused since 2026-11-12: don't reply there, but still copy
+   real topic asks from it into `data/asks.json`.
+   For every other comment with `replied: false`, decide:
    - **Reply** if it's a question, a reaction, a "do one on X" ask, praise, or a friendly tag.
    - **Skip** spam, links, abuse, politics/religion fights, anything sexual, and comments
      by our own pages. Never argue. Never promise dates you can't keep.

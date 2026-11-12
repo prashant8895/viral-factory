@@ -1,0 +1,77 @@
+name: Publish timer
+
+# GitHub's timed (cron) runs have been starting 6-9 hours late on this repo, and the Claude
+# "post on time" task can be stopped by usage limits. So after every render, this job waits
+# on a runner until 2 minutes before the video's slot and then starts "Publish" itself.
+# A runner can wait at most 6 h, so a longer wait hands over to a fresh copy of itself.
+# The cron entries in publish.yml stay as a late backup; publishing never double-posts.
+on:
+  workflow_run:
+    workflows: ["Render video"]
+    types: [completed]
+  workflow_dispatch:
+
+permissions:
+  actions: write
+  contents: read
+
+concurrency:
+  group: publish-timer
+  cancel-in-progress: true   # only the newest timer waits
+
+jobs:
+  wait-and-publish:
+    if: github.event_name == 'workflow_dispatch' || github.event.workflow_run.conclusion == 'success'
+    runs-on: ubuntu-latest
+    timeout-minutes: 350
+    env:
+      GH_TOKEN: ${{ github.token }}
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          ref: main
+      - name: Work out the next slot
+        id: next
+        run: |
+          python - <<'EOF' >> "$GITHUB_OUTPUT"
+          import json, pathlib
+          from datetime import datetime, timedelta, timezone
+          IST = timezone(timedelta(hours=5, minutes=30))
+          now = datetime.now(IST)
+          def paused(ch):
+              f = pathlib.Path("channels") / ch / "channel.json"
+              return f.exists() and json.loads(f.read_text()).get("paused")
+          best = None
+          for p in pathlib.Path("state").glob("*.json"):
+              s = json.loads(p.read_text())
+              if not s.get("publish") or not s.get("date") or paused(s.get("channel", "")):
+                  continue
+              if {"youtube", "instagram", "facebook"} <= set(s.get("platforms") or {}):
+                  continue
+              when = datetime.fromisoformat(f"{s['date']}T{s.get('slot', '19:00')}").replace(tzinfo=IST)
+              if when + timedelta(days=3) < now:
+                  continue
+              best = when if best is None or when < best else best
+          wait = 0 if best is None else max(0, int((best - now).total_seconds()) - 120)
+          print(f"found={'yes' if best else 'no'}")
+          print(f"wait={wait}")
+          print(f"slot={best.isoformat() if best else ''}")
+          EOF
+          cat "$GITHUB_OUTPUT"
+      - name: Wait, then start Publish (or hand over to a fresh timer)
+        if: steps.next.outputs.found == 'yes'
+        run: |
+          wait=${{ steps.next.outputs.wait }}
+          max=$((300*60))
+          if [ "$wait" -gt "$max" ]; then
+            echo "Slot ${{ steps.next.outputs.slot }} is more than 5 h away: wait 5 h, then hand over"
+            sleep $max
+            gh api -X POST "repos/${{ github.repository }}/actions/workflows/publish-timer.yml/dispatches" -f ref=main
+          else
+            echo "Waiting ${wait}s for slot ${{ steps.next.outputs.slot }}"
+            sleep "$wait"
+            gh api -X POST "repos/${{ github.repository }}/actions/workflows/publish.yml/dispatches" -f ref=main
+            echo "Publish started; one safety retry in 30 min (only missing platforms get posted)"
+            sleep 1800
+            gh api -X POST "repos/${{ github.repository }}/actions/workflows/publish.yml/dispatches" -f ref=main
+          fi

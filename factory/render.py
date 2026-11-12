@@ -27,6 +27,10 @@ def check_job(job: dict) -> None:
     if not 40 <= words <= 160:
         raise ValueError(f"Spoken text is {words} words; playbook says 85–120 (drama 60–110)")
     check_search_text(job)
+    if job.get("hook_style") == "ever-wondered":  # Curious house hook since 2026-11-12
+        first = tts.scene_lines(job["scenes"][0])[0]["text"].replace("*", "").strip().lower()
+        if not first.startswith("ever wondered"):
+            raise ValueError(f'hook_style "ever-wondered": line 1 must start with "Ever wondered why...": {first[:60]!r}')
 
 
 def _has(text: str, phrase: str) -> bool:
@@ -97,9 +101,15 @@ def render(job_path: Path) -> list[Path]:
     if not langs:
         produced.append(render_one(job))
     else:
+        # Only languages whose page is still live get rendered (Hindi paused 2026-11-12).
+        # Old jobs may still carry {"en": ..., "hi": ...} fields; those resolve fine.
+        known = set(langs) | {"en", "hi"}
+        live = [l for l in langs if not channels.paused(f"{job['channel']}-{l}")]
+        if not live:
+            raise ValueError(f"Every language page of this job is paused: {langs}")
         shared = ROOT / "out" / job["id"] / "shared"
-        for lang in langs:
-            one = _pick(job, lang, set(langs))
+        for lang in live:
+            one = _pick(job, lang, known)
             one["id"], one["channel"], one["language"] = f"{job['id']}-{lang}", f"{job['channel']}-{lang}", lang
             produced.append(render_one(one, shared))
     (ROOT / "out" / "produced.txt").write_text("\n".join(p.parent.name for p in produced) + "\n")
@@ -125,6 +135,8 @@ def render_one(job: dict, img_dir: Path | None = None) -> Path:
     engine = ch.get("tts", "kokoro")
     if job.get("voice"):
         voices["narrator"] = job["voice"]
+    elif os.environ.get(ch["secret_prefix"] + "VOICE_ID") and engine == "gemini":
+        voices["narrator"] = os.environ[ch["secret_prefix"] + "VOICE_ID"]  # e.g. a cloned voice_... id
     speed = float(job.get("speed", ch.get("speed", 1.0)))
     n_anim = len(job["scenes"]) if ch.get("animate_scenes") == "all" else int(ch.get("animate_scenes", 0))
 
@@ -204,7 +216,10 @@ def render_one(job: dict, img_dir: Path | None = None) -> Path:
     state.update({"id": job["id"], "channel": job["channel"], "date": job.get("date"),
                   "slot": job.get("slot", ch.get("slot", "19:00")), "publish": bool(job.get("publish", False)),
                   "bucket": job.get("bucket"), "episode": job.get("episode"), "hook_text": job["hook_text"], "hook_style": job.get("hook_style"),
-                  "release": f"job-{job['id']}", "duration": meta["duration"]})
+                  "release": f"job-{job['id']}", "duration": meta["duration"],
+                  # for the numbers review: which look and voice this video used
+                  "picture_style": "illustration" if "illustration" in job["style"].lower() else "photo",
+                  "voice": ("clone" if voices["narrator"].startswith("voice") else engine)})
     state_file.write_text(json.dumps(state, indent=2))
     print(f"done: {final} ({meta['duration']} s)")
     return final

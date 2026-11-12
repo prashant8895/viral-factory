@@ -1,0 +1,241 @@
+{
+  "updated": "2026-11-12T14:01+05:30",
+  "videos": 7,
+  "total_views": 8324.0,
+  "platform_views": {
+    "youtube": 4853.0,
+    "instagram": 3471.0,
+    "facebook": 0
+  },
+  "median_watch_pct": 23.9,
+  "median_shares_per_1k": 0.0,
+  "rules": [
+    "Median watch is 24% of the video: people leave early. Get to the first surprising fact by second 5, cut setup lines, aim for 35-45 s.",
+    "Top videos so far: IT'S NOT A SHOE CLEANER! (seen-but-missed, 3,188 views); WHY THIS MESH? (seen-but-missed, 1,891 views); WHY ARE TYRES BLACK? (seen-but-missed, 1,423 views). Pitch more topics like these.",
+    "Weakest: IT'S NOT DYE! (why does it happen, 735); WHY DO WE YAWN? (careful health, 457); WINTER HAZE? NOT JUST FOG (india everyday, 206). Avoid these angles unless a new twist."
+  ],
+  "flags": [
+    "4 of 7 videos went out more than 30 min off their slot: 2026-11-06-escalator-brush (-148 min), 2026-11-07-microwave-mesh (+112 min), 2026-11-09-tyre-black (+453 min), 2026-11-11-stars-twinkle (+406 min)",
+    "Facebook gives no view numbers for 7 videos (no error returned: the page token probably lacks read_insights)",
+    "YouTube watch % is missing: re-run tools/get_youtube_token.py once (now asks for yt-analytics.readonly) and update CURIOUS_EN_YT_REFRESH_TOKEN."
+  ],
+  "groups": {
+    "bucket": [
+      {
+        "group": "seen-but-missed",
+        "n": 3,
+        "trusted": true,
+        "median_v24": 1783.0,
+        "median_views": 1890.0,
+        "median_watch_pct": 41.7,
+        "median_shares_per_1k": 1.7
+      },
+      {
+        "group": "why does it happen",
+        "n": 2,
+        "trusted": false,
+        "median_v24": 698.0,
+        "median_views": 579.5,
+        "median_watch_pct": 8.35,
+        "median_shares_per_1k": 0.0
+      },
+      {
+        "group": "careful health",
+        "n": 1,
+        "trusted": false,
+        "median_v24": 438.0,
+        "median_views": 457.0,
+        "median_watch_pct": 18.2,
+        "median_shares_per_1k": 0.0
+      },
+      {
+        "group": "india everyday",
+        "n": 1,
+        "trusted": false,
+        "median_v24": 203.0,
+        "median_views": 206.0,
+        "median_watch_pct": 23.9,
+        "median_shares_per_1k": 0.0
+      }
+    ],
+    "hook_style": [
+      {
+        "group": "none",
+        "n": 1,
+        "trusted": false,
+        "median_v24": 2206.0,
+        "median_views": 3189.0,
+        "median_watch_pct": 42.0,
+        "median_shares_per_1k": 3.8
+      },
+      {
+        "group": "question",
+        "n": 4,
+        "trusted": true,
+        "median_v24": 1349.0,
+        "median_views": 940.0,
+        "median_watch_pct": 23.45,
+        "median_shares_per_1k": 0.0
+      },
+      {
+        "group": "myth",
+        "n": 2,
+        "trusted": false,
+        "median_v24": 450.5,
+        "median_views": 471.0,
+        "median_watch_pct": 17.299999999999997,
+        "median_shares_per_1k": 0.0
+      }
+    ],
+    "picture_style": [
+      {
+        "group": "photo",
+        "n": 7,
+        "trusted": true,
+        "median_v24": 1023.5,
+        "median_views": 736.0,
+        "median_watch_pct": 23.9,
+        "median_shares_per_1k": 0.0
+      }
+    ],
+    "voice": [
+      {
+        "group": "kokoro",
+        "n": 7,
+        "trusted": true,
+        "median_v24": 1023.5,
+        "median_views": 736.0,
+        "median_watch_pct": 23.9,
+        "median_shares_per_1k": 0.0
+      }
+    ],
+    "length_band": [
+      {
+        "group": "40-50s",
+        "n": 7,
+        "trusted": true,
+        "median_v24": 1023.5,
+        "median_views": 736.0,
+        "median_watch_pct": 23.9,
+        "median_shares_per_1k": 0.0
+      }
+    ]
+  },
+  "top": [
+    "curious-2026-11-06-escalator-brush-en",
+    "curious-2026-11-07-microwave-mesh-en",
+    "curious-2026-11-09-tyre-black-en"
+  ],
+  "bottom": [
+    "curious-2026-11-08-firework-colours-en",
+    "curious-2026-11-09-yawn-en",
+    "curious-2026-11-10-winter-smog-v2-en"
+  ],
+  "per_video": [
+    {
+      "id": "curious-2026-11-06-escalator-brush-en",
+      "date": "2026-11-06",
+      "bucket": "seen-but-missed",
+      "hook": "IT'S NOT A SHOE CLEANER!",
+      "hook_style": "none",
+      "duration": 42.75,
+      "late_min": -148,
+      "views": 3189.0,
+      "v24": 2206.0,
+      "v72": 3188.0,
+      "watch_pct": 42.0,
+      "likes_per_1k": 6.3,
+      "shares_per_1k": 3.8
+    },
+    {
+      "id": "curious-2026-11-07-microwave-mesh-en",
+      "date": "2026-11-07",
+      "bucket": "seen-but-missed",
+      "hook": "WHY THIS MESH?",
+      "hook_style": "question",
+      "duration": 40.67,
+      "late_min": 112,
+      "views": 1890.0,
+      "v24": 1783.0,
+      "v72": 1891.0,
+      "watch_pct": 28.7,
+      "likes_per_1k": 24.3,
+      "shares_per_1k": 1.7
+    },
+    {
+      "id": "curious-2026-11-08-firework-colours-en",
+      "date": "2026-11-08",
+      "bucket": "why does it happen",
+      "hook": "IT'S NOT DYE!",
+      "hook_style": "myth",
+      "duration": 40.34,
+      "late_min": -7,
+      "views": 736.0,
+      "v24": 698.0,
+      "v72": 735.0,
+      "watch_pct": 10.7,
+      "likes_per_1k": 13.6,
+      "shares_per_1k": 0.0
+    },
+    {
+      "id": "curious-2026-11-09-tyre-black-en",
+      "date": "2026-11-09",
+      "bucket": "seen-but-missed",
+      "hook": "WHY ARE TYRES BLACK?",
+      "hook_style": "question",
+      "duration": 42.92,
+      "late_min": 453,
+      "views": 1423.0,
+      "v24": 1349.0,
+      "v72": 1423.0,
+      "watch_pct": 41.7,
+      "likes_per_1k": 18.3,
+      "shares_per_1k": 0.0
+    },
+    {
+      "id": "curious-2026-11-09-yawn-en",
+      "date": "2026-11-09",
+      "bucket": "careful health",
+      "hook": "WHY DO WE YAWN?",
+      "hook_style": "question",
+      "duration": 40.17,
+      "late_min": -1,
+      "views": 457.0,
+      "v24": 438.0,
+      "v72": 457.0,
+      "watch_pct": 18.2,
+      "likes_per_1k": 13.1,
+      "shares_per_1k": 0.0
+    },
+    {
+      "id": "curious-2026-11-10-winter-smog-v2-en",
+      "date": "2026-11-10",
+      "bucket": "india everyday",
+      "hook": "WINTER HAZE? NOT JUST FOG",
+      "hook_style": "myth",
+      "duration": 41.39,
+      "late_min": -29,
+      "views": 206.0,
+      "v24": 203.0,
+      "v72": null,
+      "watch_pct": 23.9,
+      "likes_per_1k": 4.9,
+      "shares_per_1k": 0.0
+    },
+    {
+      "id": "curious-2026-11-11-stars-twinkle-en",
+      "date": "2026-11-11",
+      "bucket": "why does it happen",
+      "hook": "WHY DO STARS TWINKLE?",
+      "hook_style": "question",
+      "duration": 42.26,
+      "late_min": 406,
+      "views": 423.0,
+      "v24": null,
+      "v72": null,
+      "watch_pct": 6.0,
+      "likes_per_1k": 30.7,
+      "shares_per_1k": 0.0
+    }
+  ]
+}

@@ -197,16 +197,63 @@ def instagram_stats(p: str, media_id: str) -> dict:
 
 
 def facebook_stats(p: str, video_id: str) -> dict:
+    """Reel numbers. Needs the page token to carry read_insights; if Meta refuses, the
+    reason is kept in "error" so the numbers review can say exactly what to fix."""
     base, tok = f"https://graph.facebook.com/{GRAPH}", _need(p, "META_PAGE_TOKEN")
     out = {}
-    r = requests.get(f"{base}/{video_id}/video_insights", params={"access_token": tok}, timeout=30).json()
+    r = requests.get(f"{base}/{video_id}/video_insights", timeout=30, params={
+        "metric": "blue_reels_play_count,post_impressions_unique,post_video_avg_time_watched,"
+                  "post_video_social_actions,post_video_likes_by_reaction_type",
+        "access_token": tok}).json()
+    if r.get("error"):
+        out["error"] = f"facebook insights: {r['error'].get('message', '')}"[:200]
     for item in r.get("data", []):
-        if item.get("name") in ("blue_reels_play_count", "post_impressions_unique",
-                                "post_video_avg_time_watched", "post_video_social_actions"):
-            try:
-                out[item["name"]] = item["values"][0]["value"]
-            except (KeyError, IndexError):
-                pass
+        try:
+            val = item["values"][0]["value"]
+        except (KeyError, IndexError):
+            continue
+        name = item.get("name")
+        if name == "post_video_likes_by_reaction_type" and isinstance(val, dict):
+            out["likes"] = sum(val.values())
+        elif name == "post_video_social_actions" and isinstance(val, dict):
+            out["shares"] = val.get("share", 0)
+        elif name == "post_impressions_unique":
+            out["reach"] = val
+        else:
+            out[name] = val
+    if "blue_reels_play_count" in out:
+        out["views"] = out["blue_reels_play_count"]
+    if not out.get("views"):  # fall back to the public counters on the video itself
+        b = requests.get(f"{base}/{video_id}", timeout=30, params={
+            "fields": "views,likes.summary(true),comments.summary(true)", "access_token": tok}).json()
+        if b.get("error"):
+            out.setdefault("error", f"facebook video: {b['error'].get('message', '')}"[:200])
+        else:
+            if b.get("views") is not None:
+                out["views"] = b["views"]
+            out.setdefault("likes", ((b.get("likes") or {}).get("summary") or {}).get("total_count"))
+            out["comments"] = ((b.get("comments") or {}).get("summary") or {}).get("total_count")
+    return out
+
+
+def youtube_retention(p: str, ids: list[str], start: str) -> dict:
+    """Average view % and seconds per video (YouTube Analytics). Needs the
+    yt-analytics.readonly scope on the refresh token; raises if it's missing."""
+    if not ids:
+        return {}
+    import datetime as _dt
+    token = _yt_token(p)
+    r = requests.get("https://youtubeanalytics.googleapis.com/v2/reports", timeout=30,
+                     headers={"Authorization": f"Bearer {token}"},
+                     params={"ids": "channel==MINE", "startDate": start,
+                             "endDate": _dt.date.today().isoformat(), "dimensions": "video",
+                             "metrics": "averageViewPercentage,averageViewDuration,shares,subscribersGained",
+                             "filters": "video==" + ",".join(ids[:200])})
+    if r.status_code >= 400:
+        raise RuntimeError(f"YouTube Analytics HTTP {r.status_code}: {r.text[:200]}")
+    out = {}
+    for vid, pct, sec, shares, subs in r.json().get("rows", []):
+        out[vid] = {"yt_avg_view_pct": round(pct, 1), "yt_avg_view_sec": sec, "shares": shares, "subs_gained": subs}
     return out
 
 

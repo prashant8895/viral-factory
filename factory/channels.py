@@ -17,6 +17,12 @@ def load(key: str) -> dict:
     return ch
 
 
+def paused(key: str) -> bool:
+    """A page with "paused": true in its channel.json is never rendered or posted."""
+    f = ROOT / "channels" / key / "channel.json"
+    return f.exists() and bool(json.loads(f.read_text()).get("paused"))
+
+
 def all_keys() -> list[str]:
     return sorted(p.parent.name for p in (ROOT / "channels").glob("*/channel.json"))
 

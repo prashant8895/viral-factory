@@ -3,16 +3,19 @@
   "name": "Oh That's Why English",
   "secret_prefix": "CURIOUS_EN_",
   "slot": "19:00",
-  "style": "hyper-realistic cinematic photo-illustration, dramatic lighting, rich contrast, shallow depth of field, highly detailed, vertical composition, leave the top third uncluttered for a title",
+  "style": "clean hand-drawn 2D editorial illustration, explainer-video style, bold simple shapes, soft flat colours with gentle grain texture, crisp dark outlines, warm friendly palette, simple uncluttered background, clear single subject, not a photo, not 3D render, vertical composition, leave the top third uncluttered for a title",
   "animate_scenes": 0,
   "music": false,
   "look": "poster",
-  "speed": 1.05,
-  "tts": "kokoro",
+  "tts": "gemini",
   "voices": {
-    "narrator": "am_michael"
+    "narrator": "Iapetus"
   },
   "handles": {
     "instagram": "@ohthatswhy.english"
-  }
+  },
+  "styles": {
+    "narrator": "Clear, neutral international English that anyone can follow, light accent. Warm, curious storyteller sharing a cool fact with a friend: upbeat but not shouty, natural pace, crisp words, small pause before the reveal."
+  },
+  "voice_note": "Gemini prebuilt voice. A cloned voice (voice_... id) in the secret CURIOUS_EN_VOICE_ID overrides it."
 }

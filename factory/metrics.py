@@ -27,6 +27,14 @@ def main() -> None:
             yt.update(platforms.youtube_stats(prefix({"channel": key}), ids))
         except Exception as e:
             print(f"YouTube stats failed for {key}:", e)
+        try:  # watch % per video; needs the analytics scope (see tools/get_youtube_token.py)
+            start = min(s["date"] for s in states if s["channel"] == key and s.get("date")) if ids else None
+            for vid, extra in platforms.youtube_retention(prefix({"channel": key}), ids, start).items():
+                yt.setdefault(vid, {}).update(extra)
+        except Exception as e:
+            print(f"YouTube retention not available for {key}:", str(e)[:200])
+            for vid in ids:
+                yt.setdefault(vid, {}).setdefault("error", "youtube analytics: " + str(e)[:150])
 
     for s in states:
         for name, post in s["platforms"].items():
@@ -54,7 +62,7 @@ def main() -> None:
     hist = OUT / "history.csv"
     fields = ["checked", "channel", "id", "bucket", "hook", "hook_style", "slot", "platform", "hours_live", "views", "likes",
               "comments", "shares", "saved", "reach", "ig_reels_avg_watch_time", "blue_reels_play_count",
-              "post_video_avg_time_watched", "privacy", "error"]
+              "post_video_avg_time_watched", "yt_avg_view_pct", "yt_avg_view_sec", "subs_gained", "privacy", "error"]
     if hist.exists():  # add new columns to an older file without losing rows
         with hist.open() as f:
             old = list(csv.DictReader(f))
@@ -70,6 +78,8 @@ def main() -> None:
             w.writeheader()
         w.writerows(rows)
     print(f"{len(rows)} rows written")
+    from . import analyze  # turn the new numbers into report.md + insights.json right away
+    analyze.main()
 
 
 if __name__ == "__main__":

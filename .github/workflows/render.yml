@@ -28,6 +28,7 @@ jobs:
       IMAGE_PROVIDER: ${{ vars.IMAGE_PROVIDER || 'pollinations' }}
       POLLINATIONS_KEY: ${{ secrets.POLLINATIONS_KEY }}
       GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+      CURIOUS_EN_VOICE_ID: ${{ secrets.CURIOUS_EN_VOICE_ID }}  # optional: cloned Gemini voice (tools/clone_voice.py)
       VIDEO_MODEL: ${{ vars.VIDEO_MODEL }}
       VIDEO_PROVIDER: ${{ vars.VIDEO_PROVIDER }}
       VIDEO_RESOLUTION: ${{ vars.VIDEO_RESOLUTION || '720p' }}

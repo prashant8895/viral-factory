@@ -1,7 +1,8 @@
 """Voiceover.
 
-- Kokoro: free, open-source, runs on a normal CPU. Used by the Curious page.
-- Gemini: Google's acting voice (free tier, GEMINI_API_KEY). Used by the Drama page.
+- Kokoro: free, open-source, runs on a normal CPU. (Curious used it until 2026-11-12.)
+- Gemini: Google's acting voice (GEMINI_API_KEY). Used by Curious (English) and Drama.
+  The voice can be a prebuilt name ("Iapetus") or a cloned voice id ("voice_...").
   Each line carries an acting note ("gasping, outraged"). The free tier allows 3
   requests a minute, so lines are spaced out and retried; a line that keeps failing
   stops the video (no half-done posts).
@@ -192,8 +193,56 @@ def _speak_gemini(text: str, voice: str, style: str):
         audio = np.interp(np.linspace(0, len(audio), int(len(audio) * 24000 / sr), endpoint=False),
                           np.arange(len(audio)), audio).astype(np.float32)
         sr = 24000
+    return audio, sr, _align_by_pauses(text, audio, sr)
+
+
+def _pauses(audio, sr: int, min_gap: float = 0.12) -> list[tuple[float, float]]:
+    """Quiet stretches inside the speech (start, end), longest gaps are phrase breaks."""
+    win = max(1, int(0.01 * sr))
+    n = len(audio) // win
+    if n == 0:
+        return []
+    energy = np.abs(audio[: n * win]).reshape(n, win).mean(axis=1)
+    quiet = energy < max(energy.max() * 0.04, 1e-4)
+    gaps, start = [], None
+    for i, q in enumerate(quiet):
+        if q and start is None:
+            start = i
+        elif not q and start is not None:
+            if (i - start) * win / sr >= min_gap:
+                gaps.append((start * win / sr, i * win / sr))
+            start = None
+    return gaps
+
+
+def _align_by_pauses(text: str, audio, sr: int) -> list[Word]:
+    """Gemini gives no word times. Split the line into phrases at punctuation, match each
+    phrase break to one of the longest pauses in the audio (in order), then share time
+    inside each phrase by word length. Keeps captions in step far better than one spread."""
     s, e = _speech_span(audio, sr)
-    return audio, sr, _spread(_clean_words(text), s, e)
+    words = _clean_words(text)
+    raw = re.split(r"\s+", text.strip())
+    phrases, cur = [], []
+    for r in raw:
+        if re.search(r"[A-Za-z0-9]", r):
+            cur.append(r)
+        if re.search(r"[,.?!;:—…]$", r) and cur:
+            phrases.append(cur)
+            cur = []
+    if cur:
+        phrases.append(cur)
+    gaps = [g for g in _pauses(audio, sr) if s < g[0] and g[1] < e]
+    k = len(phrases) - 1
+    if k <= 0 or len(gaps) < k or sum(len(p) for p in phrases) != len(words):
+        return _spread(words, s, e)
+    breaks = sorted(sorted(gaps, key=lambda g: g[1] - g[0], reverse=True)[:k])
+    bounds = [s] + [x for g in breaks for x in g] + [e]
+    out, wi = [], 0
+    for j, ph in enumerate(phrases):
+        a, b = bounds[2 * j], bounds[2 * j + 1]
+        out += _spread(words[wi:wi + len(ph)], a, b)
+        wi += len(ph)
+    return out
 
 
 def _write(out: Path, audio, sr: int) -> None:

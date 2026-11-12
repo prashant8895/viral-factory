@@ -16,7 +16,7 @@ from . import platforms
 from .channels import secret
 
 ROOT = Path(__file__).resolve().parent.parent
-PAGES = ["curious-en", "curious-hi"]
+PAGES = ["curious-en"]  # curious-hi paused 2026-11-12
 
 
 def _yt(p: str) -> str:

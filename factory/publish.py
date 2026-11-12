@@ -33,7 +33,7 @@ def save_state(s: dict) -> None:
 
 
 def is_due(s: dict, now: datetime) -> bool:
-    if not s.get("publish"):
+    if not s.get("publish") or channels.paused(s["channel"]):
         return False
     when = datetime.fromisoformat(f"{s['date']}T{s.get('slot', '19:00')}").replace(tzinfo=IST)
     # Allow up to 3 days late (e.g. a missed run), never earlier than the slot.

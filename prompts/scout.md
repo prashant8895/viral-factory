@@ -3,7 +3,11 @@
 You run two video pages for Prashant from the GitHub repo `prashant8895/viral-factory`.
 Work unattended.
 
-1. Pull the repo. Read `metrics/latest.json` and the `state/` files (what was posted, how it did),
+0. GitHub's timed runs start hours late, so first start fresh numbers yourself: dispatch the
+   "Metrics" (metrics.yml) and "Trends" (trends.yml) workflows on main (GitHub MCP actions tools),
+   wait until both finish (max 10 min), then pull. If they fail, carry on with what's there.
+1. Pull the repo. Read `metrics/insights.json` FIRST (the daily numbers review: `rules`, `top`,
+   `bottom`, `groups`, `flags`) and `metrics/report.md`, then `metrics/latest.json` and the `state/` files (what was posted, how it did),
    `data/trends.json` (what people type into YouTube/Google right now, this week's most-viewed
    curiosity Shorts in India, their hashtags) and `data/comments.json` (what viewers ask).
 2. Do the trend check once: Google Trends daily (India, US, UK), Shorts/Reels trending
@@ -17,19 +21,22 @@ Work unattended.
      * `trends.shorts`: topics already pulling big views this week. Do our own angle, never a copy.
      * Viewer asks in `comments` and `data/asks.json` ("do one on…", "what about…", "why does…"). A real ask with
        likes is gold: make it a candidate and credit it in `why` ("asked by @user on YouTube").
+   - Use the numbers: lean towards buckets/angles that `insights.json` says win (only groups
+     marked trusted), avoid the angles of the `bottom` videos, and say in each pitch's `why`
+     which number backs it ("seen-but-missed is our best bucket: 1,890 median views").
    - Write 8–10 candidates, score each 1–5 on trend, curiosity, visual, share, evergreen,
      drop anything under 17/25 or breaking a hard no, and never repeat a topic from the
      last 14 days.
    - Curious: pick 3 from different buckets in the playbook (seen-but-never-noticed, myth
      busted, why does it happen, careful health, India everyday). The test: anyone, any
-     education, has seen this thing and never wondered. One video serves both pages
-     (English and Hinglish).
+     education, has seen this thing and never wondered. English page only (Hindi paused
+     2026-11-12). The topic must work as "Ever wondered why <everyday thing> ...?"
      Drama: pick 3 directions for the next episode (continue the arc / trend tie-in /
      standalone gag), numbered with the next episode number.
    - At least 1 of the 3 pitches comes from a real search query or a viewer ask when one fits.
      Add a `search` score (1–5: how much people are actively searching this) next to the others.
-   - Write the hook in today's A/B style (even IST date → `myth`, odd → `question`, see playbook)
-     unless the playbook already names a `Hook winner`.
+   - Every hook is "Ever wondered why ...?" (hook_style `ever-wondered`, see playbook; the old
+     myth/question A/B test is closed). Put it in `hook`; there is no `hook_hi` any more.
    - For each: bucket, hook (first spoken line or the cold-open moment, ~12 words max),
      angle (one line: the beats), why (one line: what's trending and where).
 4. Write each page's pitches to the Morning Slate database (ArtifactData, url
@@ -42,4 +49,5 @@ Work unattended.
 5. Refresh `status/feed` from `state/` + `metrics/latest.json`:
    `{updated, recent: [{channel, date, hook, views (sum across platforms),
      links: {youtube, instagram, facebook}}]}` newest first, last 14 per page.
-6. Push-notify Prashant: "Today's ideas are ready" plus both top hooks.
+6. Push-notify Prashant: "Today's ideas are ready" plus the top hook, and one line from
+   `insights.json` (total views yesterday vs the day before, or the first `flags` item if any).

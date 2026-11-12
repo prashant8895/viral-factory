@@ -1,0 +1,143 @@
+{
+  "id": "curious-sample-ever-wondered",
+  "channel": "curious",
+  "languages": [
+    "en"
+  ],
+  "publish": false,
+  "date": "2026-11-07",
+  "slot": "19:00",
+  "bucket": "seen-but-missed",
+  "seed": 3131,
+  "hook_text": "WHY THIS *BRUSH*?",
+  "sources": [
+    "https://www.kone.us/blog/why-do-escalators-have-brushes.aspx",
+    "https://elevatorworld.com/blog/the-true-purpose-of-escalator-brushes/",
+    "https://www.japantimes.co.jp/news/2008/04/19/business/crocs-shoes-dangerous-on-escalators/"
+  ],
+  "scenes": [
+    {
+      "visual": "close-up illustration of the black nylon brush strip running along the bottom of a shopping mall escalator's steel side panel, one white sneaker standing on the step beside it, low angle, sharp focus on the brush",
+      "narration": "Ever wondered why every escalator has this *brush* along the side?",
+      "motion": "push",
+      "sfx": "boom",
+      "overlays": [
+        {
+          "type": "arrow",
+          "x": 0.25,
+          "y": 0.47,
+          "dir": "down",
+          "on": "brush"
+        }
+      ],
+      "image": "jobs/curious/pics/curious-sample-escalator/s1.jpg"
+    },
+    {
+      "visual": "illustration of a young Indian man on a mall escalator lifting one foot to rub his shoe against the black brush strip on the escalator's side panel, side view, full body, natural pose",
+      "narration": "Most people rub their shoes on it, like it's a free shoe polish.",
+      "headline": "FREE SHOE *POLISH*?",
+      "motion": "drift_right",
+      "overlays": [
+        {
+          "type": "cross",
+          "x": 0.5,
+          "y": 0.6,
+          "on": "polish"
+        }
+      ],
+      "image": "jobs/curious/pics/curious-sample-escalator/s2.jpg"
+    },
+    {
+      "visual": "macro illustration looking straight down at the edge of a moving escalator step: the yellow step edge, a thin dark gap, then the black brush strip on the silver side panel",
+      "narration": "Its real name is a *skirt deflector*. It guards a tiny gap between the moving steps and the side wall.",
+      "headline": "*SKIRT DEFLECTOR*",
+      "motion": "push",
+      "sfx": "ding",
+      "overlays": [],
+      "anim": "anims/escalator-gap.html"
+    },
+    {
+      "visual": "close-up illustration of an untied shoelace trailing on an escalator step right at the side edge, next to the black brush strip, tense dramatic light",
+      "narration": "That gap can grab a shoelace, a dupatta, or a small finger, and pull it in.",
+      "headline": "THE GAP *PULLS*",
+      "motion": "push",
+      "sfx": "thud",
+      "overlays": [
+        {
+          "type": "arrow",
+          "x": 0.7,
+          "y": 0.55,
+          "dir": "down",
+          "on": "grab"
+        }
+      ],
+      "image": "jobs/curious/pics/curious-sample-escalator/s4.jpg"
+    },
+    {
+      "visual": "illustration of a child's small pink plastic clog standing on a metal escalator step, a Tokyo train station softly blurred behind",
+      "narration": "In Japan, shoes got stuck in escalators 65 times in just six months. About half were soft plastic shoes, often on small kids.",
+      "headline": "JAPAN, *6 MONTHS*",
+      "motion": "pull",
+      "sfx": "riser",
+      "overlays": [],
+      "anim": "anims/count-shoes.html",
+      "anim_params": {
+        "total": 65,
+        "highlight": 33,
+        "months": 6
+      }
+    },
+    {
+      "visual": "illustration of a smiling Indian family of three standing in the middle of the escalator steps, holding the handrail, bright modern mall",
+      "narration": "The bristles nudge your foot away from that gap. So *that's* why the brush is there: not for shoes, for safety.",
+      "headline": "STAND IN THE *MIDDLE*",
+      "motion": "push",
+      "sfx": "sparkle",
+      "overlays": [
+        {
+          "type": "tick",
+          "x": 0.5,
+          "y": 0.44,
+          "on": "middle"
+        }
+      ],
+      "image": "jobs/curious/pics/curious-sample-escalator/s6.jpg"
+    },
+    {
+      "visual": "illustration of two young Indian friends laughing at a phone screen in a bright shopping mall, an escalator blurred behind them",
+      "narration": "Know someone who still polishes their shoes here? Send them this. And comment NEXT for one more everyday thing we all get wrong.",
+      "headline": "COMMENT *NEXT*",
+      "motion": "pull",
+      "sfx": "pop",
+      "anim": "anims/share-next.html",
+      "overlays": [],
+      "anim_params": {
+        "word": "NEXT",
+        "friend": "Rahul"
+      }
+    }
+  ],
+  "youtube": {
+    "title": "Ever wondered why escalators have brushes? #shorts",
+    "description": "Ever wondered why escalators have brushes? It's not a shoe cleaner: the escalator brush is a skirt deflector that keeps feet and clothes away from a dangerous gap.\n\nSources: KONE, Elevator World, Japan Times (METI data)\nAI visuals\n#ohthatswhy #escalator #didyouknow",
+    "tags": [
+      "escalator",
+      "did you know",
+      "safety",
+      "facts"
+    ]
+  },
+  "instagram": {
+    "caption": "Ever wondered why escalators have brushes? 🤔\nThe escalator brush is a skirt deflector: it keeps shoes, laces and clothes away from the gap.\nWho in your group still polishes their shoes on it? 👇\n\nSources: KONE, Elevator World, Japan Times\nAI visuals\n#ohthatswhy #escalator #didyouknow"
+  },
+  "facebook": {
+    "description": "Ever wondered why escalators have brushes? The escalator brush is a skirt deflector, there for safety. AI visuals."
+  },
+  "hook_style": "ever-wondered",
+  "keywords": [
+    "why escalators have brushes",
+    "escalator brush",
+    "skirt deflector"
+  ],
+  "_note": "FORMAT SAMPLE (English only, 'Ever wondered why' hook, illustration pictures). Never rendered: publish false."
+}

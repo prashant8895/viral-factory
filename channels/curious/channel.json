@@ -4,14 +4,17 @@
   "secret_prefix": "CURIOUS_",
   "slot": "19:00",
   "voices": {
-    "narrator": "am_michael"
+    "narrator": "Iapetus"
   },
   "speed": 1.05,
-  "style": "hyper-realistic cinematic photo-illustration, dramatic lighting, rich contrast, shallow depth of field, highly detailed, vertical composition, leave the top third uncluttered for a title",
+  "style": "clean hand-drawn 2D editorial illustration, explainer-video style, bold simple shapes, soft flat colours with gentle grain texture, crisp dark outlines, warm friendly palette, simple uncluttered background, clear single subject, not a photo, not 3D render, vertical composition, leave the top third uncluttered for a title",
   "animate_scenes": 0,
   "music": false,
-  "tts": "kokoro",
+  "tts": "gemini",
   "music_mood": "curious",
   "look": "poster",
-  "note": "Content source for curious-en and curious-hi (jobs here use \"languages\": [\"en\", \"hi\"])."
+  "note": "Content source for curious-en. Jobs here use \"languages\": [\"en\"] (Hindi page paused 2026-11-12).",
+  "languages": [
+    "en"
+  ]
 }

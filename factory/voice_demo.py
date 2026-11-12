@@ -51,7 +51,8 @@ def main(out_dir: Path = ROOT / "voice", label: str | None = None) -> Path:
     out_dir.mkdir(parents=True, exist_ok=True)
     wav = out_dir / "demo.wav"
     tts._write(wav, np.concatenate(parts), 24000)
-    mp3 = out_dir / f"demo_{label or voice}.mp3"
+    label = label or os.environ.get("LABEL") or voice
+    mp3 = out_dir / f"demo_{label}.mp3"
     subprocess.run(["ffmpeg", "-y", "-loglevel", "error", "-i", str(wav), "-b:a", "128k", str(mp3)], check=True)
     wav.unlink()
     print("wrote", mp3, round(sum(len(p) for p in parts) / 24000, 1), "s")

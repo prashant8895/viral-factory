@@ -10,6 +10,10 @@ on:
         description: "Prebuilt Gemini voice name (blank = the page's narrator)"
         required: false
         default: ""
+      clone:
+        description: "yes = use the cloned voice (secret CURIOUS_EN_VOICE_ID); the demo is saved encrypted to voice/recipient.pem"
+        required: false
+        default: "no"
 
 permissions:
   contents: write
@@ -24,7 +28,8 @@ jobs:
     timeout-minutes: 20
     env:
       GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
-      VOICE: ${{ github.event.inputs.voice }}
+      VOICE: ${{ github.event.inputs.clone == 'yes' && secrets.CURIOUS_EN_VOICE_ID || github.event.inputs.voice }}
+      LABEL: ${{ github.event.inputs.clone == 'yes' && 'clone' || '' }}
     steps:
       - uses: actions/checkout@v5
       - uses: actions/setup-python@v6
@@ -34,7 +39,15 @@ jobs:
           sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg
           pip install requests numpy
       - name: Speak the demo
-        run: python -m factory.voice_demo
+        run: |
+          python -m factory.voice_demo
+          if [ "$LABEL" = "clone" ]; then
+            # a real person's voice: never commit it in the clear (public repo)
+            openssl rand -hex 32 > /tmp/k
+            openssl enc -aes-256-cbc -pbkdf2 -iter 200000 -salt -pass file:/tmp/k -in voice/demo_clone.mp3 -out voice/demo_clone.mp3.enc
+            openssl pkeyutl -encrypt -pubin -inkey voice/recipient.pem -pkeyopt rsa_padding_mode:oaep -in /tmp/k -out voice/demo_clone.key.enc
+            rm -f voice/demo_clone.mp3 /tmp/k
+          fi
       - name: Save
         run: |
           git config user.name "video-factory"

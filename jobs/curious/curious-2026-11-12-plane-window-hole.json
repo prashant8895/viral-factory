@@ -4,7 +4,7 @@
   "languages": [
     "en"
   ],
-  "publish": false,
+  "publish": true,
   "date": "2026-11-12",
   "slot": "19:00",
   "bucket": "seen-but-missed",
@@ -27,7 +27,16 @@
       "delivery": "curious, a little amused, like pointing it out to the friend in the next seat",
       "motion": "push",
       "sfx": "boom",
-      "overlays": []
+      "overlays": [
+        {
+          "type": "ring",
+          "x": 0.5,
+          "y": 0.629,
+          "r": 0.045,
+          "on": "hole"
+        }
+      ],
+      "image": "jobs/curious/pics/curious-2026-11-12-plane-window-hole/s1.jpg"
     },
     {
       "visual": "illustration of a young Indian woman sitting in an airplane window seat, side view, she leans toward the oval window with raised eyebrows and a surprised, slightly worried face, simple cabin interior",
@@ -36,7 +45,8 @@
       "headline": "AT *35,000 FT*?",
       "motion": "drift_right",
       "sfx": "thud",
-      "overlays": []
+      "overlays": [],
+      "image": "jobs/curious/pics/curious-2026-11-12-plane-window-hole/s2.jpg"
     },
     {
       "visual": "2D animation: a plane climbs while a dashed pocket of outside air thins out and a big counter drops from 100% to 25%",
@@ -60,7 +70,8 @@
       "headline": "CABIN AIR *PUSHES*",
       "motion": "pull",
       "sfx": "thud",
-      "overlays": []
+      "overlays": [],
+      "image": "jobs/curious/pics/curious-2026-11-12-plane-window-hole/s4.jpg"
     },
     {
       "visual": "2D animation: cross-section of the window, three panes, the middle pane's tiny hole lets cabin air into the gap so the push lands on the outer pane",
@@ -86,7 +97,8 @@
       "headline": "IT'S THE *BACKUP*",
       "motion": "push",
       "sfx": "sparkle",
-      "overlays": []
+      "overlays": [],
+      "image": "jobs/curious/pics/curious-2026-11-12-plane-window-hole/s6.jpg"
     },
     {
       "visual": "2D animation: a phone shares this video to a friend who replies",

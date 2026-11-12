@@ -22,7 +22,7 @@
     "voice": "voice_rgmwotd9dada",
     "name": "clone",
     "videos": 5,
-    "since": "2026-11-13",
+    "since": "2026-11-12",
     "status": "running",
     "note": "Prashant's cloned voice for 5 videos. factory/analyze.py judges it once all 5 are 72 h old; the script run then sets status to kept or reverted. reverted = back to the stock Gemini voice in 'voices'."
   }

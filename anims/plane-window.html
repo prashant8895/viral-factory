@@ -1,0 +1,92 @@
+<!doctype html><html><head><meta charset="utf-8">
+<style>html,body{margin:0;background:#16233a}canvas{display:block}</style></head><body>
+<canvas id="c" width="1080" height="1920"></canvas>
+<script>
+// Why plane windows have a tiny hole. Style borrowed from the StarTalk clouds Short: dark navy
+// background, ONE dashed outline object, ONE big orange number that moves with the words.
+// params.mode:
+//  "climb":  a plane climbs; a dashed "pocket of outside air" thins out while a big counter falls
+//            100% -> params.end (default 25) with params.label (e.g. "AIR OUTSIDE") under it.
+//  "panes":  cross-section of the window: cabin air (left) pushes on three panes; the middle pane's
+//            tiny hole lets air through, so the push lands on the OUTER pane (params.outer label),
+//            the middle pane glows as the spare (params.middle label).
+// Keeps the top fifth (0-384) and the caption band (1344-1632) empty.
+const c=document.getElementById('c'),x=c.getContext('2d'),W=1080,H=1920;
+const NAVY='#16233a',YEL='#ffd23f',ORA='#ff9f1c',WHITE='#f4f1e8',TEAL='#3fc1c9';
+const clamp=(v,a=0,b=1)=>Math.max(a,Math.min(b,v)), prog=(t,a,b)=>clamp((t-a)/(b-a));
+const ease=t=>1-Math.pow(1-clamp(t),3), back=t=>{t=clamp(t);const s=1.7;return 1+(s+1)*Math.pow(t-1,3)+s*Math.pow(t-1,2)};
+const rnd=i=>{const s=Math.sin(i*12.9898)*43758.5453;return s-Math.floor(s)};
+function txt(s,px,py,size,col){x.font=`700 ${size}px Anton, Impact, sans-serif`;x.textAlign='center';x.textBaseline='middle';
+  x.lineWidth=size*0.14;x.lineJoin='round';x.strokeStyle='rgba(0,0,0,.55)';x.strokeText(s,px,py);x.fillStyle=col;x.fillText(s,px,py)}
+function bg(){x.fillStyle=NAVY;x.fillRect(0,0,W,H);
+  for(let i=0;i<220;i++){x.fillStyle='rgba(255,255,255,.035)';x.fillRect(rnd(i)*W,rnd(i+99)*H,3,3)}} // paper grain
+function dashed(path,col,glow){x.save();x.setLineDash([22,16]);x.lineWidth=7;x.strokeStyle=col;x.shadowColor=col;x.shadowBlur=glow||18;path();x.stroke();x.restore()}
+function plane(px,py,s,ang){x.save();x.translate(px,py);x.rotate(ang);x.scale(s,s);x.fillStyle=WHITE;
+  x.beginPath();x.ellipse(0,0,120,24,0,0,7);x.fill();                                    // body
+  x.beginPath();x.moveTo(-10,0);x.lineTo(-55,-95);x.lineTo(-25,-95);x.lineTo(45,0);x.fill(); // wing
+  x.beginPath();x.moveTo(-95,-5);x.lineTo(-125,-60);x.lineTo(-105,-60);x.lineTo(-70,-5);x.fill(); // tail
+  x.fillStyle=TEAL;for(let k=0;k<6;k++){x.beginPath();x.arc(-50+k*24,-6,5,0,7);x.fill()}  // windows
+  x.restore()}
+
+function drawClimb(t,p,P){
+  const end=+(P.end||25), k=ease(prog(p,0.12,0.8));
+  // ground line and climbing path
+  x.fillStyle='rgba(63,193,201,.25)';x.fillRect(0,1290,W,10);
+  const px=150+720*k, py=1240-330*k;
+  // altitude ticks on the right
+  x.strokeStyle='rgba(255,255,255,.15)';x.lineWidth=3;x.setLineDash([6,14]);
+  for(let i=0;i<3;i++){const ly=1240-i*165;x.beginPath();x.moveTo(60,ly);x.lineTo(1020,ly);x.stroke()}x.setLineDash([]);
+  const ft=Math.round(35000*k/1000)*1000;txt(ft.toLocaleString('en-US')+' FT',Math.min(px+60,900),py+85,56,WHITE);
+  plane(px,py,0.9,-0.35);
+  // dashed pocket of outside air above the plane, dots thin out as it climbs
+  const cx=540, cy=590;
+  dashed(()=>{x.beginPath();x.ellipse(cx,cy,330,170,0,0,7)},YEL);
+  const n=Math.round(60*(1-(1-end/100)*k));
+  for(let i=0;i<60;i++){if(i>=n)break;const a=rnd(i)*6.283,r=Math.sqrt(rnd(i+7))*0.9;
+    x.fillStyle=WHITE;x.globalAlpha=.85;x.beginPath();x.arc(cx+Math.cos(a)*300*r+Math.sin(t*2+i)*6,cy+Math.sin(a)*150*r,9,0,7);x.fill()}
+  x.globalAlpha=1;
+  const pct=Math.round(100-(100-end)*k), s=back(prog(p,0,0.1));
+  x.save();x.translate(cx,cy);x.scale(s,s);txt(pct+'%',0,-10,190,ORA);x.restore();
+  txt(P.label||'AIR OUTSIDE',cx,cy+240,70,YEL);
+}
+
+function drawPanes(t,p,P){
+  const top=470, bot=1240, mid=(top+bot)/2, hole=mid+40;
+  const xs=[400,560,760], wd=[22,30,52];             // inner, middle, outer pane
+  // cabin air (left): many dots pushing right; outside (right): few dots
+  for(let i=0;i<70;i++){const yy=top+rnd(i)*(bot-top), xx=60+rnd(i+3)*300+Math.sin(t*3+i)*12;
+    x.fillStyle=WHITE;x.globalAlpha=.8;x.beginPath();x.arc(xx,yy,9,0,7);x.fill()}
+  for(let i=0;i<9;i++){x.fillStyle=WHITE;x.globalAlpha=.5;x.beginPath();x.arc(860+rnd(i+50)*180,top+rnd(i+60)*(bot-top),9,0,7);x.fill()}
+  x.globalAlpha=1;
+  txt(P.cabin||'CABIN',230,top-50,58,WHITE);txt(P.outside||'OUTSIDE',950,top-50,58,'rgba(244,241,232,.7)');
+  // panes
+  const glowOuter=ease(prog(p,0.55,0.7)), glowMid=ease(prog(p,0.78,0.9));
+  xs.forEach((px,i)=>{x.save();
+    x.fillStyle=i===2?`rgba(63,193,201,${0.35+0.4*glowOuter})`:i===1?`rgba(255,210,63,${0.25+0.35*glowMid})`:'rgba(255,255,255,.25)';
+    if(i===2&&glowOuter>0){x.shadowColor=TEAL;x.shadowBlur=40*glowOuter}
+    if(i===1&&glowMid>0){x.shadowColor=YEL;x.shadowBlur=40*glowMid}
+    if(i===1){x.fillRect(px,top,wd[i],hole-14-top);x.fillRect(px,hole+14,wd[i],bot-hole-14)} // the hole
+    else x.fillRect(px,top,wd[i],bot-top);
+    x.restore()});
+  // the tiny hole: dashed ring that pops in
+  const hs=back(prog(p,0.15,0.28));if(hs>0)dashed(()=>{x.beginPath();x.arc(xs[1]+15,hole,46*hs,0,7)},ORA,24);
+  // air flows through the hole into the gap
+  const fl=prog(p,0.28,0.55);
+  if(fl>0){for(let i=0;i<14;i++){const ph=(t*0.8+i/14)%1;const xx=xs[1]-60+ph*260;const yy=hole+(ph>0.45?(rnd(i)-0.5)*500*(ph-0.45):0);
+    if(ph*fl<0.02)continue;x.fillStyle=WHITE;x.globalAlpha=.85*fl;x.beginPath();x.arc(xx,yy,9,0,7);x.fill()}x.globalAlpha=1}
+  // push arrows land on the OUTER pane
+  if(glowOuter>0){x.save();x.globalAlpha=glowOuter;x.strokeStyle=ORA;x.fillStyle=ORA;x.lineWidth=12;x.lineCap='round';
+    for(let k=0;k<4;k++){const ay=top+120+k*180, a1=xs[2]-120+Math.sin(t*6)*8, a2=xs[2]-14;
+      x.beginPath();x.moveTo(a1,ay);x.lineTo(a2,ay);x.stroke();x.beginPath();x.moveTo(a2+6,ay);x.lineTo(a2-30,ay-22);x.lineTo(a2-30,ay+22);x.fill()}
+    x.restore();const ls=back(prog(p,0.6,0.72));x.save();x.translate(xs[2]+26,bot+60);x.scale(ls,ls);txt(P.outer||'DOES THE WORK',0,0,58,TEAL);x.restore()}
+  if(glowMid>0){const ls=back(prog(p,0.8,0.9));x.save();x.translate(xs[1]+15,top-50);x.scale(ls,ls);txt(P.middle||'SPARE',0,0,64,YEL);x.restore()}
+}
+
+window.draw=function(t,dur,P){
+  P=Object.assign({mode:'climb'},P||{});
+  const p=t/Math.max(dur,0.1);
+  x.setTransform(1,0,0,1,0,0);x.globalAlpha=1;x.shadowBlur=0;bg();
+  if(P.mode==='panes')drawPanes(t,p,P);else drawClimb(t,p,P);
+};
+window.draw(0,6,{});
+</script></body></html>

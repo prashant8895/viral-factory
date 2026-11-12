@@ -1,0 +1,124 @@
+{
+  "id": "curious-2026-11-12-plane-window-hole",
+  "channel": "curious",
+  "languages": [
+    "en"
+  ],
+  "publish": false,
+  "date": "2026-11-12",
+  "slot": "19:00",
+  "bucket": "seen-but-missed",
+  "hook_style": "curiosity",
+  "seed": 1112,
+  "hook_text": "PLANE WINDOW *HOLE*?",
+  "keywords": [
+    "why airplane windows have holes",
+    "airplane window hole",
+    "plane window tiny hole"
+  ],
+  "sources": [
+    "https://www.mentalfloss.com/article/64158/why-do-airplane-windows-have-tiny-holes",
+    "https://www.sciencealert.com/here-s-why-there-s-a-tiny-hole-in-airplane-windows"
+  ],
+  "scenes": [
+    {
+      "visual": "illustration of an oval airplane window seen from the passenger seat, close-up, the inner window pane has one tiny round hole near its bottom edge, bright blue sky and soft white clouds outside, window shade pulled half up, the window in the lower two-thirds of the frame",
+      "narration": "Next time you fly, look at your window. See that tiny *hole* near the bottom? Why would anyone drill a hole in a plane window?",
+      "delivery": "curious, a little amused, like pointing it out to the friend in the next seat",
+      "motion": "push",
+      "sfx": "boom",
+      "overlays": []
+    },
+    {
+      "visual": "illustration of a young Indian woman sitting in an airplane window seat, side view, she leans toward the oval window with raised eyebrows and a surprised, slightly worried face, simple cabin interior",
+      "narration": "At *35,000* feet? Sounds like a terrible idea, right? Relax. It's there to keep you safe.",
+      "delivery": "playful mock-worry on the first two lines, then calm and reassuring",
+      "headline": "AT *35,000 FT*?",
+      "motion": "drift_right",
+      "sfx": "thud",
+      "overlays": []
+    },
+    {
+      "visual": "2D animation: a plane climbs while a dashed pocket of outside air thins out and a big counter drops from 100% to 25%",
+      "narration": "Here's the thing. As the plane climbs, the air outside gets *thinner*. Up there, it's about a *quarter* of what you breathe on the ground.",
+      "delivery": "explaining, leaning in, slow and amazed on 'about a quarter'",
+      "headline": "AIR GETS *THIN*",
+      "motion": "push",
+      "sfx": "whoosh",
+      "overlays": [],
+      "anim": "anims/plane-window.html",
+      "anim_params": {
+        "mode": "climb",
+        "end": 25,
+        "label": "AIR OUTSIDE"
+      }
+    },
+    {
+      "visual": "illustration of a calm airplane cabin interior seen down the aisle, rows of seats with relaxed passengers, a row of oval windows along the side wall",
+      "narration": "But the cabin keeps its air thick, so you can breathe easy. So all that air *pushes* on the window. Hard.",
+      "delivery": "building up, short and firm on 'Hard.'",
+      "headline": "CABIN AIR *PUSHES*",
+      "motion": "pull",
+      "sfx": "thud",
+      "overlays": []
+    },
+    {
+      "visual": "2D animation: cross-section of the window, three panes, the middle pane's tiny hole lets cabin air into the gap so the push lands on the outer pane",
+      "narration": "Your window isn't one sheet. It's *three*. The hole is in the middle one... so the whole push lands on the strong *outer* pane.",
+      "delivery": "like revealing a magic trick, a pause before 'so the whole push'",
+      "headline": "THREE *PANES*",
+      "motion": "push",
+      "sfx": "ding",
+      "overlays": [],
+      "anim": "anims/plane-window.html",
+      "anim_params": {
+        "mode": "panes",
+        "cabin": "CABIN",
+        "outside": "OUTSIDE",
+        "outer": "DOES THE WORK",
+        "middle": "SPARE"
+      }
+    },
+    {
+      "visual": "illustration of an airplane window from inside at sunset, warm orange sky and clouds outside, a relaxed hand resting on the armrest below the window, peaceful mood",
+      "narration": "The middle pane just waits, as the *spare*, in case the outer one ever cracks. So that hole isn't a weak spot. It's the backup plan. Oh, *that's* why!",
+      "delivery": "the reveal: build up, then a satisfied smile on the last words",
+      "headline": "IT'S THE *BACKUP*",
+      "motion": "push",
+      "sfx": "sparkle",
+      "overlays": []
+    },
+    {
+      "visual": "2D animation: a phone shares this video to a friend who replies",
+      "narration": "Next flight, find the hole and show whoever's sitting next to you. They'll think you're a pilot.",
+      "delivery": "light, friendly, grinning",
+      "headline": "SHOW A *FRIEND*",
+      "motion": "push",
+      "sfx": "pop",
+      "overlays": [],
+      "anim": "anims/share-next.html",
+      "anim_params": {
+        "word": "WHOA",
+        "friend": "Seat 14B",
+        "thumb": "plane"
+      }
+    }
+  ],
+  "youtube": {
+    "title": "Why do airplane windows have holes? #shorts",
+    "description": "Why do airplane windows have holes? That tiny hole sits in the middle of three panes. It lets cabin air into the gap, so the strong outer pane takes the push and the middle pane stays as a spare.\n\nSources: Mental Floss, ScienceAlert (GKN Aerospace)\nAI visuals\n#ohthatswhy #aviation #airplane #didyouknow #shorts",
+    "tags": [
+      "airplane window",
+      "bleed hole",
+      "aviation facts",
+      "flying",
+      "did you know"
+    ]
+  },
+  "instagram": {
+    "caption": "Why do airplane windows have holes? ✈️\nThat airplane window hole is a bleed hole: the plane window tiny hole lets cabin air into the gap, so the strong outer pane takes the push and the middle one stays as a spare.\nDid you ever notice it on a flight? 👇\n\nSources: Mental Floss, ScienceAlert\nAI visuals\n#ohthatswhy #aviation #airplane #travel"
+  },
+  "facebook": {
+    "description": "Why do airplane windows have holes? That tiny hole makes the outer pane carry the cabin pressure and keeps the middle pane as a spare. AI visuals."
+  }
+}

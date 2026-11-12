@@ -106,6 +106,23 @@ facts. Every script must pass these:
 - Give every scene a `delivery` note for the voice: how a person would say that line
   ("leaning in, slower", "playful, self-mocking", "satisfied smile on the reveal").
 - Read it out loud in your head: if it sounds like a documentary, rewrite it.
+
+#### What the reference actually does (studied frame by frame, 2026-11-12)
+The clouds Short (2 min, StarTalk podcast clip) works like this:
+1. **Second 0–2: the subject word lands immediately** ("...Clouds"), mid-conversation, no intro.
+2. **A layman voices the viewer's half-knowledge** ("Clouds are basically water droplets, yeah?"),
+   then the expert takes it from there. We do this with the narrator: say what the viewer thinks
+   ("Most of us think it's a shoe cleaner. Honestly, I did too.") before correcting it.
+3. **ONE concept carries the whole explanation** (relative humidity), built on ONE mental model
+   ("a pocket of air"). The key number is repeated 3 times ("50%... that 50%... 50% relative").
+4. **The animation is dead simple**: dark navy background, one dashed outline object, one big
+   orange number that moves with the words (50% → 60% → ... → 100%), and at 100% the outline
+   turns into a solid cloud: "Bada boom. Cloud." Copy this: one object, one changing number, a
+   visible transformation at the reveal (see `anims/plane-window.html`).
+5. **Casual connective words** keep it human: "Alright", "Okay", "Right?", "Watch.", "Boom."
+6. **It ends by handing the idea back to daily life**: "That's why it's foggy on cold mornings.
+   Notice next time." Our last line should do the same: something to notice or show someone.
+7. Captions are one word at a time, big, yellow, numbers in orange (ours already match).
 - Every scene after the first has a `headline` (2–4 words, one `*key word*`).
 - Every picture scene has a `visual` ("illustration of ...", one clear subject in the lower two-thirds, simple background, no text). The look is a friendly explainer illustration (flat soft colours, clean outlines, gentle grain), never glossy photo-real AI.
   and ideally one overlay timed to a spoken word (`"on"`): arrow at the thing, ring around

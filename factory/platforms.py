@@ -206,7 +206,7 @@ def facebook_stats(p: str, video_id: str) -> dict:
     base, tok = f"https://graph.facebook.com/{GRAPH}", _need(p, "META_PAGE_TOKEN")
     out = {}
     # Ask one metric at a time: Meta rejects the whole call if any one name is unknown.
-    for m in ("blue_reels_play_count", "post_impressions_unique", "post_video_avg_time_watched",
+    for m in ("blue_reels_play_count", "post_video_avg_time_watched",
               "post_video_social_actions", "post_video_likes_by_reaction_type"):
         r = requests.get(f"{base}/{video_id}/video_insights", timeout=30,
                          params={"metric": m, "access_token": tok}).json()

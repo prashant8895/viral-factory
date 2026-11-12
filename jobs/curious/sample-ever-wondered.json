@@ -57,7 +57,7 @@
       "sfx": "ding",
       "overlays": [],
       "anim": "anims/escalator-gap.html",
-      "delivery": "lean-in"
+      "delivery": "explain"
     },
     {
       "visual": "close-up illustration of an untied shoelace trailing on an escalator step right at the side edge, next to the black brush strip, tense dramatic light",
@@ -111,7 +111,7 @@
     },
     {
       "visual": "illustration of two young Indian friends laughing at a phone screen in a bright shopping mall, an escalator blurred behind them",
-      "narration": "Next time you step on one, you'll know. Send this to the friend who still polishes his shoes on it.",
+      "narration": "So next time you step on one, that's your little 'oh, that's why' moment. Send this to the friend who still polishes his shoes on it.",
       "headline": "COMMENT *NEXT*",
       "motion": "pull",
       "sfx": "pop",
@@ -121,7 +121,7 @@
         "word": "NEXT",
         "friend": "Rahul"
       },
-      "delivery": "light"
+      "delivery": "warm"
     }
   ],
   "youtube": {

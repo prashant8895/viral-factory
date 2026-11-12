@@ -84,14 +84,15 @@ def _spoken(text: str, engine: str = "kokoro") -> str:
 # Short, reusable turn styles. Google: long or per-line style text causes voice drift, and
 # quoting script words in a style note can get them spoken aloud. So a scene's "delivery"
 # picks one of these instead of free text.
-DELIVERY = {
-    "warm": "warm and conversational",
-    "curious": "curious and playful",
-    "lean-in": "leaning in, speaking slowly and intimately",
-    "build": "a little more animated",
-    "reveal": "quietly pleased, like sharing a neat secret",
-    "light": "light and grinning",
-    "serious": "calm and sincere",
+DELIVERY = {  # every one says "normal volume": soft/intimate words made the voice whisper
+    "curious": "curious and playful, full clear voice at normal volume",
+    "explain": "clear and engaged, explaining step by step, full voice at normal volume",
+    "lean-in": "clear and engaged, explaining step by step, full voice at normal volume",  # old name
+    "build": "a little more animated, normal volume",
+    "light": "light and amused, normal volume",
+    "reveal": "warm and pleased, relaxed and sure, normal volume",
+    "warm": "warm and friendly, normal volume",
+    "serious": "calm and sincere, normal volume",
 }
 
 

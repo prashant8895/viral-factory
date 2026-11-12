@@ -5,29 +5,29 @@
       "delivery": "curious"
     },
     {
-      "narration": "At thirty-five *thousand* feet? Sounds like a terrible idea, right? <chuckles> Relax. It's there to keep you safe.",
+      "narration": "At thirty-five *thousand* feet? Sounds like a terrible idea, right? <chuckles> Relax. It's actually there to keep you safe.",
       "delivery": "light"
     },
     {
-      "narration": "Okay, so here's the thing. As the plane climbs, the air outside gets *thinner*. Up there, it's about a *quarter* of what you breathe on the ground.",
-      "delivery": "lean-in"
+      "narration": "Okay, so here's the thing. As the plane climbs, the air outside gets *thinner*. Way up there, it's only about a *quarter* of what you breathe on the ground.",
+      "delivery": "explain"
     },
     {
-      "narration": "But the cabin keeps its air thick, so you can breathe easy. And all that air *pushes* on the window. <short pause> Hard.",
+      "narration": "But the cabin keeps its air thick, so you can breathe easy. And all that air *pushes* outward on the window, really hard.",
       "delivery": "build"
     },
     {
-      "narration": "Now watch. Your window isn't one sheet. It's *three*. The hole is in the middle one... so the whole push lands on the strong *outer* pane.",
-      "delivery": "lean-in"
+      "narration": "Now, your window isn't one sheet. It's *three*. The hole is in the middle one, so the whole push lands on the strong *outer* pane.",
+      "delivery": "explain"
     },
     {
-      "narration": "And the middle pane? It just waits. It's the *spare*, in case the outer one ever cracks. <short pause> So that hole isn't a weak spot. It's the backup plan.",
+      "narration": "And the middle pane just waits. It's the *spare*, in case the outer one ever cracks. <short pause> So that little hole isn't a weak spot. It's the backup plan.",
       "delivery": "reveal",
       "pause_after": 0.5
     },
     {
-      "narration": "Next flight, find the hole and show whoever's sitting next to you. They'll think you're a pilot.",
-      "delivery": "light"
+      "narration": "So next time you're on a flight and you spot it, that's your little 'oh, that's why' moment.",
+      "delivery": "warm"
     }
   ]
 }

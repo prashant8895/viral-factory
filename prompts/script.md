@@ -51,10 +51,11 @@ skip it until Prashant restarts it.
    explaining, a chain not a list, one everyday comparison, small human asides, a pause before the
    reveal, a clean one-line reveal that ties back to the opening) AND "The narrator's voice"
    (idiolect, spoken dialect, articulation, pause tags). Every scene gets a `delivery` word from
-   the list (warm, curious, lean-in, build, reveal, light, serious), 1–2 `*stressed*` words, and
+   the list, chosen by what the line does (curious, light, explain, build, reveal, serious, warm; never whisper), 1–2 `*stressed*` words, and
    the video gets 1–2 `<short pause>` tags placed before the reveal/punchline. Numbers written
    as spoken words. Before pushing, read the whole script aloud in your head once and fix any
-   line you'd stumble on. Never write "Oh, that's why!" (it sounds abrupt; the render refuses it),
+   line you'd stumble on. Weave "oh, that's why" in at most once, smoothly inside a calm closing sentence, never as a
+   shouted line on its own. Check every line (especially the ending) for accidental double meanings.
    and don't make every line sound sure and punchy: mix in softer, wondering lines. 100–150 words. Last line = one friendly ask or loop, never pushy.
    Search phrases: add `"keywords": [...]` with 2–3 English phrases people really type into
    search (main one first, usually "why are tyres black").

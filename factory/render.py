@@ -24,14 +24,17 @@ def check_job(job: dict) -> None:
     if missing:
         raise ValueError(f"Job is missing: {missing}")
     words = sum(len(tts.caption_text(l["text"]).split()) for s in job["scenes"] for l in tts.scene_lines(s))
+    said = " ".join(tts.caption_text(l["text"]) for s in job["scenes"] for l in tts.scene_lines(s))
+    if len(re.findall(r"oh,?\s+that'?s\s+why", said, re.I)) > 1:
+        raise ValueError("Say 'oh, that's why' at most once per video")
     for s in job["scenes"]:  # delivery tags must be ones the voice knows, or they get read out
         for l in tts.scene_lines(s):
             bad = [t for t in tts.TAG_RE.findall(l["text"]) if t.lower().strip() not in tts.VOICE_TAGS]
             if bad:
                 raise ValueError(f"Unknown voice tag(s) {bad} in: {l['text'][:60]!r}")
-            if re.search(r"\boh,?\s+that'?s\s+why\b", tts.caption_text(l["text"]), re.I):
-                raise ValueError("Don't say 'Oh, that's why' in the narration (Prashant: it sounds abrupt). "
-                                 "It's the feeling we leave the viewer with, not a line.")
+            if re.search(r"(^|[.!?]\s+)oh,?\s+that'?s\s+why\s*[!.]", tts.caption_text(l["text"]), re.I):
+                raise ValueError("'Oh, that's why!' as a sentence of its own sounds abrupt (Prashant). "
+                                 "Weave it into a sentence, e.g. \"that's your little 'oh, that's why' moment\".")
             if len(tts.TAG_RE.findall(l["text"])) > 2:
                 raise ValueError(f"Max 2 voice tags per scene: {l['text'][:60]!r}")
     if not 40 <= words <= 160:

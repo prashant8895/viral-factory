@@ -84,10 +84,11 @@ Copy the format from `jobs/curious/sample-ever-wondered.json`.
 - Scene 2 gives the first surprising fact within ~5 seconds. No slow setup.
 - Near the end, the reveal lands in one clean sentence ("So those bristles? They're a guard, not a
   cleaner.").
-- **Never say "Oh, that's why!" in the narration** (Prashant, 2026-11-12: it sounded weird and
-  abrupt; the render now refuses it). "Oh, that's why" is the feeling the viewer has, not a line we
-  say. A plain "so that's why..." is allowed only where it flows naturally out of the sentence before,
-  at most once, and usually it's better left out.
+- **"Oh, that's why" at most once, woven in smoothly** (Prashant, 2026-11-12). Never as a
+  shouted sentence of its own ("Oh, that's why!" sounded abrupt; the render refuses it). Good:
+  near the end, as part of a calm sentence that hands it to the viewer: "So next time you spot it,
+  that's your little 'oh, that's why' moment." / "And that's the 'oh, that's why' bit: ...".
+  If it doesn't fit naturally, leave it out.
 - `hook_text`: 3–6 words, a short question with one `*key word*` (shown red): "WHY ARE TYRES *BLACK*?"
 - 6–8 scenes, one idea each, 100–150 words (45–60 s). Last line = one friendly ask or a loop.
 
@@ -134,6 +135,17 @@ guy who just found out something cool and can't wait to tell you. Same habits ev
 - Mark 1–2 stressed words per scene with `*stars*`: the voice says them in CAPS-style emphasis
   and the captions show them bigger. Stress the word that carries the surprise, not "very".
 
+**Expressions follow the meaning, never random.** Pick each scene's delivery from what the line
+does: the opening question = `curious`; a joke or mock-worry = `light`; explaining how it works =
+`explain`; the tension just before the answer = `build`; the answer = `reveal`; a safety fact =
+`serious`; the friendly close = `warm`. Never whisper or go soft/intimate: always a full, clear,
+normal speaking voice (the old "lean-in" note made the voice whisper; it now means `explain`).
+
+**No double meanings.** Read every line, especially the ending, for anything that could be heard
+as innuendo ("find the hole and show whoever's next to you" did). Words like hole, show, next to
+you, do it, come, hard, get in: if a line could raise an eyebrow, rewrite it. The page is
+family-friendly and the joke should never be accidental.
+
 **Not everything confident.** A real person explaining isn't certain and punchy on every line.
 Mix it: some lines wondering or soft ("which is kind of wild, when you think about it"), honest
 small hedges where true ("turns out", "mostly", "about"), and save the firm, sure tone for the one
@@ -153,7 +165,7 @@ cut it.
 
 **Delivery per scene** is ONE word from this list (Google: long or line-specific style text
 makes the voice drift, and quoted script words in a note can get read aloud):
-`warm` · `curious` · `lean-in` · `build` · `reveal` · `light` · `serious`.
+`curious` · `light` · `explain` · `build` · `reveal` · `serious` · `warm`.
 
 #### What the reference actually does (studied frame by frame, 2026-11-12)
 The clouds Short (2 min, StarTalk podcast clip) works like this:

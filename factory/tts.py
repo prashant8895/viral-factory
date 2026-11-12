@@ -51,7 +51,9 @@ def _kokoro():
 
 
 def _clean_words(text: str) -> list[str]:
-    return [w for w in re.split(r"\s+", text.strip()) if re.search(r"[A-Za-z0-9]", w)]
+    # quote marks around a phrase ('oh, that's why') are for reading, not for the captions
+    words = [re.sub(r"^['‘’\"“”]+|['‘’\"“”]+(?=[,.!?;:]*$)", "", w) for w in re.split(r"\s+", text.strip())]
+    return [w for w in words if re.search(r"[A-Za-z0-9]", w)]
 
 
 def _is_emph(raw: str) -> bool:

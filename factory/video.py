@@ -288,7 +288,10 @@ def check_audio(video: Path, scenes: list[SceneAudio]) -> None:
     times = [float(t.strip(", ")) for t in pts.split() if t.strip(", ")]
     holes = [(x, y - x) for x, y in zip(times, times[1:]) if y - x > 0.1]
     if holes:
-        where = ", ".join(f"{x:.1f}s ({d:.1f}s)" for x, d in holes[:5])
+        ends = np.cumsum([sc.duration for sc in scenes])
+        scene_at = lambda t: int(np.searchsorted(ends, t, side="right")) + 1
+        where = ", ".join(f"{x:.1f}s ({d:.1f}s, scene {min(scene_at(x), len(scenes))} of {len(scenes)}, video {total:.1f}s)"
+                          for x, d in holes[:5])
         raise RuntimeError(f"Audio check: {len(holes)} hole(s) in the sound at {where}")
     win = int(0.05 * sr)
     silent, spoken, t0 = [], 0, 0.0

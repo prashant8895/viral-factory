@@ -1,24 +1,23 @@
 {
-  "updated": "2026-11-12T15:17+05:30",
+  "updated": "2026-11-12T15:29+05:30",
   "videos": 7,
-  "total_views": 9988.0,
+  "total_views": 10058.0,
   "platform_views": {
-    "youtube": 4838.0,
+    "youtube": 4908.0,
     "instagram": 3471.0,
     "facebook": 1679.0
   },
-  "median_watch_pct": 23.9,
+  "median_watch_pct": 36.25,
   "median_shares_per_1k": 0.0,
   "rules": [
-    "Median watch is 24% of the video: people leave early. Get to the first surprising fact by second 5, cut setup lines, aim for 35-45 s.",
+    "Median watch is 36% of the video: people leave early. Get to the first surprising fact by second 5, cut setup lines, aim for 35-45 s.",
     "Instagram skip rate is 55%: most people swipe away in the first 3 s. The opening picture + 'Ever wondered why' line must show the thing itself, big and clear, from frame 1.",
     "Top videos so far: IT'S NOT A SHOE CLEANER! (seen-but-missed, 3,188 views); WHY THIS MESH? (seen-but-missed, 1,891 views); WHY ARE TYRES BLACK? (seen-but-missed, 1,695 views). Pitch more topics like these.",
-    "Weakest: IT'S NOT DYE! (why does it happen, 980); WHY DO WE YAWN? (careful health, 656); WINTER HAZE? NOT JUST FOG (india everyday, 452). Avoid these angles unless a new twist."
+    "Weakest: IT'S NOT DYE! (why does it happen, 980); WHY DO WE YAWN? (careful health, 656); WINTER HAZE? NOT JUST FOG (india everyday, 451). Avoid these angles unless a new twist."
   ],
   "flags": [
     "4 of 7 videos went out more than 30 min off their slot: 2026-11-06-escalator-brush (-148 min), 2026-11-07-microwave-mesh (+112 min), 2026-11-09-tyre-black (+453 min), 2026-11-11-stars-twinkle (+406 min)",
-    "Facebook watch time is missing: the Meta page token lacks read_insights. Make a new token with tools/get_meta_ids.py (the permission list is at the top) and update CURIOUS_EN_META_PAGE_TOKEN.",
-    "YouTube watch % is missing: in Google Cloud (the project of YT_CLIENT_ID) enable 'YouTube Analytics API', then re-run tools/get_youtube_token.py once (it now asks for yt-analytics.readonly) and update CURIOUS_EN_YT_REFRESH_TOKEN."
+    "Facebook watch time is missing: the Meta page token lacks read_insights. Make a new token with tools/get_meta_ids.py (the permission list is at the top) and update CURIOUS_EN_META_PAGE_TOKEN."
   ],
   "groups": {
     "bucket": [
@@ -28,16 +27,16 @@
         "trusted": true,
         "median_v24": 1783.0,
         "median_views": 2133.0,
-        "median_watch_pct": 41.7,
-        "median_shares_per_1k": 1.7
+        "median_watch_pct": 48.05,
+        "median_shares_per_1k": 0.5
       },
       {
         "group": "why does it happen",
         "n": 2,
         "trusted": false,
-        "median_v24": 670.5,
-        "median_views": 812.0,
-        "median_watch_pct": 8.35,
+        "median_v24": 706.0,
+        "median_views": 847.5,
+        "median_watch_pct": 16.6,
         "median_shares_per_1k": 0.0
       },
       {
@@ -46,7 +45,7 @@
         "trusted": false,
         "median_v24": 438.0,
         "median_views": 656.0,
-        "median_watch_pct": 18.2,
+        "median_watch_pct": 36.25,
         "median_shares_per_1k": 0.0
       },
       {
@@ -54,7 +53,7 @@
         "n": 1,
         "trusted": false,
         "median_v24": 203.0,
-        "median_views": 452.0,
+        "median_views": 451.0,
         "median_watch_pct": 23.9,
         "median_shares_per_1k": 0.0
       }
@@ -66,16 +65,16 @@
         "trusted": false,
         "median_v24": 2206.0,
         "median_views": 3428.0,
-        "median_watch_pct": 42.0,
-        "median_shares_per_1k": 3.8
+        "median_watch_pct": 48.05,
+        "median_shares_per_1k": 2.8
       },
       {
         "group": "question",
         "n": 4,
         "trusted": true,
-        "median_v24": 996.0,
-        "median_views": 1175.5,
-        "median_watch_pct": 23.45,
+        "median_v24": 1031.5,
+        "median_views": 1204.5,
+        "median_watch_pct": 38.85,
         "median_shares_per_1k": 0.0
       },
       {
@@ -83,8 +82,8 @@
         "n": 2,
         "trusted": false,
         "median_v24": 450.5,
-        "median_views": 716.5,
-        "median_watch_pct": 17.299999999999997,
+        "median_views": 716.0,
+        "median_watch_pct": 25.55,
         "median_shares_per_1k": 0.0
       }
     ],
@@ -93,9 +92,9 @@
         "group": "photo",
         "n": 7,
         "trusted": true,
-        "median_v24": 698.0,
+        "median_v24": 714.0,
         "median_views": 981.0,
-        "median_watch_pct": 23.9,
+        "median_watch_pct": 36.25,
         "median_shares_per_1k": 0.0
       }
     ],
@@ -104,9 +103,9 @@
         "group": "kokoro",
         "n": 7,
         "trusted": true,
-        "median_v24": 698.0,
+        "median_v24": 714.0,
         "median_views": 981.0,
-        "median_watch_pct": 23.9,
+        "median_watch_pct": 36.25,
         "median_shares_per_1k": 0.0
       }
     ],
@@ -115,9 +114,9 @@
         "group": "40-50s",
         "n": 7,
         "trusted": true,
-        "median_v24": 698.0,
+        "median_v24": 714.0,
         "median_views": 981.0,
-        "median_watch_pct": 23.9,
+        "median_watch_pct": 36.25,
         "median_shares_per_1k": 0.0
       }
     ]
@@ -144,12 +143,12 @@
       "views": 3428.0,
       "v24": 2206.0,
       "v72": 3188.0,
-      "watch_pct": 42.0,
+      "watch_pct": 48.05,
       "skip_pct": 33.8,
       "follows": null,
       "likes_per_1k": 5.8,
-      "shares_per_1k": 3.8,
-      "youtube_watch_pct": null,
+      "shares_per_1k": 2.8,
+      "youtube_watch_pct": 54.1,
       "instagram_watch_pct": 42.0,
       "facebook_watch_pct": null
     },
@@ -164,12 +163,12 @@
       "views": 2133.0,
       "v24": 1783.0,
       "v72": 1891.0,
-      "watch_pct": 28.7,
+      "watch_pct": 41.45,
       "skip_pct": 41.1,
       "follows": null,
       "likes_per_1k": 22.0,
-      "shares_per_1k": 1.7,
-      "youtube_watch_pct": null,
+      "shares_per_1k": 0.5,
+      "youtube_watch_pct": 54.2,
       "instagram_watch_pct": 28.7,
       "facebook_watch_pct": null
     },
@@ -184,12 +183,12 @@
       "views": 981.0,
       "v24": 698.0,
       "v72": 980.0,
-      "watch_pct": 10.7,
+      "watch_pct": 27.200000000000003,
       "skip_pct": 67.5,
       "follows": null,
       "likes_per_1k": 11.2,
       "shares_per_1k": 0.0,
-      "youtube_watch_pct": null,
+      "youtube_watch_pct": 43.7,
       "instagram_watch_pct": 10.7,
       "facebook_watch_pct": null
     },
@@ -204,12 +203,12 @@
       "views": 1695.0,
       "v24": 1349.0,
       "v72": 1695.0,
-      "watch_pct": 41.7,
+      "watch_pct": 75.80000000000001,
       "skip_pct": 55.1,
       "follows": null,
       "likes_per_1k": 15.3,
       "shares_per_1k": 0.0,
-      "youtube_watch_pct": null,
+      "youtube_watch_pct": 109.9,
       "instagram_watch_pct": 41.7,
       "facebook_watch_pct": null
     },
@@ -224,12 +223,12 @@
       "views": 656.0,
       "v24": 438.0,
       "v72": 656.0,
-      "watch_pct": 18.2,
+      "watch_pct": 36.25,
       "skip_pct": 70.8,
       "follows": null,
       "likes_per_1k": 9.1,
       "shares_per_1k": 0.0,
-      "youtube_watch_pct": null,
+      "youtube_watch_pct": 54.3,
       "instagram_watch_pct": 18.2,
       "facebook_watch_pct": null
     },
@@ -241,13 +240,13 @@
       "hook_style": "myth",
       "duration": 41.39,
       "late_min": -29,
-      "views": 452.0,
+      "views": 451.0,
       "v24": 203.0,
-      "v72": 452.0,
+      "v72": 451.0,
       "watch_pct": 23.9,
       "skip_pct": 50.4,
       "follows": null,
-      "likes_per_1k": 6.6,
+      "likes_per_1k": 6.7,
       "shares_per_1k": 0.0,
       "youtube_watch_pct": null,
       "instagram_watch_pct": 23.9,
@@ -261,13 +260,13 @@
       "hook_style": "question",
       "duration": 42.26,
       "late_min": 406,
-      "views": 643.0,
-      "v24": 643.0,
+      "views": 714.0,
+      "v24": 714.0,
       "v72": null,
       "watch_pct": 6.0,
       "skip_pct": 71.4,
       "follows": null,
-      "likes_per_1k": 20.2,
+      "likes_per_1k": 18.2,
       "shares_per_1k": 0.0,
       "youtube_watch_pct": null,
       "instagram_watch_pct": 6.0,

@@ -1,0 +1,104 @@
+name: Connect YouTube (browser only)
+
+# Renew a page's YouTube refresh token without a laptop:
+#   1. Run with step=url: the log prints a Google sign-in link.
+#   2. Open it in a browser signed in to the channel, click Allow. The browser then fails to load
+#      a "localhost" page: that's expected. Copy the whole address from the address bar.
+#   3. Run with step=code and paste that address into "code".
+# The new token is checked, encrypted with the YT_CLIENT_SECRET secret and saved as
+# tokens/<PREFIX>YT_REFRESH_TOKEN.enc, which the factory prefers over the old secret.
+on:
+  workflow_dispatch:
+    inputs:
+      step:
+        description: "url (get the sign-in link) or code (finish)"
+        required: true
+        default: url
+      code:
+        description: "step=code: the full localhost address after clicking Allow"
+        required: false
+      page:
+        description: "Page key"
+        required: false
+        default: curious-en
+
+permissions:
+  contents: write
+
+concurrency:
+  group: repo-writes
+  cancel-in-progress: false
+
+jobs:
+  connect:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    env:
+      YT_CLIENT_ID: ${{ secrets.YT_CLIENT_ID }}
+      YT_CLIENT_SECRET: ${{ secrets.YT_CLIENT_SECRET }}
+      STEP: ${{ github.event.inputs.step }}
+      PAGE: ${{ github.event.inputs.page }}
+    steps:
+      - uses: actions/checkout@v5
+      - run: pip install requests
+      - name: Hide the code in the log
+        if: github.event.inputs.step == 'code'
+        run: |
+          code=$(jq -r '.inputs.code' "$GITHUB_EVENT_PATH")
+          echo "::add-mask::$code"
+          python -c "import sys,urllib.parse as u; c=sys.argv[1]; q=u.parse_qs(u.urlparse(c).query); print(q.get('code',[c])[0])" "$code" > /tmp/code
+          echo "::add-mask::$(cat /tmp/code)"
+      - name: Connect
+        run: |
+          python - <<'EOF'
+          import json, os, pathlib, subprocess, sys, urllib.parse
+          import requests
+          cid, sec, page = os.environ["YT_CLIENT_ID"], os.environ["YT_CLIENT_SECRET"], os.environ["PAGE"]
+          prefix = json.loads(pathlib.Path(f"channels/{page}/channel.json").read_text())["secret_prefix"]
+          redirect = "http://localhost:8765"
+          scopes = ("https://www.googleapis.com/auth/youtube.upload https://www.googleapis.com/auth/youtube.readonly "
+                    "https://www.googleapis.com/auth/yt-analytics.readonly")
+          if os.environ["STEP"] == "url":
+              print("\nOPEN THIS LINK, sign in with the channel's account, click Allow:\n")
+              print("https://accounts.google.com/o/oauth2/v2/auth?" + urllib.parse.urlencode({
+                  "client_id": cid, "redirect_uri": redirect, "response_type": "code", "scope": scopes,
+                  "access_type": "offline", "prompt": "consent"}))
+              sys.exit(0)
+          code = pathlib.Path("/tmp/code").read_text().strip()
+          r = requests.post("https://oauth2.googleapis.com/token", timeout=30, data={
+              "code": code, "client_id": cid, "client_secret": sec, "redirect_uri": redirect,
+              "grant_type": "authorization_code"})
+          if not r.ok:
+              sys.exit(f"Google refused the code (it works once, for ~10 min): {r.json().get('error_description', r.status_code)}")
+          tok = r.json()
+          rt, at = tok.get("refresh_token"), tok["access_token"]
+          if not rt:
+              sys.exit("No refresh token came back: run step=url again (the link forces a fresh consent)")
+          print(f"::add-mask::{rt}")
+          print("scopes granted:", tok.get("scope"))
+          h = {"Authorization": f"Bearer {at}"}
+          ch = requests.get("https://www.googleapis.com/youtube/v3/channels", params={"part": "snippet", "mine": "true"},
+                            headers=h, timeout=30).json()
+          print("channel:", ((ch.get("items") or [{}])[0].get("snippet") or {}).get("title"))
+          import datetime as d
+          a = requests.get("https://youtubeanalytics.googleapis.com/v2/reports", headers=h, timeout=30, params={
+              "ids": "channel==MINE", "startDate": (d.date.today() - d.timedelta(days=28)).isoformat(),
+              "endDate": d.date.today().isoformat(), "metrics": "views,averageViewPercentage"})
+          print("analytics check:", a.status_code, a.text[:300] if not a.ok else a.json().get("rows"))
+          out = pathlib.Path("tokens") / f"{prefix}YT_REFRESH_TOKEN.enc"
+          out.parent.mkdir(exist_ok=True)
+          enc = subprocess.run(["openssl", "enc", "-aes-256-cbc", "-pbkdf2", "-iter", "200000", "-salt", "-a", "-A",
+                                "-pass", "env:TOKEN_KEY"], input=rt, capture_output=True, text=True, check=True,
+                               env={**os.environ, "TOKEN_KEY": sec}).stdout
+          out.write_text(enc + "\n")
+          print("saved", out)
+          if not a.ok:
+              print("::warning::Token saved, but YouTube Analytics refused: enable 'YouTube Analytics API' in Google Cloud for this project")
+          EOF
+      - name: Save
+        if: github.event.inputs.step == 'code'
+        run: |
+          git config user.name "video-factory"
+          git config user.email "actions@github.com"
+          git add tokens
+          git diff --cached --quiet || (git commit -m "YouTube token renewed (${{ github.event.inputs.page }})" && git pull --rebase && git push)

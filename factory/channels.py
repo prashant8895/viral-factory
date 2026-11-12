@@ -35,4 +35,20 @@ def secret(ch_or_prefix, name: str) -> str | None:
     prefix = ch_or_prefix if isinstance(ch_or_prefix, str) else ch_or_prefix["secret_prefix"]
     if name in SHARED:
         return os.environ.get(name)
-    return os.environ.get(prefix + name)
+    return stored(prefix + name) or os.environ.get(prefix + name)
+
+
+def stored(full_name: str) -> str | None:
+    """A token renewed from the browser (YouTube connect workflow) is kept encrypted in
+    tokens/<NAME>.enc, because a workflow can't write GitHub secrets. The key is the
+    YT_CLIENT_SECRET secret, so the file is useless without the repo's secrets."""
+    import subprocess
+
+    f = ROOT / "tokens" / f"{full_name}.enc"
+    key = os.environ.get("YT_CLIENT_SECRET")
+    if not f.exists() or not key:
+        return None
+    r = subprocess.run(["openssl", "enc", "-d", "-aes-256-cbc", "-pbkdf2", "-iter", "200000", "-a", "-A",
+                        "-pass", "env:TOKEN_KEY", "-in", str(f)], capture_output=True, text=True,
+                       env={**os.environ, "TOKEN_KEY": key})
+    return r.stdout.strip() if r.returncode == 0 and r.stdout.strip() else None

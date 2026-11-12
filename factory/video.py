@@ -222,7 +222,11 @@ def assemble(shots: list[Path], scenes: list[SceneAudio], ass: Path, music: Path
     total = sum(s.duration for s in scenes)
     cmd = ["ffmpeg", "-y", "-i", str(silent), "-i", str(voice)]
     # The voice goes straight in; it is only split when music needs it to duck under the voice.
-    chain = [f"[1:a]aresample=48000,{'asplit=2[v][vs]' if music else 'anull[v]'}"]
+    # Voice polish, like a podcast mic chain: cut rumble, lift the consonant band a little so
+    # words are crisp on phone speakers, tame harsh "s" sounds, even out loud and soft words.
+    polish = ("highpass=f=75,equalizer=f=200:t=q:w=1:g=-1.5,equalizer=f=3200:t=q:w=1.2:g=2.5,"
+              "deesser=i=0.35,acompressor=threshold=0.125:ratio=2.5:attack=8:release=120:makeup=1.6")
+    chain = [f"[1:a]aresample=48000,{polish},{'asplit=2[v][vs]' if music else 'anull[v]'}"]
     mix, n = ["[v]"], 2
     if sfx_track:
         cmd += ["-i", str(sfx_track)]

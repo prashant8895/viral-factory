@@ -49,8 +49,12 @@ skip it until Prashant restarts it.
    it, the render refuses an opener that repeats one of the last 3 videos). First surprising fact
    by scene 2 (~5 s). Write the whole script by the playbook's "How we talk" rules (a friend
    explaining, a chain not a list, one everyday comparison, small human asides, a pause before the
-   reveal, a clean one-line reveal that ties back to the opening). Give every scene a `delivery`
-   note for the voice. 100–150 words. Last line = one friendly ask or loop, never pushy.
+   reveal, a clean one-line reveal that ties back to the opening) AND "The narrator's voice"
+   (idiolect, spoken dialect, articulation, pause tags). Every scene gets a `delivery` word from
+   the list (warm, curious, lean-in, build, reveal, light, serious), 1–2 `*stressed*` words, and
+   the video gets 1–2 `<short pause>` tags placed before the reveal/punchline. Numbers written
+   as spoken words. Before pushing, read the whole script aloud in your head once and fix any
+   line you'd stumble on. 100–150 words. Last line = one friendly ask or loop, never pushy.
    Search phrases: add `"keywords": [...]` with 2–3 English phrases people really type into
    search (main one first, usually "why are tyres black").
    Put the main phrase in the YouTube title, the first line of the Instagram caption and the

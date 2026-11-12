@@ -10,6 +10,10 @@ on:
         description: "Prebuilt Gemini voice name (blank = the page's narrator)"
         required: false
         default: ""
+      script:
+        description: "Optional: a script JSON ({scenes:[{narration, delivery}]}) to speak through the full voice pipeline"
+        required: false
+        default: ""
       clone:
         description: "yes = use the cloned voice (secret CURIOUS_EN_VOICE_ID); the demo is saved encrypted to voice/recipient.pem"
         required: false
@@ -28,7 +32,8 @@ jobs:
     timeout-minutes: 20
     env:
       GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
-      VOICE: ${{ github.event.inputs.clone == 'yes' && secrets.CURIOUS_EN_VOICE_ID || github.event.inputs.voice }}
+      VOICE: ${{ github.event.inputs.voice }}
+      SCRIPT: ${{ github.event.inputs.script }}
       LABEL: ${{ github.event.inputs.clone == 'yes' && 'clone' || '' }}
     steps:
       - uses: actions/checkout@v5

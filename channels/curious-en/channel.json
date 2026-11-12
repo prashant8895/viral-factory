@@ -15,7 +15,7 @@
     "instagram": "@ohthatswhy.english"
   },
   "styles": {
-    "narrator": "A real person explaining something they love to a friend, not a narrator reading a script. Warm, curious, a little playful; natural conversational rhythm with small pauses before the surprising bit, a smile in the voice on the reveal. Clear words anyone can follow, never shouty or salesy."
+    "narrator": "warm, curious and conversational"
   },
   "voice_note": "Stock Gemini voice in 'voices'. 'voice_trial' (Prashant's cloned voice) overrides it while running/kept.",
   "voice_trial": {
@@ -25,5 +25,6 @@
     "since": "2026-11-12",
     "status": "running",
     "note": "Prashant's cloned voice for 5 videos. factory/analyze.py judges it once all 5 are 72 h old; the script run then sets status to kept or reverted. reverted = back to the stock Gemini voice in 'voices'."
-  }
+  },
+  "delivery_note": "Scene 'delivery' is one of: warm, curious, lean-in, build, reveal, light, serious (factory/tts.py DELIVERY). Keep styles short: Google says long style text makes the voice drift."
 }

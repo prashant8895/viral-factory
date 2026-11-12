@@ -59,9 +59,50 @@ def _is_emph(raw: str) -> bool:
     return "*" in raw or (len(letters) >= 3 and letters.isupper())
 
 
-def _spoken(text: str) -> str:
-    """What the voice reads: emphasis stars removed."""
-    return text.replace("*", "")
+# Inline delivery tags the Gemini voice understands (Google's speech docs): written in the
+# narration as <short pause>, <long pause>, <breath>, <chuckles>... They are spoken as
+# performance, never shown in the captions.
+TAG_RE = re.compile(r"<\s*([a-z][a-z \-]{1,28})\s*>", re.I)
+VOICE_TAGS = {"short pause", "long pause", "breath", "exhales", "chuckles", "chuckle", "laughs", "laugh",
+              "sigh", "sighs", "gasp", "phew", "pff", "tsk"}
+
+
+def caption_text(text: str) -> str:
+    """The words as shown on screen: delivery tags removed."""
+    return re.sub(r"\s{2,}", " ", TAG_RE.sub(" ", text)).strip()
+
+
+def _spoken(text: str, engine: str = "kokoro") -> str:
+    """What the voice reads. Gemini: *stressed words* become CAPS (Google: capitals = emphasis)
+    and the delivery tags stay. Kokoro: plain words only."""
+    if engine != "gemini":
+        return caption_text(text).replace("*", "")
+    out = re.sub(r"\*([^*]+)\*", lambda m: m.group(1).upper(), text)
+    return re.sub(r"\s{2,}", " ", out.replace("*", "")).strip()
+
+
+# Short, reusable turn styles. Google: long or per-line style text causes voice drift, and
+# quoting script words in a style note can get them spoken aloud. So a scene's "delivery"
+# picks one of these instead of free text.
+DELIVERY = {
+    "warm": "warm and conversational",
+    "curious": "curious and playful",
+    "lean-in": "leaning in, speaking slowly and intimately",
+    "build": "building excitement",
+    "reveal": "delighted, landing a satisfying reveal",
+    "light": "light and grinning",
+    "serious": "calm and sincere",
+}
+
+
+def delivery_style(base: str, delivery: str | None) -> str:
+    if not delivery:
+        return base
+    if delivery in DELIVERY:
+        return DELIVERY[delivery]
+    if len(delivery.split()) <= 8 and not re.search(r"['\"‘’“”]", delivery):
+        return delivery  # a short free note without quoted words is still safe
+    return base
 
 
 def _group_timings(timings) -> list[tuple[float, float]]:
@@ -167,7 +208,7 @@ def _gemini_once(text: str, voice: str, style: str) -> tuple[np.ndarray, int]:
     return audio, sr
 
 
-def _speak_gemini(text: str, voice: str, style: str):
+def _speak_gemini(text: str, voice: str, style: str, show: str | None = None):
     import os
     import tempfile
 
@@ -193,7 +234,11 @@ def _speak_gemini(text: str, voice: str, style: str):
         audio = np.interp(np.linspace(0, len(audio), int(len(audio) * 24000 / sr), endpoint=False),
                           np.arange(len(audio)), audio).astype(np.float32)
         sr = 24000
-    return audio, sr, _align_by_pauses(text, audio, sr)
+    # Trim Gemini's own lead-in and tail silence, so the pauses between scenes are ours,
+    # chosen on purpose (see synthesize), not random.
+    st, en = _speech_span(audio, sr)
+    audio = audio[max(0, int((st - 0.05) * sr)):min(len(audio), int((en + 0.08) * sr))]
+    return audio, sr, _align_by_pauses(show if show is not None else text, audio, sr)
 
 
 def _pauses(audio, sr: int, min_gap: float = 0.12) -> list[tuple[float, float]]:
@@ -257,6 +302,19 @@ def _write(out: Path, audio, sr: int) -> None:
 _BAD_VOICES: set[str] = set()
 
 
+def scene_gap(scene: dict, text: str) -> float:
+    """Silence after a scene, picked on purpose: a beat after a question so it lands,
+    a longer one after a trailing '...', a normal breath otherwise. "pause_after" wins."""
+    if scene.get("pause_after") is not None:
+        return float(scene["pause_after"])
+    end = caption_text(text).rstrip()
+    if end.endswith("?"):
+        return 0.45
+    if end.endswith("...") or end.endswith("…"):
+        return 0.5
+    return 0.3
+
+
 def scene_lines(scene: dict) -> list[dict]:
     """A scene is either one narration or a list of {speaker, text} lines (drama)."""
     if scene.get("lines"):
@@ -274,16 +332,15 @@ def synthesize(scene: dict, out: Path, voices: dict, speed: float = 1.05, engine
     for i, line in enumerate(scene_lines(scene)):
         speaker = line.get("speaker", "narrator")
         voice = voices.get(speaker) or voices["narrator"]
-        text = _spoken(line["text"])
+        text = _spoken(line["text"], engine)
+        show = caption_text(line["text"]).replace("*", "")
         if engine == "gemini":
-            style = line.get("style") or (styles or {}).get(speaker, "")
-            if line.get("delivery"):
-                style = f"{style} For this line: {line['delivery']}."
+            style = line.get("style") or delivery_style((styles or {}).get(speaker, ""), line.get("delivery"))
             fallback = voices.get("_fallback")
             if voice in _BAD_VOICES and fallback:
                 voice = fallback
             try:
-                audio, sr, timed = _speak_gemini(text, voice, style)
+                audio, sr, timed = _speak_gemini(text, voice, style, show)
             except Exception as e:
                 # A cloned voice id Gemini doesn't know (wrong project, expired, typo) must
                 # never stop the video: say it once and use the stock narrator instead.
@@ -292,13 +349,14 @@ def synthesize(scene: dict, out: Path, voices: dict, speed: float = 1.05, engine
                 print(f"[voice] cloned voice not usable, falling back to {fallback}: {str(e)[:160]}", flush=True)
                 _BAD_VOICES.add(voice)
                 voice = fallback
-                audio, sr, timed = _speak_gemini(text, voice, style)
+                audio, sr, timed = _speak_gemini(text, voice, style, show)
         else:
             audio, sr, timed = _speak(text, voice, float(line.get("speed", speed)))
-        raw = _clean_words(line["text"])
+        raw = _clean_words(caption_text(line["text"]))
         flags = [_is_emph(r) for r in raw] if len(raw) == len(timed) else [False] * len(timed)
         words += [Word(w.text, w.start + t, w.end + t, f) for w, f in zip(timed, flags)]
-        gap = np.zeros(int((0.12 if i < len(scene_lines(scene)) - 1 else 0.18) * sr), dtype=audio.dtype)
+        last = i == len(scene_lines(scene)) - 1
+        gap = np.zeros(int((scene_gap(scene, line["text"]) if last else 0.12) * sr), dtype=audio.dtype)
         parts += [audio, gap]
         t += (len(audio) + len(gap)) / sr
     full = np.concatenate(parts)

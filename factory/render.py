@@ -23,12 +23,19 @@ def check_job(job: dict) -> None:
     missing = [k for k in need if k not in job]
     if missing:
         raise ValueError(f"Job is missing: {missing}")
-    words = sum(len(l["text"].split()) for s in job["scenes"] for l in tts.scene_lines(s))
+    words = sum(len(tts.caption_text(l["text"]).split()) for s in job["scenes"] for l in tts.scene_lines(s))
+    for s in job["scenes"]:  # delivery tags must be ones the voice knows, or they get read out
+        for l in tts.scene_lines(s):
+            bad = [t for t in tts.TAG_RE.findall(l["text"]) if t.lower().strip() not in tts.VOICE_TAGS]
+            if bad:
+                raise ValueError(f"Unknown voice tag(s) {bad} in: {l['text'][:60]!r}")
+            if len(tts.TAG_RE.findall(l["text"])) > 2:
+                raise ValueError(f"Max 2 voice tags per scene: {l['text'][:60]!r}")
     if not 40 <= words <= 160:
         raise ValueError(f"Spoken text is {words} words; playbook says 85–120 (drama 60–110)")
     check_search_text(job)
     if job.get("hook_style") in ("ever-wondered", "curiosity"):  # Curious house hook since 2026-11-12
-        first = tts.scene_lines(job["scenes"][0])[0]["text"].replace("*", "").strip()
+        first = tts.caption_text(tts.scene_lines(job["scenes"][0])[0]["text"]).replace("*", "").strip()
         if "?" not in first:
             raise ValueError(f"Line 1 must open a real question the video answers (the 'Ever wondered why...?' idea): {first[:60]!r}")
         opener = " ".join(re.findall(r"[a-z']+", first.lower())[:3])
@@ -47,7 +54,7 @@ def _recent_openers(job: dict, n: int = 3) -> list[str]:
             continue
         try:
             j = _pick(json.loads(f.read_text()), "en", {"en", "hi"})
-            line = tts.scene_lines(j["scenes"][0])[0]["text"].replace("*", "")
+            line = tts.caption_text(tts.scene_lines(j["scenes"][0])[0]["text"]).replace("*", "")
         except Exception:
             continue
         out.append(" ".join(re.findall(r"[a-z']+", line.lower())[:3]))

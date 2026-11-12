@@ -64,6 +64,32 @@ def _diagnose(voice: str) -> bool:
     return t.ok
 
 
+def script_demo(script: Path, out_dir: Path, label: str) -> Path:
+    """Speak a whole script exactly like a render does (same voice, styles, delivery words,
+    tags, trimming, scene gaps and the voice polish chain), without pictures."""
+    from . import video
+    ch = json.loads((ROOT / "channels" / "curious-en" / "channel.json").read_text())
+    trial = ch.get("voice_trial") or {}
+    voices = dict(ch["voices"])
+    if os.environ.get("LABEL") == "clone" and trial.get("voice"):
+        voices = {"narrator": trial["voice"], "_fallback": ch["voices"]["narrator"]}
+    scenes = json.loads(script.read_text())["scenes"]
+    out_dir.mkdir(parents=True, exist_ok=True)
+    parts = [tts.synthesize(sc, out_dir / f"_s{i}.wav", voices, 1.0, "gemini", ch.get("styles"))
+             for i, sc in enumerate(scenes)]
+    raw = video.join_voice(parts, out_dir / "_voice.wav")
+    mp3 = out_dir / f"demo_{label}.mp3"
+    polish = ("highpass=f=75,equalizer=f=200:t=q:w=1:g=-1.5,equalizer=f=3200:t=q:w=1.2:g=2.5,"
+              "deesser=i=0.35,acompressor=threshold=0.125:ratio=2.5:attack=8:release=120:makeup=1.6,"
+              "loudnorm=I=-14:TP=-1.5:LRA=11")
+    subprocess.run(["ffmpeg", "-y", "-loglevel", "error", "-i", str(raw), "-af", polish, "-ar", "48000",
+                    "-b:a", "160k", str(mp3)], check=True)
+    for f in out_dir.glob("_*.wav"):
+        f.unlink()
+    print("wrote", mp3, round(sum(p.duration for p in parts), 1), "s")
+    return mp3
+
+
 def main(out_dir: Path = ROOT / "voice", label: str | None = None) -> Path:
     ch = json.loads((ROOT / "channels" / "curious-en" / "channel.json").read_text())
     voice = (os.environ.get("VOICE") or ch["voices"]["narrator"]).strip().removeprefix("voices/")
@@ -98,4 +124,7 @@ def main(out_dir: Path = ROOT / "voice", label: str | None = None) -> Path:
 
 
 if __name__ == "__main__":
-    main()
+    if os.environ.get("SCRIPT"):
+        script_demo(ROOT / os.environ["SCRIPT"], ROOT / "voice", os.environ.get("LABEL") or "script")
+    else:
+        main()

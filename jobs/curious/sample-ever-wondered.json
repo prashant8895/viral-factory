@@ -31,11 +31,11 @@
         }
       ],
       "image": "jobs/curious/pics/curious-sample-escalator/s1.jpg",
-      "delivery": "curious, like pointing at something you both walk past daily"
+      "delivery": "curious"
     },
     {
       "visual": "illustration of a young Indian man on a mall escalator lifting one foot to rub his shoe against the black brush strip on the escalator's side panel, side view, full body, natural pose",
-      "narration": "Most of us think it's a shoe cleaner. Honestly, I did too. Free *polish* on the way up!",
+      "narration": "Most of us think it's a shoe cleaner. Honestly, I thought that too. Free polish on the way up!",
       "headline": "FREE SHOE *POLISH*?",
       "motion": "drift_right",
       "overlays": [
@@ -47,21 +47,21 @@
         }
       ],
       "image": "jobs/curious/pics/curious-sample-escalator/s2.jpg",
-      "delivery": "playful, a little self-mocking"
+      "delivery": "light"
     },
     {
       "visual": "macro illustration looking straight down at the edge of a moving escalator step: the yellow step edge, a thin dark gap, then the black brush strip on the silver side panel",
-      "narration": "But look closer. There's a tiny *gap* between the moving steps and the side wall... and it's moving.",
+      "narration": "But look closer. There's a tiny *gap* between the steps and the side wall... <short pause> and it's moving.",
       "headline": "*SKIRT DEFLECTOR*",
       "motion": "push",
       "sfx": "ding",
       "overlays": [],
       "anim": "anims/escalator-gap.html",
-      "delivery": "slower, leaning in, small pause before 'and it's moving'"
+      "delivery": "lean-in"
     },
     {
       "visual": "close-up illustration of an untied shoelace trailing on an escalator step right at the side edge, next to the black brush strip, tense dramatic light",
-      "narration": "A loose lace, the end of a dupatta, even a kid's little finger can get pulled into it.",
+      "narration": "A loose lace, the end of a dupatta, even a kid's little finger can get pulled in there.",
       "headline": "THE GAP *PULLS*",
       "motion": "push",
       "sfx": "thud",
@@ -75,11 +75,11 @@
         }
       ],
       "image": "jobs/curious/pics/curious-sample-escalator/s4.jpg",
-      "delivery": "serious but calm, not scary"
+      "delivery": "serious"
     },
     {
       "visual": "illustration of a child's small pink plastic clog standing on a metal escalator step, a Tokyo train station softly blurred behind",
-      "narration": "In Japan, shoes got stuck in escalators *65* times in just six months. Mostly soft plastic shoes, on small kids.",
+      "narration": "In Japan, shoes got stuck in escalators *sixty-five* times in just six months. Mostly soft plastic shoes, on small kids.",
       "headline": "JAPAN, *6 MONTHS*",
       "motion": "pull",
       "sfx": "riser",
@@ -90,11 +90,11 @@
         "highlight": 33,
         "months": 6
       },
-      "delivery": "matter-of-fact, a beat of surprise on the number"
+      "delivery": "serious"
     },
     {
       "visual": "illustration of a smiling Indian family of three standing in the middle of the escalator steps, holding the handrail, bright modern mall",
-      "narration": "So those bristles? They nudge your foot *away* from the gap. It's not a cleaner. It's a guard. Oh, *that's* why!",
+      "narration": "So those bristles? They nudge your foot *away* from the gap. <short pause> It's not a cleaner. It's a guard.",
       "headline": "STAND IN THE *MIDDLE*",
       "motion": "push",
       "sfx": "sparkle",
@@ -107,11 +107,11 @@
         }
       ],
       "image": "jobs/curious/pics/curious-sample-escalator/s6.jpg",
-      "delivery": "the reveal: build up, then a satisfied smile on the last words"
+      "delivery": "reveal"
     },
     {
       "visual": "illustration of two young Indian friends laughing at a phone screen in a bright shopping mall, an escalator blurred behind them",
-      "narration": "You'll never look at that brush the same way. Send this to the friend who still polishes his shoes on it.",
+      "narration": "Next time you step on one, you'll know. Send this to the friend who still polishes his shoes on it.",
       "headline": "COMMENT *NEXT*",
       "motion": "pull",
       "sfx": "pop",
@@ -121,7 +121,7 @@
         "word": "NEXT",
         "friend": "Rahul"
       },
-      "delivery": "light, friendly, grinning"
+      "delivery": "light"
     }
   ],
   "youtube": {

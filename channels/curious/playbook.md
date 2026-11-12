@@ -103,9 +103,46 @@ facts. Every script must pass these:
 - **Rhythm:** mix very short lines with longer ones; a pause ("...") right before the reveal.
 - **Land it:** the reveal is one clean sentence, then tie back to the opening image
   ("Next time you see that brush, you'll know.").
-- Give every scene a `delivery` note for the voice: how a person would say that line
-  ("leaning in, slower", "playful, self-mocking", "satisfied smile on the reveal").
+- Give every scene a `delivery` word for the voice (see "The narrator's voice" below).
 - Read it out loud in your head: if it sounds like a documentary, rewrite it.
+
+#### The narrator's voice: idiolect, spoken dialect, articulation, pauses (2026-11-12)
+
+**Idiolect: one recognisable person, every video.** The narrator is Prashant: a curious Indian
+guy who just found out something cool and can't wait to tell you. Same habits every time:
+- Connectors he uses (pick 2–3 per video, never all): "Okay, so...", "Here's the thing.",
+  "Now watch.", "See,", "And that's it.", "Simple, right?", "Wait, it gets better."
+- He admits what he used to think ("Honestly, I thought that too.") once per video at most.
+- He closes by handing it back to the viewer's life: "Next time you see one, you'll know."
+- Never: "Did you know", "In this video", "Let's dive in", "fascinating", "phenomenon",
+  "utilise", "approximately" (say "about"), "however" (say "but").
+
+**Spoken dialect: write for the ear, not the eye.**
+- Contractions always (it's, don't, you'll). Fragments are fine ("A hole. In a window.").
+- Max ~14 words per sentence; one idea per sentence. Start sentences with "And", "So", "But".
+- Say numbers the way people say them: "thirty-five thousand feet", "about a quarter",
+  never "35,000 ft" or "25%". Units in full words.
+- Globally clear English: no slang that needs a translation, no American-only idioms.
+
+**Articulation: easy to say, easy to hear.**
+- Avoid tongue-twisters and pile-ups of s/sh/th sounds ("six thick sheets slide") and long
+  words back to back. Read it aloud in your head; if you'd stumble, rewrite.
+- Mark 1–2 stressed words per scene with `*stars*`: the voice says them in CAPS-style emphasis
+  and the captions show them bigger. Stress the word that carries the surprise, not "very".
+
+**Pauses: placed on purpose.** The voice obeys punctuation and two inline tags:
+- `,` short breath · `—` micro-pause mid-thought · `...` a trailing beat (max 1 per scene).
+- `<short pause>` right before a reveal or a punchline (about one per video, two max).
+- `<long pause>` at most once per video, for the single biggest "wait for it" moment.
+- `<breath>` before a long sentence, `<chuckles>` once if something is genuinely funny.
+- Tags are performed, never shown in captions. Only these work (the render refuses others):
+  short pause, long pause, breath, exhales, chuckles, laughs, sigh, gasp, phew, tsk.
+- Between scenes the factory adds the gap itself: 0.3 s normally, 0.45 s after a question,
+  0.5 s after a trailing "...". A scene can set `"pause_after": 0.6` for a bigger beat.
+
+**Delivery per scene** is ONE word from this list (Google: long or line-specific style text
+makes the voice drift, and quoted script words in a note can get read aloud):
+`warm` · `curious` · `lean-in` · `build` · `reveal` · `light` · `serious`.
 
 #### What the reference actually does (studied frame by frame, 2026-11-12)
 The clouds Short (2 min, StarTalk podcast clip) works like this:

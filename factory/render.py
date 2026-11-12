@@ -27,10 +27,31 @@ def check_job(job: dict) -> None:
     if not 40 <= words <= 160:
         raise ValueError(f"Spoken text is {words} words; playbook says 85–120 (drama 60–110)")
     check_search_text(job)
-    if job.get("hook_style") == "ever-wondered":  # Curious house hook since 2026-11-12
-        first = tts.scene_lines(job["scenes"][0])[0]["text"].replace("*", "").strip().lower()
-        if not first.startswith("ever wondered"):
-            raise ValueError(f'hook_style "ever-wondered": line 1 must start with "Ever wondered why...": {first[:60]!r}')
+    if job.get("hook_style") in ("ever-wondered", "curiosity"):  # Curious house hook since 2026-11-12
+        first = tts.scene_lines(job["scenes"][0])[0]["text"].replace("*", "").strip()
+        if "?" not in first:
+            raise ValueError(f"Line 1 must open a real question the video answers (the 'Ever wondered why...?' idea): {first[:60]!r}")
+        opener = " ".join(re.findall(r"[a-z']+", first.lower())[:3])
+        for prev in _recent_openers(job):
+            if prev == opener:
+                raise ValueError(f'Line 1 starts like one of the last 3 videos ("{opener} ..."): vary the opening')
+
+
+def _recent_openers(job: dict, n: int = 3) -> list[str]:
+    """First 3 words of line 1 of the latest n other Curious jobs, so openings don't repeat."""
+    out = []
+    files = sorted((ROOT / "jobs" / "curious").glob("curious-20*.json"), reverse=True)
+    base = re.sub(r"-(en|hi)$", "", job.get("id", ""))
+    for f in files:
+        if f.stem == base or len(out) >= n:
+            continue
+        try:
+            j = _pick(json.loads(f.read_text()), "en", {"en", "hi"})
+            line = tts.scene_lines(j["scenes"][0])[0]["text"].replace("*", "")
+        except Exception:
+            continue
+        out.append(" ".join(re.findall(r"[a-z']+", line.lower())[:3]))
+    return out
 
 
 def _has(text: str, phrase: str) -> bool:

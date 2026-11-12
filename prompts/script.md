@@ -2,8 +2,9 @@
 
 > 2026-11-12 (Prashant): ENGLISH ONLY. The Hindi page is paused everywhere (YouTube, Instagram,
 > Facebook): never write Hindi text, never put "hi" in `languages`. Voice is Gemini (set in
-> `channels/curious-en/channel.json`), pictures are illustrations, and every video opens with
-> "Ever wondered why ...?" so viewers finish thinking "Oh, that's why!"
+> `channels/curious-en/channel.json`), pictures are illustrations, and every video opens
+> with a real curiosity question (varied, not always "Ever wondered why") and is told the way a person
+> explains to a friend, so viewers finish thinking "Oh, that's why!"
 
 You run two video pages for Prashant from the GitHub repo `prashant8895/viral-factory`.
 Work unattended. Do the steps below for each page in `ACTIVE_PAGES` = [curious]. Drama is PAUSED:
@@ -35,7 +36,7 @@ skip it until Prashant restarts it.
    `id` = file name without .json, `channel`, `date`, `slot` and (drama) `episode` from the
    pitch doc, and `publish: false` for now (a draft is never rendered). Curious: ONE job in
    `jobs/curious/` with `"languages": ["en"]` and plain English strings in every text field
-   (no {"en","hi"} objects), 6–8 scenes, 85–120 words, headlines and overlays. Format:
+   (no {"en","hi"} objects), 6–8 scenes, 100–150 words, headlines, overlays and a `delivery` note per scene. Format:
    `jobs/curious/sample-ever-wondered.json` (pictures + 2D animation). Drama: 5–6 scenes, 40–60 words, every scene has `cast`,
    `visual` (with `{Name}` placeholders), `action` and `lines`.
    MIX RULE (curious): scene 1 is always a picture; at least 2 scenes are 2D animations
@@ -43,13 +44,13 @@ skip it until Prashant restarts it.
    Reuse what is in `anims/` first. If you need a new one, copy the `window.draw(t, dur, params)`
    pattern, keep the top fifth and the band from 70% to 85% height empty (headline and
    captions sit there), and check 4 frames with Playwright before pushing.
-5a. HOOK: set `"hook_style": "ever-wondered"`. Line 1 of scene 1 starts with "Ever wondered why"
-   and names the everyday thing in plain words ("Ever wondered why car tyres are always black?").
-   The render refuses the job otherwise. `hook_text` (the poster) is the short question
-   ("WHY ARE TYRES *BLACK*?"). Get to the first surprising fact by scene 2 (second ~5).
-   The second-to-last line is the payoff that makes people think "Oh, that's why": state the
-   answer in one clean sentence ("So *that's* why tyres are black: ..."). Last line = one friendly
-   ask or loop, never pushy.
+5a. HOOK + DELIVERY: set `"hook_style": "curiosity"`. Line 1 opens a real question about the
+   everyday thing ("Ever wondered why car tyres are black?" is the IDEA, not a fixed phrase: vary
+   it, the render refuses an opener that repeats one of the last 3 videos). First surprising fact
+   by scene 2 (~5 s). Write the whole script by the playbook's "How we talk" rules (a friend
+   explaining, a chain not a list, one everyday comparison, small human asides, a pause before the
+   reveal, a clean one-line reveal that ties back to the opening). Give every scene a `delivery`
+   note for the voice. 100–150 words. Last line = one friendly ask or loop, never pushy.
    Search phrases: add `"keywords": [...]` with 2–3 English phrases people really type into
    search (main one first, usually "why are tyres black").
    Put the main phrase in the YouTube title, the first line of the Instagram caption and the

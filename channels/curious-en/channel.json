@@ -15,7 +15,7 @@
     "instagram": "@ohthatswhy.english"
   },
   "styles": {
-    "narrator": "Clear, neutral international English that anyone can follow, light accent. Warm, curious storyteller sharing a cool fact with a friend: upbeat but not shouty, natural pace, crisp words, small pause before the reveal."
+    "narrator": "A real person explaining something they love to a friend, not a narrator reading a script. Warm, curious, a little playful; natural conversational rhythm with small pauses before the surprising bit, a smile in the voice on the reveal. Clear words anyone can follow, never shouty or salesy."
   },
   "voice_note": "Stock Gemini voice in 'voices'. 'voice_trial' (Prashant's cloned voice) overrides it while running/kept.",
   "voice_trial": {

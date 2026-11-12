@@ -18,7 +18,7 @@
   "scenes": [
     {
       "visual": "close-up illustration of the black nylon brush strip running along the bottom of a shopping mall escalator's steel side panel, one white sneaker standing on the step beside it, low angle, sharp focus on the brush",
-      "narration": "Ever wondered why every escalator has this *brush* along the side?",
+      "narration": "You know that brush along the side of every escalator? Ever wondered what it's actually *for*?",
       "motion": "push",
       "sfx": "boom",
       "overlays": [
@@ -30,11 +30,12 @@
           "on": "brush"
         }
       ],
-      "image": "jobs/curious/pics/curious-sample-escalator/s1.jpg"
+      "image": "jobs/curious/pics/curious-sample-escalator/s1.jpg",
+      "delivery": "curious, like pointing at something you both walk past daily"
     },
     {
       "visual": "illustration of a young Indian man on a mall escalator lifting one foot to rub his shoe against the black brush strip on the escalator's side panel, side view, full body, natural pose",
-      "narration": "Most people rub their shoes on it, like it's a free shoe polish.",
+      "narration": "Most of us think it's a shoe cleaner. Honestly, I did too. Free *polish* on the way up!",
       "headline": "FREE SHOE *POLISH*?",
       "motion": "drift_right",
       "overlays": [
@@ -45,20 +46,22 @@
           "on": "polish"
         }
       ],
-      "image": "jobs/curious/pics/curious-sample-escalator/s2.jpg"
+      "image": "jobs/curious/pics/curious-sample-escalator/s2.jpg",
+      "delivery": "playful, a little self-mocking"
     },
     {
       "visual": "macro illustration looking straight down at the edge of a moving escalator step: the yellow step edge, a thin dark gap, then the black brush strip on the silver side panel",
-      "narration": "Its real name is a *skirt deflector*. It guards a tiny gap between the moving steps and the side wall.",
+      "narration": "But look closer. There's a tiny *gap* between the moving steps and the side wall... and it's moving.",
       "headline": "*SKIRT DEFLECTOR*",
       "motion": "push",
       "sfx": "ding",
       "overlays": [],
-      "anim": "anims/escalator-gap.html"
+      "anim": "anims/escalator-gap.html",
+      "delivery": "slower, leaning in, small pause before 'and it's moving'"
     },
     {
       "visual": "close-up illustration of an untied shoelace trailing on an escalator step right at the side edge, next to the black brush strip, tense dramatic light",
-      "narration": "That gap can grab a shoelace, a dupatta, or a small finger, and pull it in.",
+      "narration": "A loose lace, the end of a dupatta, even a kid's little finger can get pulled into it.",
       "headline": "THE GAP *PULLS*",
       "motion": "push",
       "sfx": "thud",
@@ -71,11 +74,12 @@
           "on": "grab"
         }
       ],
-      "image": "jobs/curious/pics/curious-sample-escalator/s4.jpg"
+      "image": "jobs/curious/pics/curious-sample-escalator/s4.jpg",
+      "delivery": "serious but calm, not scary"
     },
     {
       "visual": "illustration of a child's small pink plastic clog standing on a metal escalator step, a Tokyo train station softly blurred behind",
-      "narration": "In Japan, shoes got stuck in escalators 65 times in just six months. About half were soft plastic shoes, often on small kids.",
+      "narration": "In Japan, shoes got stuck in escalators *65* times in just six months. Mostly soft plastic shoes, on small kids.",
       "headline": "JAPAN, *6 MONTHS*",
       "motion": "pull",
       "sfx": "riser",
@@ -85,11 +89,12 @@
         "total": 65,
         "highlight": 33,
         "months": 6
-      }
+      },
+      "delivery": "matter-of-fact, a beat of surprise on the number"
     },
     {
       "visual": "illustration of a smiling Indian family of three standing in the middle of the escalator steps, holding the handrail, bright modern mall",
-      "narration": "The bristles nudge your foot away from that gap. So *that's* why the brush is there: not for shoes, for safety.",
+      "narration": "So those bristles? They nudge your foot *away* from the gap. It's not a cleaner. It's a guard. Oh, *that's* why!",
       "headline": "STAND IN THE *MIDDLE*",
       "motion": "push",
       "sfx": "sparkle",
@@ -101,11 +106,12 @@
           "on": "middle"
         }
       ],
-      "image": "jobs/curious/pics/curious-sample-escalator/s6.jpg"
+      "image": "jobs/curious/pics/curious-sample-escalator/s6.jpg",
+      "delivery": "the reveal: build up, then a satisfied smile on the last words"
     },
     {
       "visual": "illustration of two young Indian friends laughing at a phone screen in a bright shopping mall, an escalator blurred behind them",
-      "narration": "Know someone who still polishes their shoes here? Send them this. And comment NEXT for one more everyday thing we all get wrong.",
+      "narration": "You'll never look at that brush the same way. Send this to the friend who still polishes his shoes on it.",
       "headline": "COMMENT *NEXT*",
       "motion": "pull",
       "sfx": "pop",
@@ -114,7 +120,8 @@
       "anim_params": {
         "word": "NEXT",
         "friend": "Rahul"
-      }
+      },
+      "delivery": "light, friendly, grinning"
     }
   ],
   "youtube": {
@@ -133,11 +140,11 @@
   "facebook": {
     "description": "Ever wondered why escalators have brushes? The escalator brush is a skirt deflector, there for safety. AI visuals."
   },
-  "hook_style": "ever-wondered",
+  "hook_style": "curiosity",
   "keywords": [
     "why escalators have brushes",
     "escalator brush",
     "skirt deflector"
   ],
-  "_note": "FORMAT SAMPLE (English only, 'Ever wondered why' hook, illustration pictures). Never rendered: publish false."
+  "_note": "FORMAT SAMPLE: English only, human 'explaining to a friend' delivery (see playbook 'How we talk'), line 1 opens a real question, illustration pictures, per-scene 'delivery' notes for the voice. Never rendered: publish false."
 }

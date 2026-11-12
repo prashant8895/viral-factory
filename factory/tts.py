@@ -261,7 +261,10 @@ def scene_lines(scene: dict) -> list[dict]:
     """A scene is either one narration or a list of {speaker, text} lines (drama)."""
     if scene.get("lines"):
         return scene["lines"]
-    return [{"speaker": "narrator", "text": scene["narration"]}]
+    line = {"speaker": "narrator", "text": scene["narration"]}
+    if scene.get("delivery"):  # how to say this line ("leaning in, slower"), added to the voice style
+        line["delivery"] = scene["delivery"]
+    return [line]
 
 
 def synthesize(scene: dict, out: Path, voices: dict, speed: float = 1.05, engine: str = "kokoro",
@@ -274,6 +277,8 @@ def synthesize(scene: dict, out: Path, voices: dict, speed: float = 1.05, engine
         text = _spoken(line["text"])
         if engine == "gemini":
             style = line.get("style") or (styles or {}).get(speaker, "")
+            if line.get("delivery"):
+                style = f"{style} For this line: {line['delivery']}."
             fallback = voices.get("_fallback")
             if voice in _BAD_VOICES and fallback:
                 voice = fallback

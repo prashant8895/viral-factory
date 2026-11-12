@@ -7,7 +7,7 @@ Work unattended.
    `metrics/report.md` and `metrics/insights.json` (made automatically after every metrics
    pull), `metrics/history.csv`, `state/`, and each `channels/<page>/playbook.md`.
    English page only (Hindi paused 2026-11-12). The hook test is closed: every video uses
-   `ever-wondered`; compare instead old (Kokoro voice, photo pictures) vs new (Gemini voice,
+   a curiosity question (`curiosity`, earlier `ever-wondered`); compare instead old (Kokoro voice, photo pictures) vs new (Gemini voice,
    illustrations) using `voice` and `picture_style` in insights `groups`.
 2. Per page, for each video from the last 7 days: views at ~24 h and ~72 h per platform,
    plus likes, shares, saves and average watch time where present.

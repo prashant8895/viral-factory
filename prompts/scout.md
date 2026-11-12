@@ -30,13 +30,14 @@ Work unattended.
    - Curious: pick 3 from different buckets in the playbook (seen-but-never-noticed, myth
      busted, why does it happen, careful health, India everyday). The test: anyone, any
      education, has seen this thing and never wondered. English page only (Hindi paused
-     2026-11-12). The topic must work as "Ever wondered why <everyday thing> ...?"
+     2026-11-12). The topic must work as a curiosity question about an everyday thing with a satisfying "oh, that's why" answer.
      Drama: pick 3 directions for the next episode (continue the arc / trend tie-in /
      standalone gag), numbered with the next episode number.
    - At least 1 of the 3 pitches comes from a real search query or a viewer ask when one fits.
      Add a `search` score (1–5: how much people are actively searching this) next to the others.
-   - Every hook is "Ever wondered why ...?" (hook_style `ever-wondered`, see playbook; the old
-     myth/question A/B test is closed). Put it in `hook`; there is no `hook_hi` any more.
+   - Every hook opens a real curiosity question about the everyday thing (hook_style `curiosity`;
+     "Ever wondered why...?" is the idea, vary the words). Put it in `hook`; no `hook_hi` any more.
+     In `angle`, note the everyday comparison you'd use to explain it (playbook "How we talk").
    - For each: bucket, hook (first spoken line or the cold-open moment, ~12 words max),
      angle (one line: the beats), why (one line: what's trending and where).
 4. Write each page's pitches to the Morning Slate database (ArtifactData, url

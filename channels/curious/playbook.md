@@ -18,7 +18,7 @@ it, whatever their education. The test: "I've seen this a hundred times and neve
 knew!" Example: the brushes on escalators aren't shoe cleaners; they keep feet and
 clothes away from a dangerous gap.
 
-**The name is the promise:** every video opens with "Ever wondered why ...?" and pays off so
+**The name is the promise:** every video opens with a curiosity question about an everyday thing (the "Ever wondered why...?" idea, in varied words) and pays off so
 the viewer thinks "Oh, that's why!"
 
 **The look:**
@@ -75,17 +75,39 @@ Every idea gets a score out of 25. Only ideas scoring 17+ get pitched.
 One job file, English only: `"languages": ["en"]`, plain strings in every field.
 Copy the format from `jobs/curious/sample-ever-wondered.json`.
 
-- **Line 1 always starts "Ever wondered why ..."** and names the everyday thing in plain
-  words: "Ever wondered why car tyres are always black?" (`"hook_style": "ever-wondered"`;
-  the render refuses a job whose line 1 doesn't start that way).
+- **Line 1 opens a real question about something the viewer has seen a hundred times**, so the
+  video ends with them thinking "Oh, that's why!". "Ever wondered why car tyres are black?" is the
+  idea, not a fixed phrase: vary it ("You know that brush on every escalator? What's it for?",
+  "Why is every car tyre black? Rubber isn't.", "Here's something you've seen a thousand times...").
+  `"hook_style": "curiosity"`. The render refuses a line 1 with no question, or one that starts
+  with the same 3 words as any of the last 3 videos.
 - Scene 2 gives the first surprising fact within ~5 seconds. No slow setup.
-- The second-to-last line is the "Oh, that's why" payoff: the answer in one clean sentence
-  ("So *that's* why tyres are black: carbon makes them last 5 times longer.").
+- Near the end, the reveal lands in one clean sentence ("So those bristles? They're a guard, not a
+  cleaner."). Say "that's why" only when it sounds natural, not every time.
 - `hook_text`: 3–6 words, a short question with one `*key word*` (shown red): "WHY ARE TYRES *BLACK*?"
-- 6–8 scenes, one idea each, 85–120 words. Last line = one friendly ask or a loop.
-- Plain words a 12-year-old anywhere would get; short sentences (the voice reads them better).
+- 6–8 scenes, one idea each, 100–150 words (45–60 s). Last line = one friendly ask or a loop.
+
+### How we talk (the delivery) — Prashant's reference: Neil deGrasse Tyson's clouds Short
+
+The model is a real person explaining something they love to a friend, not a narrator reading
+facts. Every script must pass these:
+- **Start from what the viewer already knows or has felt** ("You've seen your breath on a cold
+  morning, right?"), then lead them one step at a time to the answer.
+- **A chain, not a list.** Each line follows from the last: because... so... which means...
+  If a line could be moved anywhere in the script, it isn't part of the chain: rewrite it.
+- **One everyday comparison** that makes the idea click ("a cloud is basically fog that didn't
+  touch the ground", "like a sieve that lets the light out but not the waves").
+- **Talk like a person:** contractions, "you", small asides and reactions ("Honestly, I did too.",
+  "Now here's the cool part.", "Wild, right?", "That's it. That's the whole trick."). At most one
+  "I" moment per video. Never textbook words ("is composed of", "utilised", "phenomenon").
+- **Rhythm:** mix very short lines with longer ones; a pause ("...") right before the reveal.
+- **Land it:** the reveal is one clean sentence, then tie back to the opening image
+  ("Next time you see that brush, you'll know.").
+- Give every scene a `delivery` note for the voice: how a person would say that line
+  ("leaning in, slower", "playful, self-mocking", "satisfied smile on the reveal").
+- Read it out loud in your head: if it sounds like a documentary, rewrite it.
 - Every scene after the first has a `headline` (2–4 words, one `*key word*`).
-- Every picture scene has a `visual` ("illustration of ...", one clear subject in the lower two-thirds, simple background, no text)
+- Every picture scene has a `visual` ("illustration of ...", one clear subject in the lower two-thirds, simple background, no text). The look is a friendly explainer illustration (flat soft colours, clean outlines, gentle grain), never glossy photo-real AI.
   and ideally one overlay timed to a spoken word (`"on"`): arrow at the thing, ring around
   the detail, cross on the myth, tick on the right way, counter on any number.
 - `motion`: push (default), pull (reveal), drift_left / drift_right.
@@ -111,7 +133,7 @@ Copy the format from `jobs/curious/sample-ever-wondered.json`.
   "Send this to the friend who does this", "Part 2 tomorrow: the other escalator myth".
 - Never "like and subscribe", never begging, never fake urgency.
 
-### Hook A/B test (CLOSED 2026-11-12: every video now uses "Ever wondered why")
+### Hook A/B test (CLOSED 2026-11-12: every video opens with a varied curiosity question, hook_style `curiosity`)
 
 Two hook styles alternate by date, and the job records `"hook_style"`:
 - **Even dates → `myth`**: break a belief head-on. "It's NOT a shoe cleaner." / "Shoe cleaner NAHI hai."
@@ -137,7 +159,7 @@ of 7 (keep the other 2 as a check).
 | Frequency | 1 video a day, same video on YouTube Shorts, Instagram Reels, Facebook Reels |
 | Time | 7:00 PM IST for weeks 1–2. Then test 6:30 AM IST (US evening) on alternate days |
 | Search phrases | Every job has `keywords`: 2–3 plain English phrases people actually type into search ("microwave door mesh", "why microwave door has holes"). Main one first. Instagram and YouTube now rank on these words, not on hashtags |
-| Title (YouTube) | The "Ever wondered why ...?" hook, under 60 characters, ends with #shorts, and contains the main search phrase |
+| Title (YouTube) | The curiosity question, under 60 characters, ends with #shorts, and contains the main search phrase |
 | Caption (IG/FB) | Line 1 = the hook as a question that contains the main search phrase in plain words. Line 2 = the short answer in one sentence, using the other search phrases naturally. Line 3 = a comment bait ("Would you last 3 days?"). Then sources, "AI visuals", and 3–5 hashtags. No "comment X to get Y" DM bait |
 | On-screen text | The hook headline names the topic in plain words (MICROWAVE MESH, not just THIS THING) so Instagram can read what the video is about |
 | Hashtags | 3–5, always relevant: `#ohthatswhy` + 1–2 topic tags (#escalator) + 1–2 from `data/trends.json → hashtags` **only if they fit this video**. Never generic spam (#viral #fyp #trending), never off-topic trending tags |
@@ -172,3 +194,4 @@ saw, what we change.
 - 2026-11-10: Winter smog went out with ~3 s of voice missing in every scene after the first (both languages). Cause: GitHub's `ubuntu-latest` switched from 24.04 to 26.04 that day, and the new ffmpeg left holes in the finished audio (only 20.6 of 41.4 s of sound). Change: render is pinned to ubuntu-24.04, the voice is joined in Python, and every video now has an audio check after assembly (full-length sound, no holes, every word audible); a video that fails it is never released. Re-posted as `winter-smog-v2`; YouTube and Facebook copies of the broken one removed by the new "Take down a video" workflow. Instagram won't let the API delete posts, so the two broken Reels had to be removed by hand.
 - 2026-11-12: Prashant's reset after 7 English videos. Hindi paused (858 views in 7 videos vs 8,324 English; Hindi YouTube near 0 every time). English moves to: Gemini voice with a clear neutral accent (Kokoro's accent was too strong for a wide audience), illustrated pictures instead of photo-real ones, and an "Ever wondered why ...?" opening on every video. The numbers review (`metrics/report.md`, `metrics/insights.json`) now runs after every metrics pull and feeds the morning ideas. Baseline to beat: median watch 24% of the video, seen-but-missed bucket 1,890 median views.
 - 2026-11-12: Voice trial agreed with Prashant: the next 5 videos use his cloned voice (`voice_trial` in `channels/curious-en/channel.json`). Once all 5 are 72 h old, the numbers review compares them with every other English video (views at 72 h, watch %, Instagram skip rate). Keep his voice if at least 2 of the 3 are within 10% of the others; otherwise go back to the stock Gemini voice. The script run applies the verdict and tells Prashant.
+- 2026-11-12: Prashant: "Ever wondered why car tyres are black?" is the idea, not a fixed opener: vary the first line, keep the curiosity question. Delivery reference = Neil deGrasse Tyson's clouds Short (youtube.com/shorts/BJfVpwvL8qc): a very human, friend-to-friend explanation. Added "How we talk" rules, per-scene `delivery` notes for the voice, and 100–150 words (45–60 s).

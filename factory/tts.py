@@ -254,6 +254,9 @@ def _write(out: Path, audio, sr: int) -> None:
         f.writeframes(pcm.tobytes())
 
 
+_BAD_VOICES: set[str] = set()
+
+
 def scene_lines(scene: dict) -> list[dict]:
     """A scene is either one narration or a list of {speaker, text} lines (drama)."""
     if scene.get("lines"):
@@ -271,7 +274,20 @@ def synthesize(scene: dict, out: Path, voices: dict, speed: float = 1.05, engine
         text = _spoken(line["text"])
         if engine == "gemini":
             style = line.get("style") or (styles or {}).get(speaker, "")
-            audio, sr, timed = _speak_gemini(text, voice, style)
+            fallback = voices.get("_fallback")
+            if voice in _BAD_VOICES and fallback:
+                voice = fallback
+            try:
+                audio, sr, timed = _speak_gemini(text, voice, style)
+            except Exception as e:
+                # A cloned voice id Gemini doesn't know (wrong project, expired, typo) must
+                # never stop the video: say it once and use the stock narrator instead.
+                if not fallback or voice == fallback or "speaker voice" not in str(e).lower():
+                    raise
+                print(f"[voice] cloned voice not usable, falling back to {fallback}: {str(e)[:160]}", flush=True)
+                _BAD_VOICES.add(voice)
+                voice = fallback
+                audio, sr, timed = _speak_gemini(text, voice, style)
         else:
             audio, sr, timed = _speak(text, voice, float(line.get("speed", speed)))
         raw = _clean_words(line["text"])

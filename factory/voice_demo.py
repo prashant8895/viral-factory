@@ -28,9 +28,29 @@ LINES = [
 ]
 
 
+def _diagnose(voice: str) -> None:
+    """Explain an unknown cloned voice id without printing it (public logs)."""
+    import requests
+    print(f"voice id: {len(voice)} chars, starts with 'voice_': {voice.startswith('voice_')}, "
+          f"has spaces/quotes: {any(c in voice for c in ' \'\"')}")
+    r = requests.get("https://generativelanguage.googleapis.com/v1beta/voices", timeout=30,
+                     headers={"x-goog-api-key": os.environ["GEMINI_API_KEY"]})
+    if not r.ok:
+        print("could not list voices:", r.status_code, r.text[:200])
+        return
+    js = r.json()
+    items = js.get("voices") or js.get("data") or []
+    ids = [(v.get("id") or v.get("name", "").split("/")[-1]) for v in items]
+    print(f"voices on this Gemini key's project: {len(ids)}; the secret's id is among them: {voice in ids}")
+    for v in items:
+        print("  -", v.get("type"), v.get("display_name"), v.get("state") or v.get("status") or "")
+
+
 def main(out_dir: Path = ROOT / "voice", label: str | None = None) -> Path:
     ch = json.loads((ROOT / "channels" / "curious-en" / "channel.json").read_text())
-    voice = os.environ.get("VOICE") or ch["voices"]["narrator"]
+    voice = (os.environ.get("VOICE") or ch["voices"]["narrator"]).strip().removeprefix("voices/")
+    if os.environ.get("LABEL") == "clone":
+        _diagnose(voice)
     style = ch["styles"]["narrator"]
     parts = []
     for text in LINES:

@@ -194,7 +194,8 @@ def with_retries(fn, what: str, waits=(30, 120, 300)):
             raise  # the spending cap is never retried
         except Exception as e:  # noqa: BLE001 - every failure gets the same retry treatment
             last = f"{type(e).__name__}: {e}"[:300]
-            if "Out of Pollen" in last or "Out of xAI credit" in last or "HTTP 402" in last:
+            if ("Out of Pollen" in last or "Out of xAI credit" in last or "HTTP 402" in last
+                    or "speaker voice" in last.lower()):  # unknown voice id: retrying won't help
                 break  # retrying can't fix an empty balance; stop and alert
     raise StepFailed(f"{what} failed after {len(waits) + 1} tries: {last}")
 

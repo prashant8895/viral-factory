@@ -135,8 +135,9 @@ def render_one(job: dict, img_dir: Path | None = None) -> Path:
     engine = ch.get("tts", "kokoro")
     if job.get("voice"):
         voices["narrator"] = job["voice"]
-    elif engine == "gemini" and channels.secret(ch, "VOICE_ID"):
-        voices["narrator"] = channels.secret(ch, "VOICE_ID")  # cloned voice_... id (GitHub secret)
+    elif engine == "gemini" and (channels.secret(ch, "VOICE_ID") or "").strip():
+        voices["_fallback"] = voices["narrator"]  # stock voice if the clone ever fails
+        voices["narrator"] = channels.secret(ch, "VOICE_ID").strip().removeprefix("voices/")  # cloned voice
     speed = float(job.get("speed", ch.get("speed", 1.0)))
     n_anim = len(job["scenes"]) if ch.get("animate_scenes") == "all" else int(ch.get("animate_scenes", 0))
 

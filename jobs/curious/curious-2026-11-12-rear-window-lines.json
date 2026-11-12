@@ -4,7 +4,7 @@
   "languages": [
     "en"
   ],
-  "publish": false,
+  "publish": true,
   "date": "2026-11-12",
   "slot": "21:30",
   "bucket": "seen-but-missed",
@@ -29,7 +29,16 @@
       "delivery": "curious",
       "motion": "push",
       "sfx": "boom",
-      "overlays": []
+      "overlays": [
+        {
+          "type": "ring",
+          "x": 0.5,
+          "y": 0.62,
+          "r": 0.09,
+          "on": "lines"
+        }
+      ],
+      "image": "jobs/curious/pics/curious-2026-11-12-rear-window-lines/s1.jpg"
     },
     {
       "visual": "illustration of a young Indian man standing behind a parked car, scratching his head with a puzzled smile, looking at the thin lines on the car's rear window, side view",
@@ -38,7 +47,8 @@
       "headline": "JUST *DESIGN*?",
       "motion": "drift_right",
       "sfx": "thud",
-      "overlays": []
+      "overlays": [],
+      "image": "jobs/curious/pics/curious-2026-11-12-rear-window-lines/s2.jpg"
     },
     {
       "visual": "2D animation: the rear glass with thin lines; a dashboard button is pressed and current runs along every line",
@@ -61,7 +71,8 @@
       "headline": "LIKE A *TOASTER*",
       "motion": "pull",
       "sfx": "ding",
-      "overlays": []
+      "overlays": [],
+      "image": "jobs/curious/pics/curious-2026-11-12-rear-window-lines/s4.jpg"
     },
     {
       "visual": "2D animation: the fogged rear glass clears outward from each warm line while a counter drops from 100% to 0%",
@@ -84,7 +95,8 @@
       "headline": "A HEATER IN THE *GLASS*",
       "motion": "push",
       "sfx": "pop",
-      "overlays": []
+      "overlays": [],
+      "image": "jobs/curious/pics/curious-2026-11-12-rear-window-lines/s6.jpg"
     },
     {
       "visual": "2D animation: a phone shares this video to a friend who replies",

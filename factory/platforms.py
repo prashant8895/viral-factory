@@ -201,33 +201,31 @@ def facebook_stats(p: str, video_id: str) -> dict:
     reason is kept in "error" so the numbers review can say exactly what to fix."""
     base, tok = f"https://graph.facebook.com/{GRAPH}", _need(p, "META_PAGE_TOKEN")
     out = {}
-    r = requests.get(f"{base}/{video_id}/video_insights", timeout=30, params={
-        "metric": "blue_reels_play_count,post_impressions_unique,post_video_avg_time_watched,"
-                  "post_video_social_actions,post_video_likes_by_reaction_type",
-        "access_token": tok}).json()
-    if r.get("error"):
-        out["error"] = f"facebook insights: {r['error'].get('message', '')}"[:200]
-    for item in r.get("data", []):
-        try:
-            val = item["values"][0]["value"]
-        except (KeyError, IndexError):
-            continue
-        name = item.get("name")
-        if name == "post_video_likes_by_reaction_type" and isinstance(val, dict):
-            out["likes"] = sum(val.values())
-        elif name == "post_video_social_actions" and isinstance(val, dict):
-            out["shares"] = val.get("share", 0)
-        elif name == "post_impressions_unique":
-            out["reach"] = val
-        else:
-            out[name] = val
+    # Ask one metric at a time: Meta rejects the whole call if any one name is unknown.
+    for m in ("blue_reels_play_count", "post_impressions_unique", "post_video_avg_time_watched",
+              "post_video_social_actions", "post_video_likes_by_reaction_type"):
+        r = requests.get(f"{base}/{video_id}/video_insights", timeout=30,
+                         params={"metric": m, "access_token": tok}).json()
+        for item in r.get("data", []):
+            try:
+                val = item["values"][0]["value"]
+            except (KeyError, IndexError):
+                continue
+            if m == "post_video_likes_by_reaction_type" and isinstance(val, dict):
+                out["likes"] = sum(val.values())
+            elif m == "post_video_social_actions" and isinstance(val, dict):
+                out["shares"] = val.get("share", 0)
+            elif m == "post_impressions_unique":
+                out["reach"] = val
+            else:
+                out[m] = val
     if "blue_reels_play_count" in out:
         out["views"] = out["blue_reels_play_count"]
     if not out.get("views"):  # fall back to the public counters on the video itself
         b = requests.get(f"{base}/{video_id}", timeout=30, params={
             "fields": "views,likes.summary(true),comments.summary(true)", "access_token": tok}).json()
         if b.get("error"):
-            out.setdefault("error", f"facebook video: {b['error'].get('message', '')}"[:200])
+            out["error"] = f"facebook video: {b['error'].get('message', '')}"[:200]
         else:
             if b.get("views") is not None:
                 out["views"] = b["views"]

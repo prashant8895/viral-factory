@@ -169,7 +169,8 @@ def main() -> None:
         flags.append(f"Facebook gives no view numbers for {len(fb_empty)} videos" + (f" (error: {err[:120]})" if err else
                      " (no error returned: the page token probably lacks read_insights)"))
     if not any(v.get("yt_pct_seen") for v in live):
-        flags.append("YouTube watch % is missing: re-run tools/get_youtube_token.py once (now asks for "
+        flags.append("YouTube watch % is missing: in Google Cloud (the project of YT_CLIENT_ID) enable "
+                     "'YouTube Analytics API', then re-run tools/get_youtube_token.py once (it now asks for "
                      "yt-analytics.readonly) and update CURIOUS_EN_YT_REFRESH_TOKEN.")
     dead = [v for v in live if v["hours"] >= 12 and v["views"] < 50]
     if dead:

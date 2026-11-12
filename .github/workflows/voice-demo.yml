@@ -1,0 +1,43 @@
+name: Voice demo
+
+# Speaks a short demo script with the page's Gemini narrator voice (from channel.json, or a
+# prebuilt voice name given here) and saves it as voice/demo_<voice>.mp3. No recordings of
+# anyone are used or stored here: cloning a real voice is done privately (tools/clone_voice.py).
+on:
+  workflow_dispatch:
+    inputs:
+      voice:
+        description: "Prebuilt Gemini voice name (blank = the page's narrator)"
+        required: false
+        default: ""
+
+permissions:
+  contents: write
+
+concurrency:
+  group: repo-writes
+  cancel-in-progress: false
+
+jobs:
+  demo:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    env:
+      GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+      VOICE: ${{ github.event.inputs.voice }}
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+      - run: |
+          sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg
+          pip install requests numpy
+      - name: Speak the demo
+        run: python -m factory.voice_demo
+      - name: Save
+        run: |
+          git config user.name "video-factory"
+          git config user.email "actions@github.com"
+          git add voice
+          git diff --cached --quiet || (git commit -m "Voice demo" && git pull --rebase && git push)

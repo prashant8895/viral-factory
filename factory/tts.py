@@ -303,6 +303,27 @@ def _write(out: Path, audio, sr: int) -> None:
 _BAD_VOICES: set[str] = set()
 
 
+def speech_level(path: Path) -> float:
+    """Loudness (dB) of the voiced parts of a clip: the loudest 60% of 50 ms windows."""
+    with wave.open(str(path)) as f:
+        a = np.frombuffer(f.readframes(f.getnframes()), dtype=np.int16).astype(np.float32) / 32768
+        sr = f.getframerate()
+    win = int(0.05 * sr)
+    n = len(a) // win
+    if n < 4:
+        return -99.0
+    rms = np.sqrt((a[: n * win].reshape(n, win) ** 2).mean(axis=1))
+    top = np.sort(rms)[int(n * 0.4):]
+    return float(20 * np.log10(top.mean() + 1e-9))
+
+
+def quiet_scenes(scenes: list, drop_db: float = 6.0) -> list[int]:
+    """Scenes whose voice is much quieter than the median scene: a whisper or a murmur."""
+    lv = [speech_level(s.path) for s in scenes]
+    med = float(np.median(lv))
+    return [i for i, v in enumerate(lv) if v < med - drop_db]
+
+
 def scene_gap(scene: dict, text: str) -> float:
     """Silence after a scene, picked on purpose: a beat after a question so it lands,
     a longer one after a trailing '...', a normal breath otherwise. "pause_after" wins."""

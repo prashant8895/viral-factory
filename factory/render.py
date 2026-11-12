@@ -183,8 +183,14 @@ def render_one(job: dict, img_dir: Path | None = None) -> Path:
     scene_audio, shots = [], []
     for i, scene in enumerate(job["scenes"]):
         print(f"[scene {i + 1}/{len(job['scenes'])}] voice", flush=True)
-        sa = tts.synthesize(scene, work / f"voice_{i}.wav", voices, speed, engine, styles)
-        scene_audio.append(sa)
+        scene_audio.append(tts.synthesize(scene, work / f"voice_{i}.wav", voices, speed, engine, styles))
+    if engine == "gemini":  # a scene that came out whispered/murmured gets one fresh, full-voice take
+        for i in tts.quiet_scenes(scene_audio):
+            print(f"[scene {i + 1}] voice came out much quieter than the rest: re-recording at full voice", flush=True)
+            redo = {**job["scenes"][i], "delivery": "full clear voice at normal speaking volume, not whispering"}
+            scene_audio[i] = tts.synthesize(redo, work / f"voice_{i}.wav", voices, speed, engine, styles)
+    for i, scene in enumerate(job["scenes"]):
+        sa = scene_audio[i]
 
         if scene.get("anim"):  # 2D animation drawn in code (free)
             print(f"[scene {i + 1}] 2D animation", flush=True)

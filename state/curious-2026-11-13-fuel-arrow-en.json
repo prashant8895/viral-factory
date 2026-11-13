@@ -45,5 +45,29 @@
   },
   "shoutouts": null,
   "picture_style": "illustration",
-  "voice": "clone"
+  "voice": "clone",
+  "platforms": {
+    "youtube": {
+      "id": "5SDWoGeTAtQ",
+      "url": "https://youtube.com/shorts/5SDWoGeTAtQ",
+      "privacy": "public",
+      "posted_at": "2026-11-13T11:07+05:30"
+    },
+    "instagram": {
+      "id": "18042798524845297",
+      "url": "https://www.instagram.com/reel/Dfq5tNARDjm/",
+      "posted_at": "2026-11-13T11:11+05:30"
+    },
+    "instagram_story": {
+      "id": "18099802076393131",
+      "url": "https://www.instagram.com/stories/ohthatswhy.english/4029288063673955642",
+      "posted_at": "2026-11-13T11:13+05:30"
+    },
+    "facebook": {
+      "id": "1740357737711154",
+      "url": "https://www.facebook.com/reel/1740357737711154",
+      "posted_at": "2026-11-13T11:14+05:30"
+    }
+  },
+  "errors": {}
 }

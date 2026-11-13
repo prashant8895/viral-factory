@@ -1,19 +1,52 @@
 {
-  "updated": "2026-11-14T00:25+05:30",
+  "updated": "2026-11-14T00:31+05:30",
   "errors": {
-    "curious-en/youtube/curious-2026-11-06-escalator-brush-en": "403: {\n  \"error\": {\n    \"code\": 403,\n    \"message\": \"Request had insufficient authentication scopes.\",\n    \"errors\": [\n      {\n        \"message\": \"Insufficient Permission\",\n        \"domain\": \"global\",\n        \"reason\": \"insufficientPermissions\"\n      }\n    ],\n    \"status\": \"PERMISSION_DENIED\",\n    \"",
-    "curious-en/youtube/curious-2026-11-07-microwave-mesh-en": "403: {\n  \"error\": {\n    \"code\": 403,\n    \"message\": \"Request had insufficient authentication scopes.\",\n    \"errors\": [\n      {\n        \"message\": \"Insufficient Permission\",\n        \"domain\": \"global\",\n        \"reason\": \"insufficientPermissions\"\n      }\n    ],\n    \"status\": \"PERMISSION_DENIED\",\n    \"",
     "curious-hi/instagram/curious-2026-11-07-microwave-mesh-hi": "400: {\"error\":{\"message\":\"Unsupported get request. Object with ID '18393283948224566' does not exist, cannot be loaded due to missing permissions, or does not support this operation. Please read the Graph API documentation at https://developers.facebook.com/docs/graph-api\",\"code\":100,\"type\":\"GraphMe",
-    "curious-en/youtube/curious-2026-11-08-firework-colours-en": "403: {\n  \"error\": {\n    \"code\": 403,\n    \"message\": \"Request had insufficient authentication scopes.\",\n    \"errors\": [\n      {\n        \"message\": \"Insufficient Permission\",\n        \"domain\": \"global\",\n        \"reason\": \"insufficientPermissions\"\n      }\n    ],\n    \"status\": \"PERMISSION_DENIED\",\n    \"",
-    "curious-en/youtube/curious-2026-11-09-tyre-black-en": "403: {\n  \"error\": {\n    \"code\": 403,\n    \"message\": \"Request had insufficient authentication scopes.\",\n    \"errors\": [\n      {\n        \"message\": \"Insufficient Permission\",\n        \"domain\": \"global\",\n        \"reason\": \"insufficientPermissions\"\n      }\n    ],\n    \"status\": \"PERMISSION_DENIED\",\n    \"",
-    "curious-en/youtube/curious-2026-11-09-yawn-en": "403: {\n  \"error\": {\n    \"code\": 403,\n    \"message\": \"Request had insufficient authentication scopes.\",\n    \"errors\": [\n      {\n        \"message\": \"Insufficient Permission\",\n        \"domain\": \"global\",\n        \"reason\": \"insufficientPermissions\"\n      }\n    ],\n    \"status\": \"PERMISSION_DENIED\",\n    \"",
     "curious-en/instagram/curious-2026-11-10-winter-smog-en": "400: {\"error\":{\"message\":\"Unsupported get request. Object with ID '18058381928810433' does not exist, cannot be loaded due to missing permissions, or does not support this operation. Please read the Graph API documentation at https://developers.facebook.com/docs/graph-api\",\"code\":100,\"type\":\"GraphMe",
-    "curious-hi/instagram/curious-2026-11-10-winter-smog-hi": "400: {\"error\":{\"message\":\"Unsupported get request. Object with ID '18122703538968581' does not exist, cannot be loaded due to missing permissions, or does not support this operation. Please read the Graph API documentation at https://developers.facebook.com/docs/graph-api\",\"code\":100,\"type\":\"GraphMe",
-    "curious-en/youtube/curious-2026-11-10-winter-smog-v2-en": "403: {\n  \"error\": {\n    \"code\": 403,\n    \"message\": \"Request had insufficient authentication scopes.\",\n    \"errors\": [\n      {\n        \"message\": \"Insufficient Permission\",\n        \"domain\": \"global\",\n        \"reason\": \"insufficientPermissions\"\n      }\n    ],\n    \"status\": \"PERMISSION_DENIED\",\n    \"",
-    "curious-en/youtube/curious-2026-11-11-stars-twinkle-en": "403: {\n  \"error\": {\n    \"code\": 403,\n    \"message\": \"Request had insufficient authentication scopes.\",\n    \"errors\": [\n      {\n        \"message\": \"Insufficient Permission\",\n        \"domain\": \"global\",\n        \"reason\": \"insufficientPermissions\"\n      }\n    ],\n    \"status\": \"PERMISSION_DENIED\",\n    \"",
-    "curious-en/youtube/curious-2026-11-12-plane-window-hole-en": "403: {\n  \"error\": {\n    \"code\": 403,\n    \"message\": \"Request had insufficient authentication scopes.\",\n    \"errors\": [\n      {\n        \"message\": \"Insufficient Permission\",\n        \"domain\": \"global\",\n        \"reason\": \"insufficientPermissions\"\n      }\n    ],\n    \"status\": \"PERMISSION_DENIED\",\n    \"",
-    "curious-en/youtube/curious-2026-11-12-rear-window-lines-en": "403: {\n  \"error\": {\n    \"code\": 403,\n    \"message\": \"Request had insufficient authentication scopes.\",\n    \"errors\": [\n      {\n        \"message\": \"Insufficient Permission\",\n        \"domain\": \"global\",\n        \"reason\": \"insufficientPermissions\"\n      }\n    ],\n    \"status\": \"PERMISSION_DENIED\",\n    \"",
-    "curious-en/youtube/curious-2026-11-13-fuel-arrow-en": "403: {\n  \"error\": {\n    \"code\": 403,\n    \"message\": \"Request had insufficient authentication scopes.\",\n    \"errors\": [\n      {\n        \"message\": \"Insufficient Permission\",\n        \"domain\": \"global\",\n        \"reason\": \"insufficientPermissions\"\n      }\n    ],\n    \"status\": \"PERMISSION_DENIED\",\n    \""
+    "curious-hi/instagram/curious-2026-11-10-winter-smog-hi": "400: {\"error\":{\"message\":\"Unsupported get request. Object with ID '18122703538968581' does not exist, cannot be loaded due to missing permissions, or does not support this operation. Please read the Graph API documentation at https://developers.facebook.com/docs/graph-api\",\"code\":100,\"type\":\"GraphMe"
   },
-  "comments": []
+  "comments": [
+    {
+      "comment_id": "UgzgV188boEtjH8Z3VN4AaABAg",
+      "author": "@Gargiwatchesvideos",
+      "text": "B",
+      "time": "2026-11-13T11:12:34Z",
+      "likes": 0,
+      "has_our_reply": false,
+      "platform": "youtube",
+      "channel": "curious-en",
+      "video": "curious-2026-11-13-fuel-arrow-en",
+      "hook": "WHY'S THIS *ARROW* HERE?",
+      "post_id": "5SDWoGeTAtQ",
+      "replied": false
+    },
+    {
+      "comment_id": "Ugxzbx3G3csYc9GIz_V4AaABAg",
+      "author": "@d4h4l83",
+      "text": "No there is 1 microwaves not many",
+      "time": "2026-11-09T12:36:28Z",
+      "likes": 0,
+      "has_our_reply": true,
+      "platform": "youtube",
+      "channel": "curious-en",
+      "video": "curious-2026-11-07-microwave-mesh-en",
+      "hook": "WHY THIS *MESH*?",
+      "post_id": "boeMBXEsnq4",
+      "replied": true
+    },
+    {
+      "comment_id": "UgzT4hdwzA1BGBMKO3p4AaABAg",
+      "author": "@EliasVillanueva-n5i",
+      "text": "Is AI",
+      "time": "2026-11-08T03:06:07Z",
+      "likes": 0,
+      "has_our_reply": true,
+      "platform": "youtube",
+      "channel": "curious-en",
+      "video": "curious-2026-11-06-escalator-brush-en",
+      "hook": "IT'S *NOT* A SHOE CLEANER!",
+      "post_id": "Nq0c6O4KE-o",
+      "replied": true
+    }
+  ]
 }

@@ -117,7 +117,7 @@
       "visual": "2D animation: the quiz about tomorrow's topic",
       "quiz": true,
       "anim": "anims/quiz.html",
-      "narration": "Tomorrow: fingers go wrinkly in water because... A, skin soaks up water. Or B, your nerves do it. Comment your guess.",
+      "narration": "Tomorrow's one: why do fingers go wrinkly in water? Is it A, skin soaking up water? Or B, your nerves? Comment your guess.",
       "delivery": "curious",
       "headline": "FINISH THE *FACT*",
       "motion": "push",

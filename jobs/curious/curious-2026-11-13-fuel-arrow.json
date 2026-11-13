@@ -4,7 +4,7 @@
   "languages": [
     "en"
   ],
-  "publish": false,
+  "publish": true,
   "date": "2026-11-13",
   "slot": "19:00",
   "bucket": "seen-but-missed",
@@ -28,8 +28,17 @@
       "delivery": "curious",
       "motion": "push",
       "sfx": "boom",
-      "overlays": [],
-      "beat": "hook"
+      "overlays": [
+        {
+          "type": "ring",
+          "x": 0.565,
+          "y": 0.605,
+          "r": 0.05,
+          "on": "arrow"
+        }
+      ],
+      "beat": "hook",
+      "image": "jobs/curious/pics/curious-2026-11-13-fuel-arrow/s1.jpg"
     },
     {
       "visual": "illustration of a young Indian man at a petrol pump, standing beside his small hatchback car, holding the fuel nozzle with a stretched hose that doesn't reach because the fuel lid is on the far side of the car, he looks annoyed with a half smile, simple petrol station background",
@@ -39,7 +48,8 @@
       "motion": "drift_right",
       "sfx": "thud",
       "overlays": [],
-      "beat": "loop"
+      "beat": "loop",
+      "image": "jobs/curious/pics/curious-2026-11-13-fuel-arrow/s2.jpg"
     },
     {
       "visual": "2D animation: a big fuel gauge, the needle falls while a counter drops from 100% to 15%, then a tiny triangle pops in next to the pump icon",
@@ -66,7 +76,8 @@
       "motion": "pull",
       "sfx": "ding",
       "overlays": [],
-      "beat": "rehook"
+      "beat": "rehook",
+      "image": "jobs/curious/pics/curious-2026-11-13-fuel-arrow/s4.jpg"
     },
     {
       "visual": "2D animation: a car seen from above with the dashboard arrow above it; the arrow points left and the left fuel lid glows, then it flips right and the right lid glows",
@@ -91,8 +102,16 @@
       "headline": "IT'S A *HINT*",
       "motion": "push",
       "sfx": "sparkle",
-      "overlays": [],
-      "beat": "payoff"
+      "overlays": [
+        {
+          "type": "tick",
+          "x": 0.6,
+          "y": 0.6,
+          "on": "side"
+        }
+      ],
+      "beat": "payoff",
+      "image": "jobs/curious/pics/curious-2026-11-13-fuel-arrow/s6.jpg"
     },
     {
       "visual": "2D animation: the quiz about tomorrow's topic",

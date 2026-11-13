@@ -114,7 +114,7 @@ jobs:
           key: paid-cache-${{ github.run_id }}
           restore-keys: paid-cache-
 
-      - name: Render (3 tries per video, nothing half-done is released)
+      - name: Render (up to 3 tries for network errors, nothing half-done is released)
         id: render
         if: steps.find.outputs.files != ''
         run: |
@@ -127,6 +127,11 @@ jobs:
                 ok=1; break
               fi
               err=$(grep -E "StepFailed|Error|error" "render-$id.log" | tail -3 || true)
+              # Same inputs give the same result: a failed audio check or job check won't pass on a
+              # retry (paid results are cached), so stop now instead of waiting 2 x 10 minutes.
+              if grep -qE "Audio check:|ValueError:" "render-$id.log"; then
+                echo "Deterministic failure, not retrying: $err"; break
+              fi
               [ "$try" -eq 1 ] && { python -m factory.notify fail "Render failed: $id" "Try 1 failed: $err" || true; } || true
               [ "$try" -lt 3 ] && echo "Waiting 10 minutes before try $((try+1))" && sleep 600
             done

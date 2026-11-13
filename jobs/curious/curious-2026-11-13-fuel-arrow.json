@@ -4,7 +4,7 @@
   "languages": [
     "en"
   ],
-  "publish": false,
+  "publish": true,
   "date": "2026-11-13",
   "slot": "19:00",
   "bucket": "seen-but-missed",

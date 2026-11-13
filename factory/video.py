@@ -240,8 +240,13 @@ def assemble(shots: list[Path], scenes: list[SceneAudio], ass: Path, music: Path
         chain.append("[m][vs]sidechaincompress=threshold=0.05:ratio=6[md]")  # music dips under the voice
         mix.append("[md]")
         n += 1
+    # loudnorm (dynamic mode) keeps a 3 s look-ahead buffer and, when it flushes at the end of the
+    # stream, its output timestamps jump (~0.06-0.12 s, ~2.9 s before the end). The AAC muxer turns
+    # that jump into a real hole in the sound (2026-11-13: fuel-arrow failed the audio check 6 times;
+    # earlier videos had the same dropout just under the old 0.1 s limit). Every sample is still
+    # there, so renumbering the timestamps by sample count (asetpts) makes the stream continuous.
     chain.append("".join(mix) + f"amix=inputs={len(mix)}:normalize=0:duration=first,"
-                 "loudnorm=I=-14:TP=-1.5:LRA=11[a]")
+                 "loudnorm=I=-14:TP=-1.5:LRA=11,aresample=48000,asetpts=N/SR/TB[a]")
     af = ";".join(chain)
     sub = str(ass).replace(":", r"\:")
     cmd += ["-filter_complex", f"[0:v]{_punch_filter(punches or [])}ass='{sub}':fontsdir='{FONT_DIR}'[vout];{af}",
@@ -290,11 +295,11 @@ def check_audio(video: Path, scenes: list[SceneAudio]) -> None:
     pts = subprocess.run(["ffprobe", "-v", "error", "-select_streams", "a", "-show_entries", "packet=pts_time",
                           "-of", "csv=p=0", str(video)], check=True, capture_output=True, text=True).stdout
     times = [float(t.strip(", ")) for t in pts.split() if t.strip(", ")]
-    holes = [(x, y - x) for x, y in zip(times, times[1:]) if y - x > 0.1]
+    holes = [(x, y - x) for x, y in zip(times, times[1:]) if y - x > 0.03]  # AAC packets are 0.021 s apart
     if holes:
         ends = np.cumsum([sc.duration for sc in scenes])
         scene_at = lambda t: int(np.searchsorted(ends, t, side="right")) + 1
-        where = ", ".join(f"{x:.1f}s ({d:.1f}s, scene {min(scene_at(x), len(scenes))} of {len(scenes)}, video {total:.1f}s)"
+        where = ", ".join(f"{x:.1f}s ({d:.2f}s, scene {min(scene_at(x), len(scenes))} of {len(scenes)}, video {total:.1f}s)"
                           for x, d in holes[:5])
         raise RuntimeError(f"Audio check: {len(holes)} hole(s) in the sound at {where}")
     win = int(0.05 * sr)

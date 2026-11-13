@@ -31,6 +31,13 @@ def _load(name: str, default):
     return json.loads(f.read_text()) if f.exists() else default
 
 
+def _ok(r: requests.Response) -> requests.Response:
+    """Like raise_for_status, but keep Meta's/Google's reason (e.g. a missing permission) in the error."""
+    if r.status_code >= 400:
+        raise RuntimeError(f"{r.status_code}: {r.text[:300]}")
+    return r
+
+
 def _yt_comments(p: str, video_id: str) -> list[dict]:
     tok = platforms._yt_token(p)
     r = requests.get("https://www.googleapis.com/youtube/v3/commentThreads", timeout=30,
@@ -57,7 +64,7 @@ def _ig_comments(p: str, media_id: str) -> list[dict]:
     me = (secret(p, "IG_USER_ID") or "")
     r = requests.get(f"{G()}/{media_id}/comments", timeout=30, params={
         "fields": "id,text,username,timestamp,like_count,replies{username,from}", "access_token": tok})
-    r.raise_for_status()
+    _ok(r)
     out = []
     for c in r.json().get("data", []):
         reps = c.get("replies", {}).get("data", [])
@@ -71,7 +78,7 @@ def _fb_comments(p: str, video_id: str) -> list[dict]:
     tok, page = secret(p, "META_PAGE_TOKEN"), secret(p, "FB_PAGE_ID")
     r = requests.get(f"{G()}/{video_id}/comments", timeout=30, params={
         "fields": "id,message,from,created_time,like_count,comments{from}", "access_token": tok})
-    r.raise_for_status()
+    _ok(r)
     out = []
     for c in r.json().get("data", []):
         if (c.get("from") or {}).get("id") == page:
@@ -102,7 +109,7 @@ def collect() -> None:
                              post_id=post["id"], replied=c["has_our_reply"] or c["comment_id"] in replied)
                     rows.append(c)
             except Exception as e:
-                errors[f"{s['channel']}/{name}"] = re.sub(r"(access_token|key)=[^&\s\"']+", r"\1=REDACTED", str(e))[:300]
+                errors[f"{s['channel']}/{name}/{s['id']}"] = re.sub(r"(access_token|key)=[^&\s\"']+", r"\1=REDACTED", str(e))[:300]
     rows.sort(key=lambda c: c.get("time") or "", reverse=True)
     DATA.mkdir(exist_ok=True)
     (DATA / "comments.json").write_text(json.dumps(

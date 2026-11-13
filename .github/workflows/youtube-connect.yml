@@ -56,7 +56,9 @@ jobs:
           cid, sec, page = os.environ["YT_CLIENT_ID"], os.environ["YT_CLIENT_SECRET"], os.environ["PAGE"]
           prefix = json.loads(pathlib.Path(f"channels/{page}/channel.json").read_text())["secret_prefix"]
           redirect = "http://localhost:8765"
+          # youtube.force-ssl is needed to read and reply to comments (commentThreads.list / comments.insert).
           scopes = ("https://www.googleapis.com/auth/youtube.upload https://www.googleapis.com/auth/youtube.readonly "
+                    "https://www.googleapis.com/auth/youtube.force-ssl "
                     "https://www.googleapis.com/auth/yt-analytics.readonly")
           if os.environ["STEP"] == "url":
               link = "https://accounts.google.com/o/oauth2/v2/auth?" + urllib.parse.urlencode({
@@ -83,6 +85,8 @@ jobs:
           h = {"Authorization": f"Bearer {at}"}
           ch = requests.get("https://www.googleapis.com/youtube/v3/channels", params={"part": "snippet", "mine": "true"},
                             headers=h, timeout=30).json()
+          if "youtube.force-ssl" not in (tok.get("scope") or ""):
+              print("::warning::Comment access (youtube.force-ssl) was not granted: tick every box on the Allow screen")
           print("channel:", ((ch.get("items") or [{}])[0].get("snippet") or {}).get("title"))
           import datetime as d
           a = requests.get("https://youtubeanalytics.googleapis.com/v2/reports", headers=h, timeout=30, params={

@@ -1,0 +1,49 @@
+{
+  "id": "curious-2026-11-13-fuel-arrow-en",
+  "channel": "curious-en",
+  "date": "2026-11-13",
+  "slot": "19:00",
+  "publish": true,
+  "bucket": "seen-but-missed",
+  "episode": null,
+  "hook_text": "WHY'S THIS *ARROW* HERE?",
+  "hook_style": "curiosity",
+  "release": "job-curious-2026-11-13-fuel-arrow-en",
+  "duration": 57.12,
+  "quiz": {
+    "theme": "FINISH THE FACT FRIDAY",
+    "next_topic": "why fingers go wrinkly in water",
+    "next_title": "Why fingers wrinkle",
+    "question": "Fingers go wrinkly in water because...",
+    "options": {
+      "A": "Skin soaks up water",
+      "B": "Your nerves do it"
+    },
+    "answer": "B",
+    "keywords": {
+      "A": [
+        "soak",
+        "soaks",
+        "absorb",
+        "absorbs",
+        "sponge",
+        "swell"
+      ],
+      "B": [
+        "nerve",
+        "nerves",
+        "nervous",
+        "blood vessels",
+        "brain",
+        "grip"
+      ]
+    },
+    "sources": [
+      "https://www.popsci.com/science/why-do-fingers-wrinkle-in-water/",
+      "https://www.the-scientist.com/the-science-behind-pruney-fingers-71410"
+    ]
+  },
+  "shoutouts": null,
+  "picture_style": "illustration",
+  "voice": "clone"
+}

@@ -1,0 +1,101 @@
+<!doctype html><html><head><meta charset="utf-8">
+<style>html,body{margin:0;background:#16233a}canvas{display:block}</style></head><body>
+<canvas id="c" width="1080" height="1920"></canvas>
+<script>
+// The little arrow next to the fuel gauge. Clouds-Short style: navy background, one object,
+// one big orange number that moves with the words.
+// params.mode:
+//  "gauge": a big fuel gauge; the needle falls and a big counter drops 100% -> params.end
+//           (default 15) with params.label ("FUEL") under it; then the pump icon lights and a tiny
+//           triangle pops in beside it inside a dashed yellow ring (params.tag, e.g. "THIS ONE").
+//  "side":  a car seen from above, facing up. The dashboard arrow points LEFT and the left fuel
+//           lid glows (params.left label); then it flips RIGHT and the right lid glows (params.right).
+// Keeps the top fifth (0-384) and the caption band (1344-1632) empty.
+const c=document.getElementById('c'),x=c.getContext('2d'),W=1080,H=1920;
+const NAVY='#16233a',YEL='#ffd23f',ORA='#ff9f1c',WHITE='#f4f1e8',TEAL='#3fc1c9',DIM='rgba(244,241,232,.35)';
+const clamp=(v,a=0,b=1)=>Math.max(a,Math.min(b,v)), prog=(t,a,b)=>clamp((t-a)/(b-a));
+const ease=t=>1-Math.pow(1-clamp(t),3), back=t=>{t=clamp(t);const s=1.7;return 1+(s+1)*Math.pow(t-1,3)+s*Math.pow(t-1,2)};
+const rnd=i=>{const s=Math.sin(i*12.9898)*43758.5453;return s-Math.floor(s)};
+function txt(s,px,py,size,col){x.font=`700 ${size}px Anton, Impact, sans-serif`;x.textAlign='center';x.textBaseline='middle';
+  x.lineWidth=size*0.14;x.lineJoin='round';x.strokeStyle='rgba(0,0,0,.55)';x.strokeText(s,px,py);x.fillStyle=col;x.fillText(s,px,py)}
+function bg(){x.fillStyle=NAVY;x.fillRect(0,0,W,H);
+  for(let i=0;i<220;i++){x.fillStyle='rgba(255,255,255,.035)';x.fillRect(rnd(i)*W,rnd(i+99)*H,3,3)}}
+function dashed(path,col,glow){x.save();x.setLineDash([22,16]);x.lineWidth=7;x.strokeStyle=col;x.shadowColor=col;x.shadowBlur=glow||18;path();x.stroke();x.restore()}
+// petrol pump icon, centred at (px,py), size s (~1 = 120px tall)
+function pump(px,py,s,col){x.save();x.translate(px,py);x.scale(s,s);x.fillStyle=col;x.strokeStyle=col;
+  x.beginPath();x.roundRect(-45,-60,70,120,10);x.fill();                       // body
+  x.fillStyle=NAVY;x.fillRect(-32,-46,44,32);                                  // window
+  x.fillStyle=col;x.fillRect(-55,52,90,12);                                    // base
+  x.lineWidth=9;x.lineCap='round';x.beginPath();x.moveTo(25,-30);x.lineTo(48,-30);x.lineTo(48,30);x.quadraticCurveTo(48,45,60,40);x.lineTo(60,-40);x.stroke(); // hose
+  x.restore()}
+function tri(px,py,s,dir,col){x.save();x.translate(px,py);x.scale(dir*s,s);x.fillStyle=col;x.shadowColor=col;x.shadowBlur=20;
+  x.beginPath();x.moveTo(30,0);x.lineTo(-18,-28);x.lineTo(-18,28);x.closePath();x.fill();x.restore()}
+
+function drawGauge(t,p,P){
+  const end=+(P.end||15), k=ease(prog(p,0.05,0.55));
+  const cx=540, cy=1010, R=300;
+  // dial arc from F (left-up) to E (right-up): angles from 200deg to 340deg
+  const a0=Math.PI*1.12, a1=Math.PI*1.88;
+  x.lineWidth=26;x.lineCap='round';x.strokeStyle=DIM;x.beginPath();x.arc(cx,cy,R,a0,a1);x.stroke();
+  x.strokeStyle=ORA;x.beginPath();x.arc(cx,cy,R,a1-(a1-a0)*(1-k*(1-end/100)),a1);x.stroke();
+  for(let i=0;i<=4;i++){const a=a0+(a1-a0)*i/4;x.strokeStyle=WHITE;x.lineWidth=8;x.beginPath();
+    x.moveTo(cx+Math.cos(a)*(R-60),cy+Math.sin(a)*(R-60));x.lineTo(cx+Math.cos(a)*(R-30),cy+Math.sin(a)*(R-30));x.stroke()}
+  txt('E',cx+Math.cos(a0)*(R+70),cy+Math.sin(a0)*(R+40),70,'#ff6b6b');txt('F',cx+Math.cos(a1)*(R+70),cy+Math.sin(a1)*(R+40),70,WHITE);
+  // needle: from F toward E
+  const ang=a1-(a1-a0)*k*(1-end/100);
+  x.save();x.strokeStyle=YEL;x.lineWidth=14;x.shadowColor=YEL;x.shadowBlur=16;x.beginPath();x.moveTo(cx,cy);
+  x.lineTo(cx+Math.cos(ang)*(R-70),cy+Math.sin(ang)*(R-70));x.stroke();x.restore();
+  x.fillStyle=WHITE;x.beginPath();x.arc(cx,cy,24,0,7);x.fill();
+  // big number
+  const pct=Math.round(100-(100-end)*k), s=back(prog(p,0,0.1));
+  x.save();x.translate(cx,505);x.scale(s,s);txt(pct+'%',0,0,150,ORA);x.restore();
+  txt(P.label||'FUEL',cx,cy-110,56,YEL);
+  // pump icon + the tiny triangle
+  const lit=ease(prog(p,0.5,0.62)), py=1200;
+  pump(cx-40,py,1.05,lit>0?WHITE:DIM);
+  const ts=back(prog(p,0.62,0.74));
+  if(ts>0){tri(cx+95,py,ts*1.2,+1,ORA);
+    const pulse=1+0.06*Math.sin(t*6);dashed(()=>{x.beginPath();x.arc(cx+95,py,80*ts*pulse,0,7)},YEL,24);
+    const ls=back(prog(p,0.76,0.88));if(ls>0){x.save();x.translate(cx+300,py);x.scale(ls,ls);txt(P.tag||'THIS ONE',0,0,62,YEL);x.restore();
+      x.strokeStyle=YEL;x.lineWidth=8;x.lineCap='round';x.beginPath();x.moveTo(cx+215,py);x.lineTo(cx+185,py);x.stroke()}}
+}
+
+function car(cx,cy,lidL,lidR){
+  x.save();x.translate(cx,cy);
+  x.fillStyle='#2b3d5c';x.strokeStyle=WHITE;x.lineWidth=8;x.beginPath();x.roundRect(-150,-280,300,560,90);x.fill();x.stroke();
+  x.fillStyle='rgba(63,193,201,.55)';x.beginPath();x.roundRect(-115,-170,230,110,30);x.fill();       // windscreen (front = up)
+  x.beginPath();x.roundRect(-110,130,220,80,26);x.fill();                                               // rear glass
+  x.fillStyle='#1c2a42';x.fillRect(-170,-210,24,90);x.fillRect(146,-210,24,90);x.fillRect(-170,130,24,90);x.fillRect(146,130,24,90); // wheels
+  const lid=(sx,g)=>{x.save();x.fillStyle=g>0?`rgba(255,159,28,${0.4+0.6*g})`:DIM;if(g>0){x.shadowColor=ORA;x.shadowBlur=40*g}
+    x.beginPath();x.roundRect(sx-20,40,40,56,10);x.fill();x.restore()};
+  lid(-150,lidL);lid(150,lidR);
+  x.restore()}
+
+function drawSide(t,p,P){
+  const flip=ease(prog(p,0.48,0.56)), right=p>0.52;
+  const cx=540, cy=980;
+  const gL=right?0:ease(prog(p,0.12,0.22)), gR=right?ease(prog(p,0.58,0.68)):0;
+  car(cx,cy,gL,gR);
+  // dashboard arrow badge at the top
+  const by=500; x.save();x.fillStyle='rgba(255,255,255,.08)';x.beginPath();x.roundRect(cx-200,by-90,400,180,40);x.fill();x.restore();
+  pump(cx-40,by,0.95,WHITE);
+  const dir=right?1:-1, sx=Math.abs(Math.cos(flip*Math.PI)); // squash while flipping
+  tri(right?cx+90:cx-160,by,1.1*Math.max(sx,0.15),dir,ORA);
+  // pump on the matching side + label
+  const side=right?1:-1, g=right?gR:gL;
+  if(g>0){x.save();x.globalAlpha=g;
+    x.strokeStyle=ORA;x.fillStyle=ORA;x.lineWidth=12;x.lineCap='round';
+    const ax=cx+side*360, tip=cx+side*185;x.beginPath();x.moveTo(ax,cy+68);x.lineTo(tip,cy+68);x.stroke();
+    x.beginPath();x.moveTo(tip,cy+68);x.lineTo(tip+side*34,cy+44);x.lineTo(tip+side*34,cy+92);x.fill();
+    x.restore();
+    const ls=back(g);x.save();x.translate(cx+side*350,cy-80);x.scale(ls,ls);txt(right?(P.right||'RIGHT'):(P.left||'LEFT'),0,0,80,YEL);x.restore()}
+}
+
+window.draw=function(t,dur,P){
+  P=Object.assign({mode:'gauge'},P||{});
+  const p=t/Math.max(dur,0.1);
+  x.setTransform(1,0,0,1,0,0);x.globalAlpha=1;x.shadowBlur=0;bg();
+  if(P.mode==='side')drawSide(t,p,P);else drawGauge(t,p,P);
+};
+window.draw(0,6,{});
+</script></body></html>

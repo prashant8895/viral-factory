@@ -1,0 +1,159 @@
+{
+  "id": "curious-2026-11-13-fuel-arrow",
+  "channel": "curious",
+  "languages": [
+    "en"
+  ],
+  "publish": false,
+  "date": "2026-11-13",
+  "slot": "19:00",
+  "bucket": "seen-but-missed",
+  "hook_style": "curiosity",
+  "seed": 1113,
+  "hook_text": "WHY'S THIS *ARROW* HERE?",
+  "keywords": [
+    "arrow next to fuel gauge",
+    "which side is the fuel tank",
+    "fuel gauge arrow"
+  ],
+  "sources": [
+    "https://www.motor1.com/news/804101/what-fuel-gauge-arrow-means/",
+    "https://www.slashgear.com/1868551/gas-tank-which-side-identify-easy-way",
+    "https://fordauthority.com/2025/12/ford-engineer-that-designed-gas-tank-indicator-passes-away"
+  ],
+  "scenes": [
+    {
+      "visual": "illustration of a car dashboard close-up seen from the driver's seat, one round fuel gauge in the centre with its needle near empty, below the gauge a small white petrol pump icon with a tiny orange triangle arrow pointing right beside it, simple dark dashboard, the gauge in the lower two-thirds of the frame",
+      "narration": "That tiny *arrow* by your fuel gauge? Ever wondered what it's pointing at?",
+      "delivery": "curious",
+      "motion": "push",
+      "sfx": "boom",
+      "overlays": [],
+      "beat": "hook"
+    },
+    {
+      "visual": "illustration of a young Indian man at a petrol pump, standing beside his small hatchback car, holding the fuel nozzle with a stretched hose that doesn't reach because the fuel lid is on the far side of the car, he looks annoyed with a half smile, simple petrol station background",
+      "narration": "You pull up to the pump... and the fuel lid's on the *wrong* side. Again. Stick around, the fix is already in your car.",
+      "delivery": "light",
+      "headline": "WRONG *SIDE* AGAIN?",
+      "motion": "drift_right",
+      "sfx": "thud",
+      "overlays": [],
+      "beat": "loop"
+    },
+    {
+      "visual": "2D animation: a big fuel gauge, the needle falls while a counter drops from 100% to 15%, then a tiny triangle pops in next to the pump icon",
+      "narration": "Here's the thing. When fuel runs *low*, you look down at the gauge. And right beside the little pump icon... there's a tiny *triangle*.",
+      "delivery": "explain",
+      "headline": "LOOK *CLOSER*",
+      "motion": "push",
+      "sfx": "whoosh",
+      "overlays": [],
+      "anim": "anims/fuel-arrow.html",
+      "anim_params": {
+        "mode": "gauge",
+        "end": 15,
+        "label": "FUEL",
+        "tag": "THIS ONE"
+      },
+      "beat": "explain"
+    },
+    {
+      "visual": "illustration of a car designer in a 1980s style raincoat standing at a petrol pump in heavy rain, soaked and shaking his head, an old boxy car parked with its fuel lid on the far side, simple rainy petrol station background",
+      "narration": "But here's the weird part. It started with one fed-up designer at Ford, in nineteen eighty-six. Wrong side of the pump... in the *rain*.",
+      "delivery": "light",
+      "headline": "ONE *SOAKED* GUY",
+      "motion": "pull",
+      "sfx": "ding",
+      "overlays": [],
+      "beat": "rehook"
+    },
+    {
+      "visual": "2D animation: a car seen from above with the dashboard arrow above it; the arrow points left and the left fuel lid glows, then it flips right and the right lid glows",
+      "narration": "So he pushed for a tiny arrow on the dashboard. Arrow points *left*? Your fuel lid's on the left. Points right? It's on the right.",
+      "delivery": "build",
+      "headline": "LEFT OR *RIGHT*",
+      "motion": "push",
+      "sfx": "pop",
+      "overlays": [],
+      "anim": "anims/fuel-arrow.html",
+      "anim_params": {
+        "mode": "side",
+        "left": "LEFT",
+        "right": "RIGHT"
+      },
+      "beat": "build"
+    },
+    {
+      "visual": "illustration of a smiling young Indian woman driver pulling her car up to a petrol pump on the correct side, the fuel lid right next to the pump, sunny simple petrol station background, side view",
+      "narration": "And that tiny arrow? <short pause> It's your car telling you which side to pull up on. Most newer cars have one.",
+      "delivery": "reveal",
+      "headline": "IT'S A *HINT*",
+      "motion": "push",
+      "sfx": "sparkle",
+      "overlays": [],
+      "beat": "payoff"
+    },
+    {
+      "visual": "2D animation: the quiz about tomorrow's topic",
+      "quiz": true,
+      "anim": "anims/quiz.html",
+      "narration": "Tomorrow: fingers go wrinkly in water because... A, skin soaks up water. Or B, your nerves do it. Comment your guess.",
+      "delivery": "curious",
+      "headline": "FINISH THE *FACT*",
+      "motion": "push",
+      "sfx": "pop",
+      "overlays": []
+    }
+  ],
+  "youtube": {
+    "title": "What's the arrow next to the fuel gauge for? #shorts",
+    "description": "What's the arrow next to the fuel gauge for? It points to the side your fuel lid is on, so you know which side of the pump to pull up on. A Ford designer pushed for it after a rainy 1986 mix-up, and most newer cars have it now.\n\nTomorrow's quiz: fingers go wrinkly in water because... A) skin soaks up water B) your nerves do it. Comment your guess, first 3 right get a shoutout 👇\n\nSources: Motor1, SlashGear, Ford Authority\nAI visuals\n#ohthatswhy #cars #carfacts #drivingtips #shorts",
+    "tags": [
+      "fuel gauge arrow",
+      "which side is the fuel tank",
+      "car facts",
+      "driving tips",
+      "did you know"
+    ]
+  },
+  "instagram": {
+    "caption": "What's the arrow next to the fuel gauge for? ⛽\nThat fuel gauge arrow tells you which side is the fuel tank lid, so you pull up on the right side of the pump every time.\nDid you know about it before today? 👇\n\nSources: Motor1, SlashGear, Ford Authority\nAI visuals\n#ohthatswhy #cars #carfacts #drivingtips\n\nTomorrow's quiz: fingers go wrinkly in water because... A) skin soaks up water B) your nerves do it. Comment your guess, first 3 right get a shoutout 👇"
+  },
+  "facebook": {
+    "description": "What's the arrow next to the fuel gauge for? It points to the side your fuel lid is on. Most newer cars have one. AI visuals.\n\nTomorrow's quiz: fingers go wrinkly in water because... A) skin soaks up water B) your nerves do it. Comment your guess 👇"
+  },
+  "quiz": {
+    "theme": "FINISH THE FACT FRIDAY",
+    "next_topic": "why fingers go wrinkly in water",
+    "next_title": "Why fingers wrinkle",
+    "question": "Fingers go wrinkly in water because...",
+    "options": {
+      "A": "Skin soaks up water",
+      "B": "Your nerves do it"
+    },
+    "answer": "B",
+    "keywords": {
+      "A": [
+        "soak",
+        "soaks",
+        "absorb",
+        "absorbs",
+        "sponge",
+        "swell"
+      ],
+      "B": [
+        "nerve",
+        "nerves",
+        "nervous",
+        "blood vessels",
+        "brain",
+        "grip"
+      ]
+    },
+    "sources": [
+      "https://www.popsci.com/science/why-do-fingers-wrinkle-in-water/",
+      "https://www.the-scientist.com/the-science-behind-pruney-fingers-71410"
+    ]
+  }
+}

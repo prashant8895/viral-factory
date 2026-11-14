@@ -46,6 +46,9 @@ def youtube_upload(p: str, video: Path, meta: dict) -> dict:
         "status": {"privacyStatus": "public", "selfDeclaredMadeForKids": False,
                    "containsSyntheticMedia": True},
     }
+    if p == "CURIOUS_EN_":  # brand name, brand tags and language, so a search for the channel finds it
+        from .yt_seo import brand_snippet
+        body["snippet"] = brand_snippet(body["snippet"])
     size = video.stat().st_size
     r = requests.post(
         "https://www.googleapis.com/upload/youtube/v3/videos?uploadType=resumable&part=snippet,status",

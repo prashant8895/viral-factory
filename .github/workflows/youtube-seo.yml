@@ -1,0 +1,46 @@
+name: YouTube channel search
+
+# Makes the channel findable by its name: About text, channel keywords, language/country,
+# and the brand line + tags on every posted English Short (factory/yt_seo.py).
+# Settings: channels/curious-en/channel.json -> youtube_brand. Report: data/youtube_channel.json.
+on:
+  workflow_dispatch:
+    inputs:
+      apply:
+        description: "Apply changes (false = only read and report)"
+        type: boolean
+        default: true
+  push:
+    branches: [main]
+    paths: [".github/workflows/youtube-seo.yml"]
+
+permissions:
+  contents: write
+
+concurrency:
+  group: repo-writes
+  cancel-in-progress: false
+
+jobs:
+  seo:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    env:
+      YT_CLIENT_ID: ${{ secrets.YT_CLIENT_ID }}
+      YT_CLIENT_SECRET: ${{ secrets.YT_CLIENT_SECRET }}
+      CURIOUS_EN_YT_REFRESH_TOKEN: ${{ secrets.CURIOUS_EN_YT_REFRESH_TOKEN }}
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+      - run: pip install requests
+      - name: Update channel and videos
+        run: python -m factory.yt_seo ${{ (github.event_name == 'push' || inputs.apply) && 'apply' || '' }}
+      - name: Save report
+        if: always()
+        run: |
+          git config user.name "video-factory"
+          git config user.email "actions@github.com"
+          git add data/youtube_channel.json || true
+          git diff --cached --quiet || (git commit -m "YouTube channel search report" && git pull --rebase && git push)

@@ -43,5 +43,30 @@
       "Sat": "SPOT THE SCIENCE SATURDAY",
       "Sun": "SUNDAY BRAIN TEASER"
     }
+  },
+  "youtube_brand": {
+    "note": "factory/yt_seo.py puts this on the YouTube channel (About text, keywords) and on every Short (brand line, tags, language) so people searching the channel name find it. Run the 'YouTube channel search' workflow after changing it.",
+    "name": "Oh That's Why",
+    "language": "en",
+    "country": "IN",
+    "channel_description": "Oh That's Why: the everyday stuff you never stopped to question, explained in under a minute.\n\nWhy are car tyres black? Why do fingers wrinkle in water? Why is there a tiny hole in a plane window? One short, friendly explainer every evening at 7 pm IST, with every fact checked against real sources.\n\nGuess tomorrow's topic in the comments: the first 3 right answers get a shoutout in the next video.\n\nAlso on Instagram: @ohthatswhy.english",
+    "channel_keywords": [
+      "oh that's why",
+      "oh thats why",
+      "ohthatswhy",
+      "everyday science",
+      "science shorts",
+      "why facts",
+      "did you know",
+      "explained in 60 seconds",
+      "curious facts",
+      "science explained"
+    ],
+    "video_line": "Oh That's Why: one everyday mystery explained, every day at 7 pm IST.",
+    "video_tags": [
+      "oh that's why",
+      "oh thats why",
+      "ohthatswhy"
+    ]
   }
 }

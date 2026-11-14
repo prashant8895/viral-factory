@@ -55,5 +55,26 @@
     ]
   },
   "picture_style": "illustration",
-  "voice": "clone"
+  "voice": "clone",
+  "platforms": {
+    "youtube": {
+      "id": "9vIdVmF0HGk",
+      "url": "https://youtube.com/shorts/9vIdVmF0HGk",
+      "privacy": "public",
+      "posted_at": "2026-11-14T18:58+05:30"
+    },
+    "instagram": {
+      "id": "18100863965443938",
+      "url": "https://www.instagram.com/reel/DfuUS9_hgpA/",
+      "posted_at": "2026-11-14T19:01+05:30"
+    },
+    "facebook": {
+      "id": "1493658865987374",
+      "url": "https://www.facebook.com/reel/1493658865987374",
+      "posted_at": "2026-11-14T19:04+05:30"
+    }
+  },
+  "errors": {
+    "instagram_story": "RuntimeError: Instagram publish refused (400): {\"error\":{\"message\":\"Fatal\",\"code\":-1,\"type\":\"OAuthException\",\"error_subcode\":2207032,\"is_transient\":false,\"error_user_msg\":\"Failed to create media. Please try to re-create media\",\"error_user_title\":\"Cannot create media\",\"fbtrace_id\":\"AiXKBx9FHcbIFAdDsyVsruB\"}}"
+  }
 }

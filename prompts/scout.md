@@ -13,9 +13,13 @@ Work unattended.
 2. Do the trend check once: Google Trends daily (India, US, UK), Shorts/Reels trending
    topics (vidIQ connector if available), Reddit, safe big news, dates in the next 3 days.
 3. For each ACTIVE page (now only curious; drama is PAUSED, skip it):
-   QUIZ LOCK (since 2026-11-13): if the last posted English video's state has `quiz.next_topic`,
-   that is today's topic (viewers guessed it yesterday): make it pitch 1 and `recommended`, and
-   the other pitches are candidates for TOMORROW's quiz (each with a fun A/B guess line).
+   YOU PICK TOMORROW (Prashant, 2026-11-14): today's topic is never on the slate. It is
+   locked: `data/topic_override.json` → entry for today's date if there is one, otherwise the
+   last posted English video's `quiz.next_topic` (viewers guessed it yesterday). Put it in the
+   doc as `today: {topic, hook_text, from: "quiz" | "override"}` for display only.
+   ALL 3 pitches are candidates for TOMORROW's video, i.e. the topic today's video teases in its
+   quiz. Prashant's tap on the slate picks it. Each pitch needs a `quiz_line` ("Tomorrow: <topic>.
+   A) <common belief> B) <real answer>") and a verifiable answer.
    - Read its `playbook.md` (rules, scoring, hard no's, Learnings). For drama also read
      `cast.json` and `story.md` (the story so far and open threads).
    - Mine the signals first:
@@ -47,11 +51,11 @@ Work unattended.
    https://claude.ai/artifact/ENWN3tiRkTz9y3qU2iFjqT), collection `pitches`,
    doc id `<page>-<YYYY-MM-DD>` (IST date):
    `{channel: "<page>", date, slot: "19:00", episode (drama only), recommended: <n>,
-     approved: null, status: "waiting",
-     items: [{n, bucket, hook, angle, why, score: {trend, curiosity, visual, share, evergreen}}]}`
+     approved: null, status: "waiting", today: {topic, hook_text, from}, for_date: <tomorrow>,
+     items: [{n, bucket, hook, angle, why, quiz_line, score: {trend, curiosity, visual, share, evergreen}}]}`
    Delete any doc in `pitches` with `example: true` (setup placeholders).
 5. Refresh `status/feed` from `state/` + `metrics/latest.json`:
    `{updated, recent: [{channel, date, hook, views (sum across platforms),
      links: {youtube, instagram, facebook}}]}` newest first, last 14 per page.
-6. Push-notify Prashant: "Today's ideas are ready" plus the top hook, and one line from
+6. Push-notify Prashant: "Pick tomorrow's topic" plus the top hook, and one line from
    `insights.json` (total views yesterday vs the day before, or the first `flags` item if any).

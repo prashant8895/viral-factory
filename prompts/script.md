@@ -32,13 +32,18 @@ skip it until Prashant restarts it.
 4. Curious: verify every fact against 2 sources (web search); drop what you can't verify.
    Drama: keep continuity with `story.md`; end on a cliffhanger.
    Apply Prashant's `approved.note` if there is one.
-   TOMORROW IS LOCKED (since 2026-11-13): if the last posted English video (`state/curious-*-en.json`,
-   newest with `platforms`) has a `quiz`, TODAY's topic is its `quiz.next_topic`: its viewers
-   guessed and are waiting for the answer. Use it even if the slate picked something else (put the
-   slate's pick forward as tomorrow's topic instead). Only if its facts can't be verified, make the
-   slate's pick and still answer yesterday's quiz in one line.
-   Then pick TOMORROW's topic for today's quiz (the best other pitch on today's slate, or from
-   `data/asks.json`), and verify the quiz answer against 2 sources too.
+   TODAY IS LOCKED, PRASHANT PICKS TOMORROW (Prashant, 2026-11-14; never choose a teased
+   topic yourself). TODAY's topic: `data/topic_override.json` → entry for today's date if there
+   is one, otherwise the last posted English video's (`state/curious-*-en.json`, newest with
+   `platforms`) `quiz.next_topic`. Viewers guessed it yesterday, so use it even if a pitch looks
+   better. If an override replaced a teased topic, open with one line answering yesterday's quiz
+   (correct option, no shoutout), then go into today's topic. Only if today's facts can't be
+   verified, make the override's or approved pitch instead and still answer yesterday's quiz in
+   one line.
+   TOMORROW's topic (today's quiz) = the slate pitch Prashant approved (`approved.n` → its
+   `quiz_line`, angle and hook). If it was auto-approved at noon, still use it, but push-notify
+   Prashant once: "No pick by noon, so today's video teases <topic> for tomorrow. Reply to change
+   it before 19:00." Verify the quiz answer against 2 sources too.
 5. Write `jobs/<page>/<page>-<date>-<short-slug>.json` following the example exactly:
    `id` = file name without .json, `channel`, `date`, `slot` and (drama) `episode` from the
    pitch doc, and `publish: false` for now (a draft is never rendered). Curious: ONE job in

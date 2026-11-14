@@ -16,7 +16,7 @@ and posts it to YouTube Shorts, Instagram Reels and Facebook Reels.
 |---|---|---|
 | 06:15 | GitHub Actions `metrics.yml` | Pulls views/likes/shares into `metrics/` |
 | 06:40 | Claude scheduled task (`prompts/scout.md`) | Trend check, 3 pitches per page into Morning Slate |
-| 07:00 | Prashant | One tap per page on Morning Slate (optional note) |
+| 07:00 | Prashant | One tap on Morning Slate picks TOMORROW's topic (today's video teases it); today's is locked by yesterday's quiz |
 | 09:00 / 12:00 | Claude scheduled task (`prompts/script.md`) | Scripts, fact check, pushes `jobs/<page>/*.json` (auto-picks at noon; writes its own pitches if the 6:40 run failed) |
 | +10–25 min | GitHub Actions `render.yml` | Voices, pictures, clips, captions, video → GitHub release |
 | right after | GitHub Actions `publish-timer.yml` | Waits on a runner until the slot, then starts `publish.yml` (cron runs here start 6–9 h late) |

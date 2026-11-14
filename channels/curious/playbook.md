@@ -228,7 +228,9 @@ More rules for the hold:
 
 ### Daily quiz and shoutouts (Prashant, 2026-11-13): comments, shares, and a reason to come back
 
-Every video ends with a quick guess about **tomorrow's** topic. Tomorrow's video IS the answer,
+Every video ends with a quick guess about **tomorrow's** topic. Prashant picks that topic on the
+Morning Slate (the slate is always for tomorrow; today's topic is already locked by yesterday's
+quiz). Claude never chooses a teased topic on its own. Tomorrow's video IS the answer,
 and starts paying it off from the hook. The first people (max **3**, across YouTube,
 Instagram and Facebook together) who answer right get their names on screen in that video.
 
@@ -327,3 +329,4 @@ saw, what we change.
 - 2026-11-12: Prashant: "Ever wondered why car tyres are black?" is the idea, not a fixed opener: vary the first line, keep the curiosity question. Delivery reference = Neil deGrasse Tyson's clouds Short (youtube.com/shorts/BJfVpwvL8qc): a very human, friend-to-friend explanation. Added "How we talk" rules, per-scene `delivery` notes for the voice, and 100–150 words (45–60 s).
 - 2026-11-13: Prashant: no real hook and no reason to comment or come back. Added "Hook and hold" (beats: hook in max 14 words, open loop, mid re-hook, late payoff, max 30 words per scene) and the daily quiz about tomorrow's topic with themed days; the first 3 right answers get their names on screen the next day. Checked by the render; names picked from live comments at render time. Note: this lands during the voice trial, so the trial's numbers now mix two changes.
 - 2026-11-13: Fuel-arrow failed the audio check 6 times (two runs, ~1 h). Root cause, not the voice or the quiz: ffmpeg's loudnorm flushes its 3 s buffer at the end with a timestamp jump, which the AAC encoder turned into a real 0.06–0.12 s dropout ~2.9 s before the end of EVERY video; this one just crossed the 0.1 s limit. Fixed in `factory/video.py` (asetpts after loudnorm), the audio check now catches gaps over 0.03 s, and the render no longer retries failures that can't change on a retry (audio/job checks).
+- 2026-11-14: Prashant: he never chose the green-dot topic teased in the wrinkly-fingers video (the script run had picked it from its own slate). Now the Morning Slate is always for TOMORROW's topic: his tap sets what today's video teases; today's topic is locked by yesterday's quiz or `data/topic_override.json`. Auto-picks at noon still happen but are push-notified.

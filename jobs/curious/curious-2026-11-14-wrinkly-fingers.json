@@ -1,15 +1,21 @@
 {
   "id": "curious-2026-11-14-wrinkly-fingers",
   "channel": "curious",
-  "languages": ["en"],
-  "publish": false,
+  "languages": [
+    "en"
+  ],
+  "publish": true,
   "date": "2026-11-14",
   "slot": "19:00",
   "bucket": "myth busted",
   "hook_style": "curiosity",
   "seed": 1114,
   "hook_text": "WHY *WRINKLY* FINGERS?",
-  "keywords": ["why do fingers wrinkle in water", "wrinkly fingers", "pruney fingers"],
+  "keywords": [
+    "why do fingers wrinkle in water",
+    "wrinkly fingers",
+    "pruney fingers"
+  ],
   "sources": [
     "https://www.smithsonianmag.com/smithsonian-institution/ask-smithsonian-why-do-we-get-prune-fingers-180956024/",
     "https://theconversation.com/why-do-fingers-get-wrinkly-after-a-long-bath-or-swim-a-biomedical-engineer-explains-204726",
@@ -23,8 +29,17 @@
       "delivery": "curious",
       "motion": "push",
       "sfx": "boom",
-      "overlays": [],
-      "beat": "hook"
+      "overlays": [
+        {
+          "type": "ring",
+          "x": 0.52,
+          "y": 0.43,
+          "r": 0.1,
+          "on": "raisins"
+        }
+      ],
+      "beat": "hook",
+      "image": "jobs/curious/pics/curious-2026-11-14-wrinkly-fingers/s1.jpg"
     },
     {
       "visual": "illustration of a puffy yellow kitchen sponge soaking in a shallow bowl of water on a simple kitchen counter, the sponge centred in the lower two-thirds of the frame",
@@ -33,8 +48,16 @@
       "headline": "JUST *SOAKING*?",
       "motion": "drift_right",
       "sfx": "thud",
-      "overlays": [],
-      "beat": "loop"
+      "overlays": [
+        {
+          "type": "cross",
+          "x": 0.5,
+          "y": 0.56,
+          "on": "sponge"
+        }
+      ],
+      "beat": "loop",
+      "image": "jobs/curious/pics/curious-2026-11-14-wrinkly-fingers/s2.jpg"
     },
     {
       "visual": "2D animation: a fingertip dips into water, a counter climbs from 0 to 5 minutes and the pad folds into ridges",
@@ -45,7 +68,11 @@
       "sfx": "tick",
       "overlays": [],
       "anim": "anims/wrinkle.html",
-      "anim_params": {"mode": "soak", "end": 5, "label": "MINUTES"},
+      "anim_params": {
+        "mode": "soak",
+        "end": 5,
+        "label": "MINUTES"
+      },
       "beat": "explain"
     },
     {
@@ -56,7 +83,8 @@
       "motion": "pull",
       "sfx": "riser",
       "overlays": [],
-      "beat": "rehook"
+      "beat": "rehook",
+      "image": "jobs/curious/pics/curious-2026-11-14-wrinkly-fingers/s4.jpg"
     },
     {
       "visual": "2D animation: cross-section of a fingertip, a nerve signal runs in, the blood vessels squeeze thin and the skin above folds",
@@ -67,7 +95,11 @@
       "sfx": "whoosh",
       "overlays": [],
       "anim": "anims/wrinkle.html",
-      "anim_params": {"mode": "vessels", "label": "VESSELS SQUEEZE", "nerve": "NERVE"},
+      "anim_params": {
+        "mode": "vessels",
+        "label": "VESSELS SQUEEZE",
+        "nerve": "NERVE"
+      },
       "beat": "explain"
     },
     {
@@ -77,8 +109,16 @@
       "headline": "BUILT-IN *GRIP*",
       "motion": "push",
       "sfx": "sparkle",
-      "overlays": [],
-      "beat": "payoff"
+      "overlays": [
+        {
+          "type": "tick",
+          "x": 0.5,
+          "y": 0.5,
+          "on": "grip"
+        }
+      ],
+      "beat": "payoff",
+      "image": "jobs/curious/pics/curious-2026-11-14-wrinkly-fingers/s6.jpg"
     },
     {
       "visual": "2D animation: yesterday's fastest right answers",
@@ -107,7 +147,13 @@
   "youtube": {
     "title": "Why do fingers wrinkle in water? #shorts",
     "description": "Why do fingers wrinkle in water? It isn't soggy skin. Your nerves tell tiny blood vessels in your fingertips to squeeze, so the skin above folds into ridges. Fingers with a damaged nerve stay smooth. Those wrinkly fingers might even help you grip wet things, like treads on a tyre (scientists still argue about that part).\n\nTomorrow's quiz: that green dot at the top of your phone. A) battery is full B) camera or mic is on. Comment your guess, first 3 right get a shoutout 👇\n\nSources: Smithsonian, The Conversation, PBS NewsHour, Discover\nAI visuals\n#ohthatswhy #science #humanbody #didyouknow #shorts",
-    "tags": ["why do fingers wrinkle in water", "wrinkly fingers", "pruney fingers", "human body facts", "did you know"]
+    "tags": [
+      "why do fingers wrinkle in water",
+      "wrinkly fingers",
+      "pruney fingers",
+      "human body facts",
+      "did you know"
+    ]
   },
   "instagram": {
     "caption": "Why do fingers wrinkle in water? 🛁\nWrinkly fingers aren't soggy skin: your nerves tell tiny blood vessels to squeeze, so the skin folds. Those pruney fingers might even help you grip.\nDid you guess it right yesterday? 👇\n\nSources: Smithsonian, The Conversation, PBS NewsHour, Discover\nAI visuals\n#ohthatswhy #science #humanbody #didyouknow\n\nTomorrow's quiz: that green dot at the top of your phone. A) battery is full B) camera or mic is on. Comment A or B, first 3 right get a shoutout 👇"
@@ -120,11 +166,28 @@
     "next_topic": "what the green dot on your phone means",
     "next_title": "The green dot",
     "question": "That green dot on your phone means...",
-    "options": {"A": "Battery is full", "B": "Camera or mic is on"},
+    "options": {
+      "A": "Battery is full",
+      "B": "Camera or mic is on"
+    },
     "answer": "B",
     "keywords": {
-      "A": ["battery", "full", "charge", "charged", "charging", "wifi"],
-      "B": ["camera", "mic", "microphone", "recording", "listening", "watching"]
+      "A": [
+        "battery",
+        "full",
+        "charge",
+        "charged",
+        "charging",
+        "wifi"
+      ],
+      "B": [
+        "camera",
+        "mic",
+        "microphone",
+        "recording",
+        "listening",
+        "watching"
+      ]
     },
     "sources": [
       "https://www.samsung.com/in/support/mobile-devices/know-what-the-green-dot-at-the-top-of-your-screen-means/",

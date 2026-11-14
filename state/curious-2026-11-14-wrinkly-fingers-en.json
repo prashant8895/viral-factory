@@ -75,6 +75,6 @@
     }
   },
   "errors": {
-    "instagram_story": "RuntimeError: Instagram publish refused (400): {\"error\":{\"message\":\"Fatal\",\"code\":-1,\"type\":\"OAuthException\",\"error_subcode\":2207032,\"is_transient\":false,\"error_user_msg\":\"Failed to create media. Please try to re-create media\",\"error_user_title\":\"Cannot create media\",\"fbtrace_id\":\"AiXKBx9FHcbIFAdDsyVsruB\"}}"
+    "instagram_story": "RuntimeError: Instagram publish refused (400): {\"error\":{\"message\":\"Fatal\",\"code\":-1,\"type\":\"OAuthException\",\"error_subcode\":2207032,\"is_transient\":false,\"error_user_msg\":\"Failed to create media. Please try to re-create media\",\"error_user_title\":\"Cannot create media\",\"fbtrace_id\":\"AlbbvXbx7FaIkKBIxIgnieK\"}}"
   }
 }

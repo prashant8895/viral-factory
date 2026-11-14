@@ -34,7 +34,10 @@ Work unattended.
    - Write 8–10 candidates, score each 1–5 on trend, curiosity, visual, share, evergreen,
      drop anything under 17/25 or breaking a hard no, and never repeat a topic from the
      last 14 days.
-   - Curious: pick 3 from different buckets in the playbook (seen-but-never-noticed, myth
+   - Curious: at least 2 of the 3 pitches are `how it works` (playbook main lane: everyday things
+     people see daily but never thought about how they work), and one of those is `recommended`
+     unless the numbers clearly say otherwise. The third may come from another bucket.
+     Pick from different buckets in the playbook (seen-but-never-noticed, myth
      busted, why does it happen, careful health, India everyday). The test: anyone, any
      education, has seen this thing and never wondered. English page only (Hindi paused
      2026-11-12). The topic must work as a curiosity question about an everyday thing with a satisfying "oh, that's why" answer.

@@ -58,8 +58,10 @@ skip it until Prashant restarts it.
    captions sit there), and check 4 frames with Playwright before pushing.
 5c. HOOK AND HOLD + QUIZ (Prashant, 2026-11-13; playbook "Hook and hold" and "Daily quiz and
    shoutouts"; format `jobs/curious/sample-hook-quiz.json`): every content scene has a `beat`
-   (scene 1 `hook` in max 14 words; `loop` in scene 1 or 2; a `rehook` in the middle; `payoff` in
-   the second half; max 30 words per scene). Then, if yesterday's video asked a quiz, a `shoutout`
+   (scene 1 `hook` in max 14 words; `loop` in scene 1 or 2; at least 2 `rehook`s, ~20 s and
+   ~40 s; `payoff` in the second half; max 30 words per scene). FULL OF HOOKS (Prashant,
+   2026-11-14): every scene ends on a tease, question or "but..." that makes the next one
+   necessary; no flat lines. Then, if yesterday's video asked a quiz, a `shoutout`
    scene (`anims/shoutout.html`, with `narration_none`, never says how many names), and always a
    last `quiz` scene (`anims/quiz.html`) plus the job's `quiz` block (theme of today's weekday from
    `engagement.quiz_days`). Quiz + shoutout don't count toward the MIX RULE's 2 animations.

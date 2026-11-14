@@ -32,8 +32,17 @@ the viewer thinks "Oh, that's why!"
 
 ## 2. What makes a topic
 
+**Main lane (Prashant, 2026-11-14): "seen it a thousand times, never thought how it works."**
+Everyday objects and systems people use or walk past daily, where the hidden WORKING is the
+payoff: the anti-theft tag and the gates at a shop door, the card machine beeping, the lift
+knowing which floor, the traffic signal timer, the escalator handrail, the metro card tap, the
+fuel pump stopping by itself. At least 2 of the 3 daily pitches come from this lane (bucket
+`how it works`), and it gets `recommended` unless the numbers clearly say otherwise. The
+other buckets below fill the third slot.
+
 | Bucket | Example | Why it works |
 |---|---|---|
+| How it works (main lane) | Anti-theft tags, contactless card tap, lift floor sensor, fuel nozzle auto-stop, automatic doors | Seen daily, mechanism is hidden: "oh, THAT's how" + share |
 | Seen but never noticed | Escalator brushes, the tiny hole in a padlock, the dimples on a golf ball, why pen caps have a hole | "I always wondered!" + tag a friend |
 | Everyday myth busted | "Cracking knuckles causes arthritis", "Shaving makes hair thicker" | People love being corrected, comment wars |
 | Why does it happen | Why onions make you cry, why you get goosebumps, why bread goes stale | Relatable, visual |
@@ -216,7 +225,14 @@ Each content scene carries a `"beat"`, and the render refuses a job that skips o
 | `rehook` | middle (not first 2, not last) | a turn that resets attention: "But here's the weird part...", "Now this is where it gets strange...", a number that sounds wrong | "But here's the weird part. Push electricity through a thin wire..." |
 | `payoff` | second half | the reveal the loop promised, one clean line | "The back window? It gets its own heater, built right into the glass." |
 
-More rules for the hold:
+More rules for the hold (Prashant, 2026-11-14: "keep the script full of hooks"):
+- A hook in EVERY scene, not just scene 1: each scene ends on a small question, tease or
+  "but..." that makes the next scene necessary (a micro-cliffhanger, ~every 6–9 s). Nothing
+  flat like "So that's step one."
+- At least 2 `rehook` beats in a 60 s video (one around 20 s, one around 40 s), each a real
+  surprise or a wrong-sounding fact, never filler.
+- For how-it-works topics, reveal the mechanism in steps, each step raising the next question
+  ("So the gate is listening... but listening for WHAT?").
 - Never give the answer away in the first half. Hint, tease, compare, but keep the reveal late.
 - Hook lines that work: a contradiction ("It's NOT for..."), a wrong-sounding number ("Your
   phone screen has 2 million tiny lights"), "you've seen this a thousand times" + why-question,
@@ -330,3 +346,4 @@ saw, what we change.
 - 2026-11-13: Prashant: no real hook and no reason to comment or come back. Added "Hook and hold" (beats: hook in max 14 words, open loop, mid re-hook, late payoff, max 30 words per scene) and the daily quiz about tomorrow's topic with themed days; the first 3 right answers get their names on screen the next day. Checked by the render; names picked from live comments at render time. Note: this lands during the voice trial, so the trial's numbers now mix two changes.
 - 2026-11-13: Fuel-arrow failed the audio check 6 times (two runs, ~1 h). Root cause, not the voice or the quiz: ffmpeg's loudnorm flushes its 3 s buffer at the end with a timestamp jump, which the AAC encoder turned into a real 0.06–0.12 s dropout ~2.9 s before the end of EVERY video; this one just crossed the 0.1 s limit. Fixed in `factory/video.py` (asetpts after loudnorm), the audio check now catches gaps over 0.03 s, and the render no longer retries failures that can't change on a retry (audio/job checks).
 - 2026-11-14: Prashant: he never chose the green-dot topic teased in the wrinkly-fingers video (the script run had picked it from its own slate). Now the Morning Slate is always for TOMORROW's topic: his tap sets what today's video teases; today's topic is locked by yesterday's quiz or `data/topic_override.json`. Auto-picks at noon still happen but are push-notified.
+- 2026-11-14: Prashant: keep scripts full of hooks (a hook or tease ending every scene, 2+ rehooks) and recommend "seen it a thousand times, never thought how it works" topics going forward. First one: anti-theft tags on clothes (15 Nov). Added the `how it works` main lane: 2 of 3 daily pitches from it.

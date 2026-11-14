@@ -1,0 +1,59 @@
+{
+  "id": "curious-2026-11-14-wrinkly-fingers-en",
+  "channel": "curious-en",
+  "date": "2026-11-14",
+  "slot": "19:00",
+  "publish": true,
+  "bucket": "myth busted",
+  "episode": null,
+  "hook_text": "WHY *WRINKLY* FINGERS?",
+  "hook_style": "curiosity",
+  "release": "job-curious-2026-11-14-wrinkly-fingers-en",
+  "duration": 67.95,
+  "quiz": {
+    "theme": "SPOT THE SCIENCE SATURDAY",
+    "next_topic": "what the green dot on your phone means",
+    "next_title": "The green dot",
+    "question": "That green dot on your phone means...",
+    "options": {
+      "A": "Battery is full",
+      "B": "Camera or mic is on"
+    },
+    "answer": "B",
+    "keywords": {
+      "A": [
+        "battery",
+        "full",
+        "charge",
+        "charged",
+        "charging",
+        "wifi"
+      ],
+      "B": [
+        "camera",
+        "mic",
+        "microphone",
+        "recording",
+        "listening",
+        "watching"
+      ]
+    },
+    "sources": [
+      "https://www.samsung.com/in/support/mobile-devices/know-what-the-green-dot-at-the-top-of-your-screen-means/",
+      "https://selectra.co.uk/mobile/news/green-orange-dot-phone-screen-camera-microphone-meaning"
+    ]
+  },
+  "shoutouts": {
+    "from": "curious-2026-11-13-fuel-arrow-en",
+    "names": [
+      {
+        "name": "@Gargiwatchesvideos",
+        "platform": "youtube",
+        "time": "2026-11-13T11:12:34Z",
+        "comment_id": "UgzgV188boEtjH8Z3VN4AaABAg"
+      }
+    ]
+  },
+  "picture_style": "illustration",
+  "voice": "clone"
+}

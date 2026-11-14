@@ -1,5 +1,5 @@
 {
-  "updated": "2026-11-13T07:11+00:00",
+  "updated": "2026-11-14T01:12+00:00",
   "searches": {
     "en": [
       "why do we fall",
@@ -7,19 +7,18 @@
       "why don't we",
       "why do we fall in hindi",
       "why do we fall ill class 9",
+      "why do we celebrate children's day",
       "why does nobody remember me in this world",
       "why do we need food",
       "why do you fall",
       "why do we fall motivational video",
-      "why don't you stay",
       "why do we get hiccups",
       "why do stars twinkle",
       "why do we need a constitution",
       "why does",
       "why do we need a house",
+      "why do we celebrate diwali",
       "why do we yawn",
-      "why do we wear clothes",
-      "why do we celebrate children's day",
       "why is there a protest in delhi",
       "why is there a chip shortage",
       "why is there a green dot on my camera",
@@ -31,14 +30,14 @@
       "why is there a green light on my phone",
       "why is there a black line on my iphone screen",
       "why is there a microsoft outage",
-      "why is there a holiday tomorrow",
-      "why is there an outlook outage",
       "why is there a microsoft outage today",
-      "why is there anything at all",
+      "why is there an outlook outage",
+      "why is there a holiday tomorrow",
       "why is there a microsoft outage right now",
       "why is there a protest in jantar mantar",
       "why is there a holiday today",
       "why is there a shortage of amul butter",
+      "why is there a protest against gyanesh kumar",
       "why are you",
       "why are you song",
       "why are you interested in this program",
@@ -49,13 +48,14 @@
       "why are 2 full movie",
       "why are two full movie",
       "why are you always tired",
+      "why are microsoft services down",
+      "why are gold prices falling",
       "why are living organisms classified",
       "why are you laughing meaning in hindi",
       "why are you interested in this program in hindi",
-      "why are you gay",
-      "why are gold prices falling",
-      "why are you so sexy",
       "why are markets down today",
+      "why are you gay",
+      "why are you so sexy",
       "why does ac blast",
       "why does the colour of copper sulphate solution change when an iron nail is dipped in it",
       "why does the postmaster send money to lencho why does he sign the letter god",
@@ -98,7 +98,7 @@
       "what is the hole in your eyelid called",
       "what is the hole in jail",
       "hole in the hole",
-      "the hole in ground",
+      "what is in the hole",
       "what is the hole in stomach called",
       "what is the hole in the door called",
       "what is the hole in your belly called",
@@ -249,86 +249,86 @@
   "daily": {
     "IN": [
       {
-        "title": "zim vs afg",
-        "traffic": "20000+"
+        "title": "కోల్కతా నైట్రైడర్స్",
+        "traffic": "100+"
       },
       {
-        "title": "గుర్నూర్ బ్రార్",
-        "traffic": "1000+"
+        "title": "എയര് ഇന്ത്യ",
+        "traffic": "100+"
       },
       {
-        "title": "വിപണി",
-        "traffic": "1000+"
+        "title": "বেতন",
+        "traffic": "100+"
       },
       {
-        "title": "ishan kishan",
-        "traffic": "10000+"
-      },
-      {
-        "title": "india cricket",
-        "traffic": "50000+"
-      },
-      {
-        "title": "cric",
-        "traffic": "200+"
-      },
-      {
-        "title": "ज़िम्बाब्वे क्रिकेट टीम बनाम अफगानिस्तान क्रिकेट टीम के मैच का स्कोरकार्ड",
+        "title": "labh pancham 2026",
         "traffic": "500+"
       },
       {
-        "title": "eviction",
+        "title": "ಕಾರು",
         "traffic": "200+"
       },
       {
-        "title": "kyle jamieson",
-        "traffic": "10000+"
+        "title": "शेयर प्राइस",
+        "traffic": "200+"
       },
       {
-        "title": "काइल जैमीसन",
+        "title": "ಶ್ರೇಯಸ್ ಐಯ್ಯರ್",
+        "traffic": "100+"
+      },
+      {
+        "title": "బిగ్ బాస్",
+        "traffic": "200+"
+      },
+      {
+        "title": "सय्यद मुश्ताक अली ट्रॉफी",
+        "traffic": "200+"
+      },
+      {
+        "title": "maximiliano araújo",
         "traffic": "200+"
       }
     ],
     "US": [
       {
-        "title": "cricbuzz",
+        "title": "ryan seacrest",
+        "traffic": "2000+"
+      },
+      {
+        "title": "white house",
+        "traffic": "2000+"
+      },
+      {
+        "title": "ncaa men's basketball",
+        "traffic": "500+"
+      },
+      {
+        "title": "massillon football",
+        "traffic": "500+"
+      },
+      {
+        "title": "anthony black",
+        "traffic": "500+"
+      },
+      {
+        "title": "dale earnhardt jr.",
+        "traffic": "500+"
+      },
+      {
+        "title": "cavaliers - heat",
         "traffic": "200+"
       },
       {
-        "title": "james webb space telescope",
+        "title": "widespread power outages",
         "traffic": "200+"
       },
       {
-        "title": "harry truman",
-        "traffic": "200+"
+        "title": "auburn basketball",
+        "traffic": "1000+"
       },
       {
-        "title": "diane morgan",
-        "traffic": "100+"
-      },
-      {
-        "title": "matt henry",
-        "traffic": "10000+"
-      },
-      {
-        "title": "duran duran drummer roger taylor",
-        "traffic": "200+"
-      },
-      {
-        "title": "sf weather",
-        "traffic": "200+"
-      },
-      {
-        "title": "bernard tomic",
-        "traffic": "200+"
-      },
-      {
-        "title": "camp flog gnaw",
-        "traffic": "200+"
-      },
-      {
-        "title": "kristina bogic",
-        "traffic": "200+"
+        "title": "pascal siakam",
+        "traffic": "500+"
       }
     ]
   },
@@ -338,31 +338,15 @@
       "query": "why",
       "title": "Why Do Basketball Hoops Need a Net? 🏀 #shorts",
       "channel": "prx.creation",
-      "views": 19442387,
+      "views": 20161933,
       "id": "_IzxtbNdVAc"
-    },
-    {
-      "lang": "en",
-      "query": "why",
-      "title": "Big & Small Toyota Yaris vs Moving Trailer 🤣 Why's this dealer meme in BeamNG Drive",
-      "channel": "BeamngShorts",
-      "views": 17097742,
-      "id": "pRPqDDih-9U"
-    },
-    {
-      "lang": "en",
-      "query": "why",
-      "title": "Why do we Wrinkle when we get wet #imagination #experiements #learning",
-      "channel": "The Love and Louie Show",
-      "views": 16185160,
-      "id": "ql_1cwbqi5o"
     },
     {
       "lang": "en",
       "query": "why",
       "title": "Why Leatherback Turtles Cry 😢",
       "channel": "Zack D. Films",
-      "views": 11777333,
+      "views": 12431252,
       "id": "Zy__AZ9WiCM"
     },
     {
@@ -370,47 +354,55 @@
       "query": "did you know",
       "title": "Candi Borobudur pernah rubuh!? #borobudur #indonesia #history #archaeology #engineering #didyouknow",
       "channel": "Wait, Really!?",
-      "views": 10661490,
+      "views": 11246561,
       "id": "WB8NZGHuuSM"
+    },
+    {
+      "lang": "en",
+      "query": "why",
+      "title": "Why Sharing Is The Best Habit For Kids! 🍦✨ #shorts",
+      "channel": "Lagu Kita",
+      "views": 10706369,
+      "id": "CqgDgfdQ45Q"
     },
     {
       "lang": "en",
       "query": "why",
       "title": "Why FREEZE It?! #viral #pear #funny #comedy #humor",
       "channel": "Pancheva | DAILY ",
-      "views": 9339135,
+      "views": 9505349,
       "id": "lWw_Z-MQHng"
-    },
-    {
-      "lang": "en",
-      "query": "why",
-      "title": "Why Your Brain Focuses On Negative Things 🤔",
-      "channel": "Zack D. Films",
-      "views": 8298294,
-      "id": "v7RMXy04UoI"
     },
     {
       "lang": "en",
       "query": "why",
       "title": "Why do they make you do this?",
       "channel": "macknbricks",
-      "views": 8185935,
+      "views": 9215621,
       "id": "zhcEJ4O8o1s"
     },
     {
       "lang": "en",
       "query": "why",
-      "title": "Why No One Chose Dani? 💔 #shorts #kpop",
-      "channel": "Kpop Times",
-      "views": 6848146,
-      "id": "iLOpwHPcMC4"
+      "title": "Why Your Brain Focuses On Negative Things 🤔",
+      "channel": "Zack D. Films",
+      "views": 8811964,
+      "id": "v7RMXy04UoI"
+    },
+    {
+      "lang": "en",
+      "query": "why",
+      "title": "Why Is This TBM Machine Buried Underground?",
+      "channel": "𝗙𝗮𝗰𝘁 𝗢𝗚 ",
+      "views": 7638021,
+      "id": "_s38_Rg5b0M"
     },
     {
       "lang": "en",
       "query": "why",
       "title": "Why Do Thailand Farmers Use Monkeys to Harvest Thousands of Coconuts 🐒🥥 #shorts",
       "channel": "Funmine Explainer",
-      "views": 6421322,
+      "views": 7228356,
       "id": "XDPVTDEFz9U"
     },
     {
@@ -418,55 +410,63 @@
       "query": "why",
       "title": "Why Penny Lick Ice Cream Was Banned 🤢",
       "channel": "Zack D. Films",
-      "views": 6233629,
+      "views": 6553437,
       "id": "_-bZnz9kLxI"
     },
     {
       "lang": "en",
       "query": "why",
-      "title": "Ep22: Why Guddu’s Mom Run Away from Home?😱 #stepmom #secondmarriage #friendsmeetup #jagritipahwa",
-      "channel": "Jagriti Pahwa",
-      "views": 6123507,
-      "id": "iK7C4KqqZKM"
+      "title": "Why Soldiers Put Grenades In Glass Cups 😨",
+      "channel": "Zack D. Films",
+      "views": 6367210,
+      "id": "D_Gtwf9ISPI"
     },
     {
       "lang": "en",
       "query": "why",
-      "title": "Why Is This TBM Machine Buried Underground?",
-      "channel": "𝗙𝗮𝗰𝘁 𝗢𝗚 ",
-      "views": 5979498,
-      "id": "_s38_Rg5b0M"
-    },
-    {
-      "lang": "en",
-      "query": "why",
-      "title": "Why FREEZE It?! #viral #pear #funny #comedy #humor.",
-      "channel": "Pancheva | DAILY ",
-      "views": 5652907,
-      "id": "MjIJdp3k7O0"
-    },
-    {
-      "lang": "en",
-      "query": "why",
-      "title": "Mengapa Gerinda Gips Tak Melukai Kulit?",
+      "title": "Alasan Koboi Memakai Jeans Keras",
       "channel": "CuktawTv",
-      "views": 5460190,
-      "id": "iNQbDiB51Ug"
+      "views": 5951436,
+      "id": "B47ipePefkU"
+    },
+    {
+      "lang": "en",
+      "query": "why",
+      "title": "Почему динозаврам нельзя было высиживать яйца 🦕",
+      "channel": "Глеб Рандалайнен",
+      "views": 5755825,
+      "id": "juHATZuG9rs"
     },
     {
       "lang": "en",
       "query": "why",
       "title": "Why Did Everyone Stop Using the Airless Basketball? 🤯 #shorts",
       "channel": "Riyad Surur",
-      "views": 5119808,
+      "views": 5468143,
       "id": "nGzexSNyLgo"
+    },
+    {
+      "lang": "en",
+      "query": "why",
+      "title": "북파공작원은 인간 자체가 무기인 이유",
+      "channel": "송곳주먹",
+      "views": 5323451,
+      "id": "0eiylNxCOFM"
+    },
+    {
+      "lang": "en",
+      "query": "why",
+      "title": "Kenapa Kacang Mete Tidak Pernah Dijual Bersama Kulitnya?",
+      "channel": "foxchicken55",
+      "views": 5155250,
+      "id": "958rqMt_C-k"
     },
     {
       "lang": "en",
       "query": "why",
       "title": "Kok jadi gini sihh",
       "channel": "IniJayaq",
-      "views": 4853876,
+      "views": 5092575,
       "id": "gDFDQPllEQM"
     },
     {
@@ -474,346 +474,346 @@
       "query": "why",
       "title": "Why girls always runs away",
       "channel": "Robin Lim",
-      "views": 4848496,
+      "views": 5026743,
       "id": "UvKipjAgNUA"
-    },
-    {
-      "lang": "en",
-      "query": "why",
-      "title": "Kenapa Kacang Mete Tidak Pernah Dijual Bersama Kulitnya?",
-      "channel": "foxchicken55",
-      "views": 4755635,
-      "id": "958rqMt_C-k"
-    },
-    {
-      "lang": "en",
-      "query": "why",
-      "title": "Why Everyone Is Copying This Stuffed Monkey🐒",
-      "channel": "Nielows",
-      "views": 4686408,
-      "id": "hhXu-uigXnU"
     },
     {
       "lang": "en",
       "query": "why",
       "title": "Почему на айфоне стало сложнее печатать?",
       "channel": "Новостной Гусь",
-      "views": 4517117,
+      "views": 4904304,
       "id": "nPW0huuDVFs"
+    },
+    {
+      "lang": "en",
+      "query": "why",
+      "title": "बाँस का ये घर इतना खास क्यों है? 😳",
+      "channel": "Pody Skills ",
+      "views": 4860250,
+      "id": "rB5xXATsmBA"
+    },
+    {
+      "lang": "en",
+      "query": "why",
+      "title": "Why is every friend I have so reliably unreliable #funny #comedy #memes",
+      "channel": "AJun Fun",
+      "views": 4788549,
+      "id": "yF9fFTeGQPM"
     },
     {
       "lang": "en",
       "query": "why",
       "title": "Why Resting Is Not Laziness 👇",
       "channel": "mdscae",
-      "views": 4153541,
+      "views": 4411566,
       "id": "aqsPn0Og2gs"
+    },
+    {
+      "lang": "en",
+      "query": "why",
+      "title": "The Biological Drill: Why Peanuts Grow Underground & Their Hidden Biochemistry | Explained",
+      "channel": "Sami Zaki Khan",
+      "views": 4352404,
+      "id": "1WeYsecTgaQ"
     },
     {
       "lang": "en",
       "query": "why",
       "title": "Why Drivers Started Filming The Road",
       "channel": "Ricks Clips",
-      "views": 4066360,
+      "views": 4216055,
       "id": "e9NoHjAXYIY"
     },
     {
       "lang": "en",
-      "query": "why",
-      "title": "Camo doesn't look like a forest. On purpose. But why?",
-      "channel": "Fineas Jackson",
-      "views": 3979256,
-      "id": "m1wRRynFUFQ"
+      "query": "did you know",
+      "title": "Did You Know JJ and Mikey Are Looking for New Friends? 😱",
+      "channel": "Mysterious Bandit",
+      "views": 4165594,
+      "id": "nFC6iJy82TQ"
     },
     {
       "lang": "en",
       "query": "why",
-      "title": "Why the Sturmtiger had 31 Holes in it's Muzzle",
-      "channel": "Soldat Hanz",
-      "views": 3921005,
-      "id": "rsdI2g1xVfE"
+      "title": "Why is there a dark crack on your wooden spoon? Explained in 3D",
+      "channel": "The Instinct That Kills You",
+      "views": 3768509,
+      "id": "foQyrLhQqSo"
     },
     {
       "lang": "en",
       "query": "did you know",
       "title": "Did You Know THIS About Little Trees? 🌲🤓",
       "channel": "Car Builds",
-      "views": 2863376,
+      "views": 3540280,
       "id": "IysX9WazQQQ"
+    },
+    {
+      "lang": "en",
+      "query": "why",
+      "title": "Why Sailors Stitched Noses Back On?",
+      "channel": "Celyxi",
+      "views": 3416675,
+      "id": "H8ncBQ42m3A"
     },
     {
       "lang": "en",
       "query": "did you know",
       "title": "Você Sabia que a Areia de Praia Pode Ser Perigosa?",
       "channel": "Pedro Lumphix",
-      "views": 2634598,
+      "views": 2812923,
       "id": "crgUHdKQ4xw"
-    },
-    {
-      "lang": "en",
-      "query": "facts you didn't know",
-      "title": "10 Weird Things You Didn't Know About Magnus Carlsen",
-      "channel": "FGtheexplainer",
-      "views": 2408503,
-      "id": "jUNvXBsIrts"
     },
     {
       "lang": "en",
       "query": "did you know",
       "title": "Did you know this detail in Avengers: Endgame???",
       "channel": "Detective Pasini",
-      "views": 1840320,
+      "views": 2323329,
       "id": "DtQeQOtetF8"
-    },
-    {
-      "lang": "en",
-      "query": "did you know",
-      "title": "SİZ KAÇTANE ŞARKIYI BİLDİNİZ ?❤️ #shortvideo",
-      "channel": "Büşra Parla ",
-      "views": 1828841,
-      "id": "3jk6ylgP3Uc"
     },
     {
       "lang": "en",
       "query": "did you know",
       "title": "⚠️Hati-hati pas ketemu truk tanki! #truck #physics #science #didyouknow #howitworks #engineering",
       "channel": "Wait, Really!?",
-      "views": 1599835,
+      "views": 1836888,
       "id": "8Acj_QdN3kQ"
-    },
-    {
-      "lang": "hi",
-      "query": "kyu hota hai",
-      "title": "दीपावली पर गणेश जी और माता लक्ष्मी की पूजा क्यों होती है? जानिए पूरी कथा | #diwali #shorts #bhakti",
-      "channel": "Dilsetumharabhakt",
-      "views": 1573965,
-      "id": "Hsgb47bAsV0"
-    },
-    {
-      "lang": "hi",
-      "query": "kyu hota hai",
-      "title": "दिवाली पर मां लक्ष्मी की पूजा होती है, मां सरस्वती की क्यों नहीं? 😱🙏 #Shorts",
-      "channel": "The PS world ",
-      "views": 1451227,
-      "id": "auVxXLKjqbg"
     },
     {
       "lang": "en",
       "query": "did you know",
       "title": "Lidya’nın Bu Hikayesini Biliyor Muydunuz 😳#manifest",
       "channel": "Şeydanur Ceylan",
-      "views": 1437136,
+      "views": 1587659,
       "id": "DG3qCWv3rG0"
-    },
-    {
-      "lang": "en",
-      "query": "did you know",
-      "title": "Did You Know Salman Khan was going to play the role of Ram #salmankhan #ramayana #sanjaydutt",
-      "channel": "Seen Suggest",
-      "views": 1376001,
-      "id": "pzfRsHamDnw"
     },
     {
       "lang": "en",
       "query": "did you know",
       "title": "Did you know RGB was actually for this?",
       "channel": "ByteTalkYT",
-      "views": 1343543,
+      "views": 1573152,
       "id": "JEvjmvuap6Q"
     },
     {
-      "lang": "en",
-      "query": "did you know",
-      "title": "كنت تعرف ان بسيط عميل سري #shortvideo",
-      "channel": "Cimaroomorg",
-      "views": 1251875,
-      "id": "qAYwTY5Rl9E"
-    },
-    {
-      "lang": "en",
-      "query": "did you know",
-      "title": "Did you know Megan has been on hiatus?😭",
-      "channel": "Ndj Prez",
-      "views": 1233700,
-      "id": "z1vGyPsH49A"
+      "lang": "hi",
+      "query": "kyu hota hai",
+      "title": "दिवाली पर मां लक्ष्मी की पूजा होती है, मां सरस्वती की क्यों नहीं? 😱🙏 #Shorts",
+      "channel": "The PS world ",
+      "views": 1451575,
+      "id": "auVxXLKjqbg"
     },
     {
       "lang": "en",
       "query": "did you know",
       "title": "Did you know Ravana lifted Mount Kailash? | Bhakthi Geetham",
       "channel": "Bhakthi Geetham ",
-      "views": 1221316,
+      "views": 1306629,
       "id": "hzbaNnCW3lI"
+    },
+    {
+      "lang": "en",
+      "query": "did you know",
+      "title": "Did you know Megan has been on hiatus?😭",
+      "channel": "Ndj Prez",
+      "views": 1244828,
+      "id": "z1vGyPsH49A"
     },
     {
       "lang": "en",
       "query": "did you know",
       "title": "هل كنت تعلم نصائح علم النفسستوريات #اكسبلور #تطوير الذاتأسرار",
       "channel": "ABO MHRTMOP",
-      "views": 1156769,
+      "views": 1243704,
       "id": "ytrWsYEsuPI"
+    },
+    {
+      "lang": "en",
+      "query": "facts you didn't know",
+      "title": "10 Weird Things You Didn't Know About Jim Carrey",
+      "channel": "FGtheexplainer",
+      "views": 1221680,
+      "id": "Xs6hUduelKs"
+    },
+    {
+      "lang": "en",
+      "query": "facts you didn't know",
+      "title": "10 Weird Things You Didn't Know About Jesse Pinkman",
+      "channel": "FGtheexplainer",
+      "views": 1209238,
+      "id": "KxCRR7mq_dA"
+    },
+    {
+      "lang": "en",
+      "query": "did you know",
+      "title": "Did you know Jennie is supposedly the reincarnation of a princess?#jennie #blackpink #shorts",
+      "channel": "Rugdh Dhcby",
+      "views": 1147045,
+      "id": "YEgBparepm0"
     }
   ],
   "hashtags": [
     {
       "tag": "#shorts",
-      "weight": 83885022
-    },
-    {
-      "tag": "#humor",
-      "weight": 23086830
+      "weight": 76828346
     },
     {
       "tag": "#funny",
-      "weight": 21317957
+      "weight": 21708195
     },
     {
       "tag": "#comedy",
-      "weight": 21102353
-    },
-    {
-      "tag": "#didyouknow",
-      "weight": 21068569
-    },
-    {
-      "tag": "#viral",
-      "weight": 17790835
-    },
-    {
-      "tag": "#tahukahkamu",
-      "weight": 17721515
-    },
-    {
-      "tag": "#beamng",
-      "weight": 17097742
-    },
-    {
-      "tag": "#beamingshorts",
-      "weight": 17097742
-    },
-    {
-      "tag": "#beamngdrive",
-      "weight": 17097742
-    },
-    {
-      "tag": "#beamngshorts",
-      "weight": 17097742
+      "weight": 20622240
     },
     {
       "tag": "#faktaunik",
-      "weight": 17016960
+      "weight": 18804859
     },
     {
-      "tag": "#imagination",
-      "weight": 16185160
+      "tag": "#humor",
+      "weight": 18269708
     },
     {
-      "tag": "#learning",
-      "weight": 16185160
+      "tag": "#didyouknow",
+      "weight": 17582164
     },
     {
-      "tag": "#experiements",
-      "weight": 16185160
+      "tag": "#ytshorts",
+      "weight": 13964092
     },
     {
-      "tag": "#pear",
-      "weight": 14992042
+      "tag": "#tahukahkamu",
+      "weight": 13649609
+    },
+    {
+      "tag": "#viral",
+      "weight": 13316962
     },
     {
       "tag": "#engineering",
-      "weight": 12261325
+      "weight": 13083449
     },
     {
       "tag": "#youtubeshorts",
-      "weight": 10759875
+      "weight": 11680522
     },
     {
       "tag": "#history",
-      "weight": 10714667
-    },
-    {
-      "tag": "#borobudur",
-      "weight": 10661490
-    },
-    {
-      "tag": "#budhism",
-      "weight": 10661490
-    },
-    {
-      "tag": "#pemugaran",
-      "weight": 10661490
-    },
-    {
-      "tag": "#candiborobudur",
-      "weight": 10661490
-    },
-    {
-      "tag": "#archeology",
-      "weight": 10661490
-    },
-    {
-      "tag": "#archaeology",
-      "weight": 10661490
-    },
-    {
-      "tag": "#culture",
-      "weight": 10661490
-    },
-    {
-      "tag": "#indonesia",
-      "weight": 10661490
-    },
-    {
-      "tag": "#magelang",
-      "weight": 10661490
-    },
-    {
-      "tag": "#sejarah",
-      "weight": 10661490
-    },
-    {
-      "tag": "#sejarahindonesia",
-      "weight": 10661490
-    },
-    {
-      "tag": "#yogyakarta",
-      "weight": 10661490
+      "weight": 11395814
     },
     {
       "tag": "#jogja",
-      "weight": 10661490
+      "weight": 11246561
     },
     {
-      "tag": "#7wondersoftheworld",
-      "weight": 10661490
+      "tag": "#culture",
+      "weight": 11246561
+    },
+    {
+      "tag": "#candiborobudur",
+      "weight": 11246561
+    },
+    {
+      "tag": "#pemugaran",
+      "weight": 11246561
+    },
+    {
+      "tag": "#magelang",
+      "weight": 11246561
+    },
+    {
+      "tag": "#borobudur",
+      "weight": 11246561
+    },
+    {
+      "tag": "#sejarahindonesia",
+      "weight": 11246561
     },
     {
       "tag": "#cagarbudaya",
-      "weight": 10661490
+      "weight": 11246561
     },
     {
-      "tag": "#pokémon",
-      "weight": 8282627
+      "tag": "#sejarah",
+      "weight": 11246561
     },
     {
-      "tag": "#afol",
-      "weight": 8185935
+      "tag": "#archaeology",
+      "weight": 11246561
     },
     {
-      "tag": "#pikachu",
-      "weight": 8185935
+      "tag": "#budhism",
+      "weight": 11246561
     },
     {
-      "tag": "#lego",
-      "weight": 8185935
+      "tag": "#indonesia",
+      "weight": 11246561
     },
     {
-      "tag": "#fails",
-      "weight": 8094788
+      "tag": "#7wondersoftheworld",
+      "weight": 11246561
     },
     {
-      "tag": "#katseye",
-      "weight": 8081846
+      "tag": "#archeology",
+      "weight": 11246561
+    },
+    {
+      "tag": "#yogyakarta",
+      "weight": 11246561
+    },
+    {
+      "tag": "#kidssong",
+      "weight": 10706369
+    },
+    {
+      "tag": "#laguanakpopuler",
+      "weight": 10706369
+    },
+    {
+      "tag": "#laguanakbalita",
+      "weight": 10706369
+    },
+    {
+      "tag": "#laguanakindonesia",
+      "weight": 10706369
+    },
+    {
+      "tag": "#healthyhabits",
+      "weight": 10706369
+    },
+    {
+      "tag": "#laguayamdanbebek",
+      "weight": 10706369
+    },
+    {
+      "tag": "#lagukita",
+      "weight": 10706369
+    },
+    {
+      "tag": "#songforkids",
+      "weight": 10706369
+    },
+    {
+      "tag": "#divabernyanyi",
+      "weight": 10706369
+    },
+    {
+      "tag": "#english",
+      "weight": 10706369
+    },
+    {
+      "tag": "#laguanak",
+      "weight": 10706369
+    },
+    {
+      "tag": "#laguanakdiva",
+      "weight": 10706369
+    },
+    {
+      "tag": "#family",
+      "weight": 10706369
     }
   ]
 }

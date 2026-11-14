@@ -1,1 +1,14 @@
-{"_about": "Replaces the quiz-locked topic for a given IST date. Written by Claude on Prashant's request.", "overrides": {}}
+{
+ "_about": "Replaces the quiz-locked topic for a given IST date. Written by Claude on Prashant's request.",
+ "overrides": {
+  "2026-11-15": {
+   "topic": "how the anti-theft tag on clothes in malls works",
+   "picked_by": "Prashant",
+   "picked_at": "2026-11-14",
+   "replaces": "green dot on your phone (teased in curious-2026-11-14-wrinkly-fingers)",
+   "answer_yesterday": "B, camera or mic is on",
+   "bucket": "seen-but-missed",
+   "angle_hint": "Everyone's seen the hard plastic tag and the gates at the door. What's inside, how the gates 'hear' it, why the cashier's magnet/detacher frees it, and (if verified) why some tags squirt ink. Verify each fact against 2 sources."
+  }
+ }
+}

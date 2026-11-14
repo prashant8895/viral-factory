@@ -1,0 +1,90 @@
+<!doctype html><html><head><meta charset="utf-8">
+<style>html,body{margin:0;background:#16233a}canvas{display:block}</style></head><body>
+<canvas id="c" width="1080" height="1920"></canvas>
+<script>
+// Why fingers go wrinkly in water. StarTalk-clouds style: navy background, ONE object, ONE moving number.
+// params.mode:
+//  "soak":    a big fingertip dips into water; a counter climbs 0 -> params.end (default 5) with
+//             params.label (e.g. "MINUTES") under it; the fingertip's pad goes from smooth to folded.
+//  "vessels": cross-section of a fingertip: a yellow nerve signal runs in, the red blood vessels under
+//             the skin squeeze thin, and the skin surface above folds into wrinkles. params.label shown
+//             under it (e.g. "VESSELS SQUEEZE"), params.nerve on the nerve (e.g. "NERVE").
+// Keeps the top fifth (0-384) and the caption band (1344-1632) empty.
+const c=document.getElementById('c'),x=c.getContext('2d'),W=1080,H=1920;
+const NAVY='#16233a',YEL='#ffd23f',ORA='#ff9f1c',WHITE='#f4f1e8',TEAL='#3fc1c9',SKIN='#f2b48c',RED='#e5484d';
+const clamp=(v,a=0,b=1)=>Math.max(a,Math.min(b,v)), prog=(t,a,b)=>clamp((t-a)/(b-a));
+const ease=t=>1-Math.pow(1-clamp(t),3), back=t=>{t=clamp(t);const s=1.7;return 1+(s+1)*Math.pow(t-1,3)+s*Math.pow(t-1,2)};
+const rnd=i=>{const s=Math.sin(i*12.9898)*43758.5453;return s-Math.floor(s)};
+function txt(s,px,py,size,col){x.font=`700 ${size}px Anton, Impact, sans-serif`;x.textAlign='center';x.textBaseline='middle';
+  x.lineWidth=size*0.14;x.lineJoin='round';x.strokeStyle='rgba(0,0,0,.55)';x.strokeText(s,px,py);x.fillStyle=col;x.fillText(s,px,py)}
+function bg(){x.fillStyle=NAVY;x.fillRect(0,0,W,H);
+  for(let i=0;i<220;i++){x.fillStyle='rgba(255,255,255,.035)';x.fillRect(rnd(i)*W,rnd(i+99)*H,3,3)}}
+
+function drawSoak(t,p,P){
+  const end=+(P.end||5), dip=ease(prog(p,0.02,0.18)), wr=ease(prog(p,0.25,0.85));
+  const cx=360, tipY=900+120*dip;                         // fingertip bottom
+  // water tank (lower part, stops above the caption band)
+  const wy=880;
+  x.fillStyle='rgba(63,193,201,.22)';x.fillRect(80,wy,560,1300-wy);
+  x.strokeStyle=TEAL;x.lineWidth=6;x.beginPath();
+  for(let xx=80;xx<=640;xx+=10){const yy=wy+Math.sin(xx/40+t*3)*6;xx===80?x.moveTo(xx,yy):x.lineTo(xx,yy)}x.stroke();
+  // finger coming down from above (stays below the top fifth)
+  const fw=110;
+  x.save();x.fillStyle=SKIN;x.strokeStyle='#5a3a2a';x.lineWidth=7;
+  x.beginPath();x.moveTo(cx-fw,420);x.lineTo(cx-fw,tipY-fw);x.arc(cx,tipY-fw,fw,Math.PI,0,true);x.lineTo(cx+fw,420);x.closePath();x.fill();x.stroke();
+  x.restore();  // pad side faces us (no nail)
+  // wrinkles on the pad: curved lines that deepen
+  if(wr>0){x.save();x.strokeStyle=`rgba(90,58,42,${0.85*wr})`;x.lineWidth=5;x.lineCap='round';
+    for(let k=0;k<6;k++){const yy=tipY-fw-150+k*44, half=fw*0.85*Math.min(1,(tipY-yy)/fw+0.2);
+      x.beginPath();for(let s=-1;s<=1.001;s+=0.1){const xx=cx+s*Math.min(half,fw-12);const yv=yy+Math.sin(s*6+k)*10*wr;s===-1?x.moveTo(xx,yv):x.lineTo(xx,yv)}x.stroke()}
+    x.restore()}
+  // the moving number on the right
+  const n=Math.min(end,Math.floor(end*prog(p,0.2,0.85)+1e-6)), s=back(prog(p,0,0.1));
+  x.save();x.translate(820,720);x.scale(s,s);txt(String(n),0,0,240,ORA);x.restore();
+  txt(P.label||'MINUTES',820,890,72,YEL);
+  // dashed ring on the pad once it's folded
+  const rs=back(prog(p,0.82,0.95));
+  if(rs>0){x.save();x.setLineDash([22,16]);x.lineWidth=7;x.strokeStyle=YEL;x.shadowColor=YEL;x.shadowBlur=18;
+    x.beginPath();x.arc(cx,tipY-fw-60,(fw+70)*rs,0,7);x.stroke();x.restore()}
+}
+
+function drawVessels(t,p,P){
+  const sig=prog(p,0.08,0.4), sq=ease(prog(p,0.38,0.8));
+  const L=90,R=990, sy=600;                               // skin surface y
+  // skin block
+  x.fillStyle=SKIN;x.beginPath();x.moveTo(L,1290);
+  for(let xx=L;xx<=R;xx+=6){const yy=sy+Math.sin((xx-L)/42)*38*sq+ (1-sq)*0;x.lineTo(xx,yy)}
+  x.lineTo(R,1290);x.closePath();x.fill();
+  x.strokeStyle='#5a3a2a';x.lineWidth=8;x.beginPath();
+  for(let xx=L;xx<=R;xx+=6){const yy=sy+Math.sin((xx-L)/42)*38*sq;xx===L?x.moveTo(xx,yy):x.lineTo(xx,yy)}x.stroke();
+  txt('SKIN',190,sy+110,56,'#5a3a2a');
+  // blood vessels: three red tubes that squeeze thin
+  const th=46*(1-0.7*sq);
+  [800,960,1120].forEach((vy,i)=>{x.save();x.fillStyle=RED;x.globalAlpha=0.9;
+    x.beginPath();x.roundRect?x.roundRect(L+40,vy-th/2,R-L-80,th,th/2):x.rect(L+40,vy-th/2,R-L-80,th);x.fill();
+    // blood dots flowing, fewer as it squeezes
+    x.fillStyle='#ffb3b3';for(let k=0;k<10;k++){if(k>=Math.round(10*(1-0.6*sq)))break;const ph=((t*0.25+k/10+i*0.3)%1);
+      x.beginPath();x.arc(L+60+ph*(R-L-120),vy,Math.max(5,th*0.22),0,7);x.fill()}
+    x.restore()});
+  // nerve: dashed yellow line coming in from the right side, a pulse runs along it
+  x.save();x.setLineDash([20,14]);x.lineWidth=8;x.strokeStyle=YEL;x.shadowColor=YEL;x.shadowBlur=14;
+  x.beginPath();x.moveTo(R+40,1250);x.lineTo(700,1250);x.lineTo(700,780);x.stroke();x.restore();
+  if(sig>0&&sig<1){const len=290+470, d=sig*len;let px,py;
+    if(d<290){px=R+40-d;py=1250}else{px=700;py=1250-(d-290)}
+    x.save();x.fillStyle=YEL;x.shadowColor=YEL;x.shadowBlur=40;x.beginPath();x.arc(px,py,24,0,7);x.fill();x.restore()}
+  const nl=back(prog(p,0.05,0.18));x.save();x.translate(860,1205);x.scale(nl,nl);txt(P.nerve||'NERVE',0,0,58,YEL);x.restore();
+  // inward arrows on the vessels while squeezing
+  if(sq>0.05){x.save();x.globalAlpha=sq;x.fillStyle=ORA;
+    [800,960,1120].forEach(vy=>{[400].forEach(ax=>{[-1,1].forEach(d=>{const ay=vy+d*(th/2+38);
+      x.beginPath();x.moveTo(ax,ay+d*-14);x.lineTo(ax-18,ay+d*14);x.lineTo(ax+18,ay+d*14);x.closePath();x.fill()})})});x.restore()}
+  const ls=back(prog(p,0.55,0.7));x.save();x.translate(W/2,470);x.scale(ls,ls);txt(P.label||'VESSELS SQUEEZE',0,0,70,ORA);x.restore();
+}
+
+window.draw=function(t,dur,P){
+  P=Object.assign({mode:'soak'},P||{});
+  const p=t/Math.max(dur,0.1);
+  x.setTransform(1,0,0,1,0,0);x.globalAlpha=1;x.shadowBlur=0;x.setLineDash([]);bg();
+  if(P.mode==='vessels')drawVessels(t,p,P);else drawSoak(t,p,P);
+};
+window.draw(0,6,{});
+</script></body></html>

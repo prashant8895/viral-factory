@@ -1,0 +1,66 @@
+{
+  "id": "curious-2026-11-15-shop-tag-en",
+  "channel": "curious-en",
+  "date": "2026-11-15",
+  "slot": "19:00",
+  "publish": true,
+  "bucket": "how it works",
+  "episode": null,
+  "hook_text": "HOW DO SHOP *TAGS* WORK?",
+  "hook_style": "curiosity",
+  "release": "job-curious-2026-11-15-shop-tag-en",
+  "duration": 67.99,
+  "quiz": {
+    "theme": "SUNDAY BRAIN TEASER",
+    "next_topic": "how a tap-to-pay card works without a battery",
+    "next_title": "Tap to pay",
+    "question": "No battery. So how does a tap pay?",
+    "options": {
+      "A": "A tiny hidden battery",
+      "B": "The card machine powers it"
+    },
+    "answer": "B",
+    "keywords": {
+      "A": [
+        "battery",
+        "hidden",
+        "cell",
+        "charged"
+      ],
+      "B": [
+        "machine",
+        "reader",
+        "terminal",
+        "powers",
+        "powered",
+        "induction",
+        "magnetic",
+        "field",
+        "nfc"
+      ]
+    },
+    "sources": [
+      "https://www.secureidnews.com/news-item/tech-101-contactless-smart-cards/",
+      "https://itwissen.info/en/contactless-chipcard-113292.html"
+    ]
+  },
+  "shoutouts": {
+    "from": "curious-2026-11-14-wrinkly-fingers-en",
+    "names": [
+      {
+        "name": "@YOONCHIP-w5w",
+        "platform": "youtube",
+        "time": "2026-11-14T14:05:15Z",
+        "comment_id": "UgwJ3mlgIJBIjXcVmRp4AaABAg"
+      },
+      {
+        "name": "@Gargiwatchesvideos",
+        "platform": "youtube",
+        "time": "2026-11-14T14:45:06Z",
+        "comment_id": "Ugwzzm5JY6YiJ_tlAqN4AaABAg"
+      }
+    ]
+  },
+  "picture_style": "illustration",
+  "voice": "clone"
+}

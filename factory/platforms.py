@@ -162,11 +162,6 @@ def instagram_upload(p: str, video: Path, meta: dict) -> dict:
     return _ig_publish(p, video, "REELS", meta["instagram"]["caption"], meta.get("video_url"))
 
 
-def instagram_story_upload(p: str, video: Path, meta: dict) -> dict:
-    """The same video as a Story, right after the Reel: gives each post a second way in."""
-    return _ig_publish(p, video, "STORIES", None, meta.get("video_url"))
-
-
 def facebook_upload(p: str, video: Path, meta: dict) -> dict:
     page, tok = _need(p, "FB_PAGE_ID"), _need(p, "META_PAGE_TOKEN")
     base = f"https://graph.facebook.com/{GRAPH}/{page}/video_reels"
@@ -264,7 +259,7 @@ def youtube_retention(p: str, ids: list[str], start: str) -> dict:
     return out
 
 
-UPLOADERS = {"youtube": youtube_upload, "instagram": instagram_upload, "instagram_story": instagram_story_upload,
+UPLOADERS = {"youtube": youtube_upload, "instagram": instagram_upload,
              "facebook": facebook_upload}
 
 
@@ -274,9 +269,7 @@ def enabled_platforms(p: str) -> list[str]:
     if secret(p, "YT_REFRESH_TOKEN"):
         ok.append("youtube")
     if secret(p, "META_PAGE_TOKEN") and secret(p, "IG_USER_ID"):
-        ok.append("instagram")
-        if os.environ.get("IG_STORIES", "on") != "off":
-            ok.append("instagram_story")
+        ok.append("instagram")  # Reels only: Story sharing removed 2026-11-15 (Prashant)
     if secret(p, "META_PAGE_TOKEN") and secret(p, "FB_PAGE_ID"):
         ok.append("facebook")
     return ok

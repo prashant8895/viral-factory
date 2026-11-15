@@ -312,7 +312,7 @@ of 7 (keep the other 2 as a check).
 | On-screen text | The hook headline names the topic in plain words (MICROWAVE MESH, not just THIS THING) so Instagram can read what the video is about |
 | Hashtags | 3–5, always relevant: `#ohthatswhy` + 1–2 topic tags (#escalator) + 1–2 from `data/trends.json → hashtags` **only if they fit this video**. Never generic spam (#viral #fyp #trending), never off-topic trending tags |
 | Tagging | Only accounts that are genuinely in or about the video (a brand whose product it is, a source). Never random or famous accounts for reach: that is spam and gets pages restricted |
-| Stories | Every Reel is also posted to Instagram Stories automatically |
+| Stories | Not used: Instagram Story sharing removed 2026-11-15 (Prashant). Reels only |
 | AI label | Always on where the platform lets us set it. Caption always says "AI visuals" |
 
 ## 6. Hard no's

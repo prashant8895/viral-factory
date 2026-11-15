@@ -4,7 +4,7 @@
   "languages": [
     "en"
   ],
-  "publish": false,
+  "publish": true,
   "date": "2026-11-15",
   "slot": "19:00",
   "bucket": "how it works",
@@ -29,8 +29,17 @@
       "delivery": "curious",
       "motion": "push",
       "sfx": "boom",
-      "overlays": [],
-      "beat": "hook"
+      "overlays": [
+        {
+          "type": "arrow",
+          "x": 0.64,
+          "y": 0.6,
+          "dir": "down",
+          "on": "tag"
+        }
+      ],
+      "beat": "hook",
+      "image": "jobs/curious/pics/curious-2026-11-15-shop-tag/s1.jpg"
     },
     {
       "visual": "illustration of two tall pale grey security gate panels standing at the entrance of an Indian clothes shop, a young Indian woman with a shopping bag walking out between them and glancing at them curiously, seen from inside the shop, the gates and the woman in the lower two-thirds of the frame",
@@ -40,7 +49,8 @@
       "motion": "drift_right",
       "sfx": "thud",
       "overlays": [],
-      "beat": "loop"
+      "beat": "loop",
+      "image": "jobs/curious/pics/curious-2026-11-15-shop-tag/s2.jpg"
     },
     {
       "visual": "2D animation: the tag turns see-through and shows a thin metal strip inside; a battery icon gets a red cross",
@@ -65,8 +75,17 @@
       "headline": "IT *RINGS*?",
       "motion": "pull",
       "sfx": "ding",
-      "overlays": [],
-      "beat": "rehook"
+      "overlays": [
+        {
+          "type": "ring",
+          "x": 0.5,
+          "y": 0.47,
+          "r": 0.15,
+          "on": "rings"
+        }
+      ],
+      "beat": "rehook",
+      "image": "jobs/curious/pics/curious-2026-11-15-shop-tag/s4.jpg"
     },
     {
       "visual": "2D animation: a gate panel sends pulses, the strip in the tag wobbles, a counter climbs to 58,000 times a second, then the gate goes quiet and the strip keeps ringing back",
@@ -91,8 +110,17 @@
       "headline": "THEY *LISTEN*",
       "motion": "push",
       "sfx": "pop",
-      "overlays": [],
-      "beat": "payoff"
+      "overlays": [
+        {
+          "type": "ring",
+          "x": 0.75,
+          "y": 0.43,
+          "r": 0.06,
+          "on": "beep"
+        }
+      ],
+      "beat": "payoff",
+      "image": "jobs/curious/pics/curious-2026-11-15-shop-tag/s6.jpg"
     },
     {
       "visual": "2D animation: cross-section of the tag on a shirt, a magnet under the counter glows, the little clamp inside pulls apart and the tag lifts free of the pin",
@@ -117,8 +145,17 @@
       "headline": "THE *INK* TRAP",
       "motion": "pull",
       "sfx": "sparkle",
-      "overlays": [],
-      "beat": "explain"
+      "overlays": [
+        {
+          "type": "ring",
+          "x": 0.6,
+          "y": 0.62,
+          "r": 0.15,
+          "on": "ink"
+        }
+      ],
+      "beat": "explain",
+      "image": "jobs/curious/pics/curious-2026-11-15-shop-tag/s8.jpg"
     },
     {
       "visual": "2D animation: yesterday's fastest right answers",

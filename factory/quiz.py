@@ -87,6 +87,8 @@ def previous(job: dict) -> dict | None:
             best = s
     # only if that quiz really was the last thing posted (a later video without a quiz resets it)
     for s in load_states():
+        if s.get("taken_down") or s.get("id") in replaced + [r + "-en" for r in replaced]:
+            continue
         if (s.get("channel") == page and s.get("platforms") and s.get("id") != me and best
                 and (s.get("date"), s.get("slot")) > (best.get("date"), best.get("slot"))
                 and str(s.get("date")) <= str(job.get("date") or "9999")):

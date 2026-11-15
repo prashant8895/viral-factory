@@ -1,0 +1,198 @@
+{
+  "id": "curious-2026-11-15-shop-tag",
+  "channel": "curious",
+  "languages": [
+    "en"
+  ],
+  "publish": false,
+  "date": "2026-11-15",
+  "slot": "19:00",
+  "bucket": "how it works",
+  "hook_style": "curiosity",
+  "seed": 1115,
+  "hook_text": "HOW DO SHOP *TAGS* WORK?",
+  "keywords": [
+    "how do anti theft tags work",
+    "security tag on clothes",
+    "shop security gates"
+  ],
+  "sources": [
+    "https://en.wikipedia.org/wiki/Electronic_article_surveillance",
+    "https://www.vitag.com.au/?p=847",
+    "https://www.encyclopedia.com/manufacturing/news-wires-white-papers-and-books/antishoplifting-tag",
+    "https://www.mfgrobots.com/Article/mfg/mpm/2379.html"
+  ],
+  "scenes": [
+    {
+      "visual": "close-up illustration of a hard white plastic anti-theft tag clipped to the hem of a folded blue shirt on a clothes shop table, a small round grey pin dome on one end of the tag, the tag and shirt in the lower two-thirds of the frame, simple soft shop background",
+      "narration": "That hard plastic tag on a new shirt... how does the shop door *know*?",
+      "delivery": "curious",
+      "motion": "push",
+      "sfx": "boom",
+      "overlays": [],
+      "beat": "hook"
+    },
+    {
+      "visual": "illustration of two tall pale grey security gate panels standing at the entrance of an Indian clothes shop, a young Indian woman with a shopping bag walking out between them and glancing at them curiously, seen from inside the shop, the gates and the woman in the lower two-thirds of the frame",
+      "narration": "First, yesterday's green dot? B, camera or mic. Now this tag... stick around, the till trick is *better*.",
+      "delivery": "light",
+      "headline": "HOW DOES IT *KNOW*?",
+      "motion": "drift_right",
+      "sfx": "thud",
+      "overlays": [],
+      "beat": "loop"
+    },
+    {
+      "visual": "2D animation: the tag turns see-through and shows a thin metal strip inside; a battery icon gets a red cross",
+      "narration": "Okay, so. Inside? No battery, no camera. Mostly just a thin *metal* strip. So what's it for?",
+      "delivery": "explain",
+      "headline": "NO *BATTERY*",
+      "motion": "push",
+      "sfx": "whoosh",
+      "overlays": [],
+      "anim": "anims/shop-tag.html",
+      "anim_params": {
+        "mode": "inside",
+        "label": "THIN METAL STRIP",
+        "battery": "NO BATTERY"
+      },
+      "beat": "explain"
+    },
+    {
+      "visual": "illustration of a silver tuning fork held upright by one hand above a wooden table, soft curved sound lines spreading out from its two prongs, plain cream background, the fork in the lower two-thirds of the frame",
+      "narration": "Here's the weird part. The gates *ping* it... and the strip *rings*, like a tuning fork.",
+      "delivery": "build",
+      "headline": "IT *RINGS*?",
+      "motion": "pull",
+      "sfx": "ding",
+      "overlays": [],
+      "beat": "rehook"
+    },
+    {
+      "visual": "2D animation: a gate panel sends pulses, the strip in the tag wobbles, a counter climbs to 58,000 times a second, then the gate goes quiet and the strip keeps ringing back",
+      "narration": "About *fifty-eight thousand* times a second. And it keeps ringing after the gate goes *quiet*. Why?",
+      "delivery": "explain",
+      "headline": "*58,000* A SECOND",
+      "motion": "push",
+      "sfx": "tick",
+      "overlays": [],
+      "anim": "anims/shop-tag.html",
+      "anim_params": {
+        "mode": "ring",
+        "end": 58000,
+        "label": "TIMES A SECOND"
+      },
+      "beat": "build"
+    },
+    {
+      "visual": "illustration of the two pale grey security gate panels at a clothes shop door glowing softly, a small red alarm light lit on top of one panel, a paper shopping bag with a folded blue shirt passing between them, seen from the side, the gates in the lower two-thirds of the frame",
+      "narration": "Because in that silence, the gates *listen*. <short pause> Hear a ring... beep. They're not watching you. They're *listening*.",
+      "delivery": "reveal",
+      "headline": "THEY *LISTEN*",
+      "motion": "push",
+      "sfx": "pop",
+      "overlays": [],
+      "beat": "payoff"
+    },
+    {
+      "visual": "2D animation: cross-section of the tag on a shirt, a magnet under the counter glows, the little clamp inside pulls apart and the tag lifts free of the pin",
+      "narration": "So how does the cashier *unlock* it? A strong *magnet* in the counter pulls the lock open. Click.",
+      "delivery": "explain",
+      "headline": "THE TILL *TRICK*",
+      "motion": "push",
+      "sfx": "riser",
+      "overlays": [],
+      "anim": "anims/shop-tag.html",
+      "anim_params": {
+        "mode": "magnet",
+        "label": "MAGNET",
+        "free": "FREE"
+      },
+      "beat": "rehook"
+    },
+    {
+      "visual": "illustration of a folded white shirt lying on a shop counter with a broken round plastic tag on it and a big blue ink stain spreading across the fabric, seen from above at a slight angle, simple counter background, the shirt in the lower two-thirds of the frame",
+      "narration": "Some hide *ink*, so forcing one off ruins the shirt. Next time a gate beeps, you'll know it heard a ring.",
+      "delivery": "warm",
+      "headline": "THE *INK* TRAP",
+      "motion": "pull",
+      "sfx": "sparkle",
+      "overlays": [],
+      "beat": "explain"
+    },
+    {
+      "visual": "2D animation: yesterday's fastest right answers",
+      "shoutout": true,
+      "anim": "anims/shoutout.html",
+      "narration": "These legends got it first. Nicely done!",
+      "narration_none": "Nobody cracked yesterday's one... <chuckles> let's see if you can beat today's.",
+      "delivery": "warm",
+      "headline": "*SHOUTOUT*",
+      "motion": "push",
+      "sfx": "sparkle",
+      "overlays": []
+    },
+    {
+      "visual": "2D animation: the quiz about tomorrow's topic",
+      "quiz": true,
+      "anim": "anims/quiz.html",
+      "narration": "Tomorrow's teaser: tap-to-pay cards. A, hidden battery? B, the machine powers it? Comment your guess.",
+      "delivery": "curious",
+      "headline": "BRAIN *TEASER*",
+      "motion": "push",
+      "sfx": "pop",
+      "overlays": []
+    }
+  ],
+  "youtube": {
+    "title": "How do anti theft tags work? #shorts",
+    "description": "How do anti theft tags work? Many of those hard security tags on clothes have no battery, just a thin metal strip. The shop security gates ping it with quick bursts, the strip rings back like a tuning fork (about 58,000 times a second), and the gates listen for that ring in the quiet gaps. At the till, a strong magnet unlocks the tag. Some tags also hide ink vials that ruin the item if forced off.\n\nTomorrow's quiz (Sunday brain teaser): tap-to-pay cards have no battery. So how do they work? A) a hidden battery B) the card machine powers the card. Comment your guess, first 3 right get a shoutout 👇\n\nSources: Wikipedia (Electronic article surveillance), Vitag, Encyclopedia.com\nAI visuals\n#ohthatswhy #howitworks #shopping #didyouknow #shorts",
+    "tags": [
+      "how do anti theft tags work",
+      "security tag on clothes",
+      "shop security gates",
+      "how it works",
+      "did you know"
+    ]
+  },
+  "instagram": {
+    "caption": "How do anti theft tags work? 🛍️\nThat security tag on clothes hides a thin metal strip that rings when the shop security gates ping it, and the gates listen for the ring.\nEver set one off by accident? 👇\n\nSources: Wikipedia (Electronic article surveillance), Vitag, Encyclopedia.com\nAI visuals\n#ohthatswhy #howitworks #shopping #didyouknow\n\nTomorrow's quiz: tap-to-pay cards have no battery. So how do they work? A) a hidden battery B) the card machine powers the card. Comment A or B, first 3 right get a shoutout 👇"
+  },
+  "facebook": {
+    "description": "How do anti theft tags work? A thin metal strip inside rings when the shop gates ping it, and the gates listen for it. A magnet at the till unlocks it. AI visuals.\n\nTomorrow's quiz: tap-to-pay cards have no battery. So how do they work? A) a hidden battery B) the card machine powers the card. Comment your guess 👇"
+  },
+  "quiz": {
+    "theme": "SUNDAY BRAIN TEASER",
+    "next_topic": "how a tap-to-pay card works without a battery",
+    "next_title": "Tap to pay",
+    "question": "No battery. So how does a tap pay?",
+    "options": {
+      "A": "A tiny hidden battery",
+      "B": "The card machine powers it"
+    },
+    "answer": "B",
+    "keywords": {
+      "A": [
+        "battery",
+        "hidden",
+        "cell",
+        "charged"
+      ],
+      "B": [
+        "machine",
+        "reader",
+        "terminal",
+        "powers",
+        "powered",
+        "induction",
+        "magnetic",
+        "field",
+        "nfc"
+      ]
+    },
+    "sources": [
+      "https://www.secureidnews.com/news-item/tech-101-contactless-smart-cards/",
+      "https://itwissen.info/en/contactless-chipcard-113292.html"
+    ]
+  }
+}

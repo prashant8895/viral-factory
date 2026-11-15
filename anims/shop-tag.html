@@ -1,0 +1,112 @@
+<!doctype html><html><head><meta charset="utf-8">
+<style>html,body{margin:0;background:#16233a}canvas{display:block}</style></head><body>
+<canvas id="c" width="1080" height="1920"></canvas>
+<script>
+// How the anti-theft tag on clothes works. StarTalk-clouds style: navy background, ONE object, ONE moving number.
+// params.mode:
+//  "inside": a big hard tag outline; it turns see-through and shows a thin metal strip sitting loose inside.
+//            A battery icon gets a red cross. params.label under it (e.g. "THIN METAL STRIP").
+//  "ring":   a shop gate on the left sends pulses; the strip in the tag wobbles; a counter climbs
+//            0 -> params.end (default 58000) with params.label ("TIMES A SECOND"); in the last part the gate
+//            goes quiet and the strip keeps ringing, its waves travelling back to the gate.
+//  "magnet": cross-section of the tag on the counter: the pin is held by a little clamp; a magnet under
+//            the counter glows, field lines rise, the clamp pulls apart and the pin slides out.
+//            params.label (e.g. "MAGNET").
+// Keeps the top fifth (0-384) and the caption band (1344-1632) empty.
+const c=document.getElementById('c'),x=c.getContext('2d'),W=1080,H=1920;
+const NAVY='#16233a',YEL='#ffd23f',ORA='#ff9f1c',WHITE='#f4f1e8',TEAL='#3fc1c9',GREY='#b8c2cc',RED='#e5484d';
+const clamp=(v,a=0,b=1)=>Math.max(a,Math.min(b,v)), prog=(t,a,b)=>clamp((t-a)/(b-a));
+const ease=t=>1-Math.pow(1-clamp(t),3), back=t=>{t=clamp(t);const s=1.7;return 1+(s+1)*Math.pow(t-1,3)+s*Math.pow(t-1,2)};
+const rnd=i=>{const s=Math.sin(i*12.9898)*43758.5453;return s-Math.floor(s)};
+function txt(s,px,py,size,col){x.font=`700 ${size}px Anton, Impact, sans-serif`;x.textAlign='center';x.textBaseline='middle';
+  x.lineWidth=size*0.14;x.lineJoin='round';x.strokeStyle='rgba(0,0,0,.55)';x.strokeText(s,px,py);x.fillStyle=col;x.fillText(s,px,py)}
+function bg(){x.fillStyle=NAVY;x.fillRect(0,0,W,H);
+  for(let i=0;i<220;i++){x.fillStyle='rgba(255,255,255,.035)';x.fillRect(rnd(i)*W,rnd(i+99)*H,3,3)}}
+function rr(px,py,w,h,r){x.beginPath();x.moveTo(px+r,py);x.arcTo(px+w,py,px+w,py+h,r);x.arcTo(px+w,py+h,px,py+h,r);
+  x.arcTo(px,py+h,px,py,r);x.arcTo(px,py,px+w,py,r);x.closePath()}
+const fmt=n=>n.toLocaleString('en-US');
+
+// the strip, drawn as a wobbling thin bar centred on (cx,cy)
+function strip(cx,cy,w,amp,t,col){x.save();x.strokeStyle=col||GREY;x.lineWidth=16;x.lineCap='round';x.beginPath();
+  for(let s=-1;s<=1.001;s+=0.05){const xx=cx+s*w/2, yy=cy+Math.sin(t*40)*amp*Math.cos(s*Math.PI/2);s===-1?x.moveTo(xx,yy):x.lineTo(xx,yy)}
+  x.stroke();x.restore()}
+
+function drawInside(t,p,P){
+  const cx=W/2, cy=820, tw=620, th=300;
+  const see=ease(prog(p,0.15,0.45));
+  // tag body
+  x.save();x.fillStyle=`rgba(244,241,232,${1-0.82*see})`;rr(cx-tw/2,cy-th/2,tw,th,140);x.fill();
+  x.setLineDash(see>0.02?[24,16]:[]);x.lineWidth=8;x.strokeStyle=WHITE;x.stroke();x.restore();
+  // the pin dome at the right end
+  x.save();x.fillStyle=`rgba(184,194,204,${1-0.6*see})`;x.beginPath();x.arc(cx+tw/2-130,cy,60,0,7);x.fill();x.restore();
+  // strip inside, appears and gives a tiny wobble
+  if(see>0){x.save();x.globalAlpha=see;strip(cx-60,cy,340,6*prog(p,0.5,0.6),t,GREY);x.restore()}
+  // label
+  const ls=back(prog(p,0.45,0.6));x.save();x.translate(cx,cy+210);x.scale(ls,ls);txt(P.label||'THIN METAL STRIP',0,0,72,ORA);x.restore();
+  // battery icon with red cross
+  const bs=back(prog(p,0.6,0.72));
+  if(bs>0){x.save();x.translate(cx,1150);x.scale(bs,bs);x.lineWidth=8;x.strokeStyle=WHITE;rr(-90,-45,170,90,14);x.stroke();
+    x.fillStyle=WHITE;x.fillRect(80,-18,18,36);
+    const cr=prog(p,0.72,0.82);x.strokeStyle=RED;x.lineWidth=16;x.lineCap='round';
+    x.beginPath();x.moveTo(-110,-70);x.lineTo(-110+220*cr,-70+140*cr);x.stroke();
+    if(cr>=1){x.beginPath();x.moveTo(110,-70);x.lineTo(-110,70);x.stroke()}
+    x.restore();txt(P.battery||'NO BATTERY',cx,1290,56,YEL)}
+}
+
+function drawRing(t,p,P){
+  const end=+(P.end||58000), gx=170, cy=860, tx=700;
+  const quiet=p>0.68;                                       // gate goes quiet, strip keeps ringing
+  // gate panel
+  x.save();x.fillStyle=quiet?'#2a3b58':'#33507a';rr(gx-55,480,110,820,40);x.fill();x.lineWidth=7;x.strokeStyle=TEAL;x.stroke();x.restore();
+  txt(quiet?'LISTEN':'PING',gx,430,60,quiet?YEL:TEAL);
+  // pulses from the gate (bursts), only before quiet
+  if(!quiet){for(let k=0;k<4;k++){const ph=((t*1.3+k/4)%1), r=60+ph*520;
+      x.save();x.globalAlpha=(1-ph)*0.8;x.strokeStyle=TEAL;x.lineWidth=8;x.beginPath();x.arc(gx,cy,r,-0.6,0.6);x.stroke();x.restore()}}
+  // the tag around the strip
+  x.save();x.setLineDash([24,16]);x.lineWidth=7;x.strokeStyle=WHITE;rr(tx-230,cy-120,460,240,110);x.stroke();x.restore();
+  const amp=24*ease(prog(p,0.1,0.25));
+  strip(tx,cy,340,amp,t,quiet?YEL:GREY);
+  // ring waves going back to the gate while quiet
+  if(quiet){for(let k=0;k<3;k++){const ph=((t*1.1+k/3)%1), r=60+ph*480;
+      x.save();x.globalAlpha=(1-ph)*0.85;x.strokeStyle=YEL;x.lineWidth=8;x.beginPath();x.arc(tx,cy,r,Math.PI-0.6,Math.PI+0.6);x.stroke();x.restore()}}
+  // the moving number
+  const n=Math.round(end*ease(prog(p,0.12,0.6))/1000)*1000, s=back(prog(p,0.08,0.18));
+  x.save();x.translate(W/2+60,1110);x.scale(s,s);txt(fmt(n),0,0,190,ORA);x.restore();
+  txt(P.label||'TIMES A SECOND',W/2+60,1260,64,YEL);
+}
+
+function drawMagnet(t,p,P){
+  const cx=W/2, cy=800;
+  const glow=ease(prog(p,0.15,0.35)), open=ease(prog(p,0.4,0.62)), out=ease(prog(p,0.6,0.85));
+  // cloth
+  x.fillStyle='#3a6ea5';x.fillRect(120,cy+150,840,40);txt('SHIRT',220,cy+220,44,'#9cc3ea');
+  // pin: head under the shirt, shaft up through the cloth into the tag (it stays; the tag lifts off)
+  x.save();x.fillStyle=GREY;x.beginPath();x.arc(cx,cy+240,48,0,7);x.fill();
+  x.fillRect(cx-12,cy-60,24,300);x.restore();
+  const ty=-200*out;                                        // the freed tag lifts away
+  // tag shell (cross-section)
+  x.save();x.lineWidth=8;x.strokeStyle=WHITE;x.fillStyle='rgba(244,241,232,.10)';rr(cx-260,cy-210+ty,520,330,90);x.fill();x.stroke();x.restore();
+  // clamp jaws holding the pin
+  const gap=12+70*open;
+  x.save();x.fillStyle=ORA;rr(cx-gap-110,cy-90+ty,110,60,16);x.fill();rr(cx+gap,cy-90+ty,110,60,16);x.fill();x.restore();
+  // counter + magnet below
+  x.fillStyle='#24344f';x.fillRect(80,1100,920,30);
+  x.save();x.shadowColor=RED;x.shadowBlur=60*glow;x.fillStyle=RED;rr(cx-180,1140,360,120,24);x.fill();x.restore();
+  txt(P.label||'MAGNET',cx,1200,64,WHITE);
+  // field lines rising from the magnet
+  if(glow>0){for(let k=0;k<3;k++){const ph=((t*0.9+k/3)%1);x.save();x.globalAlpha=glow*(1-ph);x.strokeStyle=YEL;x.lineWidth=7;
+      x.setLineDash([18,14]);x.beginPath();x.ellipse(cx,1140-ph*300,200+ph*120,40+ph*30,0,Math.PI,2*Math.PI);x.stroke();x.restore()}}
+  // pull arrows on the jaws while opening
+  if(open>0.05&&open<1){x.save();x.globalAlpha=1-open*0.6;x.fillStyle=YEL;
+    [-1,1].forEach(d=>{const ax=cx+d*(gap+150);x.beginPath();x.moveTo(ax+d*36,cy-60);x.lineTo(ax,cy-88);x.lineTo(ax,cy-32);x.closePath();x.fill()});x.restore()}
+  const fs=back(prog(p,0.85,0.95));if(fs>0){x.save();x.translate(cx+330,cy+40);x.scale(fs,fs);txt(P.free||'FREE',0,0,80,YEL);x.restore()}
+}
+
+window.draw=function(t,dur,P){
+  P=Object.assign({mode:'inside'},P||{});
+  const p=t/Math.max(dur,0.1);
+  x.setTransform(1,0,0,1,0,0);x.globalAlpha=1;x.shadowBlur=0;x.setLineDash([]);bg();
+  if(P.mode==='ring')drawRing(t,p,P);else if(P.mode==='magnet')drawMagnet(t,p,P);else drawInside(t,p,P);
+};
+window.draw(0,6,{});
+</script></body></html>

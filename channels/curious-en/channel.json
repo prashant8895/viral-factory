@@ -23,8 +23,8 @@
     "name": "clone",
     "videos": 5,
     "since": "2026-11-12",
-    "status": "running",
-    "note": "Prashant's cloned voice for 5 videos. factory/analyze.py judges it once all 5 are 72 h old; the script run then sets status to kept or reverted. reverted = back to the stock Gemini voice in 'voices'."
+    "status": "kept",
+    "note": "KEPT 2026-11-15 by the owner's choice (trial ended early): every English video uses Prashant's cloned voice. Only the owner changes this; the script run never reverts it. If the clone fails at render, that video falls back to the stock voice in 'voices'."
   },
   "delivery_note": "Scene 'delivery' is one of: warm, curious, lean-in, build, reveal, light, serious (factory/tts.py DELIVERY). Keep styles short: Google says long style text makes the voice drift.",
   "engagement": {

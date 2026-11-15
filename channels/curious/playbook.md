@@ -99,7 +99,7 @@ Copy the format from `jobs/curious/sample-ever-wondered.json`.
   that's your little 'oh, that's why' moment." / "And that's the 'oh, that's why' bit: ...".
   If it doesn't fit naturally, leave it out.
 - `hook_text`: 3–6 words, a short question with one `*key word*` (shown red): "WHY ARE TYRES *BLACK*?"
-- 8–11 scenes, one idea each, 150–200 words (about 70–88 s; Facebook Reels stop at 90 s, the render refuses longer). Last line = one friendly ask or a loop.
+- 8–11 scenes, one idea each, 150–190 words (about 70–88 s; Facebook Reels stop at 90 s, the render refuses longer). Last line = one friendly ask or a loop.
 
 ### EXPLAIN IT PROPERLY (feedback 2026-11-15, the most important rule)
 

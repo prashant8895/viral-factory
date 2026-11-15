@@ -74,10 +74,13 @@ def previous(job: dict) -> dict | None:
     from .publish import load_states
     me = job.get("id", "")
     page = job.get("channel")
+    replaced = [r for r in ([job.get("replaces")] if isinstance(job.get("replaces"), str) else job.get("replaces") or []) if r]
     best = None
     for s in load_states():
         if s.get("channel") != page or s.get("id") == me or not s.get("platforms") or not s.get("quiz"):
             continue
+        if s.get("taken_down") or s.get("id") in replaced + [r + "-en" for r in replaced]:
+            continue  # a remade/removed video is not "yesterday's" quiz
         if str(s.get("date") or "") > str(job.get("date") or "9999"):
             continue
         if best is None or (s.get("date"), s.get("slot")) > (best.get("date"), best.get("slot")):

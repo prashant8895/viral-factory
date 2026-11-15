@@ -1,0 +1,218 @@
+{
+  "id": "curious-2026-11-15-shop-tag-v2",
+  "channel": "curious",
+  "languages": [
+    "en"
+  ],
+  "publish": false,
+  "date": "2026-11-15",
+  "slot": "21:15",
+  "bucket": "how it works",
+  "hook_style": "curiosity",
+  "seed": 11152,
+  "hook_text": "HOW DO SHOP *TAGS* WORK?",
+  "keywords": [
+    "how do anti theft tags work",
+    "security tag on clothes",
+    "shop security gates"
+  ],
+  "sources": [
+    "https://en.wikipedia.org/wiki/Electronic_article_surveillance",
+    "https://www.vitag.com.au/?p=847",
+    "https://www.encyclopedia.com/manufacturing/news-wires-white-papers-and-books/antishoplifting-tag",
+    "https://www.mfgrobots.com/Article/mfg/mpm/2379.html"
+  ],
+  "scenes": [
+    {
+      "visual": "close-up illustration of a hard white plastic anti-theft tag clipped to the hem of a folded blue shirt on a clothes shop table, a small round grey pin dome on one end of the tag, the tag and shirt in the lower two-thirds of the frame, simple soft shop background",
+      "narration": "That hard tag on a new shirt... how does the shop door *know*?",
+      "delivery": "curious",
+      "motion": "push",
+      "sfx": "boom",
+      "overlays": [
+        {
+          "type": "arrow",
+          "x": 0.64,
+          "y": 0.6,
+          "dir": "down",
+          "on": "tag"
+        }
+      ],
+      "beat": "hook",
+      "image": "jobs/curious/pics/curious-2026-11-15-shop-tag-v2/s1.jpg"
+    },
+    {
+      "visual": "illustration of two tall pale grey security gate panels standing at the entrance of an Indian clothes shop, a young Indian woman with a shopping bag walking out between them and glancing at them curiously, seen from inside the shop, the gates and the woman in the lower two-thirds of the frame",
+      "narration": "Yesterday's answer: B, camera or mic. Now, these gates have no camera. So how do they *catch* a tag?",
+      "delivery": "light",
+      "headline": "NO *CAMERA*",
+      "motion": "drift_right",
+      "sfx": "thud",
+      "overlays": [],
+      "beat": "loop",
+      "image": "jobs/curious/pics/curious-2026-11-15-shop-tag-v2/s2.jpg"
+    },
+    {
+      "visual": "2D animation: the tag turns see-through and shows a thin metal strip inside; a battery icon gets a red cross",
+      "narration": "Open the tag up. No battery, no chip. Just a thin *metal* strip, cut to one exact size.",
+      "delivery": "explain",
+      "headline": "ONE *STRIP*",
+      "motion": "push",
+      "sfx": "whoosh",
+      "overlays": [],
+      "anim": "anims/shop-tag.html",
+      "anim_params": {
+        "mode": "inside",
+        "label": "THIN METAL STRIP",
+        "battery": "NO BATTERY"
+      },
+      "beat": "explain"
+    },
+    {
+      "visual": "illustration of a big shiny brass temple bell hanging from a wooden beam at an Indian temple entrance, a hand just moving away from it after striking it, soft curved sound lines spreading out from the bell, plain warm background, the bell in the lower two-thirds of the frame",
+      "narration": "Now think of a temple *bell*. Hit it once, and it keeps ringing after your hand is gone.",
+      "delivery": "explain",
+      "headline": "LIKE A *BELL*",
+      "motion": "push",
+      "sfx": "ding",
+      "overlays": [],
+      "beat": "rehook"
+    },
+    {
+      "visual": "2D animation: a gate panel sends pulses, the strip in the tag wobbles, a counter climbs to 58,000 times a second, then the gate goes quiet and the strip keeps ringing back",
+      "narration": "That strip is a tiny bell. The gate sends an invisible *ping*, and the strip rings. Then the gate goes quiet... and *listens*.",
+      "delivery": "explain",
+      "headline": "PING... *LISTEN*",
+      "motion": "push",
+      "sfx": "tick",
+      "overlays": [],
+      "anim": "anims/shop-tag.html",
+      "anim_params": {
+        "mode": "ring",
+        "end": 58000,
+        "label": "RINGS A SECOND"
+      },
+      "beat": "explain"
+    },
+    {
+      "visual": "illustration of a bunch of house keys, a smartphone and a few coins lying on a shop counter next to a hard white plastic anti-theft tag, seen from above at a slight angle, simple uncluttered counter, the objects in the lower two-thirds of the frame",
+      "narration": "Why listen? Your keys and phone go silent the moment the ping stops. Only a strip cut to the gate's exact note keeps *ringing*.",
+      "delivery": "build",
+      "headline": "ONLY THE TAG *RINGS*",
+      "motion": "drift_right",
+      "sfx": "tick",
+      "overlays": [],
+      "beat": "rehook"
+    },
+    {
+      "visual": "illustration of the two pale grey security gate panels at a clothes shop door glowing softly, a small red alarm light lit on top of one panel, a paper shopping bag with a folded blue shirt passing between them, seen from the side, the gates in the lower two-thirds of the frame",
+      "narration": "So if the gate hears a ring in the quiet... <short pause> it knows a tag is walking out. *Beep*.",
+      "delivery": "reveal",
+      "headline": "IT *HEARS* THE TAG",
+      "motion": "push",
+      "sfx": "pop",
+      "overlays": [
+        {
+          "type": "ring",
+          "x": 0.75,
+          "y": 0.43,
+          "r": 0.06,
+          "on": "beep"
+        }
+      ],
+      "beat": "payoff",
+      "image": "jobs/curious/pics/curious-2026-11-15-shop-tag-v2/s7.jpg"
+    },
+    {
+      "visual": "2D animation: cross-section of the tag on a shirt, a magnet under the counter glows, the little clamp inside pulls apart and the tag lifts free of the pin",
+      "narration": "At the till, a strong *magnet* pulls the tiny lock open, and the tag slides off. No tag, no ring, no beep.",
+      "delivery": "explain",
+      "headline": "THE TILL *MAGNET*",
+      "motion": "push",
+      "sfx": "riser",
+      "overlays": [],
+      "anim": "anims/shop-tag.html",
+      "anim_params": {
+        "mode": "magnet",
+        "label": "MAGNET",
+        "free": "FREE"
+      },
+      "beat": "explain"
+    },
+    {
+      "visual": "2D animation: yesterday's fastest right answers",
+      "shoutout": true,
+      "anim": "anims/shoutout.html",
+      "narration": "These legends got it first. Nicely done!",
+      "narration_none": "Nobody cracked yesterday's one... <chuckles> let's see if you can beat today's.",
+      "delivery": "warm",
+      "headline": "*SHOUTOUT*",
+      "motion": "push",
+      "sfx": "sparkle",
+      "overlays": []
+    },
+    {
+      "visual": "2D animation: the quiz about tomorrow's topic",
+      "quiz": true,
+      "anim": "anims/quiz.html",
+      "narration": "Tomorrow's teaser: tap-to-pay cards. A, hidden battery? B, the machine powers it? Comment your guess.",
+      "delivery": "curious",
+      "headline": "BRAIN *TEASER*",
+      "motion": "push",
+      "sfx": "pop",
+      "overlays": []
+    }
+  ],
+  "youtube": {
+    "title": "How do anti theft tags work? #shorts",
+    "description": "How do anti theft tags work? Inside that hard security tag on clothes there's no battery, just a thin metal strip cut to one exact size. Think of a temple bell: hit it once and it keeps ringing. The shop security gates send a short invisible magnetic ping, the strip rings back (about 58,000 times a second), then the gate goes quiet and listens. Keys and phones go silent the moment the ping stops; only the tag's strip keeps ringing, so a ring in the quiet means a tag is walking out. At the till, a strong magnet pulls the tag's tiny lock open so it slides off.\n\nTomorrow's quiz (Sunday brain teaser): tap-to-pay cards have no battery. So how do they work? A) a hidden battery B) the card machine powers the card. Comment your guess, first 3 right get a shoutout 👇\n\nSources: Wikipedia (Electronic article surveillance), Vitag, Encyclopedia.com\nAI visuals\n#ohthatswhy #howitworks #shopping #didyouknow #shorts",
+    "tags": [
+      "how do anti theft tags work",
+      "security tag on clothes",
+      "shop security gates",
+      "how it works",
+      "did you know"
+    ]
+  },
+  "instagram": {
+    "caption": "How do anti theft tags work? 🛍️\nThat security tag on clothes hides a thin metal strip that works like a tiny temple bell. The shop security gates ping it, go quiet and listen. Keys and phones stay silent, only the tag keeps ringing, so the gate beeps. At the till, a magnet pulls the lock open.\n\nSources: Wikipedia (Electronic article surveillance), Vitag, Encyclopedia.com\nAI visuals\n#ohthatswhy #howitworks #shopping #didyouknow\n\nTomorrow's quiz: tap-to-pay cards have no battery. So how do they work? A) a hidden battery B) the card machine powers the card. Comment A or B, first 3 right get a shoutout 👇"
+  },
+  "facebook": {
+    "description": "How do anti theft tags work? The hard tag hides a thin metal strip that rings like a tiny bell when the shop gates ping it. The gates then go quiet and listen: keys and phones stay silent, only a tag keeps ringing, so it beeps. A magnet at the till pulls the lock open. AI visuals.\n\nTomorrow's quiz: tap-to-pay cards have no battery. So how do they work? A) a hidden battery B) the card machine powers the card. Comment your guess 👇"
+  },
+  "quiz": {
+    "theme": "SUNDAY BRAIN TEASER",
+    "next_topic": "how a tap-to-pay card works without a battery",
+    "next_title": "Tap to pay",
+    "question": "No battery. So how does a tap pay?",
+    "options": {
+      "A": "A tiny hidden battery",
+      "B": "The card machine powers it"
+    },
+    "answer": "B",
+    "keywords": {
+      "A": [
+        "battery",
+        "hidden",
+        "cell",
+        "charged"
+      ],
+      "B": [
+        "machine",
+        "reader",
+        "terminal",
+        "powers",
+        "powered",
+        "induction",
+        "magnetic",
+        "field",
+        "nfc"
+      ]
+    },
+    "sources": [
+      "https://www.secureidnews.com/news-item/tech-101-contactless-smart-cards/",
+      "https://itwissen.info/en/contactless-chipcard-113292.html"
+    ]
+  },
+  "replaces": "curious-2026-11-15-shop-tag"
+}

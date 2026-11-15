@@ -54,7 +54,7 @@ skip it until Prashant restarts it.
    `id` = file name without .json, `channel`, `date`, `slot` and (drama) `episode` from the
    pitch doc, and `publish: false` for now (a draft is never rendered). Curious: ONE job in
    `jobs/curious/` with `"languages": ["en"]` and plain English strings in every text field
-   (no {"en","hi"} objects), 8–11 scenes, 150–200 words (max ~88 s spoken; the render refuses over 90 s for Facebook), headlines, overlays and a `delivery` note per scene. Format:
+   (no {"en","hi"} objects), 8–11 scenes, 150–190 words (max ~88 s spoken; the render refuses over 90 s for Facebook), headlines, overlays and a `delivery` note per scene. Format:
    `jobs/curious/sample-ever-wondered.json` (pictures + 2D animation). Drama: 5–6 scenes, 40–60 words, every scene has `cast`,
    `visual` (with `{Name}` placeholders), `action` and `lines`.
    MIX RULE (curious): scene 1 is always a picture; at least 2 scenes are 2D animations
@@ -72,7 +72,7 @@ skip it until Prashant restarts it.
    last `quiz` scene (`anims/quiz.html`) plus the job's `quiz` block (theme of today's weekday from
    `engagement.quiz_days`). Quiz + shoutout don't count toward the MIX RULE's 2 animations.
    Instagram caption ends with the quiz ("Tomorrow's quiz: ... A) ... B) ... Comment your guess 👇");
-   YouTube and Facebook descriptions too. Total stays 150–200 words.
+   YouTube and Facebook descriptions too. Total stays 150–190 words.
 5a. HOOK + DELIVERY: set `"hook_style": "curiosity"`. Line 1 opens a real question about the
    everyday thing ("Ever wondered why car tyres are black?" is the IDEA, not a fixed phrase: vary
    it, the render refuses an opener that repeats one of the last 3 videos). First surprising fact
@@ -85,7 +85,7 @@ skip it until Prashant restarts it.
    as spoken words. Before pushing, read the whole script aloud in your head once and fix any
    line you'd stumble on. Weave "oh, that's why" in at most once, smoothly inside a calm closing sentence, never as a
    shouted line on its own. Check every line (especially the ending) for accidental double meanings.
-   and don't make every line sound sure and punchy: mix in softer, wondering lines. 150–200 words. The last scene is the quiz (5c).
+   and don't make every line sound sure and punchy: mix in softer, wondering lines. 150–190 words. The last scene is the quiz (5c).
    Search phrases: add `"keywords": [...]` with 2–3 English phrases people really type into
    search (main one first, usually "why are tyres black").
    Put the main phrase in the YouTube title, the first line of the Instagram caption and the

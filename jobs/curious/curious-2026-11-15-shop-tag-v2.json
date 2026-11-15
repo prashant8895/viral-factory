@@ -4,7 +4,7 @@
   "languages": [
     "en"
   ],
-  "publish": false,
+  "publish": true,
   "date": "2026-11-15",
   "slot": "21:15",
   "bucket": "how it works",
@@ -75,8 +75,17 @@
       "headline": "LIKE A *BELL*",
       "motion": "push",
       "sfx": "ding",
-      "overlays": [],
-      "beat": "rehook"
+      "overlays": [
+        {
+          "type": "ring",
+          "x": 0.5,
+          "y": 0.6,
+          "r": 0.17,
+          "on": "bell"
+        }
+      ],
+      "beat": "rehook",
+      "image": "jobs/curious/pics/curious-2026-11-15-shop-tag-v2/s4.jpg"
     },
     {
       "visual": "2D animation: a gate panel sends pulses, the strip in the tag wobbles, a counter climbs to 58,000 times a second, then the gate goes quiet and the strip keeps ringing back",
@@ -102,7 +111,8 @@
       "motion": "drift_right",
       "sfx": "tick",
       "overlays": [],
-      "beat": "rehook"
+      "beat": "rehook",
+      "image": "jobs/curious/pics/curious-2026-11-15-shop-tag-v2/s6.jpg"
     },
     {
       "visual": "illustration of the two pale grey security gate panels at a clothes shop door glowing softly, a small red alarm light lit on top of one panel, a paper shopping bag with a folded blue shirt passing between them, seen from the side, the gates in the lower two-thirds of the frame",

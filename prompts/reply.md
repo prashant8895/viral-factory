@@ -20,13 +20,21 @@ Work unattended. Never print any key.
    - For a topic ask: "Ooh good one, adding it to the list 👀" style, then ALSO add it to
      `data/asks.json` as `{"text", "author", "platform", "likes", "at"}` so the morning ideas see it.
    - At most one emoji. No hashtags. No links. No "follow us".
-3a. Quiz winners: for each `state/curious-*-en.json` with `shoutouts.names`, whose video is
-   posted, reply once under each winner's comment (`comment_id`, `platform`): short and happy,
-   e.g. "You got it first! You're in today's video 🎉" (vary it). Other right answers: "Yes! Spot on 👏"
+3a. Quiz winners: first run `python -m factory.quiz audit`. If it reports a problem, send NO winner
+   replies this run (normal replies are fine) and fix the state's `shoutouts.names` only if the video
+   isn't posted yet. Winners are ONLY the people in `shoutouts.names` of a `state/curious-*-en.json`
+   whose video is posted (`platforms` set): the earliest right answers, in time order. For each one
+   without a `<comment_id>:winner` key in `data/replied.json`, reply once under their comment
+   (`comment_id`, `platform`) with `"winner": true` in the row: short and happy, e.g. "You got it first!
+   You're in today's video 🎉" (vary it). Say which quiz they won, never imply a different one.
+   Everyone else, even if right, is NOT a winner: never say "you're in the video", "first", "shoutout"
+   or "you won" to them (the poster refuses such replies without `"winner": true`, and refuses
+   `"winner": true` for anyone not in a posted `shoutouts.names`). Other right answers: "Yes! Spot on 👏"
    style, and a gentle "Close! The answer's in tomorrow's video 😉" for wrong guesses on a video whose
    quiz is still open. Never reveal tomorrow's answer in a reply.
 4. Append to `data/replies.json` (a JSON list) one object per reply:
-   `{"platform", "channel", "comment_id", "text"}` copied exactly from the comment row.
+   `{"platform", "channel", "comment_id", "text"}` copied exactly from the comment row
+   (plus `"winner": true` for a 3a winner reply only).
    Max 40 per run, newest first.
 5. Commit and push (`data/replies.json`, `data/asks.json`). The push itself makes GitHub post the
    replies. Then wait ~3 minutes, pull, and check `data/replies.json`: anything still there with

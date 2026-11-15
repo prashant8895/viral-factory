@@ -7,6 +7,7 @@ their names on a short "shoutout" scene. Names are shown, never spoken (the voic
 mangle handles).
 
     python -m factory.quiz check <job.json>   # dry run: who would get the shoutout right now
+    python -m factory.quiz audit              # stored shoutouts == earliest right answers? (offline)
 """
 from __future__ import annotations
 
@@ -152,6 +153,39 @@ def apply(job: dict) -> dict:
     sc["anim_params"] = params
     return {"from": prev["id"], "names": won}
 
+
+def audit() -> list[str]:
+    """Offline check of every stored shoutout against data/comments.json: the names must be the
+    EARLIEST right answers on the quiz video, in time order. Returns the problems found."""
+    from .publish import load_states
+    f = ROOT / "data" / "comments.json"
+    rows = json.loads(f.read_text()).get("comments", []) if f.exists() else []
+    states = {s["id"]: s for s in load_states()}
+    problems = []
+    for s in states.values():
+        sh = s.get("shoutouts") or {}
+        names, src = sh.get("names") or [], states.get(sh.get("from") or "")
+        if not names or not src or not src.get("quiz"):
+            continue
+        right = sorted((c for c in rows if c.get("video") == src["id"] and is_correct(c.get("text", ""), src["quiz"])
+                        and display_name(c.get("author"), c.get("platform", ""))), key=lambda c: _when(c.get("time")))
+        got = [w.get("comment_id") for w in names]
+        times = [_when(w.get("time")) for w in names]
+        if times != sorted(times):
+            problems.append(f"{s['id']}: shoutout names not in time order")
+        for c in right:
+            if c["comment_id"] in got:
+                continue
+            if _when(c.get("time")) < max(times):  # someone earlier and right is missing
+                problems.append(f"{s['id']}: {c.get('author')} answered right at {c.get('time')}, earlier than a listed "
+                                f"winner, but is not in shoutouts.names")
+    return problems
+
+
+if __name__ == "__main__" and sys.argv[1:2] == ["audit"]:
+    bad = audit()
+    print("\n".join(bad) if bad else "shoutouts OK: every list is the earliest right answers, in order")
+    sys.exit(1 if bad else 0)
 
 if __name__ == "__main__" and sys.argv[1:2] == ["check"]:
     j = json.loads(Path(sys.argv[2]).read_text())

@@ -136,19 +136,55 @@ def _post_reply(r: dict) -> str:
     return x.json().get("id", "")
 
 
+# a reply that tells someone they won / are in the video ("you're in today's video", "you got it first")
+_WIN_CLAIM = re.compile(r"(you('| a)?re in (today|tomorrow|the|our|this)|in (today'?s|tomorrow'?s) video|"
+                        r"got it first|first (to|one to) get|shout ?out|you won|winner)", re.I)
+
+
+def posted_winners() -> dict[str, dict]:
+    """comment_id -> shoutout entry, for every posted video whose shoutout scene showed names.
+    These (and only these) people may be told they won / are in the video."""
+    out = {}
+    for s in load_states():
+        if not s.get("platforms"):
+            continue  # not posted yet: the names on screen aren't public, don't announce them
+        for w in ((s.get("shoutouts") or {}).get("names") or []):
+            if w.get("comment_id"):
+                out[w["comment_id"]] = {**w, "video": s["id"], "from": s["shoutouts"].get("from")}
+    return out
+
+
+def check_winner_reply(r: dict, winners: dict[str, dict]) -> str | None:
+    """Why this reply must not go out, or None. Winner replies need a posted shoutout for that
+    exact comment; any other reply may not claim a win (a later right answer is not a winner)."""
+    if r.get("winner"):
+        if r["comment_id"] not in winners:
+            return "not a winner: this comment_id is not in any posted video's shoutouts.names"
+    elif _WIN_CLAIM.search(r.get("text", "")):
+        return "reply claims a win/shoutout but is not a winner reply (set winner: true for real winners only)"
+    return None
+
+
 def reply() -> int:
     todo = _load("replies.json", [])
     done = _load("replied.json", {})
+    won = posted_winners()
     left, failed = [], 0
     for i, r in enumerate(todo):
-        if r["comment_id"] in done:
+        # a winner shout-out is its own reply, even under a comment we already answered
+        key = r["comment_id"] + (":winner" if r.get("winner") else "")
+        if key in done:
             continue
+        why = check_winner_reply(r, won)
+        if why:
+            print("reply refused", r["platform"], r["comment_id"], why)
+            continue  # dropped, never posted: Claude rewrites it next run if it still applies
         if i >= MAX_REPLIES_PER_RUN:
             left.append(r)
             continue
         try:
             rid = _post_reply(r)
-            done[r["comment_id"]] = {"platform": r["platform"], "reply_id": rid, "text": r["text"],
+            done[key] = {"platform": r["platform"], "reply_id": rid, "text": r["text"],
                                      "at": datetime.now(IST).isoformat(timespec="minutes")}
             print("replied", r["platform"], r["comment_id"])
         except Exception as e:

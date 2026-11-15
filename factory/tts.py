@@ -87,12 +87,12 @@ def _spoken(text: str, engine: str = "kokoro") -> str:
 # quoting script words in a style note can get them spoken aloud. So a scene's "delivery"
 # picks one of these instead of free text.
 DELIVERY = {  # every one says "normal volume": soft/intimate words made the voice whisper
-    "curious": "curious and playful, full clear voice at normal volume",
-    "explain": "clear and engaged, explaining step by step, full voice at normal volume",
+    "curious": "curious and playful, unhurried, every word clearly articulated, full voice at normal volume",
+    "explain": "slow and clear like a good teacher, explaining step by step, crisp words, full voice at normal volume",
     "lean-in": "clear and engaged, explaining step by step, full voice at normal volume",  # old name
-    "build": "a little more animated, normal volume",
+    "build": "a little more animated but unhurried and clear, normal volume",
     "light": "light and amused, normal volume",
-    "reveal": "warm and pleased, relaxed and sure, normal volume",
+    "reveal": "warm and pleased, relaxed, slow and clear, normal volume",
     "warm": "warm and friendly, normal volume",
     "serious": "calm and sincere, normal volume",
 }

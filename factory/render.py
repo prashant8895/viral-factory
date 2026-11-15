@@ -37,8 +37,8 @@ def check_job(job: dict) -> None:
                                  "Weave it into a sentence, e.g. \"that's your little 'oh, that's why' moment\".")
             if len(tts.TAG_RE.findall(l["text"])) > 2:
                 raise ValueError(f"Max 2 voice tags per scene: {l['text'][:60]!r}")
-    if not 40 <= words <= 160:
-        raise ValueError(f"Spoken text is {words} words; playbook says 85–120 (drama 60–110)")
+    if not 40 <= words <= 210:
+        raise ValueError(f"Spoken text is {words} words; playbook says Curious 150–200 (drama 60–110)")
     check_search_text(job)
     check_engagement(job)
     if job.get("hook_style") in ("ever-wondered", "curiosity"):  # Curious house hook since 2026-11-12
@@ -256,6 +256,10 @@ def render_one(job: dict, img_dir: Path | None = None) -> Path:
             print(f"[scene {i + 1}] voice came out much quieter than the rest: re-recording at full voice", flush=True)
             redo = {**job["scenes"][i], "delivery": "full clear voice at normal speaking volume, not whispering"}
             scene_audio[i] = tts.synthesize(redo, work / f"voice_{i}.wav", voices, speed, engine, styles)
+    total = sum(a.duration for a in scene_audio)
+    if total > 89.5:  # Facebook Reels (video_reels API) take 3-90 s; longer would post nowhere on Facebook
+        raise ValueError(f"Voice runs {total:.1f} s; Facebook Reels allow max 90 s. Trim the script "
+                         f"(drop a tease or the quiz recap, never the how-it-works steps).")
     for i, scene in enumerate(job["scenes"]):
         sa = scene_audio[i]
 

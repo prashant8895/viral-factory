@@ -99,7 +99,40 @@ Copy the format from `jobs/curious/sample-ever-wondered.json`.
   that's your little 'oh, that's why' moment." / "And that's the 'oh, that's why' bit: ...".
   If it doesn't fit naturally, leave it out.
 - `hook_text`: 3–6 words, a short question with one `*key word*` (shown red): "WHY ARE TYRES *BLACK*?"
-- 6–8 scenes, one idea each, 100–150 words (45–60 s). Last line = one friendly ask or a loop.
+- 8–11 scenes, one idea each, 150–200 words (about 70–88 s; Facebook Reels stop at 90 s, the render refuses longer). Last line = one friendly ask or a loop.
+
+### EXPLAIN IT PROPERLY (feedback 2026-11-15, the most important rule)
+
+The shop-tag video named the parts ("a strip oscillates") but never said *why the alarm goes
+off*, so the viewer was left confused. A hook is worthless if the explanation doesn't land.
+Every video must leave a viewer able to explain the "how" back to a friend in two sentences.
+
+- **Write the mechanism first, then the hooks.** Before the script, write the cause-and-effect
+  chain in 3–5 plain steps (this happens → which causes this → so this happens). Every step must
+  be in the narration; none skipped as "obvious". Shop tag example: (1) the gates send out a short
+  radio "ping"; (2) the strip inside the tag is cut to exactly the size that makes it ring at that
+  one pitch, like a glass that hums at one note; (3) after the ping stops, the gates go quiet and
+  listen; (4) only a tag rings on after the ping, so hearing that ring = a tag is walking out → beep;
+  (5) at the till, a magnet "mutes" the strip so it can't ring any more.
+- **Answer every "why?" a viewer would ask.** If a line states a fact, the next line says why it
+  matters. Name things in plain words (a "ring", a "ping", an "echo"), never jargon left unexplained.
+- **One simple everyday analogy, carried through the whole explanation**, not dropped after one
+  line (the shop tag = a wine glass that sings when you hum its note; the gate = someone who hums
+  and then listens for the glass). Pick something every Indian viewer has felt or seen.
+- **At least half the scenes explain how it works** (the steps above). Teases, re-hooks and the
+  quiz recap must never take the place of a step: a re-hook is a question that leads INTO the
+  next step ("So why would a ringing strip set off a beep?"), not a promise about later.
+- **Don't rush the concept.** It's fine if the video runs longer (up to ~88 s). Give the key step
+  its own scene and a short pause after it. One idea per scene, said slowly.
+- **Yesterday's quiz answer: one short line**, not a whole scene of teasing.
+- **Show each step.** Every how-it-works step gets a visual that shows THAT step: a clean cutaway or
+  close-up illustration, or a 2D animation that moves step by step (ping going out, strip ringing,
+  gate listening). Labels go in overlays, never as text inside the picture.
+- **Clear voice:** short sentences, simple words, numbers said simply ("fifty-eight thousand times a
+  second" only if it helps; otherwise "thousands of times a second"). Pick `explain` delivery for
+  every how-it-works scene.
+- **Self-check before pushing:** read only the narration and ask "would a 12-year-old now know
+  *why* it happens, not just *what* happens?" If not, rewrite.
 
 ### How we talk (the delivery) — Prashant's reference: Neil deGrasse Tyson's clouds Short
 

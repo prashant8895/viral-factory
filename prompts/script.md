@@ -30,6 +30,12 @@ skip it until Prashant restarts it.
    `metrics/insights.json` (the numbers review: follow its `rules`) and the example jobs
    `jobs/curious/sample-ever-wondered.json` and `jobs/curious/sample-hook-quiz.json` (beats, shoutout, quiz) for the exact format. For drama also read `cast.json` and `story.md`.
 4. Curious: verify every fact against 2 sources (web search); drop what you can't verify.
+   EXPLAIN IT PROPERLY (feedback 2026-11-15, overrides any hook rule it clashes with): follow the
+   playbook section of that name. First write the how-it-works chain in 3–5 plain cause-and-effect
+   steps and one simple everyday analogy, then build the script around them: every step narrated
+   and shown (cutaway/close-up illustration or a step-by-step animation), at least half the scenes
+   explaining, re-hooks lead into the next step instead of replacing it, yesterday's quiz answer in
+   one short line. Check: would a 12-year-old know WHY it happens, not just what happens?
    Drama: keep continuity with `story.md`; end on a cliffhanger.
    Apply Prashant's `approved.note` if there is one.
    TODAY IS LOCKED, PRASHANT PICKS TOMORROW (Prashant, 2026-11-14; never choose a teased
@@ -48,7 +54,7 @@ skip it until Prashant restarts it.
    `id` = file name without .json, `channel`, `date`, `slot` and (drama) `episode` from the
    pitch doc, and `publish: false` for now (a draft is never rendered). Curious: ONE job in
    `jobs/curious/` with `"languages": ["en"]` and plain English strings in every text field
-   (no {"en","hi"} objects), 6–8 scenes, 100–150 words, headlines, overlays and a `delivery` note per scene. Format:
+   (no {"en","hi"} objects), 8–11 scenes, 150–200 words (max ~88 s spoken; the render refuses over 90 s for Facebook), headlines, overlays and a `delivery` note per scene. Format:
    `jobs/curious/sample-ever-wondered.json` (pictures + 2D animation). Drama: 5–6 scenes, 40–60 words, every scene has `cast`,
    `visual` (with `{Name}` placeholders), `action` and `lines`.
    MIX RULE (curious): scene 1 is always a picture; at least 2 scenes are 2D animations
@@ -66,7 +72,7 @@ skip it until Prashant restarts it.
    last `quiz` scene (`anims/quiz.html`) plus the job's `quiz` block (theme of today's weekday from
    `engagement.quiz_days`). Quiz + shoutout don't count toward the MIX RULE's 2 animations.
    Instagram caption ends with the quiz ("Tomorrow's quiz: ... A) ... B) ... Comment your guess 👇");
-   YouTube and Facebook descriptions too. Total stays 100–160 words.
+   YouTube and Facebook descriptions too. Total stays 150–200 words.
 5a. HOOK + DELIVERY: set `"hook_style": "curiosity"`. Line 1 opens a real question about the
    everyday thing ("Ever wondered why car tyres are black?" is the IDEA, not a fixed phrase: vary
    it, the render refuses an opener that repeats one of the last 3 videos). First surprising fact
@@ -79,7 +85,7 @@ skip it until Prashant restarts it.
    as spoken words. Before pushing, read the whole script aloud in your head once and fix any
    line you'd stumble on. Weave "oh, that's why" in at most once, smoothly inside a calm closing sentence, never as a
    shouted line on its own. Check every line (especially the ending) for accidental double meanings.
-   and don't make every line sound sure and punchy: mix in softer, wondering lines. 100–150 words. The last scene is the quiz (5c).
+   and don't make every line sound sure and punchy: mix in softer, wondering lines. 150–200 words. The last scene is the quiz (5c).
    Search phrases: add `"keywords": [...]` with 2–3 English phrases people really type into
    search (main one first, usually "why are tyres black").
    Put the main phrase in the YouTube title, the first line of the Instagram caption and the
@@ -91,6 +97,8 @@ skip it until Prashant restarts it.
 5b. PICTURES (paid, about Rs 3 each, so think before you spend):
    - Write each picture scene's `visual` as an ILLUSTRATION, not a photo: "illustration of ...",
      ONE clear subject, where it is, viewpoint, simple background, Indian setting where it fits.
+     For a how-it-works scene, show the mechanism itself: a clean cutaway or close-up of the
+     part that does the work (e.g. the strip inside the tag), big and easy to read on a phone.
      No text in the picture. The channel style adds the look (clean hand-drawn editorial
      explainer illustration); never write "photo", "photorealistic", "cinematic" or "8k".
    - Reject a picture that looks like a glossy AI render or a photo: the look is a friendly
@@ -100,7 +108,7 @@ skip it until Prashant restarts it.
      `max_paid=<number of those scenes>` (never more than 6).
    - Download release `pics-<id>` and LOOK at every picture. Reject one only for a real
      fault: objects in the wrong place, extra or broken hands or feet, text or logos,
-     not matching the narration. Fix its `visual` and re-run THAT scene only, once
+     not matching the narration, or too vague/cluttered to show the step being explained. Fix its `visual` and re-run THAT scene only, once
      (`max_paid=1`). If still wrong, turn that scene into a 2D animation instead.
    - Copy the chosen ones to `jobs/<page>/pics/<id>/s<n>.jpg` (1080x1920 via
      `factory.visuals._fit`) and set each scene's `"image"`.

@@ -1,1 +1,23 @@
-[]
+[
+  {
+    "platform": "youtube",
+    "channel": "curious-en",
+    "comment_id": "Ugwzzm5JY6YiJ_tlAqN4AaABAg",
+    "text": "B on the green dot quiz too! You're in today's video again, what a streak 🎉",
+    "winner": true
+  },
+  {
+    "platform": "youtube",
+    "channel": "curious-en",
+    "comment_id": "UgwJ3mlgIJBIjXcVmRp4AaABAg",
+    "text": "You cracked the green dot quiz first, so you're in today's shop tag video 🎉",
+    "winner": true
+  },
+  {
+    "platform": "youtube",
+    "channel": "curious-en",
+    "comment_id": "UgzgV188boEtjH8Z3VN4AaABAg",
+    "text": "Nerves it was! You won the wrinkly fingers quiz and made it into that video 🎉",
+    "winner": true
+  }
+]

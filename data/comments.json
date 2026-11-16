@@ -1,5 +1,5 @@
 {
-  "updated": "2026-11-16T02:41+05:30",
+  "updated": "2026-11-16T07:21+05:30",
   "errors": {
     "curious-hi/instagram/curious-2026-11-07-microwave-mesh-hi": "400: {\"error\":{\"message\":\"Unsupported get request. Object with ID '18393283948224566' does not exist, cannot be loaded due to missing permissions, or does not support this operation. Please read the Graph API documentation at https://developers.facebook.com/docs/graph-api\",\"code\":100,\"type\":\"GraphMe",
     "curious-en/instagram/curious-2026-11-10-winter-smog-en": "400: {\"error\":{\"message\":\"Unsupported get request. Object with ID '18058381928810433' does not exist, cannot be loaded due to missing permissions, or does not support this operation. Please read the Graph API documentation at https://developers.facebook.com/docs/graph-api\",\"code\":100,\"type\":\"GraphMe",
@@ -13,13 +13,13 @@
       "text": "B",
       "time": "2026-11-15T16:27:05Z",
       "likes": 0,
-      "has_our_reply": false,
+      "has_our_reply": true,
       "platform": "youtube",
       "channel": "curious-en",
       "video": "curious-2026-11-15-shop-tag-v2-en",
       "hook": "HOW DO SHOP *TAGS* WORK?",
       "post_id": "f0DlSc78EgM",
-      "replied": false
+      "replied": true
     },
     {
       "comment_id": "Ugwv3T5oe2yoX-3RfOJ4AaABAg",
@@ -27,13 +27,13 @@
       "text": "B",
       "time": "2026-11-15T15:32:27Z",
       "likes": 0,
-      "has_our_reply": false,
+      "has_our_reply": true,
       "platform": "youtube",
       "channel": "curious-en",
       "video": "curious-2026-11-15-shop-tag-v2-en",
       "hook": "HOW DO SHOP *TAGS* WORK?",
       "post_id": "f0DlSc78EgM",
-      "replied": false
+      "replied": true
     },
     {
       "comment_id": "Ugwzzm5JY6YiJ_tlAqN4AaABAg",

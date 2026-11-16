@@ -1,8 +1,10 @@
 {
   "id": "curious-2026-11-16-tap-to-pay",
   "channel": "curious",
-  "languages": ["en"],
-  "publish": false,
+  "languages": [
+    "en"
+  ],
+  "publish": true,
   "date": "2026-11-16",
   "slot": "19:00",
   "bucket": "how it works",
@@ -27,8 +29,17 @@
       "delivery": "curious",
       "motion": "push",
       "sfx": "boom",
-      "overlays": [],
-      "beat": "hook"
+      "overlays": [
+        {
+          "type": "arrow",
+          "x": 0.4,
+          "y": 0.51,
+          "dir": "down",
+          "on": "card"
+        }
+      ],
+      "beat": "hook",
+      "image": "jobs/curious/pics/curious-2026-11-16-tap-to-pay/s1.jpg"
     },
     {
       "visual": "illustration of a small black card payment machine with a blank screen standing alone on a wooden shop counter, a plain blue bank card with no markings lying flat beside it, seen from a slight angle, simple uncluttered background, the objects in the lower two-thirds of the frame",
@@ -37,8 +48,17 @@
       "headline": "THROUGH *AIR*?",
       "motion": "drift_right",
       "sfx": "thud",
-      "overlays": [],
-      "beat": "loop"
+      "overlays": [
+        {
+          "type": "ring",
+          "x": 0.4,
+          "y": 0.58,
+          "r": 0.13,
+          "on": "machine"
+        }
+      ],
+      "beat": "loop",
+      "image": "jobs/curious/pics/curious-2026-11-16-tap-to-pay/s2.jpg"
     },
     {
       "visual": "2D animation: a dashed card outline; a battery icon gets a red cross, then a thin coil of wire draws itself round the card's edge and the chip appears",
@@ -49,7 +69,11 @@
       "sfx": "whoosh",
       "overlays": [],
       "anim": "anims/tap-pay.html",
-      "anim_params": {"mode": "inside", "battery": "NO BATTERY", "label": "A COIL OF WIRE"},
+      "anim_params": {
+        "mode": "inside",
+        "battery": "NO BATTERY",
+        "label": "A COIL OF WIRE"
+      },
       "beat": "explain"
     },
     {
@@ -59,8 +83,17 @@
       "headline": "LIKE A *PINWHEEL*",
       "motion": "push",
       "sfx": "ding",
-      "overlays": [],
-      "beat": "rehook"
+      "overlays": [
+        {
+          "type": "ring",
+          "x": 0.41,
+          "y": 0.49,
+          "r": 0.17,
+          "on": "pinwheel"
+        }
+      ],
+      "beat": "rehook",
+      "image": "jobs/curious/pics/curious-2026-11-16-tap-to-pay/s4.jpg"
     },
     {
       "visual": "2D animation: the card machine sends out pulsing field rings; a card glides down towards it while a big counter falls from 20 to 2 cm, the coil glows and the chip wakes up",
@@ -71,7 +104,13 @@
       "sfx": "riser",
       "overlays": [],
       "anim": "anims/tap-pay.html",
-      "anim_params": {"mode": "field", "start": 20, "end": 2, "unit": "CM AWAY", "wake": "CHIP WAKES UP"},
+      "anim_params": {
+        "mode": "field",
+        "start": 20,
+        "end": 2,
+        "unit": "CM AWAY",
+        "wake": "CHIP WAKES UP"
+      },
       "beat": "explain"
     },
     {
@@ -81,8 +120,17 @@
       "headline": "BUT HOW DOES IT *TALK*?",
       "motion": "drift_left",
       "sfx": "tick",
-      "overlays": [],
-      "beat": "rehook"
+      "overlays": [
+        {
+          "type": "arrow",
+          "x": 0.45,
+          "y": 0.66,
+          "dir": "down",
+          "on": "tap"
+        }
+      ],
+      "beat": "rehook",
+      "image": "jobs/curious/pics/curious-2026-11-16-tap-to-pay/s6.jpg"
     },
     {
       "visual": "2D animation: card resting on the machine; the chip takes more, then less power in a pattern, the field rings pulse bright and dim and the machine's screen fills with ones and zeros",
@@ -93,7 +141,11 @@
       "sfx": "tick",
       "overlays": [],
       "anim": "anims/tap-pay.html",
-      "anim_params": {"mode": "talk", "meter": "POWER TAKEN", "label": "MORE... LESS... = A MESSAGE"},
+      "anim_params": {
+        "mode": "talk",
+        "meter": "POWER TAKEN",
+        "label": "MORE... LESS... = A MESSAGE"
+      },
       "beat": "explain"
     },
     {
@@ -103,8 +155,17 @@
       "headline": "IT *FEELS* THE TUGS",
       "motion": "pull",
       "sfx": "sparkle",
-      "overlays": [],
-      "beat": "payoff"
+      "overlays": [
+        {
+          "type": "ring",
+          "x": 0.55,
+          "y": 0.47,
+          "r": 0.15,
+          "on": "card"
+        }
+      ],
+      "beat": "payoff",
+      "image": "jobs/curious/pics/curious-2026-11-16-tap-to-pay/s8.jpg"
     },
     {
       "visual": "2D animation: yesterday's fastest right answers",
@@ -158,8 +219,22 @@
     },
     "answer": "B",
     "keywords": {
-      "A": ["fact", "same", "softer", "soft", "gentle"],
-      "B": ["myth", "less", "half", "valve", "shuts", "closes", "saves"]
+      "A": [
+        "fact",
+        "same",
+        "softer",
+        "soft",
+        "gentle"
+      ],
+      "B": [
+        "myth",
+        "less",
+        "half",
+        "valve",
+        "shuts",
+        "closes",
+        "saves"
+      ]
     },
     "sources": [
       "https://en.wikipedia.org/wiki/Dual_flush_toilet",

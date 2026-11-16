@@ -1,0 +1,113 @@
+<!doctype html><html><head><meta charset="utf-8">
+<style>html,body{margin:0;background:#16233a}canvas{display:block}</style></head><body>
+<canvas id="c" width="1080" height="1920"></canvas>
+<script>
+// How a tap-to-pay card works with no battery. Clouds-Short style: navy background, ONE dashed
+// outline object, ONE big orange number that moves with the words.
+// params.mode:
+//  "inside": a dashed card outline; a battery icon gets a red cross (params.battery), then a thin
+//            coil of wire draws itself round the card's edge and the chip appears (params.label).
+//  "field":  the card machine sits low; invisible field rings pulse up from it. The card comes
+//            down towards it while a big counter falls params.start -> params.end (cm, params.unit);
+//            once close, the coil glows and the chip wakes (params.wake label).
+//  "talk":   card resting on the machine; the chip takes more, then less power in a pattern: the
+//            field rings pulse bright/dim and the machine's screen fills with 1s and 0s
+//            (params.label under it). No battery, no radio: just tugs.
+// Keeps the top fifth (0-384) and the caption band (1344-1632) empty.
+const c=document.getElementById('c'),x=c.getContext('2d'),W=1080,H=1920;
+const NAVY='#16233a',YEL='#ffd23f',ORA='#ff9f1c',WHITE='#f4f1e8',TEAL='#3fc1c9',RED='#ff5a5f',GREEN='#5ad17a';
+const clamp=(v,a=0,b=1)=>Math.max(a,Math.min(b,v)), prog=(t,a,b)=>clamp((t-a)/(b-a));
+const ease=t=>1-Math.pow(1-clamp(t),3), back=t=>{t=clamp(t);const s=1.7;return 1+(s+1)*Math.pow(t-1,3)+s*Math.pow(t-1,2)};
+const rnd=i=>{const s=Math.sin(i*12.9898)*43758.5453;return s-Math.floor(s)};
+function txt(s,px,py,size,col){x.font=`700 ${size}px Anton, Impact, sans-serif`;x.textAlign='center';x.textBaseline='middle';
+  x.lineWidth=size*0.14;x.lineJoin='round';x.strokeStyle='rgba(0,0,0,.55)';x.strokeText(s,px,py);x.fillStyle=col;x.fillText(s,px,py)}
+function bg(){x.fillStyle=NAVY;x.fillRect(0,0,W,H);
+  for(let i=0;i<220;i++){x.fillStyle='rgba(255,255,255,.035)';x.fillRect(rnd(i)*W,rnd(i+99)*H,3,3)}}
+function rr(px,py,w,h,r){x.beginPath();x.moveTo(px+r,py);x.arcTo(px+w,py,px+w,py+h,r);x.arcTo(px+w,py+h,px,py+h,r);x.arcTo(px,py+h,px,py,r);x.arcTo(px,py,px+w,py,r);x.closePath()}
+function dashed(path,col,glow){x.save();x.setLineDash([22,16]);x.lineWidth=7;x.strokeStyle=col;x.shadowColor=col;x.shadowBlur=glow||18;path();x.stroke();x.restore()}
+// card: centre cx,cy, width w (ratio 1.586). coilK = 0..1 how much coil is drawn, glow 0..1
+function card(cx,cy,w,coilK,glow,chipOn){const h=w/1.586,l=cx-w/2,t=cy-h/2;
+  x.save();x.fillStyle='rgba(63,193,201,.10)';rr(l,t,w,h,w*0.06);x.fill();x.restore();
+  dashed(()=>rr(l,t,w,h,w*0.06),WHITE,10);
+  // coil: 3 loops spiralling round the edge, drawn as one polyline revealed by coilK
+  if(coilK>0){const pts=[];for(let k=0;k<3;k++){const m=w*0.05+k*w*0.022;
+      pts.push([l+m,t+m],[l+w-m,t+m],[l+w-m,t+h-m],[l+m,t+h-m],[l+m,t+m+w*0.022])}
+    let total=0;const seg=[];for(let i=1;i<pts.length;i++){const d=Math.hypot(pts[i][0]-pts[i-1][0],pts[i][1]-pts[i-1][1]);seg.push(d);total+=d}
+    let left=total*clamp(coilK);x.save();x.lineWidth=6;x.lineJoin='round';x.strokeStyle=glow>0?`rgb(255,${Math.round(159+60*glow)},${Math.round(28+40*glow)})`:ORA;
+    x.shadowColor=ORA;x.shadowBlur=8+40*glow;x.beginPath();x.moveTo(pts[0][0],pts[0][1]);
+    for(let i=1;i<pts.length&&left>0;i++){const f=Math.min(1,left/seg[i-1]);
+      x.lineTo(pts[i-1][0]+(pts[i][0]-pts[i-1][0])*f,pts[i-1][1]+(pts[i][1]-pts[i-1][1])*f);left-=seg[i-1]}
+    x.stroke();x.restore()}
+  // chip
+  const cw=w*0.15,ch=w*0.12,chx=l+w*0.2,chy=cy-ch/2;
+  x.save();x.fillStyle=chipOn>0?`rgba(255,210,63,${0.35+0.65*chipOn})`:'rgba(255,210,63,.35)';if(chipOn>0){x.shadowColor=YEL;x.shadowBlur=50*chipOn}
+  rr(chx,chy,cw,ch,8);x.fill();x.restore();
+  x.strokeStyle='rgba(22,35,58,.6)';x.lineWidth=3;x.beginPath();x.moveTo(chx+cw/2,chy);x.lineTo(chx+cw/2,chy+ch);x.moveTo(chx,chy+ch/2);x.lineTo(chx+cw,chy+ch/2);x.stroke();
+  return {chx:chx+cw/2,chy:cy,h}}
+function machine(cx,top,screenFill){const w=360,h=330,l=cx-w/2;
+  x.save();x.fillStyle='#2b3b57';rr(l,top,w,h,40);x.fill();x.lineWidth=5;x.strokeStyle='rgba(244,241,232,.5)';x.stroke();
+  x.fillStyle='#0f1828';rr(l+40,top+40,w-80,150,18);x.fill();
+  for(let r=0;r<2;r++)for(let k=0;k<3;k++){x.fillStyle='rgba(244,241,232,.35)';rr(l+60+k*85,top+215+r*50,70,34,8);x.fill()}
+  x.restore();return {sx:l+40,sy:top+40,sw:w-80,sh:150}}
+function rings(cx,cy,t,amp,col){for(let i=0;i<4;i++){const ph=((t*0.9+i/4)%1);const r=60+ph*520;
+  x.save();x.globalAlpha=amp*(1-ph)*0.8;x.strokeStyle=col;x.lineWidth=6;x.setLineDash([18,14]);x.beginPath();x.arc(cx,cy,r,Math.PI*1.08,Math.PI*1.92);x.stroke();x.restore()}}
+function battery(cx,cy,s,crossK){x.save();x.translate(cx,cy);x.scale(s,s);x.lineWidth=8;x.strokeStyle=WHITE;
+  rr(-70,-38,130,76,10);x.stroke();x.fillStyle=WHITE;x.fillRect(62,-16,14,32);x.fillStyle='rgba(90,209,122,.6)';x.fillRect(-58,-26,40,52);
+  if(crossK>0){x.strokeStyle=RED;x.lineWidth=14;x.lineCap='round';const a=ease(crossK);
+    x.beginPath();x.moveTo(-90,-60);x.lineTo(-90+180*a,-60+120*a);x.stroke();
+    if(crossK>0.5){const b=ease((crossK-0.5)*2);x.beginPath();x.moveTo(90,-60);x.lineTo(90-180*b,-60+120*b);x.stroke()}}
+  x.restore()}
+
+function drawInside(t,p,P){
+  const s=back(prog(p,0,0.12));
+  battery(540,560,s,prog(p,0.12,0.3));
+  if(p>0.12){const a=back(prog(p,0.14,0.26));x.save();x.translate(540,680);x.scale(a,a);txt(P.battery||'NO BATTERY',0,0,64,RED);x.restore()}
+  const k=ease(prog(p,0.32,0.8));
+  card(540,1000,820,k,prog(p,0.8,0.95)*0.6,prog(p,0.55,0.7));
+  if(p>0.78){const a=back(prog(p,0.78,0.9));x.save();x.translate(540,1302);x.scale(a,a);txt(P.label||'A COIL OF WIRE',0,0,64,YEL);x.restore()}
+}
+
+function drawField(t,p,P){
+  const start=+(P.start??20), end=+(P.end??2), k=ease(prog(p,0.1,0.75));
+  const m=machine(540,880);
+  rings(540,890,t,1,TEAL);
+  const cy=570+(760-570)*k;                       // card glides down towards the machine
+  const close=prog(k,0.6,0.95);
+  const c0=card(540,cy,520,1,close,close);
+  // big moving number to the right of centre, under the card
+  const cm=Math.round(start-(start-end)*k), s=back(prog(p,0,0.1));
+  x.save();x.translate(910,cy+10);x.scale(s,s);txt(cm,0,0,130,ORA);x.restore();
+  txt(P.unit||'CM AWAY',910,cy+105,42,YEL);
+  if(close>0.5){const a=back(prog(close,0.5,1));x.save();x.translate(540,1290);x.scale(a,a);txt(P.wake||'CHIP WAKES UP',0,0,66,GREEN);x.restore()}
+  // screen idle dot
+  x.fillStyle=TEAL;x.globalAlpha=.6;x.beginPath();x.arc(m.sx+m.sw/2,m.sy+m.sh/2,14,0,7);x.fill();x.globalAlpha=1;
+}
+
+function drawTalk(t,p,P){
+  const m=machine(540,880);
+  const bits=(P.bits||'1011001110100101').split('');
+  const rate=6, i=Math.floor(t*rate), on=bits[i%bits.length]==='1';
+  const talk=prog(p,0.15,0.25)>0 && p<0.95;
+  rings(540,890,t,talk?(on?1:0.3):0.8,on&&talk?YEL:TEAL);
+  card(540,740,520,1,talk?(on?1:0.2):0.6,talk?(on?1:0.35):0.6);
+  // the machine's screen fills with what it 'feels'
+  const shown=talk?Math.floor(bits.length*prog(p,0.2,0.85)):(p>=0.95?bits.length:0);
+  x.save();x.font='700 40px "Courier New", monospace';x.textAlign='left';x.textBaseline='middle';
+  for(let j=0;j<shown;j++){const r=Math.floor(j/8),col=j%8;x.fillStyle=bits[j]==='1'?YEL:'rgba(244,241,232,.55)';
+    x.fillText(bits[j],m.sx+22+col*30,m.sy+48+r*56)}x.restore();
+  // power meter on the left: one moving number
+  const pct=talk?(on?100:40):70;
+  x.save();x.fillStyle='rgba(255,255,255,.12)';rr(170,520,60,360,20);x.fill();x.fillStyle=on&&talk?YEL:TEAL;
+  const hh=360*pct/100;rr(170,880-hh,60,hh,20);x.fill();x.restore();
+  txt(P.meter||'POWER TAKEN',200,470,36,WHITE);
+  if(p>0.45){const a=back(prog(p,0.45,0.58));x.save();x.translate(540,1290);x.scale(a,a);txt(P.label||'MORE... LESS... = A MESSAGE',0,0,58,YEL);x.restore()}
+}
+
+window.draw=function(t,dur,P){
+  P=Object.assign({mode:'inside'},P||{});
+  const p=t/Math.max(dur,0.1);
+  x.setTransform(1,0,0,1,0,0);x.globalAlpha=1;x.shadowBlur=0;x.setLineDash([]);bg();
+  if(P.mode==='field')drawField(t,p,P);else if(P.mode==='talk')drawTalk(t,p,P);else drawInside(t,p,P);
+};
+window.draw(0,6,{});
+</script></body></html>

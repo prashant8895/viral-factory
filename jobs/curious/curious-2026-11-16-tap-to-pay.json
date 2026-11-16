@@ -1,0 +1,169 @@
+{
+  "id": "curious-2026-11-16-tap-to-pay",
+  "channel": "curious",
+  "languages": ["en"],
+  "publish": false,
+  "date": "2026-11-16",
+  "slot": "19:00",
+  "bucket": "how it works",
+  "hook_style": "curiosity",
+  "seed": 11162,
+  "hook_text": "NO BATTERY. HOW DOES IT *PAY*?",
+  "keywords": [
+    "how does tap to pay work",
+    "contactless card no battery",
+    "how contactless cards work"
+  ],
+  "sources": [
+    "https://www.secureidnews.com/news-item/tech-101-contactless-smart-cards/",
+    "https://itwissen.info/en/contactless-chipcard-113292.html",
+    "https://www.securetechalliance.org/smart-cards-faq/",
+    "https://www.mouser.in/applications/rfid-nfc-introduction/"
+  ],
+  "scenes": [
+    {
+      "visual": "close-up illustration of an Indian man's hand holding a plain blue bank card with no markings just above a small black card payment machine with a blank screen on a wooden shop counter, the card tilted toward the machine, the hand and machine in the lower two-thirds of the frame, simple warm shop background",
+      "narration": "Ever tapped your card to pay and wondered where the *power* comes from?",
+      "delivery": "curious",
+      "motion": "push",
+      "sfx": "boom",
+      "overlays": [],
+      "beat": "hook"
+    },
+    {
+      "visual": "illustration of a small black card payment machine with a blank screen standing alone on a wooden shop counter, a plain blue bank card with no markings lying flat beside it, seen from a slight angle, simple uncluttered background, the objects in the lower two-thirds of the frame",
+      "narration": "Yesterday's answer: B, the machine. But through thin *air*? And how does the card reply?",
+      "delivery": "light",
+      "headline": "THROUGH *AIR*?",
+      "motion": "drift_right",
+      "sfx": "thud",
+      "overlays": [],
+      "beat": "loop"
+    },
+    {
+      "visual": "2D animation: a dashed card outline; a battery icon gets a red cross, then a thin coil of wire draws itself round the card's edge and the chip appears",
+      "narration": "Okay, so look inside a card. No battery. Just a tiny chip... and a thin *wire* coiled round the edge. Why a coil?",
+      "delivery": "explain",
+      "headline": "NO *BATTERY*",
+      "motion": "push",
+      "sfx": "whoosh",
+      "overlays": [],
+      "anim": "anims/tap-pay.html",
+      "anim_params": {"mode": "inside", "battery": "NO BATTERY", "label": "A COIL OF WIRE"},
+      "beat": "explain"
+    },
+    {
+      "visual": "illustration of a hand holding a colourful paper pinwheel on a stick in front of a small white table fan, the pinwheel spinning with soft curved motion lines, side view, plain cream background, the fan and pinwheel in the lower two-thirds of the frame",
+      "narration": "Here's the trick. Hold a paper *pinwheel* far from a fan. Nothing. Bring it close, and it spins.",
+      "delivery": "explain",
+      "headline": "LIKE A *PINWHEEL*",
+      "motion": "push",
+      "sfx": "ding",
+      "overlays": [],
+      "beat": "rehook"
+    },
+    {
+      "visual": "2D animation: the card machine sends out pulsing field rings; a card glides down towards it while a big counter falls from 20 to 2 cm, the coil glows and the chip wakes up",
+      "narration": "The machine is that fan. It sends out an invisible magnetic *field*. Bring the card within a few centimetres, and its coil catches enough to wake the chip.",
+      "delivery": "explain",
+      "headline": "THE MACHINE'S *FIELD*",
+      "motion": "push",
+      "sfx": "riser",
+      "overlays": [],
+      "anim": "anims/tap-pay.html",
+      "anim_params": {"mode": "field", "start": 20, "end": 2, "unit": "CM AWAY", "wake": "CHIP WAKES UP"},
+      "beat": "explain"
+    },
+    {
+      "visual": "illustration of a hand pressing a plain blue bank card with no markings flat against the top of a small black card payment machine on a wooden shop counter, seen from the side, simple warm background, the hand and machine in the lower two-thirds of the frame",
+      "narration": "That's why it's a *tap*, not a wave. But the card has no radio. So how does it *answer*?",
+      "delivery": "build",
+      "headline": "BUT HOW DOES IT *TALK*?",
+      "motion": "drift_left",
+      "sfx": "tick",
+      "overlays": [],
+      "beat": "rehook"
+    },
+    {
+      "visual": "2D animation: card resting on the machine; the chip takes more, then less power in a pattern, the field rings pulse bright and dim and the machine's screen fills with ones and zeros",
+      "narration": "See, it doesn't send anything out. The chip takes a bit more power, then a bit less, in a *pattern*.",
+      "delivery": "explain",
+      "headline": "MORE... *LESS*...",
+      "motion": "push",
+      "sfx": "tick",
+      "overlays": [],
+      "anim": "anims/tap-pay.html",
+      "anim_params": {"mode": "talk", "meter": "POWER TAKEN", "label": "MORE... LESS... = A MESSAGE"},
+      "beat": "explain"
+    },
+    {
+      "visual": "illustration of a small black card payment machine on a wooden shop counter with a big green tick shape on its screen, a hand lifting a plain blue bank card with no markings away from it, simple warm background, the machine and hand in the lower two-thirds of the frame",
+      "narration": "The machine feels those tiny tugs, and reads them as your card. <short pause> So every tap? The machine's doing *all* the work.",
+      "delivery": "reveal",
+      "headline": "IT *FEELS* THE TUGS",
+      "motion": "pull",
+      "sfx": "sparkle",
+      "overlays": [],
+      "beat": "payoff"
+    },
+    {
+      "visual": "2D animation: yesterday's fastest right answers",
+      "shoutout": true,
+      "anim": "anims/shoutout.html",
+      "narration": "These legends got it first. Nicely done.",
+      "narration_none": "Nobody cracked yesterday's one... <chuckles> let's see if you can beat today's.",
+      "delivery": "warm",
+      "headline": "*SHOUTOUT*",
+      "motion": "push",
+      "sfx": "sparkle",
+      "overlays": []
+    },
+    {
+      "visual": "2D animation: the quiz about tomorrow's topic",
+      "quiz": true,
+      "anim": "anims/quiz.html",
+      "narration": "Tomorrow, the two flush buttons. Myth or fact: the small one's the same water, just softer? Comment your guess.",
+      "delivery": "curious",
+      "headline": "MYTH OR *FACT*?",
+      "motion": "push",
+      "sfx": "pop",
+      "overlays": []
+    }
+  ],
+  "youtube": {
+    "title": "How does tap to pay work with no battery? #shorts",
+    "description": "How does tap to pay work when the card has no battery? Inside a contactless card there's just a tiny chip and a thin coil of wire round the edge. The card machine sends out an invisible magnetic field. Bring the card within a few centimetres and the coil catches enough of it to wake the chip, like a paper pinwheel that only spins close to a fan. The card has no radio of its own, so it answers by taking a bit more power, then a bit less, in a pattern. The machine feels those tiny tugs and reads them as your card.\n\nTomorrow's quiz (Myth or fact Monday): the small flush button is the same water, just a softer flush. Myth or fact? A) Fact, same water B) Myth, it uses less water. Comment your guess, first 3 right get a shoutout 👇\n\nSources: Secure ID News, ITWissen, Secure Technology Alliance, Mouser\nAI visuals\n#ohthatswhy #howitworks #contactless #didyouknow #shorts",
+    "tags": [
+      "how does tap to pay work",
+      "contactless card no battery",
+      "how contactless cards work",
+      "how it works",
+      "did you know"
+    ]
+  },
+  "instagram": {
+    "caption": "How does tap to pay work with no battery? 💳\nA contactless card has no battery, just a chip and a coil of wire. That's how contactless cards work: the machine's magnetic field wakes the chip from a few centimetres away, and the card answers by tugging on that power in a pattern.\n\nSources: Secure ID News, ITWissen, Secure Technology Alliance, Mouser\nAI visuals\n#ohthatswhy #howitworks #contactless #didyouknow\n\nTomorrow's quiz (Myth or fact Monday): the small flush button is the same water, just a softer flush. A) Fact, same water B) Myth, it uses less water. Comment A or B, first 3 right get a shoutout 👇"
+  },
+  "facebook": {
+    "description": "How does tap to pay work with no battery? The card machine's magnetic field powers a tiny chip through a coil of wire in the card, and the card answers by tugging on that power in a pattern. AI visuals.\n\nTomorrow's quiz: the small flush button is the same water, just a softer flush. Myth or fact? A) Fact, same water B) Myth, it uses less water. Comment your guess 👇"
+  },
+  "quiz": {
+    "theme": "MYTH OR FACT MONDAY",
+    "next_topic": "why the flush has two buttons",
+    "next_title": "Two flush buttons",
+    "question": "Small flush button: same water, just softer?",
+    "options": {
+      "A": "Fact: same water",
+      "B": "Myth: it uses less water"
+    },
+    "answer": "B",
+    "keywords": {
+      "A": ["fact", "same", "softer", "soft", "gentle"],
+      "B": ["myth", "less", "half", "valve", "shuts", "closes", "saves"]
+    },
+    "sources": [
+      "https://en.wikipedia.org/wiki/Dual_flush_toilet",
+      "https://victoriaplum.com/blog/posts/how-does-dual-flush-work"
+    ]
+  }
+}

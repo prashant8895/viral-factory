@@ -1,0 +1,65 @@
+{
+  "id": "curious-2026-11-16-tap-to-pay-en",
+  "channel": "curious-en",
+  "date": "2026-11-16",
+  "slot": "19:00",
+  "publish": true,
+  "bucket": "how it works",
+  "episode": null,
+  "hook_text": "NO BATTERY. HOW DOES IT *PAY*?",
+  "hook_style": "curiosity",
+  "release": "job-curious-2026-11-16-tap-to-pay-en",
+  "duration": 85.34,
+  "quiz": {
+    "theme": "MYTH OR FACT MONDAY",
+    "next_topic": "why the flush has two buttons",
+    "next_title": "Two flush buttons",
+    "question": "Small flush button: same water, just softer?",
+    "options": {
+      "A": "Fact: same water",
+      "B": "Myth: it uses less water"
+    },
+    "answer": "B",
+    "keywords": {
+      "A": [
+        "fact",
+        "same",
+        "softer",
+        "soft",
+        "gentle"
+      ],
+      "B": [
+        "myth",
+        "less",
+        "half",
+        "valve",
+        "shuts",
+        "closes",
+        "saves"
+      ]
+    },
+    "sources": [
+      "https://en.wikipedia.org/wiki/Dual_flush_toilet",
+      "https://victoriaplum.com/blog/posts/how-does-dual-flush-work"
+    ]
+  },
+  "shoutouts": {
+    "from": "curious-2026-11-15-shop-tag-v2-en",
+    "names": [
+      {
+        "name": "@Gargiwatchesvideos",
+        "platform": "youtube",
+        "time": "2026-11-15T15:32:27Z",
+        "comment_id": "Ugwv3T5oe2yoX-3RfOJ4AaABAg"
+      },
+      {
+        "name": "@JacobEyre-k2w",
+        "platform": "youtube",
+        "time": "2026-11-15T16:27:05Z",
+        "comment_id": "UgwqmNQOxwjsxOxMPNV4AaABAg"
+      }
+    ]
+  },
+  "picture_style": "illustration",
+  "voice": "clone"
+}

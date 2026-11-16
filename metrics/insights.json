@@ -1,22 +1,22 @@
 {
-  "updated": "2026-11-16T06:42+05:30",
+  "updated": "2026-11-16T12:49+05:30",
   "videos": 12,
-  "total_views": 17260.0,
+  "total_views": 17275.0,
   "platform_views": {
-    "youtube": 9064.0,
+    "youtube": 9078.0,
     "instagram": 5320.0,
-    "facebook": 2876.0
+    "facebook": 2877.0
   },
   "median_watch_pct": 18.4,
   "median_shares_per_1k": 0.0,
   "rules": [
-    "picture_style: 'illustration' beats 'photo' (1,587 vs 971 median views, 5 vs 7 videos). Lean towards 'illustration'.",
-    "voice: 'clone' beats 'kokoro' (1,587 vs 971 median views, 5 vs 7 videos). Lean towards 'clone'.",
-    "length_band: '50-70s' beats '40-50s' (1,456 vs 971 median views, 4 vs 7 videos). Lean towards '50-70s'.",
+    "picture_style: 'illustration' beats 'photo' (1,577 vs 971 median views, 5 vs 7 videos). Lean towards 'illustration'.",
+    "voice: 'clone' beats 'kokoro' (1,577 vs 971 median views, 5 vs 7 videos). Lean towards 'clone'.",
+    "length_band: '50-70s' beats '40-50s' (1,450 vs 971 median views, 4 vs 7 videos). Lean towards '50-70s'.",
     "Median watch is 18% of the video: people leave early. Get to the first surprising fact by second 5, cut setup lines, aim for 35-45 s.",
     "Top videos so far: IT'S NOT A SHOE CLEANER! (seen-but-missed, 3,188 views); WHY THIS MESH? (seen-but-missed, 1,891 views); BACK WINDOW LINES? (seen-but-missed, 1,792 views). Pitch more topics like these.",
     "Weakest: WHY'S THIS ARROW HERE? (seen-but-missed, 791); WHY DO WE YAWN? (careful health, 647); WINTER HAZE? NOT JUST FOG (india everyday, 438). Avoid these angles unless a new twist.",
-    "Voice trial (clone): 5/5 videos made, 2 at 72 h, verdict: waiting."
+    "Voice trial (clone): 5/5 videos made, 3 at 72 h, verdict: waiting."
   ],
   "flags": [
     "5 of 12 videos went out more than 30 min off their slot: 2026-11-06-escalator-brush (-148 min), 2026-11-07-microwave-mesh (+112 min), 2026-11-09-tyre-black (+453 min), 2026-11-11-stars-twinkle (+406 min), 2026-11-13-fuel-arrow (-473 min)"
@@ -28,7 +28,7 @@
         "n": 6,
         "trusted": true,
         "median_v24": 1537.0,
-        "median_views": 1737.5,
+        "median_views": 1734.0,
         "median_watch_pct": 32.85,
         "median_shares_per_1k": 0.55
       },
@@ -36,9 +36,9 @@
         "group": "how it works",
         "n": 1,
         "trusted": false,
-        "median_v24": null,
-        "median_views": 1612.0,
-        "median_watch_pct": 8.4,
+        "median_v24": 1645.0,
+        "median_views": 1645.0,
+        "median_watch_pct": 8.35,
         "median_shares_per_1k": 0.0
       },
       {
@@ -92,8 +92,8 @@
         "group": "curiosity",
         "n": 5,
         "trusted": true,
-        "median_v24": 1294.5,
-        "median_views": 1587.0,
+        "median_v24": 1322.0,
+        "median_views": 1577.0,
         "median_watch_pct": 17.1,
         "median_shares_per_1k": 0.0
       },
@@ -121,8 +121,8 @@
         "group": "illustration",
         "n": 5,
         "trusted": true,
-        "median_v24": 1294.5,
-        "median_views": 1587.0,
+        "median_v24": 1322.0,
+        "median_views": 1577.0,
         "median_watch_pct": 17.1,
         "median_shares_per_1k": 0.0
       },
@@ -141,8 +141,8 @@
         "group": "clone",
         "n": 5,
         "trusted": true,
-        "median_v24": 1294.5,
-        "median_views": 1587.0,
+        "median_v24": 1322.0,
+        "median_views": 1577.0,
         "median_watch_pct": 17.1,
         "median_shares_per_1k": 0.0
       },
@@ -161,9 +161,9 @@
         "group": "70s+",
         "n": 1,
         "trusted": false,
-        "median_v24": null,
-        "median_views": 1612.0,
-        "median_watch_pct": 8.4,
+        "median_v24": 1645.0,
+        "median_views": 1645.0,
+        "median_watch_pct": 8.35,
         "median_shares_per_1k": 0.0
       },
       {
@@ -171,7 +171,7 @@
         "n": 4,
         "trusted": true,
         "median_v24": 1294.5,
-        "median_views": 1455.5,
+        "median_views": 1450.5,
         "median_watch_pct": 17.85,
         "median_shares_per_1k": 0.3
       },
@@ -189,12 +189,12 @@
   "voice_trial": {
     "status": "kept",
     "videos_made": 5,
-    "videos_72h": 2,
+    "videos_72h": 3,
     "needed": 5,
     "trial": {
-      "v72": 1688.5,
-      "watch_pct": 27.8,
-      "skip_pct": 38.0
+      "v72": 1585.0,
+      "watch_pct": 18.6,
+      "skip_pct": 45.4
     },
     "baseline": {
       "v72": 980.0,
@@ -242,7 +242,7 @@
       "hook_style": "question",
       "duration": 40.67,
       "late_min": 112,
-      "views": 2118.0,
+      "views": 2117.0,
       "v24": 1783.0,
       "v72": 1891.0,
       "watch_pct": 28.7,
@@ -362,13 +362,13 @@
       "hook_style": "curiosity",
       "duration": 60.9,
       "late_min": -2,
-      "views": 1587.0,
+      "views": 1577.0,
       "v24": 1267.0,
       "v72": 1585.0,
       "watch_pct": 18.6,
       "skip_pct": 45.4,
       "follows": null,
-      "likes_per_1k": 15.8,
+      "likes_per_1k": 15.9,
       "shares_per_1k": 0.6,
       "youtube_watch_pct": 38.3,
       "instagram_watch_pct": 18.6,
@@ -382,14 +382,14 @@
       "hook_style": "curiosity",
       "duration": 54.18,
       "late_min": -2,
-      "views": 1793.0,
+      "views": 1786.0,
       "v24": 1725.0,
       "v72": 1792.0,
       "watch_pct": 37.0,
       "skip_pct": 30.6,
       "follows": null,
-      "likes_per_1k": 27.3,
-      "shares_per_1k": 3.3,
+      "likes_per_1k": 27.4,
+      "shares_per_1k": 3.4,
       "youtube_watch_pct": 42.9,
       "instagram_watch_pct": 37.0,
       "facebook_watch_pct": 16.6
@@ -442,16 +442,16 @@
       "hook_style": "curiosity",
       "duration": 81.36,
       "late_min": 0,
-      "views": 1612.0,
-      "v24": null,
+      "views": 1645.0,
+      "v24": 1645.0,
       "v72": null,
-      "watch_pct": 8.4,
+      "watch_pct": 8.35,
       "skip_pct": 49.3,
       "follows": null,
-      "likes_per_1k": 18.0,
+      "likes_per_1k": 17.6,
       "shares_per_1k": 0.0,
       "youtube_watch_pct": null,
-      "instagram_watch_pct": 12.9,
+      "instagram_watch_pct": 12.8,
       "facebook_watch_pct": 3.9
     }
   ]

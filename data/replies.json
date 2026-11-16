@@ -1,10 +1,1 @@
-[
-  {
-    "platform": "youtube",
-    "channel": "curious-en",
-    "comment_id": "UgwpfAYhEzn-gQjoYOJ4AaABAg",
-    "text": "Nailed it, you're on a roll with these 👏 The full how-it-works comes tomorrow!",
-    "error": "400: {\n  \"error\": {\n    \"code\": 400,\n    \"message\": \"The API server failed to successfully process the request. While this can be a transient error, it usually indicates that the request's input is invalid. Check the structure of the \\u003ccode\\u003ecomment\\u003c/code\\u003e resource in the request b",
-    "tries": 2
-  }
-]
+[]

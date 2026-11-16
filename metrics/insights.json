@@ -1,17 +1,17 @@
 {
-  "updated": "2026-11-16T01:25+05:30",
+  "updated": "2026-11-16T06:42+05:30",
   "videos": 12,
-  "total_views": 17196.0,
+  "total_views": 17260.0,
   "platform_views": {
-    "youtube": 9003.0,
-    "instagram": 5319.0,
-    "facebook": 2874.0
+    "youtube": 9064.0,
+    "instagram": 5320.0,
+    "facebook": 2876.0
   },
   "median_watch_pct": 18.4,
   "median_shares_per_1k": 0.0,
   "rules": [
-    "picture_style: 'illustration' beats 'photo' (1,549 vs 971 median views, 5 vs 7 videos). Lean towards 'illustration'.",
-    "voice: 'clone' beats 'kokoro' (1,549 vs 971 median views, 5 vs 7 videos). Lean towards 'clone'.",
+    "picture_style: 'illustration' beats 'photo' (1,587 vs 971 median views, 5 vs 7 videos). Lean towards 'illustration'.",
+    "voice: 'clone' beats 'kokoro' (1,587 vs 971 median views, 5 vs 7 videos). Lean towards 'clone'.",
     "length_band: '50-70s' beats '40-50s' (1,456 vs 971 median views, 4 vs 7 videos). Lean towards '50-70s'.",
     "Median watch is 18% of the video: people leave early. Get to the first surprising fact by second 5, cut setup lines, aim for 35-45 s.",
     "Top videos so far: IT'S NOT A SHOE CLEANER! (seen-but-missed, 3,188 views); WHY THIS MESH? (seen-but-missed, 1,891 views); BACK WINDOW LINES? (seen-but-missed, 1,792 views). Pitch more topics like these.",
@@ -37,7 +37,7 @@
         "n": 1,
         "trusted": false,
         "median_v24": null,
-        "median_views": 1549.0,
+        "median_views": 1612.0,
         "median_watch_pct": 8.4,
         "median_shares_per_1k": 0.0
       },
@@ -84,7 +84,7 @@
         "n": 1,
         "trusted": false,
         "median_v24": 2206.0,
-        "median_views": 3415.0,
+        "median_views": 3416.0,
         "median_watch_pct": 42.0,
         "median_shares_per_1k": 2.6
       },
@@ -93,7 +93,7 @@
         "n": 5,
         "trusted": true,
         "median_v24": 1294.5,
-        "median_views": 1549.0,
+        "median_views": 1587.0,
         "median_watch_pct": 17.1,
         "median_shares_per_1k": 0.0
       },
@@ -122,7 +122,7 @@
         "n": 5,
         "trusted": true,
         "median_v24": 1294.5,
-        "median_views": 1549.0,
+        "median_views": 1587.0,
         "median_watch_pct": 17.1,
         "median_shares_per_1k": 0.0
       },
@@ -142,7 +142,7 @@
         "n": 5,
         "trusted": true,
         "median_v24": 1294.5,
-        "median_views": 1549.0,
+        "median_views": 1587.0,
         "median_watch_pct": 17.1,
         "median_shares_per_1k": 0.0
       },
@@ -162,7 +162,7 @@
         "n": 1,
         "trusted": false,
         "median_v24": null,
-        "median_views": 1549.0,
+        "median_views": 1612.0,
         "median_watch_pct": 8.4,
         "median_shares_per_1k": 0.0
       },
@@ -222,11 +222,11 @@
       "hook_style": "none",
       "duration": 42.75,
       "late_min": -148,
-      "views": 3415.0,
+      "views": 3416.0,
       "v24": 2206.0,
       "v72": 3188.0,
       "watch_pct": 42.0,
-      "skip_pct": 33.8,
+      "skip_pct": 33.9,
       "follows": null,
       "likes_per_1k": 6.1,
       "shares_per_1k": 2.6,
@@ -290,7 +290,7 @@
       "follows": null,
       "likes_per_1k": 15.5,
       "shares_per_1k": 0.0,
-      "youtube_watch_pct": 105.1,
+      "youtube_watch_pct": 105.0,
       "instagram_watch_pct": 41.7,
       "facebook_watch_pct": 12.3
     },
@@ -350,7 +350,7 @@
       "follows": null,
       "likes_per_1k": 17.0,
       "shares_per_1k": 0.0,
-      "youtube_watch_pct": 61.0,
+      "youtube_watch_pct": 59.3,
       "instagram_watch_pct": 9.8,
       "facebook_watch_pct": 15.9
     },
@@ -370,7 +370,7 @@
       "follows": null,
       "likes_per_1k": 15.8,
       "shares_per_1k": 0.6,
-      "youtube_watch_pct": 39.6,
+      "youtube_watch_pct": 38.3,
       "instagram_watch_pct": 18.6,
       "facebook_watch_pct": 3.3
     },
@@ -390,7 +390,7 @@
       "follows": null,
       "likes_per_1k": 27.3,
       "shares_per_1k": 3.3,
-      "youtube_watch_pct": 46.8,
+      "youtube_watch_pct": 42.9,
       "instagram_watch_pct": 37.0,
       "facebook_watch_pct": 16.6
     },
@@ -410,7 +410,7 @@
       "follows": null,
       "likes_per_1k": 5.1,
       "shares_per_1k": 0.0,
-      "youtube_watch_pct": 37.0,
+      "youtube_watch_pct": 43.3,
       "instagram_watch_pct": 17.1,
       "facebook_watch_pct": 7.7
     },
@@ -442,13 +442,13 @@
       "hook_style": "curiosity",
       "duration": 81.36,
       "late_min": 0,
-      "views": 1549.0,
+      "views": 1612.0,
       "v24": null,
       "v72": null,
       "watch_pct": 8.4,
       "skip_pct": 49.3,
       "follows": null,
-      "likes_per_1k": 18.1,
+      "likes_per_1k": 18.0,
       "shares_per_1k": 0.0,
       "youtube_watch_pct": null,
       "instagram_watch_pct": 12.9,

@@ -1,5 +1,5 @@
 {
-  "updated": "2026-11-16T19:58+05:30",
+  "updated": "2026-11-17T04:50+05:30",
   "errors": {
     "curious-hi/instagram/curious-2026-11-07-microwave-mesh-hi": "400: {\"error\":{\"message\":\"Unsupported get request. Object with ID '18393283948224566' does not exist, cannot be loaded due to missing permissions, or does not support this operation. Please read the Graph API documentation at https://developers.facebook.com/docs/graph-api\",\"code\":100,\"type\":\"GraphMe",
     "curious-en/instagram/curious-2026-11-10-winter-smog-en": "400: {\"error\":{\"message\":\"Unsupported get request. Object with ID '18058381928810433' does not exist, cannot be loaded due to missing permissions, or does not support this operation. Please read the Graph API documentation at https://developers.facebook.com/docs/graph-api\",\"code\":100,\"type\":\"GraphMe",
@@ -7,6 +7,20 @@
     "curious-en/instagram/curious-2026-11-15-shop-tag-en": "400: {\"error\":{\"message\":\"Unsupported get request. Object with ID '18144591316612679' does not exist, cannot be loaded due to missing permissions, or does not support this operation. Please read the Graph API documentation at https://developers.facebook.com/docs/graph-api\",\"code\":100,\"type\":\"GraphMe"
   },
   "comments": [
+    {
+      "comment_id": "UgyJD-YcPV7vwrshUpJ4AaABAg",
+      "author": "@Gargiwatchesvideos",
+      "text": "A",
+      "time": "2026-11-16T15:41:12Z",
+      "likes": 0,
+      "has_our_reply": false,
+      "platform": "youtube",
+      "channel": "curious-en",
+      "video": "curious-2026-11-16-tap-to-pay-en",
+      "hook": "NO BATTERY. HOW DOES IT *PAY*?",
+      "post_id": "wWBQP_fLdAI",
+      "replied": false
+    },
     {
       "comment_id": "UgyQVJXbun-fZykyysN4AaABAg",
       "author": "@ThyCrimsonKnight",

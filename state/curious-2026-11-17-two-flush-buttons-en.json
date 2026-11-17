@@ -1,0 +1,62 @@
+{
+  "id": "curious-2026-11-17-two-flush-buttons-en",
+  "channel": "curious-en",
+  "date": "2026-11-17",
+  "slot": "19:00",
+  "publish": true,
+  "bucket": "how it works",
+  "episode": null,
+  "hook_text": "WHY *TWO* FLUSH BUTTONS?",
+  "hook_style": "curiosity",
+  "release": "job-curious-2026-11-17-two-flush-buttons-en",
+  "duration": 85.35,
+  "quiz": {
+    "theme": "GUESS THE NUMBER TUESDAY",
+    "next_topic": "how the petrol nozzle stops by itself",
+    "next_title": "The petrol nozzle that stops itself",
+    "question": "Electronic parts that stop a petrol nozzle?",
+    "options": {
+      "A": "3 or more",
+      "B": "Zero"
+    },
+    "answer": "B",
+    "keywords": {
+      "A": [
+        "3",
+        "three",
+        "more",
+        "sensor",
+        "sensors",
+        "chip",
+        "electronic"
+      ],
+      "B": [
+        "zero",
+        "0",
+        "none",
+        "no",
+        "nothing",
+        "mechanical",
+        "air",
+        "hole"
+      ]
+    },
+    "sources": [
+      "https://hackaday.com/2020/11/12/tech-hidden-in-plain-sight-gas-pumps",
+      "https://www.scienceabc.com/pure-sciences/how-does-the-gas-pump-automatically-shut-off-when-the-tank-is-full"
+    ]
+  },
+  "shoutouts": {
+    "from": "curious-2026-11-16-tap-to-pay-en",
+    "names": [
+      {
+        "name": "@ThyCrimsonKnight",
+        "platform": "youtube",
+        "time": "2026-11-16T14:21:31Z",
+        "comment_id": "UgyQVJXbun-fZykyysN4AaABAg"
+      }
+    ]
+  },
+  "picture_style": "illustration",
+  "voice": "clone"
+}

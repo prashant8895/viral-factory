@@ -58,5 +58,24 @@
     ]
   },
   "picture_style": "illustration",
-  "voice": "clone"
+  "voice": "clone",
+  "platforms": {
+    "youtube": {
+      "id": "t5mthQmowjw",
+      "url": "https://youtube.com/shorts/t5mthQmowjw",
+      "privacy": "public",
+      "posted_at": "2026-11-17T18:58+05:30"
+    },
+    "instagram": {
+      "id": "18130539155290573",
+      "url": "https://www.instagram.com/reel/Df2Csoxx4eF/",
+      "posted_at": "2026-11-17T19:01+05:30"
+    },
+    "facebook": {
+      "id": "1857676985258724",
+      "url": "https://www.facebook.com/reel/1857676985258724",
+      "posted_at": "2026-11-17T19:01+05:30"
+    }
+  },
+  "errors": {}
 }

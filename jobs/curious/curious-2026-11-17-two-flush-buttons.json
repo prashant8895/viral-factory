@@ -4,7 +4,7 @@
   "languages": [
     "en"
   ],
-  "publish": false,
+  "publish": true,
   "date": "2026-11-17",
   "slot": "19:00",
   "bucket": "how it works",
@@ -29,8 +29,24 @@
       "delivery": "curious",
       "motion": "push",
       "sfx": "boom",
-      "overlays": [],
-      "beat": "hook"
+      "overlays": [
+        {
+          "type": "ring",
+          "x": 0.42,
+          "y": 0.52,
+          "r": 0.12,
+          "on": "big"
+        },
+        {
+          "type": "arrow",
+          "x": 0.6,
+          "y": 0.47,
+          "dir": "down",
+          "on": "small"
+        }
+      ],
+      "beat": "hook",
+      "image": "jobs/curious/pics/curious-2026-11-17-two-flush-buttons/s1.jpg"
     },
     {
       "visual": "illustration of a hand's index finger pressing the small half-moon button of a white dual flush button plate on top of a plain white toilet cistern, close-up side view, soft clean bathroom background, the hand and button plate in the lower two-thirds of the frame, no text or logos",
@@ -39,8 +55,17 @@
       "headline": "IT WAS A *MYTH*",
       "motion": "drift_right",
       "sfx": "thud",
-      "overlays": [],
-      "beat": "loop"
+      "overlays": [
+        {
+          "type": "ring",
+          "x": 0.5,
+          "y": 0.58,
+          "r": 0.12,
+          "on": "small"
+        }
+      ],
+      "beat": "loop",
+      "image": "jobs/curious/pics/curious-2026-11-17-two-flush-buttons/s2.jpg"
     },
     {
       "visual": "2D animation: a dashed tank outline full of water, the plug at the bottom lifts, water pours out and a big counter falls from 6 litres, then a question mark",
@@ -65,8 +90,17 @@
       "headline": "NO *SENSOR*?",
       "motion": "push",
       "sfx": "ding",
-      "overlays": [],
-      "beat": "rehook"
+      "overlays": [
+        {
+          "type": "arrow",
+          "x": 0.42,
+          "y": 0.42,
+          "dir": "down",
+          "on": "mug"
+        }
+      ],
+      "beat": "rehook",
+      "image": "jobs/curious/pics/curious-2026-11-17-two-flush-buttons/s4.jpg"
     },
     {
       "visual": "2D animation: the tank with a centre stem; a yellow float pops in halfway up (small button) and a teal one at the bottom (big button); the yellow float lifts with the plug and glows",
@@ -93,8 +127,17 @@
       "headline": "THE *CLEVER* BIT",
       "motion": "drift_left",
       "sfx": "tick",
-      "overlays": [],
-      "beat": "rehook"
+      "overlays": [
+        {
+          "type": "arrow",
+          "x": 0.6,
+          "y": 0.66,
+          "dir": "down",
+          "on": "below"
+        }
+      ],
+      "beat": "rehook",
+      "image": "jobs/curious/pics/curious-2026-11-17-two-flush-buttons/s6.jpg"
     },
     {
       "visual": "2D animation: two tanks side by side, both draining from 6 litres; the small-button tank stops at 3 litres when the water reaches its halfway float and gets a tick, the big-button tank drains to 0",
@@ -121,8 +164,17 @@
       "headline": "IT JUST SHUTS *SOONER*",
       "motion": "pull",
       "sfx": "ding",
-      "overlays": [],
-      "beat": "explain"
+      "overlays": [
+        {
+          "type": "arrow",
+          "x": 0.16,
+          "y": 0.56,
+          "dir": "down",
+          "on": "sooner"
+        }
+      ],
+      "beat": "explain",
+      "image": "jobs/curious/pics/curious-2026-11-17-two-flush-buttons/s8.jpg"
     },
     {
       "visual": "2D animation: yesterday's fastest right answers",

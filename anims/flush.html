@@ -1,0 +1,113 @@
+<!doctype html><html><head><meta charset="utf-8">
+<style>html,body{margin:0;background:#16233a}canvas{display:block}</style></head><body>
+<canvas id="c" width="1080" height="1920"></canvas>
+<script>
+// Why a toilet flush has two buttons. Clouds-Short style: dark navy, ONE dashed tank outline,
+// ONE big orange litres counter that moves with the words.
+// params.mode:
+//  "plug":   one tank, full; the plug at the bottom lifts (params.label), water pours out and the
+//            counter falls params.start (6) -> about 4, then a big "?" pops (who decides when it stops?).
+//  "floats": tank with a centre valve; two floats pop in: one about halfway up (params.small),
+//            one at the bottom (params.big). The halfway float lifts with the plug and glows while
+//            water covers it (params.label, e.g. "FLOATING = PLUG OPEN").
+//  "levels": two tanks side by side, both drain from params.start (6). The left one (small button)
+//            stops at params.end (3) when the water reaches its halfway float, plug drops shut, tick;
+//            the right one (big button) drains to 0. Counters under each.
+// Keeps the top fifth (0-384) and the caption band (1344-1632) empty.
+const c=document.getElementById('c'),x=c.getContext('2d'),W=1080,H=1920;
+const NAVY='#16233a',YEL='#ffd23f',ORA='#ff9f1c',WHITE='#f4f1e8',TEAL='#3fc1c9',WATER='rgba(63,150,230,.55)',GRN='#5ad17a';
+const clamp=(v,a=0,b=1)=>Math.max(a,Math.min(b,v)), prog=(t,a,b)=>clamp((t-a)/(b-a));
+const ease=t=>1-Math.pow(1-clamp(t),3), back=t=>{t=clamp(t);const s=1.7;return 1+(s+1)*Math.pow(t-1,3)+s*Math.pow(t-1,2)};
+const rnd=i=>{const s=Math.sin(i*12.9898)*43758.5453;return s-Math.floor(s)};
+function txt(s,px,py,size,col){x.font=`700 ${size}px Anton, Impact, sans-serif`;x.textAlign='center';x.textBaseline='middle';
+  x.lineWidth=size*0.14;x.lineJoin='round';x.strokeStyle='rgba(0,0,0,.55)';x.strokeText(s,px,py);x.fillStyle=col;x.fillText(s,px,py)}
+function bg(){x.fillStyle=NAVY;x.fillRect(0,0,W,H);
+  for(let i=0;i<220;i++){x.fillStyle='rgba(255,255,255,.035)';x.fillRect(rnd(i)*W,rnd(i+99)*H,3,3)}}
+function dashed(path,col,glow){x.save();x.setLineDash([22,16]);x.lineWidth=7;x.strokeStyle=col;x.shadowColor=col;x.shadowBlur=glow||18;path();x.stroke();x.restore()}
+function lit(v){return (Math.round(v*10)/10).toFixed(v%1&&v<5.95?1:0).replace(/\.0$/,'')+' L'}
+
+// one tank: left,top,width,height; level 0..1; plug lift 0..1 (0 = shut)
+function tank(L,T,Wd,Ht,level,lift,t){
+  const B=T+Ht, wy=B-Ht*level;
+  // water
+  if(level>0.005){x.fillStyle=WATER;x.beginPath();x.moveTo(L,wy);
+    for(let k=0;k<=20;k++){x.lineTo(L+Wd*k/20,wy+Math.sin(t*4+k*0.9)*6*Math.min(1,level*4))}
+    x.lineTo(L+Wd,B);x.lineTo(L,B);x.closePath();x.fill()}
+  dashed(()=>{x.beginPath();x.moveTo(L,T-30);x.lineTo(L,B);x.lineTo(L+Wd/2-50,B);x.moveTo(L+Wd/2+50,B);x.lineTo(L+Wd,B);x.lineTo(L+Wd,T-30)},WHITE,10);
+  // outlet pipe
+  x.fillStyle='rgba(244,241,232,.25)';x.fillRect(L+Wd/2-40,B,80,90);
+  // pouring water below when open
+  if(lift>0.05&&level>0.005){for(let i=0;i<10;i++){const ph=(t*1.6+i/10)%1;x.fillStyle=WATER;x.globalAlpha=lift;
+      x.beginPath();x.arc(L+Wd/2+(rnd(i)-0.5)*40,B+10+ph*80,10,0,7);x.fill()}x.globalAlpha=1}
+  // plug
+  const py=B-8-lift*70;x.fillStyle=ORA;x.beginPath();x.roundRect(L+Wd/2-60,py-22,120,30,10);x.fill();
+  // stem
+  x.strokeStyle='rgba(244,241,232,.6)';x.lineWidth=8;x.beginPath();x.moveTo(L+Wd/2,py-22);x.lineTo(L+Wd/2,T+10);x.stroke();
+  return {B,py};
+}
+function floatAt(cx,cy,col,s,glow){x.save();x.translate(cx,cy);x.scale(s,s);if(glow){x.shadowColor=col;x.shadowBlur=40*glow}
+  x.fillStyle=col;x.beginPath();x.roundRect(-55,-32,110,64,24);x.fill();x.restore()}
+function arrowUp(ax,ay,len,col,a){x.save();x.globalAlpha=a;x.strokeStyle=col;x.fillStyle=col;x.lineWidth=12;x.lineCap='round';
+  x.beginPath();x.moveTo(ax,ay);x.lineTo(ax,ay-len);x.stroke();x.beginPath();x.moveTo(ax,ay-len-30);x.lineTo(ax-24,ay-len+4);x.lineTo(ax+24,ay-len+4);x.fill();x.restore()}
+
+function drawPlug(t,p,P){
+  const start=+(P.start||6), L=240,T=620,Wd=600,Ht=540;
+  const lift=ease(prog(p,0.15,0.3)), drain=ease(prog(p,0.3,0.85));
+  const level=1-0.33*drain;
+  const r=tank(L,T,Wd,Ht,level,lift,t);
+  if(lift>0)arrowUp(L+Wd/2+110,r.B-10,120*lift,YEL,lift);
+  const s=back(prog(p,0,0.1));x.save();x.translate(540,490);x.scale(s,s);txt(lit(start*level),0,0,140,ORA);x.restore();
+  const ls=back(prog(p,0.2,0.32));if(ls>0){x.save();x.translate(540,1295);x.scale(ls,ls);txt(P.label||'SAME PLUG',0,0,66,YEL);x.restore()}
+  const qs=back(prog(p,0.78,0.9));if(qs>0){x.save();x.translate(900,640);x.scale(qs,qs);txt('?',0,0,200,WHITE);x.restore()}
+}
+
+function drawFloats(t,p,P){
+  const L=240,T=590,Wd=600,Ht=590, cx=L+Wd/2;
+  const lift=ease(prog(p,0.5,0.65)), drain=ease(prog(p,0.65,1));
+  const level=1-0.25*drain;
+  const r=tank(L,T,Wd,Ht,level,lift,t);
+  const B=T+Ht, hy=B-Ht*0.5, by=B-70;
+  const s1=back(prog(p,0.1,0.22)), s2=back(prog(p,0.22,0.34));
+  const glow=lift*(0.6+0.4*Math.sin(t*6));
+  if(s1>0){floatAt(cx+130,hy-lift*70,YEL,s1,glow);
+    x.strokeStyle=YEL;x.lineWidth=6;x.beginPath();x.moveTo(cx+75,hy-lift*70);x.lineTo(cx+4,hy-lift*70);x.stroke();
+    x.save();x.translate(cx-150,hy);x.scale(s1,s1);txt(P.small||'SMALL BUTTON',0,0,46,YEL);x.restore()}
+  if(s2>0){floatAt(cx+170,by,TEAL,s2,0);
+    x.save();x.translate(cx-150,by-60);x.scale(s2,s2);txt(P.big||'BIG BUTTON',0,0,46,TEAL);x.restore()}
+  if(lift>0)arrowUp(cx+130,hy-lift*70-50,90*lift,YEL,lift);
+  const ls=back(prog(p,0.62,0.75));if(ls>0){x.save();x.translate(540,1295);x.scale(ls,ls);txt(P.label||'FLOATING = PLUG OPEN',0,0,62,ORA);x.restore()}
+  const ts=back(prog(p,0,0.1));x.save();x.translate(540,480);x.scale(ts,ts);txt(P.title||'TWO FLOATS',0,0,90,WHITE);x.restore();
+}
+
+function drawLevels(t,p,P){
+  const start=+(P.start||6), end=+(P.end||3), Ht=520, T=640, Wd=380;
+  const drain=prog(p,0.12,0.75);
+  // left tank: small button, stops at end/start
+  const stopAt=1-end/start, dl=Math.min(drain,stopAt)/stopAt, lvlL=1-stopAt*ease(dl);
+  const shutL=prog(p,0.12+0.63*stopAt,0.12+0.63*stopAt+0.06);
+  const liftL=ease(prog(p,0.06,0.12))*(1-ease(shutL));
+  const rL=tank(80,T,Wd,Ht,lvlL,liftL,t);
+  // its float halfway up: drops when water reaches it
+  floatAt(80+Wd/2+105,T+Ht*0.5-liftL*40+ease(shutL)*20,YEL,1,liftL);
+  // right tank: big button, drains all
+  const lvlR=1-ease(drain), liftR=ease(prog(p,0.06,0.12))*(1-ease(prog(p,0.75,0.82)));
+  tank(620,T,Wd,Ht,lvlR,liftR,t);
+  floatAt(620+Wd/2+105,T+Ht-70-liftR*40,TEAL,1,liftR*0.5);
+  const s=back(prog(p,0,0.1));
+  x.save();x.translate(270,500);x.scale(s,s);txt(lit(start*lvlL),0,0,120,ORA);x.restore();
+  x.save();x.translate(810,500);x.scale(s,s);txt(lit(start*lvlR),0,0,120,ORA);x.restore();
+  txt(P.small||'SMALL',270,1290,62,YEL);txt(P.big||'BIG',810,1290,62,TEAL);
+  // tick on the left when it shuts
+  const ks=back(prog(p,0.12+0.63*stopAt+0.04,0.12+0.63*stopAt+0.14));
+  if(ks>0){x.save();x.translate(270,T+Ht*0.25);x.scale(ks,ks);x.strokeStyle=GRN;x.lineWidth=22;x.lineCap='round';x.lineJoin='round';
+    x.beginPath();x.moveTo(-50,0);x.lineTo(-12,38);x.lineTo(60,-45);x.stroke();x.restore()}
+}
+
+window.draw=function(t,dur,P){
+  P=Object.assign({mode:'plug'},P||{});
+  const p=t/Math.max(dur,0.1);
+  x.setTransform(1,0,0,1,0,0);x.globalAlpha=1;x.shadowBlur=0;bg();
+  if(P.mode==='floats')drawFloats(t,p,P);else if(P.mode==='levels')drawLevels(t,p,P);else drawPlug(t,p,P);
+};
+window.draw(0,6,{});
+</script></body></html>

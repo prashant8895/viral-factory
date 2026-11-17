@@ -1,0 +1,204 @@
+{
+  "id": "curious-2026-11-17-two-flush-buttons",
+  "channel": "curious",
+  "languages": [
+    "en"
+  ],
+  "publish": false,
+  "date": "2026-11-17",
+  "slot": "19:00",
+  "bucket": "how it works",
+  "hook_style": "curiosity",
+  "seed": 11172,
+  "hook_text": "WHY *TWO* FLUSH BUTTONS?",
+  "keywords": [
+    "why two flush buttons on toilet",
+    "how does dual flush work",
+    "dual flush toilet"
+  ],
+  "sources": [
+    "https://en.wikipedia.org/wiki/Dual_flush_toilet",
+    "https://victoriaplum.com/blog/posts/how-does-dual-flush-work",
+    "https://toiletspares.com.au/blogs/more-information/how-does-a-dual-flush-toilet-valve-work-this-is-the-best-explanation",
+    "https://repair.sg/blog/how-dual-flush-toilets-work/"
+  ],
+  "scenes": [
+    {
+      "visual": "close-up illustration of a white dual flush push-button plate set into the top of a plain white toilet cistern, one big half-moon button and one small half-moon button side by side, seen from slightly above, clean light tiled Indian bathroom wall behind, the button plate in the lower two-thirds of the frame, no text or logos",
+      "narration": "Two buttons on your flush, one big, one small. What's *actually* different inside?",
+      "delivery": "curious",
+      "motion": "push",
+      "sfx": "boom",
+      "overlays": [],
+      "beat": "hook"
+    },
+    {
+      "visual": "illustration of a hand's index finger pressing the small half-moon button of a white dual flush button plate on top of a plain white toilet cistern, close-up side view, soft clean bathroom background, the hand and button plate in the lower two-thirds of the frame, no text or logos",
+      "narration": "So yesterday's quiz was a myth: the small one really does use *less* water, thanks to a bit of floating plastic.",
+      "delivery": "light",
+      "headline": "IT WAS A *MYTH*",
+      "motion": "drift_right",
+      "sfx": "thud",
+      "overlays": [],
+      "beat": "loop"
+    },
+    {
+      "visual": "2D animation: a dashed tank outline full of water, the plug at the bottom lifts, water pours out and a big counter falls from 6 litres, then a question mark",
+      "narration": "Inside the tank, both buttons lift the *same* plug, and water rushes out. So who decides when it stops?",
+      "delivery": "explain",
+      "headline": "THE *SAME* PLUG",
+      "motion": "push",
+      "sfx": "whoosh",
+      "overlays": [],
+      "anim": "anims/flush.html",
+      "anim_params": {
+        "mode": "plug",
+        "start": 6,
+        "label": "BOTH BUTTONS: SAME PLUG"
+      },
+      "beat": "explain"
+    },
+    {
+      "visual": "illustration of a red plastic bathroom bucket filled to the top with water and a blue plastic bath mug floating on the surface, standing on a tiled Indian bathroom floor under a steel tap, side view, simple uncluttered background, the bucket in the lower two-thirds of the frame, no text",
+      "narration": "Here's the odd part: no sensor. Just the trick of the mug in your bathroom *bucket*.",
+      "delivery": "curious",
+      "headline": "NO *SENSOR*?",
+      "motion": "push",
+      "sfx": "ding",
+      "overlays": [],
+      "beat": "rehook"
+    },
+    {
+      "visual": "2D animation: the tank with a centre stem; a yellow float pops in halfway up (small button) and a teal one at the bottom (big button); the yellow float lifts with the plug and glows",
+      "narration": "See, a mug floats while there's water under it. The tank has two floats like that. Press a button, its float holds the plug *open*.",
+      "delivery": "explain",
+      "headline": "IT *FLOATS*",
+      "motion": "push",
+      "sfx": "pop",
+      "overlays": [],
+      "anim": "anims/flush.html",
+      "anim_params": {
+        "mode": "floats",
+        "title": "TWO FLOATS",
+        "small": "SMALL BUTTON",
+        "big": "BIG BUTTON",
+        "label": "FLOATING = PLUG OPEN"
+      },
+      "beat": "explain"
+    },
+    {
+      "visual": "illustration of a red plastic bathroom bucket with only a little water left at the bottom and a blue plastic bath mug resting low near the bottom inside it, cutaway side view so the low water line and the mug are clearly visible, tiled Indian bathroom floor, simple uncluttered background, the bucket in the lower two-thirds of the frame, no text",
+      "narration": "Here's the clever bit. The moment the water falls *below* that float... it drops, and the plug shuts. So where's each float?",
+      "delivery": "build",
+      "headline": "THE *CLEVER* BIT",
+      "motion": "drift_left",
+      "sfx": "tick",
+      "overlays": [],
+      "beat": "rehook"
+    },
+    {
+      "visual": "2D animation: two tanks side by side, both draining from 6 litres; the small-button tank stops at 3 litres when the water reaches its halfway float and gets a tick, the big-button tank drains to 0",
+      "narration": "<short pause> The small button's float sits about *halfway* up, so only about three litres go. The big one's at the bottom. All six go.",
+      "delivery": "reveal",
+      "headline": "*HALFWAY* UP",
+      "motion": "push",
+      "sfx": "sparkle",
+      "overlays": [],
+      "anim": "anims/flush.html",
+      "anim_params": {
+        "mode": "levels",
+        "start": 6,
+        "end": 3,
+        "small": "SMALL BUTTON",
+        "big": "BIG BUTTON"
+      },
+      "beat": "payoff"
+    },
+    {
+      "visual": "illustration of a bright tidy Indian bathroom with a plain white toilet cistern with a dual flush button plate on top, and a red plastic bucket of water with a blue bath mug standing on the floor beside it, wide side view, soft warm light, simple background, the cistern and bucket in the lower two-thirds of the frame, no text or logos",
+      "narration": "So the small one isn't softer. It just shuts *sooner*, saving about three litres. Next time, you'll know.",
+      "delivery": "warm",
+      "headline": "IT JUST SHUTS *SOONER*",
+      "motion": "pull",
+      "sfx": "ding",
+      "overlays": [],
+      "beat": "explain"
+    },
+    {
+      "visual": "2D animation: yesterday's fastest right answers",
+      "shoutout": true,
+      "anim": "anims/shoutout.html",
+      "narration": "These legends got it first.",
+      "narration_none": "Nobody cracked yesterday's one... let's see if you can beat today's.",
+      "delivery": "warm",
+      "headline": "*SHOUTOUT*",
+      "motion": "push",
+      "sfx": "sparkle",
+      "overlays": []
+    },
+    {
+      "visual": "2D animation: the quiz about tomorrow's topic",
+      "quiz": true,
+      "anim": "anims/quiz.html",
+      "narration": "Tomorrow, the petrol nozzle that stops itself. How many electronic parts make it stop? Three or more, or zero? Comment your guess.",
+      "delivery": "curious",
+      "headline": "GUESS THE *NUMBER*",
+      "motion": "push",
+      "sfx": "pop",
+      "overlays": []
+    }
+  ],
+  "youtube": {
+    "title": "Why are there two flush buttons on a toilet? #shorts",
+    "description": "Why are there two flush buttons on a toilet? In a dual flush toilet both buttons lift the same plug at the bottom of the tank. So how does dual flush work? Each button also lifts its own little float, and a float holds the plug open only while there's water around it. The moment the water drops below it, the float falls and the plug shuts. The small button's float sits about halfway up, so only about 3 litres go; the big one's sits at the bottom, so the whole tank (about 6 litres) goes. No sensor, no electricity, just floating plastic.\n\nTomorrow's quiz (Guess the number Tuesday): how many electronic parts tell a petrol nozzle to stop? A) 3 or more B) Zero. Comment your guess, first 3 right get a shoutout 👇\n\nSources: Wikipedia (Dual flush toilet), Victoria Plum, Toilet Spares Australia, Repair.sg\nAI visuals\n#ohthatswhy #howitworks #toilet #savewater #shorts",
+    "tags": [
+      "why two flush buttons on toilet",
+      "how does dual flush work",
+      "dual flush toilet",
+      "how it works",
+      "save water"
+    ]
+  },
+  "instagram": {
+    "caption": "Why are there two flush buttons on a toilet? 🚽\nIn a dual flush toilet both buttons lift the same plug. So how does dual flush work? Each button lifts its own float, and the plug shuts when the water drops below it: the small button's float sits higher, so about 3 litres go instead of 6.\n\nSources: Wikipedia (Dual flush toilet), Victoria Plum, Toilet Spares Australia, Repair.sg\nAI visuals\n#ohthatswhy #howitworks #toilet #savewater\n\nTomorrow's quiz (Guess the number Tuesday): how many electronic parts tell a petrol nozzle to stop? A) 3 or more B) Zero. Comment A or B, first 3 right get a shoutout 👇"
+  },
+  "facebook": {
+    "description": "Why are there two flush buttons on a toilet? Both buttons lift the same plug, but each one lifts its own float, and the plug shuts when the water drops below it. The small button's float sits halfway up, so about 3 litres go instead of 6. AI visuals.\n\nTomorrow's quiz: how many electronic parts tell a petrol nozzle to stop? A) 3 or more B) Zero. Comment your guess 👇"
+  },
+  "quiz": {
+    "theme": "GUESS THE NUMBER TUESDAY",
+    "next_topic": "how the petrol nozzle stops by itself",
+    "next_title": "The petrol nozzle that stops itself",
+    "question": "Electronic parts that stop a petrol nozzle?",
+    "options": {
+      "A": "3 or more",
+      "B": "Zero"
+    },
+    "answer": "B",
+    "keywords": {
+      "A": [
+        "3",
+        "three",
+        "more",
+        "sensor",
+        "sensors",
+        "chip",
+        "electronic"
+      ],
+      "B": [
+        "zero",
+        "0",
+        "none",
+        "no",
+        "nothing",
+        "mechanical",
+        "air",
+        "hole"
+      ]
+    },
+    "sources": [
+      "https://hackaday.com/2020/11/12/tech-hidden-in-plain-sight-gas-pumps",
+      "https://www.scienceabc.com/pure-sciences/how-does-the-gas-pump-automatically-shut-off-when-the-tank-is-full"
+    ]
+  }
+}

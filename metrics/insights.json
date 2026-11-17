@@ -1,11 +1,11 @@
 {
-  "updated": "2026-11-17T06:43+05:30",
+  "updated": "2026-11-17T14:01+05:30",
   "videos": 13,
-  "total_views": 17986.0,
+  "total_views": 18019.0,
   "platform_views": {
-    "youtube": 9541.0,
+    "youtube": 9566.0,
     "instagram": 5445.0,
-    "facebook": 3000.0
+    "facebook": 3008.0
   },
   "median_watch_pct": 18.2,
   "median_shares_per_1k": 0.0,
@@ -45,10 +45,10 @@
         "group": "how it works",
         "n": 2,
         "trusted": false,
-        "median_v24": 1645.0,
-        "median_views": 1132.5,
-        "median_watch_pct": 9.350000000000001,
-        "median_shares_per_1k": 10.45
+        "median_v24": 1112.5,
+        "median_views": 1149.0,
+        "median_watch_pct": 9.274999999999999,
+        "median_shares_per_1k": 10.1
       },
       {
         "group": "why does it happen",
@@ -92,7 +92,7 @@
         "group": "curiosity",
         "n": 6,
         "trusted": true,
-        "median_v24": 1322.0,
+        "median_v24": 1294.5,
         "median_views": 1491.0,
         "median_watch_pct": 14.65,
         "median_shares_per_1k": 0.3
@@ -121,7 +121,7 @@
         "group": "illustration",
         "n": 6,
         "trusted": true,
-        "median_v24": 1322.0,
+        "median_v24": 1294.5,
         "median_views": 1491.0,
         "median_watch_pct": 14.65,
         "median_shares_per_1k": 0.3
@@ -141,7 +141,7 @@
         "group": "clone",
         "n": 6,
         "trusted": true,
-        "median_v24": 1322.0,
+        "median_v24": 1294.5,
         "median_views": 1491.0,
         "median_watch_pct": 14.65,
         "median_shares_per_1k": 0.3
@@ -170,10 +170,10 @@
         "group": "70s+",
         "n": 2,
         "trusted": false,
-        "median_v24": 1645.0,
-        "median_views": 1132.5,
-        "median_watch_pct": 9.350000000000001,
-        "median_shares_per_1k": 10.45
+        "median_v24": 1112.5,
+        "median_views": 1149.0,
+        "median_watch_pct": 9.274999999999999,
+        "median_shares_per_1k": 10.1
       },
       {
         "group": "40-50s",
@@ -442,13 +442,13 @@
       "hook_style": "curiosity",
       "duration": 81.36,
       "late_min": 0,
-      "views": 1700.0,
+      "views": 1718.0,
       "v24": 1645.0,
       "v72": null,
       "watch_pct": 8.4,
       "skip_pct": 48.6,
       "follows": null,
-      "likes_per_1k": 17.6,
+      "likes_per_1k": 17.5,
       "shares_per_1k": 0.0,
       "youtube_watch_pct": null,
       "instagram_watch_pct": 12.9,
@@ -462,17 +462,17 @@
       "hook_style": "curiosity",
       "duration": 85.34,
       "late_min": -2,
-      "views": 565.0,
-      "v24": null,
+      "views": 580.0,
+      "v24": 580.0,
       "v72": null,
-      "watch_pct": 10.3,
+      "watch_pct": 10.149999999999999,
       "skip_pct": 36.2,
       "follows": null,
-      "likes_per_1k": 14.2,
-      "shares_per_1k": 20.9,
+      "likes_per_1k": 13.8,
+      "shares_per_1k": 20.2,
       "youtube_watch_pct": null,
       "instagram_watch_pct": 15.2,
-      "facebook_watch_pct": 5.4
+      "facebook_watch_pct": 5.1
     }
   ]
 }

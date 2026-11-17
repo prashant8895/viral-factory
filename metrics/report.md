@@ -1,6 +1,6 @@
 # Oh That's Why: numbers review
 
-Updated 17 Nov 2026, 06:43 IST. English page, 13 videos, 17,986 views in total (YouTube 9,541, Instagram 5,445, Facebook 3,000). Median watch 18%, median shares 0 per 1k views.
+Updated 17 Nov 2026, 14:01 IST. English page, 13 videos, 18,019 views in total (YouTube 9,566, Instagram 5,445, Facebook 3,008). Median watch 18%, median shares 0 per 1k views.
 
 Hindi page (paused 12 Nov): 7 videos, 866 views in total.
 
@@ -22,8 +22,8 @@ Hindi page (paused 12 Nov): 7 videos, 866 views in total.
 
 | Date | Hook | Bucket | Hook style | Len | Late | 24 h | 72 h | Now | Watch YT / IG / FB | IG skip | Shares/1k | Follows | Views YT | IG | FB |
 |---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
-| 2026-11-16 | NO BATTERY. HOW DOES IT PAY? | how it works | curiosity | 85s | -2m | – | – | 565 | – / 15% / 5.4% | 36% | 21 | – | 326 | 117 | 122 |
-| 2026-11-15 | HOW DO SHOP TAGS WORK? | how it works | curiosity | 81s | 0m | 1,645 | – | 1,700 | – / 13% / 3.9% | 49% | 0 | – | 1,240 | 236 | 224 |
+| 2026-11-16 | NO BATTERY. HOW DOES IT PAY? | how it works | curiosity | 85s | -2m | 580 | – | 580 | – / 15% / 5.1% | 36% | 20 | – | 333 | 117 | 130 |
+| 2026-11-15 | HOW DO SHOP TAGS WORK? | how it works | curiosity | 81s | 0m | 1,645 | – | 1,718 | – / 13% / 3.9% | 49% | 0 | – | 1,258 | 236 | 224 |
 | 2026-11-14 | WHY WRINKLY FINGERS? | myth busted | curiosity | 68s | -2m | 1,322 | 1,404 | 1,404 | 39% / 12% / 5.6% | 59% | 0 | – | 1,054 | 114 | 236 |
 | 2026-11-13 | WHY'S THIS ARROW HERE? | seen-but-missed | curiosity | 57s | -473m | 716 | 791 | 792 | 44% / 17% / 7.7% | 46% | 0 | – | 255 | 133 | 404 |
 | 2026-11-12 | BACK WINDOW LINES? | seen-but-missed | curiosity | 54s | -2m | 1,725 | 1,792 | 1,787 | 43% / 37% / 17% | 31% | 3.4 | – | 325 | 1,251 | 211 |
@@ -49,7 +49,7 @@ Hindi page (paused 12 Nov): 7 videos, 866 views in total.
 |---|---|---|---|---|---|
 | seen-but-missed | 6 | 1,537 | 1,736 | 33% | 0.6 |
 | myth busted (too few) | 1 | 1,322 | 1,404 | 12% | 0 |
-| how it works (too few) | 2 | 1,645 | 1,132 | 9.4% | 10 |
+| how it works (too few) | 2 | 1,112 | 1,149 | 9.3% | 10 |
 | why does it happen (too few) | 2 | 753 | 928 | 13% | 0 |
 | careful health (too few) | 1 | 438 | 647 | 18% | 0 |
 | india everyday (too few) | 1 | 203 | 437 | 24% | 0 |
@@ -59,7 +59,7 @@ Hindi page (paused 12 Nov): 7 videos, 866 views in total.
 | Group | Videos | Median 24 h | Median views | Watch | Shares/1k |
 |---|---|---|---|---|---|
 | none (too few) | 1 | 2,206 | 3,417 | 42% | 2.6 |
-| curiosity | 6 | 1,322 | 1,491 | 15% | 0.3 |
+| curiosity | 6 | 1,294 | 1,491 | 15% | 0.3 |
 | question | 4 | 1,078 | 1,284 | 23% | 0 |
 | myth (too few) | 2 | 450 | 704 | 17% | 0 |
 
@@ -67,14 +67,14 @@ Hindi page (paused 12 Nov): 7 videos, 866 views in total.
 
 | Group | Videos | Median 24 h | Median views | Watch | Shares/1k |
 |---|---|---|---|---|---|
-| illustration | 6 | 1,322 | 1,491 | 15% | 0.3 |
+| illustration | 6 | 1,294 | 1,491 | 15% | 0.3 |
 | photo | 7 | 808 | 972 | 24% | 0 |
 
 ## By voice
 
 | Group | Videos | Median 24 h | Median views | Watch | Shares/1k |
 |---|---|---|---|---|---|
-| clone | 6 | 1,322 | 1,491 | 15% | 0.3 |
+| clone | 6 | 1,294 | 1,491 | 15% | 0.3 |
 | kokoro | 7 | 808 | 972 | 24% | 0 |
 
 ## By length band
@@ -82,5 +82,5 @@ Hindi page (paused 12 Nov): 7 videos, 866 views in total.
 | Group | Videos | Median 24 h | Median views | Watch | Shares/1k |
 |---|---|---|---|---|---|
 | 50-70s | 4 | 1,294 | 1,491 | 18% | 0.3 |
-| 70s+ (too few) | 2 | 1,645 | 1,132 | 9.4% | 10 |
+| 70s+ (too few) | 2 | 1,112 | 1,149 | 9.3% | 10 |
 | 40-50s | 7 | 808 | 972 | 24% | 0 |

@@ -1,11 +1,11 @@
 {
-  "updated": "2026-11-17T04:58+05:30",
+  "updated": "2026-11-17T06:43+05:30",
   "videos": 13,
-  "total_views": 17955.0,
+  "total_views": 17986.0,
   "platform_views": {
-    "youtube": 9532.0,
+    "youtube": 9541.0,
     "instagram": 5445.0,
-    "facebook": 2978.0
+    "facebook": 3000.0
   },
   "median_watch_pct": 18.2,
   "median_shares_per_1k": 0.0,
@@ -46,9 +46,9 @@
         "n": 2,
         "trusted": false,
         "median_v24": 1645.0,
-        "median_views": 1117.0,
-        "median_watch_pct": 9.5,
-        "median_shares_per_1k": 11.5
+        "median_views": 1132.5,
+        "median_watch_pct": 9.350000000000001,
+        "median_shares_per_1k": 10.45
       },
       {
         "group": "why does it happen",
@@ -171,9 +171,9 @@
         "n": 2,
         "trusted": false,
         "median_v24": 1645.0,
-        "median_views": 1117.0,
-        "median_watch_pct": 9.5,
-        "median_shares_per_1k": 11.5
+        "median_views": 1132.5,
+        "median_watch_pct": 9.350000000000001,
+        "median_shares_per_1k": 10.45
       },
       {
         "group": "40-50s",
@@ -442,7 +442,7 @@
       "hook_style": "curiosity",
       "duration": 81.36,
       "late_min": 0,
-      "views": 1703.0,
+      "views": 1700.0,
       "v24": 1645.0,
       "v72": null,
       "watch_pct": 8.4,
@@ -462,17 +462,17 @@
       "hook_style": "curiosity",
       "duration": 85.34,
       "late_min": -2,
-      "views": 531.0,
+      "views": 565.0,
       "v24": null,
       "v72": null,
-      "watch_pct": 10.6,
+      "watch_pct": 10.3,
       "skip_pct": 36.2,
       "follows": null,
-      "likes_per_1k": 15.1,
-      "shares_per_1k": 23.0,
+      "likes_per_1k": 14.2,
+      "shares_per_1k": 20.9,
       "youtube_watch_pct": null,
       "instagram_watch_pct": 15.2,
-      "facebook_watch_pct": 6.0
+      "facebook_watch_pct": 5.4
     }
   ]
 }

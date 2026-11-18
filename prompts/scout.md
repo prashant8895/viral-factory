@@ -48,6 +48,13 @@ Work unattended.
    - Every hook opens a real curiosity question about the everyday thing (hook_style `curiosity`;
      "Ever wondered why...?" is the idea, vary the words). Put it in `hook`; no `hook_hi` any more.
      In `angle`, note the everyday comparison you'd use to explain it (playbook "How we talk").
+   - PITCH LIKE A HOOK WRITER (Prashant, 2026-11-18; playbook "Pitching like the best hook
+     writers"): the topic and its pull matter more than anything else. For each candidate write
+     3 different hooks and keep the strongest; drop a topic with no real curiosity gap. Add a
+     `gap` line (what the viewer suddenly realises they don't know), a `first_frame` (the one
+     picture that stops the thumb: the odd detail, big, in the accent colour) and a `share_line`
+     (what a viewer says when sending it). Score a 6th dimension `hook` (1–5: would a stranger
+     stop scrolling in 1 s?). Length is not a factor (60–89 s is fine).
    - For each: bucket, hook (first spoken line or the cold-open moment, ~12 words max),
      angle (one line: the beats), why (one line: what's trending and where).
 3b. RECOMMENDATIONS (Prashant, 2026-11-18: the daily learn -> market -> recommend -> approve loop).
@@ -79,7 +86,8 @@ Work unattended.
    doc id `<page>-<YYYY-MM-DD>` (IST date):
    `{channel: "<page>", date, slot: "19:00", episode (drama only), recommended: <n>,
      approved: null, status: "waiting", today: {topic, hook_text, from}, for_date: <tomorrow>,
-     items: [{n, bucket, hook, angle, why, quiz_line, score: {trend, curiosity, visual, share, evergreen}}]}`
+     items: [{n, bucket, hook, angle, why, quiz_line, gap, first_frame, share_line,
+              score: {trend, curiosity, visual, share, evergreen, hook}}]}`
    Delete any doc in `pitches` with `example: true` (setup placeholders).
    Recommendations go in collection `recs`, doc id `curious-<YYYY-MM-DD>`:
    `{channel: "curious", date, learned: [2-3 one-line learnings from our numbers],

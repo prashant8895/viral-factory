@@ -56,8 +56,50 @@ Rules for picking:
 - Facts checked against 2 sources; put the sources in the caption
 - Health topics: facts only, no advice beyond basic safety, no scary claims without a source
 
-Length is an experiment: start at 40–50 s. Try 60–90 s on the strongest topics
-and keep whatever the watch-time numbers favour (record it in Learnings).
+Length is NOT the lever for now (Prashant, 2026-11-18): 60–89 s is fine whenever the topic
+needs it. The levers are the TOPIC and the PITCH: what we pick, and how hard its hook pulls.
+
+### Pitching like the best hook writers (Prashant, 2026-11-18)
+
+Write every pitch the way the best short-video and headline writers do (MrBeast's team,
+Veritasium, Zack D. Films, the great tabloid and ad headline writers). Their shared method:
+- **Open a curiosity gap, don't just name a topic.** People stay when they know just enough to
+  feel what they DON'T know (the "information gap"). "How does a pressure cooker work?" names a
+  topic; "Your dal cooks in water hotter than boiling" opens a gap.
+- **Specific beats general.** A number, a named part, a visible detail: "two buttons", "zero
+  electronics", "a hole the size of a grain of rice". Vague words ("amazing", "secret") don't pull.
+- **Wrong-sounding but true.** The best hooks sound impossible for a second ("This tag is a tiny
+  bell"). The payoff must prove it, honestly: never a claim the video can't back.
+- **The viewer is in it.** "you / your" + something in their hand, pocket, kitchen or street.
+- **Stakes or a twist.** What breaks, leaks, burns or costs money if this thing weren't there.
+- **Open loops, closed late.** Promise a reveal, pay small rewards on the way (one fact per
+  scene), close the big loop near the end. Every scene leaves one question open.
+- **The sharer's line.** A good pitch has a sentence a viewer would say when sending it:
+  "Did you know your key is a code written in heights?"
+For every pitch, write 3 different hooks, keep the strongest, and check: would a stranger
+scrolling fast stop within 1 second? If it reads like a school chapter title, rewrite it.
+A topic with no gap (nothing surprising once you know it) is dropped, however searched it is.
+
+### Pictures and colours that stop the thumb (Prashant, 2026-11-18)
+
+Use the attention principles that phone apps and social feeds are built on, so every frame
+pulls the eye and every few seconds gives a small new reward:
+- **Pop-out colour.** Bold, saturated colours with high contrast. The part that matters is the
+  brightest, warmest thing in the frame (red-orange, yellow or hot pink) against a plainer,
+  cooler or darker background. One accent colour per frame, so the eye knows where to land.
+- **Big and close.** The subject fills most of the frame on a phone; close-ups and cutaways over
+  wide scenes. Nothing small in the middle of empty space.
+- **Faces and hands.** A face reacting or a hand touching the object holds the eye and points it
+  where we want (gaze cueing). Use them where they fit (no real or lookalike people).
+- **Something new every 2–3 s.** A new picture, a zoom, an arrow, a highlight popping in: small,
+  frequent visual rewards (the feed's "variable reward"). No frame sits still.
+- **Progress you can see.** In how-it-works videos, headlines count the steps ("STEP 1/3",
+  "2/3", "LAST ONE") so viewers feel close to the end and stay to finish it (goal gradient).
+- **Frame 1 is a thumbnail.** The first picture alone, with the hook text, must make someone
+  stop: the odd detail, huge, in the accent colour.
+- **The on-screen text pops too:** white Anton with the key word in yellow or red (already the
+  look); keep it to 3–6 words.
+Honest pull only: everything that hooks is paid off in the video (hard no's still apply).
 
 ## 3. The daily trend check (6:40 AM IST)
 
@@ -90,7 +132,9 @@ Copy the format from `jobs/curious/sample-ever-wondered.json`.
   "Why is every car tyre black? Rubber isn't.", "Here's something you've seen a thousand times...").
   `"hook_style": "curiosity"`. The render refuses a line 1 with no question, or one that starts
   with the same 3 words as any of the last 3 videos.
-- Scene 2 gives the first surprising fact within ~5 seconds. No slow setup.
+- Scene 2 gives the first surprising fact within ~5 seconds: one real piece of the answer
+  (the first step of the chain), then the tease. Never a tease-only scene 2 (approved test
+  `2026-11-19-scene2-answer`). No slow setup.
 - Near the end, the reveal lands in one clean sentence ("So those bristles? They're a guard, not a
   cleaner.").
 - **"Oh, that's why" at most once, woven in smoothly** (Prashant, 2026-11-12). Never as a
@@ -266,7 +310,8 @@ More rules for the hold (Prashant, 2026-11-14: "keep the script full of hooks"):
   surprise or a wrong-sounding fact, never filler.
 - For how-it-works topics, reveal the mechanism in steps, each step raising the next question
   ("So the gate is listening... but listening for WHAT?").
-- Never give the answer away in the first half. Hint, tease, compare, but keep the reveal late.
+- Never give the WHOLE answer away in the first half: pay one real step early (scene 2), keep
+  the full reveal late. Hint, tease, compare.
 - Hook lines that work: a contradiction ("It's NOT for..."), a wrong-sounding number ("Your
   phone screen has 2 million tiny lights"), "you've seen this a thousand times" + why-question,
   a stake ("If this hole wasn't here, the window could crack"). Still vary the opener.
@@ -385,3 +430,5 @@ saw, what we change.
 - 2026-11-15: Longer videos did not buy more watching. Watch % fell (Instagram 24% → 18%, Facebook 14% → 7%, YouTube 54% → 40%) because videos went from ~41 s to ~59 s, while seconds actually watched stayed the same (Instagram ~10 s, YouTube ~23–24 s). "Explain it properly" now pushes scripts to 150–200 words (up to ~89 s), which will push watch % down further. Change: from this week judge hold by seconds watched and Instagram skip rate, not watch %, and make sure the first real answer lands inside those first ~10 s.
 - 2026-11-15: Facebook stays flat at ~200–400 views a video whatever we change (topic, voice, pictures); it is not where the swings come from. Instagram decides the hits (back-window lines 1,250 IG, escalator 2,129 IG); YouTube carries the steady base. Change: none to posting; when comparing styles, look at Instagram and YouTube separately and ignore Facebook.
 - 2026-11-15: Voice trial: 5 of 5 made, only 1 old enough at 72 h (plane window, 1,585 vs 980 baseline). The verdict can come on 18 Nov once shop tags reaches 72 h. Note the trial mixes the voice with the illustrations, the new opening, longer scripts and (from 13 Nov) hook-and-hold beats, so a "keep" means "keep the package", not proof of the voice alone.
+- 2026-11-18: First daily slate with recommendations (dry run). Prashant approved two, running as tests from 19 Nov: "Why + surprising fact" YouTube titles and headlines (`2026-11-19-why-claim-title`) and a real answer in scene 2 (`2026-11-19-scene2-answer`); declined tracking the share ask. Each is judged after 4 videos at 72 h.
+- 2026-11-18: Prashant: length is not the issue, 60–89 s is fine. Work on the topic and the pitch: write hooks like the best hook writers (curiosity gaps, specific, wrong-sounding but true, open loops) and use pictures and colours built on feed/app attention principles (pop-out accent colour, big close subjects, faces and hands, something new every 2–3 s, visible step progress). Added the two sections in 2. The bolder picture style starts on 19 Nov together with the two tests; videos are tagged `picture_style: illustration-bold` so the numbers review can split it out.

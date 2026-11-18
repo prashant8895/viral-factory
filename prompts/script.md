@@ -111,6 +111,14 @@ skip it until Prashant restarts it.
    Hashtags: follow the playbook table (3–5, relevant, `#ohthatswhy` first; trending tags from
    `data/trends.json` only if they genuinely fit). Never more than 5. Never tag accounts that
    aren't in the video. No "comment X to get Y" bait (the quiz is a real question, which is fine).
+5d. ATTENTION (Prashant, 2026-11-18; playbook "Pictures and colours that stop the thumb"):
+   scene 1's picture is the pitch's `first_frame`; in every picture the key part is the brightest
+   thing in one warm accent colour, big and close; a face or hand where it fits; something new on
+   screen every 2–3 s (cut, zoom, arrow, highlight); how-it-works headlines count the steps
+   ("STEP 1/3"). Write each `visual` with that colour and framing in plain words. Hooks follow
+   "Pitching like the best hook writers". Running tests (`data/tests.json`): YouTube title and
+   hook_text lead with the surprising fact as a "Why..." claim (keep the search phrase), and
+   scene 2 pays one real step of the answer.
 5b. PICTURES (paid, about Rs 3 each, so think before you spend):
    - Write each picture scene's `visual` as an ILLUSTRATION, not a photo: "illustration of ...",
      ONE clear subject, where it is, viewpoint, simple background, Indian setting where it fits.

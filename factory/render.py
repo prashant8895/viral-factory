@@ -338,7 +338,8 @@ def render_one(job: dict, img_dir: Path | None = None) -> Path:
                   # approved Morning Slate changes this video carries (data/tests.json ids)
                   "tests": job.get("tests") or [],
                   # for the numbers review: which look and voice this video used
-                  "picture_style": "illustration" if "illustration" in job["style"].lower() else "photo",
+                  "picture_style": ("illustration-bold" if "saturated" in job["style"].lower() else "illustration")
+                                   if "illustration" in job["style"].lower() else "photo",
                   "voice": ("clone" if voices["narrator"].startswith("voice_")
                             and voices["narrator"] not in tts._BAD_VOICES else engine)})
     state_file.write_text(json.dumps(state, indent=2))

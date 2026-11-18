@@ -1,4 +1,25 @@
 {
   "_about": "Approved Morning Slate changes, each judged by factory/analyze.py against the videos before it. Written by the script run when Prashant approves a recommendation. Max 2 running at once. status: running | kept | reverted | dropped. Videos carry the id in their job's \"tests\" list.",
-  "tests": []
+  "tests": [
+    {
+      "id": "2026-11-19-why-claim-title",
+      "change": "YouTube title and opening headline lead with the surprising fact as a 'Why...' claim, search phrase kept in the title",
+      "kind": "today",
+      "started": "2026-11-19",
+      "videos": 4,
+      "metric": "YouTube views at 24 h above our 556 median",
+      "status": "running",
+      "rec": "curious-2026-11-18#1"
+    },
+    {
+      "id": "2026-11-19-scene2-answer",
+      "change": "Scene 2 gives one real piece of the answer (first step of the chain) before teasing the rest; never a tease-only scene",
+      "kind": "today",
+      "started": "2026-11-19",
+      "videos": 4,
+      "metric": "Instagram seconds watched from 11 s to 15 s+, skip under 40%",
+      "status": "running",
+      "rec": "curious-2026-11-18#2"
+    }
+  ]
 }

@@ -4,7 +4,7 @@
   "languages": [
     "en"
   ],
-  "publish": false,
+  "publish": true,
   "date": "2026-11-18",
   "slot": "19:00",
   "bucket": "how it works",
@@ -29,8 +29,17 @@
       "delivery": "curious",
       "motion": "push",
       "sfx": "boom",
-      "overlays": [],
-      "beat": "hook"
+      "overlays": [
+        {
+          "type": "arrow",
+          "x": 0.63,
+          "y": 0.655,
+          "dir": "down",
+          "on": "nozzle"
+        }
+      ],
+      "beat": "hook",
+      "image": "jobs/curious/pics/curious-2026-11-18-petrol-nozzle/s1.jpg"
     },
     {
       "visual": "close-up illustration of the curved metal spout of a petrol pump nozzle, seen from the side, with one small round air hole on the underside of the spout just before its open end, plain soft cream background, the spout large and centred in the lower two-thirds of the frame, no text or logos",
@@ -39,8 +48,17 @@
       "headline": "THE ANSWER: *ZERO*",
       "motion": "drift_right",
       "sfx": "thud",
-      "overlays": [],
-      "beat": "loop"
+      "overlays": [
+        {
+          "type": "ring",
+          "x": 0.628,
+          "y": 0.534,
+          "r": 0.06,
+          "on": "hole"
+        }
+      ],
+      "beat": "loop",
+      "image": "jobs/curious/pics/curious-2026-11-18-petrol-nozzle/s2.jpg"
     },
     {
       "visual": "2D animation: a pipe with a narrow neck; petrol dots crawl in the wide part and race through the neck; a thin tube rises from the neck and a yellow arrow shows the pull into it",
@@ -66,8 +84,17 @@
       "headline": "LIKE A *STRAW*",
       "motion": "push",
       "sfx": "ding",
-      "overlays": [],
-      "beat": "rehook"
+      "overlays": [
+        {
+          "type": "arrow",
+          "x": 0.7,
+          "y": 0.305,
+          "dir": "down",
+          "on": "straw"
+        }
+      ],
+      "beat": "rehook",
+      "image": "jobs/curious/pics/curious-2026-11-18-petrol-nozzle/s4.jpg"
     },
     {
       "visual": "2D animation: the nozzle spout pointing down into a tank; petrol streams down; a thin tube runs beside it to a small air hole near the tip; air dots get sipped in through the hole and up the tube",
@@ -93,8 +120,17 @@
       "headline": "THE HOLE'S *COVERED*",
       "motion": "drift_left",
       "sfx": "tick",
-      "overlays": [],
-      "beat": "rehook"
+      "overlays": [
+        {
+          "type": "ring",
+          "x": 0.5,
+          "y": 0.615,
+          "r": 0.07,
+          "on": "covers"
+        }
+      ],
+      "beat": "rehook",
+      "image": "jobs/curious/pics/curious-2026-11-18-petrol-nozzle/s6.jpg"
     },
     {
       "visual": "2D animation: the petrol level rises and covers the air hole, air stops, the PULL counter climbs 0 to 100, the rubber disc in the handle bows up, the valve snaps shut, CLICK",
@@ -120,8 +156,17 @@
       "headline": "NO *SENSOR* NEEDED",
       "motion": "pull",
       "sfx": "ding",
-      "overlays": [],
-      "beat": "explain"
+      "overlays": [
+        {
+          "type": "arrow",
+          "x": 0.36,
+          "y": 0.565,
+          "dir": "down",
+          "on": "click"
+        }
+      ],
+      "beat": "explain",
+      "image": "jobs/curious/pics/curious-2026-11-18-petrol-nozzle/s8.jpg"
     },
     {
       "visual": "2D animation: yesterday's fastest right answers",

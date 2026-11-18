@@ -18,6 +18,10 @@ Work unattended.
    24 h, average watch, shares per 1k views, per language. When each has 5+ videos and one leads
    by 25%+, write `Hook winner: <style>` in Learnings. Also note which search-driven or viewer-asked
    topics beat our own picks.
+3c. Tests: read `insights.json` → `tests` and `data/tests.json`. For each, one line: change,
+   videos so far, numbers vs before, verdict. A verdict goes on Monday's slate as a "verdict"
+   recommendation (never apply a verdict without his yes). Sunday is also when "format"
+   recommendations (length, voice, pictures, structure, time) are worth making: 7+ videos.
 4. Append 3–5 dated lines to each page's "Learnings" section: what we saw, what we change.
    Change other sections only if Prashant agreed in a Morning Slate note.
 5. Commit and push. Push-notify Prashant with each page's biggest learning and total views.

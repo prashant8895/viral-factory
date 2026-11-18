@@ -1,0 +1,4 @@
+{
+  "_about": "Approved Morning Slate changes, each judged by factory/analyze.py against the videos before it. Written by the script run when Prashant approves a recommendation. Max 2 running at once. status: running | kept | reverted | dropped. Videos carry the id in their job's \"tests\" list.",
+  "tests": []
+}

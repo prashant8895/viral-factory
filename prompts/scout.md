@@ -50,6 +50,30 @@ Work unattended.
      In `angle`, note the everyday comparison you'd use to explain it (playbook "How we talk").
    - For each: bucket, hook (first spoken line or the cold-open moment, ~12 words max),
      angle (one line: the beats), why (one line: what's trending and where).
+3b. RECOMMENDATIONS (Prashant, 2026-11-18: the daily learn -> market -> recommend -> approve loop).
+   Curious only. Up to 3 changes to HOW we make videos (not the topic; topics are the pitches).
+   Fewer is fine; 0 is fine on a day with nothing new. Build them from two steps:
+   - LEARN (our numbers): `metrics/insights.json` (rules, flags, tests, per_video, groups),
+     yesterday's video at ~24 h vs our medians, seconds watched (`ig_watch_s`, `yt_watch_s`) and
+     Instagram skip, not watch % alone. Never base a change on one video.
+   - MARKET (what wins now): `data/trends.json` → `shorts` (this week's most-viewed curiosity
+     Shorts: their titles, length, views, how fast) and `searches`, plus the step 2 trend check.
+     We can see other creators' views, likes, comments and view speed, not their watch time,
+     so learn their topics and packaging (title/hook wording, first frame, length, format),
+     then say how WE get there with our own angle. Never copy a video.
+   Each recommendation: `{n, kind, saw, market, change, metric, judge}`:
+   - `kind`: "today" = small and safe to apply to today's script (hook wording, first picture,
+     caption/title, on-screen headline, one scene); "format" = bigger (length, voice, pictures,
+     structure, posting time). "format" ones only when 7+ videos back them, ideally on Sundays.
+   - `saw`: the number from OUR data that backs it ("IG skip 60% on the last 3 vs 46% median").
+   - `market`: the outside signal, if any ("top 5 curiosity Shorts this week are 25-40 s").
+   - `change`: one concrete instruction the script run can follow word for word.
+   - `metric`: the number it should move and by how much; `judge`: when ("after 4 videos at 72 h").
+   Rules: never more than 2 tests running at once (`data/tests.json`, status "running"); if 2 are
+   running, only offer "today" tweaks that don't touch what those tests change, or say a test
+   should finish first. Never recommend anything that breaks a hard no or a standing Prashant
+   rule (playbook). If a running test has a verdict in `insights.json` → `tests`, put it first:
+   "Test <id>: keep/revert, <why>" as kind "verdict" so Prashant confirms it.
 4. Write each page's pitches to the Morning Slate database (ArtifactData, url
    https://claude.ai/artifact/ENWN3tiRkTz9y3qU2iFjqT), collection `pitches`,
    doc id `<page>-<YYYY-MM-DD>` (IST date):
@@ -57,8 +81,14 @@ Work unattended.
      approved: null, status: "waiting", today: {topic, hook_text, from}, for_date: <tomorrow>,
      items: [{n, bucket, hook, angle, why, quiz_line, score: {trend, curiosity, visual, share, evergreen}}]}`
    Delete any doc in `pitches` with `example: true` (setup placeholders).
+   Recommendations go in collection `recs`, doc id `curious-<YYYY-MM-DD>`:
+   `{channel: "curious", date, learned: [2-3 one-line learnings from our numbers],
+     market: [1-3 one-line market signals], items: [<recommendations>],
+     decisions: null, status: "waiting"}`. Prashant answers each item yes/no on the slate
+   (`decisions: {"<n>": "yes"|"no"}`). No answer = no change: never auto-approve a recommendation.
 5. Refresh `status/feed` from `state/` + `metrics/latest.json`:
    `{updated, recent: [{channel, date, hook, views (sum across platforms),
      links: {youtube, instagram, facebook}}]}` newest first, last 14 per page.
-6. Push-notify Prashant: "Pick tomorrow's topic" plus the top hook, and one line from
+6. Push-notify Prashant: "Pick tomorrow's topic" plus the top hook, the number of
+   recommendations waiting with the first one's `change` in a few words, and one line from
    `insights.json` (total views yesterday vs the day before, or the first `flags` item if any).

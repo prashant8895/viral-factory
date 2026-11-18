@@ -25,6 +25,23 @@ skip it until Prashant restarts it.
      + `data/trends.json` + `data/asks.json`, no paid calls), write the doc with 3 pitches,
      `approved: {n: 1, auto: true, at, note: "ideas run missing, made at noon"}`, and carry on.
      Never let a day go without a video just because the morning run failed.
+1b. RECOMMENDATIONS: read `recs/curious-<YYYY-MM-DD>` (IST) in the same database. For every
+   item Prashant answered "yes" in `decisions` that isn't applied yet:
+   - kind "verdict": set that test's status in `data/tests.json` to "kept" or "reverted"; on
+     "reverted" undo its change (playbook/channel.json/prompt line) so videos go back.
+   - kind "today" or "format": add a test to `data/tests.json`
+     `{id: "<date>-<short-slug>", change, kind, started: <today>, videos: 4 ("today") or 5
+     ("format"), metric, status: "running", rec: "curious-<date>#<n>"}`, unless 2 tests are
+     already running (then leave it, tell Prashant in the notification, keep it for later).
+     Apply the change to today's script, and to every later one while the test runs: put the
+     test id in the job's `"tests": [...]` list. A "format" change also gets one dated line in the
+     playbook (section 8 Learnings: "Approved on the slate: ...") and, if it's a standing rule,
+     the playbook section it belongs to (Prashant approved it, so that's allowed).
+   - Write `applied: {"<n>": "<test id or verdict>"}` and `status: "applied"` on the recs doc.
+   "no" or no answer: change nothing. Always also put the ids of every running test that
+   applies to every video into today's job `tests` list (tests carry over until judged).
+   If today's video is already rendered when a "yes" arrives, it applies from the next video
+   unless Prashant asked for today.
 2. Set `status: "scripting"` (pin if_version).
 3. Pull the repo. Read `channels/<page>/playbook.md`, `channels/curious-en/channel.json`,
    `metrics/insights.json` (the numbers review: follow its `rules`) and the example jobs

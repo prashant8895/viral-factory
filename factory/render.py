@@ -335,6 +335,8 @@ def render_one(job: dict, img_dir: Path | None = None) -> Path:
                   "bucket": job.get("bucket"), "episode": job.get("episode"), "hook_text": job["hook_text"], "hook_style": job.get("hook_style"),
                   "release": f"job-{job['id']}", "duration": meta["duration"],
                   "quiz": job.get("quiz"), "shoutouts": shout or None,
+                  # approved Morning Slate changes this video carries (data/tests.json ids)
+                  "tests": job.get("tests") or [],
                   # for the numbers review: which look and voice this video used
                   "picture_style": "illustration" if "illustration" in job["style"].lower() else "photo",
                   "voice": ("clone" if voices["narrator"].startswith("voice_")

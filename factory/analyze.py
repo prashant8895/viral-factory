@@ -10,10 +10,15 @@ What it measures, per video (all platforms of one page added up):
 - views at ~24 h and ~72 h (closest check to that age), and latest
 - watch %: Instagram average watch time / video length (YouTube too, once the
   analytics scope is on the token)
+- seconds actually watched (Instagram, YouTube): the fair hold measure when video length changes
 - likes, shares, saves per 1,000 views (share rate is the strongest "send it to a friend" signal)
 - how late it went out versus its slot (late posts get fewer first-hour views)
 Then compares groups (bucket, hook style, length band, picture style, voice) and lists
-what to do more / less of. Groups with fewer than 3 videos are shown but not trusted.
+what to do more / less of. Groups with fewer than 3 videos are shown but not trusted; a
+"lean towards" rule needs the lead in BOTH median and average views, and groupings that split
+the videos the same way (changed together) are reported once as "can't tell apart".
+Approved Morning Slate changes are tracked as tests (data/tests.json) and get a keep/revert
+verdict once enough tagged videos are 72 h old.
 """
 from __future__ import annotations
 
@@ -90,12 +95,14 @@ def collect() -> list[dict]:
             avg_ms = _f(last.get("ig_reels_avg_watch_time")) or _f(last.get("post_video_avg_time_watched"))
             avg_s = (avg_ms / 1000 if avg_ms and avg_ms > 300 else avg_ms) if avg_ms else None
             yt_pct = _f(last.get("yt_avg_view_pct"))
+            watch_s = _f(last.get("yt_avg_view_sec")) if name == "youtube" else avg_s
             plat[name] = {
                 "v24": _at_age(pr, 24, 12), "v72": _at_age(pr, 72, 30), "views": _views(last),
                 "hours": _f(last["hours_live"]), "likes": _f(last.get("likes")),
                 "shares": _f(last.get("shares")), "saved": _f(last.get("saved")),
                 "comments": _f(last.get("comments")),
                 "watch_pct": yt_pct if yt_pct is not None else (round(100 * avg_s / dur, 1) if avg_s and dur else None),
+                "watch_s": round(watch_s, 1) if watch_s else None,
                 "skip_pct": _f(last.get("reels_skip_rate")), "follows": _f(last.get("follows")),
                 "error": last.get("error") or last.get("fb_insights_error") or None,
             }
@@ -119,6 +126,9 @@ def collect() -> list[dict]:
             "shares_per_1k": shares_rate,
             "watch_pct": _median([p["watch_pct"] for p in plat.values()]),
             "skip_pct": (plat.get("instagram") or {}).get("skip_pct"),
+            "ig_watch_s": (plat.get("instagram") or {}).get("watch_s"),
+            "yt_watch_s": (plat.get("youtube") or {}).get("watch_s"),
+            "tests": st.get("tests") or [],
             "follows": tot("follows"),
             "platforms": plat,
             "yt_pct_seen": any(_f(r.get("yt_avg_view_pct")) is not None for r in vrows),
@@ -135,6 +145,8 @@ def _group(videos, key):
         out.append({"group": k, "n": len(vs), "trusted": len(vs) >= 3,
                     "median_v24": _median([v["v24"] for v in vs]),
                     "median_views": _median([v["views"] for v in vs]),
+                    "mean_views": round(statistics.mean([v["views"] for v in vs])) if vs else None,
+                    "median_ig_watch_s": _median([v["ig_watch_s"] for v in vs]),
                     "median_watch_pct": _median([v["watch_pct"] for v in vs]),
                     "median_shares_per_1k": _median([v["shares_per_1k"] for v in vs])})
     return sorted(out, key=lambda x: -(x["median_views"] or 0))
@@ -180,18 +192,37 @@ def main() -> None:
 
     # Plain rules the next pitches/scripts must follow. Only from groups with 3+ videos.
     rules = []
-    for key, gs in groups.items():
+    # Groupings that split the videos exactly the same way changed together: one comparison, not three rules.
+    seen: dict[frozenset, list[str]] = {}
+    for key in groups:
+        split = frozenset(frozenset(v["id"] for v in live if str(v[key]) == g["group"]) for g in groups[key])
+        seen.setdefault(split, []).append(key)
+    for keys in seen.values():
+        key, gs = keys[0], groups[keys[0]]
         trusted = [g for g in gs if g["trusted"] and g["median_views"]]
-        if len(trusted) >= 2:
-            best, worst = trusted[0], trusted[-1]
-            if best["median_views"] >= 1.25 * worst["median_views"]:
-                rules.append(f"{key}: '{best['group']}' beats '{worst['group']}' "
-                             f"({_fmt(best['median_views'])} vs {_fmt(worst['median_views'])} median views, "
-                             f"{best['n']} vs {worst['n']} videos). Lean towards '{best['group']}'.")
+        if len(trusted) < 2:
+            continue
+        best, worst = trusted[0], trusted[-1]
+        med_lead = best["median_views"] >= 1.25 * worst["median_views"]
+        mean_lead = (best["mean_views"] or 0) >= 1.25 * (worst["mean_views"] or 1)
+        together = (f" ({', '.join(keys)} all changed together, so we can't tell which one did it)"
+                    if len(keys) > 1 else "")
+        if med_lead and mean_lead:
+            rules.append(f"{key}: '{best['group']}' beats '{worst['group']}' "
+                         f"({_fmt(best['median_views'])} vs {_fmt(worst['median_views'])} median views, "
+                         f"{_fmt(best['mean_views'])} vs {_fmt(worst['mean_views'])} average, "
+                         f"{best['n']} vs {worst['n']} videos). Lean towards '{best['group']}'{together}.")
+        elif med_lead:
+            rules.append(f"{key}: '{best['group']}' leads on median views ({_fmt(best['median_views'])} vs "
+                         f"{_fmt(worst['median_views'])}) but not on average ({_fmt(best['mean_views'])} vs "
+                         f"{_fmt(worst['mean_views'])}): it lifts the weak videos, not the hits. No change yet{together}.")
     wp = _median([v["watch_pct"] for v in live])
-    if wp is not None and wp < 40:
-        rules.append(f"Median watch is {wp:.0f}% of the video: people leave early. Get to the first surprising "
-                     "fact by second 5, cut setup lines, aim for 35-45 s.")
+    igs, yts = _median([v["ig_watch_s"] for v in live]), _median([v["yt_watch_s"] for v in live])
+    if igs is not None:
+        rules.append(f"People watch a median {igs:.0f} s on Instagram" + (f" and {yts:.0f} s on YouTube" if yts else "")
+                     + " whatever the video's length. The first real answer must land inside those first "
+                     f"{igs:.0f} s; judge hold by seconds watched and skip rate, not watch % (watch % drops "
+                     "on its own when videos get longer). Length itself is set by the playbook, not by this rule.")
     sp = _median([v["shares_per_1k"] for v in live])
     skip = _median([v["skip_pct"] for v in live])
     if skip is not None and skip > 50:
@@ -228,14 +259,49 @@ def main() -> None:
                          f"of the {len(base)} other videos)")
         rules.append(f"Voice trial ({name}): {len(tv)}/{need} videos made, {len(ripe)} at 72 h, verdict: {vt['verdict']}.")
 
+    # Tests: every approved Morning Slate change, judged against the videos before it started.
+    tests_out = []
+    tfile = ROOT / "data" / "tests.json"
+    tlist = json.loads(tfile.read_text()).get("tests", []) if tfile.exists() else []
+    for t in tlist:
+        tid, need = t["id"], int(t.get("videos", 5))
+        tagged = [v for v in live if tid in v["tests"]]
+        before = [v for v in live if (v["date"] or "") < t.get("started", "") and v["hours"] >= 72][-7:]
+        ripe = [v for v in tagged if v["hours"] >= 72][:need]
+        m = lambda vs, k: _median([v[k] for v in vs])
+        res = {"id": tid, "change": t.get("change"), "kind": t.get("kind"), "started": t.get("started"),
+               "status": t.get("status"), "videos_made": len(tagged), "videos_72h": len(ripe), "needed": need,
+               "test": {k: m(ripe or tagged, k) for k in ("v72", "ig_watch_s", "skip_pct")},
+               "before": {k: m(before, k) for k in ("v72", "ig_watch_s", "skip_pct")}, "verdict": "waiting"}
+        if t.get("status") == "running" and len(ripe) >= need and before:
+            a, b = res["test"], res["before"]
+            wins = sum([
+                a["v72"] is not None and b["v72"] is not None and a["v72"] >= 0.9 * b["v72"],
+                a["ig_watch_s"] is not None and b["ig_watch_s"] is not None and a["ig_watch_s"] >= 0.9 * b["ig_watch_s"],
+                a["skip_pct"] is not None and b["skip_pct"] is not None and a["skip_pct"] <= 1.1 * b["skip_pct"],
+            ])
+            res["verdict"] = "keep" if wins >= 2 else "revert"
+            res["why"] = (f"{wins} of 3 checks held up (views at 72 h, Instagram seconds watched, Instagram skip; "
+                          f"each within 10% of the {len(before)} videos before it)")
+        tests_out.append(res)
+    running = [t for t in tlist if t.get("status") == "running"]
+    if len(running) > 2:
+        flags.append(f"{len(running)} tests running at once ({', '.join(t['id'] for t in running)}): "
+                     "max is 2, or we can't tell which change did what.")
+    for t in tests_out:
+        if t["status"] == "running":
+            rules.append(f"Test '{t['id']}' ({t['change']}): {t['videos_made']}/{t['needed']} videos, "
+                         f"{t['videos_72h']} at 72 h, verdict: {t['verdict']}.")
+
     insights = {"updated": now.isoformat(timespec="minutes"), "videos": len(live),
                 "total_views": sum(v["views"] for v in live), "platform_views": plat_tot,
                 "median_watch_pct": wp, "median_shares_per_1k": sp,
-                "rules": rules, "flags": flags, "groups": groups, "voice_trial": vt,
+                "median_ig_watch_s": igs, "median_yt_watch_s": yts,
+                "rules": rules, "flags": flags, "groups": groups, "voice_trial": vt, "tests": tests_out,
                 "top": [v["id"] for v in top], "bottom": [v["id"] for v in bottom],
                 "per_video": [{k: v[k] for k in ("id", "date", "bucket", "hook", "hook_style", "duration", "late_min",
                                                  "views", "v24", "v72", "watch_pct", "skip_pct", "follows",
-                                                 "likes_per_1k", "shares_per_1k")}
+                                                 "likes_per_1k", "shares_per_1k", "ig_watch_s", "yt_watch_s", "tests")}
                               | {f"{n}_watch_pct": v["platforms"].get(n, {}).get("watch_pct") for n in MAIN}
                               for v in live]}
     (OUT / "insights.json").write_text(json.dumps(insights, indent=2, ensure_ascii=False))
@@ -245,20 +311,22 @@ def main() -> None:
          f"Updated {now:%d %b %Y, %H:%M} IST. English page, {len(live)} videos, "
          f"{_fmt(insights['total_views'])} views in total "
          f"(YouTube {_fmt(plat_tot['youtube'])}, Instagram {_fmt(plat_tot['instagram'])}, Facebook {_fmt(plat_tot['facebook'])}). "
-         f"Median watch {_fmt(wp, '%')}, median shares {_fmt(sp)} per 1k views.", ""]
+         f"Median watch {_fmt(wp, '%')} ({_fmt(igs, ' s')} on Instagram, {_fmt(yts, ' s')} on YouTube), "
+         f"median shares {_fmt(sp)} per 1k views.", ""]
     if hi:
         L += [f"Hindi page (paused 12 Nov): {len(hi)} videos, {_fmt(sum(v['views'] for v in hi))} views in total.", ""]
     L += ["## What to do next", ""] + [f"- {r}" for r in rules or ["Not enough videos yet for trusted rules (need 3+ per group)."]]
     if flags:
         L += ["", "## Problems in the data or posting", ""] + [f"- {f}" for f in flags]
     L += ["", "## Every video", "",
-          "| Date | Hook | Bucket | Hook style | Len | Late | 24 h | 72 h | Now | Watch YT / IG / FB | IG skip | Shares/1k | Follows | Views YT | IG | FB |",
-          "|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|"]
+          "| Date | Hook | Bucket | Hook style | Len | Late | 24 h | 72 h | Now | Watch YT / IG / FB | Sec watched IG / YT | IG skip | Shares/1k | Follows | Views YT | IG | FB |",
+          "|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|"]
     for v in reversed(live):
         p = v["platforms"]
         L.append(f"| {v['date']} | {(v['hook'] or '').replace('*', '')} | {v['bucket']} | {v['hook_style']} | "
                  f"{_fmt(v['duration'], 's')} | {_fmt(v['late_min'], 'm')} | {_fmt(v['v24'])} | {_fmt(v['v72'])} | "
                  f"{_fmt(v['views'])} | " + " / ".join(_fmt(p.get(n, {}).get("watch_pct"), "%") for n in MAIN)
+                 + f" | {_fmt(v['ig_watch_s'], ' s')} / {_fmt(v['yt_watch_s'], ' s')}"
                  + f" | {_fmt(v['skip_pct'], '%')} | {_fmt(v['shares_per_1k'])} | {_fmt(v['follows'])} | "
                  + " | ".join(_fmt(p.get(n, {}).get("views")) for n in MAIN) + " |")
     if vt:
@@ -267,12 +335,22 @@ def main() -> None:
               f"- Videos: {vt['videos_made']} made, {vt['videos_72h']} of {vt['needed']} old enough to judge (72 h)",
               f"- Your voice (median): {f(vt['trial'])}", f"- Other videos (median): {f(vt['baseline'])}",
               f"- Verdict: **{vt['verdict']}**" + (f" ({vt['why']})" if vt.get("why") else "")]
+    if tests_out:
+        L += ["", "## Tests (approved changes)", "",
+              "| Test | Change | Started | Videos (72 h) | 72 h views test / before | IG sec test / before | IG skip test / before | Verdict |",
+              "|---|---|---|---|---|---|---|---|"]
+        for t in tests_out:
+            a, b = t["test"], t["before"]
+            L.append(f"| {t['id']} | {t['change']} | {t['started']} | {t['videos_made']} ({t['videos_72h']}/{t['needed']}) | "
+                     f"{_fmt(a['v72'])} / {_fmt(b['v72'])} | {_fmt(a['ig_watch_s'], ' s')} / {_fmt(b['ig_watch_s'], ' s')} | "
+                     f"{_fmt(a['skip_pct'], '%')} / {_fmt(b['skip_pct'], '%')} | {t['status'] if t['status'] != 'running' else t['verdict']} |")
     for key, gs in groups.items():
-        L += ["", f"## By {key.replace('_', ' ')}", "", "| Group | Videos | Median 24 h | Median views | Watch | Shares/1k |",
-              "|---|---|---|---|---|---|"]
+        L += ["", f"## By {key.replace('_', ' ')}", "", "| Group | Videos | Median 24 h | Median views | Average views | Watch | IG sec | Shares/1k |",
+              "|---|---|---|---|---|---|---|---|"]
         for g in gs:
             L.append(f"| {g['group']}{'' if g['trusted'] else ' (too few)'} | {g['n']} | {_fmt(g['median_v24'])} | "
-                     f"{_fmt(g['median_views'])} | {_fmt(g['median_watch_pct'], '%')} | {_fmt(g['median_shares_per_1k'])} |")
+                     f"{_fmt(g['median_views'])} | {_fmt(g['mean_views'])} | {_fmt(g['median_watch_pct'], '%')} | "
+                     f"{_fmt(g['median_ig_watch_s'], ' s')} | {_fmt(g['median_shares_per_1k'])} |")
     (OUT / "report.md").write_text("\n".join(L) + "\n")
     print("\n".join(L[:20]))
 

@@ -1,5 +1,5 @@
 {
-  "updated": "2026-11-18T12:20+05:30",
+  "updated": "2026-11-18T12:23+05:30",
   "videos": 14,
   "total_views": 20287.0,
   "platform_views": {
@@ -9,11 +9,12 @@
   },
   "median_watch_pct": 17.7,
   "median_shares_per_1k": 0.0,
+  "median_ig_watch_s": 10.850000000000001,
+  "median_yt_watch_s": 23.0,
   "rules": [
-    "picture_style: 'illustration' beats 'photo' (1,578 vs 973 median views, 7 vs 7 videos). Lean towards 'illustration'.",
-    "voice: 'clone' beats 'kokoro' (1,578 vs 973 median views, 7 vs 7 videos). Lean towards 'clone'.",
-    "length_band: '70s+' beats '40-50s' (1,775 vs 973 median views, 3 vs 7 videos). Lean towards '70s+'.",
-    "Median watch is 18% of the video: people leave early. Get to the first surprising fact by second 5, cut setup lines, aim for 35-45 s.",
+    "picture_style: 'illustration' leads on median views (1,578 vs 973) but not on average (1,445 vs 1,453): it lifts the weak videos, not the hits. No change yet (picture_style, voice all changed together, so we can't tell which one did it).",
+    "length_band: '70s+' leads on median views (1,775 vs 973) but not on average (1,522 vs 1,453): it lifts the weak videos, not the hits. No change yet.",
+    "People watch a median 11 s on Instagram and 23 s on YouTube whatever the video's length. The first real answer must land inside those first 11 s; judge hold by seconds watched and skip rate, not watch % (watch % drops on its own when videos get longer). Length itself is set by the playbook, not by this rule.",
     "Top videos so far: IT'S NOT A SHOE CLEANER! (seen-but-missed, 3,188 views); WHY THIS MESH? (seen-but-missed, 1,891 views); BACK WINDOW LINES? (seen-but-missed, 1,792 views). Pitch more topics like these.",
     "Weakest: WHY DO WE YAWN? (careful health, 647); NO BATTERY. HOW DOES IT PAY? (how it works, 600); WINTER HAZE? NOT JUST FOG (india everyday, 438). Avoid these angles unless a new twist.",
     "Voice trial (clone): 7/5 videos made, 4 at 72 h, verdict: waiting."
@@ -29,6 +30,8 @@
         "trusted": true,
         "median_v24": 1645.0,
         "median_views": 1775.0,
+        "mean_views": 1522,
+        "median_ig_watch_s": 12.8,
         "median_watch_pct": 12.8,
         "median_shares_per_1k": 1.1
       },
@@ -38,6 +41,8 @@
         "trusted": true,
         "median_v24": 1537.0,
         "median_views": 1734.0,
+        "mean_views": 1896,
+        "median_ig_watch_s": 14.799999999999999,
         "median_watch_pct": 32.85,
         "median_shares_per_1k": 0.55
       },
@@ -47,6 +52,8 @@
         "trusted": false,
         "median_v24": 1322.0,
         "median_views": 1404.0,
+        "mean_views": 1404,
+        "median_ig_watch_s": 8.3,
         "median_watch_pct": 12.2,
         "median_shares_per_1k": 0.0
       },
@@ -56,6 +63,8 @@
         "trusted": false,
         "median_v24": 753.0,
         "median_views": 929.0,
+        "mean_views": 929,
+        "median_ig_watch_s": 4.199999999999999,
         "median_watch_pct": 13.3,
         "median_shares_per_1k": 0.0
       },
@@ -65,6 +74,8 @@
         "trusted": false,
         "median_v24": 438.0,
         "median_views": 647.0,
+        "mean_views": 647,
+        "median_ig_watch_s": 7.3,
         "median_watch_pct": 18.2,
         "median_shares_per_1k": 0.0
       },
@@ -74,6 +85,8 @@
         "trusted": false,
         "median_v24": 203.0,
         "median_views": 439.0,
+        "mean_views": 439,
+        "median_ig_watch_s": 9.8,
         "median_watch_pct": 23.7,
         "median_shares_per_1k": 0.0
       }
@@ -85,6 +98,8 @@
         "trusted": false,
         "median_v24": 2206.0,
         "median_views": 3423.0,
+        "mean_views": 3423,
+        "median_ig_watch_s": 17.9,
         "median_watch_pct": 41.9,
         "median_shares_per_1k": 2.6
       },
@@ -94,6 +109,8 @@
         "trusted": true,
         "median_v24": 1322.0,
         "median_views": 1578.0,
+        "mean_views": 1445,
+        "median_ig_watch_s": 11.3,
         "median_watch_pct": 17.1,
         "median_shares_per_1k": 0.6
       },
@@ -103,6 +120,8 @@
         "trusted": true,
         "median_v24": 1078.5,
         "median_views": 1284.5,
+        "mean_views": 1334,
+        "median_ig_watch_s": 9.5,
         "median_watch_pct": 23.45,
         "median_shares_per_1k": 0.0
       },
@@ -112,6 +131,8 @@
         "trusted": false,
         "median_v24": 450.5,
         "median_views": 706.0,
+        "mean_views": 706,
+        "median_ig_watch_s": 7.050000000000001,
         "median_watch_pct": 17.2,
         "median_shares_per_1k": 0.0
       }
@@ -123,6 +144,8 @@
         "trusted": true,
         "median_v24": 1322.0,
         "median_views": 1578.0,
+        "mean_views": 1445,
+        "median_ig_watch_s": 11.3,
         "median_watch_pct": 17.1,
         "median_shares_per_1k": 0.6
       },
@@ -132,6 +155,8 @@
         "trusted": true,
         "median_v24": 808.0,
         "median_views": 973.0,
+        "mean_views": 1453,
+        "median_ig_watch_s": 9.8,
         "median_watch_pct": 23.7,
         "median_shares_per_1k": 0.0
       }
@@ -143,6 +168,8 @@
         "trusted": true,
         "median_v24": 1322.0,
         "median_views": 1578.0,
+        "mean_views": 1445,
+        "median_ig_watch_s": 11.3,
         "median_watch_pct": 17.1,
         "median_shares_per_1k": 0.6
       },
@@ -152,6 +179,8 @@
         "trusted": true,
         "median_v24": 808.0,
         "median_views": 973.0,
+        "mean_views": 1453,
+        "median_ig_watch_s": 9.8,
         "median_watch_pct": 23.7,
         "median_shares_per_1k": 0.0
       }
@@ -163,6 +192,8 @@
         "trusted": true,
         "median_v24": 1645.0,
         "median_views": 1775.0,
+        "mean_views": 1522,
+        "median_ig_watch_s": 12.8,
         "median_watch_pct": 12.8,
         "median_shares_per_1k": 1.1
       },
@@ -172,6 +203,8 @@
         "trusted": true,
         "median_v24": 1294.5,
         "median_views": 1491.0,
+        "mean_views": 1388,
+        "median_ig_watch_s": 10.55,
         "median_watch_pct": 17.85,
         "median_shares_per_1k": 0.3
       },
@@ -181,6 +214,8 @@
         "trusted": true,
         "median_v24": 808.0,
         "median_views": 973.0,
+        "mean_views": 1453,
+        "median_ig_watch_s": 9.8,
         "median_watch_pct": 23.7,
         "median_shares_per_1k": 0.0
       }
@@ -203,6 +238,7 @@
     },
     "verdict": "waiting"
   },
+  "tests": [],
   "top": [
     "curious-2026-11-06-escalator-brush-en",
     "curious-2026-11-07-microwave-mesh-en",
@@ -230,6 +266,9 @@
       "follows": null,
       "likes_per_1k": 6.4,
       "shares_per_1k": 2.6,
+      "ig_watch_s": 17.9,
+      "yt_watch_s": 23.0,
+      "tests": [],
       "youtube_watch_pct": 54.2,
       "instagram_watch_pct": 41.9,
       "facebook_watch_pct": 14.5
@@ -250,6 +289,9 @@
       "follows": null,
       "likes_per_1k": 22.7,
       "shares_per_1k": 0.5,
+      "ig_watch_s": 11.7,
+      "yt_watch_s": 22.0,
+      "tests": [],
       "youtube_watch_pct": 54.2,
       "instagram_watch_pct": 28.7,
       "facebook_watch_pct": 20.0
@@ -270,6 +312,9 @@
       "follows": null,
       "likes_per_1k": 12.3,
       "shares_per_1k": 0.0,
+      "ig_watch_s": 4.3,
+      "yt_watch_s": 17.0,
+      "tests": [],
       "youtube_watch_pct": 43.7,
       "instagram_watch_pct": 10.7,
       "facebook_watch_pct": 6.7
@@ -290,6 +335,9 @@
       "follows": null,
       "likes_per_1k": 16.0,
       "shares_per_1k": 0.0,
+      "ig_watch_s": 17.9,
+      "yt_watch_s": 45.0,
+      "tests": [],
       "youtube_watch_pct": 104.8,
       "instagram_watch_pct": 41.7,
       "facebook_watch_pct": 12.3
@@ -310,6 +358,9 @@
       "follows": null,
       "likes_per_1k": 12.4,
       "shares_per_1k": 0.0,
+      "ig_watch_s": 7.3,
+      "yt_watch_s": 23.0,
+      "tests": [],
       "youtube_watch_pct": 57.0,
       "instagram_watch_pct": 18.2,
       "facebook_watch_pct": 8.0
@@ -330,6 +381,9 @@
       "follows": null,
       "likes_per_1k": 9.1,
       "shares_per_1k": 0.0,
+      "ig_watch_s": 9.8,
+      "yt_watch_s": 16.0,
+      "tests": [],
       "youtube_watch_pct": 39.4,
       "instagram_watch_pct": 23.7,
       "facebook_watch_pct": 13.5
@@ -350,6 +404,9 @@
       "follows": null,
       "likes_per_1k": 18.1,
       "shares_per_1k": 0.0,
+      "ig_watch_s": 4.1,
+      "yt_watch_s": 25.0,
+      "tests": [],
       "youtube_watch_pct": 59.2,
       "instagram_watch_pct": 9.8,
       "facebook_watch_pct": 15.9
@@ -370,6 +427,9 @@
       "follows": null,
       "likes_per_1k": 16.5,
       "shares_per_1k": 0.6,
+      "ig_watch_s": 11.3,
+      "yt_watch_s": 23.0,
+      "tests": [],
       "youtube_watch_pct": 39.2,
       "instagram_watch_pct": 18.6,
       "facebook_watch_pct": 3.3
@@ -390,6 +450,9 @@
       "follows": null,
       "likes_per_1k": 28.0,
       "shares_per_1k": 3.4,
+      "ig_watch_s": 20.0,
+      "yt_watch_s": 23.0,
+      "tests": [],
       "youtube_watch_pct": 42.9,
       "instagram_watch_pct": 37.0,
       "facebook_watch_pct": 16.6
@@ -410,6 +473,9 @@
       "follows": null,
       "likes_per_1k": 6.4,
       "shares_per_1k": 0.0,
+      "ig_watch_s": 9.8,
+      "yt_watch_s": 25.0,
+      "tests": [],
       "youtube_watch_pct": 43.2,
       "instagram_watch_pct": 17.1,
       "facebook_watch_pct": 7.7
@@ -430,6 +496,9 @@
       "follows": null,
       "likes_per_1k": 10.0,
       "shares_per_1k": 0.0,
+      "ig_watch_s": 8.3,
+      "yt_watch_s": 26.0,
+      "tests": [],
       "youtube_watch_pct": 39.3,
       "instagram_watch_pct": 12.2,
       "facebook_watch_pct": 5.6
@@ -450,6 +519,9 @@
       "follows": null,
       "likes_per_1k": 16.9,
       "shares_per_1k": 1.1,
+      "ig_watch_s": 10.4,
+      "yt_watch_s": 28.0,
+      "tests": [],
       "youtube_watch_pct": 35.0,
       "instagram_watch_pct": 12.8,
       "facebook_watch_pct": 3.9
@@ -470,6 +542,9 @@
       "follows": null,
       "likes_per_1k": 13.3,
       "shares_per_1k": 20.0,
+      "ig_watch_s": 12.8,
+      "yt_watch_s": null,
+      "tests": [],
       "youtube_watch_pct": null,
       "instagram_watch_pct": 15.0,
       "facebook_watch_pct": 5.9
@@ -490,6 +565,9 @@
       "follows": null,
       "likes_per_1k": 8.2,
       "shares_per_1k": 0.0,
+      "ig_watch_s": 21.2,
+      "yt_watch_s": null,
+      "tests": [],
       "youtube_watch_pct": null,
       "instagram_watch_pct": 24.8,
       "facebook_watch_pct": 9.6

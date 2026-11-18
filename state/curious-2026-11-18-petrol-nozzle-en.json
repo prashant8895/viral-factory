@@ -1,0 +1,68 @@
+{
+  "id": "curious-2026-11-18-petrol-nozzle-en",
+  "channel": "curious-en",
+  "date": "2026-11-18",
+  "slot": "19:00",
+  "publish": true,
+  "bucket": "how it works",
+  "episode": null,
+  "hook_text": "HOW DOES IT *KNOW*?",
+  "hook_style": "curiosity",
+  "release": "job-curious-2026-11-18-petrol-nozzle-en",
+  "duration": 85.51,
+  "quiz": {
+    "theme": "ODD ONE OUT THURSDAY",
+    "next_topic": "why the pressure cooker whistles",
+    "next_title": "The pressure cooker whistle",
+    "question": "Cooker whistle: which one is NOT true?",
+    "options": {
+      "A": "Water inside goes past 100\u00b0C",
+      "B": "It means the food is done",
+      "C": "It lets extra steam out"
+    },
+    "answer": "B",
+    "keywords": {
+      "A": [
+        "hotter",
+        "100",
+        "120",
+        "degrees",
+        "temperature",
+        "boils",
+        "water"
+      ],
+      "B": [
+        "done",
+        "ready",
+        "cooked",
+        "food",
+        "timer"
+      ],
+      "C": [
+        "steam",
+        "pressure",
+        "release",
+        "releases",
+        "valve",
+        "extra"
+      ]
+    },
+    "sources": [
+      "https://en.wikipedia.org/wiki/Pressure_cooking",
+      "https://modernistcuisine.com/mc/how-pressure-cookers-work/"
+    ]
+  },
+  "shoutouts": {
+    "from": "curious-2026-11-17-two-flush-buttons-en",
+    "names": [
+      {
+        "name": "@Gargiwatchesvideos",
+        "platform": "youtube",
+        "time": "2026-11-17T14:27:30Z",
+        "comment_id": "UgxSbkd3LKDYBSK51IN4AaABAg"
+      }
+    ]
+  },
+  "picture_style": "illustration",
+  "voice": "clone"
+}

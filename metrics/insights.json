@@ -1,21 +1,21 @@
 {
-  "updated": "2026-11-18T06:43+05:30",
+  "updated": "2026-11-18T12:20+05:30",
   "videos": 14,
-  "total_views": 20042.0,
+  "total_views": 20287.0,
   "platform_views": {
-    "youtube": 10703.0,
-    "instagram": 5584.0,
-    "facebook": 3755.0
+    "youtube": 10723.0,
+    "instagram": 5598.0,
+    "facebook": 3966.0
   },
-  "median_watch_pct": 17.65,
+  "median_watch_pct": 17.7,
   "median_shares_per_1k": 0.0,
   "rules": [
     "picture_style: 'illustration' beats 'photo' (1,578 vs 973 median views, 7 vs 7 videos). Lean towards 'illustration'.",
     "voice: 'clone' beats 'kokoro' (1,578 vs 973 median views, 7 vs 7 videos). Lean towards 'clone'.",
-    "length_band: '70s+' beats '40-50s' (1,770 vs 973 median views, 3 vs 7 videos). Lean towards '70s+'.",
+    "length_band: '70s+' beats '40-50s' (1,775 vs 973 median views, 3 vs 7 videos). Lean towards '70s+'.",
     "Median watch is 18% of the video: people leave early. Get to the first surprising fact by second 5, cut setup lines, aim for 35-45 s.",
     "Top videos so far: IT'S NOT A SHOE CLEANER! (seen-but-missed, 3,188 views); WHY THIS MESH? (seen-but-missed, 1,891 views); BACK WINDOW LINES? (seen-but-missed, 1,792 views). Pitch more topics like these.",
-    "Weakest: WHY DO WE YAWN? (careful health, 647); NO BATTERY. HOW DOES IT PAY? (how it works, 596); WINTER HAZE? NOT JUST FOG (india everyday, 438). Avoid these angles unless a new twist.",
+    "Weakest: WHY DO WE YAWN? (careful health, 647); NO BATTERY. HOW DOES IT PAY? (how it works, 600); WINTER HAZE? NOT JUST FOG (india everyday, 438). Avoid these angles unless a new twist.",
     "Voice trial (clone): 7/5 videos made, 4 at 72 h, verdict: waiting."
   ],
   "flags": [
@@ -27,8 +27,8 @@
         "group": "how it works",
         "n": 3,
         "trusted": true,
-        "median_v24": 1112.5,
-        "median_views": 1770.0,
+        "median_v24": 1645.0,
+        "median_views": 1775.0,
         "median_watch_pct": 12.8,
         "median_shares_per_1k": 1.1
       },
@@ -84,17 +84,17 @@
         "n": 1,
         "trusted": false,
         "median_v24": 2206.0,
-        "median_views": 3417.0,
-        "median_watch_pct": 42.0,
+        "median_views": 3423.0,
+        "median_watch_pct": 41.9,
         "median_shares_per_1k": 2.6
       },
       {
         "group": "curiosity",
         "n": 7,
         "trusted": true,
-        "median_v24": 1294.5,
+        "median_v24": 1322.0,
         "median_views": 1578.0,
-        "median_watch_pct": 16.450000000000003,
+        "median_watch_pct": 17.1,
         "median_shares_per_1k": 0.6
       },
       {
@@ -121,9 +121,9 @@
         "group": "illustration",
         "n": 7,
         "trusted": true,
-        "median_v24": 1294.5,
+        "median_v24": 1322.0,
         "median_views": 1578.0,
-        "median_watch_pct": 16.450000000000003,
+        "median_watch_pct": 17.1,
         "median_shares_per_1k": 0.6
       },
       {
@@ -141,9 +141,9 @@
         "group": "clone",
         "n": 7,
         "trusted": true,
-        "median_v24": 1294.5,
+        "median_v24": 1322.0,
         "median_views": 1578.0,
-        "median_watch_pct": 16.450000000000003,
+        "median_watch_pct": 17.1,
         "median_shares_per_1k": 0.6
       },
       {
@@ -161,8 +161,8 @@
         "group": "70s+",
         "n": 3,
         "trusted": true,
-        "median_v24": 1112.5,
-        "median_views": 1770.0,
+        "median_v24": 1645.0,
+        "median_views": 1775.0,
         "median_watch_pct": 12.8,
         "median_shares_per_1k": 1.1
       },
@@ -222,16 +222,16 @@
       "hook_style": "none",
       "duration": 42.75,
       "late_min": -148,
-      "views": 3417.0,
+      "views": 3423.0,
       "v24": 2206.0,
       "v72": 3188.0,
-      "watch_pct": 42.0,
+      "watch_pct": 41.9,
       "skip_pct": 33.9,
       "follows": null,
       "likes_per_1k": 6.4,
       "shares_per_1k": 2.6,
       "youtube_watch_pct": 54.2,
-      "instagram_watch_pct": 42.0,
+      "instagram_watch_pct": 41.9,
       "facebook_watch_pct": 14.5
     },
     {
@@ -442,9 +442,9 @@
       "hook_style": "curiosity",
       "duration": 81.36,
       "late_min": 0,
-      "views": 1770.0,
+      "views": 1775.0,
       "v24": 1645.0,
-      "v72": 1770.0,
+      "v72": 1775.0,
       "watch_pct": 12.8,
       "skip_pct": 48.6,
       "follows": null,
@@ -462,17 +462,17 @@
       "hook_style": "curiosity",
       "duration": 85.34,
       "late_min": -2,
-      "views": 596.0,
+      "views": 600.0,
       "v24": 580.0,
       "v72": null,
-      "watch_pct": 10.05,
+      "watch_pct": 10.45,
       "skip_pct": 36.8,
       "follows": null,
-      "likes_per_1k": 13.4,
-      "shares_per_1k": 20.1,
+      "likes_per_1k": 13.3,
+      "shares_per_1k": 20.0,
       "youtube_watch_pct": null,
       "instagram_watch_pct": 15.0,
-      "facebook_watch_pct": 5.1
+      "facebook_watch_pct": 5.9
     },
     {
       "id": "curious-2026-11-17-two-flush-buttons-en",
@@ -482,17 +482,17 @@
       "hook_style": "curiosity",
       "duration": 85.35,
       "late_min": -2,
-      "views": 1961.0,
-      "v24": null,
+      "views": 2191.0,
+      "v24": 2191.0,
       "v72": null,
-      "watch_pct": 16.450000000000003,
-      "skip_pct": 35.8,
+      "watch_pct": 17.2,
+      "skip_pct": 35.9,
       "follows": null,
-      "likes_per_1k": 8.7,
+      "likes_per_1k": 8.2,
       "shares_per_1k": 0.0,
       "youtube_watch_pct": null,
-      "instagram_watch_pct": 23.6,
-      "facebook_watch_pct": 9.3
+      "instagram_watch_pct": 24.8,
+      "facebook_watch_pct": 9.6
     }
   ]
 }

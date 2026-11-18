@@ -1,23 +1,25 @@
 {
-  "updated": "2026-11-18T12:23+05:30",
+  "updated": "2026-11-18T13:28+05:30",
   "videos": 14,
-  "total_views": 20287.0,
+  "total_views": 20292.0,
   "platform_views": {
-    "youtube": 10723.0,
-    "instagram": 5598.0,
-    "facebook": 3966.0
+    "youtube": 10724.0,
+    "instagram": 5601.0,
+    "facebook": 3967.0
   },
-  "median_watch_pct": 17.7,
+  "median_watch_pct": 17.775,
   "median_shares_per_1k": 0.0,
   "median_ig_watch_s": 10.850000000000001,
   "median_yt_watch_s": 23.0,
   "rules": [
-    "picture_style: 'illustration' leads on median views (1,578 vs 973) but not on average (1,445 vs 1,453): it lifts the weak videos, not the hits. No change yet (picture_style, voice all changed together, so we can't tell which one did it).",
-    "length_band: '70s+' leads on median views (1,775 vs 973) but not on average (1,522 vs 1,453): it lifts the weak videos, not the hits. No change yet.",
+    "picture_style: 'illustration' leads on median views (1,578 vs 973) but not on average (1,446 vs 1,453): it lifts the weak videos, not the hits. No change yet (picture_style, voice all changed together, so we can't tell which one did it).",
+    "length_band: '70s+' leads on median views (1,773 vs 973) but not on average (1,524 vs 1,453): it lifts the weak videos, not the hits. No change yet.",
     "People watch a median 11 s on Instagram and 23 s on YouTube whatever the video's length. The first real answer must land inside those first 11 s; judge hold by seconds watched and skip rate, not watch % (watch % drops on its own when videos get longer). Length itself is set by the playbook, not by this rule.",
     "Top videos so far: IT'S NOT A SHOE CLEANER! (seen-but-missed, 3,188 views); WHY THIS MESH? (seen-but-missed, 1,891 views); BACK WINDOW LINES? (seen-but-missed, 1,792 views). Pitch more topics like these.",
-    "Weakest: WHY DO WE YAWN? (careful health, 647); NO BATTERY. HOW DOES IT PAY? (how it works, 600); WINTER HAZE? NOT JUST FOG (india everyday, 438). Avoid these angles unless a new twist.",
-    "Voice trial (clone): 7/5 videos made, 4 at 72 h, verdict: waiting."
+    "Weakest: WHY DO WE YAWN? (careful health, 647); NO BATTERY. HOW DOES IT PAY? (how it works, 601); WINTER HAZE? NOT JUST FOG (india everyday, 438). Avoid these angles unless a new twist.",
+    "Voice trial (clone): 7/5 videos made, 4 at 72 h, verdict: waiting.",
+    "Test '2026-11-19-why-claim-title' (YouTube title and opening headline lead with the surprising fact as a 'Why...' claim, search phrase kept in the title): 0/4 videos, 0 at 72 h, verdict: waiting.",
+    "Test '2026-11-19-scene2-answer' (Scene 2 gives one real piece of the answer (first step of the chain) before teasing the rest; never a tease-only scene): 0/4 videos, 0 at 72 h, verdict: waiting."
   ],
   "flags": [
     "5 of 14 videos went out more than 30 min off their slot: 2026-11-06-escalator-brush (-148 min), 2026-11-07-microwave-mesh (+112 min), 2026-11-09-tyre-black (+453 min), 2026-11-11-stars-twinkle (+406 min), 2026-11-13-fuel-arrow (-473 min)"
@@ -29,8 +31,8 @@
         "n": 3,
         "trusted": true,
         "median_v24": 1645.0,
-        "median_views": 1775.0,
-        "mean_views": 1522,
+        "median_views": 1773.0,
+        "mean_views": 1524,
         "median_ig_watch_s": 12.8,
         "median_watch_pct": 12.8,
         "median_shares_per_1k": 1.1
@@ -40,7 +42,7 @@
         "n": 6,
         "trusted": true,
         "median_v24": 1537.0,
-        "median_views": 1734.0,
+        "median_views": 1734.5,
         "mean_views": 1896,
         "median_ig_watch_s": 14.799999999999999,
         "median_watch_pct": 32.85,
@@ -109,7 +111,7 @@
         "trusted": true,
         "median_v24": 1322.0,
         "median_views": 1578.0,
-        "mean_views": 1445,
+        "mean_views": 1446,
         "median_ig_watch_s": 11.3,
         "median_watch_pct": 17.1,
         "median_shares_per_1k": 0.6
@@ -144,7 +146,7 @@
         "trusted": true,
         "median_v24": 1322.0,
         "median_views": 1578.0,
-        "mean_views": 1445,
+        "mean_views": 1446,
         "median_ig_watch_s": 11.3,
         "median_watch_pct": 17.1,
         "median_shares_per_1k": 0.6
@@ -168,7 +170,7 @@
         "trusted": true,
         "median_v24": 1322.0,
         "median_views": 1578.0,
-        "mean_views": 1445,
+        "mean_views": 1446,
         "median_ig_watch_s": 11.3,
         "median_watch_pct": 17.1,
         "median_shares_per_1k": 0.6
@@ -191,8 +193,8 @@
         "n": 3,
         "trusted": true,
         "median_v24": 1645.0,
-        "median_views": 1775.0,
-        "mean_views": 1522,
+        "median_views": 1773.0,
+        "mean_views": 1524,
         "median_ig_watch_s": 12.8,
         "median_watch_pct": 12.8,
         "median_shares_per_1k": 1.1
@@ -238,7 +240,50 @@
     },
     "verdict": "waiting"
   },
-  "tests": [],
+  "tests": [
+    {
+      "id": "2026-11-19-why-claim-title",
+      "change": "YouTube title and opening headline lead with the surprising fact as a 'Why...' claim, search phrase kept in the title",
+      "kind": "today",
+      "started": "2026-11-19",
+      "status": "running",
+      "videos_made": 0,
+      "videos_72h": 0,
+      "needed": 4,
+      "test": {
+        "v72": null,
+        "ig_watch_s": null,
+        "skip_pct": null
+      },
+      "before": {
+        "v72": 888.0,
+        "ig_watch_s": 9.8,
+        "skip_pct": 50.0
+      },
+      "verdict": "waiting"
+    },
+    {
+      "id": "2026-11-19-scene2-answer",
+      "change": "Scene 2 gives one real piece of the answer (first step of the chain) before teasing the rest; never a tease-only scene",
+      "kind": "today",
+      "started": "2026-11-19",
+      "status": "running",
+      "videos_made": 0,
+      "videos_72h": 0,
+      "needed": 4,
+      "test": {
+        "v72": null,
+        "ig_watch_s": null,
+        "skip_pct": null
+      },
+      "before": {
+        "v72": 888.0,
+        "ig_watch_s": 9.8,
+        "skip_pct": 50.0
+      },
+      "verdict": "waiting"
+    }
+  ],
   "top": [
     "curious-2026-11-06-escalator-brush-en",
     "curious-2026-11-07-microwave-mesh-en",
@@ -442,7 +487,7 @@
       "hook_style": "curiosity",
       "duration": 54.18,
       "late_min": -2,
-      "views": 1784.0,
+      "views": 1785.0,
       "v24": 1725.0,
       "v72": 1792.0,
       "watch_pct": 37.0,
@@ -465,7 +510,7 @@
       "hook_style": "curiosity",
       "duration": 57.12,
       "late_min": -473,
-      "views": 786.0,
+      "views": 785.0,
       "v24": 716.0,
       "v72": 791.0,
       "watch_pct": 17.1,
@@ -511,9 +556,9 @@
       "hook_style": "curiosity",
       "duration": 81.36,
       "late_min": 0,
-      "views": 1775.0,
+      "views": 1773.0,
       "v24": 1645.0,
-      "v72": 1775.0,
+      "v72": 1773.0,
       "watch_pct": 12.8,
       "skip_pct": 48.6,
       "follows": null,
@@ -534,9 +579,9 @@
       "hook_style": "curiosity",
       "duration": 85.34,
       "late_min": -2,
-      "views": 600.0,
+      "views": 601.0,
       "v24": 580.0,
-      "v72": null,
+      "v72": 601.0,
       "watch_pct": 10.45,
       "skip_pct": 36.8,
       "follows": null,
@@ -557,19 +602,19 @@
       "hook_style": "curiosity",
       "duration": 85.35,
       "late_min": -2,
-      "views": 2191.0,
-      "v24": 2191.0,
+      "views": 2197.0,
+      "v24": 2197.0,
       "v72": null,
-      "watch_pct": 17.2,
-      "skip_pct": 35.9,
+      "watch_pct": 17.35,
+      "skip_pct": 35.1,
       "follows": null,
-      "likes_per_1k": 8.2,
+      "likes_per_1k": 8.6,
       "shares_per_1k": 0.0,
-      "ig_watch_s": 21.2,
+      "ig_watch_s": 21.4,
       "yt_watch_s": null,
       "tests": [],
       "youtube_watch_pct": null,
-      "instagram_watch_pct": 24.8,
+      "instagram_watch_pct": 25.1,
       "facebook_watch_pct": 9.6
     }
   ]

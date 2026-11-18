@@ -1,0 +1,209 @@
+{
+  "id": "curious-2026-11-18-petrol-nozzle",
+  "channel": "curious",
+  "languages": [
+    "en"
+  ],
+  "publish": false,
+  "date": "2026-11-18",
+  "slot": "19:00",
+  "bucket": "how it works",
+  "hook_style": "curiosity",
+  "seed": 11182,
+  "hook_text": "HOW DOES IT *KNOW*?",
+  "keywords": [
+    "how does petrol pump nozzle stop automatically",
+    "petrol nozzle auto shut off",
+    "how does gas pump know when tank is full"
+  ],
+  "sources": [
+    "https://www.scienceabc.com/pure-sciences/how-does-the-gas-pump-automatically-shut-off-when-the-tank-is-full.html",
+    "https://www.mentalfloss.com/article/28113/how-gas-pump-knows-when-shut",
+    "https://jalopnik.com/gas-station-fuel-nozzles-are-fascinating-contraptions-1791706786",
+    "https://hackaday.com/2020/11/12/tech-hidden-in-plain-sight-gas-pumps"
+  ],
+  "scenes": [
+    {
+      "visual": "close-up illustration of a petrol pump nozzle with a black rubber grip and a metal spout pushed into the open fuel filler of a small white hatchback car, at an Indian petrol station, side view, no people, simple uncluttered background, the nozzle and car side in the lower two-thirds of the frame, no text or logos",
+      "narration": "Ever noticed the petrol nozzle click off on its own? How does it *know*?",
+      "delivery": "curious",
+      "motion": "push",
+      "sfx": "boom",
+      "overlays": [],
+      "beat": "hook"
+    },
+    {
+      "visual": "close-up illustration of the curved metal spout of a petrol pump nozzle, seen from the side, with one small round air hole on the underside of the spout just before its open end, plain soft cream background, the spout large and centred in the lower two-thirds of the frame, no text or logos",
+      "narration": "Yesterday's answer: zero. No chip, no sensor. Just air, and a tiny hole doing *all* the work.",
+      "delivery": "light",
+      "headline": "THE ANSWER: *ZERO*",
+      "motion": "drift_right",
+      "sfx": "thud",
+      "overlays": [],
+      "beat": "loop"
+    },
+    {
+      "visual": "2D animation: a pipe with a narrow neck; petrol dots crawl in the wide part and race through the neck; a thin tube rises from the neck and a yellow arrow shows the pull into it",
+      "narration": "Okay, so. Petrol rushes through a *narrow* bit inside. Squeeze a flow, it speeds up, and that makes a *pull*. But on what?",
+      "delivery": "explain",
+      "headline": "THE *NARROW* BIT",
+      "motion": "push",
+      "sfx": "whoosh",
+      "overlays": [],
+      "anim": "anims/nozzle.html",
+      "anim_params": {
+        "mode": "squeeze",
+        "title": "THE NARROW BIT",
+        "label": "NARROW = FAST",
+        "pull": "PULL"
+      },
+      "beat": "explain"
+    },
+    {
+      "visual": "illustration of a tall glass of nimbu pani lemonade with a red and white striped paper straw standing in it, on a simple wooden table, side view, plain warm cream background, the glass and straw in the lower two-thirds of the frame, no text",
+      "narration": "Here's the weird part. It's like a *straw*. Sip in open air, easy. Cover the far end with your thumb... the pull gets *stronger*.",
+      "delivery": "curious",
+      "headline": "LIKE A *STRAW*",
+      "motion": "push",
+      "sfx": "ding",
+      "overlays": [],
+      "beat": "rehook"
+    },
+    {
+      "visual": "2D animation: the nozzle spout pointing down into a tank; petrol streams down; a thin tube runs beside it to a small air hole near the tip; air dots get sipped in through the hole and up the tube",
+      "narration": "See, that pull runs down a thin tube to the air hole. While it's open, it just sips *air*. Petrol keeps flowing. Until...",
+      "delivery": "explain",
+      "headline": "IT SIPS *AIR*",
+      "motion": "push",
+      "sfx": "pop",
+      "overlays": [],
+      "anim": "anims/nozzle.html",
+      "anim_params": {
+        "mode": "sip",
+        "hole": "AIR HOLE",
+        "tube": "TUBE",
+        "label": "SIPPING AIR"
+      },
+      "beat": "explain"
+    },
+    {
+      "visual": "cutaway side-view illustration of a car's fuel filler pipe with the metal spout of a petrol nozzle inside it, golden-orange petrol has risen up the pipe and just covers the open end of the spout, clean simple cutaway like a textbook diagram, plain cream background, the pipe and spout large in the lower two-thirds of the frame, no text or labels",
+      "narration": "Now watch. The tank fills, petrol climbs, and *covers* that hole. The straw's blocked. So what happens?",
+      "delivery": "build",
+      "headline": "THE HOLE'S *COVERED*",
+      "motion": "drift_left",
+      "sfx": "tick",
+      "overlays": [],
+      "beat": "rehook"
+    },
+    {
+      "visual": "2D animation: the petrol level rises and covers the air hole, air stops, the PULL counter climbs 0 to 100, the rubber disc in the handle bows up, the valve snaps shut, CLICK",
+      "narration": "<short pause> The pull jumps. It tugs a soft rubber disc in the handle, and that *snaps* the valve shut. Click.",
+      "delivery": "reveal",
+      "headline": "*CLICK*",
+      "motion": "push",
+      "sfx": "sparkle",
+      "overlays": [],
+      "anim": "anims/nozzle.html",
+      "anim_params": {
+        "mode": "click",
+        "title": "PETROL RISING",
+        "pull": "PULL",
+        "label": "CLICK!"
+      },
+      "beat": "payoff"
+    },
+    {
+      "visual": "illustration of a petrol pump nozzle hung back in its holder on the side of a simple fuel dispenser at an Indian petrol station in warm evening light, a small white hatchback parked beside it, no people, simple uncluttered background, the nozzle and dispenser in the lower two-thirds of the frame, no text, numbers or logos",
+      "narration": "The nozzle doesn't know the tank's full. It just feels its straw get *blocked*. Next time you hear that click, you'll know.",
+      "delivery": "warm",
+      "headline": "NO *SENSOR* NEEDED",
+      "motion": "pull",
+      "sfx": "ding",
+      "overlays": [],
+      "beat": "explain"
+    },
+    {
+      "visual": "2D animation: yesterday's fastest right answers",
+      "shoutout": true,
+      "anim": "anims/shoutout.html",
+      "narration": "These legends got it first.",
+      "narration_none": "Nobody cracked yesterday's one... let's see if you can beat today's.",
+      "delivery": "warm",
+      "headline": "*SHOUTOUT*",
+      "motion": "push",
+      "sfx": "sparkle",
+      "overlays": []
+    },
+    {
+      "visual": "2D animation: the quiz about tomorrow's topic",
+      "quiz": true,
+      "anim": "anims/quiz.html",
+      "narration": "Tomorrow, the pressure cooker whistle. One of these isn't true. Ask a friend, then comment your guess.",
+      "delivery": "curious",
+      "headline": "ODD ONE *OUT*",
+      "motion": "push",
+      "sfx": "pop",
+      "overlays": []
+    }
+  ],
+  "youtube": {
+    "title": "How does a petrol pump nozzle stop automatically? #shorts",
+    "description": "How does a petrol pump nozzle stop automatically? No sensor, no chip, no electricity. Inside the nozzle, petrol rushes through a narrow spot, speeds up and creates suction. That suction pulls air in through a thin tube that ends at a small air hole near the tip of the spout. While the hole is in open air, it just sips air and the petrol keeps flowing. When the tank fills and petrol covers the hole, air can't get in, the suction jumps, and it tugs a rubber diaphragm in the handle that trips the valve shut. That's the click. So how does a gas pump know when the tank is full? It doesn't: it feels its little straw get blocked.\n\nTomorrow's quiz (Odd one out Thursday): the pressure cooker whistle. Which one is NOT true? A) The water inside gets hotter than 100°C B) The whistle means the food is done C) The whistle lets extra steam out. Comment your guess, first 3 right get a shoutout 👇\n\nSources: ScienceABC, Mental Floss, Jalopnik, Hackaday\nAI visuals\n#ohthatswhy #howitworks #petrolpump #carfacts #shorts",
+    "tags": [
+      "how does petrol pump nozzle stop automatically",
+      "petrol nozzle auto shut off",
+      "how does gas pump know when tank is full",
+      "how it works",
+      "petrol pump"
+    ]
+  },
+  "instagram": {
+    "caption": "How does a petrol pump nozzle stop automatically? ⛽\nNo sensor, no chip: the petrol nozzle auto shut off is pure air. Fast-flowing petrol sips air through a tiny hole near the tip; when petrol covers it, the suction jumps and snaps the valve shut. So how does a gas pump know when the tank is full? It just feels its straw get blocked.\n\nSources: ScienceABC, Mental Floss, Jalopnik, Hackaday\nAI visuals\n#ohthatswhy #howitworks #petrolpump #carfacts\n\nTomorrow's quiz (Odd one out Thursday): the pressure cooker whistle. Which one is NOT true? A) The water inside gets hotter than 100°C B) The whistle means the food is done C) The whistle lets extra steam out. Comment A, B or C, first 3 right get a shoutout 👇"
+  },
+  "facebook": {
+    "description": "How does a petrol pump nozzle stop automatically? No electronics at all. Fast-flowing petrol sips air through a tiny hole near the tip; when petrol covers it, the suction jumps and snaps the valve shut. That's the click. AI visuals.\n\nTomorrow's quiz: the pressure cooker whistle. Which one is NOT true? A) The water inside gets hotter than 100°C B) The whistle means the food is done C) The whistle lets extra steam out. Comment your guess 👇"
+  },
+  "quiz": {
+    "theme": "ODD ONE OUT THURSDAY",
+    "next_topic": "why the pressure cooker whistles",
+    "next_title": "The pressure cooker whistle",
+    "question": "Cooker whistle: which one is NOT true?",
+    "options": {
+      "A": "Water inside goes past 100°C",
+      "B": "It means the food is done",
+      "C": "It lets extra steam out"
+    },
+    "answer": "B",
+    "keywords": {
+      "A": [
+        "hotter",
+        "100",
+        "120",
+        "degrees",
+        "temperature",
+        "boils",
+        "water"
+      ],
+      "B": [
+        "done",
+        "ready",
+        "cooked",
+        "food",
+        "timer"
+      ],
+      "C": [
+        "steam",
+        "pressure",
+        "release",
+        "releases",
+        "valve",
+        "extra"
+      ]
+    },
+    "sources": [
+      "https://en.wikipedia.org/wiki/Pressure_cooking",
+      "https://modernistcuisine.com/mc/how-pressure-cookers-work/"
+    ]
+  }
+}

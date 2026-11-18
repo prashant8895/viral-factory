@@ -1,21 +1,21 @@
 {
-  "updated": "2026-11-18T04:04+05:30",
+  "updated": "2026-11-18T06:43+05:30",
   "videos": 14,
-  "total_views": 19903.0,
+  "total_views": 20042.0,
   "platform_views": {
-    "youtube": 10682.0,
+    "youtube": 10703.0,
     "instagram": 5584.0,
-    "facebook": 3637.0
+    "facebook": 3755.0
   },
   "median_watch_pct": 17.65,
   "median_shares_per_1k": 0.0,
   "rules": [
     "picture_style: 'illustration' beats 'photo' (1,578 vs 973 median views, 7 vs 7 videos). Lean towards 'illustration'.",
     "voice: 'clone' beats 'kokoro' (1,578 vs 973 median views, 7 vs 7 videos). Lean towards 'clone'.",
-    "length_band: '70s+' beats '40-50s' (1,765 vs 973 median views, 3 vs 7 videos). Lean towards '70s+'.",
+    "length_band: '70s+' beats '40-50s' (1,770 vs 973 median views, 3 vs 7 videos). Lean towards '70s+'.",
     "Median watch is 18% of the video: people leave early. Get to the first surprising fact by second 5, cut setup lines, aim for 35-45 s.",
     "Top videos so far: IT'S NOT A SHOE CLEANER! (seen-but-missed, 3,188 views); WHY THIS MESH? (seen-but-missed, 1,891 views); BACK WINDOW LINES? (seen-but-missed, 1,792 views). Pitch more topics like these.",
-    "Weakest: WHY DO WE YAWN? (careful health, 647); NO BATTERY. HOW DOES IT PAY? (how it works, 594); WINTER HAZE? NOT JUST FOG (india everyday, 438). Avoid these angles unless a new twist.",
+    "Weakest: WHY DO WE YAWN? (careful health, 647); NO BATTERY. HOW DOES IT PAY? (how it works, 596); WINTER HAZE? NOT JUST FOG (india everyday, 438). Avoid these angles unless a new twist.",
     "Voice trial (clone): 7/5 videos made, 4 at 72 h, verdict: waiting."
   ],
   "flags": [
@@ -28,7 +28,7 @@
         "n": 3,
         "trusted": true,
         "median_v24": 1112.5,
-        "median_views": 1765.0,
+        "median_views": 1770.0,
         "median_watch_pct": 12.8,
         "median_shares_per_1k": 1.1
       },
@@ -94,7 +94,7 @@
         "trusted": true,
         "median_v24": 1294.5,
         "median_views": 1578.0,
-        "median_watch_pct": 15.950000000000001,
+        "median_watch_pct": 16.450000000000003,
         "median_shares_per_1k": 0.6
       },
       {
@@ -123,7 +123,7 @@
         "trusted": true,
         "median_v24": 1294.5,
         "median_views": 1578.0,
-        "median_watch_pct": 15.950000000000001,
+        "median_watch_pct": 16.450000000000003,
         "median_shares_per_1k": 0.6
       },
       {
@@ -143,7 +143,7 @@
         "trusted": true,
         "median_v24": 1294.5,
         "median_views": 1578.0,
-        "median_watch_pct": 15.950000000000001,
+        "median_watch_pct": 16.450000000000003,
         "median_shares_per_1k": 0.6
       },
       {
@@ -162,7 +162,7 @@
         "n": 3,
         "trusted": true,
         "median_v24": 1112.5,
-        "median_views": 1765.0,
+        "median_views": 1770.0,
         "median_watch_pct": 12.8,
         "median_shares_per_1k": 1.1
       },
@@ -442,13 +442,13 @@
       "hook_style": "curiosity",
       "duration": 81.36,
       "late_min": 0,
-      "views": 1765.0,
+      "views": 1770.0,
       "v24": 1645.0,
-      "v72": 1765.0,
+      "v72": 1770.0,
       "watch_pct": 12.8,
       "skip_pct": 48.6,
       "follows": null,
-      "likes_per_1k": 17.0,
+      "likes_per_1k": 16.9,
       "shares_per_1k": 1.1,
       "youtube_watch_pct": 35.0,
       "instagram_watch_pct": 12.8,
@@ -462,13 +462,13 @@
       "hook_style": "curiosity",
       "duration": 85.34,
       "late_min": -2,
-      "views": 594.0,
+      "views": 596.0,
       "v24": 580.0,
       "v72": null,
       "watch_pct": 10.05,
       "skip_pct": 36.8,
       "follows": null,
-      "likes_per_1k": 13.5,
+      "likes_per_1k": 13.4,
       "shares_per_1k": 20.1,
       "youtube_watch_pct": null,
       "instagram_watch_pct": 15.0,
@@ -482,17 +482,17 @@
       "hook_style": "curiosity",
       "duration": 85.35,
       "late_min": -2,
-      "views": 1829.0,
+      "views": 1961.0,
       "v24": null,
       "v72": null,
-      "watch_pct": 15.950000000000001,
+      "watch_pct": 16.450000000000003,
       "skip_pct": 35.8,
       "follows": null,
       "likes_per_1k": 8.7,
       "shares_per_1k": 0.0,
       "youtube_watch_pct": null,
       "instagram_watch_pct": 23.6,
-      "facebook_watch_pct": 8.3
+      "facebook_watch_pct": 9.3
     }
   ]
 }

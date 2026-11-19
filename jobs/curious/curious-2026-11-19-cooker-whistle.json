@@ -1,0 +1,208 @@
+{
+  "id": "curious-2026-11-19-cooker-whistle",
+  "channel": "curious",
+  "languages": [
+    "en"
+  ],
+  "publish": false,
+  "date": "2026-11-19",
+  "slot": "19:00",
+  "bucket": "how it works",
+  "hook_style": "curiosity",
+  "seed": 11192,
+  "tests": [
+    "2026-11-19-why-claim-title",
+    "2026-11-19-scene2-answer"
+  ],
+  "hook_text": "WHY IT'S HOTTER THAN *BOILING*",
+  "keywords": [
+    "pressure cooker whistle",
+    "why does pressure cooker whistle",
+    "how does a pressure cooker work"
+  ],
+  "sources": [
+    "https://hawkinscookers.com/1.2.pc_benefits.html",
+    "https://modernistcuisine.com/mc/how-pressure-cookers-work/",
+    "https://strate.in/ingenious-design-of-pressure-cooker/",
+    "https://www.potsandpans.in/blogs/articles/understanding-pressure-cooker-whistles-a-user-guide"
+  ],
+  "scenes": [
+    {
+      "visual": "close-up illustration of a shiny steel Indian pressure cooker on a gas stove, its heavy round whistle weight on the lid glowing bright red-orange and lifting slightly with a big white puff of steam bursting out from under it, blue gas flame below, deep teal kitchen wall background, the cooker large and filling the lower two-thirds of the frame, no people, no text or logos",
+      "narration": "Your cooker whistles almost every day. But what's that sound *actually* telling you?",
+      "delivery": "curious",
+      "motion": "push",
+      "sfx": "boom",
+      "overlays": [],
+      "beat": "hook"
+    },
+    {
+      "visual": "2D animation: an open pot on a flame, steam floating away, the temperature number climbs to 100 and sticks",
+      "narration": "Yesterday's odd one out? B. Not *done*. It's saying something stranger. In an open pot, water gets stuck at a *hundred* degrees.",
+      "delivery": "explain",
+      "headline": "STUCK AT *100*",
+      "motion": "push",
+      "sfx": "thud",
+      "overlays": [],
+      "anim": "anims/cooker.html",
+      "anim_params": {
+        "mode": "open",
+        "label": "STUCK AT 100",
+        "steam": "STEAM ESCAPES"
+      },
+      "beat": "loop"
+    },
+    {
+      "visual": "illustration of a hand turning the knob of a gas stove up, under an open steel pot of boiling water with big white clouds of steam rising out of the top and drifting away, the blue-orange flame bright and big, plain navy background, the pot and hand large in the lower two-thirds of the frame, no text",
+      "narration": "Turn the flame up, it still won't climb. Extra heat just makes *steam*, and the steam floats away. So... what if it can't?",
+      "delivery": "explain",
+      "headline": "STEP 1/3: *STEAM* LEAVES",
+      "motion": "drift_right",
+      "sfx": "whoosh",
+      "overlays": [],
+      "beat": "explain"
+    },
+    {
+      "visual": "illustration of two hands pressing down and twisting the lid of a steel pressure cooker shut, the rubber ring at the lid edge glowing bright red-orange, white steam curling inside a clean cutaway window in the cooker side, plain deep teal background, the cooker large and close in the lower two-thirds of the frame, no text",
+      "narration": "Now here's the trick. Lock the lid, and the steam's *trapped*. Like a packed room with one heavy door. Everyone pushes, even down on the water.",
+      "delivery": "build",
+      "headline": "STEP 2/3: *TRAPPED*",
+      "motion": "push",
+      "sfx": "riser",
+      "overlays": [],
+      "beat": "rehook"
+    },
+    {
+      "visual": "2D animation: lid goes on, trapped steam crowds in, arrows press on the water, the temperature climbs 100 to 121",
+      "narration": "And pressed-down water needs *more* heat to boil. A hundred and ten... a hundred and *twenty*. Hotter than boiling.",
+      "delivery": "explain",
+      "headline": "HOTTER THAN *BOILING*",
+      "motion": "push",
+      "sfx": "tick",
+      "overlays": [],
+      "anim": "anims/cooker.html",
+      "anim_params": {
+        "mode": "seal",
+        "to": 121,
+        "press": "PRESSING DOWN"
+      },
+      "beat": "explain"
+    },
+    {
+      "visual": "close-up side cutaway illustration of the top of a steel pressure cooker lid, a thin metal vent pipe rising from the lid with a heavy round whistle weight sitting on top of it, the weight bright red-orange, the inside of the pipe shown in a clean cutaway, plain navy background, the weight and pipe large and centred in the lower two-thirds of the frame, no text",
+      "narration": "So why doesn't it burst? See that weight on top? It sits on one tiny pipe. That's the heavy *door*.",
+      "delivery": "curious",
+      "headline": "STEP 3/3: THE *DOOR*",
+      "motion": "push",
+      "sfx": "pop",
+      "overlays": [],
+      "beat": "rehook"
+    },
+    {
+      "visual": "2D animation: the weight on the vent pipe, a PUSH bar fills, the weight lifts, steam bursts out, WHISTLE, the weight drops back",
+      "narration": "<short pause> When the push gets strong *enough*, it lifts the door. Steam rushes out... that's your whistle. Then it drops and shuts again.",
+      "delivery": "reveal",
+      "headline": "THAT'S THE *WHISTLE*",
+      "motion": "push",
+      "sfx": "sparkle",
+      "overlays": [],
+      "anim": "anims/cooker.html",
+      "anim_params": {
+        "mode": "whistle",
+        "label": "WHISTLE!",
+        "push": "PUSH",
+        "weight": "WEIGHT",
+        "after": "DOOR SHUTS AGAIN"
+      },
+      "beat": "payoff"
+    },
+    {
+      "visual": "warm illustration of a smiling young Indian woman in a simple home kitchen lifting a steaming bowl of yellow dal next to a steel pressure cooker on the stove, the bowl of dal the brightest thing in the frame in sunny yellow-orange, soft cool blue-grey kitchen background, the woman and bowl large in the lower two-thirds of the frame, no text",
+      "narration": "So it's not a timer. It's letting off *pressure*. And that extra heat is why your dal cooks so fast. Next time it whistles, you'll know.",
+      "delivery": "warm",
+      "headline": "NOT A *TIMER*",
+      "motion": "pull",
+      "sfx": "ding",
+      "overlays": [],
+      "beat": "explain"
+    },
+    {
+      "visual": "2D animation: yesterday's fastest right answers",
+      "shoutout": true,
+      "anim": "anims/shoutout.html",
+      "narration": "These legends got it first.",
+      "narration_none": "Nobody cracked yesterday's one... let's see if you can beat today's.",
+      "delivery": "warm",
+      "headline": "*SHOUTOUT*",
+      "motion": "push",
+      "sfx": "sparkle",
+      "overlays": []
+    },
+    {
+      "visual": "2D animation: the quiz about tomorrow's topic",
+      "quiz": true,
+      "anim": "anims/quiz.html",
+      "narration": "Tomorrow, your door key. Spot the odd one *out* and comment your guess.",
+      "delivery": "warm",
+      "headline": "ODD ONE *OUT*",
+      "motion": "push",
+      "sfx": "pop",
+      "overlays": []
+    }
+  ],
+  "youtube": {
+    "title": "Why a pressure cooker whistle means it's past 100°C #shorts",
+    "description": "Why does a pressure cooker whistle? Not because the food is done. In an open pot, water gets stuck at 100°C: extra heat just turns it into steam that floats away. Lock the cooker's lid and the steam is trapped, pressing down on the water, so the water has to get hotter before it can boil, about 120°C. The heavy weight on the lid sits on a tiny vent pipe. When the pressure pushes hard enough, it lifts the weight, steam rushes out (that's the pressure cooker whistle), and the weight drops back to seal it again. That extra heat is how a pressure cooker works so fast.\n\nTomorrow's quiz (Odd one out Thursday): your door key. Which one is NOT true? A) Its bumps lift tiny hidden pins B) Any key that fits the slot will turn it C) Every bump has to be the right height. Comment your guess, first 3 right get a shoutout 👇\n\nSources: Hawkins Cookers, Modernist Cuisine, Strate, Pots and Pans India\nAI visuals\n#ohthatswhy #pressurecooker #howitworks #kitchenscience #shorts",
+    "tags": [
+      "pressure cooker whistle",
+      "why does pressure cooker whistle",
+      "how does a pressure cooker work",
+      "pressure cooker",
+      "how it works"
+    ]
+  },
+  "instagram": {
+    "caption": "Why does a pressure cooker whistle? It's not saying the food is done 🍲\nThe pressure cooker whistle is a heavy weight on a tiny pipe: trapped steam pushes the water past 100°C, and when it pushes hard enough, the weight lifts and lets some out. So how does a pressure cooker work so fast? It cooks in water hotter than boiling.\n\nSources: Hawkins Cookers, Modernist Cuisine, Strate, Pots and Pans India\nAI visuals\n#ohthatswhy #pressurecooker #howitworks #kitchenscience\n\nTomorrow's quiz (Odd one out Thursday): your door key. Which one is NOT true? A) Its bumps lift tiny hidden pins B) Any key that fits the slot will turn it C) Every bump has to be the right height. Comment A, B or C, first 3 right get a shoutout 👇"
+  },
+  "facebook": {
+    "description": "Why does a pressure cooker whistle? Trapped steam pushes the water past 100°C, and when the pressure gets high enough it lifts the heavy weight on the lid and some steam rushes out. That's the whistle, not a timer. AI visuals.\n\nTomorrow's quiz (Odd one out Thursday): your door key. Which one is NOT true? A) Its bumps lift tiny hidden pins B) Any key that fits the slot will turn it C) Every bump has to be the right height. Comment your guess 👇"
+  },
+  "quiz": {
+    "theme": "ODD ONE OUT THURSDAY",
+    "next_topic": "how your key opens a lock",
+    "next_title": "How your key opens a lock",
+    "question": "Your door key: which one is NOT true?",
+    "options": {
+      "A": "Its bumps lift tiny hidden pins",
+      "B": "Any key that fits the slot turns it",
+      "C": "Every bump must be the right height"
+    },
+    "answer": "B",
+    "keywords": {
+      "A": [
+        "pins",
+        "lift",
+        "lifts",
+        "hidden",
+        "bumps"
+      ],
+      "B": [
+        "any",
+        "fits",
+        "slot",
+        "any key"
+      ],
+      "C": [
+        "height",
+        "right",
+        "every",
+        "exact",
+        "depth"
+      ]
+    },
+    "sources": [
+      "https://en.wikipedia.org/wiki/Pin_tumbler_lock",
+      "https://lockwiki.com/index.php/Pin-tumbler"
+    ]
+  }
+}

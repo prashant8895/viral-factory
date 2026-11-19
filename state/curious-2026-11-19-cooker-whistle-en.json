@@ -57,5 +57,24 @@
     "2026-11-19-scene2-answer"
   ],
   "picture_style": "illustration-bold",
-  "voice": "clone"
+  "voice": "clone",
+  "platforms": {
+    "youtube": {
+      "id": "hxv1SelNSdE",
+      "url": "https://youtube.com/shorts/hxv1SelNSdE",
+      "privacy": "public",
+      "posted_at": "2026-11-19T18:58+05:30"
+    },
+    "instagram": {
+      "id": "18109446962256736",
+      "url": "https://www.instagram.com/reel/Df7MMUTTFml/",
+      "posted_at": "2026-11-19T19:00+05:30"
+    },
+    "facebook": {
+      "id": "1526030689361192",
+      "url": "https://www.facebook.com/reel/1526030689361192",
+      "posted_at": "2026-11-19T19:00+05:30"
+    }
+  },
+  "errors": {}
 }

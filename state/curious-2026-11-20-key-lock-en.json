@@ -1,0 +1,61 @@
+{
+  "id": "curious-2026-11-20-key-lock-en",
+  "channel": "curious-en",
+  "date": "2026-11-20",
+  "slot": "19:00",
+  "publish": true,
+  "bucket": "how it works",
+  "episode": null,
+  "hook_text": "WHY ONLY YOUR *KEY* WORKS",
+  "hook_style": "curiosity",
+  "release": "job-curious-2026-11-20-key-lock-en",
+  "duration": 85.42,
+  "quiz": {
+    "theme": "FINISH THE FACT FRIDAY",
+    "next_topic": "why your iron clicks",
+    "next_title": "Why your iron clicks",
+    "question": "Your iron clicks off when it's hot because...",
+    "options": {
+      "A": "A tiny chip tells it to",
+      "B": "A metal strip bends away"
+    },
+    "answer": "B",
+    "keywords": {
+      "A": [
+        "chip",
+        "computer",
+        "sensor",
+        "electronic"
+      ],
+      "B": [
+        "metal",
+        "strip",
+        "bends",
+        "bend",
+        "bimetal",
+        "curls"
+      ]
+    },
+    "sources": [
+      "https://www.scienceabc.com/innovation/iron-automatic-temperature-regulation-control-thermostat-heating-element-bimetallic-strip.html",
+      "https://www.explainthatstuff.com/thermostats.html"
+    ]
+  },
+  "shoutouts": {
+    "from": "curious-2026-11-19-cooker-whistle-en",
+    "names": [
+      {
+        "name": "@Gargiwatchesvideos",
+        "platform": "youtube",
+        "time": "2026-11-19T14:52:26Z",
+        "comment_id": "UgwU14a2d9ifZ_iwIAV4AaABAg"
+      }
+    ]
+  },
+  "tests": [
+    "2026-11-19-why-claim-title",
+    "2026-11-19-scene2-answer"
+  ],
+  "picture_style": "illustration-bold",
+  "voice": "clone"
+}

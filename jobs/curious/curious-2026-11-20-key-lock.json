@@ -4,7 +4,7 @@
   "languages": [
     "en"
   ],
-  "publish": false,
+  "publish": true,
   "date": "2026-11-20",
   "slot": "19:00",
   "bucket": "how it works",
@@ -32,8 +32,17 @@
       "delivery": "curious",
       "motion": "push",
       "sfx": "boom",
-      "overlays": [],
-      "beat": "hook"
+      "overlays": [
+        {
+          "type": "ring",
+          "x": 0.53,
+          "y": 0.585,
+          "r": 0.09,
+          "on": "yours"
+        }
+      ],
+      "beat": "hook",
+      "image": "jobs/curious/pics/curious-2026-11-20-key-lock/s1.jpg"
     },
     {
       "visual": "clean side cutaway illustration of a door lock cylinder seen from the side: a row of five small metal pins standing in little holes, each pin split into two pieces, a tiny coiled spring on top of each, the pins bright red-orange, the lock body cool grey-blue, plain navy background, the lock large and centred in the lower two-thirds of the frame, no text",
@@ -42,8 +51,17 @@
       "headline": "TINY *PINS* INSIDE",
       "motion": "push",
       "sfx": "thud",
-      "overlays": [],
-      "beat": "loop"
+      "overlays": [
+        {
+          "type": "ring",
+          "x": 0.5,
+          "y": 0.655,
+          "r": 0.06,
+          "on": "pins"
+        }
+      ],
+      "beat": "loop",
+      "image": "jobs/curious/pics/curious-2026-11-20-key-lock/s2.jpg"
     },
     {
       "visual": "2D animation: cutaway of the lock, five split pins, the top halves sit across the turning line and light up red one by one, counter 1/5 to 5/5 IN THE WAY, the lock shakes, JAMMED",
@@ -68,8 +86,17 @@
       "headline": "STEP 2/3: THE *BUMPS*",
       "motion": "drift_right",
       "sfx": "whoosh",
-      "overlays": [],
-      "beat": "rehook"
+      "overlays": [
+        {
+          "type": "ring",
+          "x": 0.68,
+          "y": 0.585,
+          "r": 0.15,
+          "on": "height"
+        }
+      ],
+      "beat": "rehook",
+      "image": "jobs/curious/pics/curious-2026-11-20-key-lock/s4.jpg"
     },
     {
       "visual": "2D animation: the right key slides into the cutaway lock, the pins ride up over the bumps, each split lands on the turning line and turns green, counter 0/5 to 5/5 LINED UP, the plug drops free, IT TURNS",
@@ -94,8 +121,17 @@
       "headline": "OFF BY A *HAIR*?",
       "motion": "push",
       "sfx": "riser",
-      "overlays": [],
-      "beat": "rehook"
+      "overlays": [
+        {
+          "type": "arrow",
+          "x": 0.65,
+          "y": 0.665,
+          "dir": "right",
+          "on": "short"
+        }
+      ],
+      "beat": "rehook",
+      "image": "jobs/curious/pics/curious-2026-11-20-key-lock/s6.jpg"
     },
     {
       "visual": "2D animation: a key with one bump too short slides in, one pin stays low with its top half across the line, counter stops at 4/5, red X, STUCK",
@@ -120,8 +156,17 @@
       "headline": "4,000 YEARS *OLD*",
       "motion": "pull",
       "sfx": "sparkle",
-      "overlays": [],
-      "beat": "explain"
+      "overlays": [
+        {
+          "type": "arrow",
+          "x": 0.25,
+          "y": 0.585,
+          "dir": "down",
+          "on": "code"
+        }
+      ],
+      "beat": "explain",
+      "image": "jobs/curious/pics/curious-2026-11-20-key-lock/s8.jpg"
     },
     {
       "visual": "2D animation: yesterday's fastest right answers",

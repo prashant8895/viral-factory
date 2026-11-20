@@ -1,0 +1,198 @@
+{
+  "id": "curious-2026-11-20-key-lock",
+  "channel": "curious",
+  "languages": [
+    "en"
+  ],
+  "publish": false,
+  "date": "2026-11-20",
+  "slot": "19:00",
+  "bucket": "how it works",
+  "hook_style": "curiosity",
+  "seed": 11202,
+  "tests": [
+    "2026-11-19-why-claim-title",
+    "2026-11-19-scene2-answer"
+  ],
+  "hook_text": "WHY ONLY YOUR *KEY* WORKS",
+  "keywords": [
+    "how does a key open a lock",
+    "how do locks work",
+    "pin tumbler lock"
+  ],
+  "sources": [
+    "https://en.wikipedia.org/wiki/Pin_tumbler_lock",
+    "https://lockwiki.com/index.php/Pin-tumbler",
+    "https://www.britannica.com/technology/lock-security"
+  ],
+  "scenes": [
+    {
+      "visual": "close-up illustration of an Indian man's hand holding a brass house key right in front of the round keyhole of a door lock on a teal wooden front door, the key's jagged bumps the brightest thing in the frame in glowing red-orange, the hand, key and lock large in the lower two-thirds of the frame, plain darker teal background, no text or logos",
+      "narration": "You turn your key every day. But how does the lock know it's *yours*?",
+      "delivery": "curious",
+      "motion": "push",
+      "sfx": "boom",
+      "overlays": [],
+      "beat": "hook"
+    },
+    {
+      "visual": "clean side cutaway illustration of a door lock cylinder seen from the side: a row of five small metal pins standing in little holes, each pin split into two pieces, a tiny coiled spring on top of each, the pins bright red-orange, the lock body cool grey-blue, plain navy background, the lock large and centred in the lower two-thirds of the frame, no text",
+      "narration": "Yesterday's odd one out? B, not any key works. Inside, there's a row of tiny *pins* on springs. And your key's a *code* for them.",
+      "delivery": "explain",
+      "headline": "TINY *PINS* INSIDE",
+      "motion": "push",
+      "sfx": "thud",
+      "overlays": [],
+      "beat": "loop"
+    },
+    {
+      "visual": "2D animation: cutaway of the lock, five split pins, the top halves sit across the turning line and light up red one by one, counter 1/5 to 5/5 IN THE WAY, the lock shakes, JAMMED",
+      "narration": "See, each pin is cut in two. The top half sits right across the line where the lock turns. So it's *jammed*... unless you've got the right key.",
+      "delivery": "explain",
+      "headline": "STEP 1/3: *JAMMED*",
+      "motion": "push",
+      "sfx": "tick",
+      "overlays": [],
+      "anim": "anims/lock.html",
+      "anim_params": {
+        "mode": "jammed",
+        "label": "JAMMED",
+        "line": "TURNING LINE"
+      },
+      "beat": "explain"
+    },
+    {
+      "visual": "extreme close-up illustration of a hand holding a silver house key sideways, the jagged row of bumps along its edge glowing bright yellow-orange, the fingers at the left edge, plain deep teal background, the key large across the middle of the lower two-thirds of the frame, no text or logos",
+      "narration": "Look at your key's bumps. Not random. Each one's a different *height*. Almost like digits... but digits of what?",
+      "delivery": "curious",
+      "headline": "STEP 2/3: THE *BUMPS*",
+      "motion": "drift_right",
+      "sfx": "whoosh",
+      "overlays": [],
+      "beat": "rehook"
+    },
+    {
+      "visual": "2D animation: the right key slides into the cutaway lock, the pins ride up over the bumps, each split lands on the turning line and turns green, counter 0/5 to 5/5 LINED UP, the plug drops free, IT TURNS",
+      "narration": "Each bump lifts one pin. And the right key lifts every split to *exactly* that line. Five out of five... it turns.",
+      "delivery": "explain",
+      "headline": "STEP 3/3: *LINED UP*",
+      "motion": "push",
+      "sfx": "ding",
+      "overlays": [],
+      "anim": "anims/lock.html",
+      "anim_params": {
+        "mode": "key",
+        "label": "IT TURNS",
+        "line": "TURNING LINE"
+      },
+      "beat": "explain"
+    },
+    {
+      "visual": "illustration of two almost identical silver house keys lying side by side on a plain wooden table seen from above, one single bump on the right key glowing bright red-orange, plain cool grey-blue background, the two keys large and close filling the lower two-thirds of the frame, no text or logos",
+      "narration": "But here's the weird part. Try a key with just one bump a hair too *short*.",
+      "delivery": "build",
+      "headline": "OFF BY A *HAIR*?",
+      "motion": "push",
+      "sfx": "riser",
+      "overlays": [],
+      "beat": "rehook"
+    },
+    {
+      "visual": "2D animation: a key with one bump too short slides in, one pin stays low with its top half across the line, counter stops at 4/5, red X, STUCK",
+      "narration": "That pin stays too low, so its top half still blocks the line. Four out of five? *Stuck*. <short pause> Your key's basically an ATM *PIN*, cut in metal.",
+      "delivery": "reveal",
+      "headline": "ONE DIGIT *WRONG*",
+      "motion": "push",
+      "sfx": "crash",
+      "overlays": [],
+      "anim": "anims/lock.html",
+      "anim_params": {
+        "mode": "wrong",
+        "label": "STUCK",
+        "line": "TURNING LINE"
+      },
+      "beat": "payoff"
+    },
+    {
+      "visual": "warm illustration of a smiling young Indian man turning a key in the lock of his apartment front door, his hand, the key and the lock the brightest thing in the frame in sunny yellow-orange, cool blue evening corridor background, the man's hand and the door lock large in the lower two-thirds of the frame, no text or logos",
+      "narration": "And this pin trick? It's about four thousand years old. Next time your key turns, you'll know... you just entered the *code*.",
+      "delivery": "warm",
+      "headline": "4,000 YEARS *OLD*",
+      "motion": "pull",
+      "sfx": "sparkle",
+      "overlays": [],
+      "beat": "explain"
+    },
+    {
+      "visual": "2D animation: yesterday's fastest right answers",
+      "shoutout": true,
+      "anim": "anims/shoutout.html",
+      "narration": "These legends got it first.",
+      "narration_none": "Nobody cracked yesterday's one... let's see if you can beat today's.",
+      "delivery": "warm",
+      "headline": "*SHOUTOUT*",
+      "motion": "push",
+      "sfx": "sparkle",
+      "overlays": []
+    },
+    {
+      "visual": "2D animation: the quiz about tomorrow's topic",
+      "quiz": true,
+      "anim": "anims/quiz.html",
+      "narration": "Tomorrow, your iron's little *click*. Finish the fact, then comment your guess.",
+      "delivery": "warm",
+      "headline": "FINISH THE *FACT*",
+      "motion": "push",
+      "sfx": "pop",
+      "overlays": []
+    }
+  ],
+  "youtube": {
+    "title": "Why your key is a PIN: how does a key open a lock? #shorts",
+    "description": "How does a key open a lock? Inside a normal door lock is a row of tiny pins (usually five), each cut in two and pushed down by a spring. Without a key, the top halves sit across the line where the lock turns, so it's jammed. Your key's bumps are all different heights: the right key lifts every pin so each split lands exactly on that line, and the lock turns. One bump a hair off and it's stuck. That's how locks work: a pin tumbler lock is basically a PIN code cut in metal, and the idea is roughly 4,000 years old.\n\nTomorrow's quiz (Finish the fact Friday): your iron clicks off when it's hot because... A) a tiny chip tells it to B) a metal strip bends away. Comment your guess, first 3 right get a shoutout 👇\n\nSources: Wikipedia (Pin tumbler lock), LockWiki, Britannica\nAI visuals\n#ohthatswhy #lock #howitworks #keys #shorts",
+    "tags": [
+      "how does a key open a lock",
+      "how do locks work",
+      "pin tumbler lock",
+      "lock and key",
+      "how it works"
+    ]
+  },
+  "instagram": {
+    "caption": "How does a key open a lock? Only yours works, and here's why 🔑\nA pin tumbler lock hides a row of split pins: your key's bumps lift each one to exactly the line where the lock turns. That's how locks work, like a PIN code cut in metal.\n\nSources: Wikipedia, LockWiki, Britannica\nAI visuals\n#ohthatswhy #lock #howitworks #keys\n\nTomorrow's quiz (Finish the fact Friday): your iron clicks off when it's hot because... A) a tiny chip tells it to B) a metal strip bends away. Comment A or B, first 3 right get a shoutout 👇"
+  },
+  "facebook": {
+    "description": "How does a key open a lock? Tiny split pins inside block it, and only the right key's bumps lift every split to exactly the line where the lock turns. One bump off and it's stuck. AI visuals.\n\nTomorrow's quiz (Finish the fact Friday): your iron clicks off when it's hot because... A) a tiny chip tells it to B) a metal strip bends away. Comment your guess 👇"
+  },
+  "quiz": {
+    "theme": "FINISH THE FACT FRIDAY",
+    "next_topic": "why your iron clicks",
+    "next_title": "Why your iron clicks",
+    "question": "Your iron clicks off when it's hot because...",
+    "options": {
+      "A": "A tiny chip tells it to",
+      "B": "A metal strip bends away"
+    },
+    "answer": "B",
+    "keywords": {
+      "A": [
+        "chip",
+        "computer",
+        "sensor",
+        "electronic"
+      ],
+      "B": [
+        "metal",
+        "strip",
+        "bends",
+        "bend",
+        "bimetal",
+        "curls"
+      ]
+    },
+    "sources": [
+      "https://www.scienceabc.com/innovation/iron-automatic-temperature-regulation-control-thermostat-heating-element-bimetallic-strip.html",
+      "https://www.explainthatstuff.com/thermostats.html"
+    ]
+  }
+}

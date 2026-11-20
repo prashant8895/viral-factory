@@ -1,0 +1,126 @@
+<!doctype html><html><head><meta charset="utf-8">
+<style>html,body{margin:0;background:#16233a}canvas{display:block}</style></head><body>
+<canvas id="c" width="1080" height="1920"></canvas>
+<script>
+// How a key opens a pin-tumbler lock. Clouds-Short style: dark navy, dashed outlines, one big
+// orange counter that moves with the words. Side cutaway: the outer case on top, the turning
+// plug below, the yellow dashed TURNING LINE between them, five pin stacks (spring, orange top
+// pin, teal bottom pin).
+// params.mode:
+//  "jammed": no key. Each orange top pin lights up red in turn where it crosses the line, the
+//            counter counts "IN THE WAY" 1..5, the plug tries to turn and shakes, red X +
+//            params.label ("JAMMED").
+//  "key":    the right key slides in from the left, pins ride up and down over the bumps; once in,
+//            each split lands on the line and turns green one by one, counter "LINED UP" 0/5 -> 5/5,
+//            then the plug drops free of the case (it turns), params.label ("IT TURNS").
+//  "wrong":  same, but the 4th bump is a hair too short: that pin stays low, its top pin still crosses
+//            the line; counter stops at 4/5, that pin flashes red, plug shakes, params.label ("STUCK").
+// params.line: label of the line (default "TURNING LINE").
+// Keeps the top fifth (0-384) and the caption band (1344-1632) empty.
+const c=document.getElementById('c'),x=c.getContext('2d'),W=1080,H=1920;
+const NAVY='#16233a',YEL='#ffd23f',ORA='#ff9f1c',WHITE='#f4f1e8',TEAL='#3fc1c9',RED='#ff5a5a',GRN='#5ad17a',STEEL='#8fa3bf';
+const clamp=(v,a=0,b=1)=>Math.max(a,Math.min(b,v)), prog=(t,a,b)=>clamp((t-a)/(b-a));
+const ease=t=>1-Math.pow(1-clamp(t),3), back=t=>{t=clamp(t);const s=1.7;return 1+(s+1)*Math.pow(t-1,3)+s*Math.pow(t-1,2)};
+const rnd=i=>{const s=Math.sin(i*12.9898)*43758.5453;return s-Math.floor(s)};
+function txt(s,px,py,size,col){x.font=`700 ${size}px Anton, Impact, sans-serif`;x.textAlign='center';x.textBaseline='middle';
+  x.lineWidth=size*0.14;x.lineJoin='round';x.strokeStyle='rgba(0,0,0,.55)';x.strokeText(s,px,py);x.fillStyle=col;x.fillText(s,px,py)}
+function bg(){x.fillStyle=NAVY;x.fillRect(0,0,W,H);
+  for(let i=0;i<220;i++){x.fillStyle='rgba(255,255,255,.035)';x.fillRect(rnd(i)*W,rnd(i+99)*H,3,3)}}
+function pop(s,px,py,str,size,col){if(s<=0)return;x.save();x.translate(px,py);x.scale(s,s);txt(str,0,0,size,col);x.restore()}
+function cross(s,px,py){if(s<=0)return;x.save();x.translate(px,py);x.scale(s,s);x.strokeStyle=RED;x.lineWidth=24;x.lineCap='round';
+  x.beginPath();x.moveTo(-55,-55);x.lineTo(55,55);x.moveTo(55,-55);x.lineTo(-55,55);x.stroke();x.restore()}
+function tick(s,px,py){if(s<=0)return;x.save();x.translate(px,py);x.scale(s,s);x.strokeStyle=GRN;x.lineWidth=24;x.lineCap='round';x.lineJoin='round';
+  x.beginPath();x.moveTo(-55,0);x.lineTo(-15,40);x.lineTo(65,-50);x.stroke();x.restore()}
+
+// geometry
+const CL=150,CR=930,CT=560,LINE=860,PB=1180;     // case left/right/top, turning line, plug bottom
+const PX=[270,405,540,675,810], BW=74;           // pin columns, bore width
+const KP=[180,150,220,160,200], DP=110, REST=1100; // bottom-pin lengths, top-pin length, rest y of bottom-pin foot
+const KEYBOT=1150;
+// key top edge: lift above REST at key coordinate u (final position u = screen x)
+function profile(u,wrong){
+  const pts=[[130,30],[205,55],[270,60],[338,25],[405,90],[472,15],[540,20],[608,15],[675,wrong?40:80],[742,20],[810,40],[880,0],[905,-40]];
+  if(u<pts[0][0])return 30; if(u>pts[pts.length-1][0])return null;
+  for(let i=1;i<pts.length;i++)if(u<=pts[i][0]){const a=pts[i-1],b=pts[i],k=(u-a[0])/(b[0]-a[0]);return a[1]+(b[1]-a[1])*k}
+  return null;
+}
+function spring(cx,top,bot,col){x.strokeStyle=col;x.lineWidth=6;x.beginPath();const n=7;x.moveTo(cx,top);
+  for(let i=1;i<=n;i++){x.lineTo(cx+(i%2?-24:24),top+(bot-top)*(i-0.5)/n)}x.lineTo(cx,bot);x.stroke()}
+function pinRect(cx,top,len,col,glow){x.save();if(glow){x.shadowColor=col;x.shadowBlur=30*glow}x.fillStyle=col;
+  x.beginPath();x.roundRect(cx-BW/2+8,top,BW-16,len,12);x.fill();x.restore()}
+
+function scene(t,p,P){
+  const mode=P.mode||'jammed', wrong=mode==='wrong', hasKey=mode!=='jammed';
+  // timing
+  const slide=hasKey?ease(prog(p,0.06,0.42)):0;          // key travel
+  const kx=hasKey?-(1-slide)*820:0;                      // key offset
+  const cnt=hasKey?prog(p,0.46,0.72):prog(p,0.08,0.55);  // counting phase
+  const total=wrong?4:5, shown=Math.floor(cnt*(hasKey?total:5)+1e-6);
+  const done=cnt>=1;
+  const turn=(mode==='key')?ease(prog(p,0.76,0.88)):0;
+  const shake=(!hasKey||wrong)&&p>0.7&&p<0.86?Math.sin(t*60)*8:0;
+  // pin positions
+  const pins=PX.map((cx,i)=>{let lift=0;
+    if(hasKey){const v=profile(cx-kx,wrong);lift=v==null?0:Math.max(0,v)}
+    const foot=REST-lift, ktop=foot-KP[i];
+    return {cx,foot,ktop,dtop:ktop-DP,ok:Math.abs(ktop-LINE)<3};});
+  // case (top block)
+  x.fillStyle='rgba(143,163,191,.16)';x.fillRect(CL,CT,CR-CL,LINE-CT);
+  // plug (moves down when it turns, shakes when blocked)
+  x.save();x.translate(shake,turn*60);
+  x.fillStyle=turn>0?`rgba(90,209,122,${.14+.14*turn})`:'rgba(143,163,191,.26)';x.fillRect(CL,LINE,CR-CL,PB-LINE);
+  // bores in plug
+  PX.forEach(cx=>{x.fillStyle='rgba(22,35,58,.85)';x.fillRect(cx-BW/2,LINE,BW,REST-LINE+6)});
+  x.restore();
+  PX.forEach(cx=>{x.fillStyle='rgba(22,35,58,.85)';x.fillRect(cx-BW/2,CT+20,BW,LINE-CT-20)});
+  // outlines
+  x.save();x.setLineDash([22,16]);x.lineWidth=6;x.strokeStyle=WHITE;x.shadowColor=WHITE;x.shadowBlur=8;
+  x.strokeRect(CL,CT,CR-CL,PB-CT+turn*60);x.restore();
+  // key
+  if(hasKey){x.save();x.translate(kx+shake,turn*60);
+    x.fillStyle='#c9d3e0';x.beginPath();x.moveTo(130,KEYBOT);
+    for(let u=130;u<=905;u+=5){const v=profile(u,wrong);if(v==null)break;x.lineTo(u,REST-v)}
+    x.lineTo(905,KEYBOT);x.closePath();x.fill();
+    // bow (handle) outside the lock
+    x.fillStyle=YEL;x.beginPath();x.roundRect(-10,1040,160,170,40);x.fill();
+    x.fillStyle=NAVY;x.beginPath();x.arc(55,1125,26,0,7);x.fill();
+    x.restore();}
+  // pins
+  let r=0;const rank=pins.map(q=>q.ok?r++:99);
+  pins.forEach((q,i)=>{
+    const lit=hasKey? rank[i]<shown : i<shown;
+    const bad=wrong&&!q.ok&&done;
+    const plugDy=turn*60;
+    // bottom pin moves with plug
+    pinRect(q.cx+shake,q.ktop+plugDy,KP[i],(hasKey&&lit&&q.ok)?GRN:TEAL,(hasKey&&lit&&q.ok)?0.8:0);
+    // top pin: stays in the case
+    const dcol=bad?(Math.sin(t*12)>0?RED:ORA):(!hasKey&&lit?RED:ORA);
+    pinRect(q.cx,q.dtop,DP,dcol,(bad||(!hasKey&&lit))?0.9:0.3);
+    spring(q.cx,CT+24,q.dtop,STEEL);
+    // split mark
+    if(hasKey&&lit&&q.ok){x.strokeStyle=GRN;x.lineWidth=5;x.beginPath();x.moveTo(q.cx-BW/2-14,LINE);x.lineTo(q.cx+BW/2+14,LINE);x.stroke()}
+  });
+  // turning line
+  x.save();x.setLineDash([26,14]);x.lineWidth=8;const lc=turn>0?GRN:YEL;x.strokeStyle=lc;x.shadowColor=lc;x.shadowBlur=20;
+  x.beginPath();x.moveTo(CL-40,LINE);x.lineTo(CR+40,LINE);x.stroke();x.restore();
+  x.save();x.font='700 40px Anton, Impact, sans-serif';x.textAlign='left';x.fillStyle=lc;x.globalAlpha=clamp(p*6);
+  x.fillText(P.line||'TURNING LINE',CL,CT-24);x.restore();
+  // counter
+  const cs=back(prog(p,0,0.08));
+  if(hasKey){pop(cs,540,460,shown+'/5',150,ORA)}
+  else pop(cs,540,460,shown+'/5',150,ORA);
+  pop(cs,880,470,hasKey?'LINED UP':'IN THE WAY',40,ORA);
+  // ending marks
+  const es=back(prog(p,0.8,0.9));
+  if(mode==='key'){tick(es,940,LINE-120);pop(es,540,1290,P.label||'IT TURNS',70,GRN)}
+  else {const bx=wrong?PX[3]:540;cross(es,bx,LINE);pop(es,540,1290,P.label||(wrong?'STUCK':'JAMMED'),70,RED)}
+}
+
+window.draw=function(t,dur,P){
+  P=Object.assign({mode:'jammed'},P||{});
+  const p=t/Math.max(dur,0.1);
+  x.setTransform(1,0,0,1,0,0);x.globalAlpha=1;x.shadowBlur=0;bg();
+  scene(t,p,P);
+};
+window.draw(0,6,{});
+</script></body></html>

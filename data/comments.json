@@ -1,5 +1,5 @@
 {
-  "updated": "2026-11-20T14:25+05:30",
+  "updated": "2026-11-20T19:02+05:30",
   "errors": {
     "curious-hi/instagram/curious-2026-11-07-microwave-mesh-hi": "400: {\"error\":{\"message\":\"Unsupported get request. Object with ID '18393283948224566' does not exist, cannot be loaded due to missing permissions, or does not support this operation. Please read the Graph API documentation at https://developers.facebook.com/docs/graph-api\",\"code\":100,\"type\":\"GraphMe",
     "curious-en/instagram/curious-2026-11-10-winter-smog-en": "400: {\"error\":{\"message\":\"Unsupported get request. Object with ID '18058381928810433' does not exist, cannot be loaded due to missing permissions, or does not support this operation. Please read the Graph API documentation at https://developers.facebook.com/docs/graph-api\",\"code\":100,\"type\":\"GraphMe",
@@ -173,20 +173,6 @@
       "video": "curious-2026-11-07-microwave-mesh-en",
       "hook": "WHY THIS *MESH*?",
       "post_id": "boeMBXEsnq4",
-      "replied": true
-    },
-    {
-      "comment_id": "UgzT4hdwzA1BGBMKO3p4AaABAg",
-      "author": "@EliasVillanueva-n5i",
-      "text": "Is AI",
-      "time": "2026-11-08T03:06:07Z",
-      "likes": 0,
-      "has_our_reply": true,
-      "platform": "youtube",
-      "channel": "curious-en",
-      "video": "curious-2026-11-06-escalator-brush-en",
-      "hook": "IT'S *NOT* A SHOE CLEANER!",
-      "post_id": "Nq0c6O4KE-o",
       "replied": true
     }
   ]

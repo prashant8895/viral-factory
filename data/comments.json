@@ -1,5 +1,5 @@
 {
-  "updated": "2026-11-21T04:16+05:30",
+  "updated": "2026-11-21T07:21+05:30",
   "errors": {
     "curious-hi/instagram/curious-2026-11-07-microwave-mesh-hi": "400: {\"error\":{\"message\":\"Unsupported get request. Object with ID '18393283948224566' does not exist, cannot be loaded due to missing permissions, or does not support this operation. Please read the Graph API documentation at https://developers.facebook.com/docs/graph-api\",\"code\":100,\"type\":\"GraphMe",
     "curious-en/instagram/curious-2026-11-10-winter-smog-en": "400: {\"error\":{\"message\":\"Unsupported get request. Object with ID '18058381928810433' does not exist, cannot be loaded due to missing permissions, or does not support this operation. Please read the Graph API documentation at https://developers.facebook.com/docs/graph-api\",\"code\":100,\"type\":\"GraphMe",
@@ -13,13 +13,13 @@
       "text": "B",
       "time": "2026-11-20T15:49:32Z",
       "likes": 0,
-      "has_our_reply": false,
+      "has_our_reply": true,
       "platform": "youtube",
       "channel": "curious-en",
       "video": "curious-2026-11-20-key-lock-en",
       "hook": "WHY ONLY YOUR *KEY* WORKS",
       "post_id": "_Y7MnJBP5Zk",
-      "replied": false
+      "replied": true
     },
     {
       "comment_id": "UgwU14a2d9ifZ_iwIAV4AaABAg",

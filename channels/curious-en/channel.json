@@ -40,9 +40,18 @@
       "Wed": "THIS OR THAT WEDNESDAY",
       "Thu": "ODD ONE OUT THURSDAY",
       "Fri": "FINISH THE FACT FRIDAY",
-      "Sat": "SPOT THE SCIENCE SATURDAY",
+      "Sat": "SHOWBIZ SATURDAY",
       "Sun": "SUNDAY BRAIN TEASER"
-    }
+    },
+    "quiz_kinds": [
+      "pop culture",
+      "current affairs",
+      "general knowledge"
+    ],
+    "quiz_min_seconds": 9,
+    "quiz_floor_seconds": 7,
+    "quiz_max_same_answer": 2,
+    "quiz_note": "Prashant 2026-11-21: (1) the answer was B every day, so the right letter moves around (render refuses the same letter 3 videos running); (2) the quiz card was on screen too briefly, so it is held 9 s (min 7 s) and the narration reads the question out; (3) EXPERIMENT from 2026-11-21: the quiz is a light pop-culture / current-affairs / general-knowledge question anyone can have a go at, NOT about tomorrow's topic (tomorrow's topic is still teased on the card as 'NEXT VIDEO'). Compare comments per video against before."
   },
   "youtube_brand": {
     "note": "factory/yt_seo.py puts this on the YouTube channel (About text, keywords) and on every Short (brand line, tags, language) so people searching the channel name find it. Run the 'YouTube channel search' workflow after changing it.",

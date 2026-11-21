@@ -103,8 +103,8 @@
       "visual": "2D animation: yesterday's fastest right answers",
       "shoutout": true,
       "anim": "anims/shoutout.html",
-      "narration": "Yesterday's answer? <short pause> And these three got it first. Nicely done!",
-      "narration_none": "Nobody cracked yesterday's one... <chuckles> let's see if you can beat today's.",
+      "narration": "Yesterday's answer: B. <short pause> And these legends got it first. Nicely done!",
+      "narration_none": "Yesterday's answer was B... and nobody cracked it. <chuckles> Let's see you beat today's.",
       "delivery": "warm",
       "headline": "*SHOUTOUT*",
       "motion": "push",
@@ -112,10 +112,10 @@
       "overlays": []
     },
     {
-      "visual": "2D animation: the quiz about tomorrow's topic",
+      "visual": "2D animation: today's quiz (a light general question, not tomorrow's topic)",
       "quiz": true,
       "anim": "anims/quiz.html",
-      "narration": "Tomorrow: why ice floats. Quick guess... A, or B? Comment your answer. First three to get it right are in tomorrow's video.",
+      "narration": "Quick one... which is taller: the Statue of Unity, or the Qutub Minar? Comment your guess. First three right are in tomorrow's video.",
       "delivery": "curious",
       "headline": "YOUR *GUESS*?",
       "motion": "push",
@@ -135,40 +135,38 @@
     ]
   },
   "instagram": {
-    "caption": "Why do car rear windows have lines? 🚗\nThose rear window lines are a rear defroster: thin metal strips that warm the glass so fog and frost clear away.\nDid you know what that button does? 👇\n\nSources: IFLScience, Jalopnik, Mental Floss, BGR\nAI visuals\n#ohthatswhy #cars #carfacts #didyouknow\n\nTomorrow's quiz: ice floats on water. Why? A) air bubbles inside B) water spreads out when it freezes. Comment A or B, first 3 right get a shoutout 👇"
+    "caption": "Why do car rear windows have lines? 🚗\nThose rear window lines are a rear defroster: thin metal strips that warm the glass so fog and frost clear away.\nDid you know what that button does? 👇\n\nSources: IFLScience, Jalopnik, Mental Floss, BGR\nAI visuals\n#ohthatswhy #cars #carfacts #didyouknow\n\nToday's quiz (This or that Wednesday): which is taller? A) Statue of Unity B) Qutub Minar. Comment A or B, first 3 right get a shoutout 👇\nNext video: why ice floats"
   },
   "facebook": {
     "description": "Why do car rear windows have lines? They're a heater built into the glass that clears fog and frost. AI visuals."
   },
   "quiz": {
     "theme": "THIS OR THAT WEDNESDAY",
+    "kind": "general knowledge",
     "next_topic": "why ice floats on water",
     "next_title": "Why ice floats",
-    "question": "Ice floats on water. Why?",
+    "question": "Which one is taller?",
     "options": {
-      "A": "It has air bubbles inside",
-      "B": "Water spreads out when it freezes"
+      "A": "Statue of Unity",
+      "B": "Qutub Minar"
     },
-    "answer": "B",
+    "answer": "A",
     "keywords": {
       "A": [
-        "bubble",
-        "bubbles",
-        "air"
+        "statue",
+        "unity",
+        "sardar",
+        "patel"
       ],
       "B": [
-        "expand",
-        "expands",
-        "spreads",
-        "spread",
-        "less dense",
-        "density",
-        "lighter"
+        "qutub",
+        "minar",
+        "qutb"
       ]
     },
     "sources": [
-      "https://www.usgs.gov/special-topics/water-science-school/science/ice-and-water",
-      "https://www.britannica.com/science/ice"
+      "https://www.britannica.com/topic/Statue-of-Unity",
+      "https://www.britannica.com/topic/Qutb-Minar"
     ]
   }
 }

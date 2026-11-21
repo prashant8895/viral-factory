@@ -349,6 +349,22 @@ def scene_lines(scene: dict) -> list[dict]:
     return [line]
 
 
+def pad_to(sa: SceneAudio, seconds: float) -> SceneAudio:
+    """Add silence at the end of a scene's voice so the scene stays on screen `seconds` long
+    (the quiz card needs time to be read). Words keep their timings."""
+    with wave.open(str(sa.path), "rb") as f:
+        sr, frames = f.getframerate(), f.readframes(f.getnframes())
+    extra = max(0, int(round((seconds - sa.duration) * sr)))
+    if not extra:
+        return sa
+    with wave.open(str(sa.path), "wb") as f:
+        f.setnchannels(1)
+        f.setsampwidth(2)
+        f.setframerate(sr)
+        f.writeframes(frames + b"\x00\x00" * extra)
+    return SceneAudio(sa.path, (len(frames) // 2 + extra) / sr, sa.words)
+
+
 def synthesize(scene: dict, out: Path, voices: dict, speed: float = 1.05, engine: str = "kokoro",
                styles: dict | None = None) -> SceneAudio:
     """Speak one scene. Each speaker gets its own voice; lines are joined with a short gap."""

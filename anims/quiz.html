@@ -34,13 +34,13 @@ window.draw=function(t,dur,P){
     x.fillStyle=ORA;x.beginPath();x.roundRect(-bw/2,-52,bw,104,26);x.fill();
     txt(P.theme,0,4,54,INK);x.restore()}
   // "TOMORROW:" + question
-  let y=560;
-  if(P.next){const a=ease(prog(t,0.25,0.7));x.globalAlpha=a;txt('TOMORROW: '+P.next.toUpperCase(),540,y,40,TEAL);x.globalAlpha=1;y+=70}
+  // the question is NOT about tomorrow's topic (2026-11-21), so tomorrow's video sits apart, at the bottom
+  let y=580;
   const [ql,qs]=fit(P.question,940,72,3);const qa=ease(prog(t,0.35,0.85));
   x.globalAlpha=qa;ql.forEach((l,i)=>txt(l,540,y+i*qs*1.12+qs*0.5,qs,WHITE));x.globalAlpha=1;
   y+=ql.length*qs*1.12+40;
   // option cards pop in one by one, then gently pulse in turn (thinking...)
-  const keys=Object.keys(P.options), n=keys.length, ch=Math.min(150,(1240-y)/n-22);
+  const keys=Object.keys(P.options), n=keys.length, ch=Math.min(150,((P.next?1150:1240)-y)/n-22);
   keys.forEach((k,i)=>{const s=back(prog(t,0.7+i*0.3,1.1+i*0.3));if(s<=0)return;
     const cy=y+i*(ch+22)+ch/2, think=(t>2.2)?Math.max(0,Math.sin((t*2.2-i*2.1)))*0.035:0;
     x.save();x.translate(540,cy);x.scale(s*(1+think),s*(1+think));
@@ -50,6 +50,9 @@ window.draw=function(t,dur,P){
     let [ol,os]=fit(P.options[k],720,Math.min(60,ch*0.46),2);while(os>34&&ol.length*os*1.1>ch-24){os-=3;ol=wrap(P.options[k],720,os)}
     ol.forEach((l,j)=>txt(l,-320,(j-(ol.length-1)/2)*os*1.08+3,os,WHITE,'left'));
     x.restore()});
+  if(P.next){const a=ease(prog(t,1.4,2.0));x.globalAlpha=a*0.9;
+    let s='NEXT VIDEO: '+P.next.toUpperCase(),z=36;font(z);while(z>26&&x.measureText(s).width>960){z-=2;font(z)}
+    txt(s,540,1205,z,TEAL);x.globalAlpha=1}
   // footer: comment bubble + the shoutout promise (pulses)
   const f=back(prog(p,0.45,0.6));
   if(f>0){const pulse=1+0.04*Math.sin(t*6);x.save();x.translate(540,1300);x.scale(f*pulse,f*pulse);

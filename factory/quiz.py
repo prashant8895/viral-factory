@@ -1,6 +1,7 @@
 """Daily quiz + shoutouts (since 2026-11-13).
 
-Every Curious video ends with a quick guess about TOMORROW's topic ("quiz" in the job).
+Every Curious video ends with a quick quiz ("quiz" in the job): since 2026-11-21 a light
+pop-culture / current-affairs / general-knowledge question, not about tomorrow's topic.
 The next video answers it, and at render time we read the comments on yesterday's video
 (YouTube, Instagram, Facebook), find the first people (max 3) who got it right, and show
 their names on a short "shoutout" scene. Names are shown, never spoken (the voice would

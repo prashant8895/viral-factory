@@ -61,7 +61,7 @@ def _engagement(job: dict) -> dict:
 
 def check_engagement(job: dict) -> None:
     """Hook + quiz rules (Prashant, 2026-11-13): grab people in the first second, re-hook in the
-    middle, pay off late, end with a guess about TOMORROW's topic, and thank yesterday's fastest."""
+    middle, pay off late, end with a light quiz (not about tomorrow's topic since 2026-11-21), and thank yesterday's fastest."""
     eng = _engagement(job)
     if not eng:
         return
@@ -86,7 +86,7 @@ def check_engagement(job: dict) -> None:
             raise ValueError(f"A scene of {n} words sits on one picture too long; split it (max {eng.get('scene_max_words', 30)})")
     q = job.get("quiz")
     if not q:
-        raise ValueError('Job needs a "quiz": a guess about tomorrow\'s topic (see prompts/script.md)')
+        raise ValueError('Job needs a "quiz": a light quiz question (see prompts/script.md)')
     opts = q.get("options") or {}
     if not 2 <= len(opts) <= 3 or q.get("answer") not in opts:
         raise ValueError("quiz needs 2-3 options (A, B, C) and an answer that is one of them")
@@ -95,6 +95,7 @@ def check_engagement(job: dict) -> None:
     for k in ("theme", "question", "next_topic"):
         if not q.get(k):
             raise ValueError(f"quiz.{k} is missing")
+    check_quiz_mix(job, eng)
     if not sc[-1].get("quiz"):
         raise ValueError('The last scene must be the quiz scene ("quiz": true)')
     shout = [i for i, s in enumerate(sc) if s.get("shoutout")]
@@ -107,6 +108,55 @@ def check_engagement(job: dict) -> None:
         raise ValueError("The quiz scene must ask people to comment their guess")
     if "comment" not in (job.get("instagram") or {}).get("caption", "").lower():
         raise ValueError("Put the quiz question in the Instagram caption too (ask them to comment)")
+
+
+_STOP = set("why how what when where which who does do did your you the this that with from they them there "
+             "it's its about tomorrow today into have has make makes made just only really "
+             "are and for not one can all our out get got was why".split())
+
+
+def _recent_quiz_answers(job: dict, n: int = 2) -> list[str]:
+    """Answer letters of the latest n earlier Curious videos (one per date, the newest job of that date)."""
+    by_date: dict[str, str] = {}
+    base = re.sub(r"-(en|hi)$", "", job.get("id", ""))
+    for f in sorted((ROOT / "jobs" / "curious").glob("curious-20*.json")):
+        if f.stem == base:
+            continue
+        try:
+            j = json.loads(f.read_text())
+        except Exception:
+            continue
+        d, a = str(j.get("date") or ""), (j.get("quiz") or {}).get("answer")
+        if a and d and d < str(job.get("date") or "9999"):
+            by_date[d] = str(a).upper()  # sorted by name, so a -v2 of the same day wins
+    return [by_date[d] for d in sorted(by_date)[-n:]]
+
+
+def check_quiz_mix(job: dict, eng: dict) -> None:
+    """Prashant 2026-11-21: (1) the right answer was B every single day, so the letter must move
+    around: never the same letter three videos running; (3) the quiz is a light pop-culture /
+    current-affairs / general-knowledge question that anyone could have a go at, NOT a guess
+    about tomorrow's topic (tomorrow's topic is still teased, just not quizzed)."""
+    q = job["quiz"]
+    ans = str(q["answer"]).upper()
+    last = _recent_quiz_answers(job, int(eng.get("quiz_max_same_answer", 2)))
+    if len(last) >= int(eng.get("quiz_max_same_answer", 2)) and all(a == ans for a in last):
+        others = [k for k in q["options"] if k.upper() != ans]
+        raise ValueError(f"The quiz answer was {ans} in each of the last {len(last)} videos; viewers will learn "
+                         f"to just say {ans}. Reorder the options so the right one is {' or '.join(others)}.")
+    kinds = eng.get("quiz_kinds") or ["pop culture", "current affairs", "general knowledge"]
+    if q.get("kind") not in kinds:
+        raise ValueError(f'quiz.kind must be one of {kinds}: the quiz is a light general question, '
+                         f'not about tomorrow\'s topic (prompts/script.md 5c)')
+    if len(q.get("sources") or []) < 2:
+        raise ValueError("quiz.sources needs 2 sources that confirm the answer")
+    words = lambda s: {re.sub(r"(es|s)$", "", w) if len(w) > 4 else w  # noqa: E731
+                       for w in re.findall(r"[a-z]+", str(s).lower()) if len(w) >= 3 and w not in _STOP}
+    asked = words(q["question"]) | set().union(*(words(v) for v in q["options"].values()))
+    shared = asked & (words(q["next_topic"]) | words(q.get("next_title", "")))
+    if shared:
+        raise ValueError(f"The quiz is about tomorrow's topic again ({', '.join(sorted(shared))}); "
+                         f"ask an unrelated pop-culture / current-affairs / general-knowledge question instead")
 
 
 def _recent_openers(job: dict, n: int = 3) -> list[str]:
@@ -256,6 +306,23 @@ def render_one(job: dict, img_dir: Path | None = None) -> Path:
             print(f"[scene {i + 1}] voice came out much quieter than the rest: re-recording at full voice", flush=True)
             redo = {**job["scenes"][i], "delivery": "full clear voice at normal speaking volume, not whispering"}
             scene_audio[i] = tts.synthesize(redo, work / f"voice_{i}.wav", voices, speed, engine, styles)
+    if job["scenes"] and job["scenes"][-1].get("quiz"):
+        # Prashant 2026-11-21: the quiz card was gone before anyone could read it. Hold it on
+        # screen (silence after the voice, music keeps going) for at least quiz_min_seconds,
+        # as far as the 90 s Facebook limit allows.
+        eng = ch.get("engagement") or {}
+        want = float(eng.get("quiz_min_seconds", 9))
+        q_a = scene_audio[-1]
+        rest = sum(a.duration for a in scene_audio[:-1])
+        target = min(want, 89.5 - rest)
+        if target > q_a.duration:
+            scene_audio[-1] = tts.pad_to(q_a, target)
+        floor = float(eng.get("quiz_floor_seconds", 7))
+        if scene_audio[-1].duration < floor:
+            raise ValueError(f"The quiz would only stay on screen {scene_audio[-1].duration:.1f} s (needs "
+                             f"{floor:.0f}+, ideally {want:.0f}); the rest runs {rest:.1f} s. Trim the "
+                             f"content scenes by ~{(floor - scene_audio[-1].duration) * 2.6:.0f} words.")
+        print(f"[quiz] on screen {scene_audio[-1].duration:.1f} s", flush=True)
     total = sum(a.duration for a in scene_audio)
     if total > 89.5:  # Facebook Reels (video_reels API) take 3-90 s; longer would post nowhere on Facebook
         raise ValueError(f"Voice runs {total:.1f} s; Facebook Reels allow max 90 s. Trim the script "

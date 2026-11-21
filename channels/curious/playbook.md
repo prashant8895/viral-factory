@@ -163,12 +163,11 @@ Every video must leave a viewer able to explain the "how" back to a friend in tw
 - **One simple everyday analogy, carried through the whole explanation**, not dropped after one
   line (the shop tag = a wine glass that sings when you hum its note; the gate = someone who hums
   and then listens for the glass). Pick something every Indian viewer has felt or seen.
-- **At least half the scenes explain how it works** (the steps above). Teases, re-hooks and the
-  quiz recap must never take the place of a step: a re-hook is a question that leads INTO the
+- **At least half the scenes explain how it works** (the steps above). Teases and re-hooks must never take the place of a step: a re-hook is a question that leads INTO the
   next step ("So why would a ringing strip set off a beep?"), not a promise about later.
 - **Don't rush the concept.** It's fine if the video runs longer (up to ~88 s). Give the key step
   its own scene and a short pause after it. One idea per scene, said slowly.
-- **Yesterday's quiz answer: one short line**, not a whole scene of teasing.
+- **Yesterday's quiz answer goes in the shoutout scene**, never in the opener (since 2026-11-21 the quiz is a general question, not about today's topic).
 - **Show each step.** Every how-it-works step gets a visual that shows THAT step: a clean cutaway or
   close-up illustration, or a 2D animation that moves step by step (ping going out, strip ringing,
   gate listening). Labels go in overlays, never as text inside the picture.
@@ -320,37 +319,53 @@ More rules for the hold (Prashant, 2026-11-14: "keep the script full of hooks"):
 - The shoutout scene (if anyone answered yesterday) is itself a reason to stay to the end:
   regulars watch through to see their name.
 
-### Daily quiz and shoutouts (Prashant, 2026-11-13): comments, shares, and a reason to come back
+### Daily quiz and shoutouts (Prashant, 2026-11-13; quiz reworked 2026-11-21)
 
-Every video ends with a quick guess about **tomorrow's** topic. Prashant picks that topic on the
-Morning Slate (the slate is always for tomorrow; today's topic is already locked by yesterday's
-quiz). Claude never chooses a teased topic on its own. Tomorrow's video IS the answer,
-and starts paying it off from the hook. The first people (max **3**, across YouTube,
-Instagram and Facebook together) who answer right get their names on screen in that video.
+Every video ends with a quick, light quiz and a "NEXT VIDEO" tease of tomorrow's topic. Prashant
+picks tomorrow's topic on the Morning Slate (the slate is always for tomorrow; today's topic is
+locked by yesterday's tease). Claude never chooses a teased topic on its own. The first people
+(max **3**, across YouTube, Instagram and Facebook together) who answer right get their names on
+screen in the next video, together with the answer.
+
+**2026-11-21 changes (Prashant):** the answer was B every single day, the card was gone before
+anyone could read it, and questions about tomorrow's topic were too specific to know. So:
+- **The quiz is NOT about tomorrow's topic** (experiment, compare comments per video with
+  13–20 Nov). It's a light question most people can have a go at: `kind` "pop culture" (films,
+  cricket and sport, music, famous shows, viral moments, landmarks), "current affairs" (this
+  week's big happy-or-neutral news: launches, records, sport results, space, festivals; never
+  politics, elections, war, crime, deaths or disasters, nothing that could flip overnight) or
+  "general knowledge". Rotate kinds. India-first, fair for global viewers. No word of the quiz
+  may come from tomorrow's topic (render-checked).
+- **The right letter moves around**: A, B (and C) win about equally; the render refuses the
+  same letter three videos running. Both options believable.
+- **Readable**: the narration reads the question and options out, and the card stays on
+  screen at least 9 s (render pads it; refuses under 7 s). So scripts are 150–180 words.
 
 - `quiz` in the job: `theme` (the day's theme from `channels/curious-en/channel.json` →
-  `engagement.quiz_days`, by the day the video posts), `question` (short, ~8 words), `options`
-  {A, B} or {A, B, C} (short, both believable, the wrong one is the common belief), `answer`,
-  `keywords` (words per option, used to judge comments that don't say a letter), `next_topic`,
-  `next_title` (shown on screen), `sources` (2 for the answer).
+  `engagement.quiz_days`, by the day the video posts), `kind`, `question` (short, ~8 words),
+  `options` {A, B} or {A, B, C} (short), `answer`, `keywords` (words per option, used to judge
+  comments that don't say a letter), `next_topic` and `next_title` (tomorrow's video, shown as
+  "NEXT VIDEO" on the card), `sources` (2 for the answer).
 - Theme days (fun, recognisable; change the format, not the idea):
   MYTH OR FACT MONDAY, GUESS THE NUMBER TUESDAY (options are ranges), THIS OR THAT WEDNESDAY,
-  ODD ONE OUT THURSDAY, FINISH THE FACT FRIDAY, SPOT THE SCIENCE SATURDAY, SUNDAY BRAIN TEASER.
-- The last scene is the quiz scene (`"quiz": true`, `anims/quiz.html`, ~12–20 words): tease
-  tomorrow, ask the guess, ask them to comment it, mention the shoutout. Add a share nudge only
-  if it fits ("ask your friend first, bet they get it wrong"). Never say the right answer.
-- Right before it: the shoutout scene (`"shoutout": true`, `anims/shoutout.html`, ~8–12 words)
-  whenever yesterday's video asked a quiz. Names are SHOWN, never spoken (the voice mangles
-  handles), and the count isn't known when you write it, so never say "three": "these legends
-  got it first". Always also write `narration_none` for when nobody got it right ("Nobody
-  cracked yesterday's one... let's see if you can beat today's."). The render reads the
-  comments, picks the names (factory/quiz.py) and drops the scene if yesterday had no quiz.
+  ODD ONE OUT THURSDAY, FINISH THE FACT FRIDAY, SHOWBIZ SATURDAY (films, music, shows, sport
+  stars), SUNDAY BRAIN TEASER.
+- The last scene is the quiz scene (`"quiz": true`, `anims/quiz.html`, 16–24 words): read the
+  question and options, ask them to comment, mention the shoutout if it fits. Add a share nudge
+  only if it fits ("ask your friend first"). Never say the right answer.
+- Right before it: the shoutout scene (`"shoutout": true`, `anims/shoutout.html`, ~8–14 words)
+  whenever yesterday's video asked a quiz. It says yesterday's answer in a few words (the card
+  shows it too). Names are SHOWN, never spoken (the voice mangles handles), and the count isn't
+  known when you write it, so never say "three": "Yesterday's answer: A, Dangal. These legends
+  got it first". Always also write `narration_none` for when nobody got it right ("It was A,
+  Dangal... nobody cracked it. Let's see you beat today's."). The render reads the comments,
+  picks the names (factory/quiz.py) and drops the scene if yesterday had no quiz.
 - Fair: earliest right comment wins (by the platform's timestamp), one spot per person, names
   that look like spam/links/slurs are skipped. YouTube and Instagram show the @handle, Facebook
   shows "First L." only.
-- Put the quiz in the Instagram caption (and the YouTube/Facebook description) too: "Tomorrow's
-  quiz: ...? A) ... B) ... Comment your guess 👇". It's a real question with a real answer, which
-  is fine; never "comment YES if..." style bait.
+- Put the quiz in the Instagram caption (and the YouTube/Facebook description) too: "Today's
+  quiz: ...? A) ... B) ... Comment your guess 👇", then "Next video: <next_title>". It's a real
+  question with a real answer, which is fine; never "comment YES if..." style bait.
 - The reply run congratulates the winners under their comment once the video is out.
 
 ### Calls to action (smart, never greedy)
@@ -432,3 +447,4 @@ saw, what we change.
 - 2026-11-15: Voice trial: 5 of 5 made, only 1 old enough at 72 h (plane window, 1,585 vs 980 baseline). The verdict can come on 18 Nov once shop tags reaches 72 h. Note the trial mixes the voice with the illustrations, the new opening, longer scripts and (from 13 Nov) hook-and-hold beats, so a "keep" means "keep the package", not proof of the voice alone.
 - 2026-11-18: First daily slate with recommendations (dry run). Prashant approved two, running as tests from 19 Nov: "Why + surprising fact" YouTube titles and headlines (`2026-11-19-why-claim-title`) and a real answer in scene 2 (`2026-11-19-scene2-answer`); declined tracking the share ask. Each is judged after 4 videos at 72 h.
 - 2026-11-18: Prashant: length is not the issue, 60–89 s is fine. Work on the topic and the pitch: write hooks like the best hook writers (curiosity gaps, specific, wrong-sounding but true, open loops) and use pictures and colours built on feed/app attention principles (pop-out accent colour, big close subjects, faces and hands, something new every 2–3 s, visible step progress). Added the two sections in 2. The bolder picture style starts on 19 Nov together with the two tests; videos are tagged `picture_style: illustration-bold` so the numbers review can split it out.
+- 2026-11-21: Prashant: quiz answers were B every day, the quiz card was on screen too briefly, and topic quizzes were too specific to know. Now: right letter rotates (render refuses 3 in a row), card held 9 s with the question read out, and an EXPERIMENT: quiz is light pop culture / current affairs / general knowledge, not about tomorrow's topic (tomorrow still teased as NEXT VIDEO). Judge it on comments per video vs 13–20 Nov.

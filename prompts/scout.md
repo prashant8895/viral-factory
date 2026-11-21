@@ -17,9 +17,11 @@ Work unattended.
    locked: `data/topic_override.json` → entry for today's date if there is one, otherwise the
    last posted English video's `quiz.next_topic` (viewers guessed it yesterday). Put it in the
    doc as `today: {topic, hook_text, from: "quiz" | "override"}` for display only.
-   ALL 3 pitches are candidates for TOMORROW's video, i.e. the topic today's video teases in its
-   quiz. Prashant's tap on the slate picks it. Each pitch needs a `quiz_line` ("Tomorrow: <topic>.
-   A) <common belief> B) <real answer>") and a verifiable answer.
+   ALL 3 pitches are candidates for TOMORROW's video, i.e. the topic today's video teases as
+   "NEXT VIDEO". Prashant's tap on the slate picks it. Each pitch needs a `quiz_line`, which since
+   2026-11-21 is just the tease ("Tomorrow: <topic>."), no A/B options: the quiz itself is now a
+   separate light pop-culture / current-affairs / general-knowledge question that the script run
+   writes (prompts/script.md 5c).
    - Read its `playbook.md` (rules, scoring, hard no's, Learnings). For drama also read
      `cast.json` and `story.md` (the story so far and open threads).
    - Mine the signals first:

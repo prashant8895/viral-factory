@@ -51,27 +51,26 @@ skip it until Prashant restarts it.
    playbook section of that name. First write the how-it-works chain in 3–5 plain cause-and-effect
    steps and one simple everyday analogy, then build the script around them: every step narrated
    and shown (cutaway/close-up illustration or a step-by-step animation), at least half the scenes
-   explaining, re-hooks lead into the next step instead of replacing it, yesterday's quiz answer in
-   one short line. Check: would a 12-year-old know WHY it happens, not just what happens?
+   explaining, re-hooks lead into the next step instead of replacing it. Yesterday's quiz answer
+   goes in the shoutout scene only, never in the opener (the quiz isn't about today's topic any
+   more). Check: would a 12-year-old know WHY it happens, not just what happens?
    Drama: keep continuity with `story.md`; end on a cliffhanger.
    Apply Prashant's `approved.note` if there is one.
    TODAY IS LOCKED, PRASHANT PICKS TOMORROW (Prashant, 2026-11-14; never choose a teased
    topic yourself). TODAY's topic: `data/topic_override.json` → entry for today's date if there
    is one, otherwise the last posted English video's (`state/curious-*-en.json`, newest with
-   `platforms`) `quiz.next_topic`. Viewers guessed it yesterday, so use it even if a pitch looks
-   better. If an override replaced a teased topic, open with one line answering yesterday's quiz
-   (correct option, no shoutout), then go into today's topic. Only if today's facts can't be
-   verified, make the override's or approved pitch instead and still answer yesterday's quiz in
-   one line.
-   TOMORROW's topic (today's quiz) = the slate pitch Prashant approved (`approved.n` → its
-   `quiz_line`, angle and hook). If it was auto-approved at noon, still use it, but push-notify
-   Prashant once: "No pick by noon, so today's video teases <topic> for tomorrow. Reply to change
-   it before 19:00." Verify the quiz answer against 2 sources too.
+   `platforms`) `quiz.next_topic`. Viewers were promised it yesterday, so use it even if a pitch
+   looks better. Only if today's facts can't be verified, make the override's or approved pitch
+   instead.
+   TOMORROW's topic (teased as "next video", no longer quizzed) = the slate pitch Prashant
+   approved (`approved.n` → its topic, angle and hook; ignore the A/B options in an old
+   `quiz_line`). If it was auto-approved at noon, still use it, but push-notify Prashant once:
+   "No pick by noon, so today's video teases <topic> for tomorrow. Reply to change it before 19:00."
 5. Write `jobs/<page>/<page>-<date>-<short-slug>.json` following the example exactly:
    `id` = file name without .json, `channel`, `date`, `slot` and (drama) `episode` from the
    pitch doc, and `publish: false` for now (a draft is never rendered). Curious: ONE job in
    `jobs/curious/` with `"languages": ["en"]` and plain English strings in every text field
-   (no {"en","hi"} objects), 8–11 scenes, 150–190 words (max ~88 s spoken; the render refuses over 90 s for Facebook), headlines, overlays and a `delivery` note per scene. Format:
+   (no {"en","hi"} objects), 8–11 scenes, 150–180 words (the quiz card is held 9 s, so the rest must fit in ~78 s; the render refuses over 90 s for Facebook), headlines, overlays and a `delivery` note per scene. Format:
    `jobs/curious/sample-ever-wondered.json` (pictures + 2D animation). Drama: 5–6 scenes, 40–60 words, every scene has `cast`,
    `visual` (with `{Name}` placeholders), `action` and `lines`.
    MIX RULE (curious): scene 1 is always a picture; at least 2 scenes are 2D animations
@@ -85,11 +84,33 @@ skip it until Prashant restarts it.
    ~40 s; `payoff` in the second half; max 30 words per scene). FULL OF HOOKS (Prashant,
    2026-11-14): every scene ends on a tease, question or "but..." that makes the next one
    necessary; no flat lines. Then, if yesterday's video asked a quiz, a `shoutout`
-   scene (`anims/shoutout.html`, with `narration_none`, never says how many names), and always a
-   last `quiz` scene (`anims/quiz.html`) plus the job's `quiz` block (theme of today's weekday from
-   `engagement.quiz_days`). Quiz + shoutout don't count toward the MIX RULE's 2 animations.
-   Instagram caption ends with the quiz ("Tomorrow's quiz: ... A) ... B) ... Comment your guess 👇");
-   YouTube and Facebook descriptions too. Total stays 150–190 words.
+   scene (`anims/shoutout.html`, with `narration_none`, never says how many names; both lines say
+   yesterday's answer in a few words: "Yesterday's answer: A, Dangal. These legends got it first."),
+   and always a last `quiz` scene (`anims/quiz.html`) plus the job's `quiz` block (theme of today's
+   weekday from `engagement.quiz_days`). Quiz + shoutout don't count toward the MIX RULE's 2 animations.
+   QUIZ CHANGES (Prashant, 2026-11-21; the render checks them):
+   - The quiz is NOT about tomorrow's topic any more (experiment: those were too specific to
+     know). Ask a light, fun question most viewers can have a go at. `"kind"`: "pop culture"
+     (films, cricket and sport, music, famous shows, viral moments, landmarks), "current affairs"
+     (this week's big happy-or-neutral news: launches, records, sport results, space missions,
+     festivals; NEVER politics, elections, war, crime, deaths, disasters, or anything that could
+     change overnight) or "general knowledge". Rotate kinds across the week. India-first, but
+     global viewers should have a fair shot. Fit the day's theme format (Myth or fact, Guess the
+     number, This or that, Odd one out, Finish the fact, Showbiz Saturday, Brain teaser).
+     Verify the answer against 2 sources (`sources`); for current affairs make sure it is still
+     true tonight and tomorrow. Nothing mean about real people, no brand plugs.
+     No word of the question or options may come from tomorrow's topic (`next_topic`).
+   - Move the right answer around: look at the last few jobs' `quiz.answer` and pick the letter
+     so A, B (and C) each win about equally; the render refuses the same letter 3 videos running.
+     Both options must sound believable; the right one isn't always the "surprising" one.
+   - The quiz scene's narration READS THE QUESTION AND OPTIONS OUT (16–24 words: "Quick one:
+     India's biggest box-office film ever... Dangal, Baahubali 2, or RRR? Comment your guess.").
+     The card shows "NEXT VIDEO: <next_title>" by itself; say tomorrow's topic only if it still
+     fits in the 24 words. The render holds the card at least 9 s (refuses under 7 s), so keep
+     everything before it to ~78 s.
+   Instagram caption ends with the quiz ("Today's quiz: ...? A) ... B) ... C) ... Comment your
+   guess 👇", then "Next video: <next_title>"); YouTube and Facebook descriptions too.
+   Total 150–180 words.
 5a. HOOK + DELIVERY: set `"hook_style": "curiosity"`. Line 1 opens a real question about the
    everyday thing ("Ever wondered why car tyres are black?" is the IDEA, not a fixed phrase: vary
    it, the render refuses an opener that repeats one of the last 3 videos). First surprising fact
@@ -102,7 +123,7 @@ skip it until Prashant restarts it.
    as spoken words. Before pushing, read the whole script aloud in your head once and fix any
    line you'd stumble on. Weave "oh, that's why" in at most once, smoothly inside a calm closing sentence, never as a
    shouted line on its own. Check every line (especially the ending) for accidental double meanings.
-   and don't make every line sound sure and punchy: mix in softer, wondering lines. 150–190 words. The last scene is the quiz (5c).
+   and don't make every line sound sure and punchy: mix in softer, wondering lines. 150–180 words. The last scene is the quiz (5c).
    Search phrases: add `"keywords": [...]` with 2–3 English phrases people really type into
    search (main one first, usually "why are tyres black").
    Put the main phrase in the YouTube title, the first line of the Instagram caption and the

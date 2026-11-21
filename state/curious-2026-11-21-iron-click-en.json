@@ -1,0 +1,63 @@
+{
+  "id": "curious-2026-11-21-iron-click-en",
+  "channel": "curious-en",
+  "date": "2026-11-21",
+  "slot": "19:00",
+  "publish": true,
+  "bucket": "how it works",
+  "episode": null,
+  "hook_text": "WHY YOUR IRON *CLICKS*",
+  "hook_style": "curiosity",
+  "release": "job-curious-2026-11-21-iron-click-en",
+  "duration": 88.47,
+  "quiz": {
+    "theme": "SHOWBIZ SATURDAY",
+    "kind": "pop culture",
+    "next_topic": "how a lift door knows your hand is there",
+    "next_title": "How a lift door sees you",
+    "question": "Which Indian film song won the 2023 Oscar?",
+    "options": {
+      "A": "Naatu Naatu",
+      "B": "Kesariya",
+      "C": "Jhoome Jo Pathaan"
+    },
+    "answer": "A",
+    "keywords": {
+      "A": [
+        "naatu",
+        "natu",
+        "rrr"
+      ],
+      "B": [
+        "kesariya",
+        "brahmastra"
+      ],
+      "C": [
+        "jhoome",
+        "pathaan",
+        "pathan"
+      ]
+    },
+    "sources": [
+      "https://www.npr.org/2023/03/12/1161379659/rrr-naatu-naatu-best-original-song-oscar",
+      "https://www.aljazeera.com/news/2023/3/13/india-celebrates-as-rrr-song-the-elephant-whisperers-win-oscar"
+    ]
+  },
+  "shoutouts": {
+    "from": "curious-2026-11-20-key-lock-en",
+    "names": [
+      {
+        "name": "@Gargiwatchesvideos",
+        "platform": "youtube",
+        "time": "2026-11-20T15:49:32Z",
+        "comment_id": "UgyboZCOviso9JZESTZ4AaABAg"
+      }
+    ]
+  },
+  "tests": [
+    "2026-11-19-why-claim-title",
+    "2026-11-19-scene2-answer"
+  ],
+  "picture_style": "illustration-bold",
+  "voice": "clone"
+}

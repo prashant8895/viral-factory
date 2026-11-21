@@ -4,7 +4,7 @@
   "languages": [
     "en"
   ],
-  "publish": false,
+  "publish": true,
   "date": "2026-11-21",
   "slot": "19:00",
   "bucket": "how it works",
@@ -32,8 +32,17 @@
       "delivery": "curious",
       "motion": "push",
       "sfx": "boom",
-      "overlays": [],
-      "beat": "hook"
+      "overlays": [
+        {
+          "type": "arrow",
+          "x": 0.5,
+          "y": 0.655,
+          "dir": "down",
+          "on": "clicks"
+        }
+      ],
+      "beat": "hook",
+      "image": "jobs/curious/pics/curious-2026-11-21-iron-click/s1.jpg"
     },
     {
       "visual": "clean side cutaway illustration of a clothes iron cut open: the flat metal soleplate at the bottom, and just above it a small thin metal strip made of two layers fixed at one end, the strip glowing bright red-orange as the brightest thing in the frame, the iron body cool grey-blue, the cutaway large and centred in the lower two-thirds of the frame, plain cool navy-blue background, no text or logos",
@@ -42,8 +51,17 @@
       "headline": "NO *CHIP* INSIDE",
       "motion": "push",
       "sfx": "thud",
-      "overlays": [],
-      "beat": "loop"
+      "overlays": [
+        {
+          "type": "ring",
+          "x": 0.53,
+          "y": 0.555,
+          "r": 0.13,
+          "on": "strip"
+        }
+      ],
+      "beat": "loop",
+      "image": "jobs/curious/pics/curious-2026-11-21-iron-click/s2.jpg"
     },
     {
       "visual": "2D animation: a straight two-layer strip, brass under iron, a temperature number climbs, arrows show brass grows more than iron",
@@ -68,8 +86,17 @@
       "headline": "LIKE A *JAR LID*",
       "motion": "drift_right",
       "sfx": "ding",
-      "overlays": [],
-      "beat": "rehook"
+      "overlays": [
+        {
+          "type": "ring",
+          "x": 0.58,
+          "y": 0.53,
+          "r": 0.11,
+          "on": "loosens"
+        }
+      ],
+      "beat": "rehook",
+      "image": "jobs/curious/pics/curious-2026-11-21-iron-click/s4.jpg"
     },
     {
       "visual": "2D animation: the strip rests on a contact, current runs to the heater, the number climbs, the strip curls up off the contact, CLICK, power off",
@@ -94,8 +121,17 @@
       "headline": "AGAIN AND *AGAIN*?",
       "motion": "push",
       "sfx": "riser",
-      "overlays": [],
-      "beat": "rehook"
+      "overlays": [
+        {
+          "type": "ring",
+          "x": 0.5,
+          "y": 0.565,
+          "r": 0.08,
+          "on": "again"
+        }
+      ],
+      "beat": "rehook",
+      "image": "jobs/curious/pics/curious-2026-11-21-iron-click/s6.jpg"
     },
     {
       "visual": "2D animation: the strip curls and flattens again and again, HEAT OFF, HEAT ON, CLICK each time, the temperature number wobbles around one value",
@@ -121,8 +157,17 @@
       "headline": "THE *DIAL* TRICK",
       "motion": "pull",
       "sfx": "sparkle",
-      "overlays": [],
-      "beat": "payoff"
+      "overlays": [
+        {
+          "type": "ring",
+          "x": 0.5,
+          "y": 0.555,
+          "r": 0.15,
+          "on": "bend"
+        }
+      ],
+      "beat": "payoff",
+      "image": "jobs/curious/pics/curious-2026-11-21-iron-click/s8.jpg"
     },
     {
       "visual": "2D animation: yesterday's fastest right answers",

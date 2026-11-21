@@ -1,0 +1,111 @@
+<!doctype html><html><head><meta charset="utf-8">
+<style>html,body{margin:0;background:#16233a}canvas{display:block}</style></head><body>
+<canvas id="c" width="1080" height="1920"></canvas>
+<script>
+// Why your iron clicks: the bimetal strip thermostat. Clouds-Short style: dark navy, one object
+// (the two-metal strip), one big orange temperature number that moves with the words.
+// params.mode:
+//  "metals": a straight strip, brass (orange) glued under iron (teal). The number climbs; arrows show
+//            brass GROWS MORE, iron grows less (params.label e.g. "NOT EQUALLY").
+//  "bend":   the strip rests on a contact, current dots run round to the heater coil; the number climbs,
+//            the strip curls up, lifts off the contact, "CLICK!" pops, current stops, params.label ("POWER OFF").
+//  "cycle":  the strip curls and flattens again and again: OFF / ON, CLICK at every change, the number
+//            wobbles around params.to (default 200), params.label ("HOLDS ITS HEAT").
+// Keeps the top fifth (0-384) and the caption band (1344-1632) empty.
+const c=document.getElementById('c'),x=c.getContext('2d'),W=1080,H=1920;
+const NAVY='#16233a',YEL='#ffd23f',ORA='#ff9f1c',WHITE='#f4f1e8',TEAL='#3fc1c9',RED='#ff5a5a',GREEN='#5fd068';
+const clamp=(v,a=0,b=1)=>Math.max(a,Math.min(b,v)), prog=(t,a,b)=>clamp((t-a)/(b-a));
+const ease=t=>1-Math.pow(1-clamp(t),3), back=t=>{t=clamp(t);const s=1.7;return 1+(s+1)*Math.pow(t-1,3)+s*Math.pow(t-1,2)};
+const rnd=i=>{const s=Math.sin(i*12.9898)*43758.5453;return s-Math.floor(s)};
+function txt(s,px,py,size,col){x.font=`700 ${size}px Anton, Impact, sans-serif`;x.textAlign='center';x.textBaseline='middle';
+  x.lineWidth=size*0.14;x.lineJoin='round';x.strokeStyle='rgba(0,0,0,.55)';x.strokeText(s,px,py);x.fillStyle=col;x.fillText(s,px,py)}
+function bg(){x.fillStyle=NAVY;x.fillRect(0,0,W,H);
+  for(let i=0;i<220;i++){x.fillStyle='rgba(255,255,255,.035)';x.fillRect(rnd(i)*W,rnd(i+99)*H,3,3)}}
+function pop(s,px,py,str,size,col){if(s<=0)return;x.save();x.translate(px,py);x.scale(s,s);txt(str,0,0,size,col);x.restore()}
+function degrees(v,px,py,s,col){if(s<=0)return;pop(s,px,py,Math.round(v)+'°',170,col||ORA);pop(s,px,py+110,'CELSIUS',44,col||ORA)}
+function arrowH(ax,ay,len,col,a){x.save();x.globalAlpha=a;x.strokeStyle=col;x.fillStyle=col;x.lineWidth=12;x.lineCap='round';
+  x.beginPath();x.moveTo(ax,ay);x.lineTo(ax+len,ay);x.stroke();const d=Math.sign(len)||1;
+  x.beginPath();x.moveTo(ax+len+d*30,ay);x.lineTo(ax+len-d*4,ay-24);x.lineTo(ax+len-d*4,ay+24);x.fill();x.restore()}
+
+// strip geometry: fixed at the left (FX,FY), length L, two layers of thickness T (iron on top, brass under)
+const FX=210,FY=930,L=620,T=34;
+// point at distance s along the strip, offset n (positive = down) from the middle line, curvature k (curls UP)
+function pt(s,n,k){if(Math.abs(k)<1e-6)return[FX+s,FY+n];
+  const R=1/k,a=s*k;return[FX+(R+n)*Math.sin(a)*1,FY-(R-(R+n)*Math.cos(a))+0];}
+function layer(k,n0,n1,col,glow){x.save();x.fillStyle=col;x.shadowColor=col;x.shadowBlur=glow||0;x.beginPath();
+  for(let i=0;i<=40;i++){const p=pt(L*i/40,n0,k);i?x.lineTo(p[0],p[1]):x.moveTo(p[0],p[1])}
+  for(let i=40;i>=0;i--){const p=pt(L*i/40,n1,k);x.lineTo(p[0],p[1])}x.closePath();x.fill();x.restore()}
+function strip(k,heat){
+  // clamp block at the fixed end
+  x.fillStyle='rgba(244,241,232,.18)';x.beginPath();x.roundRect(FX-110,FY-90,120,180,18);x.fill();
+  x.strokeStyle=WHITE;x.lineWidth=5;x.setLineDash([18,12]);x.beginPath();x.roundRect(FX-110,FY-90,120,180,18);x.stroke();x.setLineDash([]);
+  layer(k,-T,0,TEAL,8);            // iron on top
+  layer(k,0,T,ORA,8+18*heat);      // brass underneath (grows more)
+  const tip=pt(L,T,k);return tip;
+}
+// contact under the tip of the flat strip
+const CX=FX+L-20,CY=FY+T+18;
+function contact(on){x.fillStyle=on?YEL:'rgba(244,241,232,.5)';x.shadowColor=YEL;x.shadowBlur=on?30:0;
+  x.beginPath();x.arc(CX,CY,22,0,7);x.fill();x.shadowBlur=0;
+  x.fillStyle='rgba(244,241,232,.25)';x.fillRect(CX-10,CY+20,20,80)}
+// circuit: contact -> down -> heater coil -> back up to the clamp
+const PATH=[[CX,CY+100],[CX,1200],[700,1200],[380,1200],[FX-50,1200],[FX-50,FY+90]];
+function circuit(t,on){x.save();x.strokeStyle='rgba(244,241,232,.45)';x.lineWidth=6;x.setLineDash([16,12]);x.beginPath();
+  PATH.forEach((p,i)=>i?x.lineTo(p[0],p[1]):x.moveTo(p[0],p[1]));x.stroke();x.restore();
+  // heater coil between 380..700 at y 1200
+  x.save();x.strokeStyle=on?RED:'rgba(244,241,232,.4)';x.shadowColor=RED;x.shadowBlur=on?30:0;x.lineWidth=10;x.lineJoin='round';x.beginPath();
+  for(let i=0;i<=16;i++){const px=380+i*20,py=1200+(i%2?-34:34)*(i&&i<16?1:0);i?x.lineTo(px,py):x.moveTo(px,py)}x.stroke();x.restore();
+  pop(1,540,1275,'HEATER',44,on?RED:'rgba(244,241,232,.5)');
+  if(!on)return;
+  // current dots running round the loop
+  const seg=[];let tot=0;for(let i=1;i<PATH.length;i++){const d=Math.hypot(PATH[i][0]-PATH[i-1][0],PATH[i][1]-PATH[i-1][1]);seg.push(d);tot+=d}
+  for(let j=0;j<14;j++){let s=((t*260+j*tot/14)%tot);let i=0;while(s>seg[i]){s-=seg[i];i++}
+    const a=PATH[i],b=PATH[i+1],f=s/seg[i];x.fillStyle=YEL;x.beginPath();x.arc(a[0]+(b[0]-a[0])*f,a[1]+(b[1]-a[1])*f,9,0,7);x.fill()}
+}
+function click(s){pop(back(s),240,720,'CLICK!',120,YEL)}
+
+function drawMetals(t,p,P){
+  const heat=ease(prog(p,0.1,0.7));
+  // straight strip, drawn big in the middle (no circuit)
+  const sx=150,sy=900,len=640,th=60,grow=heat*36;
+  x.fillStyle=TEAL;x.beginPath();x.roundRect(sx,sy-th,len+grow*0.35,th,10);x.fill();
+  x.save();x.fillStyle=ORA;x.shadowColor=ORA;x.shadowBlur=10+30*heat;x.beginPath();x.roundRect(sx,sy+6,len+grow,th,10);x.fill();x.restore();
+  pop(back(prog(p,0.03,0.14)),sx+150,sy-th-60,P.top||'IRON',62,TEAL);
+  pop(back(prog(p,0.06,0.17)),sx+150,sy+th+70,P.bottom||'BRASS',62,ORA);
+  const temp=25+((+P.to||200)-25)*heat;
+  degrees(temp,540,520,back(prog(p,0.0,0.1)),ORA);
+  const a1=ease(prog(p,0.35,0.5));arrowH(sx+len+grow+40,sy+th/2+6,90*a1,ORA,a1);
+  const a2=ease(prog(p,0.42,0.55));arrowH(sx+len+grow*0.35+40,sy-th/2,36*a2,TEAL,a2*0.8);
+  pop(back(prog(p,0.4,0.52)),540,1120,P.more||'BRASS GROWS MORE',66,ORA);
+  pop(back(prog(p,0.62,0.74)),540,1240,P.label||'NOT EQUALLY',80,YEL);
+}
+function drawBend(t,p,P){
+  const to=+P.to||200, temp=25+(to-25)*ease(prog(p,0.05,0.62));
+  const lift=ease(prog(p,0.45,0.62)); // strip curls up off the contact
+  const k=0.00018+lift*0.0011, on=lift<0.15;
+  circuit(t,on);contact(on);strip(on?0:k,lift);
+  degrees(temp,540,520,back(prog(p,0.0,0.1)),on?ORA:YEL);
+  if(!on){click(prog(p,0.5,0.6));pop(back(prog(p,0.62,0.74)),540,1060,P.label||'POWER OFF',80,RED)}
+  else pop(back(prog(p,0.06,0.16)),540,1060,P.on||'POWER ON',64,GREEN);
+}
+function drawCycle(t,p,P){
+  const to=+P.to||200, per=Math.max(1.6,(P.period||2.6));
+  const ph=(t/per)%1, off=ph<0.5; // first half OFF (curled), second half ON (flat)
+  const bendAmt=off?ease(prog(ph,0,0.12)):1-ease(prog(ph,0.5,0.62));
+  const on=bendAmt<0.15, k=bendAmt*0.0013;
+  circuit(t,on);contact(on);strip(on?0:k,bendAmt);
+  const temp=to+(off?4-8*ph*2:-4+8*(ph-0.5)*2);
+  degrees(temp,540,520,back(prog(p,0.0,0.1)),ORA);
+  const since=off?ph:ph-0.5;click(prog(since,0,0.08)*(since<0.25?1:0));
+  pop(1,540,1060,on?(P.on||'HEAT ON'):(P.off||'HEAT OFF'),76,on?GREEN:RED);
+  if(p>0.6)pop(back(prog(p,0.6,0.72)),660,720,P.label||'HOLDS ITS HEAT',60,YEL);
+}
+
+window.draw=function(t,dur,P){
+  P=Object.assign({mode:'bend'},P||{});
+  const p=t/Math.max(dur,0.1);
+  x.setTransform(1,0,0,1,0,0);x.globalAlpha=1;x.shadowBlur=0;bg();
+  if(P.mode==='metals')drawMetals(t,p,P);else if(P.mode==='cycle')drawCycle(t,p,P);else drawBend(t,p,P);
+};
+window.draw(0,6,{});
+</script></body></html>

@@ -1,0 +1,201 @@
+{
+  "id": "curious-2026-11-21-iron-click",
+  "channel": "curious",
+  "languages": [
+    "en"
+  ],
+  "publish": false,
+  "date": "2026-11-21",
+  "slot": "19:00",
+  "bucket": "how it works",
+  "hook_style": "curiosity",
+  "picture_style": "illustration-bold",
+  "seed": 11212,
+  "tests": [
+    "2026-11-19-why-claim-title",
+    "2026-11-19-scene2-answer"
+  ],
+  "hook_text": "WHY YOUR IRON *CLICKS*",
+  "keywords": [
+    "why does my iron click",
+    "how does an iron thermostat work",
+    "bimetallic strip"
+  ],
+  "sources": [
+    "https://www.explainthatstuff.com/thermostats.html",
+    "https://www.scienceabc.com/innovation/iron-automatic-temperature-regulation-control-thermostat-heating-element-bimetallic-strip.html"
+  ],
+  "scenes": [
+    {
+      "visual": "close-up illustration of an Indian woman's hand holding a white steam iron pressing a light blue cotton shirt on an ironing board, the iron's round temperature dial and small indicator light glowing bright red-orange as the brightest thing in the frame, the iron large in the lower two-thirds of the frame, plain cool navy-blue background, no text or logos",
+      "narration": "Your iron *clicks* while you're ironing. So what's actually clicking in there?",
+      "delivery": "curious",
+      "motion": "push",
+      "sfx": "boom",
+      "overlays": [],
+      "beat": "hook"
+    },
+    {
+      "visual": "clean side cutaway illustration of a clothes iron cut open: the flat metal soleplate at the bottom, and just above it a small thin metal strip made of two layers fixed at one end, the strip glowing bright red-orange as the brightest thing in the frame, the iron body cool grey-blue, the cutaway large and centred in the lower two-thirds of the frame, plain cool navy-blue background, no text or logos",
+      "narration": "No chip in there. Just a little metal *strip* that bends when it's hot. Stay for the dial bit.",
+      "delivery": "explain",
+      "headline": "NO *CHIP* INSIDE",
+      "motion": "push",
+      "sfx": "thud",
+      "overlays": [],
+      "beat": "loop"
+    },
+    {
+      "visual": "2D animation: a straight two-layer strip, brass under iron, a temperature number climbs, arrows show brass grows more than iron",
+      "narration": "See, that strip is two metals stuck together, like brass and iron. Heat both, and they *grow*. But not equally...",
+      "delivery": "explain",
+      "headline": "STEP 1/3: TWO *METALS*",
+      "motion": "push",
+      "sfx": "whoosh",
+      "overlays": [],
+      "anim": "anims/iron-strip.html",
+      "anim_params": {
+        "mode": "metals",
+        "label": "NOT EQUALLY",
+        "more": "BRASS GROWS MORE"
+      },
+      "beat": "explain"
+    },
+    {
+      "visual": "close-up illustration of two hands holding a glass jar with a stuck steel lid under a running kitchen tap, warm water pouring over the lid, the steel lid glowing bright yellow-orange as the brightest thing in the frame, steam rising gently, simple Indian kitchen sink, the jar large in the lower two-thirds of the frame, plain cool navy-blue background, no text or logos",
+      "narration": "Ever run hot water on a stuck jar lid? Hot metal grows, so it *loosens*. Now glue two that grow differently...",
+      "delivery": "curious",
+      "headline": "LIKE A *JAR LID*",
+      "motion": "drift_right",
+      "sfx": "ding",
+      "overlays": [],
+      "beat": "rehook"
+    },
+    {
+      "visual": "2D animation: the strip rests on a contact, current runs to the heater, the number climbs, the strip curls up off the contact, CLICK, power off",
+      "narration": "Brass grows more, but it's stuck to the iron. So the strip *curls* up, off the contact. <short pause> Click. Power off.",
+      "delivery": "explain",
+      "headline": "STEP 2/3: IT *CURLS*",
+      "motion": "push",
+      "sfx": "tick",
+      "overlays": [],
+      "anim": "anims/iron-strip.html",
+      "anim_params": {
+        "mode": "bend",
+        "label": "POWER OFF",
+        "on": "POWER ON"
+      },
+      "beat": "explain"
+    },
+    {
+      "visual": "warm illustration of a smiling young Indian man ironing a white kurta on an ironing board, seen from the side, his face just above the iron, the iron and its small indicator light the brightest thing in the frame in glowing red-orange, cool blue room background, the man and iron large in the middle of the frame, nothing important in the bottom third, plain cool blue background, no text or logos",
+      "narration": "But here's the weird part. That click isn't a one-off. It happens *again*... and again.",
+      "delivery": "build",
+      "headline": "AGAIN AND *AGAIN*?",
+      "motion": "push",
+      "sfx": "riser",
+      "overlays": [],
+      "beat": "rehook"
+    },
+    {
+      "visual": "2D animation: the strip curls and flattens again and again, HEAT OFF, HEAT ON, CLICK each time, the temperature number wobbles around one value",
+      "narration": "It cools a little, the strip *straightens*, touches the contact... click, heat's back on. Off, on, off.",
+      "delivery": "explain",
+      "headline": "STEP 3/3: ON, *OFF*, ON",
+      "motion": "push",
+      "sfx": "pop",
+      "overlays": [],
+      "anim": "anims/iron-strip.html",
+      "anim_params": {
+        "mode": "cycle",
+        "label": "HOLDS ITS HEAT",
+        "on": "HEAT ON",
+        "off": "HEAT OFF"
+      },
+      "beat": "explain"
+    },
+    {
+      "visual": "extreme close-up illustration of fingers turning the round temperature dial on top of a white clothes iron, the dial and its pointer glowing bright yellow-orange as the brightest thing in the frame, the dial large in the middle of the frame, plain cool navy-blue background, no text or logos",
+      "narration": "And the dial? <short pause> It sets how far the strip must *bend* before it cuts the power. Next time it clicks, you'll know.",
+      "delivery": "reveal",
+      "headline": "THE *DIAL* TRICK",
+      "motion": "pull",
+      "sfx": "sparkle",
+      "overlays": [],
+      "beat": "payoff"
+    },
+    {
+      "visual": "2D animation: yesterday's fastest right answers",
+      "shoutout": true,
+      "anim": "anims/shoutout.html",
+      "narration": "Yesterday's answer: B, a metal strip bends. These legends got it first.",
+      "narration_none": "It was B, a metal strip bends... nobody cracked it. Let's see you beat today's.",
+      "delivery": "warm",
+      "headline": "*SHOUTOUT*",
+      "motion": "push",
+      "sfx": "sparkle",
+      "overlays": []
+    },
+    {
+      "visual": "2D animation: today's quiz (a light pop-culture question, not tomorrow's topic)",
+      "quiz": true,
+      "anim": "anims/quiz.html",
+      "narration": "Quick one... which Indian film song won an Oscar in twenty twenty-three? Naatu Naatu, Kesariya, or Jhoome Jo Pathaan? Comment your guess.",
+      "delivery": "curious",
+      "headline": "SHOWBIZ *SATURDAY*",
+      "motion": "push",
+      "sfx": "pop",
+      "overlays": []
+    }
+  ],
+  "youtube": {
+    "title": "Why does my iron click? It's a bending metal strip #shorts",
+    "description": "Why does my iron click? There's no chip deciding it. Inside most irons is a thermostat: a bimetallic strip, two metals like brass and iron stuck together. When it gets hot, brass grows more than iron, so the strip curls and lifts off a contact. Click, the heater switches off. As it cools, the strip straightens, touches the contact again, and click, the heat's back on. That's how an iron thermostat works, and the dial just sets how far the strip has to bend before it cuts the power.\n\nToday's quiz (Showbiz Saturday): which Indian film song won the 2023 Oscar? A) Naatu Naatu B) Kesariya C) Jhoome Jo Pathaan. Comment your guess 👇\nNext video: How a lift door sees you\n\nSources: Explain that Stuff, Science ABC\nAI visuals\n#ohthatswhy #iron #howitworks #engineering #shorts",
+    "tags": [
+      "why does my iron click",
+      "how does an iron thermostat work",
+      "bimetallic strip",
+      "thermostat",
+      "how it works"
+    ]
+  },
+  "instagram": {
+    "caption": "Why does my iron click? There's no chip in there, just a metal strip 🔥\nSo how does an iron thermostat work? A bimetallic strip (brass stuck to iron) curls when it's hot and cuts the power, then straightens as it cools and switches it back on. Click, click.\n\nSources: Explain that Stuff, Science ABC\nAI visuals\n#ohthatswhy #iron #howitworks #engineering\n\nToday's quiz (Showbiz Saturday): which Indian film song won the 2023 Oscar? A) Naatu Naatu B) Kesariya C) Jhoome Jo Pathaan. Comment your guess 👇\nNext video: How a lift door sees you"
+  },
+  "facebook": {
+    "description": "Why does my iron click? A two-metal strip inside curls when it's hot and cuts the power, then straightens as it cools and switches the heat back on. AI visuals.\n\nToday's quiz (Showbiz Saturday): which Indian film song won the 2023 Oscar? A) Naatu Naatu B) Kesariya C) Jhoome Jo Pathaan. Comment your guess 👇\nNext video: How a lift door sees you"
+  },
+  "quiz": {
+    "theme": "SHOWBIZ SATURDAY",
+    "kind": "pop culture",
+    "next_topic": "how a lift door knows your hand is there",
+    "next_title": "How a lift door sees you",
+    "question": "Which Indian film song won the 2023 Oscar?",
+    "options": {
+      "A": "Naatu Naatu",
+      "B": "Kesariya",
+      "C": "Jhoome Jo Pathaan"
+    },
+    "answer": "A",
+    "keywords": {
+      "A": [
+        "naatu",
+        "natu",
+        "rrr"
+      ],
+      "B": [
+        "kesariya",
+        "brahmastra"
+      ],
+      "C": [
+        "jhoome",
+        "pathaan",
+        "pathan"
+      ]
+    },
+    "sources": [
+      "https://www.npr.org/2023/03/12/1161379659/rrr-naatu-naatu-best-original-song-oscar",
+      "https://www.aljazeera.com/news/2023/3/13/india-celebrates-as-rrr-song-the-elephant-whisperers-win-oscar"
+    ]
+  }
+}

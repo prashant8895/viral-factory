@@ -1,12 +1,12 @@
 {
-  "updated": "2026-11-20T07:41+00:00",
+  "updated": "2026-11-21T01:12+00:00",
   "searches": {
     "en": [
       "why do we fall",
-      "why don't we",
       "why do i",
-      "why do we fall in hindi",
+      "why don't we",
       "why do we fall ill class 9",
+      "why do we fall in hindi",
       "why does nobody remember me in this world",
       "why do we need food",
       "why don't you stay",
@@ -14,12 +14,12 @@
       "why do we fall motivational video",
       "why do we get hiccups",
       "why do stars twinkle",
-      "why dow jones down today",
+      "why dollar is falling",
       "why do we need a constitution",
       "why does",
       "why do we need a house",
+      "why dow jones down today",
       "why do we yawn",
-      "why do we wear clothes",
       "why is there a protest in delhi",
       "why is there a green dot on my camera",
       "why is there a chip shortage",
@@ -87,9 +87,9 @@
       "what is the purpose of action research methodology",
       "what is the purpose of nesl",
       "what is the purpose of communication",
-      "what is the purpose of international men's day",
       "what is the purpose of encryption",
       "what is the purpose of transition activities",
+      "what is the purpose of a file extension",
       "what is the hole in the sink for",
       "what is the hole in boxers for",
       "what is the hole in the nail clipper for",
@@ -99,7 +99,7 @@
       "what is the hole in lollipop",
       "what is the hole in your eye",
       "hole in the hole",
-      "the hole in ground",
+      "what is in the hole",
       "what is the hole in stomach called",
       "what is the hole in the door called",
       "what is the hole in your belly called",
@@ -141,6 +141,7 @@
       "kyu hota hai chicken pox",
       "kyu hota hai appendix",
       "kyu hota hai in english",
+      "kyon hota hai pyar bata dilbar",
       "kyon hota hai pyar",
       "kyon hota hai pyar bata dilbar ringtone",
       "kyon hota hai pyar dilbar",
@@ -150,18 +151,17 @@
       "kyon hota hai pyar mein dilbar",
       "kyon hota hai pyar bata do",
       "क्यों होता है",
-      "kyon hota hai pyar bata dilbar",
       "kyon hota hai aisa",
       "kyon hota hai pyar bata dilbar song",
       "kyon hota hai bataiye",
       "kyon hota hai pyar serial",
       "kyon hota hai aise",
       "kyon hota hai pyar ringtone",
+      "kya hota hai pyar bata dilbar",
       "kya hota hai paise ka",
       "kya hota hai dard mohabbat ka",
       "क्या होता है",
       "क्या होता है प्यार बता दिलबर",
-      "kya hota hai pyar bata dilbar",
       "क्या होता है पैसे का पैसे की लगा दूं ढेरी",
       "क्या होता है दर्द मोहब्बत का",
       "क्या होता है बताइए",
@@ -249,86 +249,86 @@
   "daily": {
     "IN": [
       {
-        "title": "nifty bank",
+        "title": "আবহাওয়া",
+        "traffic": "50000+"
+      },
+      {
+        "title": "aaj ka mausam",
         "traffic": "1000+"
       },
       {
-        "title": "आज का राशिफल मेष",
-        "traffic": "1000+"
+        "title": "భారత జాతీయ క్రికెట్ జట్టు",
+        "traffic": "2000+"
       },
       {
-        "title": "എലിസബത്ത് ആന്റണി",
-        "traffic": "200+"
+        "title": "జనాభా",
+        "traffic": "100+"
       },
       {
-        "title": "vvaan",
-        "traffic": "200+"
-      },
-      {
-        "title": "rakshitha sree santhosh ramraj",
-        "traffic": "1000+"
-      },
-      {
-        "title": "ಕರ್ನಾಟಕ",
-        "traffic": "1000+"
-      },
-      {
-        "title": "punjab vs tamil nadu",
-        "traffic": "1000+"
-      },
-      {
-        "title": "ಐಶ್ವರ್ಯ ಸಿಂಧೋಗಿ",
-        "traffic": "200+"
-      },
-      {
-        "title": "shahrukh khan",
-        "traffic": "1000+"
-      },
-      {
-        "title": "न्यायालय",
+        "title": "ranbir kapoor ramayana movie collection",
         "traffic": "500+"
+      },
+      {
+        "title": "लारा दत्ता",
+        "traffic": "100+"
+      },
+      {
+        "title": "এশিয়া কাপ",
+        "traffic": "100+"
+      },
+      {
+        "title": "big ticket",
+        "traffic": "200+"
+      },
+      {
+        "title": "ఆసియా కప్",
+        "traffic": "200+"
+      },
+      {
+        "title": "houthis saudi arabia",
+        "traffic": "200+"
       }
     ],
     "US": [
       {
-        "title": "truck accident lawyer",
-        "traffic": "200+"
+        "title": "deportación",
+        "traffic": "500+"
       },
       {
-        "title": "car accident attorney",
-        "traffic": "200+"
+        "title": "dyson daniels",
+        "traffic": "500+"
       },
       {
-        "title": "5.4 magnitude earthquake",
-        "traffic": "200+"
+        "title": "dabo swinney",
+        "traffic": "500+"
       },
       {
-        "title": "aleksandre topuria",
-        "traffic": "100+"
+        "title": "aaron wiggins",
+        "traffic": "500+"
       },
       {
-        "title": "ksbw",
-        "traffic": "200+"
+        "title": "jalen johnson",
+        "traffic": "500+"
       },
       {
-        "title": "san diego",
-        "traffic": "100+"
+        "title": "ferris state football",
+        "traffic": "500+"
       },
       {
-        "title": "apple store black friday deals",
+        "title": "iowa vs xavier",
         "traffic": "2000+"
       },
       {
-        "title": "mama awards 2026",
-        "traffic": "100+"
+        "title": "pitt basketball",
+        "traffic": "500+"
       },
       {
-        "title": "navajo stirling",
+        "title": "brownsburg football",
         "traffic": "200+"
       },
       {
-        "title": "earthquake",
-        "traffic": "20000+"
+        "title": "martha stewart",
+        "traffic": "200+"
       }
     ]
   },
@@ -336,73 +336,49 @@
     {
       "lang": "en",
       "query": "why",
-      "title": "Reason why Hermione chose Ron😂 #harrypotter #hp #fyp #potterhead #funny",
-      "channel": "HermioneEdit",
-      "views": 29061858,
-      "id": "UgkdG_AQ9Nw"
-    },
-    {
-      "lang": "en",
-      "query": "why",
       "title": "ADX Florence: Why Your Cell Window Is 4 Inches Wide #shorts",
       "channel": "OddFrame",
-      "views": 7833900,
+      "views": 8568729,
       "id": "nuRf7geYR9g"
-    },
-    {
-      "lang": "en",
-      "query": "why",
-      "title": "The reason why man wants daughter 🥹♥️ #fatherdaughter #emotional #daughterlove #shorts #love",
-      "channel": "Cute Sangwan Saanvi",
-      "views": 7625897,
-      "id": "kJXP7_i1TTc"
     },
     {
       "lang": "en",
       "query": "why",
       "title": "REASON WHY HERMIONE CHOSE RON pt.2 #harrypotter #hermionegranger #hp #fyp #potterhead #potterhead",
       "channel": "HermioneEdit",
-      "views": 6387772,
+      "views": 6490417,
       "id": "PF4nGWfLceI"
-    },
-    {
-      "lang": "hi",
-      "query": "kyu hota hai",
-      "title": "छठी मैया की कोई मूर्ति क्यों नहीं होती? 😱 | Why Chhathi Maiya Has No Idol? #shorts",
-      "channel": "THE MOTIVATED MIND",
-      "views": 5680015,
-      "id": "iTVM-tT4a30"
-    },
-    {
-      "lang": "en",
-      "query": "why",
-      "title": "Why are we SCARED of bad grades?? #roblox #shorts #robloxrant #rblx #relatable #robloxanimation",
-      "channel": "RID",
-      "views": 5573897,
-      "id": "UB8O3e75r00"
     },
     {
       "lang": "en",
       "query": "why",
       "title": "Why Does This Paint Look Different? 👀🎨",
       "channel": "MunchMinion4",
-      "views": 5282960,
+      "views": 5818343,
       "id": "8tgw-4_-wWM"
     },
     {
+      "lang": "hi",
+      "query": "kyu hota hai",
+      "title": "छठी मैया की कोई मूर्ति क्यों नहीं होती? 😱 | Why Chhathi Maiya Has No Idol? #shorts",
+      "channel": "THE MOTIVATED MIND",
+      "views": 5767993,
+      "id": "iTVM-tT4a30"
+    },
+    {
       "lang": "en",
-      "query": "did you know",
-      "title": "Inovasi orang Indonesia dipake di luar negeri!? #engineering #construction #didyouknow #howitworks",
-      "channel": "Wait, Really!?",
-      "views": 4937034,
-      "id": "aQb8gGYjalU"
+      "query": "why",
+      "title": "Why are we SCARED of getting kidnapped??",
+      "channel": "RID",
+      "views": 5712074,
+      "id": "ac2pZNh3f04"
     },
     {
       "lang": "en",
       "query": "why",
       "title": "Why Does The Dress Look Bad? (It’s Not The Size) | Madame Zilou Ep. 1",
       "channel": "Zilouet",
-      "views": 4676514,
+      "views": 5559953,
       "id": "X4OiBERNIDU"
     },
     {
@@ -410,7 +386,7 @@
       "query": "why",
       "title": "Why Ravan Kept Jatayu’s Nail in Ramayana? SPOILER ALERT 🚨",
       "channel": "In Other Words",
-      "views": 4617170,
+      "views": 4796330,
       "id": "qjXBBOM4QRc"
     },
     {
@@ -418,402 +394,426 @@
       "query": "why",
       "title": "Why English Walls Were Built Like Snakes 😮",
       "channel": "Pastifact",
-      "views": 4408597,
+      "views": 4524207,
       "id": "PyZQJ3_gxOA"
-    },
-    {
-      "lang": "en",
-      "query": "why",
-      "title": "Why Is It So Clumsy",
-      "channel": "Snugbarn",
-      "views": 4148292,
-      "id": "o8OoqpXhpZ0"
-    },
-    {
-      "lang": "en",
-      "query": "why",
-      "title": "Зачем люди копаются в бусинах 😳",
-      "channel": "Ква Ква",
-      "views": 4015098,
-      "id": "1qpmiHTaWnQ"
     },
     {
       "lang": "en",
       "query": "why",
       "title": "Why Stephen Curry is FROM ANOTHER PLANET! 🤯🏀",
       "channel": "FitVision",
-      "views": 3991554,
+      "views": 4370403,
       "id": "9Dq5LHRUob4"
-    },
-    {
-      "lang": "en",
-      "query": "why",
-      "title": "Why Indore Is No Longer India's No. 1 Cleanest City?? #information",
-      "channel": "Prabhjot Speaks",
-      "views": 3863826,
-      "id": "5sgCOp4Pgr8"
-    },
-    {
-      "lang": "en",
-      "query": "why",
-      "title": "Why Curiosity May Have to Rip Off Its Own Wheels #shorts",
-      "channel": "Space Division",
-      "views": 3856068,
-      "id": "WwHMrEhI9qQ"
-    },
-    {
-      "lang": "en",
-      "query": "why",
-      "title": "Why Isn't the Math Mathing ?",
-      "channel": "MiniMoochi",
-      "views": 3781476,
-      "id": "FjYeX25bI9I"
-    },
-    {
-      "lang": "en",
-      "query": "why",
-      "title": "Why Do Ice Cubes Melt? Science for Kids",
-      "channel": "Wonderbell Friends",
-      "views": 3746620,
-      "id": "bILZon1yUQM"
-    },
-    {
-      "lang": "en",
-      "query": "why",
-      "title": "Why Casts Smell So Bad‼️😱",
-      "channel": "ShowerThinkerz",
-      "views": 3596056,
-      "id": "kk0weTA36Qo"
     },
     {
       "lang": "en",
       "query": "why",
       "title": "Why do the top-tier Terminators always lose to the old T-800?",
       "channel": "YANfilm",
-      "views": 3563937,
+      "views": 4331873,
       "id": "yf_09S-Y08I"
     },
     {
       "lang": "en",
       "query": "why",
-      "title": "The reason why Dr Doom is collecting 616 Avengers 😮",
-      "channel": "I'm Tom",
-      "views": 3360710,
-      "id": "6tW6OUo8LPI"
+      "title": "💧 Why Eco-Friendly Idols Matter",
+      "channel": "vishal yadav 523",
+      "views": 4076301,
+      "id": "gHlYst29j3c"
     },
     {
       "lang": "en",
       "query": "why",
-      "title": "Why you were actually in your grandmother's womb",
-      "channel": "KekLol Films",
-      "views": 3351028,
-      "id": "Heq_ToqeiQ0"
+      "title": "Kenapa Ratu Lebah Diberi Tanda khusus?#honey #cat #cats #faktamenarik #shorts",
+      "channel": "faktamanja",
+      "views": 4055721,
+      "id": "HeOkYYGG-cM"
     },
     {
       "lang": "en",
-      "query": "facts you didn't know",
-      "title": "10 Weird Things You Didn't Know About penguinz0",
-      "channel": "FGtheexplainer",
-      "views": 3037110,
-      "id": "S-XeSIpYSt0"
+      "query": "why",
+      "title": "Why Isn't the Math Mathing ?",
+      "channel": "MiniMoochi",
+      "views": 3958103,
+      "id": "FjYeX25bI9I"
+    },
+    {
+      "lang": "en",
+      "query": "why",
+      "title": "Why Curiosity May Have to Rip Off Its Own Wheels #shorts",
+      "channel": "Space Division",
+      "views": 3924090,
+      "id": "WwHMrEhI9qQ"
+    },
+    {
+      "lang": "en",
+      "query": "why",
+      "title": "Why Casts Smell So Bad‼️😱",
+      "channel": "ShowerThinkerz",
+      "views": 3891610,
+      "id": "kk0weTA36Qo"
+    },
+    {
+      "lang": "en",
+      "query": "why",
+      "title": "Why You Should NEVER Squeeze A Brisket 🥩 #shorts #bbq",
+      "channel": "BiteLore",
+      "views": 3871070,
+      "id": "oqcVqK7Ta00"
     },
     {
       "lang": "en",
       "query": "why",
       "title": "Why Is The Rock Basically Immortal in Hobbs & Shaw?",
       "channel": "Scene Mechanics",
-      "views": 3022196,
+      "views": 3418541,
       "id": "xDIlOiZViZM"
     },
     {
       "lang": "en",
       "query": "why",
-      "title": "Why did even God create me🤷‍♀️… Watch till end! #missmaturedquotes #reality #relatable #women #girl",
-      "channel": "Miss Matured",
-      "views": 2906499,
-      "id": "tYym2xFbtPg"
+      "title": "Why There Is NO Bridge Between Europe and Africa 🌉",
+      "channel": "WhyHereMaps",
+      "views": 3257683,
+      "id": "9parJd06QTc"
+    },
+    {
+      "lang": "en",
+      "query": "why",
+      "title": "Why You Should Never Go AFK In Arkham City?! #shorts #gaming #batmanarkhamcity #batmanarkham",
+      "channel": "LOLIK",
+      "views": 3187827,
+      "id": "Ugxy1G8Paw4"
     },
     {
       "lang": "en",
       "query": "why",
       "title": "WHY DOES THIS WORK ?!? 🫪🤯",
       "channel": "ZoeTube",
-      "views": 2877601,
+      "views": 2982313,
       "id": "_wNjdZig1Ks"
     },
     {
       "lang": "en",
       "query": "why",
-      "title": "Gitu amat sihh #dellaseptt #comedy #dailyvlog #funny #trending #viral #challenge #funnyvideo",
-      "channel": "Della Septiani",
-      "views": 2545166,
-      "id": "5WjtEyS65DQ"
+      "title": "Why does Kim Jong Un have Aura 😭",
+      "channel": "John Casterline",
+      "views": 2957807,
+      "id": "Sq9F0nxPvCU"
+    },
+    {
+      "lang": "en",
+      "query": "why",
+      "title": "Why Are Celebrities Afraid to Give Autographs Using a Blue Marker? 😳 #Shorts",
+      "channel": "BRAIN Up Facts",
+      "views": 2870977,
+      "id": "q9fKG2v7Nkk"
+    },
+    {
+      "lang": "en",
+      "query": "why",
+      "title": "Why This Vest Suddenly Inflates 😲",
+      "channel": "FactAtlasHD",
+      "views": 2857744,
+      "id": "gSyXLo-YUs4"
+    },
+    {
+      "lang": "en",
+      "query": "why",
+      "title": "Wolverine Screams In Pain But Deadpool Laughs?! Why? 😱 #shorts",
+      "channel": "Fan boyy",
+      "views": 2590765,
+      "id": "FGRzP5GTnXg"
     },
     {
       "lang": "en",
       "query": "did you know",
       "title": "Did You Know Saying JJ's Sister's Name Could Bring Her to Your Birthday? 😱🎂",
       "channel": "Mysterious Bandit",
-      "views": 2128764,
+      "views": 2281899,
       "id": "oI-18hwm7sk"
     },
     {
       "lang": "en",
-      "query": "facts you didn't know",
-      "title": "Ramayana - 9 Mind Blowing Facts You Didn't Know | #shorts #ramayana #yash #ranbirkapoor",
-      "channel": "InspiringVerse",
-      "views": 1911227,
-      "id": "NYrfDGzhFXQ"
+      "query": "why",
+      "title": "Why Your Toilet Is Never Empty",
+      "channel": "The Why Side",
+      "views": 2182524,
+      "id": "YWhmjX5j0Vw"
     },
     {
       "lang": "en",
       "query": "did you know",
       "title": "Did you know this😱? This is not fair Insight cosmetics",
       "channel": "SIMRAN KAUR",
-      "views": 1717255,
+      "views": 1897443,
       "id": "7QPPvhHvgKo"
-    },
-    {
-      "lang": "en",
-      "query": "did you know",
-      "title": "did YOU know that!?? 🤭 #lisishops #lisi #funfact #didyouknow",
-      "channel": "Lisi Shops",
-      "views": 1485325,
-      "id": "2FOSo5j9IJQ"
-    },
-    {
-      "lang": "en",
-      "query": "did you know",
-      "title": "\"Do you know why there's no airplanes flying in America?!\" #jimmycarr #crowdwork #hecklers",
-      "channel": "Jimmy Carr",
-      "views": 1087829,
-      "id": "zK2prg5VOk8"
-    },
-    {
-      "lang": "en",
-      "query": "did you know",
-      "title": "Este perro quiere ser amigo de cualquiera#animals #didyouknow #currentaffairs #fyp #love",
-      "channel": "SKBNY FDUAH",
-      "views": 1061206,
-      "id": "d5Kghzp6b5E"
     },
     {
       "lang": "en",
       "query": "did you know",
       "title": "Chinese children's training#didyouknow #knowledge #fyp #amazing #asmr",
       "channel": "Burnett Tony",
-      "views": 1055637,
+      "views": 1315132,
       "id": "xwTheajuBVQ"
+    },
+    {
+      "lang": "en",
+      "query": "did you know",
+      "title": "Did you know Jennifer Lawrence really hated her costume in the X-Men movies? #foryou #marvel #movie",
+      "channel": "ViewReel",
+      "views": 1225973,
+      "id": "XiPynnev_HU"
+    },
+    {
+      "lang": "en",
+      "query": "did you know",
+      "title": "Este perro quiere ser amigo de cualquiera#animals #didyouknow #currentaffairs #fyp #love",
+      "channel": "SKBNY FDUAH",
+      "views": 1166522,
+      "id": "d5Kghzp6b5E"
+    },
+    {
+      "lang": "en",
+      "query": "did you know",
+      "title": "\"Do you know why there's no airplanes flying in America?!\" #jimmycarr #crowdwork #hecklers",
+      "channel": "Jimmy Carr",
+      "views": 1091828,
+      "id": "zK2prg5VOk8"
+    },
+    {
+      "lang": "en",
+      "query": "did you know",
+      "title": "Did you know some X men mutants are basically useless？ #marvel",
+      "channel": "Aacm66",
+      "views": 1009473,
+      "id": "N5l237I_UDY"
     },
     {
       "lang": "en",
       "query": "did you know",
       "title": "Did You Know That in Valorant? Part 53: The Big Weapons Make No Sense",
       "channel": "Brooksy",
-      "views": 924459,
+      "views": 960158,
       "id": "N9g1KvjHx80"
-    },
-    {
-      "lang": "en",
-      "query": "did you know",
-      "title": "Did you know every KATSEYE member has their own fanbase name?🥰",
-      "channel": "Ndj Prez",
-      "views": 792047,
-      "id": "aL3y0B-VRWQ"
-    },
-    {
-      "lang": "hi",
-      "query": "kyu hota hai",
-      "title": "काली भैंस का दूध सफेद क्यों होता है? | The Biological Truth Behind Black Buffaloes and White Milk",
-      "channel": "factwithakash07",
-      "views": 660946,
-      "id": "elRcnz6YYas"
-    },
-    {
-      "lang": "en",
-      "query": "facts you didn't know",
-      "title": "10 Weird Things You Didn't Know About Jensen Huang",
-      "channel": "FGtheexplainer",
-      "views": 650812,
-      "id": "lCmuWHfaYpE"
-    },
-    {
-      "lang": "en",
-      "query": "did you know",
-      "title": "DID YOU KNOW THIS?! 🤔🤯🤣 | Triple Charm #Shorts",
-      "channel": "Triple Charm",
-      "views": 645944,
-      "id": "4AQhxUthdmE"
     },
     {
       "lang": "hi",
       "query": "kyu hota hai",
       "title": "Mere Saath Hi Aisa Kyun Hota Hai? 😂💀 #shorts",
       "channel": "RandomButUs",
-      "views": 631300,
+      "views": 898524,
       "id": "sDuN_I1zDFg"
+    },
+    {
+      "lang": "en",
+      "query": "did you know",
+      "title": "واش كنتي عارف هد الفكرة 🤯😱",
+      "channel": "بيت العمر",
+      "views": 868511,
+      "id": "qYVA_-4hyDY"
+    },
+    {
+      "lang": "en",
+      "query": "did you know",
+      "title": "Did you know every KATSEYE member has their own fanbase name?🥰",
+      "channel": "Ndj Prez",
+      "views": 795312,
+      "id": "aL3y0B-VRWQ"
+    },
+    {
+      "lang": "en",
+      "query": "did you know",
+      "title": "Bu tehlikeyi biliyor muydun?😦 #demitv #shorts #komedi #komik #podcast",
+      "channel": "Demi TV",
+      "views": 734560,
+      "id": "SEpGMsvidKE"
+    },
+    {
+      "lang": "hi",
+      "query": "kyu hota hai",
+      "title": "काली भैंस का दूध सफेद क्यों होता है? | The Biological Truth Behind Black Buffaloes and White Milk",
+      "channel": "factwithakash07",
+      "views": 714089,
+      "id": "elRcnz6YYas"
+    },
+    {
+      "lang": "en",
+      "query": "did you know",
+      "title": "DID YOU KNOW THIS?! 🤔🤯🤣 | Triple Charm #Shorts",
+      "channel": "Triple Charm",
+      "views": 654273,
+      "id": "4AQhxUthdmE"
+    },
+    {
+      "lang": "en",
+      "query": "did you know",
+      "title": "why is this account named after Cleo?! #namesake #didyouknow #silkenwindhound #littleguy",
+      "channel": "Cleolonglegs",
+      "views": 628665,
+      "id": "rgQb2H6YX1k"
     }
   ],
   "hashtags": [
     {
       "tag": "#shorts",
-      "weight": 62393878
+      "weight": 67860357
     },
     {
       "tag": "#fyp",
-      "weight": 47912894
-    },
-    {
-      "tag": "#funny",
-      "weight": 39424959
-    },
-    {
-      "tag": "#harrypotter",
-      "weight": 35921630
-    },
-    {
-      "tag": "#potterhead",
-      "weight": 35449630
-    },
-    {
-      "tag": "#hp",
-      "weight": 35449630
+      "weight": 14820303
     },
     {
       "tag": "#youtubeshorts",
-      "weight": 15674664
-    },
-    {
-      "tag": "#didyouknow",
-      "weight": 11828101
+      "weight": 14804541
     },
     {
       "tag": "#history",
-      "weight": 8855612
-    },
-    {
-      "tag": "#love",
-      "weight": 8687103
-    },
-    {
-      "tag": "#facts",
-      "weight": 8482346
-    },
-    {
-      "tag": "#relatable",
-      "weight": 8480396
+      "weight": 11448318
     },
     {
       "tag": "#usa",
-      "weight": 7875173
-    },
-    {
-      "tag": "#prison",
-      "weight": 7833900
-    },
-    {
-      "tag": "#adxflorence",
-      "weight": 7833900
-    },
-    {
-      "tag": "#adxflorencecell",
-      "weight": 7833900
-    },
-    {
-      "tag": "#noescapeprison",
-      "weight": 7833900
-    },
-    {
-      "tag": "#florencecolorado",
-      "weight": 7833900
-    },
-    {
-      "tag": "#supermax",
-      "weight": 7833900
-    },
-    {
-      "tag": "#prisonarchitecture",
-      "weight": 7833900
-    },
-    {
-      "tag": "#prisondesign",
-      "weight": 7833900
-    },
-    {
-      "tag": "#bureauofprisons",
-      "weight": 7833900
-    },
-    {
-      "tag": "#prisoncell",
-      "weight": 7833900
-    },
-    {
-      "tag": "#howprisonswork",
-      "weight": 7833900
-    },
-    {
-      "tag": "#marion1983",
-      "weight": 7833900
-    },
-    {
-      "tag": "#prisonhistory",
-      "weight": 7833900
-    },
-    {
-      "tag": "#uspmarion",
-      "weight": 7833900
-    },
-    {
-      "tag": "#solitaryconfinement",
-      "weight": 7833900
-    },
-    {
-      "tag": "#alcatrazoftherockies",
-      "weight": 7833900
+      "weight": 8702276
     },
     {
       "tag": "#prisonwindow",
-      "weight": 7833900
+      "weight": 8568729
     },
     {
-      "tag": "#3danimation",
-      "weight": 7833900
+      "tag": "#prisoncell",
+      "weight": 8568729
     },
     {
-      "tag": "#maximumsecurityprison",
-      "weight": 7833900
+      "tag": "#adxflorence",
+      "weight": 8568729
+    },
+    {
+      "tag": "#adxflorencecell",
+      "weight": 8568729
     },
     {
       "tag": "#toughestprisoninamerica",
-      "weight": 7833900
+      "weight": 8568729
+    },
+    {
+      "tag": "#noescapeprison",
+      "weight": 8568729
+    },
+    {
+      "tag": "#marion1983",
+      "weight": 8568729
+    },
+    {
+      "tag": "#solitaryconfinement",
+      "weight": 8568729
     },
     {
       "tag": "#federalprison",
-      "weight": 7833900
+      "weight": 8568729
+    },
+    {
+      "tag": "#prisondesign",
+      "weight": 8568729
+    },
+    {
+      "tag": "#prisonarchitecture",
+      "weight": 8568729
+    },
+    {
+      "tag": "#prisonhistory",
+      "weight": 8568729
+    },
+    {
+      "tag": "#howprisonswork",
+      "weight": 8568729
     },
     {
       "tag": "#supermaxprison",
-      "weight": 7833900
+      "weight": 8568729
     },
     {
-      "tag": "#emotional",
-      "weight": 7625897
+      "tag": "#3danimation",
+      "weight": 8568729
     },
     {
-      "tag": "#daughterlove",
-      "weight": 7625897
+      "tag": "#prison",
+      "weight": 8568729
     },
     {
-      "tag": "#fatherdaughter",
-      "weight": 7625897
+      "tag": "#uspmarion",
+      "weight": 8568729
     },
     {
-      "tag": "#comedy",
-      "weight": 7229051
+      "tag": "#bureauofprisons",
+      "weight": 8568729
+    },
+    {
+      "tag": "#alcatrazoftherockies",
+      "weight": 8568729
+    },
+    {
+      "tag": "#maximumsecurityprison",
+      "weight": 8568729
+    },
+    {
+      "tag": "#supermax",
+      "weight": 8568729
+    },
+    {
+      "tag": "#florencecolorado",
+      "weight": 8568729
+    },
+    {
+      "tag": "#funny",
+      "weight": 8049479
+    },
+    {
+      "tag": "#harrypotter",
+      "weight": 6977601
+    },
+    {
+      "tag": "#interestingfacts",
+      "weight": 6852539
+    },
+    {
+      "tag": "#movie",
+      "weight": 6607402
+    },
+    {
+      "tag": "#hp",
+      "weight": 6490417
     },
     {
       "tag": "#hermionegranger",
-      "weight": 6387772
+      "weight": 6490417
+    },
+    {
+      "tag": "#potterhead",
+      "weight": 6490417
+    },
+    {
+      "tag": "#chhathpuja",
+      "weight": 6474313
+    },
+    {
+      "tag": "#chhathimaiya",
+      "weight": 6474313
+    },
+    {
+      "tag": "#engineering",
+      "weight": 6409014
+    },
+    {
+      "tag": "#sanatandharma",
+      "weight": 6210441
+    },
+    {
+      "tag": "#छठ",
+      "weight": 6136587
+    },
+    {
+      "tag": "#छठप",
+      "weight": 6136587
     }
   ]
 }

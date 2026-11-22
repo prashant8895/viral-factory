@@ -3,7 +3,7 @@
 Writes data/trends.json:
   searches  - YouTube/Google autocomplete for curiosity openers (what people type), EN + Hindi
   daily     - Google's daily trending searches (India, US)
-  shorts    - this week's most-viewed curiosity Shorts in India (title, views, channel)
+  shorts    - this week's most-viewed English curiosity Shorts in the US, UK and India (title, views, channel)
   hashtags  - hashtags those Shorts use, weighted by views (pick only the ones that fit the video)
 """
 from __future__ import annotations
@@ -29,11 +29,14 @@ SEEDS = {
     "hi": ["kyu hota hai", "kyon hota hai", "kya hota hai", "ka kya kaam hai", "kaise kaam karta hai",
            "kyu lagate hai", "क्यों होता है", "क्यों लगाते हैं"],
 }
-SHORTS_QUERIES = {"en": ["why", "did you know", "facts you didn't know"], "hi": ["kyu hota hai", "rochak tathya"]}
+SHORTS_QUERIES = {"en": ["why", "did you know", "facts you didn't know"]}  # Hindi paused 2026-11-12
+# 2026-11-23 (owner): the page is global now, so trends come from the US and UK as well as India.
+SHORTS_REGIONS = ("US", "GB", "IN")
+SUGGEST_GL = {"en": ("us", "gb", "in"), "hi": ("in",)}
 
 
-def suggest(q: str, lang: str, yt: bool) -> list[str]:
-    params = {"client": "firefox", "hl": lang, "gl": "in", "q": q}
+def suggest(q: str, lang: str, yt: bool, gl: str = "in") -> list[str]:
+    params = {"client": "firefox", "hl": lang, "gl": gl, "q": q}
     if yt:
         params["ds"] = "yt"
     try:
@@ -61,12 +64,14 @@ def shorts(prefix: str) -> tuple[list[dict], Counter]:
     h = {"Authorization": f"Bearer {tok}"}
     since = (datetime.now(timezone.utc) - timedelta(days=7)).strftime("%Y-%m-%dT%H:%M:%SZ")
     vids, tags = [], Counter()
+    seen: set[str] = set()
     for lang, qs in SHORTS_QUERIES.items():
-        for q in qs:
+        for q, region in ((q, rg) for q in qs for rg in SHORTS_REGIONS):
             r = requests.get("https://www.googleapis.com/youtube/v3/search", headers=h, timeout=30, params={
                 "part": "id", "q": q, "type": "video", "videoDuration": "short", "order": "viewCount",
-                "publishedAfter": since, "regionCode": "IN", "relevanceLanguage": lang, "maxResults": 25})
-            ids = [i["id"]["videoId"] for i in r.json().get("items", [])]
+                "publishedAfter": since, "regionCode": region, "relevanceLanguage": lang, "maxResults": 25})
+            ids = [i["id"]["videoId"] for i in r.json().get("items", []) if i["id"]["videoId"] not in seen]
+            seen.update(ids)
             if not ids:
                 continue
             v = requests.get("https://www.googleapis.com/youtube/v3/videos", headers=h, timeout=30, params={
@@ -74,7 +79,7 @@ def shorts(prefix: str) -> tuple[list[dict], Counter]:
             for it in v:
                 sn, st = it["snippet"], it.get("statistics", {})
                 views = int(st.get("viewCount", 0))
-                vids.append({"lang": lang, "query": q, "title": sn["title"], "channel": sn["channelTitle"],
+                vids.append({"lang": lang, "query": q, "region": region, "title": sn["title"], "channel": sn["channelTitle"],
                              "views": views, "id": it["id"]})
                 text = sn.get("title", "") + " " + sn.get("description", "") + " " + " ".join(
                     "#" + t.replace(" ", "") for t in sn.get("tags", []))
@@ -89,10 +94,11 @@ def main() -> None:
     for lang, seeds in SEEDS.items():
         found = []
         for s in seeds:
-            found += suggest(s, "hi" if lang == "hi" else "en", yt=True)
-            found += suggest(s, "hi" if lang == "hi" else "en", yt=False)
+            for gl in SUGGEST_GL.get(lang, ("in",)):
+                found += suggest(s, "hi" if lang == "hi" else "en", yt=True, gl=gl)
+                found += suggest(s, "hi" if lang == "hi" else "en", yt=False, gl=gl)
         out["searches"][lang] = list(dict.fromkeys(found))[:120]
-    for geo in ("IN", "US"):
+    for geo in ("US", "GB", "IN"):
         out["daily"][geo] = daily(geo)
     try:
         vids, tags = shorts("CURIOUS_EN_")

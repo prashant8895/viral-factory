@@ -13,6 +13,11 @@ Everything else changes only when Prashant agrees.
 - **curious-hi**: PAUSED everywhere (YouTube, Instagram, Facebook). Old posts stay up; nothing
   new is rendered, posted or replied to. In 7 videos it got 858 views vs 8,324 for English.
 
+**Global audience (owner, 2026-11-23):** the page is for English speakers anywhere (US, UK,
+Europe, India, Australia), not an Indian page. Topics, pictures, examples, units and quizzes must
+make sense worldwide; Indian-only details (rupees, IST, local brands, Hindi signs, cricket-only
+quizzes) only when the topic itself needs them.
+
 **The idea:** things everyone sees every day but never questions. Anyone should get
 it, whatever their education. The test: "I've seen this a hundred times and never
 knew!" Example: the brushes on escalators aren't shoe cleaners; they keep feet and
@@ -47,16 +52,22 @@ other buckets below fill the third slot.
 | Everyday myth busted | "Cracking knuckles causes arthritis", "Shaving makes hair thicker" | People love being corrected, comment wars |
 | Why does it happen | Why onions make you cry, why you get goosebumps, why bread goes stale | Relatable, visual |
 | Body & health, carefully | Why your stomach growls, what happens if you hold a sneeze | Proven by big pages in this niche; facts only |
-| India everyday | Why Indian trains have yellow lines at the end, why autos are 3-wheeled | Relatable for Indian viewers, still interesting worldwide |
+| ~~India everyday~~ (retired 2026-11-23, global page; worst bucket: 441 views) | | |
 
 Rules for picking:
-- It must be **seen in daily life** by most people, in India and abroad
+- It must be **seen in daily life** by most people anywhere in the world (the test: would a
+  viewer in London, Chicago and Mumbai all have touched or seen it this week?)
+- Lead with a strange VISIBLE detail of the object ("two buttons", "only YOUR key", "brushes on
+  the escalator"), not an invisible mechanism (pressure, radio waves): data 2026-11-22
 - One surprising fact at the core, explainable in under a minute
 - It must be **visual**: every line can become a strong picture
 - Facts checked against 2 sources; put the sources in the caption
 - Health topics: facts only, no advice beyond basic safety, no scary claims without a source
 
-Length is NOT the lever for now (Prashant, 2026-11-18): 60–89 s is fine whenever the topic
+Length (owner, 2026-11-23, overrides Prashant's 2026-11-18 note on the data): the whole video is
+55–65 s including the quiz card, test `2026-11-23-short-share`. Instagram shows every Reel to
+~100–230 people and only pushes further when skip is ~34% or less and people watch ~17 s+; the only
+two that did were 43 s and 54 s, and no 80 s+ video has. Earlier note (Prashant, 2026-11-18): 60–89 s is fine whenever the topic
 needs it. The levers are the TOPIC and the PITCH: what we pick, and how hard its hook pulls.
 
 ### Pitching like the best hook writers (Prashant, 2026-11-18)
@@ -143,7 +154,7 @@ Copy the format from `jobs/curious/sample-ever-wondered.json`.
   that's your little 'oh, that's why' moment." / "And that's the 'oh, that's why' bit: ...".
   If it doesn't fit naturally, leave it out.
 - `hook_text`: 3–6 words, a short question with one `*key word*` (shown red): "WHY ARE TYRES *BLACK*?"
-- 8–11 scenes, one idea each, 150–190 words (about 70–88 s; Facebook Reels stop at 90 s, the render refuses longer). Last line = one friendly ask or a loop.
+- 6–8 scenes, one idea each, 115–135 words (whole video 55–65 s incl. the 7 s quiz card; the render refuses over 65 s since 2026-11-23). One share line after the reveal, the quiz last.
 
 ### EXPLAIN IT PROPERLY (feedback 2026-11-15, the most important rule)
 
@@ -162,7 +173,7 @@ Every video must leave a viewer able to explain the "how" back to a friend in tw
   matters. Name things in plain words (a "ring", a "ping", an "echo"), never jargon left unexplained.
 - **One simple everyday analogy, carried through the whole explanation**, not dropped after one
   line (the shop tag = a wine glass that sings when you hum its note; the gate = someone who hums
-  and then listens for the glass). Pick something every Indian viewer has felt or seen.
+  and then listens for the glass). Pick something every viewer, anywhere, has felt or seen.
 - **At least half the scenes explain how it works** (the steps above). Teases and re-hooks must never take the place of a step: a re-hook is a question that leads INTO the
   next step ("So why would a ringing strip set off a beep?"), not a promise about later.
 - **Don't rush the concept.** It's fine if the video runs longer (up to ~88 s). Give the key step
@@ -198,8 +209,8 @@ facts. Every script must pass these:
 
 #### The narrator's voice: idiolect, spoken dialect, articulation, pauses (2026-11-12)
 
-**Idiolect: one recognisable person, every video.** The narrator is Prashant: a curious Indian
-guy who just found out something cool and can't wait to tell you. Same habits every time:
+**Idiolect: one recognisable person, every video.** The narrator is Prashant: a curious
+guy (his own Indian-English voice is fine; the examples he uses are global) who just found out something cool and can't wait to tell you. Same habits every time:
 - Connectors he uses (pick 2–3 per video, never all): "Okay, so...", "Here's the thing.",
   "Now watch.", "See,", "And that's it.", "Simple, right?", "Wait, it gets better."
 - He admits what he used to think ("Honestly, I thought that too.") once per video at most.
@@ -305,7 +316,7 @@ More rules for the hold (Prashant, 2026-11-14: "keep the script full of hooks"):
 - A hook in EVERY scene, not just scene 1: each scene ends on a small question, tease or
   "but..." that makes the next scene necessary (a micro-cliffhanger, ~every 6–9 s). Nothing
   flat like "So that's step one."
-- At least 2 `rehook` beats in a 60 s video (one around 20 s, one around 40 s), each a real
+- At least 1 `rehook` beat (2 if they fit in the 55–65 s cap; around 15 s and 30 s), each a real
   surprise or a wrong-sounding fact, never filler.
 - For how-it-works topics, reveal the mechanism in steps, each step raising the next question
   ("So the gate is listening... but listening for WHAT?").
@@ -334,12 +345,13 @@ anyone could read it, and questions about tomorrow's topic were too specific to 
   cricket and sport, music, famous shows, viral moments, landmarks), "current affairs" (this
   week's big happy-or-neutral news: launches, records, sport results, space, festivals; never
   politics, elections, war, crime, deaths or disasters, nothing that could flip overnight) or
-  "general knowledge". Rotate kinds. India-first, fair for global viewers. No word of the quiz
+  "general knowledge". Rotate kinds. GLOBAL (2026-11-23): equal shot for a viewer in the US, UK, India or
+  Australia (world films/music/shows, Olympics/World Cup-level sport, space, landmarks, animals). No word of the quiz
   may come from tomorrow's topic (render-checked).
 - **The right letter moves around**: A, B (and C) win about equally; the render refuses the
   same letter three videos running. Both options believable.
 - **Readable**: the narration reads the question and options out, and the card stays on
-  screen at least 9 s (render pads it; refuses under 7 s). So scripts are 150–180 words.
+  screen at least 7 s (render pads it; refuses under 6 s; was 9 s until 2026-11-23). So scripts are 115–135 words.
 
 - `quiz` in the job: `theme` (the day's theme from `channels/curious-en/channel.json` →
   `engagement.quiz_days`, by the day the video posts), `kind`, `question` (short, ~8 words),
@@ -350,7 +362,7 @@ anyone could read it, and questions about tomorrow's topic were too specific to 
   MYTH OR FACT MONDAY, GUESS THE NUMBER TUESDAY (options are ranges), THIS OR THAT WEDNESDAY,
   ODD ONE OUT THURSDAY, FINISH THE FACT FRIDAY, SHOWBIZ SATURDAY (films, music, shows, sport
   stars), SUNDAY BRAIN TEASER.
-- The last scene is the quiz scene (`"quiz": true`, `anims/quiz.html`, 16–24 words): read the
+- The last scene is the quiz scene (`"quiz": true`, `anims/quiz.html`, 14–20 words): read the
   question and options, ask them to comment, mention the shoutout if it fits. Add a share nudge
   only if it fits ("ask your friend first"). Never say the right answer.
 - Right before it: the shoutout scene (`"shoutout": true`, `anims/shoutout.html`, ~8–14 words)
@@ -370,8 +382,12 @@ anyone could read it, and questions about tomorrow's topic were too specific to 
 
 ### Calls to action (smart, never greedy)
 
-- The quiz IS the ask now (comment your guess + share with a friend to test them).
-  Never stack another ask on top.
+- Two asks, no more (owner, 2026-11-23): the quiz (comment your guess) and ONE share line.
+- **Share line** (`"share": true` on one content scene at or right after the payoff; render-checked):
+  sends per reach is one of Instagram's most important ranking signals (Mosseri) and our median is
+  0 shares per 1k. Make it specific to the topic and a person-type: "Send this to the friend who
+  still thinks it's a shoe cleaner." Same idea as caption line 3. Never "please share", never
+  generic "share this video".
 - Never "like and subscribe", never begging, never fake urgency.
 
 ### Hook A/B test (CLOSED 2026-11-12: every video opens with a varied curiosity question, hook_style `curiosity`)
@@ -398,12 +414,13 @@ of 7 (keep the other 2 as a check).
 | Item | Rule |
 |---|---|
 | Frequency | 1 video a day, same video on YouTube Shorts, Instagram Reels, Facebook Reels |
-| Time | 7:00 PM IST for weeks 1–2. Then test 6:30 AM IST (US evening) on alternate days |
+| Time | 7:00 PM IST (= 1:30 PM UK, 8:30 AM US East). A global page may do better at a US/UK evening slot: candidate for a later "format" test, not changed yet |
 | Search phrases | Every job has `keywords`: 2–3 plain English phrases people actually type into search ("microwave door mesh", "why microwave door has holes"). Main one first. Instagram and YouTube now rank on these words, not on hashtags |
 | Title (YouTube) | The curiosity question, under 60 characters, ends with #shorts, and contains the main search phrase |
-| Caption (IG/FB) | Line 1 = the hook as a question that contains the main search phrase in plain words. Line 2 = the short answer in one sentence, using the other search phrases naturally. Line 3 = a comment bait ("Would you last 3 days?"). Then sources, "AI visuals", and 3–5 hashtags. No "comment X to get Y" DM bait |
+| Caption (IG/FB) | Line 1 = the hook as a question that contains the main search phrase in plain words. Line 2 = the short answer in one sentence, using the other search phrases naturally. Line 3 = the share line ("Send this to the friend who..."). Then sources, "AI visuals", the 5 hashtags, then the quiz. No "comment X to get Y" DM bait |
 | On-screen text | The hook headline names the topic in plain words (MICROWAVE MESH, not just THIS THING) so Instagram can read what the video is about |
-| Hashtags | 3–5, always relevant: `#ohthatswhy` + 1–2 topic tags (#escalator) + 1–2 from `data/trends.json → hashtags` **only if they fit this video**. Never generic spam (#viral #fyp #trending), never off-topic trending tags |
+| Hashtags | Instagram: exactly 5 (its hard cap since Dec 2025): `#ohthatswhy` + 2 topic tags (#escalator #elevator) + 2 big niche discovery tags from this set: #didyouknow #sciencefacts #howitworks #everydayscience #themoreyouknow (swap one for a `data/trends.json → hashtags` tag only if it fits). YouTube: title ends #shorts, description ends with 3 (#shorts #didyouknow + topic), tags = search phrases + topic + the niche set. Never #viral #fyp #foryou #explore #trending: Instagram says generic tags don't add reach (Mosseri 2025), and the 5 slots are worth more on niche tags people browse |
+| Trending audio (Instagram) | Test `2026-11-23-trend-audio`: at posting time `factory/platforms.py` attaches the top trending licensed track from the Instagram Audio API, muted (volume 0) under our voice, so the Reel also lists under that sound. Licensed for third-party use by Meta, so no copyright issue. Nothing for the script to do. YouTube/Facebook have no such API and stay as the control |
 | Tagging | Only accounts that are genuinely in or about the video (a brand whose product it is, a source). Never random or famous accounts for reach: that is spam and gets pages restricted |
 | Stories | Not used: Instagram Story sharing removed 2026-11-15 (Prashant). Reels only |
 | AI label | Always on where the platform lets us set it. Caption always says "AI visuals" |
@@ -452,3 +469,5 @@ saw, what we change.
 - 2026-11-22: Old vs new, now with 12 new videos (before 12 Nov: Kokoro voice, photos, myth/question hooks, ~41 s, 7 videos; from 12 Nov: Prashant's cloned Gemini voice, illustrations, curiosity "Ever wondered why" opening, ~83 s). Median views at 24 h 808 → 1,267 (+57%, 11 videos), at 72 h 980 → 1,429 (+46%, 10 videos); average at 72 h 1,388 → 1,290 (−7%); watch % 24% → 13% (YouTube 54% → 39%), but seconds watched held or rose (Instagram 9.8 → 10.7 s, YouTube 23 → 25 s); Instagram skip 55% → 45%; shares per 1k median 0 → 0 (mean 0.44 → 1.1, all from 3 videos). Verdict on the reset: it lifted the floor (fewer flops, fewer skips), not the ceiling (best new 2,334 vs best old 3,188), and nobody shares either style.
 - 2026-11-22: Inside "new", the 19 Nov package (bold pictures + why-claim title + scene-2 answer, all on the same 4 videos) is behind the 12–18 Nov illustrations: median 24 h 762 vs 1,295, shares per 1k 0 vs 1.7, Instagram seconds 11.4 → 9.3 → 7.6 → 6.9 falling video by video (scene-2 test target was 15 s+). The three changes can't be told apart. Change for Monday's slate (format, 12 videos back it): go back to the 12–18 Nov illustration style while the two text tests finish, so their verdicts aren't mixed with the pictures.
 - 2026-11-22: Tests: why-claim-title and scene2-answer, 4/4 videos made, 1 at 72 h (cooker 286 vs 1,404 before), key-lock reaches 72 h tomorrow; verdict waiting, early signs negative on both (YouTube 24 h 99–425 vs 556 target; IG seconds 7.6–11.4 vs 15 s target). Quiz experiment (pop culture, from 21 Nov): too early, comments 2 and 0 so far vs 3–6 a video on YouTube 16–20 Nov.
+- 2026-11-22: Why we're not breaking out (owner asked; all 19 English videos): Instagram shows every Reel to a test batch of ~100–230 people in the first hours and then stops: the Instagram count is flat after the first ~12 h for 17 of 19 videos. Only escalator (2,129 IG) and back-window lines (1,251) got pushed past it, and they are the only ones with BOTH Instagram skip ≤34% AND ~18–20 s watched, plus the most shares (8 and 3). Iron click had a 30% skip but only 7.6 s watched and stayed at 129. Since videos grew to 81–88 s none has got through (IG seconds 7–12 s). YouTube does the same: a 24–48 h bump, then flat. Shares (one of Instagram's most important reach signals) are 0 on 14 of 19. So the gate is: stop the scroll in 1 s, hold ~17 s, and give people a reason to send it.
+- 2026-11-22: Owner's changes from 23 Nov (approved in chat, data above): (1) test `2026-11-23-short-share`: whole video 55–65 s, 115–135 words, quiz card 7 s, and one specific "send this to the friend who..." line after the reveal + caption line 3; (2) test `2026-11-23-trend-audio`: Instagram attaches a muted trending licensed track via the Audio API; (3) back to the 12–18 Nov illustration style (bold style dropped); (4) the 19 Nov title and scene-2 tests dropped early; (5) global audience: topics, pictures, quiz and trend check (US, UK, India) are global, India-everyday bucket retired; (6) hashtags: 5 on Instagram (#ohthatswhy + 2 topic + 2 niche discovery tags), never #viral/#fyp. Not done: tagging unrelated big accounts (spam, gets pages restricted).

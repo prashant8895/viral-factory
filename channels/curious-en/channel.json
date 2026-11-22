@@ -3,7 +3,7 @@
   "name": "Oh That's Why English",
   "secret_prefix": "CURIOUS_EN_",
   "slot": "19:00",
-  "style": "clean hand-drawn 2D editorial illustration, explainer-video style, bold simple shapes, bold saturated colours with high contrast, crisp dark outlines, the key object or part is the brightest thing in the frame in one warm accent colour (red-orange or sunny yellow) against a plainer cooler background (deep teal, navy or soft grey-blue), subject large and close, filling most of the frame, clear single subject, simple uncluttered background, not a photo, not 3D render, vertical composition, leave the top third uncluttered ",
+  "style": "clean hand-drawn 2D editorial illustration, explainer-video style, bold simple shapes, soft flat colours with gentle grain texture, crisp dark outlines, one consistent palette for every scene: warm cream background, charcoal outlines, teal and soft orange accents, simple uncluttered background, clear single subject, not a photo, not 3D render, vertical composition, leave the top third uncluttered for a title",
   "animate_scenes": 0,
   "music": false,
   "look": "poster",
@@ -48,10 +48,21 @@
       "current affairs",
       "general knowledge"
     ],
-    "quiz_min_seconds": 9,
-    "quiz_floor_seconds": 7,
+    "quiz_min_seconds": 7,
+    "quiz_floor_seconds": 6,
     "quiz_max_same_answer": 2,
-    "quiz_note": "Prashant 2026-11-21: (1) the answer was B every day, so the right letter moves around (render refuses the same letter 3 videos running); (2) the quiz card was on screen too briefly, so it is held 9 s (min 7 s) and the narration reads the question out; (3) EXPERIMENT from 2026-11-21: the quiz is a light pop-culture / current-affairs / general-knowledge question anyone can have a go at, NOT about tomorrow's topic (tomorrow's topic is still teased on the card as 'NEXT VIDEO'). Compare comments per video against before."
+    "quiz_note": "Prashant 2026-11-21: (1) the answer was B every day, so the right letter moves around (render refuses the same letter 3 videos running); (2) the quiz card was on screen too briefly, so it is held 9 s (min 7 s) and the narration reads the question out; (3) EXPERIMENT from 2026-11-21: the quiz is a light pop-culture / current-affairs / general-knowledge question anyone can have a go at, NOT about tomorrow's topic (tomorrow's topic is still teased on the card as 'NEXT VIDEO'). Compare comments per video against before. 2026-11-23: GLOBAL, not India-first: questions anyone in the US, UK, Europe, India or Australia has a fair shot at (world films, music, Olympics/World Cup-level sport, space, world landmarks, science). Card held 7 s (min 6 s) so the whole video fits in 65 s.",
+    "max_seconds": {
+      "since": "2026-11-23",
+      "seconds": 65,
+      "test": "2026-11-23-short-share",
+      "note": "Whole video incl. the quiz hold. Data 2026-11-22: Instagram gives every Reel ~100-230 test views and only pushes past that when skip <=~34% and people watch ~17 s+; the only 2 that broke out were 43 s and 54 s. 50-70 s videos: median 1,476 views vs 818 for 70 s+."
+    },
+    "share_ask": {
+      "since": "2026-11-23",
+      "test": "2026-11-23-short-share",
+      "note": "Sends per reach is one of Instagram's most important ranking signals (Mosseri); our median shares are 0 per 1k. One specific 'send this to the friend who...' line right after the reveal, and as caption line 3."
+    }
   },
   "youtube_brand": {
     "note": "factory/yt_seo.py puts this on the YouTube channel (About text, keywords) and on every Short (brand line, tags, language) so people searching the channel name find it. Run the 'YouTube channel search' workflow after changing it.",
@@ -77,5 +88,13 @@
       "oh thats why",
       "ohthatswhy"
     ]
+  },
+  "style_note": "2026-11-23: back to the 12-18 Nov illustration style (soft flat colours, cream background). The bold saturated style from 19 Nov had median 24 h views 762 vs 1,295 and Instagram seconds falling 11.4 -> 6.9 s.",
+  "instagram_trend_audio": {
+    "on": true,
+    "since": "2026-11-23",
+    "audio_volume": 0,
+    "test": "2026-11-23-trend-audio",
+    "note": "Instagram Audio API: at posting time the top trending licensed track (GET /ig_audio, no search_query) is attached muted (audio_volume 0, our voice 100), so the Reel also lists under that sound. If Instagram refuses it, the Reel posts with its own sound. The chosen track is saved in state platforms.instagram.audio."
   }
 }

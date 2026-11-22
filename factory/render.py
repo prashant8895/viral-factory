@@ -38,7 +38,7 @@ def check_job(job: dict) -> None:
             if len(tts.TAG_RE.findall(l["text"])) > 2:
                 raise ValueError(f"Max 2 voice tags per scene: {l['text'][:60]!r}")
     if not 40 <= words <= 210:
-        raise ValueError(f"Spoken text is {words} words; playbook says Curious 150–200 (drama 60–110)")
+        raise ValueError(f"Spoken text is {words} words; playbook says Curious 110–135 from 2026-11-23 (drama 60–110)")
     check_search_text(job)
     check_engagement(job)
     if job.get("hook_style") in ("ever-wondered", "curiosity"):  # Curious house hook since 2026-11-12
@@ -57,6 +57,16 @@ def _engagement(job: dict) -> dict:
     except Exception:
         return {}
     return eng if eng and str(job.get("date") or "") >= eng.get("since", "9999") else {}
+
+
+def _max_seconds(job: dict, ch: dict) -> float:
+    """Whole-video cap (voice + quiz hold). 89.5 s = Facebook Reels limit; engagement.max_seconds
+    (from its 'since' date) is the playbook cap."""
+    eng = ch.get("engagement") or {}
+    cap = eng.get("max_seconds") or {}
+    if cap and str(job.get("date") or "") >= cap.get("since", "9999"):
+        return min(89.5, float(cap["seconds"]))
+    return 89.5
 
 
 def check_engagement(job: dict) -> None:
@@ -103,6 +113,19 @@ def check_engagement(job: dict) -> None:
         raise ValueError("At most one shoutout scene, right before the quiz scene")
     if shout and not sc[shout[0]].get("narration_none"):
         raise ValueError('The shoutout scene needs "narration_none" (said when nobody got it right)')
+    sh = eng.get("share_ask") or {}
+    if sh and str(job.get("date") or "") >= sh.get("since", "9999"):
+        # 2026-11-23: sends per reach is Instagram's top reach signal and our shares are ~0 per 1k.
+        # One explicit, specific "send this to the friend who..." line after the reveal + in captions.
+        asks = [i for i, s in enumerate(content) if s.get("share")]
+        if len(asks) != 1 or asks[0] < beats.index("payoff"):
+            raise ValueError('Exactly one content scene at or after the payoff needs "share": true: a specific '
+                             '"send this to the friend who..." line (see playbook "Calls to action")')
+        line = " ".join(tts.caption_text(l["text"]) for l in tts.scene_lines(content[asks[0]])).lower()
+        if not re.search(r"\b(send|share|show)\b", line):
+            raise ValueError('The "share" scene must say "send this to..." / "share this with..." in words')
+        if not re.search(r"\b(send|share)\b", (job.get("instagram") or {}).get("caption", "").lower()):
+            raise ValueError("Put the share line in the Instagram caption too (line 3)")
     said = " ".join(tts.caption_text(l["text"]) for l in tts.scene_lines(sc[-1])).lower()
     if "comment" not in said:
         raise ValueError("The quiz scene must ask people to comment their guess")
@@ -314,7 +337,7 @@ def render_one(job: dict, img_dir: Path | None = None) -> Path:
         want = float(eng.get("quiz_min_seconds", 9))
         q_a = scene_audio[-1]
         rest = sum(a.duration for a in scene_audio[:-1])
-        target = min(want, 89.5 - rest)
+        target = min(want, _max_seconds(job, ch) - rest)
         if target > q_a.duration:
             scene_audio[-1] = tts.pad_to(q_a, target)
         floor = float(eng.get("quiz_floor_seconds", 7))
@@ -324,6 +347,10 @@ def render_one(job: dict, img_dir: Path | None = None) -> Path:
                              f"content scenes by ~{(floor - scene_audio[-1].duration) * 2.6:.0f} words.")
         print(f"[quiz] on screen {scene_audio[-1].duration:.1f} s", flush=True)
     total = sum(a.duration for a in scene_audio)
+    if total > _max_seconds(job, ch) + 0.5:
+        raise ValueError(f"Video runs {total:.1f} s; the playbook caps it at {_max_seconds(job, ch):.0f} s "
+                         f"(test 2026-11-23-short-share: our only Instagram breakouts were 43-54 s). Cut about "
+                         f"{(total - _max_seconds(job, ch)) * 2.4:.0f} words from tease/aside lines, never a how-it-works step.")
     if total > 89.5:  # Facebook Reels (video_reels API) take 3-90 s; longer would post nowhere on Facebook
         raise ValueError(f"Voice runs {total:.1f} s; Facebook Reels allow max 90 s. Trim the script "
                          f"(drop a tease or the quiz recap, never the how-it-works steps).")
@@ -390,6 +417,9 @@ def render_one(job: dict, img_dir: Path | None = None) -> Path:
     meta["language"] = job.get("language")
     meta["duration"] = round(sum(s.duration for s in scene_audio), 2)
     meta["bucket"] = job.get("bucket")
+    ta = ch.get("instagram_trend_audio") or {}
+    if ta.get("on") and str(job.get("date") or "") >= ta.get("since", "9999"):
+        meta["instagram"]["trend_audio"] = {"audio_volume": int(ta.get("audio_volume", 0))}
     (out_dir / "meta.json").write_text(json.dumps(meta, indent=2))
 
     # State file: tells the publisher when and where this video goes.
@@ -404,6 +434,7 @@ def render_one(job: dict, img_dir: Path | None = None) -> Path:
                   "quiz": job.get("quiz"), "shoutouts": shout or None,
                   # approved Morning Slate changes this video carries (data/tests.json ids)
                   "tests": job.get("tests") or [],
+                  "trend_audio": bool(meta["instagram"].get("trend_audio")),
                   # for the numbers review: which look and voice this video used
                   "picture_style": ("illustration-bold" if "saturated" in job["style"].lower() else "illustration")
                                    if "illustration" in job["style"].lower() else "photo",

@@ -96,8 +96,33 @@ def _rupload(p: str, url: str, video: Path) -> dict:
     return r.json()
 
 
-def _ig_try(p: str, video: Path, media_type: str, caption: str | None, video_url: str | None) -> dict:
-    """One attempt: new container, send the video (file upload, or Meta fetches video_url), publish."""
+def ig_trending_audio(p: str, skip: set[str] | None = None) -> dict | None:
+    """Top trending licensed music track from Instagram's Audio API (GET /ig_audio without a
+    search_query returns trending audio authorised for third-party use). None if the API or
+    the token can't do it: the Reel then goes out with its own sound only."""
+    try:
+        ig, tok = _need(p, "IG_USER_ID"), _need(p, "META_PAGE_TOKEN")
+        r = requests.get(f"https://graph.facebook.com/{GRAPH}/ig_audio",
+                         params={"audio_type": "music", "user_id": ig, "access_token": tok}, timeout=30)
+        if r.status_code >= 400:
+            print(f"  instagram trending audio unavailable ({r.status_code}): {r.text[:300]}", flush=True)
+            return None
+        items = r.json().get("audio") or r.json().get("data") or []
+    except Exception as e:  # noqa: BLE001 - audio is a bonus, never block the post
+        print(f"  instagram trending audio unavailable: {e}", flush=True)
+        return None
+    for a in items:
+        aid = str(a.get("audio_id") or a.get("id") or "")
+        if aid and aid not in (skip or set()):
+            return {"audio_id": aid, "title": a.get("title"), "artist": a.get("display_artist")}
+    return None
+
+
+def _ig_try(p: str, video: Path, media_type: str, caption: str | None, video_url: str | None,
+            audio: dict | None = None) -> dict:
+    """One attempt: new container, send the video (file upload, or Meta fetches video_url), publish.
+    audio = {"audio_id", "audio_volume"}: a licensed Instagram track attached to the Reel (our voice
+    stays at full volume). If Instagram refuses the audio, the same attempt retries without it."""
     ig, tok = _need(p, "IG_USER_ID"), _need(p, "META_PAGE_TOKEN")
     base = f"https://graph.facebook.com/{GRAPH}"
     data = {"media_type": media_type, "access_token": tok}
@@ -107,7 +132,16 @@ def _ig_try(p: str, video: Path, media_type: str, caption: str | None, video_url
         data["upload_type"] = "resumable"
     if media_type == "REELS":
         data.update(caption=caption or "", share_to_feed="true")
+        if audio and audio.get("audio_id"):
+            data["audio_configuration"] = json.dumps({"audio_id": audio["audio_id"],
+                                                      "audio_volume": int(audio.get("audio_volume", 0)),
+                                                      "video_volume": 100})
     r = requests.post(f"{base}/{ig}/media", data=data, timeout=60)
+    if r.status_code >= 400 and "audio_configuration" in data:
+        print(f"  instagram refused the trending audio ({r.status_code}): {r.text[:300]}; posting without it", flush=True)
+        data.pop("audio_configuration")
+        audio.clear()
+        r = requests.post(f"{base}/{ig}/media", data=data, timeout=60)
     if r.status_code >= 400:
         raise RuntimeError(f"Instagram container refused ({r.status_code}): {r.text[:500]}")
     container = r.json()["id"]
@@ -135,7 +169,8 @@ def _ig_try(p: str, video: Path, media_type: str, caption: str | None, video_url
     return {"id": media_id, "url": link}
 
 
-def _ig_publish(p: str, video: Path, media_type: str, caption: str | None, video_url: str | None = None) -> dict:
+def _ig_publish(p: str, video: Path, media_type: str, caption: str | None, video_url: str | None = None,
+                audio: dict | None = None) -> dict:
     """Meta's upload endpoint sometimes answers 'ProcessingFailedError' for a file it accepted the day
     before. So: two file uploads (each on a fresh container), then let Meta fetch the public release
     URL itself. Nothing is published until a container is FINISHED, so retries never double-post."""
@@ -149,7 +184,7 @@ def _ig_publish(p: str, video: Path, media_type: str, caption: str | None, video
     err = None
     for i, url in enumerate(tries):
         try:
-            return _ig_try(p, video, media_type, caption, url)
+            return _ig_try(p, video, media_type, caption, url, audio)
         except Exception as e:  # noqa: BLE001 - keep Meta's message, try the next way
             err = e
             print(f"  instagram try {i + 1}/{len(tries)} ({'video_url' if url else 'upload'}) failed: {e}", flush=True)
@@ -159,7 +194,19 @@ def _ig_publish(p: str, video: Path, media_type: str, caption: str | None, video
 
 
 def instagram_upload(p: str, video: Path, meta: dict) -> dict:
-    return _ig_publish(p, video, "REELS", meta["instagram"]["caption"], meta.get("video_url"))
+    """meta["instagram"]["trend_audio"] = {"audio_volume": 0} (test 2026-11-23-trend-audio): attach
+    today's top trending licensed track, muted under our voice, so the Reel also sits on that
+    sound's page. The chosen track is returned as "audio" so the numbers review can see it."""
+    audio = None
+    want = meta["instagram"].get("trend_audio")
+    if want is not None:
+        audio = ig_trending_audio(p)
+        if audio:
+            audio["audio_volume"] = int((want or {}).get("audio_volume", 0))
+    res = _ig_publish(p, video, "REELS", meta["instagram"]["caption"], meta.get("video_url"), audio)
+    if audio:  # emptied by _ig_try if Instagram refused it
+        res["audio"] = audio
+    return res
 
 
 def facebook_upload(p: str, video: Path, meta: dict) -> dict:

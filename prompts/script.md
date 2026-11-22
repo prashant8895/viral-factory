@@ -1,5 +1,13 @@
 # 9:00 AM and 12:00 noon IST — write the script and send it to the factory
 
+> 2026-11-23 (owner): GLOBAL AUDIENCE + REACH TESTS. Write for viewers anywhere (US, UK, Europe,
+> India, Australia): objects, settings, examples, units and the quiz must make sense worldwide. No
+> rupees, IST, Indian brands, Indian number plates or Hindi signs unless the topic itself needs
+> them; say "lift (elevator)" style once when British/American words differ. Whole video 55–65 s
+> (render refuses over 65 s), one explicit share line after the reveal, hashtags per the playbook
+> table, bold picture style dropped (back to the 12–18 Nov illustrations). Tests
+> `2026-11-23-short-share` and `2026-11-23-trend-audio` go in every job's `tests`.
+>
 > 2026-11-12 (Prashant): ENGLISH ONLY. The Hindi page is paused everywhere (YouTube, Instagram,
 > Facebook): never write Hindi text, never put "hi" in `languages`. Voice is Gemini (set in
 > `channels/curious-en/channel.json`), pictures are illustrations, and every video opens
@@ -45,7 +53,7 @@ skip it until Prashant restarts it.
 2. Set `status: "scripting"` (pin if_version).
 3. Pull the repo. Read `channels/<page>/playbook.md`, `channels/curious-en/channel.json`,
    `metrics/insights.json` (the numbers review: follow its `rules`) and the example jobs
-   `jobs/curious/sample-ever-wondered.json` and `jobs/curious/sample-hook-quiz.json` (beats, shoutout, quiz) for the exact format. For drama also read `cast.json` and `story.md`.
+   `jobs/curious/sample-ever-wondered.json` and `jobs/curious/sample-hook-quiz.json` (beats, shoutout, quiz) for the exact format. The samples are longer than today's cap: copy their FORMAT, not their length. For drama also read `cast.json` and `story.md`.
 4. Curious: verify every fact against 2 sources (web search); drop what you can't verify.
    EXPLAIN IT PROPERLY (feedback 2026-11-15, overrides any hook rule it clashes with): follow the
    playbook section of that name. First write the how-it-works chain in 3–5 plain cause-and-effect
@@ -70,7 +78,7 @@ skip it until Prashant restarts it.
    `id` = file name without .json, `channel`, `date`, `slot` and (drama) `episode` from the
    pitch doc, and `publish: false` for now (a draft is never rendered). Curious: ONE job in
    `jobs/curious/` with `"languages": ["en"]` and plain English strings in every text field
-   (no {"en","hi"} objects), 8–11 scenes, 150–180 words (the quiz card is held 9 s, so the rest must fit in ~78 s; the render refuses over 90 s for Facebook), headlines, overlays and a `delivery` note per scene. Format:
+   (no {"en","hi"} objects), 6–8 scenes, 115–135 spoken words in total (the quiz card is held 7 s, so the rest must fit in ~58 s; the render refuses a video over 65 s), headlines, overlays and a `delivery` note per scene. Format:
    `jobs/curious/sample-ever-wondered.json` (pictures + 2D animation). Drama: 5–6 scenes, 40–60 words, every scene has `cast`,
    `visual` (with `{Name}` placeholders), `action` and `lines`.
    MIX RULE (curious): scene 1 is always a picture; at least 2 scenes are 2D animations
@@ -80,8 +88,14 @@ skip it until Prashant restarts it.
    captions sit there), and check 4 frames with Playwright before pushing.
 5c. HOOK AND HOLD + QUIZ (Prashant, 2026-11-13; playbook "Hook and hold" and "Daily quiz and
    shoutouts"; format `jobs/curious/sample-hook-quiz.json`): every content scene has a `beat`
-   (scene 1 `hook` in max 14 words; `loop` in scene 1 or 2; at least 2 `rehook`s, ~20 s and
-   ~40 s; `payoff` in the second half; max 30 words per scene). FULL OF HOOKS (Prashant,
+   (scene 1 `hook` in max 14 words; `loop` in scene 1 or 2; at least 1 `rehook` (2 if they fit), ~15 s
+   and ~30 s; `payoff` in the second half; max 30 words per scene).
+   SHARE ASK (2026-11-23, test `2026-11-23-short-share`; render-checked): exactly one content scene
+   at or right after the payoff gets `"share": true` and says, in one short specific line, who to
+   send it to: "Send this to the friend who still thinks it's a shoe cleaner." / "Share this with
+   whoever always hogs the window seat." It names a real person-type tied to THIS topic (the friend
+   who's always wrong about X, the one who does Y), never a generic "share this video". Also caption
+   line 3 (Instagram) and the Facebook description: the same idea in writing. No other asks on top. FULL OF HOOKS (Prashant,
    2026-11-14): every scene ends on a tease, question or "but..." that makes the next one
    necessary; no flat lines. Then, if yesterday's video asked a quiz, a `shoutout`
    scene (`anims/shoutout.html`, with `narration_none`, never says how many names; both lines say
@@ -94,8 +108,10 @@ skip it until Prashant restarts it.
      (films, cricket and sport, music, famous shows, viral moments, landmarks), "current affairs"
      (this week's big happy-or-neutral news: launches, records, sport results, space missions,
      festivals; NEVER politics, elections, war, crime, deaths, disasters, or anything that could
-     change overnight) or "general knowledge". Rotate kinds across the week. India-first, but
-     global viewers should have a fair shot. Fit the day's theme format (Myth or fact, Guess the
+     change overnight) or "general knowledge". Rotate kinds across the week. GLOBAL (2026-11-23): a viewer in
+     the US, UK, India or Australia must have an equal shot: world-famous films, music and shows,
+     Olympics / World Cup / Grand Slam-level sport (not cricket-only or IPL), space, world landmarks,
+     animals, science. Nothing only one country would know. Fit the day's theme format (Myth or fact, Guess the
      number, This or that, Odd one out, Finish the fact, Showbiz Saturday, Brain teaser).
      Verify the answer against 2 sources (`sources`); for current affairs make sure it is still
      true tonight and tomorrow. Nothing mean about real people, no brand plugs.
@@ -103,14 +119,14 @@ skip it until Prashant restarts it.
    - Move the right answer around: look at the last few jobs' `quiz.answer` and pick the letter
      so A, B (and C) each win about equally; the render refuses the same letter 3 videos running.
      Both options must sound believable; the right one isn't always the "surprising" one.
-   - The quiz scene's narration READS THE QUESTION AND OPTIONS OUT (16–24 words: "Quick one:
-     India's biggest box-office film ever... Dangal, Baahubali 2, or RRR? Comment your guess.").
+   - The quiz scene's narration READS THE QUESTION AND OPTIONS OUT (14–20 words: "Quick one:
+     the tallest building on Earth... Burj Khalifa, Shanghai Tower, or Tokyo Skytree? Comment your guess.").
      The card shows "NEXT VIDEO: <next_title>" by itself; say tomorrow's topic only if it still
-     fits in the 24 words. The render holds the card at least 9 s (refuses under 7 s), so keep
-     everything before it to ~78 s.
+     fits in the 20 words. The render holds the card at least 7 s (refuses under 6 s), so keep
+     everything before it to ~58 s.
    Instagram caption ends with the quiz ("Today's quiz: ...? A) ... B) ... C) ... Comment your
    guess 👇", then "Next video: <next_title>"); YouTube and Facebook descriptions too.
-   Total 150–180 words.
+   Total 115–135 words.
 5a. HOOK + DELIVERY: set `"hook_style": "curiosity"`. Line 1 opens a real question about the
    everyday thing ("Ever wondered why car tyres are black?" is the IDEA, not a fixed phrase: vary
    it, the render refuses an opener that repeats one of the last 3 videos). First surprising fact
@@ -123,26 +139,32 @@ skip it until Prashant restarts it.
    as spoken words. Before pushing, read the whole script aloud in your head once and fix any
    line you'd stumble on. Weave "oh, that's why" in at most once, smoothly inside a calm closing sentence, never as a
    shouted line on its own. Check every line (especially the ending) for accidental double meanings.
-   and don't make every line sound sure and punchy: mix in softer, wondering lines. 150–180 words. The last scene is the quiz (5c).
+   and don't make every line sound sure and punchy: mix in softer, wondering lines. 115–135 words. The last scene is the quiz (5c).
    Search phrases: add `"keywords": [...]` with 2–3 English phrases people really type into
    search (main one first, usually "why are tyres black").
    Put the main phrase in the YouTube title, the first line of the Instagram caption and the
    first line of the Facebook description; use the other phrases in the caption's answer line.
    The render check refuses the job if they're missing, so write them in naturally, not stuffed.
-   Hashtags: follow the playbook table (3–5, relevant, `#ohthatswhy` first; trending tags from
-   `data/trends.json` only if they genuinely fit). Never more than 5. Never tag accounts that
-   aren't in the video. No "comment X to get Y" bait (the quiz is a real question, which is fine).
+   Hashtags (2026-11-23, playbook table): exactly 5 on Instagram (its hard cap), in this order:
+   `#ohthatswhy`, 2 topic tags (#elevator #lift), 2 big discovery tags from the playbook's niche
+   set (#didyouknow #sciencefacts #howitworks #everydayscience #themoreyouknow), swapping one for a `data/trends.json` hashtag only if it truly fits. Never #viral
+   #fyp #foryou #explore #trending: Instagram's own guidance is that generic tags don't add reach and
+   they label the Reel as spam-like. YouTube: title ends with #shorts; description ends with 3
+   hashtags (#shorts #didyouknow + 1 topic tag) because YouTube shows the first 3 above the title;
+   `youtube.tags` = the search phrases + topic words + the niche set (render keeps 15).
+   Never tag accounts that aren't in the video. No "comment X to get Y" bait (the quiz is a real question, which is fine).
 5d. ATTENTION (Prashant, 2026-11-18; playbook "Pictures and colours that stop the thumb"):
    scene 1's picture is the pitch's `first_frame`; in every picture the key part is the brightest
    thing in one warm accent colour, big and close; a face or hand where it fits; something new on
    screen every 2–3 s (cut, zoom, arrow, highlight); how-it-works headlines count the steps
    ("STEP 1/3"). Write each `visual` with that colour and framing in plain words. Hooks follow
-   "Pitching like the best hook writers". Running tests (`data/tests.json`): YouTube title and
-   hook_text lead with the surprising fact as a "Why..." claim (keep the search phrase), and
-   scene 2 pays one real step of the answer.
+   "Pitching like the best hook writers". Running tests (`data/tests.json`): `2026-11-23-short-share` (55–65 s + share line) and
+   `2026-11-23-trend-audio` (Instagram adds a muted trending track at posting time; nothing to
+   write in the job). The 19 Nov title and scene-2 tests were dropped on 2026-11-22.
 5b. PICTURES (paid, about Rs 3 each, so think before you spend):
    - Write each picture scene's `visual` as an ILLUSTRATION, not a photo: "illustration of ...",
-     ONE clear subject, where it is, viewpoint, simple background, Indian setting where it fits.
+     ONE clear subject, where it is, viewpoint, simple background, a setting people anywhere
+     recognise (no rupee notes, Indian number plates, Hindi signs or local-only brands).
      For a how-it-works scene, show the mechanism itself: a clean cutaway or close-up of the
      part that does the work (e.g. the strip inside the tag), big and easy to read on a phone.
      No text in the picture. The channel style adds the look (clean hand-drawn editorial

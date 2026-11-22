@@ -8,8 +8,10 @@
       "started": "2026-11-19",
       "videos": 4,
       "metric": "YouTube views at 24 h above our 556 median",
-      "status": "running",
-      "rec": "curious-2026-11-18#1"
+      "status": "dropped",
+      "rec": "curious-2026-11-18#1",
+      "ended": "2026-11-22",
+      "note": "Dropped early on 2026-11-22 (owner's call): early numbers negative (cooker whistle 286 at 72 h vs 1,404 before; YouTube 24 h 99-425 vs 556 target; IG 7.6-11.4 s vs 15 s target) and it ran mixed with the bold picture style, so no clean verdict. Make room for the reach tests."
     },
     {
       "id": "2026-11-19-scene2-answer",
@@ -18,8 +20,30 @@
       "started": "2026-11-19",
       "videos": 4,
       "metric": "Instagram seconds watched from 11 s to 15 s+, skip under 40%",
+      "status": "dropped",
+      "rec": "curious-2026-11-18#2",
+      "ended": "2026-11-22",
+      "note": "Dropped early on 2026-11-22 (owner's call): early numbers negative (cooker whistle 286 at 72 h vs 1,404 before; YouTube 24 h 99-425 vs 556 target; IG 7.6-11.4 s vs 15 s target) and it ran mixed with the bold picture style, so no clean verdict. Make room for the reach tests."
+    },
+    {
+      "id": "2026-11-23-short-share",
+      "change": "Whole video 55-65 s (115-135 spoken words incl. the quiz, 6-8 scenes, quiz card 7 s) plus one explicit 'send this to the friend who...' line right after the reveal and as caption line 3",
+      "kind": "format",
+      "started": "2026-11-23",
+      "videos": 5,
+      "metric": "Instagram skip under 35%, Instagram seconds watched 15 s+, shares per 1k 2+, views at 72 h above the 1,404 median",
       "status": "running",
-      "rec": "curious-2026-11-18#2"
+      "rec": "owner 2026-11-22 (chat)"
+    },
+    {
+      "id": "2026-11-23-trend-audio",
+      "change": "Instagram only: today's top trending licensed track from the Instagram Audio API attached muted (audio_volume 0) under our voice",
+      "kind": "format",
+      "started": "2026-11-23",
+      "videos": 5,
+      "metric": "Instagram views at 24 h above the 129 median of 12-22 Nov (Instagram only; YouTube/Facebook unchanged act as control)",
+      "status": "running",
+      "rec": "owner 2026-11-22 (chat)"
     }
   ]
 }

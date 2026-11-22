@@ -9,8 +9,8 @@ Work unattended.
 1. Pull the repo. Read `metrics/insights.json` FIRST (the daily numbers review: `rules`, `top`,
    `bottom`, `groups`, `flags`) and `metrics/report.md`, then `metrics/latest.json` and the `state/` files (what was posted, how it did),
    `data/trends.json` (what people type into YouTube/Google right now, this week's most-viewed
-   curiosity Shorts in India, their hashtags) and `data/comments.json` (what viewers ask).
-2. Do the trend check once: Google Trends daily (India, US, UK), Shorts/Reels trending
+   curiosity Shorts in the US, UK and India, their hashtags) and `data/comments.json` (what viewers ask).
+2. Do the trend check once: Google Trends daily (US, UK, India), Shorts/Reels trending
    topics (vidIQ connector if available), Reddit, safe big news, dates in the next 3 days.
 3. For each ACTIVE page (now only curious; drama is PAUSED, skip it):
    YOU PICK TOMORROW (Prashant, 2026-11-14): today's topic is never on the slate. It is
@@ -40,8 +40,9 @@ Work unattended.
      people see daily but never thought about how they work), and one of those is `recommended`
      unless the numbers clearly say otherwise. The third may come from another bucket.
      Pick from different buckets in the playbook (seen-but-never-noticed, myth
-     busted, why does it happen, careful health, India everyday). The test: anyone, any
-     education, has seen this thing and never wondered. English page only (Hindi paused
+     busted, why does it happen, careful health; India everyday retired 2026-11-23). The test: anyone, any
+     education, ANYWHERE in the world (US, UK, India, Australia), has seen this thing and never wondered.
+     Lead with a strange visible detail of the object, not an invisible mechanism (data 2026-11-22). English page only (Hindi paused
      2026-11-12). The topic must work as a curiosity question about an everyday thing with a satisfying "oh, that's why" answer.
      Drama: pick 3 directions for the next episode (continue the arc / trend tie-in /
      standalone gag), numbered with the next episode number.

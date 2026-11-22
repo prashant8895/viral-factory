@@ -1,0 +1,180 @@
+{
+  "id": "curious-2026-11-22-lift-door",
+  "channel": "curious",
+  "languages": [
+    "en"
+  ],
+  "publish": false,
+  "date": "2026-11-22",
+  "slot": "19:00",
+  "bucket": "how it works",
+  "hook_style": "curiosity",
+  "picture_style": "illustration-bold",
+  "seed": 11222,
+  "tests": [
+    "2026-11-19-why-claim-title",
+    "2026-11-19-scene2-answer"
+  ],
+  "hook_text": "WHY LIFT DOORS SPOT YOUR *HAND*",
+  "keywords": [
+    "why do lift doors reopen",
+    "how do elevator doors sense you",
+    "lift door infrared sensor"
+  ],
+  "sources": [
+    "https://elevatorworld.com/article/obstruction-detectors-a-historical-review",
+    "https://elevatorworld.com/?p=16097",
+    "https://www.fujitecamerica.com/wp-content/uploads/2022/01/Infrared-Door-Detector.pdf"
+  ],
+  "scenes": [
+    {
+      "visual": "close-up illustration of the edge of a closing steel lift door in an Indian apartment building, a thin black sensor strip running down the full door edge glowing with a faint warm red-orange line as the brightest thing in the frame, a person's hand reaching in from the side towards the gap, the door edge large and filling the lower two-thirds of the frame, plain cool navy-blue background, no text or logos",
+      "narration": "That thin black strip on a lift door's edge? What's it actually *watching*?",
+      "delivery": "curious",
+      "motion": "push",
+      "sfx": "boom",
+      "overlays": [],
+      "beat": "hook"
+    },
+    {
+      "visual": "clean cutaway illustration of a lift door edge cut open, showing a tall column of tiny round lights inside the black strip, each tiny light glowing bright red-orange as the brightest thing in the frame, the steel door cool grey-blue, the cutaway large and centred in the lower two-thirds of the frame, plain cool navy-blue background, no text or logos",
+      "narration": "It's a row of tiny *lights*, all shining across at the other door. And the real trick? Sneakier than a camera.",
+      "delivery": "explain",
+      "headline": "STEP 1/3: TINY *LIGHTS*",
+      "motion": "push",
+      "sfx": "thud",
+      "overlays": [],
+      "beat": "loop"
+    },
+    {
+      "visual": "2D animation: two lift door edges slide in, beams switch on one by one from the floor up between tiny lights and catchers, a beam counter climbs to 24",
+      "narration": "And the other door has a row of *catchers*. Dozens of beams, floor to about head height. So why can't you see them?",
+      "delivery": "explain",
+      "headline": "STEP 2/3: A *CURTAIN*",
+      "motion": "push",
+      "sfx": "whoosh",
+      "overlays": [],
+      "anim": "anims/lift-curtain.html",
+      "anim_params": {
+        "mode": "curtain",
+        "beams": 24,
+        "label": "ALL ARRIVED"
+      },
+      "beat": "explain"
+    },
+    {
+      "visual": "close-up illustration of a hand pointing a black TV remote at a television in a cosy Indian living room, the small bulb at the front tip of the remote glowing bright red-orange as the brightest thing in the frame, the remote and hand large in the lower two-thirds of the frame, plain cool navy-blue background, no text or logos",
+      "narration": "Because it's *infrared*, the same invisible light your TV remote sends. So what happens when your hand gets in the way?",
+      "delivery": "light",
+      "headline": "LIKE YOUR *REMOTE*",
+      "motion": "drift_right",
+      "sfx": "ding",
+      "overlays": [],
+      "beat": "rehook"
+    },
+    {
+      "visual": "2D animation: a hand slides into the gap between the lift doors, the beams it covers stop arriving, the counter drops from 24 to 17, MISSING, then the doors slide back open",
+      "narration": "Your hand blocks a few beams, like standing between the remote and the TV. The catchers spot the *gap*, and the doors open.",
+      "delivery": "explain",
+      "headline": "STEP 3/3: A *GAP*",
+      "motion": "push",
+      "sfx": "pop",
+      "overlays": [],
+      "anim": "anims/lift-curtain.html",
+      "anim_params": {
+        "mode": "block",
+        "beams": 24,
+        "label": "DOORS OPEN"
+      },
+      "beat": "explain"
+    },
+    {
+      "visual": "illustration of an old-style lift door with a thick black rubber safety edge running down its side, the rubber edge glowing bright red-orange as the brightest thing in the frame, a shopping bag gently touching the rubber edge, the door edge large in the middle of the frame, nothing important in the bottom third, plain cool navy-blue background, no text or logos",
+      "narration": "Honestly, I thought it was a camera. Older lifts didn't even use light, just a rubber edge that had to *bump* you.",
+      "delivery": "build",
+      "headline": "THE OLD *WAY*",
+      "motion": "push",
+      "sfx": "riser",
+      "overlays": [],
+      "beat": "rehook"
+    },
+    {
+      "visual": "warm illustration of a smiling young Indian woman stepping into a lift as the steel doors slide back open for her, the thin sensor strips on both door edges glowing bright red-orange as the brightest thing in the frame, the woman and doors large in the middle of the frame, nothing important in the bottom third, plain cool navy-blue background, no text or logos",
+      "narration": "So the lift never really sees you. <short pause> It just notices the light that went *missing*. Next time the doors bounce back, you'll know.",
+      "delivery": "reveal",
+      "headline": "IT NEVER *SEES* YOU",
+      "motion": "pull",
+      "sfx": "sparkle",
+      "overlays": [],
+      "beat": "payoff"
+    },
+    {
+      "visual": "2D animation: yesterday's fastest right answers",
+      "shoutout": true,
+      "anim": "anims/shoutout.html",
+      "narration": "Yesterday's answer: A, Naatu Naatu. These legends got it first.",
+      "narration_none": "It was A, Naatu Naatu... nobody cracked it. Let's see you beat today's.",
+      "delivery": "warm",
+      "headline": "*SHOUTOUT*",
+      "motion": "push",
+      "sfx": "sparkle",
+      "overlays": []
+    },
+    {
+      "visual": "2D animation: today's quiz (a light general-knowledge brain teaser, not tomorrow's topic)",
+      "quiz": true,
+      "anim": "anims/quiz.html",
+      "narration": "Sunday brain teaser... which planet is the hottest of them all? Mercury, Jupiter, or Venus? Comment your guess.",
+      "delivery": "curious",
+      "headline": "SUNDAY *BRAIN TEASER*",
+      "motion": "push",
+      "sfx": "pop",
+      "overlays": []
+    }
+  ],
+  "youtube": {
+    "title": "Why do lift doors reopen? Invisible beams #shorts",
+    "description": "Why do lift doors reopen when your hand gets in the way? That thin black strip on the door edge is a row of tiny infrared lights, shining across at a row of catchers on the other door: dozens of invisible beams, from near the floor to about head height. That's how elevator doors sense you. Put your hand in the gap and a few beams stop arriving, the lift door infrared sensor notices the missing light, and the doors open again. Older lifts used a rubber safety edge that had to touch you first.\n\nToday's quiz (Sunday Brain Teaser): which planet is the hottest of them all? A) Mercury B) Jupiter C) Venus. Comment your guess 👇\nNext video: Why fog lights sit so low\n\nSources: Elevator World, Fujitec\nAI visuals\n#ohthatswhy #lift #elevator #howitworks #shorts",
+    "tags": [
+      "why do lift doors reopen",
+      "how do elevator doors sense you",
+      "lift door infrared sensor",
+      "elevator light curtain",
+      "how it works"
+    ]
+  },
+  "instagram": {
+    "caption": "Why do lift doors reopen when your hand gets in the way? It isn't a camera 👀\nHow do elevator doors sense you? A lift door infrared sensor: tiny lights on one edge shine invisible beams at catchers on the other. Block a few and the doors open again.\n\nSources: Elevator World, Fujitec\nAI visuals\n#ohthatswhy #lift #elevator #howitworks\n\nToday's quiz (Sunday Brain Teaser): which planet is the hottest of them all? A) Mercury B) Jupiter C) Venus. Comment your guess 👇\nNext video: Why fog lights sit so low"
+  },
+  "facebook": {
+    "description": "Why do lift doors reopen? Tiny infrared lights on one door edge shine invisible beams at catchers on the other; your hand blocks a few, and the doors open again. AI visuals.\n\nToday's quiz (Sunday Brain Teaser): which planet is the hottest of them all? A) Mercury B) Jupiter C) Venus. Comment your guess 👇\nNext video: Why fog lights sit so low"
+  },
+  "quiz": {
+    "theme": "SUNDAY BRAIN TEASER",
+    "kind": "general knowledge",
+    "next_topic": "why fog lights sit so low by the bumper",
+    "next_title": "Why fog lights sit so low",
+    "question": "Which planet is the hottest of them all?",
+    "options": {
+      "A": "Mercury",
+      "B": "Jupiter",
+      "C": "Venus"
+    },
+    "answer": "C",
+    "keywords": {
+      "A": [
+        "mercury"
+      ],
+      "B": [
+        "jupiter"
+      ],
+      "C": [
+        "venus"
+      ]
+    },
+    "sources": [
+      "https://science.nasa.gov/venus/facts",
+      "https://www.livescience.com/space/venus/why-is-venus-hotter-than-mercury-when-mercury-is-closer-to-the-sun"
+    ]
+  }
+}

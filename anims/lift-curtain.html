@@ -1,0 +1,88 @@
+<!doctype html><html><head><meta charset="utf-8">
+<style>html,body{margin:0;background:#16233a}canvas{display:block}</style></head><body>
+<canvas id="c" width="1080" height="1920"></canvas>
+<script>
+// How a lift door knows your hand is there: the infrared "light curtain". Clouds-Short style:
+// dark navy, one object (the two door edges with beams between them), one big orange number
+// (beams arriving at the other door) that moves with the words.
+// params.mode:
+//  "curtain": the doors slide in; beams switch on one by one from the floor up and the number
+//             counts 0 -> params.beams (default 24). params.label (e.g. "ALL ARRIVED").
+//  "block":   all beams on, doors closing; a hand slides into the gap, the beams it covers die,
+//             the number drops (24 -> 17), "MISSING!" pops, then the doors slide back open
+//             with params.label (default "DOORS OPEN").
+// Keeps the top fifth (0-384) and the caption band (1344-1632) empty.
+const c=document.getElementById('c'),x=c.getContext('2d'),W=1080,H=1920;
+const NAVY='#16233a',YEL='#ffd23f',ORA='#ff9f1c',WHITE='#f4f1e8',TEAL='#3fc1c9',RED='#ff5a5a',GREEN='#5fd068',BEAM='#ff7a7a';
+const clamp=(v,a=0,b=1)=>Math.max(a,Math.min(b,v)), prog=(t,a,b)=>clamp((t-a)/(b-a));
+const ease=t=>1-Math.pow(1-clamp(t),3), back=t=>{t=clamp(t);const s=1.7;return 1+(s+1)*Math.pow(t-1,3)+s*Math.pow(t-1,2)};
+const rnd=i=>{const s=Math.sin(i*12.9898)*43758.5453;return s-Math.floor(s)};
+function txt(s,px,py,size,col){x.font=`700 ${size}px Anton, Impact, sans-serif`;x.textAlign='center';x.textBaseline='middle';
+  x.lineWidth=size*0.14;x.lineJoin='round';x.strokeStyle='rgba(0,0,0,.55)';x.strokeText(s,px,py);x.fillStyle=col;x.fillText(s,px,py)}
+function bg(){x.fillStyle=NAVY;x.fillRect(0,0,W,H);
+  for(let i=0;i<220;i++){x.fillStyle='rgba(255,255,255,.035)';x.fillRect(rnd(i)*W,rnd(i+99)*H,3,3)}}
+function pop(s,px,py,str,size,col){if(s<=0)return;x.save();x.translate(px,py);x.scale(s,s);txt(str,0,0,size,col);x.restore()}
+
+const Y0=640,Y1=1180;           // door edges: from near the floor (Y1) up to head height (Y0)
+function beamY(i,n){return Y1-20-(Y1-Y0-40)*i/(n-1)}
+function doors(eL,eR){
+  // door panels (steel grey-blue), edges with the sensor strips
+  x.fillStyle='#3a4d6b';x.fillRect(0,Y0-60,eL,Y1-Y0+110);x.fillRect(eR,Y0-60,W-eR,Y1-Y0+110);
+  x.fillStyle='rgba(255,255,255,.06)';x.fillRect(eL-160,Y0-60,6,Y1-Y0+110);x.fillRect(eR+154,Y0-60,6,Y1-Y0+110);
+  x.fillStyle='#0d1626';x.fillRect(eL-26,Y0-40,26,Y1-Y0+70);x.fillRect(eR,Y0-40,26,Y1-Y0+70);
+  // floor line
+  x.fillStyle='rgba(244,241,232,.35)';x.fillRect(0,Y1+50,W,6);
+}
+// hand: palm + 4 fingers pointing left, tip at (hx,hy)
+function hand(hx,hy,a){if(a<=0)return;x.save();x.globalAlpha=a;x.fillStyle=ORA;x.shadowColor=ORA;x.shadowBlur=24;
+  x.beginPath();x.roundRect(hx+120,hy-70,240,150,50);x.fill();
+  const f=[[-58,150],[-20,170],[18,160],[54,130]];
+  f.forEach(([dy,len])=>{x.beginPath();x.roundRect(hx+140-len,hy+dy-17,len+40,34,17);x.fill()});
+  x.beginPath();x.roundRect(hx+330,hy-60,300,120,30);x.fill(); // wrist / arm going off to the right
+  x.restore();}
+function handBox(hx,hy){return[hx-30,hy-80,hy+75]} // left x, top y, bottom y
+
+function beams(eL,eR,n,shown,blk){let arrived=0;
+  for(let i=0;i<n;i++){if(i>=shown)break;const y=beamY(i,n);
+    const blocked=blk&&y>blk[1]&&y<blk[2]&&blk[0]<eR;
+    const endX=blocked?Math.max(eL,blk[0]):eR;
+    x.save();x.strokeStyle=BEAM;x.globalAlpha=.8;x.lineWidth=4;x.shadowColor=BEAM;x.shadowBlur=10;
+    x.beginPath();x.moveTo(eL,y);x.lineTo(endX,y);x.stroke();x.restore();
+    x.fillStyle=BEAM;x.beginPath();x.arc(eL-13,y,6,0,7);x.fill();             // tiny light
+    x.fillStyle=blocked?'rgba(244,241,232,.25)':GREEN;x.beginPath();x.arc(eR+13,y,7,0,7);x.fill(); // catcher
+    if(!blocked)arrived++;}
+  return arrived;}
+function counter(v,n,s,col){if(s<=0)return;pop(s,540,455,Math.round(v)+' / '+n,130,col||ORA);pop(s,540,545,'BEAMS ARRIVING',42,col||ORA)}
+
+function drawCurtain(t,p,P){const n=+P.beams||24;
+  const cl=ease(prog(p,0,0.5)),eL=230+110*cl,eR=850-110*cl;
+  doors(eL,eR);
+  const shown=Math.floor(n*ease(prog(p,0.08,0.7)));
+  const got=beams(eL,eR,n,shown,null);
+  counter(got,n,back(prog(p,0.02,0.12)),ORA);
+  pop(back(prog(p,0.08,0.18)),eL-13-0,Y1+95,'LIGHTS',46,BEAM);
+  pop(back(prog(p,0.12,0.22)),eR+13,Y1+95,'CATCHERS',46,GREEN);
+  if(p>0.74)pop(back(prog(p,0.74,0.86)),540,(Y0+Y1)/2,P.label||'ALL ARRIVED',84,YEL);
+}
+function drawBlock(t,p,P){const n=+P.beams||24;
+  const close=ease(prog(p,0,0.35)), open=ease(prog(p,0.6,0.85));
+  const c=close*(1-open), eL=230+110*c, eR=850-110*c;
+  doors(eL,eR);
+  const hin=ease(prog(p,0.15,0.4));const hx=eR-30-200*hin+ (1-hin)*400, hy=960;
+  const blk=hin>0.05?handBox(hx,hy):null;
+  const got=beams(eL,eR,n,n,blk);
+  hand(hx,hy,clamp(hin*3));
+  const missing=n-got;
+  counter(got,n,1,missing>0?RED:ORA);
+  if(missing>0&&p<0.6)pop(back(prog(p,0.38,0.48)),540,Y1+100,'MISSING!',70,RED);
+  if(p>=0.6)pop(back(prog(p,0.62,0.74)),540,Y1+100,P.label||'DOORS OPEN',76,GREEN);
+}
+
+window.draw=function(t,dur,P){
+  P=Object.assign({mode:'curtain'},P||{});
+  const p=t/Math.max(dur,0.1);
+  x.setTransform(1,0,0,1,0,0);x.globalAlpha=1;x.shadowBlur=0;x.setLineDash([]);bg();
+  if(P.mode==='block')drawBlock(t,p,P);else drawCurtain(t,p,P);
+};
+window.draw(0,6,{});
+</script></body></html>

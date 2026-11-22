@@ -1,15 +1,15 @@
 # Oh That's Why: numbers review
 
-Updated 22 Nov 2026, 06:44 IST. English page, 18 videos, 23,632 views in total (YouTube 12,094, Instagram 6,066, Facebook 5,472). Median watch 16% (11 s on Instagram, 24 s on YouTube), median shares 0 per 1k views.
+Updated 22 Nov 2026, 12:59 IST. English page, 18 videos, 23,804 views in total (YouTube 12,266, Instagram 6,066, Facebook 5,472). Median watch 16% (11 s on Instagram, 24 s on YouTube), median shares 0 per 1k views.
 
 Hindi page (paused 12 Nov): 7 videos, 866 views in total.
 
 ## What to do next
 
-- bucket: 'seen-but-missed' beats 'how it works' (1,736 vs 873 median views, 1,896 vs 1,134 average, 6 vs 7 videos). Lean towards 'seen-but-missed'.
-- picture_style: 'illustration' beats 'illustration-bold' (1,476 vs 587 median views, 1,393 vs 772 average, 8 vs 3 videos). Lean towards 'illustration'.
-- voice: 'clone' leads on median views (1,374 vs 973) but not on average (1,224 vs 1,453): it lifts the weak videos, not the hits. No change yet.
-- length_band: '50-70s' leads on median views (1,476 vs 873) but not on average (1,381 vs 1,134): it lifts the weak videos, not the hits. No change yet.
+- bucket: 'seen-but-missed' beats 'how it works' (1,736 vs 873 median views, 1,896 vs 1,158 average, 6 vs 7 videos). Lean towards 'seen-but-missed'.
+- picture_style: 'illustration' beats 'illustration-bold' (1,476 vs 753 median views, 1,393 vs 829 average, 8 vs 3 videos). Lean towards 'illustration'.
+- voice: 'clone' leads on median views (1,374 vs 973) but not on average (1,239 vs 1,453): it lifts the weak videos, not the hits. No change yet.
+- length_band: '50-70s' leads on median views (1,476 vs 873) but not on average (1,381 vs 1,158): it lifts the weak videos, not the hits. No change yet.
 - People watch a median 11 s on Instagram and 24 s on YouTube whatever the video's length. The first real answer must land inside those first 11 s; judge hold by seconds watched and skip rate, not watch % (watch % drops on its own when videos get longer). Length itself is set by the playbook, not by this rule.
 - Top videos so far: IT'S NOT A SHOE CLEANER! (seen-but-missed, 3,188 views); WHY TWO FLUSH BUTTONS? (how it works, 2,334 views); WHY THIS MESH? (seen-but-missed, 1,891 views). Pitch more topics like these.
 - Weakest: NO BATTERY. HOW DOES IT PAY? (how it works, 605); WINTER HAZE? NOT JUST FOG (india everyday, 438); WHY IT'S HOTTER THAN BOILING (how it works, 284). Avoid these angles unless a new twist.
@@ -25,11 +25,11 @@ Hindi page (paused 12 Nov): 7 videos, 866 views in total.
 
 | Date | Hook | Bucket | Hook style | Len | Late | 24 h | 72 h | Now | Watch YT / IG / FB | Sec watched IG / YT | IG skip | Shares/1k | Follows | Views YT | IG | FB |
 |---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
-| 2026-11-21 | WHY YOUR IRON CLICKS | how it works | curiosity | 88s | -2m | – | – | 587 | – / 8.6% / 3.8% | 7.6 s / – | 30% | 0 | – | 251 | 129 | 207 |
-| 2026-11-20 | WHY ONLY YOUR KEY WORKS | how it works | curiosity | 85s | -5m | 1,321 | – | 1,445 | – / 11% / 9% | 9.3 s / – | 50% | 0 | – | 335 | 45 | 1,065 |
+| 2026-11-21 | WHY YOUR IRON CLICKS | how it works | curiosity | 88s | -2m | 753 | – | 753 | – / 8.6% / 3.8% | 7.6 s / – | 30% | 0 | – | 417 | 129 | 207 |
+| 2026-11-20 | WHY ONLY YOUR KEY WORKS | how it works | curiosity | 85s | -5m | 1,321 | 1,451 | 1,451 | – / 11% / 9% | 9.3 s / – | 50% | 0 | – | 341 | 45 | 1,065 |
 | 2026-11-19 | WHY IT'S HOTTER THAN BOILING | how it works | curiosity | 88s | -2m | 207 | 284 | 284 | 32% / 13% / 0.9% | 11 s / 28 s | 44% | 0 | – | 174 | 108 | 2 |
 | 2026-11-18 | HOW DOES IT KNOW? | how it works | curiosity | 86s | -2m | 531 | 875 | 873 | 50% / 13% / 2.3% | 11 s / 43 s | 49% | 0 | – | 505 | 158 | 210 |
-| 2026-11-17 | WHY TWO FLUSH BUTTONS? | how it works | curiosity | 85s | -2m | 2,197 | 2,334 | 2,348 | 55% / 26% / 9.7% | 22 s / 47 s | 37% | 0 | – | 1,202 | 171 | 975 |
+| 2026-11-17 | WHY TWO FLUSH BUTTONS? | how it works | curiosity | 85s | -2m | 2,197 | 2,334 | 2,348 | 56% / 26% / 9.7% | 22 s / 47 s | 37% | 0 | – | 1,202 | 171 | 975 |
 | 2026-11-16 | NO BATTERY. HOW DOES IT PAY? | how it works | curiosity | 85s | -2m | 580 | 605 | 603 | 29% / 15% / 5.9% | 13 s / 25 s | 37% | 10 | – | 352 | 120 | 131 |
 | 2026-11-15 | HOW DO SHOP TAGS WORK? | how it works | curiosity | 81s | 0m | 1,645 | 1,773 | 1,797 | 35% / 13% / 3.9% | 10 s / 28 s | 49% | 1.1 | – | 1,335 | 237 | 225 |
 | 2026-11-14 | WHY WRINKLY FINGERS? | myth busted | curiosity | 68s | -2m | 1,322 | 1,404 | 1,374 | 36% / 12% / 5.6% | 8.3 s / 24 s | 59% | 0 | – | 1,024 | 114 | 236 |
@@ -55,8 +55,8 @@ Hindi page (paused 12 Nov): 7 videos, 866 views in total.
 
 | Test | Change | Started | Videos (72 h) | 72 h views test / before | IG sec test / before | IG skip test / before | Verdict |
 |---|---|---|---|---|---|---|---|
-| 2026-11-19-why-claim-title | YouTube title and opening headline lead with the surprising fact as a 'Why...' claim, search phrase kept in the title | 2026-11-19 | 3 (0/4) | 284 / 1,404 | 9.3 s / 11 s | 44% / 46% | waiting |
-| 2026-11-19-scene2-answer | Scene 2 gives one real piece of the answer (first step of the chain) before teasing the rest; never a tease-only scene | 2026-11-19 | 3 (0/4) | 284 / 1,404 | 9.3 s / 11 s | 44% / 46% | waiting |
+| 2026-11-19-why-claim-title | YouTube title and opening headline lead with the surprising fact as a 'Why...' claim, search phrase kept in the title | 2026-11-19 | 3 (0/4) | 868 / 1,404 | 9.3 s / 11 s | 44% / 46% | waiting |
+| 2026-11-19-scene2-answer | Scene 2 gives one real piece of the answer (first step of the chain) before teasing the rest; never a tease-only scene | 2026-11-19 | 3 (0/4) | 868 / 1,404 | 9.3 s / 11 s | 44% / 46% | waiting |
 
 ## By bucket
 
@@ -65,7 +65,7 @@ Hindi page (paused 12 Nov): 7 videos, 866 views in total.
 | seen-but-missed | 6 | 1,537 | 1,736 | 1,896 | 33% | 15 s | 0.2 |
 | myth busted (too few) | 1 | 1,322 | 1,374 | 1,374 | 12% | 8.3 s | 0 |
 | why does it happen (too few) | 2 | 753 | 929 | 929 | 13% | 4.2 s | 0 |
-| how it works | 7 | 950 | 873 | 1,134 | 13% | 11 s | 0 |
+| how it works | 7 | 753 | 873 | 1,158 | 13% | 11 s | 0 |
 | careful health (too few) | 1 | 438 | 647 | 647 | 18% | 7.3 s | 0 |
 | india everyday (too few) | 1 | 203 | 441 | 441 | 24% | 9.8 s | 0 |
 
@@ -74,7 +74,7 @@ Hindi page (paused 12 Nov): 7 videos, 866 views in total.
 | Group | Videos | Median 24 h | Median views | Average views | Watch | IG sec | Shares/1k |
 |---|---|---|---|---|---|---|---|
 | none (too few) | 1 | 2,206 | 3,422 | 3,422 | 42% | 18 s | 2.6 |
-| curiosity | 11 | 1,294 | 1,374 | 1,224 | 13% | 11 s | 0 |
+| curiosity | 11 | 1,267 | 1,374 | 1,239 | 13% | 11 s | 0 |
 | question | 4 | 1,078 | 1,284 | 1,334 | 23% | 9.5 s | 0 |
 | myth (too few) | 2 | 450 | 707 | 707 | 17% | 7.1 s | 0 |
 
@@ -84,13 +84,13 @@ Hindi page (paused 12 Nov): 7 videos, 866 views in total.
 |---|---|---|---|---|---|---|---|
 | illustration | 8 | 1,294 | 1,476 | 1,393 | 16% | 11 s | 0 |
 | photo | 7 | 808 | 973 | 1,453 | 24% | 9.8 s | 0 |
-| illustration-bold | 3 | 764 | 587 | 772 | 9.9% | 9.3 s | 0 |
+| illustration-bold | 3 | 753 | 753 | 829 | 9.9% | 9.3 s | 0 |
 
 ## By voice
 
 | Group | Videos | Median 24 h | Median views | Average views | Watch | IG sec | Shares/1k |
 |---|---|---|---|---|---|---|---|
-| clone | 11 | 1,294 | 1,374 | 1,224 | 13% | 11 s | 0 |
+| clone | 11 | 1,267 | 1,374 | 1,239 | 13% | 11 s | 0 |
 | kokoro | 7 | 808 | 973 | 1,453 | 24% | 9.8 s | 0 |
 
 ## By length band
@@ -99,4 +99,4 @@ Hindi page (paused 12 Nov): 7 videos, 866 views in total.
 |---|---|---|---|---|---|---|---|
 | 50-70s | 4 | 1,294 | 1,476 | 1,381 | 18% | 11 s | 0 |
 | 40-50s | 7 | 808 | 973 | 1,453 | 24% | 9.8 s | 0 |
-| 70s+ | 7 | 950 | 873 | 1,134 | 13% | 11 s | 0 |
+| 70s+ | 7 | 753 | 873 | 1,158 | 13% | 11 s | 0 |

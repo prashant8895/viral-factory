@@ -1,0 +1,58 @@
+{
+  "id": "curious-2026-11-22-lift-door-en",
+  "channel": "curious-en",
+  "date": "2026-11-22",
+  "slot": "19:00",
+  "publish": true,
+  "bucket": "how it works",
+  "episode": null,
+  "hook_text": "WHY LIFT DOORS SPOT YOUR *HAND*",
+  "hook_style": "curiosity",
+  "release": "job-curious-2026-11-22-lift-door-en",
+  "duration": 76.94,
+  "quiz": {
+    "theme": "SUNDAY BRAIN TEASER",
+    "kind": "general knowledge",
+    "next_topic": "why fog lights sit so low by the bumper",
+    "next_title": "Why fog lights sit so low",
+    "question": "Which planet is the hottest of them all?",
+    "options": {
+      "A": "Mercury",
+      "B": "Jupiter",
+      "C": "Venus"
+    },
+    "answer": "C",
+    "keywords": {
+      "A": [
+        "mercury"
+      ],
+      "B": [
+        "jupiter"
+      ],
+      "C": [
+        "venus"
+      ]
+    },
+    "sources": [
+      "https://science.nasa.gov/venus/facts",
+      "https://www.livescience.com/space/venus/why-is-venus-hotter-than-mercury-when-mercury-is-closer-to-the-sun"
+    ]
+  },
+  "shoutouts": {
+    "from": "curious-2026-11-21-iron-click-en",
+    "names": [
+      {
+        "name": "@Gargiwatchesvideos",
+        "platform": "youtube",
+        "time": "2026-11-21T16:08:52Z",
+        "comment_id": "UgyvXNBXjjGTiPVTioF4AaABAg"
+      }
+    ]
+  },
+  "tests": [
+    "2026-11-19-why-claim-title",
+    "2026-11-19-scene2-answer"
+  ],
+  "picture_style": "illustration-bold",
+  "voice": "clone"
+}

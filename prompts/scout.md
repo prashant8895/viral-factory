@@ -87,7 +87,7 @@ Work unattended.
 4. Write each page's pitches to the Morning Slate database (ArtifactData, url
    https://claude.ai/artifact/ENWN3tiRkTz9y3qU2iFjqT), collection `pitches`,
    doc id `<page>-<YYYY-MM-DD>` (IST date):
-   `{channel: "<page>", date, slot: "19:00", episode (drama only), recommended: <n>,
+   `{channel: "<page>", date, slot: <`slot` from channels/curious-en/channel.json, "23:30" since 2026-11-23>, episode (drama only), recommended: <n>,
      approved: null, status: "waiting", today: {topic, hook_text, from}, for_date: <tomorrow>,
      items: [{n, bucket, hook, angle, why, quiz_line, gap, first_frame, share_line,
               score: {trend, curiosity, visual, share, evergreen, hook}}]}`

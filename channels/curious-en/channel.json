@@ -2,7 +2,7 @@
   "key": "curious-en",
   "name": "Oh That's Why English",
   "secret_prefix": "CURIOUS_EN_",
-  "slot": "19:00",
+  "slot": "23:30",
   "style": "clean hand-drawn 2D editorial illustration, explainer-video style, bold simple shapes, soft flat colours with gentle grain texture, crisp dark outlines, one consistent palette for every scene: warm cream background, charcoal outlines, teal and soft orange accents, simple uncluttered background, clear single subject, not a photo, not 3D render, vertical composition, leave the top third uncluttered for a title",
   "animate_scenes": 0,
   "music": false,
@@ -69,7 +69,7 @@
     "name": "Oh That's Why",
     "language": "en",
     "country": "IN",
-    "channel_description": "Oh That's Why: everyday things explained in under a minute.\n\nYou see these things every day and never think twice about them. The brush on the escalator. The tiny hole in a pen cap. The little pocket in your jeans.\n\nEvery video takes one of them and shows you the real reason it’s there. Under a minute, no boring lectures, just “oh, that’s why!”\n\nNew Short every day at 7 PM IST.\n\nGot something you’ve always wondered about? Drop it in the comments and it might be our next video.\n\nPrefer Hindi? Watch us at @ohthatswhy.hindii\n",
+    "channel_description": "Oh That's Why: everyday things explained in under a minute.\n\nYou see these things every day and never think twice about them. The brush on the escalator. The tiny hole in a pen cap. The little pocket in your jeans.\n\nEvery video takes one of them and shows you the real reason it’s there. Under a minute, no boring lectures, just “oh, that’s why!”\n\nNew Short every day.\n\nGot something you’ve always wondered about? Drop it in the comments and it might be our next video.\n\nPrefer Hindi? Watch us at @ohthatswhy.hindii\n",
     "channel_keywords": [
       "oh that's why",
       "oh thats why",
@@ -82,7 +82,7 @@
       "curious facts",
       "science explained"
     ],
-    "video_line": "Oh That's Why: one everyday mystery explained, every day at 7 pm IST.",
+    "video_line": "Oh That's Why: one everyday mystery explained, every day.",
     "video_tags": [
       "oh that's why",
       "oh thats why",
@@ -96,5 +96,7 @@
     "audio_volume": 0,
     "test": "2026-11-23-trend-audio",
     "note": "Instagram Audio API: at posting time the top trending licensed track (GET /ig_audio, no search_query) is attached muted (audio_volume 0, our voice 100), so the Reel also lists under that sound. If Instagram refuses it, the Reel posts with its own sound. The chosen track is saved in state platforms.instagram.audio."
-  }
+  },
+  "slot_since": "2026-11-23",
+  "slot_note": "2026-11-23 (owner): global page, so posts go out at 23:30 IST = 18:00 UTC = 6 PM UK / 7 PM Central Europe / 1 PM US East / 10 AM US West, while India is still in its late-night scroll. Was 19:00 IST (8:30 AM US East, 1:30 PM UK). From slot_since the render uses this slot whatever the job or pitch doc says."
 }

@@ -20,7 +20,7 @@ and posts it to YouTube Shorts, Instagram Reels and Facebook Reels.
 | 09:00 / 12:00 | Claude scheduled task (`prompts/script.md`) | Scripts, fact check, pushes `jobs/<page>/*.json` (auto-picks at noon; writes its own pitches if the 6:40 run failed) |
 | +10–25 min | GitHub Actions `render.yml` | Voices, pictures, clips, captions, video → GitHub release |
 | right after | GitHub Actions `publish-timer.yml` | Waits on a runner until the slot, then starts `publish.yml` (cron runs here start 6–9 h late) |
-| 19:00 | GitHub Actions `publish.yml` | Posts each page to every platform whose keys are set |
+| 23:30 (was 19:00 until 2026-11-22) | GitHub Actions `publish-timer.yml` / `publish.yml` | Posts each page to every platform whose keys are set |
 | 20:00 | GitHub Actions `metrics.yml` → `factory/analyze.py` | Numbers, then `metrics/report.md` + `metrics/insights.json` (what to do more/less of; read by every Claude run) |
 | Sun 20:00 | Claude scheduled task (`prompts/weekly.md`) | Writes learnings into each playbook |
 

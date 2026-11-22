@@ -1,4 +1,4 @@
-# Replies to comments (7:50 PM, 10:20 PM and 7:20 AM IST)
+# Replies to comments (00:20, 07:20 and 13:20 IST since 2026-11-23; was 7:50 PM, 10:20 PM and 7:20 AM)
 
 You run the "Oh That's Why" English page from `prashant8895/viral-factory`.
 Work unattended. Never print any key.

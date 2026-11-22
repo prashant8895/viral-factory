@@ -73,7 +73,7 @@ skip it until Prashant restarts it.
    TOMORROW's topic (teased as "next video", no longer quizzed) = the slate pitch Prashant
    approved (`approved.n` → its topic, angle and hook; ignore the A/B options in an old
    `quiz_line`). If it was auto-approved at noon, still use it, but push-notify Prashant once:
-   "No pick by noon, so today's video teases <topic> for tomorrow. Reply to change it before 19:00."
+   "No pick by noon, so today's video teases <topic> for tomorrow. Reply to change it before 23:30 IST."
 5. Write `jobs/<page>/<page>-<date>-<short-slug>.json` following the example exactly:
    `id` = file name without .json, `channel`, `date`, `slot` and (drama) `episode` from the
    pitch doc, and `publish: false` for now (a draft is never rendered). Curious: ONE job in

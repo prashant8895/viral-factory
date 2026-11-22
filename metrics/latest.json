@@ -1,6 +1,6 @@
 [
   {
-    "checked": "2026-11-22T02:07+05:30",
+    "checked": "2026-11-22T06:41+05:30",
     "channel": "curious-en",
     "id": "curious-2026-11-06-escalator-brush-en",
     "bucket": "seen-but-missed",
@@ -8,15 +8,18 @@
     "hook_style": null,
     "slot": "19:00",
     "platform": "youtube",
-    "hours_live": 369.6,
+    "hours_live": 374.2,
     "views": 1060,
     "likes": 8,
     "comments": 3,
     "privacy": "public",
-    "error": "youtube analytics: YouTube Analytics HTTP 500: {\n  \"error\": {\n    \"code\": 500,\n    \"message\": \"Internal error encountered.\",\n    \"errors\": [\n      {\n        \"message\": \""
+    "yt_avg_view_pct": 54.2,
+    "yt_avg_view_sec": 23,
+    "shares": 1,
+    "subs_gained": 1
   },
   {
-    "checked": "2026-11-22T02:07+05:30",
+    "checked": "2026-11-22T06:41+05:30",
     "channel": "curious-en",
     "id": "curious-2026-11-06-escalator-brush-en",
     "bucket": "seen-but-missed",
@@ -24,7 +27,7 @@
     "hook_style": null,
     "slot": "19:00",
     "platform": "instagram",
-    "hours_live": 369.6,
+    "hours_live": 374.2,
     "likes": 14,
     "comments": 0,
     "views": 2135,
@@ -37,7 +40,7 @@
     "reposts": 0
   },
   {
-    "checked": "2026-11-22T02:07+05:30",
+    "checked": "2026-11-22T06:41+05:30",
     "channel": "curious-en",
     "id": "curious-2026-11-06-escalator-brush-en",
     "bucket": "seen-but-missed",
@@ -45,7 +48,7 @@
     "hook_style": null,
     "slot": "19:00",
     "platform": "facebook",
-    "hours_live": 369.6,
+    "hours_live": 374.2,
     "blue_reels_play_count": 227,
     "post_video_avg_time_watched": 6188,
     "shares": 0,
@@ -53,7 +56,7 @@
     "views": 227
   },
   {
-    "checked": "2026-11-22T02:07+05:30",
+    "checked": "2026-11-22T06:41+05:30",
     "channel": "curious-hi",
     "id": "curious-2026-11-06-escalator-brush-hi",
     "bucket": "seen-but-missed",
@@ -61,14 +64,14 @@
     "hook_style": null,
     "slot": "19:00",
     "platform": "youtube",
-    "hours_live": 369.6,
+    "hours_live": 374.1,
     "views": 0,
     "likes": 0,
     "comments": 0,
     "privacy": "public"
   },
   {
-    "checked": "2026-11-22T02:07+05:30",
+    "checked": "2026-11-22T06:41+05:30",
     "channel": "curious-hi",
     "id": "curious-2026-11-06-escalator-brush-hi",
     "bucket": "seen-but-missed",
@@ -76,7 +79,7 @@
     "hook_style": null,
     "slot": "19:00",
     "platform": "facebook",
-    "hours_live": 369.6,
+    "hours_live": 374.1,
     "blue_reels_play_count": 1,
     "post_video_avg_time_watched": 1574,
     "shares": 0,
@@ -84,7 +87,7 @@
     "views": 1
   },
   {
-    "checked": "2026-11-22T02:07+05:30",
+    "checked": "2026-11-22T06:41+05:30",
     "channel": "curious-hi",
     "id": "curious-2026-11-06-escalator-brush-hi",
     "bucket": "seen-but-missed",
@@ -92,7 +95,7 @@
     "hook_style": null,
     "slot": "19:00",
     "platform": "instagram",
-    "hours_live": 369.5,
+    "hours_live": 374.1,
     "likes": 1,
     "comments": 0,
     "views": 175,
@@ -105,7 +108,7 @@
     "reposts": 0
   },
   {
-    "checked": "2026-11-22T02:07+05:30",
+    "checked": "2026-11-22T06:41+05:30",
     "channel": "curious-en",
     "id": "curious-2026-11-07-microwave-mesh-en",
     "bucket": "seen-but-missed",
@@ -113,15 +116,18 @@
     "hook_style": "question",
     "slot": "19:00",
     "platform": "youtube",
-    "hours_live": 341.3,
+    "hours_live": 345.8,
     "views": 1292,
     "likes": 39,
     "comments": 2,
     "privacy": "public",
-    "error": "youtube analytics: YouTube Analytics HTTP 500: {\n  \"error\": {\n    \"code\": 500,\n    \"message\": \"Internal error encountered.\",\n    \"errors\": [\n      {\n        \"message\": \""
+    "yt_avg_view_pct": 54.3,
+    "yt_avg_view_sec": 22,
+    "shares": 0,
+    "subs_gained": 0
   },
   {
-    "checked": "2026-11-22T02:07+05:30",
+    "checked": "2026-11-22T06:41+05:30",
     "channel": "curious-en",
     "id": "curious-2026-11-07-microwave-mesh-en",
     "bucket": "seen-but-missed",
@@ -129,7 +135,7 @@
     "hook_style": "question",
     "slot": "19:00",
     "platform": "instagram",
-    "hours_live": 337.7,
+    "hours_live": 342.3,
     "likes": 8,
     "comments": 0,
     "views": 602,
@@ -142,7 +148,7 @@
     "reposts": 0
   },
   {
-    "checked": "2026-11-22T02:07+05:30",
+    "checked": "2026-11-22T06:41+05:30",
     "channel": "curious-en",
     "id": "curious-2026-11-07-microwave-mesh-en",
     "bucket": "seen-but-missed",
@@ -150,7 +156,7 @@
     "hook_style": "question",
     "slot": "19:00",
     "platform": "facebook",
-    "hours_live": 337.7,
+    "hours_live": 342.3,
     "blue_reels_play_count": 225,
     "post_video_avg_time_watched": 8128,
     "shares": 0,
@@ -158,7 +164,7 @@
     "views": 225
   },
   {
-    "checked": "2026-11-22T02:07+05:30",
+    "checked": "2026-11-22T06:41+05:30",
     "channel": "curious-hi",
     "id": "curious-2026-11-07-microwave-mesh-hi",
     "bucket": "seen-but-missed",
@@ -166,7 +172,7 @@
     "hook_style": "question",
     "slot": "19:00",
     "platform": "youtube",
-    "hours_live": 341.3,
+    "hours_live": 345.8,
     "views": 5,
     "likes": 0,
     "comments": 0,
@@ -177,7 +183,7 @@
     "subs_gained": 0
   },
   {
-    "checked": "2026-11-22T02:07+05:30",
+    "checked": "2026-11-22T06:41+05:30",
     "channel": "curious-hi",
     "id": "curious-2026-11-07-microwave-mesh-hi",
     "bucket": "seen-but-missed",
@@ -185,13 +191,13 @@
     "hook_style": "question",
     "slot": "19:00",
     "platform": "instagram",
-    "hours_live": 337.7,
+    "hours_live": 342.2,
     "likes": 0,
     "comments": 0,
     "error": "instagram ig_reels_avg_watch_time: Unsupported get request. Object with ID '18393283948224566' does not exist, cannot be loaded due to missing permissions, or does not support this operation. Please r"
   },
   {
-    "checked": "2026-11-22T02:07+05:30",
+    "checked": "2026-11-22T06:41+05:30",
     "channel": "curious-hi",
     "id": "curious-2026-11-07-microwave-mesh-hi",
     "bucket": "seen-but-missed",
@@ -199,7 +205,7 @@
     "hook_style": "question",
     "slot": "19:00",
     "platform": "facebook",
-    "hours_live": 337.7,
+    "hours_live": 342.2,
     "blue_reels_play_count": 0,
     "post_video_avg_time_watched": 0,
     "shares": 0,
@@ -208,7 +214,7 @@
     "comments": 0
   },
   {
-    "checked": "2026-11-22T02:07+05:30",
+    "checked": "2026-11-22T06:41+05:30",
     "channel": "curious-en",
     "id": "curious-2026-11-08-firework-colours-en",
     "bucket": "why does it happen",
@@ -216,15 +222,18 @@
     "hook_style": "myth",
     "slot": "19:00",
     "platform": "youtube",
-    "hours_live": 319.2,
+    "hours_live": 323.8,
     "views": 571,
     "likes": 11,
     "comments": 0,
     "privacy": "public",
-    "error": "youtube analytics: YouTube Analytics HTTP 500: {\n  \"error\": {\n    \"code\": 500,\n    \"message\": \"Internal error encountered.\",\n    \"errors\": [\n      {\n        \"message\": \""
+    "yt_avg_view_pct": 44.0,
+    "yt_avg_view_sec": 18,
+    "shares": 0,
+    "subs_gained": 1
   },
   {
-    "checked": "2026-11-22T02:07+05:30",
+    "checked": "2026-11-22T06:41+05:30",
     "channel": "curious-en",
     "id": "curious-2026-11-08-firework-colours-en",
     "bucket": "why does it happen",
@@ -232,7 +241,7 @@
     "hook_style": "myth",
     "slot": "19:00",
     "platform": "instagram",
-    "hours_live": 319.2,
+    "hours_live": 323.8,
     "likes": 0,
     "comments": 0,
     "views": 166,
@@ -245,7 +254,7 @@
     "reposts": 0
   },
   {
-    "checked": "2026-11-22T02:07+05:30",
+    "checked": "2026-11-22T06:41+05:30",
     "channel": "curious-en",
     "id": "curious-2026-11-08-firework-colours-en",
     "bucket": "why does it happen",
@@ -253,7 +262,7 @@
     "hook_style": "myth",
     "slot": "19:00",
     "platform": "facebook",
-    "hours_live": 319.2,
+    "hours_live": 323.8,
     "blue_reels_play_count": 236,
     "post_video_avg_time_watched": 2711,
     "shares": 0,
@@ -261,7 +270,7 @@
     "views": 236
   },
   {
-    "checked": "2026-11-22T02:07+05:30",
+    "checked": "2026-11-22T06:41+05:30",
     "channel": "curious-hi",
     "id": "curious-2026-11-08-firework-colours-hi",
     "bucket": "why does it happen",
@@ -269,14 +278,14 @@
     "hook_style": "myth",
     "slot": "19:00",
     "platform": "youtube",
-    "hours_live": 319.2,
+    "hours_live": 323.8,
     "views": 0,
     "likes": 0,
     "comments": 0,
     "privacy": "public"
   },
   {
-    "checked": "2026-11-22T02:07+05:30",
+    "checked": "2026-11-22T06:41+05:30",
     "channel": "curious-hi",
     "id": "curious-2026-11-08-firework-colours-hi",
     "bucket": "why does it happen",
@@ -284,7 +293,7 @@
     "hook_style": "myth",
     "slot": "19:00",
     "platform": "instagram",
-    "hours_live": 319.2,
+    "hours_live": 323.8,
     "likes": 7,
     "comments": 0,
     "views": 339,
@@ -297,7 +306,7 @@
     "reposts": 0
   },
   {
-    "checked": "2026-11-22T02:07+05:30",
+    "checked": "2026-11-22T06:41+05:30",
     "channel": "curious-hi",
     "id": "curious-2026-11-08-firework-colours-hi",
     "bucket": "why does it happen",
@@ -305,7 +314,7 @@
     "hook_style": "myth",
     "slot": "19:00",
     "platform": "facebook",
-    "hours_live": 319.2,
+    "hours_live": 323.8,
     "blue_reels_play_count": 0,
     "post_video_avg_time_watched": 0,
     "shares": 0,
@@ -314,7 +323,7 @@
     "comments": 0
   },
   {
-    "checked": "2026-11-22T02:07+05:30",
+    "checked": "2026-11-22T06:41+05:30",
     "channel": "curious-en",
     "id": "curious-2026-11-09-tyre-black-en",
     "bucket": "seen-but-missed",
@@ -322,15 +331,18 @@
     "hook_style": "question",
     "slot": "21:00",
     "platform": "youtube",
-    "hours_live": 285.6,
+    "hours_live": 290.1,
     "views": 1232,
     "likes": 26,
     "comments": 0,
     "privacy": "public",
-    "error": "youtube analytics: YouTube Analytics HTTP 500: {\n  \"error\": {\n    \"code\": 500,\n    \"message\": \"Internal error encountered.\",\n    \"errors\": [\n      {\n        \"message\": \""
+    "yt_avg_view_pct": 105.4,
+    "yt_avg_view_sec": 45,
+    "shares": 0,
+    "subs_gained": 2
   },
   {
-    "checked": "2026-11-22T02:07+05:30",
+    "checked": "2026-11-22T06:41+05:30",
     "channel": "curious-en",
     "id": "curious-2026-11-09-tyre-black-en",
     "bucket": "seen-but-missed",
@@ -338,7 +350,7 @@
     "hook_style": "question",
     "slot": "21:00",
     "platform": "instagram",
-    "hours_live": 285.6,
+    "hours_live": 290.1,
     "likes": 1,
     "comments": 0,
     "views": 203,
@@ -351,7 +363,7 @@
     "reposts": 0
   },
   {
-    "checked": "2026-11-22T02:07+05:30",
+    "checked": "2026-11-22T06:41+05:30",
     "channel": "curious-en",
     "id": "curious-2026-11-09-tyre-black-en",
     "bucket": "seen-but-missed",
@@ -359,7 +371,7 @@
     "hook_style": "question",
     "slot": "21:00",
     "platform": "facebook",
-    "hours_live": 285.6,
+    "hours_live": 290.1,
     "blue_reels_play_count": 249,
     "post_video_avg_time_watched": 5291,
     "shares": 0,
@@ -367,7 +379,7 @@
     "views": 249
   },
   {
-    "checked": "2026-11-22T02:07+05:30",
+    "checked": "2026-11-22T06:41+05:30",
     "channel": "curious-hi",
     "id": "curious-2026-11-09-tyre-black-hi",
     "bucket": "seen-but-missed",
@@ -375,7 +387,7 @@
     "hook_style": "question",
     "slot": "21:00",
     "platform": "youtube",
-    "hours_live": 285.6,
+    "hours_live": 290.1,
     "views": 1,
     "likes": 0,
     "comments": 0,
@@ -386,7 +398,7 @@
     "subs_gained": 0
   },
   {
-    "checked": "2026-11-22T02:07+05:30",
+    "checked": "2026-11-22T06:41+05:30",
     "channel": "curious-hi",
     "id": "curious-2026-11-09-tyre-black-hi",
     "bucket": "seen-but-missed",
@@ -394,7 +406,7 @@
     "hook_style": "question",
     "slot": "21:00",
     "platform": "instagram",
-    "hours_live": 285.5,
+    "hours_live": 290.1,
     "likes": 1,
     "comments": 0,
     "views": 162,
@@ -407,7 +419,7 @@
     "reposts": 0
   },
   {
-    "checked": "2026-11-22T02:07+05:30",
+    "checked": "2026-11-22T06:41+05:30",
     "channel": "curious-hi",
     "id": "curious-2026-11-09-tyre-black-hi",
     "bucket": "seen-but-missed",
@@ -415,7 +427,7 @@
     "hook_style": "question",
     "slot": "21:00",
     "platform": "facebook",
-    "hours_live": 285.5,
+    "hours_live": 290.1,
     "blue_reels_play_count": 0,
     "post_video_avg_time_watched": 0,
     "shares": 0,
@@ -424,7 +436,7 @@
     "comments": 0
   },
   {
-    "checked": "2026-11-22T02:07+05:30",
+    "checked": "2026-11-22T06:41+05:30",
     "channel": "curious-en",
     "id": "curious-2026-11-09-yawn-en",
     "bucket": "careful health",
@@ -432,15 +444,18 @@
     "hook_style": "question",
     "slot": "19:00",
     "platform": "youtube",
-    "hours_live": 295.1,
+    "hours_live": 299.7,
     "views": 236,
     "likes": 2,
     "comments": 0,
     "privacy": "public",
-    "error": "youtube analytics: YouTube Analytics HTTP 500: {\n  \"error\": {\n    \"code\": 500,\n    \"message\": \"Internal error encountered.\",\n    \"errors\": [\n      {\n        \"message\": \""
+    "yt_avg_view_pct": 57.8,
+    "yt_avg_view_sec": 23,
+    "shares": 0,
+    "subs_gained": 0
   },
   {
-    "checked": "2026-11-22T02:07+05:30",
+    "checked": "2026-11-22T06:41+05:30",
     "channel": "curious-en",
     "id": "curious-2026-11-09-yawn-en",
     "bucket": "careful health",
@@ -448,7 +463,7 @@
     "hook_style": "question",
     "slot": "19:00",
     "platform": "facebook",
-    "hours_live": 295.1,
+    "hours_live": 299.7,
     "blue_reels_play_count": 191,
     "post_video_avg_time_watched": 3214,
     "shares": 0,
@@ -456,7 +471,7 @@
     "views": 191
   },
   {
-    "checked": "2026-11-22T02:07+05:30",
+    "checked": "2026-11-22T06:41+05:30",
     "channel": "curious-en",
     "id": "curious-2026-11-09-yawn-en",
     "bucket": "careful health",
@@ -464,7 +479,7 @@
     "hook_style": "question",
     "slot": "19:00",
     "platform": "instagram",
-    "hours_live": 294.8,
+    "hours_live": 299.4,
     "likes": 4,
     "comments": 0,
     "views": 220,
@@ -477,7 +492,7 @@
     "reposts": 1
   },
   {
-    "checked": "2026-11-22T02:07+05:30",
+    "checked": "2026-11-22T06:41+05:30",
     "channel": "curious-hi",
     "id": "curious-2026-11-09-yawn-hi",
     "bucket": "careful health",
@@ -485,14 +500,14 @@
     "hook_style": "question",
     "slot": "19:00",
     "platform": "youtube",
-    "hours_live": 295.1,
+    "hours_live": 299.7,
     "views": 0,
     "likes": 0,
     "comments": 0,
     "privacy": "public"
   },
   {
-    "checked": "2026-11-22T02:07+05:30",
+    "checked": "2026-11-22T06:41+05:30",
     "channel": "curious-hi",
     "id": "curious-2026-11-09-yawn-hi",
     "bucket": "careful health",
@@ -500,7 +515,7 @@
     "hook_style": "question",
     "slot": "19:00",
     "platform": "facebook",
-    "hours_live": 295.1,
+    "hours_live": 299.7,
     "blue_reels_play_count": 0,
     "post_video_avg_time_watched": 0,
     "shares": 0,
@@ -509,7 +524,7 @@
     "comments": 0
   },
   {
-    "checked": "2026-11-22T02:07+05:30",
+    "checked": "2026-11-22T06:41+05:30",
     "channel": "curious-hi",
     "id": "curious-2026-11-09-yawn-hi",
     "bucket": "careful health",
@@ -517,7 +532,7 @@
     "hook_style": "question",
     "slot": "19:00",
     "platform": "instagram",
-    "hours_live": 294.8,
+    "hours_live": 299.4,
     "likes": 5,
     "comments": 0,
     "views": 176,
@@ -530,7 +545,7 @@
     "reposts": 0
   },
   {
-    "checked": "2026-11-22T02:07+05:30",
+    "checked": "2026-11-22T06:41+05:30",
     "channel": "curious-en",
     "id": "curious-2026-11-10-winter-smog-en",
     "bucket": "india everyday",
@@ -538,13 +553,13 @@
     "hook_style": "myth",
     "slot": "19:00",
     "platform": "instagram",
-    "hours_live": 271.1,
+    "hours_live": 275.7,
     "likes": 0,
     "comments": 0,
     "error": "instagram ig_reels_avg_watch_time: Unsupported get request. Object with ID '18058381928810433' does not exist, cannot be loaded due to missing permissions, or does not support this operation. Please r"
   },
   {
-    "checked": "2026-11-22T02:07+05:30",
+    "checked": "2026-11-22T06:41+05:30",
     "channel": "curious-hi",
     "id": "curious-2026-11-10-winter-smog-hi",
     "bucket": "india everyday",
@@ -552,13 +567,13 @@
     "hook_style": "myth",
     "slot": "19:00",
     "platform": "instagram",
-    "hours_live": 271.1,
+    "hours_live": 275.6,
     "likes": 0,
     "comments": 0,
     "error": "instagram ig_reels_avg_watch_time: Unsupported get request. Object with ID '18122703538968581' does not exist, cannot be loaded due to missing permissions, or does not support this operation. Please r"
   },
   {
-    "checked": "2026-11-22T02:07+05:30",
+    "checked": "2026-11-22T06:41+05:30",
     "channel": "curious-en",
     "id": "curious-2026-11-10-winter-smog-v2-en",
     "bucket": "india everyday",
@@ -566,15 +581,18 @@
     "hook_style": "myth",
     "slot": "21:30",
     "platform": "youtube",
-    "hours_live": 269.1,
+    "hours_live": 273.7,
     "views": 62,
     "likes": 2,
     "comments": 0,
     "privacy": "public",
-    "error": "youtube analytics: YouTube Analytics HTTP 500: {\n  \"error\": {\n    \"code\": 500,\n    \"message\": \"Internal error encountered.\",\n    \"errors\": [\n      {\n        \"message\": \""
+    "yt_avg_view_pct": 37.8,
+    "yt_avg_view_sec": 15,
+    "shares": 0,
+    "subs_gained": 0
   },
   {
-    "checked": "2026-11-22T02:07+05:30",
+    "checked": "2026-11-22T06:41+05:30",
     "channel": "curious-en",
     "id": "curious-2026-11-10-winter-smog-v2-en",
     "bucket": "india everyday",
@@ -582,7 +600,7 @@
     "hook_style": "myth",
     "slot": "21:30",
     "platform": "instagram",
-    "hours_live": 269.1,
+    "hours_live": 273.7,
     "likes": 0,
     "comments": 0,
     "views": 145,
@@ -595,7 +613,7 @@
     "reposts": 0
   },
   {
-    "checked": "2026-11-22T02:07+05:30",
+    "checked": "2026-11-22T06:41+05:30",
     "channel": "curious-en",
     "id": "curious-2026-11-10-winter-smog-v2-en",
     "bucket": "india everyday",
@@ -603,7 +621,7 @@
     "hook_style": "myth",
     "slot": "21:30",
     "platform": "facebook",
-    "hours_live": 269.1,
+    "hours_live": 273.6,
     "blue_reels_play_count": 234,
     "post_video_avg_time_watched": 5596,
     "shares": 0,
@@ -611,7 +629,7 @@
     "views": 234
   },
   {
-    "checked": "2026-11-22T02:07+05:30",
+    "checked": "2026-11-22T06:41+05:30",
     "channel": "curious-hi",
     "id": "curious-2026-11-10-winter-smog-v2-hi",
     "bucket": "india everyday",
@@ -619,14 +637,14 @@
     "hook_style": "myth",
     "slot": "21:30",
     "platform": "youtube",
-    "hours_live": 269.1,
+    "hours_live": 273.6,
     "views": 0,
     "likes": 0,
     "comments": 0,
     "privacy": "public"
   },
   {
-    "checked": "2026-11-22T02:07+05:30",
+    "checked": "2026-11-22T06:41+05:30",
     "channel": "curious-hi",
     "id": "curious-2026-11-10-winter-smog-v2-hi",
     "bucket": "india everyday",
@@ -634,7 +652,7 @@
     "hook_style": "myth",
     "slot": "21:30",
     "platform": "instagram",
-    "hours_live": 269.0,
+    "hours_live": 273.6,
     "likes": 0,
     "comments": 0,
     "views": 3,
@@ -647,7 +665,7 @@
     "reposts": 0
   },
   {
-    "checked": "2026-11-22T02:07+05:30",
+    "checked": "2026-11-22T06:41+05:30",
     "channel": "curious-hi",
     "id": "curious-2026-11-10-winter-smog-v2-hi",
     "bucket": "india everyday",
@@ -655,7 +673,7 @@
     "hook_style": "myth",
     "slot": "21:30",
     "platform": "facebook",
-    "hours_live": 269.0,
+    "hours_live": 273.6,
     "blue_reels_play_count": 0,
     "post_video_avg_time_watched": 0,
     "shares": 0,
@@ -664,7 +682,7 @@
     "comments": 0
   },
   {
-    "checked": "2026-11-22T02:07+05:30",
+    "checked": "2026-11-22T06:41+05:30",
     "channel": "curious-en",
     "id": "curious-2026-11-11-stars-twinkle-en",
     "bucket": "why does it happen",
@@ -672,15 +690,18 @@
     "hook_style": "question",
     "slot": "19:00",
     "platform": "youtube",
-    "hours_live": 240.4,
+    "hours_live": 244.9,
     "views": 650,
     "likes": 16,
     "comments": 0,
     "privacy": "public",
-    "error": "youtube analytics: YouTube Analytics HTTP 500: {\n  \"error\": {\n    \"code\": 500,\n    \"message\": \"Internal error encountered.\",\n    \"errors\": [\n      {\n        \"message\": \""
+    "yt_avg_view_pct": 59.3,
+    "yt_avg_view_sec": 25,
+    "shares": 0,
+    "subs_gained": 2
   },
   {
-    "checked": "2026-11-22T02:07+05:30",
+    "checked": "2026-11-22T06:41+05:30",
     "channel": "curious-en",
     "id": "curious-2026-11-11-stars-twinkle-en",
     "bucket": "why does it happen",
@@ -688,7 +709,7 @@
     "hook_style": "question",
     "slot": "19:00",
     "platform": "instagram",
-    "hours_live": 240.3,
+    "hours_live": 244.9,
     "likes": 0,
     "comments": 0,
     "views": 9,
@@ -701,7 +722,7 @@
     "reposts": 0
   },
   {
-    "checked": "2026-11-22T02:07+05:30",
+    "checked": "2026-11-22T06:41+05:30",
     "channel": "curious-en",
     "id": "curious-2026-11-11-stars-twinkle-en",
     "bucket": "why does it happen",
@@ -709,7 +730,7 @@
     "hook_style": "question",
     "slot": "19:00",
     "platform": "facebook",
-    "hours_live": 240.3,
+    "hours_live": 244.9,
     "blue_reels_play_count": 226,
     "post_video_avg_time_watched": 6738,
     "shares": 0,
@@ -717,7 +738,7 @@
     "views": 226
   },
   {
-    "checked": "2026-11-22T02:07+05:30",
+    "checked": "2026-11-22T06:41+05:30",
     "channel": "curious-hi",
     "id": "curious-2026-11-11-stars-twinkle-hi",
     "bucket": "why does it happen",
@@ -725,7 +746,7 @@
     "hook_style": "question",
     "slot": "19:00",
     "platform": "youtube",
-    "hours_live": 240.3,
+    "hours_live": 244.9,
     "views": 1,
     "likes": 0,
     "comments": 0,
@@ -736,7 +757,7 @@
     "subs_gained": 0
   },
   {
-    "checked": "2026-11-22T02:07+05:30",
+    "checked": "2026-11-22T06:41+05:30",
     "channel": "curious-hi",
     "id": "curious-2026-11-11-stars-twinkle-hi",
     "bucket": "why does it happen",
@@ -744,7 +765,7 @@
     "hook_style": "question",
     "slot": "19:00",
     "platform": "instagram",
-    "hours_live": 240.3,
+    "hours_live": 244.9,
     "likes": 0,
     "comments": 0,
     "views": 2,
@@ -757,7 +778,7 @@
     "reposts": 0
   },
   {
-    "checked": "2026-11-22T02:07+05:30",
+    "checked": "2026-11-22T06:41+05:30",
     "channel": "curious-hi",
     "id": "curious-2026-11-11-stars-twinkle-hi",
     "bucket": "why does it happen",
@@ -765,7 +786,7 @@
     "hook_style": "question",
     "slot": "19:00",
     "platform": "facebook",
-    "hours_live": 240.3,
+    "hours_live": 244.9,
     "blue_reels_play_count": 1,
     "post_video_avg_time_watched": 7620,
     "shares": 0,
@@ -773,7 +794,7 @@
     "views": 1
   },
   {
-    "checked": "2026-11-22T02:07+05:30",
+    "checked": "2026-11-22T06:41+05:30",
     "channel": "curious-en",
     "id": "curious-2026-11-12-plane-window-hole-en",
     "bucket": "seen-but-missed",
@@ -781,15 +802,18 @@
     "hook_style": "curiosity",
     "slot": "19:00",
     "platform": "youtube",
-    "hours_live": 223.2,
+    "hours_live": 227.7,
     "views": 1241,
     "likes": 26,
     "comments": 0,
     "privacy": "public",
-    "error": "youtube analytics: YouTube Analytics HTTP 500: {\n  \"error\": {\n    \"code\": 500,\n    \"message\": \"Internal error encountered.\",\n    \"errors\": [\n      {\n        \"message\": \""
+    "yt_avg_view_pct": 39.2,
+    "yt_avg_view_sec": 23,
+    "shares": 0,
+    "subs_gained": 7
   },
   {
-    "checked": "2026-11-22T02:07+05:30",
+    "checked": "2026-11-22T06:41+05:30",
     "channel": "curious-en",
     "id": "curious-2026-11-12-plane-window-hole-en",
     "bucket": "seen-but-missed",
@@ -797,7 +821,7 @@
     "hook_style": "curiosity",
     "slot": "19:00",
     "platform": "instagram",
-    "hours_live": 223.1,
+    "hours_live": 227.7,
     "likes": 0,
     "comments": 0,
     "views": 119,
@@ -810,7 +834,7 @@
     "reposts": 0
   },
   {
-    "checked": "2026-11-22T02:07+05:30",
+    "checked": "2026-11-22T06:41+05:30",
     "channel": "curious-en",
     "id": "curious-2026-11-12-plane-window-hole-en",
     "bucket": "seen-but-missed",
@@ -818,7 +842,7 @@
     "hook_style": "curiosity",
     "slot": "19:00",
     "platform": "facebook",
-    "hours_live": 223.1,
+    "hours_live": 227.6,
     "blue_reels_play_count": 218,
     "post_video_avg_time_watched": 1999,
     "shares": 0,
@@ -826,7 +850,7 @@
     "views": 218
   },
   {
-    "checked": "2026-11-22T02:07+05:30",
+    "checked": "2026-11-22T06:41+05:30",
     "channel": "curious-en",
     "id": "curious-2026-11-12-rear-window-lines-en",
     "bucket": "seen-but-missed",
@@ -834,15 +858,18 @@
     "hook_style": "curiosity",
     "slot": "21:30",
     "platform": "youtube",
-    "hours_live": 220.7,
+    "hours_live": 225.2,
     "views": 324,
     "likes": 7,
     "comments": 0,
     "privacy": "public",
-    "error": "youtube analytics: YouTube Analytics HTTP 500: {\n  \"error\": {\n    \"code\": 500,\n    \"message\": \"Internal error encountered.\",\n    \"errors\": [\n      {\n        \"message\": \""
+    "yt_avg_view_pct": 42.6,
+    "yt_avg_view_sec": 23,
+    "shares": 1,
+    "subs_gained": 0
   },
   {
-    "checked": "2026-11-22T02:07+05:30",
+    "checked": "2026-11-22T06:41+05:30",
     "channel": "curious-en",
     "id": "curious-2026-11-12-rear-window-lines-en",
     "bucket": "seen-but-missed",
@@ -850,20 +877,20 @@
     "hook_style": "curiosity",
     "slot": "21:30",
     "platform": "instagram",
-    "hours_live": 220.6,
+    "hours_live": 225.2,
     "likes": 42,
     "comments": 0,
     "views": 1252,
-    "reach": 1095,
+    "reach": 1096,
     "shares": 3,
     "saved": 6,
-    "ig_reels_avg_watch_time": 20034,
+    "ig_reels_avg_watch_time": 20021,
     "reels_skip_rate": 30.5,
-    "ig_reels_video_view_total_time": 21797928,
+    "ig_reels_video_view_total_time": 21803867,
     "reposts": 0
   },
   {
-    "checked": "2026-11-22T02:07+05:30",
+    "checked": "2026-11-22T06:41+05:30",
     "channel": "curious-en",
     "id": "curious-2026-11-12-rear-window-lines-en",
     "bucket": "seen-but-missed",
@@ -871,7 +898,7 @@
     "hook_style": "curiosity",
     "slot": "21:30",
     "platform": "facebook",
-    "hours_live": 220.6,
+    "hours_live": 225.1,
     "blue_reels_play_count": 211,
     "post_video_avg_time_watched": 8997,
     "shares": 0,
@@ -879,7 +906,7 @@
     "views": 211
   },
   {
-    "checked": "2026-11-22T02:07+05:30",
+    "checked": "2026-11-22T06:41+05:30",
     "channel": "curious-en",
     "id": "curious-2026-11-13-fuel-arrow-en",
     "bucket": "seen-but-missed",
@@ -887,15 +914,18 @@
     "hook_style": "curiosity",
     "slot": "19:00",
     "platform": "youtube",
-    "hours_live": 207.0,
+    "hours_live": 211.6,
     "views": 248,
     "likes": 5,
     "comments": 3,
     "privacy": "public",
-    "error": "youtube analytics: YouTube Analytics HTTP 500: {\n  \"error\": {\n    \"code\": 500,\n    \"message\": \"Internal error encountered.\",\n    \"errors\": [\n      {\n        \"message\": \""
+    "yt_avg_view_pct": 43.1,
+    "yt_avg_view_sec": 25,
+    "shares": 0,
+    "subs_gained": 0
   },
   {
-    "checked": "2026-11-22T02:07+05:30",
+    "checked": "2026-11-22T06:41+05:30",
     "channel": "curious-en",
     "id": "curious-2026-11-13-fuel-arrow-en",
     "bucket": "seen-but-missed",
@@ -903,7 +933,7 @@
     "hook_style": "curiosity",
     "slot": "19:00",
     "platform": "instagram",
-    "hours_live": 206.9,
+    "hours_live": 211.5,
     "likes": 0,
     "comments": 0,
     "views": 133,
@@ -916,7 +946,7 @@
     "reposts": 0
   },
   {
-    "checked": "2026-11-22T02:07+05:30",
+    "checked": "2026-11-22T06:41+05:30",
     "channel": "curious-en",
     "id": "curious-2026-11-13-fuel-arrow-en",
     "bucket": "seen-but-missed",
@@ -924,7 +954,7 @@
     "hook_style": "curiosity",
     "slot": "19:00",
     "platform": "facebook",
-    "hours_live": 206.9,
+    "hours_live": 211.5,
     "blue_reels_play_count": 404,
     "post_video_avg_time_watched": 4390,
     "shares": 0,
@@ -932,7 +962,7 @@
     "views": 404
   },
   {
-    "checked": "2026-11-22T02:07+05:30",
+    "checked": "2026-11-22T06:41+05:30",
     "channel": "curious-en",
     "id": "curious-2026-11-14-wrinkly-fingers-en",
     "bucket": "myth busted",
@@ -940,15 +970,18 @@
     "hook_style": "curiosity",
     "slot": "19:00",
     "platform": "youtube",
-    "hours_live": 175.2,
+    "hours_live": 179.7,
     "views": 1024,
     "likes": 9,
     "comments": 6,
     "privacy": "public",
-    "error": "youtube analytics: YouTube Analytics HTTP 500: {\n  \"error\": {\n    \"code\": 500,\n    \"message\": \"Internal error encountered.\",\n    \"errors\": [\n      {\n        \"message\": \""
+    "yt_avg_view_pct": 35.5,
+    "yt_avg_view_sec": 24,
+    "shares": 0,
+    "subs_gained": 2
   },
   {
-    "checked": "2026-11-22T02:07+05:30",
+    "checked": "2026-11-22T06:41+05:30",
     "channel": "curious-en",
     "id": "curious-2026-11-14-wrinkly-fingers-en",
     "bucket": "myth busted",
@@ -956,7 +989,7 @@
     "hook_style": "curiosity",
     "slot": "19:00",
     "platform": "instagram",
-    "hours_live": 175.1,
+    "hours_live": 179.7,
     "likes": 2,
     "comments": 0,
     "views": 114,
@@ -969,7 +1002,7 @@
     "reposts": 0
   },
   {
-    "checked": "2026-11-22T02:07+05:30",
+    "checked": "2026-11-22T06:41+05:30",
     "channel": "curious-en",
     "id": "curious-2026-11-14-wrinkly-fingers-en",
     "bucket": "myth busted",
@@ -977,7 +1010,7 @@
     "hook_style": "curiosity",
     "slot": "19:00",
     "platform": "facebook",
-    "hours_live": 175.1,
+    "hours_live": 179.6,
     "blue_reels_play_count": 236,
     "post_video_avg_time_watched": 3833,
     "shares": 0,
@@ -985,7 +1018,7 @@
     "views": 236
   },
   {
-    "checked": "2026-11-22T02:07+05:30",
+    "checked": "2026-11-22T06:41+05:30",
     "channel": "curious-en",
     "id": "curious-2026-11-15-shop-tag-en",
     "bucket": "how it works",
@@ -993,13 +1026,13 @@
     "hook_style": "curiosity",
     "slot": "19:00",
     "platform": "instagram",
-    "hours_live": 151.1,
+    "hours_live": 155.7,
     "likes": 0,
     "comments": 0,
     "error": "instagram ig_reels_avg_watch_time: Unsupported get request. Object with ID '18144591316612679' does not exist, cannot be loaded due to missing permissions, or does not support this operation. Please r"
   },
   {
-    "checked": "2026-11-22T02:07+05:30",
+    "checked": "2026-11-22T06:41+05:30",
     "channel": "curious-en",
     "id": "curious-2026-11-15-shop-tag-v2-en",
     "bucket": "how it works",
@@ -1007,15 +1040,18 @@
     "hook_style": "curiosity",
     "slot": "20:16",
     "platform": "youtube",
-    "hours_live": 149.9,
+    "hours_live": 154.4,
     "views": 1335,
     "likes": 29,
     "comments": 6,
     "privacy": "public",
-    "error": "youtube analytics: YouTube Analytics HTTP 500: {\n  \"error\": {\n    \"code\": 500,\n    \"message\": \"Internal error encountered.\",\n    \"errors\": [\n      {\n        \"message\": \""
+    "yt_avg_view_pct": 34.8,
+    "yt_avg_view_sec": 28,
+    "shares": 2,
+    "subs_gained": 0
   },
   {
-    "checked": "2026-11-22T02:07+05:30",
+    "checked": "2026-11-22T06:41+05:30",
     "channel": "curious-en",
     "id": "curious-2026-11-15-shop-tag-v2-en",
     "bucket": "how it works",
@@ -1023,7 +1059,7 @@
     "hook_style": "curiosity",
     "slot": "20:16",
     "platform": "instagram",
-    "hours_live": 149.8,
+    "hours_live": 154.4,
     "likes": 3,
     "comments": 0,
     "views": 237,
@@ -1036,7 +1072,7 @@
     "reposts": 0
   },
   {
-    "checked": "2026-11-22T02:07+05:30",
+    "checked": "2026-11-22T06:41+05:30",
     "channel": "curious-en",
     "id": "curious-2026-11-15-shop-tag-v2-en",
     "bucket": "how it works",
@@ -1044,7 +1080,7 @@
     "hook_style": "curiosity",
     "slot": "20:16",
     "platform": "facebook",
-    "hours_live": 149.8,
+    "hours_live": 154.4,
     "blue_reels_play_count": 225,
     "post_video_avg_time_watched": 3155,
     "shares": 0,
@@ -1052,7 +1088,7 @@
     "views": 225
   },
   {
-    "checked": "2026-11-22T02:07+05:30",
+    "checked": "2026-11-22T06:41+05:30",
     "channel": "curious-en",
     "id": "curious-2026-11-16-tap-to-pay-en",
     "bucket": "how it works",
@@ -1060,15 +1096,18 @@
     "hook_style": "curiosity",
     "slot": "19:00",
     "platform": "youtube",
-    "hours_live": 127.2,
+    "hours_live": 131.7,
     "views": 352,
     "likes": 6,
     "comments": 6,
     "privacy": "public",
-    "error": "youtube analytics: YouTube Analytics HTTP 500: {\n  \"error\": {\n    \"code\": 500,\n    \"message\": \"Internal error encountered.\",\n    \"errors\": [\n      {\n        \"message\": \""
+    "yt_avg_view_pct": 29.3,
+    "yt_avg_view_sec": 25,
+    "shares": 1,
+    "subs_gained": 0
   },
   {
-    "checked": "2026-11-22T02:07+05:30",
+    "checked": "2026-11-22T06:41+05:30",
     "channel": "curious-en",
     "id": "curious-2026-11-16-tap-to-pay-en",
     "bucket": "how it works",
@@ -1076,7 +1115,7 @@
     "hook_style": "curiosity",
     "slot": "19:00",
     "platform": "instagram",
-    "hours_live": 127.1,
+    "hours_live": 131.7,
     "likes": 2,
     "comments": 0,
     "views": 120,
@@ -1089,7 +1128,7 @@
     "reposts": 1
   },
   {
-    "checked": "2026-11-22T02:07+05:30",
+    "checked": "2026-11-22T06:41+05:30",
     "channel": "curious-en",
     "id": "curious-2026-11-16-tap-to-pay-en",
     "bucket": "how it works",
@@ -1097,7 +1136,7 @@
     "hook_style": "curiosity",
     "slot": "19:00",
     "platform": "facebook",
-    "hours_live": 127.1,
+    "hours_live": 131.7,
     "blue_reels_play_count": 131,
     "post_video_avg_time_watched": 5032,
     "shares": 0,
@@ -1105,7 +1144,7 @@
     "views": 131
   },
   {
-    "checked": "2026-11-22T02:07+05:30",
+    "checked": "2026-11-22T06:41+05:30",
     "channel": "curious-en",
     "id": "curious-2026-11-17-two-flush-buttons-en",
     "bucket": "how it works",
@@ -1113,15 +1152,18 @@
     "hook_style": "curiosity",
     "slot": "19:00",
     "platform": "youtube",
-    "hours_live": 103.2,
+    "hours_live": 107.7,
     "views": 1202,
     "likes": 19,
     "comments": 5,
     "privacy": "public",
-    "error": "youtube analytics: YouTube Analytics HTTP 500: {\n  \"error\": {\n    \"code\": 500,\n    \"message\": \"Internal error encountered.\",\n    \"errors\": [\n      {\n        \"message\": \""
+    "yt_avg_view_pct": 55.4,
+    "yt_avg_view_sec": 47,
+    "shares": 0,
+    "subs_gained": 3
   },
   {
-    "checked": "2026-11-22T02:07+05:30",
+    "checked": "2026-11-22T06:41+05:30",
     "channel": "curious-en",
     "id": "curious-2026-11-17-two-flush-buttons-en",
     "bucket": "how it works",
@@ -1129,7 +1171,7 @@
     "hook_style": "curiosity",
     "slot": "19:00",
     "platform": "instagram",
-    "hours_live": 103.1,
+    "hours_live": 107.7,
     "likes": 0,
     "comments": 0,
     "views": 171,
@@ -1142,7 +1184,7 @@
     "reposts": 0
   },
   {
-    "checked": "2026-11-22T02:07+05:30",
+    "checked": "2026-11-22T06:41+05:30",
     "channel": "curious-en",
     "id": "curious-2026-11-17-two-flush-buttons-en",
     "bucket": "how it works",
@@ -1150,7 +1192,7 @@
     "hook_style": "curiosity",
     "slot": "19:00",
     "platform": "facebook",
-    "hours_live": 103.1,
+    "hours_live": 107.7,
     "blue_reels_play_count": 975,
     "post_video_avg_time_watched": 8259,
     "shares": 0,
@@ -1158,7 +1200,7 @@
     "views": 975
   },
   {
-    "checked": "2026-11-22T02:07+05:30",
+    "checked": "2026-11-22T06:41+05:30",
     "channel": "curious-en",
     "id": "curious-2026-11-18-petrol-nozzle-en",
     "bucket": "how it works",
@@ -1166,15 +1208,18 @@
     "hook_style": "curiosity",
     "slot": "19:00",
     "platform": "youtube",
-    "hours_live": 79.2,
+    "hours_live": 83.7,
     "views": 505,
     "likes": 16,
     "comments": 2,
     "privacy": "public",
-    "error": "youtube analytics: YouTube Analytics HTTP 500: {\n  \"error\": {\n    \"code\": 500,\n    \"message\": \"Internal error encountered.\",\n    \"errors\": [\n      {\n        \"message\": \""
+    "yt_avg_view_pct": 50.2,
+    "yt_avg_view_sec": 43,
+    "shares": 0,
+    "subs_gained": 0
   },
   {
-    "checked": "2026-11-22T02:07+05:30",
+    "checked": "2026-11-22T06:41+05:30",
     "channel": "curious-en",
     "id": "curious-2026-11-18-petrol-nozzle-en",
     "bucket": "how it works",
@@ -1182,7 +1227,7 @@
     "hook_style": "curiosity",
     "slot": "19:00",
     "platform": "instagram",
-    "hours_live": 79.1,
+    "hours_live": 83.7,
     "likes": 0,
     "comments": 0,
     "views": 158,
@@ -1195,7 +1240,7 @@
     "reposts": 0
   },
   {
-    "checked": "2026-11-22T02:07+05:30",
+    "checked": "2026-11-22T06:41+05:30",
     "channel": "curious-en",
     "id": "curious-2026-11-18-petrol-nozzle-en",
     "bucket": "how it works",
@@ -1203,7 +1248,7 @@
     "hook_style": "curiosity",
     "slot": "19:00",
     "platform": "facebook",
-    "hours_live": 79.1,
+    "hours_live": 83.7,
     "blue_reels_play_count": 210,
     "post_video_avg_time_watched": 1948,
     "shares": 0,
@@ -1211,7 +1256,7 @@
     "views": 210
   },
   {
-    "checked": "2026-11-22T02:07+05:30",
+    "checked": "2026-11-22T06:41+05:30",
     "channel": "curious-en",
     "id": "curious-2026-11-19-cooker-whistle-en",
     "bucket": "how it works",
@@ -1219,15 +1264,18 @@
     "hook_style": "curiosity",
     "slot": "19:00",
     "platform": "youtube",
-    "hours_live": 55.2,
-    "views": 173,
+    "hours_live": 59.7,
+    "views": 174,
     "likes": 5,
     "comments": 3,
     "privacy": "public",
-    "error": "youtube analytics: YouTube Analytics HTTP 500: {\n  \"error\": {\n    \"code\": 500,\n    \"message\": \"Internal error encountered.\",\n    \"errors\": [\n      {\n        \"message\": \""
+    "yt_avg_view_pct": 31.6,
+    "yt_avg_view_sec": 28,
+    "shares": 0,
+    "subs_gained": 0
   },
   {
-    "checked": "2026-11-22T02:07+05:30",
+    "checked": "2026-11-22T06:41+05:30",
     "channel": "curious-en",
     "id": "curious-2026-11-19-cooker-whistle-en",
     "bucket": "how it works",
@@ -1235,7 +1283,7 @@
     "hook_style": "curiosity",
     "slot": "19:00",
     "platform": "instagram",
-    "hours_live": 55.1,
+    "hours_live": 59.7,
     "likes": 0,
     "comments": 0,
     "views": 108,
@@ -1248,7 +1296,7 @@
     "reposts": 0
   },
   {
-    "checked": "2026-11-22T02:07+05:30",
+    "checked": "2026-11-22T06:41+05:30",
     "channel": "curious-en",
     "id": "curious-2026-11-19-cooker-whistle-en",
     "bucket": "how it works",
@@ -1256,7 +1304,7 @@
     "hook_style": "curiosity",
     "slot": "19:00",
     "platform": "facebook",
-    "hours_live": 55.1,
+    "hours_live": 59.7,
     "blue_reels_play_count": 2,
     "post_video_avg_time_watched": 768,
     "shares": 0,
@@ -1264,7 +1312,7 @@
     "views": 2
   },
   {
-    "checked": "2026-11-22T02:07+05:30",
+    "checked": "2026-11-22T06:41+05:30",
     "channel": "curious-en",
     "id": "curious-2026-11-20-key-lock-en",
     "bucket": "how it works",
@@ -1272,15 +1320,14 @@
     "hook_style": "curiosity",
     "slot": "19:00",
     "platform": "youtube",
-    "hours_live": 31.2,
-    "views": 315,
-    "likes": 2,
+    "hours_live": 35.8,
+    "views": 335,
+    "likes": 3,
     "comments": 3,
-    "privacy": "public",
-    "error": "youtube analytics: YouTube Analytics HTTP 500: {\n  \"error\": {\n    \"code\": 500,\n    \"message\": \"Internal error encountered.\",\n    \"errors\": [\n      {\n        \"message\": \""
+    "privacy": "public"
   },
   {
-    "checked": "2026-11-22T02:07+05:30",
+    "checked": "2026-11-22T06:41+05:30",
     "channel": "curious-en",
     "id": "curious-2026-11-20-key-lock-en",
     "bucket": "how it works",
@@ -1288,7 +1335,7 @@
     "hook_style": "curiosity",
     "slot": "19:00",
     "platform": "instagram",
-    "hours_live": 31.2,
+    "hours_live": 35.7,
     "likes": 0,
     "comments": 0,
     "views": 45,
@@ -1301,7 +1348,7 @@
     "reposts": 0
   },
   {
-    "checked": "2026-11-22T02:07+05:30",
+    "checked": "2026-11-22T06:41+05:30",
     "channel": "curious-en",
     "id": "curious-2026-11-20-key-lock-en",
     "bucket": "how it works",
@@ -1309,7 +1356,7 @@
     "hook_style": "curiosity",
     "slot": "19:00",
     "platform": "facebook",
-    "hours_live": 31.2,
+    "hours_live": 35.7,
     "blue_reels_play_count": 1065,
     "post_video_avg_time_watched": 7701,
     "shares": 0,
@@ -1317,7 +1364,7 @@
     "views": 1065
   },
   {
-    "checked": "2026-11-22T02:07+05:30",
+    "checked": "2026-11-22T06:41+05:30",
     "channel": "curious-en",
     "id": "curious-2026-11-21-iron-click-en",
     "bucket": "how it works",
@@ -1325,15 +1372,14 @@
     "hook_style": "curiosity",
     "slot": "19:00",
     "platform": "youtube",
-    "hours_live": 7.2,
-    "views": 194,
+    "hours_live": 11.7,
+    "views": 251,
     "likes": 4,
     "comments": 1,
-    "privacy": "public",
-    "error": "youtube analytics: YouTube Analytics HTTP 500: {\n  \"error\": {\n    \"code\": 500,\n    \"message\": \"Internal error encountered.\",\n    \"errors\": [\n      {\n        \"message\": \""
+    "privacy": "public"
   },
   {
-    "checked": "2026-11-22T02:07+05:30",
+    "checked": "2026-11-22T06:41+05:30",
     "channel": "curious-en",
     "id": "curious-2026-11-21-iron-click-en",
     "bucket": "how it works",
@@ -1341,7 +1387,7 @@
     "hook_style": "curiosity",
     "slot": "19:00",
     "platform": "instagram",
-    "hours_live": 7.1,
+    "hours_live": 11.7,
     "likes": 0,
     "comments": 0,
     "views": 129,
@@ -1354,7 +1400,7 @@
     "reposts": 0
   },
   {
-    "checked": "2026-11-22T02:07+05:30",
+    "checked": "2026-11-22T06:41+05:30",
     "channel": "curious-en",
     "id": "curious-2026-11-21-iron-click-en",
     "bucket": "how it works",
@@ -1362,11 +1408,11 @@
     "hook_style": "curiosity",
     "slot": "19:00",
     "platform": "facebook",
-    "hours_live": 7.1,
-    "blue_reels_play_count": 206,
+    "hours_live": 11.7,
+    "blue_reels_play_count": 207,
     "post_video_avg_time_watched": 3326,
     "shares": 0,
     "likes": 1,
-    "views": 206
+    "views": 207
   }
 ]

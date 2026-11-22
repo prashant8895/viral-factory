@@ -4,7 +4,7 @@
   "languages": [
     "en"
   ],
-  "publish": false,
+  "publish": true,
   "date": "2026-11-22",
   "slot": "19:00",
   "bucket": "how it works",
@@ -33,8 +33,17 @@
       "delivery": "curious",
       "motion": "push",
       "sfx": "boom",
-      "overlays": [],
-      "beat": "hook"
+      "overlays": [
+        {
+          "type": "ring",
+          "x": 0.5,
+          "y": 0.5,
+          "r": 0.07,
+          "on": "strip"
+        }
+      ],
+      "beat": "hook",
+      "image": "jobs/curious/pics/curious-2026-11-22-lift-door/s1.jpg"
     },
     {
       "visual": "clean cutaway illustration of a lift door edge cut open, showing a tall column of tiny round lights inside the black strip, each tiny light glowing bright red-orange as the brightest thing in the frame, the steel door cool grey-blue, the cutaway large and centred in the lower two-thirds of the frame, plain cool navy-blue background, no text or logos",
@@ -43,8 +52,17 @@
       "headline": "STEP 1/3: TINY *LIGHTS*",
       "motion": "push",
       "sfx": "thud",
-      "overlays": [],
-      "beat": "loop"
+      "overlays": [
+        {
+          "type": "ring",
+          "x": 0.535,
+          "y": 0.56,
+          "r": 0.1,
+          "on": "lights"
+        }
+      ],
+      "beat": "loop",
+      "image": "jobs/curious/pics/curious-2026-11-22-lift-door/s2.jpg"
     },
     {
       "visual": "2D animation: two lift door edges slide in, beams switch on one by one from the floor up between tiny lights and catchers, a beam counter climbs to 24",
@@ -69,8 +87,24 @@
       "headline": "LIKE YOUR *REMOTE*",
       "motion": "drift_right",
       "sfx": "ding",
-      "overlays": [],
-      "beat": "rehook"
+      "overlays": [
+        {
+          "type": "ring",
+          "x": 0.51,
+          "y": 0.51,
+          "r": 0.06,
+          "on": "remote"
+        },
+        {
+          "type": "label",
+          "text": "INVISIBLE",
+          "x": 0.5,
+          "y": 0.35,
+          "on": "invisible"
+        }
+      ],
+      "beat": "rehook",
+      "image": "jobs/curious/pics/curious-2026-11-22-lift-door/s4.jpg"
     },
     {
       "visual": "2D animation: a hand slides into the gap between the lift doors, the beams it covers stop arriving, the counter drops from 24 to 17, MISSING, then the doors slide back open",
@@ -95,8 +129,17 @@
       "headline": "THE OLD *WAY*",
       "motion": "push",
       "sfx": "riser",
-      "overlays": [],
-      "beat": "rehook"
+      "overlays": [
+        {
+          "type": "arrow",
+          "x": 0.53,
+          "y": 0.45,
+          "dir": "left",
+          "on": "rubber"
+        }
+      ],
+      "beat": "rehook",
+      "image": "jobs/curious/pics/curious-2026-11-22-lift-door/s6.jpg"
     },
     {
       "visual": "warm illustration of a smiling young Indian woman stepping into a lift as the steel doors slide back open for her, the thin sensor strips on both door edges glowing bright red-orange as the brightest thing in the frame, the woman and doors large in the middle of the frame, nothing important in the bottom third, plain cool navy-blue background, no text or logos",
@@ -105,8 +148,24 @@
       "headline": "IT NEVER *SEES* YOU",
       "motion": "pull",
       "sfx": "sparkle",
-      "overlays": [],
-      "beat": "payoff"
+      "overlays": [
+        {
+          "type": "ring",
+          "x": 0.32,
+          "y": 0.55,
+          "r": 0.06,
+          "on": "missing"
+        },
+        {
+          "type": "ring",
+          "x": 0.7,
+          "y": 0.55,
+          "r": 0.06,
+          "on": "missing"
+        }
+      ],
+      "beat": "payoff",
+      "image": "jobs/curious/pics/curious-2026-11-22-lift-door/s7.jpg"
     },
     {
       "visual": "2D animation: yesterday's fastest right answers",

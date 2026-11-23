@@ -4,7 +4,7 @@
   "languages": [
     "en"
   ],
-  "publish": false,
+  "publish": true,
   "date": "2026-11-23",
   "slot": "23:30",
   "bucket": "how it works",
@@ -39,12 +39,13 @@
       "overlays": [
         {
           "type": "ring",
-          "x": 0.5,
-          "y": 0.6,
-          "r": 0.08,
+          "x": 0.505,
+          "y": 0.648,
+          "r": 0.07,
           "on": "low"
         }
-      ]
+      ],
+      "image": "jobs/curious/pics/curious-2026-11-23-fog-lights/s1.jpg"
     },
     {
       "visual": "2D animation: a car in fog, side view; a beam from headlight height goes up into the fog, droplets bounce rays back at the driver's eye one by one, the counter climbs to 18 and the windscreen glows white: WHITE WALL",
@@ -73,12 +74,13 @@
       "overlays": [
         {
           "type": "ring",
-          "x": 0.5,
-          "y": 0.5,
+          "x": 0.66,
+          "y": 0.55,
           "r": 0.1,
           "on": "white"
         }
-      ]
+      ],
+      "image": "jobs/curious/pics/curious-2026-11-23-fog-lights/s3.jpg"
     },
     {
       "visual": "2D animation: the light drops from headlight height to knee height by the bumper, the beam flattens with a sharp top edge onto the road, the bounce-back counter falls from 18 to 3, the road lines light up: ROAD LIT",
@@ -107,13 +109,21 @@
       "sfx": "thud",
       "overlays": [
         {
+          "type": "label",
+          "text": "THICK FOG",
+          "x": 0.5,
+          "y": 0.43,
+          "on": "hangs"
+        },
+        {
           "type": "arrow",
-          "x": 0.6,
-          "y": 0.6,
+          "x": 0.8,
+          "y": 0.665,
           "dir": "down",
           "on": "under"
         }
-      ]
+      ],
+      "image": "jobs/curious/pics/curious-2026-11-23-fog-lights/s5.jpg"
     },
     {
       "visual": "driver's-eye view illustration from inside a car looking through the windscreen at a foggy night road, two relaxed hands on the steering wheel at the bottom, the road surface and white lane lines just ahead lit by a flat warm orange glow as the brightest thing in the frame, the fog above the road dim and soft, simple uncluttered composition, no text or logos",
@@ -128,10 +138,11 @@
         {
           "type": "tick",
           "x": 0.5,
-          "y": 0.6,
+          "y": 0.63,
           "on": "road"
         }
-      ]
+      ],
+      "image": "jobs/curious/pics/curious-2026-11-23-fog-lights/s6.jpg"
     },
     {
       "visual": "2D animation: yesterday's fastest right answers",

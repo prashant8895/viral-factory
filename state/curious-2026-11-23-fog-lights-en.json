@@ -1,0 +1,50 @@
+{
+  "id": "curious-2026-11-23-fog-lights-en",
+  "channel": "curious-en",
+  "date": "2026-11-23",
+  "slot": "23:30",
+  "publish": true,
+  "bucket": "how it works",
+  "episode": null,
+  "hook_text": "WHY ARE FOG LIGHTS SO *LOW*?",
+  "hook_style": "curiosity",
+  "release": "job-curious-2026-11-23-fog-lights-en",
+  "duration": 62.45,
+  "quiz": {
+    "theme": "MYTH OR FACT MONDAY",
+    "kind": "pop culture",
+    "next_topic": "the tab under your rear-view mirror",
+    "next_title": "The secret tab on your mirror",
+    "question": "You can see the Great Wall of China from space?",
+    "options": {
+      "A": "Fact",
+      "B": "Myth"
+    },
+    "answer": "B",
+    "keywords": {
+      "A": [
+        "fact",
+        "true"
+      ],
+      "B": [
+        "myth",
+        "false"
+      ]
+    },
+    "sources": [
+      "https://www.nasa.gov/wp-content/uploads/static/history/PDFs/great_wall_less_great_from_space.pdf",
+      "https://www.scientificamerican.com/article/is-chinas-great-wall-visible-from-space/"
+    ]
+  },
+  "shoutouts": {
+    "from": "curious-2026-11-22-lift-door-en",
+    "names": []
+  },
+  "tests": [
+    "2026-11-23-short-share",
+    "2026-11-23-trend-audio"
+  ],
+  "trend_audio": true,
+  "picture_style": "illustration",
+  "voice": "clone"
+}

@@ -1,20 +1,21 @@
 {
-  "updated": "2026-11-23T06:43+05:30",
+  "updated": "2026-11-23T13:47+05:30",
   "videos": 19,
-  "total_views": 24630.0,
+  "total_views": 24741.0,
   "platform_views": {
-    "youtube": 12746.0,
+    "youtube": 12856.0,
     "instagram": 6233.0,
-    "facebook": 5651.0
+    "facebook": 5652.0
   },
   "median_watch_pct": 15.9,
   "median_shares_per_1k": 0.0,
   "median_ig_watch_s": 10.4,
   "median_yt_watch_s": 24.0,
   "rules": [
-    "bucket: 'seen-but-missed' beats 'how it works' (1,736 vs 961 median views, 1,896 vs 1,117 average, 6 vs 8 videos). Lean towards 'seen-but-missed'.",
-    "picture_style: 'illustration' beats 'illustration-bold' (1,476 vs 785 median views, 1,393 vs 829 average, 8 vs 4 videos). Lean towards 'illustration'.",
-    "length_band: '50-70s' leads on median views (1,476 vs 961) but not on average (1,381 vs 1,117): it lifts the weak videos, not the hits. No change yet.",
+    "bucket: 'seen-but-missed' beats 'how it works' (1,736 vs 1,005 median views, 1,896 vs 1,131 average, 6 vs 8 videos). Lean towards 'seen-but-missed'.",
+    "picture_style: 'illustration' beats 'illustration-bold' (1,476 vs 840 median views, 1,393 vs 857 average, 8 vs 4 videos). Lean towards 'illustration'.",
+    "voice: 'clone' leads on median views (1,255 vs 973) but not on average (1,214 vs 1,453): it lifts the weak videos, not the hits. No change yet.",
+    "length_band: '50-70s' leads on median views (1,476 vs 973) but not on average (1,381 vs 1,453): it lifts the weak videos, not the hits. No change yet.",
     "People watch a median 10 s on Instagram and 24 s on YouTube whatever the video's length. The first real answer must land inside those first 10 s; judge hold by seconds watched and skip rate, not watch % (watch % drops on its own when videos get longer). Length itself is set by the playbook, not by this rule.",
     "Top videos so far: IT'S NOT A SHOE CLEANER! (seen-but-missed, 3,188 views); WHY TWO FLUSH BUTTONS? (how it works, 2,334 views); WHY THIS MESH? (seen-but-missed, 1,891 views). Pitch more topics like these.",
     "Weakest: NO BATTERY. HOW DOES IT PAY? (how it works, 605); WINTER HAZE? NOT JUST FOG (india everyday, 438); WHY IT'S HOTTER THAN BOILING (how it works, 286). Avoid these angles unless a new twist.",
@@ -53,9 +54,9 @@
         "group": "how it works",
         "n": 8,
         "trusted": true,
-        "median_v24": 762.0,
-        "median_views": 961.0,
-        "mean_views": 1117,
+        "median_v24": 671.0,
+        "median_views": 1005.0,
+        "mean_views": 1131,
         "median_ig_watch_s": 10.65,
         "median_watch_pct": 12.8,
         "median_shares_per_1k": 0.0
@@ -121,9 +122,9 @@
         "group": "curiosity",
         "n": 12,
         "trusted": true,
-        "median_v24": 1267.0,
-        "median_views": 1211.0,
-        "mean_views": 1205,
+        "median_v24": 1014.5,
+        "median_views": 1255.0,
+        "mean_views": 1214,
         "median_ig_watch_s": 10.65,
         "median_watch_pct": 12.850000000000001,
         "median_shares_per_1k": 0.0
@@ -167,11 +168,11 @@
         "group": "illustration-bold",
         "n": 4,
         "trusted": true,
-        "median_v24": 762.0,
-        "median_views": 785.0,
-        "mean_views": 829,
+        "median_v24": 653.0,
+        "median_views": 840.0,
+        "mean_views": 857,
         "median_ig_watch_s": 8.9,
-        "median_watch_pct": 9.95,
+        "median_watch_pct": 9.925,
         "median_shares_per_1k": 0.0
       }
     ],
@@ -180,9 +181,9 @@
         "group": "clone",
         "n": 12,
         "trusted": true,
-        "median_v24": 1267.0,
-        "median_views": 1211.0,
-        "mean_views": 1205,
+        "median_v24": 1014.5,
+        "median_views": 1255.0,
+        "mean_views": 1214,
         "median_ig_watch_s": 10.65,
         "median_watch_pct": 12.850000000000001,
         "median_shares_per_1k": 0.0
@@ -212,6 +213,17 @@
         "median_shares_per_1k": 0.0
       },
       {
+        "group": "70s+",
+        "n": 8,
+        "trusted": true,
+        "median_v24": 671.0,
+        "median_views": 1005.0,
+        "mean_views": 1131,
+        "median_ig_watch_s": 10.65,
+        "median_watch_pct": 12.8,
+        "median_shares_per_1k": 0.0
+      },
+      {
         "group": "40-50s",
         "n": 7,
         "trusted": true,
@@ -220,17 +232,6 @@
         "mean_views": 1453,
         "median_ig_watch_s": 9.8,
         "median_watch_pct": 23.6,
-        "median_shares_per_1k": 0.0
-      },
-      {
-        "group": "70s+",
-        "n": 8,
-        "trusted": true,
-        "median_v24": 762.0,
-        "median_views": 961.0,
-        "mean_views": 1117,
-        "median_ig_watch_s": 10.65,
-        "median_watch_pct": 12.8,
         "median_shares_per_1k": 0.0
       }
     ]
@@ -729,9 +730,9 @@
       "hook_style": "curiosity",
       "duration": 85.42,
       "late_min": -5,
-      "views": 1461.0,
+      "views": 1462.0,
       "v24": 1321.0,
-      "v72": 1461.0,
+      "v72": 1462.0,
       "watch_pct": 10.9,
       "skip_pct": 50.0,
       "follows": null,
@@ -755,22 +756,22 @@
       "hook_style": "curiosity",
       "duration": 88.47,
       "late_min": -2,
-      "views": 1048.0,
+      "views": 1136.0,
       "v24": 762.0,
-      "v72": null,
-      "watch_pct": 6.15,
+      "v72": 1136.0,
+      "watch_pct": 6.1,
       "skip_pct": 30.3,
       "follows": null,
-      "likes_per_1k": 5.7,
+      "likes_per_1k": 6.2,
       "shares_per_1k": 0.0,
-      "ig_watch_s": 7.6,
+      "ig_watch_s": 7.5,
       "yt_watch_s": null,
       "tests": [
         "2026-11-19-why-claim-title",
         "2026-11-19-scene2-answer"
       ],
       "youtube_watch_pct": null,
-      "instagram_watch_pct": 8.6,
+      "instagram_watch_pct": 8.5,
       "facebook_watch_pct": 3.7
     },
     {
@@ -781,13 +782,13 @@
       "hook_style": "curiosity",
       "duration": 76.94,
       "late_min": -2,
-      "views": 522.0,
-      "v24": null,
+      "views": 544.0,
+      "v24": 544.0,
       "v72": null,
-      "watch_pct": 9.0,
+      "watch_pct": 8.95,
       "skip_pct": 34.9,
       "follows": null,
-      "likes_per_1k": 7.7,
+      "likes_per_1k": 7.4,
       "shares_per_1k": 0.0,
       "ig_watch_s": 8.5,
       "yt_watch_s": null,
@@ -796,7 +797,7 @@
         "2026-11-19-scene2-answer"
       ],
       "youtube_watch_pct": null,
-      "instagram_watch_pct": 11.1,
+      "instagram_watch_pct": 11.0,
       "facebook_watch_pct": 6.9
     }
   ]

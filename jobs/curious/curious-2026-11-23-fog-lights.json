@@ -1,0 +1,209 @@
+{
+  "id": "curious-2026-11-23-fog-lights",
+  "channel": "curious",
+  "languages": [
+    "en"
+  ],
+  "publish": false,
+  "date": "2026-11-23",
+  "slot": "23:30",
+  "bucket": "how it works",
+  "hook_style": "curiosity",
+  "picture_style": "illustration",
+  "seed": 11232,
+  "tests": [
+    "2026-11-23-short-share",
+    "2026-11-23-trend-audio"
+  ],
+  "hook_text": "WHY ARE FOG LIGHTS SO *LOW*?",
+  "keywords": [
+    "why are fog lights low",
+    "how do fog lights work",
+    "fog lights vs headlights"
+  ],
+  "sources": [
+    "https://www.equipmentworld.com/trucks/pickups/article/15045422/aiming-fog-lights",
+    "https://www.tirerack.com/wheels/tech/techpage.jsp?techid=130",
+    "https://repairpal.com/fog-lights-how-to-use-them",
+    "https://www.assuredauto.ca/articles/what-are-fog-lights-and-how-do-they-work",
+    "https://www.kbb.com/what-is/fog-lights"
+  ],
+  "scenes": [
+    {
+      "visual": "close-up illustration of the front corner of a car on a foggy night road, the small round fog light set low in the bumper glowing bright warm orange as the brightest thing in the frame, a soft flat orange beam spreading low across the road, the main headlight above it dim, pale fog filling the space above, the bumper and fog light big in the lower two-thirds of the frame, simple dark blue background, no text, no logos, no number plate",
+      "narration": "Why are fog lights so *low*, down by the bumper?",
+      "delivery": "curious",
+      "beat": "hook",
+      "motion": "push",
+      "sfx": "boom",
+      "overlays": [
+        {
+          "type": "ring",
+          "x": 0.5,
+          "y": 0.6,
+          "r": 0.08,
+          "on": "low"
+        }
+      ]
+    },
+    {
+      "visual": "2D animation: a car in fog, side view; a beam from headlight height goes up into the fog, droplets bounce rays back at the driver's eye one by one, the counter climbs to 18 and the windscreen glows white: WHITE WALL",
+      "narration": "Fog is tiny water *droplets*. They bounce your headlights straight back into your eyes. So the trick is height.",
+      "delivery": "explain",
+      "beat": "loop",
+      "headline": "STEP 1/3: *DROPLETS*",
+      "motion": "push",
+      "sfx": "whoosh",
+      "overlays": [],
+      "anim": "anims/fog-beam.html",
+      "anim_params": {
+        "mode": "high",
+        "back": 18,
+        "label": "WHITE WALL"
+      }
+    },
+    {
+      "visual": "illustration of a person in a hooded jacket on a misty night path holding a torch up beside their face, the torch lighting the mist right in front of their face into a bright warm orange-white glowing haze that is the brightest thing in the frame, the person squinting, the figure big in the lower two-thirds of the frame, plain cool dark blue background, no text or logos",
+      "narration": "Like a torch on a misty night. Up by your face, the mist glows *white*. Down at your feet? You see the path.",
+      "delivery": "light",
+      "beat": "rehook",
+      "headline": "LIKE A *TORCH*",
+      "motion": "drift_right",
+      "sfx": "ding",
+      "overlays": [
+        {
+          "type": "ring",
+          "x": 0.5,
+          "y": 0.5,
+          "r": 0.1,
+          "on": "white"
+        }
+      ]
+    },
+    {
+      "visual": "2D animation: the light drops from headlight height to knee height by the bumper, the beam flattens with a sharp top edge onto the road, the bounce-back counter falls from 18 to 3, the road lines light up: ROAD LIT",
+      "narration": "So fog lights sit around *knee* height, with a wide, flat beam aimed down. And there's one more trick.",
+      "delivery": "explain",
+      "beat": "explain",
+      "headline": "STEP 2/3: AIM *LOW*",
+      "motion": "push",
+      "sfx": "pop",
+      "overlays": [],
+      "anim": "anims/fog-beam.html",
+      "anim_params": {
+        "mode": "low",
+        "back": 18,
+        "low": 3,
+        "label": "ROAD LIT"
+      }
+    },
+    {
+      "visual": "side-view cutaway illustration of a car on a road at night, a thick layer of pale grey fog floating above the road with a thin clearer gap of air just above the road surface, a flat bright warm orange beam from a low light on the bumper sliding through that gap and lighting the road ahead as the brightest thing in the frame, the car and road big in the lower two-thirds of the frame, simple dark blue background, no text or logos",
+      "narration": "Fog often hangs just *above* the road, so the low beam slips under it.",
+      "delivery": "explain",
+      "beat": "explain",
+      "headline": "STEP 3/3: *UNDER* IT",
+      "motion": "push",
+      "sfx": "thud",
+      "overlays": [
+        {
+          "type": "arrow",
+          "x": 0.6,
+          "y": 0.6,
+          "dir": "down",
+          "on": "under"
+        }
+      ]
+    },
+    {
+      "visual": "driver's-eye view illustration from inside a car looking through the windscreen at a foggy night road, two relaxed hands on the steering wheel at the bottom, the road surface and white lane lines just ahead lit by a flat warm orange glow as the brightest thing in the frame, the fog above the road dim and soft, simple uncluttered composition, no text or logos",
+      "narration": "So they're low on purpose. <short pause> They light the *road*, not the fog. Send this to whoever uses high beams in fog.",
+      "delivery": "reveal",
+      "beat": "payoff",
+      "share": true,
+      "headline": "THE *ROAD*, NOT THE FOG",
+      "motion": "pull",
+      "sfx": "sparkle",
+      "overlays": [
+        {
+          "type": "tick",
+          "x": 0.5,
+          "y": 0.6,
+          "on": "road"
+        }
+      ]
+    },
+    {
+      "visual": "2D animation: yesterday's fastest right answers",
+      "shoutout": true,
+      "anim": "anims/shoutout.html",
+      "narration": "Yesterday's answer: C, Venus. These legends got it first.",
+      "narration_none": "It was C, Venus... nobody cracked it. Let's see you beat today's.",
+      "delivery": "warm",
+      "headline": "*SHOUTOUT*",
+      "motion": "push",
+      "sfx": "sparkle",
+      "overlays": []
+    },
+    {
+      "visual": "2D animation: today's quiz (myth or fact, a world landmark)",
+      "quiz": true,
+      "anim": "anims/quiz.html",
+      "narration": "Myth or fact: you can see the Great Wall of China from space. Fact, or myth? Comment your guess.",
+      "delivery": "curious",
+      "headline": "MYTH OR *FACT*",
+      "motion": "push",
+      "sfx": "pop",
+      "overlays": []
+    }
+  ],
+  "youtube": {
+    "title": "Why are fog lights mounted so low? #shorts",
+    "description": "Why are fog lights low on a car? Fog is tiny water droplets, and they bounce headlight beams straight back into the driver's eyes: a white wall. So how do fog lights work? They sit low on the bumper, around knee height, and throw a wide, flat beam with a sharp top edge, aimed down at the road. Fog often hangs a little above the road, so that low beam slips under it and lights the road instead of the fog. That's fog lights vs headlights.\n\nToday's quiz (Myth or Fact Monday): you can see the Great Wall of China from space with your own eyes. A) Fact B) Myth. Comment your guess 👇\nNext video: The secret tab on your mirror\n\nSources: Equipment World, Tire Rack, RepairPal, Kelley Blue Book\nAI visuals\n#shorts #didyouknow #foglights",
+    "tags": [
+      "why are fog lights low",
+      "how do fog lights work",
+      "fog lights vs headlights",
+      "fog lights",
+      "driving in fog",
+      "car lights",
+      "how it works",
+      "did you know",
+      "science facts",
+      "everyday science",
+      "the more you know"
+    ]
+  },
+  "instagram": {
+    "caption": "Why are fog lights so low on a car? 🌫️\nHow do fog lights work? Fog bounces headlights straight back at you, so fog lights sit low with a flat beam that slips under the fog: that's fog lights vs headlights.\nSend this to whoever uses high beams in fog.\n\nSources: Equipment World, Tire Rack, RepairPal\nAI visuals\n#ohthatswhy #foglights #driving #howitworks #didyouknow\n\nToday's quiz (Myth or Fact Monday): you can see the Great Wall of China from space with your own eyes. A) Fact B) Myth. Comment your guess 👇\nNext video: The secret tab on your mirror"
+  },
+  "facebook": {
+    "description": "Why are fog lights low? Fog bounces headlights back into your eyes, so fog lights sit around knee height with a wide, flat beam that slips under the fog and lights the road. Send this to whoever uses high beams in fog. AI visuals.\n\nToday's quiz (Myth or Fact Monday): you can see the Great Wall of China from space with your own eyes. A) Fact B) Myth. Comment your guess 👇\nNext video: The secret tab on your mirror"
+  },
+  "quiz": {
+    "theme": "MYTH OR FACT MONDAY",
+    "kind": "pop culture",
+    "next_topic": "the tab under your rear-view mirror",
+    "next_title": "The secret tab on your mirror",
+    "question": "You can see the Great Wall of China from space?",
+    "options": {
+      "A": "Fact",
+      "B": "Myth"
+    },
+    "answer": "B",
+    "keywords": {
+      "A": [
+        "fact",
+        "true"
+      ],
+      "B": [
+        "myth",
+        "false"
+      ]
+    },
+    "sources": [
+      "https://www.nasa.gov/wp-content/uploads/static/history/PDFs/great_wall_less_great_from_space.pdf",
+      "https://www.scientificamerican.com/article/is-chinas-great-wall-visible-from-space/"
+    ]
+  }
+}

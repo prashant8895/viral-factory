@@ -1,0 +1,96 @@
+<!doctype html><html><head><meta charset="utf-8">
+<style>html,body{margin:0;background:#16233a}canvas{display:block}</style></head><body>
+<canvas id="c" width="1080" height="1920"></canvas>
+<script>
+// Why fog lights sit so low. Clouds-Short style: dark navy, one object (a car, side view, in fog),
+// one big orange number that moves with the words (light rays bouncing back to the driver's eyes).
+// params.mode:
+//  "high": a beam from headlight height goes forward into the fog; the droplets bounce rays back
+//          at the driver's eye one by one, the number climbs 0 -> params.back (default 18), the
+//          windscreen glows white and params.label pops (default "WHITE WALL").
+//  "low":  the light drops to knee height by the bumper, the beam flattens with a sharp top edge
+//          and lands on the road under the thick fog; the number falls 18 -> params.low (default 3),
+//          the road lines light up and params.label pops (default "ROAD LIT").
+// Keeps the top fifth (0-384) and the caption band (1344-1632) empty.
+const c=document.getElementById('c'),x=c.getContext('2d'),W=1080,H=1920;
+const NAVY='#16233a',YEL='#ffd23f',ORA='#ff9f1c',WHITE='#f4f1e8',TEAL='#3fc1c9',RED='#ff5a5a',GREEN='#5fd068';
+const clamp=(v,a=0,b=1)=>Math.max(a,Math.min(b,v)), prog=(t,a,b)=>clamp((t-a)/(b-a));
+const ease=t=>1-Math.pow(1-clamp(t),3), back=t=>{t=clamp(t);const s=1.7;return 1+(s+1)*Math.pow(t-1,3)+s*Math.pow(t-1,2)};
+const rnd=i=>{const s=Math.sin(i*12.9898)*43758.5453;return s-Math.floor(s)};
+function txt(s,px,py,size,col){x.font=`700 ${size}px Anton, Impact, sans-serif`;x.textAlign='center';x.textBaseline='middle';
+  x.lineWidth=size*0.14;x.lineJoin='round';x.strokeStyle='rgba(0,0,0,.55)';x.strokeText(s,px,py);x.fillStyle=col;x.fillText(s,px,py)}
+function pop(s,px,py,str,size,col){if(s<=0)return;x.save();x.translate(px,py);x.scale(s,s);txt(str,0,0,size,col);x.restore()}
+
+const ROAD=1240, FOG_TOP=640, FOG_THIN=1150;   // thick fog from FOG_TOP to FOG_THIN, thin below
+const EYE=[250,1000];
+function bg(t){x.fillStyle=NAVY;x.fillRect(0,0,W,H);
+  // road
+  x.fillStyle='#24324d';x.fillRect(0,ROAD,W,70);
+}
+function roadLines(a){for(let i=0;i<5;i++){const lx=470+i*130;
+  x.fillStyle=a>0?`rgba(255,210,63,${0.25+0.75*a})`:'rgba(244,241,232,.25)';x.fillRect(lx,ROAD+28,70,12)}}
+function drops(t){ // fog droplets: dense above FOG_THIN, sparse near the road
+  for(let i=0;i<520;i++){const dx=(rnd(i)*W*1.1+t*12)%(W*1.1)-40;let dy;
+    if(i<470)dy=FOG_TOP+rnd(i+7)*(FOG_THIN-FOG_TOP);else dy=FOG_THIN+rnd(i+7)*(ROAD-FOG_THIN-10);
+    if(dx<430&&dy>880)continue;
+    x.fillStyle='rgba(200,220,235,.33)';x.beginPath();x.arc(dx,dy,4+rnd(i+3)*4,0,7);x.fill()}
+  x.fillStyle='rgba(200,220,235,.06)';x.fillRect(0,FOG_TOP,W,FOG_THIN-FOG_TOP);
+}
+function car(){x.save();
+  x.fillStyle='#3a4d6b';x.beginPath();x.roundRect(20,1080,430,130,28);x.fill();       // body
+  x.beginPath();x.moveTo(90,1085);x.lineTo(160,940);x.lineTo(330,940);x.lineTo(400,1085);x.closePath();x.fill(); // cabin
+  x.fillStyle='#0d1626';x.beginPath();x.moveTo(300,955);x.lineTo(335,955);x.lineTo(385,1075);x.lineTo(300,1075);x.closePath();x.fill(); // windscreen
+  x.fillStyle='#0d1626';[110,360].forEach(wx=>{x.beginPath();x.arc(wx,1215,48,0,7);x.fill()});
+  x.fillStyle='#6d7f9c';[110,360].forEach(wx=>{x.beginPath();x.arc(wx,1215,18,0,7);x.fill()});
+  // driver's eye
+  x.fillStyle=WHITE;x.beginPath();x.arc(EYE[0],EYE[1],16,0,7);x.fill();x.fillStyle=NAVY;x.beginPath();x.arc(EYE[0]+5,EYE[1],7,0,7);x.fill();
+  x.restore();}
+function lamp(lx,ly){x.save();x.fillStyle=ORA;x.shadowColor=ORA;x.shadowBlur=40;x.beginPath();x.arc(lx,ly,20,0,7);x.fill();x.restore()}
+function ray(a,b,col,al,w){x.save();x.strokeStyle=col;x.globalAlpha=al;x.lineWidth=w||4;x.shadowColor=col;x.shadowBlur=10;
+  x.beginPath();x.moveTo(a[0],a[1]);x.lineTo(b[0],b[1]);x.stroke();x.restore()}
+function counter(v,s,col){if(s<=0)return;pop(s,540,450,String(Math.round(v)),150,col||ORA);pop(s,540,555,'RAYS BOUNCING BACK',44,col||ORA)}
+// beam: a fan from (lx,ly) to the right, between angles a0 (up, negative) and a1 (down)
+function beam(lx,ly,a0,a1,len,al){x.save();const g=x.createLinearGradient(lx,0,lx+len,0);
+  g.addColorStop(0,`rgba(255,159,28,${0.55*al})`);g.addColorStop(1,'rgba(255,159,28,0)');x.fillStyle=g;
+  x.beginPath();x.moveTo(lx,ly);x.lineTo(lx+len*Math.cos(a0),ly+len*Math.sin(a0));x.lineTo(lx+len*Math.cos(a1),ly+len*Math.sin(a1));x.closePath();x.fill();x.restore()}
+
+function drawHigh(t,p,P){const N=+P.back||18;bg(t);roadLines(0);drops(t);car();
+  const L=[450,1100];lamp(L[0],L[1]);
+  beam(L[0],L[1],-0.32,0.06,640,ease(prog(p,0,0.15)));
+  const shown=Math.floor(N*ease(prog(p,0.12,0.72)));
+  for(let i=0;i<shown;i++){const hx=560+rnd(i+40)*440,hy=L[1]-40-rnd(i+80)*300;
+    ray(L,[hx,hy],ORA,.55,3);ray([hx,hy],EYE,WHITE,.7,3);
+    x.fillStyle=WHITE;x.beginPath();x.arc(hx,hy,8,0,7);x.fill()}
+  counter(shown,back(prog(p,0.04,0.14)),shown>N*0.6?RED:ORA);
+  const glare=ease(prog(p,0.45,0.85));
+  if(glare>0){x.save();const g=x.createRadialGradient(EYE[0]+60,EYE[1],10,EYE[0]+60,EYE[1],320);
+    g.addColorStop(0,`rgba(255,255,255,${0.7*glare})`);g.addColorStop(1,'rgba(255,255,255,0)');x.fillStyle=g;
+    x.fillRect(0,EYE[1]-330,700,660);x.restore()}
+  if(p>0.74)pop(back(prog(p,0.74,0.86)),720,760,P.label||'WHITE WALL',90,YEL);
+}
+function drawLow(t,p,P){const N=+P.back||18,M=+P.low||3;bg(t);
+  const drop=ease(prog(p,0.05,0.35)), ly=1100+(1190-1100)*drop;
+  const lit=ease(prog(p,0.4,0.7));roadLines(lit);drops(t);car();
+  const L=[450,ly];
+  // beam flattens: top edge goes from -0.32 to a sharp cutoff just under level
+  const a0=-0.32+(0.32+0.015)*drop, a1=0.06+0.06*drop;
+  beam(L[0],L[1],a0,a1,640,1);
+  if(drop>0.9){x.save();x.strokeStyle=YEL;x.lineWidth=4;x.setLineDash([16,12]);x.globalAlpha=ease(prog(p,0.35,0.45));
+    x.beginPath();x.moveTo(L[0],L[1]);x.lineTo(L[0]+600*Math.cos(a0),L[1]+600*Math.sin(a0));x.stroke();x.restore();
+    pop(back(prog(p,0.36,0.46)),860,1080,'SHARP TOP EDGE',40,YEL);}
+  lamp(L[0],L[1]);
+  const v=N-(N-M)*ease(prog(p,0.1,0.6)), shown=Math.round(v);
+  for(let i=0;i<shown;i++){const hx=560+rnd(i+40)*440,hy=Math.min(L[1]-20,1100+rnd(i+80)*0)-rnd(i+80)*(300*(1-drop)+60);
+    ray(L,[hx,hy],ORA,.45,3);ray([hx,hy],EYE,WHITE,.6,3)}
+  counter(v,1,shown<=M+1?GREEN:ORA);
+  pop(back(prog(p,0.12,0.22)),300,1300-30,'KNEE HEIGHT',40,ORA);
+  if(p>0.72)pop(back(prog(p,0.72,0.84)),720,760,P.label||'ROAD LIT',90,GREEN);
+}
+window.draw=function(t,dur,P){
+  P=Object.assign({mode:'high'},P||{});
+  const p=t/Math.max(dur,0.1);
+  x.setTransform(1,0,0,1,0,0);x.globalAlpha=1;x.shadowBlur=0;x.setLineDash([]);
+  if(P.mode==='low')drawLow(t,p,P);else drawHigh(t,p,P);
+};
+window.draw(0,6,{});
+</script></body></html>

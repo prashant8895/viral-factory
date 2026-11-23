@@ -35,7 +35,10 @@ Work unattended.
      which number backs it ("seen-but-missed is our best bucket: 1,890 median views").
    - Write 8–10 candidates, score each 1–5 on trend, curiosity, visual, share, evergreen,
      drop anything under 17/25 or breaking a hard no, and never repeat a topic from the
-     last 14 days.
+     last 14 days. Prashant (2026-11-23, slate note): "find better topics, I see the pen and green
+     dot getting repeated": a pitch that lost on an earlier slate is NOT re-pitched (check the last
+     14 days of `pitches` docs); the ballpoint pen and the phone's green dot are retired from pitches.
+     Bring fresh topics every day.
    - Curious: at least 2 of the 3 pitches are `how it works` (playbook main lane: everyday things
      people see daily but never thought about how they work), and one of those is `recommended`
      unless the numbers clearly say otherwise. The third may come from another bucket.

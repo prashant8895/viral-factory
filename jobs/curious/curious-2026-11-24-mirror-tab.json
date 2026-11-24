@@ -1,0 +1,173 @@
+{
+  "id": "curious-2026-11-24-mirror-tab",
+  "channel": "curious",
+  "languages": [
+    "en"
+  ],
+  "publish": false,
+  "date": "2026-11-24",
+  "slot": "23:30",
+  "bucket": "seen-but-missed",
+  "hook_style": "curiosity",
+  "picture_style": "illustration",
+  "seed": 11242,
+  "tests": [
+    "2026-11-23-short-share",
+    "2026-11-23-trend-audio"
+  ],
+  "hook_text": "WHAT'S THIS MIRROR *TAB*?",
+  "keywords": [
+    "rear view mirror tab",
+    "how does a day night mirror work",
+    "rear view mirror night mode"
+  ],
+  "sources": [
+    "https://www.ipm.org/show/amomentofscience/2019-09-13/rear-view-mirror",
+    "https://www.scienceworld.ca/stories/how-does-rearview-mirror-antiglare-work/"
+  ],
+  "scenes": [
+    {
+      "visual": "close-up illustration from the driver's seat of the bottom edge of a car's rear-view mirror at the top of the windscreen, the small flip tab under the mirror painted bright warm orange as the brightest thing in the frame, a relaxed fingertip just about to flick the tab, the mirror and tab big in the middle of the frame between 35 and 65 percent of the height, a soft blurred road through the windscreen, calm cool blue tones, no text, no logos",
+      "narration": "That little tab under your rear-view mirror? Ever wondered what it *does*?",
+      "delivery": "curious",
+      "beat": "hook",
+      "motion": "push",
+      "sfx": "boom",
+      "overlays": []
+    },
+    {
+      "visual": "2D animation: side cutaway of the mirror: a glass wedge, thick at the top and thin at the bottom, with a bright orange shiny layer behind it; labels GLASS WEDGE, SHINY BACK, THICK, THIN, then NOT FLAT",
+      "narration": "Here's the thing. The glass isn't flat. It's a *wedge*, with a shiny mirror behind it. That shape's the trick.",
+      "delivery": "explain",
+      "beat": "loop",
+      "headline": "STEP 1/3: A *WEDGE*",
+      "motion": "push",
+      "sfx": "whoosh",
+      "overlays": [],
+      "anim": "anims/mirror-wedge.html",
+      "anim_params": {
+        "mode": "wedge",
+        "label": "NOT FLAT"
+      }
+    },
+    {
+      "visual": "illustration of a person in a cosy lit room at night standing in front of a big dark window, the dark glass showing only a faint, see-through reflection of the person and the room, the faint reflection outlined in a soft warm orange glow as the brightest thing in the frame, the person seen from behind over the shoulder, the window big in the middle of the frame between 30 and 65 percent of the height, plain cool dark blue night outside, no text, no logos",
+      "narration": "But here's the weird part: the glass is a mirror too. A *weak* one, like your reflection in a window at night.",
+      "delivery": "light",
+      "beat": "rehook",
+      "headline": "LIKE A *WINDOW*",
+      "motion": "drift_right",
+      "sfx": "ding",
+      "overlays": []
+    },
+    {
+      "visual": "2D animation: headlights from the car behind hit the shiny back and glare into the driver's eye (DAY: BRIGHT); the tab flips, the whole mirror tilts, the bright ray swings up to the roof and only a thin ray from the front glass reaches the eye, a counter climbs to 4% FROM THE GLASS, then NIGHT: DIM",
+      "narration": "Now watch. Flip the tab, and the whole mirror *tilts*. The bright back now points at the roof... so what's left?",
+      "delivery": "build",
+      "beat": "explain",
+      "headline": "STEP 2/3: IT *TILTS*",
+      "motion": "push",
+      "sfx": "pop",
+      "overlays": [],
+      "anim": "anims/mirror-wedge.html",
+      "anim_params": {
+        "mode": "flip",
+        "pct": 4,
+        "label": "NIGHT: DIM"
+      }
+    },
+    {
+      "visual": "driver's-eye view illustration from inside a car at night: the rear-view mirror in the middle of the frame between 35 and 55 percent of the height, inside it two small, soft, gently glowing warm orange headlights of a car far behind, calm and not dazzling, the brightest thing in the frame, two relaxed hands on the steering wheel at the bottom, dark quiet road ahead, cool dark blue tones, simple uncluttered composition, no text, no logos",
+      "narration": "Just that weak glass reflection, about four percent. <short pause> Headlights go *dim*, but you still see them. Send this to the friend who's never flipped that tab.",
+      "delivery": "reveal",
+      "beat": "payoff",
+      "share": true,
+      "headline": "STEP 3/3: *DIM*, NOT DARK",
+      "motion": "pull",
+      "sfx": "sparkle",
+      "overlays": []
+    },
+    {
+      "visual": "2D animation: yesterday's fastest right answers",
+      "shoutout": true,
+      "anim": "anims/shoutout.html",
+      "narration": "Yesterday's answer: B, it's a myth. These legends got it first.",
+      "narration_none": "It was B, a myth... nobody cracked it. Let's see you beat today's.",
+      "delivery": "warm",
+      "headline": "*SHOUTOUT*",
+      "motion": "push",
+      "sfx": "sparkle",
+      "overlays": []
+    },
+    {
+      "visual": "2D animation: today's quiz (guess the number, a world landmark)",
+      "quiz": true,
+      "anim": "anims/quiz.html",
+      "narration": "Quick one: how tall is the Eiffel Tower? Around three hundred metres, four hundred, or five hundred? Comment your guess.",
+      "delivery": "curious",
+      "headline": "GUESS THE *NUMBER*",
+      "motion": "push",
+      "sfx": "pop",
+      "overlays": []
+    }
+  ],
+  "youtube": {
+    "title": "What's the rear view mirror tab for? #shorts",
+    "description": "What does the rear view mirror tab do? The mirror glass isn't flat: it's a wedge, with a shiny mirror layer behind it. So how does a day night mirror work? In the day the shiny back reflects the road straight at you. Flip the tab and the whole mirror tilts: the shiny back now points at the roof, and you only see the weak reflection off the front of the glass, about four percent of the light. That's rear view mirror night mode: headlights go dim, but you still see them.\n\nToday's quiz (Guess the Number Tuesday): how tall is the Eiffel Tower? A) 300 to 350 m B) 400 to 450 m C) 500 to 550 m. Comment your guess 👇\nNext video: The square on your toothpaste\n\nSources: Indiana Public Media (A Moment of Science), Science World\nAI visuals\n#shorts #didyouknow #rearviewmirror",
+    "tags": [
+      "rear view mirror tab",
+      "how does a day night mirror work",
+      "rear view mirror night mode",
+      "rear view mirror",
+      "anti glare mirror",
+      "driving at night",
+      "car tips",
+      "how it works",
+      "did you know",
+      "science facts",
+      "everyday science",
+      "the more you know"
+    ]
+  },
+  "instagram": {
+    "caption": "What's the rear view mirror tab actually for? 🪞\nHow does a day night mirror work? The glass is a wedge with a shiny mirror behind it; flip the tab and it tilts, so rear view mirror night mode only shows you the weak glass reflection and headlights go dim.\nSend this to the friend who's never flipped that tab.\n\nSources: Indiana Public Media, Science World\nAI visuals\n#ohthatswhy #rearviewmirror #driving #howitworks #didyouknow\n\nToday's quiz (Guess the Number Tuesday): how tall is the Eiffel Tower? A) 300 to 350 m B) 400 to 450 m C) 500 to 550 m. Comment your guess 👇\nNext video: The square on your toothpaste"
+  },
+  "facebook": {
+    "description": "What's the rear view mirror tab for? The glass is a wedge with a shiny mirror behind it. Flip the tab and the mirror tilts: the bright reflection goes to the roof and you only see the weak reflection off the glass, so headlights go dim but stay visible. Send this to the friend who's never flipped that tab. AI visuals.\n\nToday's quiz (Guess the Number Tuesday): how tall is the Eiffel Tower? A) 300 to 350 m B) 400 to 450 m C) 500 to 550 m. Comment your guess 👇\nNext video: The square on your toothpaste"
+  },
+  "quiz": {
+    "theme": "GUESS THE NUMBER TUESDAY",
+    "kind": "general knowledge",
+    "next_topic": "the coloured square on your toothpaste tube",
+    "next_title": "The square on your toothpaste",
+    "question": "How tall is the Eiffel Tower?",
+    "options": {
+      "A": "300-350 m",
+      "B": "400-450 m",
+      "C": "500-550 m"
+    },
+    "answer": "A",
+    "keywords": {
+      "A": [
+        "300",
+        "330",
+        "350",
+        "three hundred"
+      ],
+      "B": [
+        "400",
+        "450",
+        "four hundred"
+      ],
+      "C": [
+        "500",
+        "550",
+        "five hundred"
+      ]
+    },
+    "sources": [
+      "https://www.toureiffel.paris/en/news/history-and-culture/300-330-meters-story-towers-height",
+      "https://www.euronews.com/2022/03/16/us-france-eiffel-antenna"
+    ]
+  }
+}

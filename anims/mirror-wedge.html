@@ -1,0 +1,103 @@
+<!doctype html><html><head><meta charset="utf-8">
+<style>html,body{margin:0;background:#16233a}canvas{display:block}</style></head><body>
+<canvas id="c" width="1080" height="1920"></canvas>
+<script>
+// The day/night tab on a rear-view mirror. Clouds-Short style: dark navy, one object (the mirror,
+// seen from the side as a cutaway), one orange number that moves with the words.
+// params.mode:
+//  "wedge": the mirror is drawn as a glass wedge (thick top, thin bottom) with a bright orange
+//           shiny layer behind it; labels GLASS WEDGE / SHINY BACK pop, then the angle between the
+//           two faces is marked.
+//  "flip":  day first: headlights behind you bounce off the shiny back straight into your eye
+//           (eye glares, DAY: BRIGHT). Then the tab flips, the whole mirror tilts, the bright ray
+//           swings up to the roof, and only a thin ray off the front glass reaches the eye; the
+//           number climbs 0 -> params.pct (default 4) with "% FROM THE GLASS", then params.label
+//           pops (default "NIGHT: DIM").
+// Keeps the top fifth (0-384) and the caption band (1344-1632) empty.
+const c=document.getElementById('c'),x=c.getContext('2d'),W=1080,H=1920;
+const NAVY='#16233a',YEL='#ffd23f',ORA='#ff9f1c',WHITE='#f4f1e8',TEAL='#3fc1c9',RED='#ff5a5a',GREEN='#5fd068';
+const clamp=(v,a=0,b=1)=>Math.max(a,Math.min(b,v)), prog=(t,a,b)=>clamp((t-a)/(b-a));
+const ease=t=>1-Math.pow(1-clamp(t),3), back=t=>{t=clamp(t);const s=1.7;return 1+(s+1)*Math.pow(t-1,3)+s*Math.pow(t-1,2)};
+function txt(s,px,py,size,col){x.font=`700 ${size}px Anton, Impact, sans-serif`;x.textAlign='center';x.textBaseline='middle';
+  x.lineWidth=size*0.14;x.lineJoin='round';x.strokeStyle='rgba(0,0,0,.55)';x.strokeText(s,px,py);x.fillStyle=col;x.fillText(s,px,py)}
+function pop(s,px,py,str,size,col){if(s<=0)return;x.save();x.translate(px,py);x.scale(s,s);txt(str,0,0,size,col);x.restore()}
+
+const ROOF=450, PIV=[820,880], MH=620;          // mirror pivot and height
+const EYE=[210,840], CAR=[230,1200];             // driver's eye, headlights behind
+function bg(){x.fillStyle=NAVY;x.fillRect(0,0,W,H);
+  x.fillStyle='#24324d';x.fillRect(0,ROOF-40,W,40);                      // car roof
+  x.fillStyle='rgba(244,241,232,.35)';txt('ROOF',140,ROOF+40,44,'rgba(244,241,232,.55)');
+}
+function eye(glare){x.save();x.fillStyle=WHITE;x.beginPath();x.ellipse(EYE[0],EYE[1],46,28,0,0,7);x.fill();
+  x.fillStyle=NAVY;x.beginPath();x.arc(EYE[0]+12,EYE[1],15,0,7);x.fill();
+  if(glare>0){const g=x.createRadialGradient(EYE[0],EYE[1],10,EYE[0],EYE[1],260);
+    g.addColorStop(0,`rgba(255,255,255,${0.85*glare})`);g.addColorStop(1,'rgba(255,255,255,0)');x.fillStyle=g;x.fillRect(EYE[0]-270,EYE[1]-270,540,540)}
+  x.restore();txt('YOU',EYE[0],EYE[1]+80,40,WHITE)}
+function car(){x.save();x.fillStyle='#3a4d6b';x.beginPath();x.roundRect(CAR[0]-150,CAR[1]-40,300,90,24);x.fill();
+  [-80,80].forEach(dx=>{x.fillStyle=ORA;x.shadowColor=ORA;x.shadowBlur=40;x.beginPath();x.arc(CAR[0]+dx,CAR[1],26,0,7);x.fill()});
+  x.restore();txt('CAR BEHIND',CAR[0],CAR[1]+95,38,WHITE)}
+// mirror local coords: y from -MH/2 (top) to +MH/2 (bottom); front face at x=-th(y), back face x=0
+const th=y=>50-44*((y+MH/2)/MH);                 // thick top (64->... ) wedge: front leans out at top
+function toWorld(px,py,a){return [PIV[0]+px*Math.cos(a)-py*Math.sin(a),PIV[1]+px*Math.sin(a)+py*Math.cos(a)]}
+function mirror(a,hi){x.save();x.translate(PIV[0],PIV[1]);x.rotate(a);
+  // housing
+  x.fillStyle='#2b3a55';x.beginPath();x.roundRect(6,-MH/2-30,80,MH+60,24);x.fill();
+  // glass wedge
+  x.fillStyle='rgba(63,193,201,.45)';x.strokeStyle=TEAL;x.lineWidth=4;
+  x.beginPath();x.moveTo(0,-MH/2);x.lineTo(-th(-MH/2)-30,-MH/2);x.lineTo(-th(MH/2)-4,MH/2);x.lineTo(0,MH/2);x.closePath();x.fill();x.stroke();
+  // shiny back
+  x.fillStyle=ORA;x.shadowColor=ORA;x.shadowBlur=hi?40:16;x.fillRect(0,-MH/2,16,MH);x.shadowBlur=0;
+  // tab
+  x.fillStyle=YEL;x.beginPath();x.roundRect(26,MH/2+26,48,70,14);x.fill();
+  x.restore()}
+function ray(pts,col,al,w){x.save();x.strokeStyle=col;x.globalAlpha=al;x.lineWidth=w;x.lineCap='round';x.shadowColor=col;x.shadowBlur=14;
+  x.beginPath();x.moveTo(pts[0][0],pts[0][1]);for(let i=1;i<pts.length;i++)x.lineTo(pts[i][0],pts[i][1]);x.stroke();x.restore()}
+function part(pts,f){ // draw the first fraction f of a polyline
+  let L=0;const seg=[];for(let i=1;i<pts.length;i++){const d=Math.hypot(pts[i][0]-pts[i-1][0],pts[i][1]-pts[i-1][1]);seg.push(d);L+=d}
+  let want=L*clamp(f),out=[pts[0]];for(let i=1;i<pts.length;i++){if(want>=seg[i-1]){out.push(pts[i]);want-=seg[i-1]}else{
+    const r=want/seg[i-1];out.push([pts[i-1][0]+(pts[i][0]-pts[i-1][0])*r,pts[i-1][1]+(pts[i][1]-pts[i-1][1])*r]);break}}return out}
+
+function drawWedge(t,p,P){bg();
+  const s=back(prog(p,0.0,0.15));x.save();x.translate(PIV[0],PIV[1]);x.scale(0.6+0.4*s,0.6+0.4*s);x.translate(-PIV[0],-PIV[1]);
+  mirror(0,p>0.45);x.restore();
+  pop(back(prog(p,0.15,0.27)),380,700,'GLASS WEDGE',80,TEAL);
+  ray([[420,745],[770,790]],TEAL,ease(prog(p,0.2,0.3)),5);
+  pop(back(prog(p,0.42,0.54)),400,1030,'SHINY BACK',80,ORA);
+  ray([[600,1040],[815,990]],ORA,ease(prog(p,0.45,0.55)),5);
+  if(p>0.62){pop(back(prog(p,0.62,0.72)),700,560,'THICK',56,WHITE);pop(back(prog(p,0.68,0.78)),700,1200,'THIN',56,WHITE)}
+  if(p>0.8)pop(back(prog(p,0.8,0.9)),440,860,P.label||'NOT FLAT',96,YEL);
+}
+function drawFlip(t,p,P){bg();const pct=+P.pct||4;
+  const tilt=ease(prog(p,0.38,0.55)), a=-0.16*tilt;
+  car();
+  // hit points on the front face and on the back face (middle of the mirror)
+  const back0=toWorld(0,10,a), front0=toWorld(-th(10)-14,-6,a);
+  const roof=[640,ROOF+10], up=[560,ROOF+10];
+  // bright ray: car -> shiny back -> eye (day) or roof (night)
+  const tgt=[EYE[0]+(roof[0]-EYE[0])*tilt,EYE[1]+(roof[1]-EYE[1])*tilt];
+  const fIn=ease(prog(p,0.03,0.2));
+  ray(part([CAR,back0,tgt],fIn),ORA,1,12);
+  // faint ray off the front glass: goes up (day) or to the eye (night)
+  const ftgt=[up[0]+(EYE[0]-up[0])*tilt,up[1]+(EYE[1]-up[1])*tilt];
+  ray(part([CAR,front0,ftgt],fIn),WHITE,0.35+0.35*tilt,3+3*tilt);
+  mirror(a,true);
+  // tab flick
+  if(p>0.34&&p<0.6){const k=back(prog(p,0.34,0.44));const tp=toWorld(50,MH/2+60,a);
+    x.save();x.strokeStyle=YEL;x.lineWidth=6;x.globalAlpha=1-prog(p,0.5,0.6);x.beginPath();x.arc(tp[0],tp[1],50*k,0,7);x.stroke();x.restore();
+    pop(k,tp[0]-120,tp[1]+40,'FLIP!',60,YEL)}
+  eye(fIn>0.95?(1-tilt):0);
+  if(p>0.2&&p<0.42)pop(back(prog(p,0.2,0.3)),540,1290,'DAY: BRIGHT',70,RED);
+  if(tilt>0.6){pop(back(prog(p,0.56,0.66)),650,ROOF+95,'TO THE ROOF',56,ORA);
+    const v=pct*ease(prog(p,0.6,0.82));
+    pop(back(prog(p,0.6,0.7)),280,660,Math.round(v)+'%',170,ORA);
+    pop(back(prog(p,0.6,0.7)),280,775,'FROM THE GLASS',46,ORA)}
+  if(p>0.8)pop(back(prog(p,0.8,0.9)),540,1290,P.label||'NIGHT: DIM',70,GREEN);
+}
+window.draw=function(t,dur,P){
+  P=Object.assign({mode:'wedge'},P||{});
+  const p=t/Math.max(dur,0.1);
+  x.setTransform(1,0,0,1,0,0);x.globalAlpha=1;x.shadowBlur=0;x.setLineDash([]);
+  if(P.mode==='flip')drawFlip(t,p,P);else drawWedge(t,p,P);
+};
+window.draw(0,6,{});
+</script></body></html>

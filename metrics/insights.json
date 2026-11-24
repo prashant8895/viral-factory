@@ -1,20 +1,20 @@
 {
-  "updated": "2026-11-24T06:43+05:30",
+  "updated": "2026-11-24T07:19+05:30",
   "videos": 20,
-  "total_views": 25345.0,
+  "total_views": 25437.0,
   "platform_views": {
     "youtube": 12956.0,
     "instagram": 6401.0,
-    "facebook": 5988.0
+    "facebook": 6080.0
   },
   "median_watch_pct": 16.5,
   "median_shares_per_1k": 0.0,
   "median_ig_watch_s": 10.65,
   "median_yt_watch_s": 24.5,
   "rules": [
-    "bucket: 'seen-but-missed' beats 'how it works' (1,736 vs 874 median views, 1,896 vs 1,072 average, 6 vs 9 videos). Lean towards 'seen-but-missed'.",
-    "picture_style: 'illustration' beats 'illustration-bold' (1,374 vs 890 median views, 1,294 vs 882 average, 9 vs 4 videos). Lean towards 'illustration'.",
-    "length_band: '50-70s' leads on median views (1,374 vs 973) but not on average (1,205 vs 1,453): it lifts the weak videos, not the hits. No change yet.",
+    "bucket: 'seen-but-missed' beats 'how it works' (1,736 vs 874 median views, 1,896 vs 1,082 average, 6 vs 9 videos). Lean towards 'seen-but-missed'.",
+    "picture_style: 'illustration' beats 'illustration-bold' (1,374 vs 890 median views, 1,304 vs 882 average, 9 vs 4 videos). Lean towards 'illustration'.",
+    "length_band: '50-70s' leads on median views (1,374 vs 973) but not on average (1,224 vs 1,453): it lifts the weak videos, not the hits. No change yet.",
     "People watch a median 11 s on Instagram and 24 s on YouTube whatever the video's length. The first real answer must land inside those first 11 s; judge hold by seconds watched and skip rate, not watch % (watch % drops on its own when videos get longer). Length itself is set by the playbook, not by this rule.",
     "Top videos so far: IT'S NOT A SHOE CLEANER! (seen-but-missed, 3,188 views); WHY TWO FLUSH BUTTONS? (how it works, 2,334 views); WHY THIS MESH? (seen-but-missed, 1,891 views). Pitch more topics like these.",
     "Weakest: WHY LIFT DOORS SPOT YOUR HAND (how it works, 575); WINTER HAZE? NOT JUST FOG (india everyday, 438); WHY IT'S HOTTER THAN BOILING (how it works, 286). Avoid these angles unless a new twist.",
@@ -66,7 +66,7 @@
         "trusted": true,
         "median_v24": 671.0,
         "median_views": 874.0,
-        "mean_views": 1072,
+        "mean_views": 1082,
         "median_ig_watch_s": 10.9,
         "median_watch_pct": 12.8,
         "median_shares_per_1k": 0.0
@@ -123,7 +123,7 @@
         "trusted": true,
         "median_v24": 1014.5,
         "median_views": 1205.0,
-        "mean_views": 1167,
+        "mean_views": 1174,
         "median_ig_watch_s": 10.9,
         "median_watch_pct": 12.9,
         "median_shares_per_1k": 0.0
@@ -147,7 +147,7 @@
         "trusted": true,
         "median_v24": 1294.5,
         "median_views": 1374.0,
-        "mean_views": 1294,
+        "mean_views": 1304,
         "median_ig_watch_s": 11.3,
         "median_watch_pct": 17.1,
         "median_shares_per_1k": 0.0
@@ -182,7 +182,7 @@
         "trusted": true,
         "median_v24": 1014.5,
         "median_views": 1205.0,
-        "mean_views": 1167,
+        "mean_views": 1174,
         "median_ig_watch_s": 10.9,
         "median_watch_pct": 12.9,
         "median_shares_per_1k": 0.0
@@ -206,7 +206,7 @@
         "trusted": true,
         "median_v24": 1294.5,
         "median_views": 1374.0,
-        "mean_views": 1205,
+        "mean_views": 1224,
         "median_ig_watch_s": 11.3,
         "median_watch_pct": 18.6,
         "median_shares_per_1k": 0.0
@@ -807,13 +807,13 @@
       "hook_style": "curiosity",
       "duration": 62.45,
       "late_min": -2,
-      "views": 501.0,
+      "views": 593.0,
       "v24": null,
       "v72": null,
-      "watch_pct": 28.1,
+      "watch_pct": 28.299999999999997,
       "skip_pct": 29.0,
       "follows": null,
-      "likes_per_1k": 10.0,
+      "likes_per_1k": 10.1,
       "shares_per_1k": 0.0,
       "ig_watch_s": 21.8,
       "yt_watch_s": null,
@@ -823,7 +823,7 @@
       ],
       "youtube_watch_pct": null,
       "instagram_watch_pct": 34.9,
-      "facebook_watch_pct": 21.3
+      "facebook_watch_pct": 21.7
     }
   ]
 }

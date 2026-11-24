@@ -4,7 +4,7 @@
   "languages": [
     "en"
   ],
-  "publish": false,
+  "publish": true,
   "date": "2026-11-24",
   "slot": "23:30",
   "bucket": "seen-but-missed",
@@ -33,7 +33,16 @@
       "beat": "hook",
       "motion": "push",
       "sfx": "boom",
-      "overlays": []
+      "overlays": [
+        {
+          "type": "ring",
+          "x": 0.5,
+          "y": 0.648,
+          "r": 0.05,
+          "on": "tab"
+        }
+      ],
+      "image": "jobs/curious/pics/curious-2026-11-24-mirror-tab/s1.jpg"
     },
     {
       "visual": "2D animation: side cutaway of the mirror: a glass wedge, thick at the top and thin at the bottom, with a bright orange shiny layer behind it; labels GLASS WEDGE, SHINY BACK, THICK, THIN, then NOT FLAT",
@@ -58,7 +67,16 @@
       "headline": "LIKE A *WINDOW*",
       "motion": "drift_right",
       "sfx": "ding",
-      "overlays": []
+      "overlays": [
+        {
+          "type": "ring",
+          "x": 0.49,
+          "y": 0.615,
+          "r": 0.1,
+          "on": "weak"
+        }
+      ],
+      "image": "jobs/curious/pics/curious-2026-11-24-mirror-tab/s3.jpg"
     },
     {
       "visual": "2D animation: headlights from the car behind hit the shiny back and glare into the driver's eye (DAY: BRIGHT); the tab flips, the whole mirror tilts, the bright ray swings up to the roof and only a thin ray from the front glass reaches the eye, a counter climbs to 4% FROM THE GLASS, then NIGHT: DIM",
@@ -85,7 +103,16 @@
       "headline": "STEP 3/3: *DIM*, NOT DARK",
       "motion": "pull",
       "sfx": "sparkle",
-      "overlays": []
+      "overlays": [
+        {
+          "type": "ring",
+          "x": 0.5,
+          "y": 0.517,
+          "r": 0.08,
+          "on": "dim"
+        }
+      ],
+      "image": "jobs/curious/pics/curious-2026-11-24-mirror-tab/s5.jpg"
     },
     {
       "visual": "2D animation: yesterday's fastest right answers",

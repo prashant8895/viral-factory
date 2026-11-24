@@ -1,0 +1,59 @@
+{
+  "id": "curious-2026-11-24-mirror-tab-en",
+  "channel": "curious-en",
+  "date": "2026-11-24",
+  "slot": "23:30",
+  "publish": true,
+  "bucket": "seen-but-missed",
+  "episode": null,
+  "hook_text": "WHAT'S THIS MIRROR *TAB*?",
+  "hook_style": "curiosity",
+  "release": "job-curious-2026-11-24-mirror-tab-en",
+  "duration": 58.07,
+  "quiz": {
+    "theme": "GUESS THE NUMBER TUESDAY",
+    "kind": "general knowledge",
+    "next_topic": "the coloured square on your toothpaste tube",
+    "next_title": "The square on your toothpaste",
+    "question": "How tall is the Eiffel Tower?",
+    "options": {
+      "A": "300-350 m",
+      "B": "400-450 m",
+      "C": "500-550 m"
+    },
+    "answer": "A",
+    "keywords": {
+      "A": [
+        "300",
+        "330",
+        "350",
+        "three hundred"
+      ],
+      "B": [
+        "400",
+        "450",
+        "four hundred"
+      ],
+      "C": [
+        "500",
+        "550",
+        "five hundred"
+      ]
+    },
+    "sources": [
+      "https://www.toureiffel.paris/en/news/history-and-culture/300-330-meters-story-towers-height",
+      "https://www.euronews.com/2022/03/16/us-france-eiffel-antenna"
+    ]
+  },
+  "shoutouts": {
+    "from": "curious-2026-11-23-fog-lights-en",
+    "names": []
+  },
+  "tests": [
+    "2026-11-23-short-share",
+    "2026-11-23-trend-audio"
+  ],
+  "trend_audio": true,
+  "picture_style": "illustration",
+  "voice": "clone"
+}

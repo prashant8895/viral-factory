@@ -1,5 +1,5 @@
 {
-  "updated": "2026-11-24T10:12+05:30",
+  "updated": "2026-11-24T13:21+05:30",
   "errors": {
     "curious-en/instagram/curious-2026-11-10-winter-smog-en": "400: {\"error\":{\"message\":\"Unsupported get request. Object with ID '18058381928810433' does not exist, cannot be loaded due to missing permissions, or does not support this operation. Please read the Graph API documentation at https://developers.facebook.com/docs/graph-api\",\"code\":100,\"type\":\"GraphMe",
     "curious-hi/instagram/curious-2026-11-10-winter-smog-hi": "400: {\"error\":{\"message\":\"Unsupported get request. Object with ID '18122703538968581' does not exist, cannot be loaded due to missing permissions, or does not support this operation. Please read the Graph API documentation at https://developers.facebook.com/docs/graph-api\",\"code\":100,\"type\":\"GraphMe",

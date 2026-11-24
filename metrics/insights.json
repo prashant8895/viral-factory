@@ -1,43 +1,43 @@
 {
-  "updated": "2026-11-24T15:58+05:30",
-  "videos": 20,
-  "total_views": 28853.0,
+  "updated": "2026-11-25T05:07+05:30",
+  "videos": 21,
+  "total_views": 30787.0,
   "platform_views": {
-    "youtube": 12996.0,
-    "instagram": 6404.0,
-    "facebook": 9453.0
+    "youtube": 13219.0,
+    "instagram": 6524.0,
+    "facebook": 11044.0
   },
-  "median_watch_pct": 16.5,
+  "median_watch_pct": 15.9,
   "median_shares_per_1k": 0.0,
-  "median_ig_watch_s": 10.65,
-  "median_yt_watch_s": 24.5,
+  "median_ig_watch_s": 10.4,
+  "median_yt_watch_s": 24.0,
   "rules": [
-    "bucket: 'seen-but-missed' beats 'how it works' (1,736 vs 1,209 median views, 1,896 vs 1,462 average, 6 vs 9 videos). Lean towards 'seen-but-missed'.",
-    "picture_style: 'illustration' beats 'illustration-bold' (1,578 vs 898 median views, 1,681 vs 887 average, 9 vs 4 videos). Lean towards 'illustration'.",
-    "voice: 'clone' leads on median views (1,375 vs 973) but not on average (1,437 vs 1,453): it lifts the weak videos, not the hits. No change yet.",
-    "length_band: '50-70s' beats '40-50s' (1,578 vs 973 median views, 1,902 vs 1,453 average, 5 vs 7 videos). Lean towards '50-70s'.",
-    "People watch a median 11 s on Instagram and 24 s on YouTube whatever the video's length. The first real answer must land inside those first 11 s; judge hold by seconds watched and skip rate, not watch % (watch % drops on its own when videos get longer). Length itself is set by the playbook, not by this rule.",
-    "Top videos so far: IT'S NOT A SHOE CLEANER! (seen-but-missed, 3,188 views); WHY TWO FLUSH BUTTONS? (how it works, 2,334 views); WHY THIS MESH? (seen-but-missed, 1,891 views). Pitch more topics like these.",
-    "Weakest: WHY LIFT DOORS SPOT YOUR HAND (how it works, 588); WINTER HAZE? NOT JUST FOG (india everyday, 438); WHY IT'S HOTTER THAN BOILING (how it works, 286). Avoid these angles unless a new twist.",
-    "Voice trial (clone): 13/5 videos made, 5 at 72 h, verdict: keep.",
-    "Test '2026-11-23-short-share' (Whole video 55-65 s (115-135 spoken words incl. the quiz, 6-8 scenes, quiz card 7 s) plus one explicit 'send this to the friend who...' line right after the reveal and as caption line 3): 1/5 videos, 0 at 72 h, verdict: waiting.",
-    "Test '2026-11-23-trend-audio' (Instagram only: today's top trending licensed track from the Instagram Audio API attached muted (audio_volume 0) under our voice): 1/5 videos, 0 at 72 h, verdict: waiting."
+    "bucket: 'seen-but-missed' leads on median views (1,684 vs 1,220) but not on average (1,710 vs 1,610): it lifts the weak videos, not the hits. No change yet.",
+    "picture_style: 'illustration' beats 'illustration-bold' (1,476 vs 905 median views, 1,705 vs 890 average, 10 vs 4 videos). Lean towards 'illustration'.",
+    "voice: 'clone' leads on median views (1,298 vs 973) but not on average (1,472 vs 1,453): it lifts the weak videos, not the hits. No change yet.",
+    "length_band: '50-70s' beats '40-50s' (1,476 vs 973 median views, 1,905 vs 1,453 average, 6 vs 7 videos). Lean towards '50-70s'.",
+    "People watch a median 10 s on Instagram and 24 s on YouTube whatever the video's length. The first real answer must land inside those first 10 s; judge hold by seconds watched and skip rate, not watch % (watch % drops on its own when videos get longer). Length itself is set by the playbook, not by this rule.",
+    "Top videos so far: WHY ARE FOG LIGHTS SO LOW? (how it works, 5,312 views); IT'S NOT A SHOE CLEANER! (seen-but-missed, 3,188 views); WHY TWO FLUSH BUTTONS? (how it works, 2,334 views). Pitch more topics like these.",
+    "Weakest: WHY LIFT DOORS SPOT YOUR HAND (how it works, 590); WINTER HAZE? NOT JUST FOG (india everyday, 438); WHY IT'S HOTTER THAN BOILING (how it works, 286). Avoid these angles unless a new twist.",
+    "Voice trial (clone): 14/5 videos made, 5 at 72 h, verdict: keep.",
+    "Test '2026-11-23-short-share' (Whole video 55-65 s (115-135 spoken words incl. the quiz, 6-8 scenes, quiz card 7 s) plus one explicit 'send this to the friend who...' line right after the reveal and as caption line 3): 2/5 videos, 0 at 72 h, verdict: waiting.",
+    "Test '2026-11-23-trend-audio' (Instagram only: today's top trending licensed track from the Instagram Audio API attached muted (audio_volume 0) under our voice): 2/5 videos, 0 at 72 h, verdict: waiting."
   ],
   "flags": [
-    "5 of 20 videos went out more than 30 min off their slot: 2026-11-06-escalator-brush (-148 min), 2026-11-07-microwave-mesh (+112 min), 2026-11-09-tyre-black (+453 min), 2026-11-11-stars-twinkle (+406 min), 2026-11-13-fuel-arrow (-473 min)"
+    "5 of 21 videos went out more than 30 min off their slot: 2026-11-06-escalator-brush (-148 min), 2026-11-07-microwave-mesh (+112 min), 2026-11-09-tyre-black (+453 min), 2026-11-11-stars-twinkle (+406 min), 2026-11-13-fuel-arrow (-473 min)"
   ],
   "groups": {
     "bucket": [
       {
         "group": "seen-but-missed",
-        "n": 6,
+        "n": 7,
         "trusted": true,
         "median_v24": 1537.0,
-        "median_views": 1736.0,
-        "mean_views": 1896,
-        "median_ig_watch_s": 14.799999999999999,
-        "median_watch_pct": 32.8,
-        "median_shares_per_1k": 0.25
+        "median_views": 1684.0,
+        "mean_views": 1710,
+        "median_ig_watch_s": 11.7,
+        "median_watch_pct": 28.7,
+        "median_shares_per_1k": 0.0
       },
       {
         "group": "myth busted",
@@ -55,8 +55,8 @@
         "n": 9,
         "trusted": true,
         "median_v24": 762.0,
-        "median_views": 1209.0,
-        "mean_views": 1462,
+        "median_views": 1220.0,
+        "mean_views": 1610,
         "median_ig_watch_s": 10.9,
         "median_watch_pct": 12.8,
         "median_shares_per_1k": 0.0
@@ -109,13 +109,13 @@
       },
       {
         "group": "curiosity",
-        "n": 13,
+        "n": 14,
         "trusted": true,
         "median_v24": 1267.0,
-        "median_views": 1375.0,
-        "mean_views": 1437,
-        "median_ig_watch_s": 10.9,
-        "median_watch_pct": 12.9,
+        "median_views": 1297.5,
+        "mean_views": 1472,
+        "median_ig_watch_s": 10.65,
+        "median_watch_pct": 12.850000000000001,
         "median_shares_per_1k": 0.0
       },
       {
@@ -144,13 +144,13 @@
     "picture_style": [
       {
         "group": "illustration",
-        "n": 9,
+        "n": 10,
         "trusted": true,
         "median_v24": 1322.0,
-        "median_views": 1578.0,
-        "mean_views": 1681,
-        "median_ig_watch_s": 11.3,
-        "median_watch_pct": 17.1,
+        "median_views": 1476.5,
+        "mean_views": 1705,
+        "median_ig_watch_s": 11.100000000000001,
+        "median_watch_pct": 16.0,
         "median_shares_per_1k": 0.0
       },
       {
@@ -169,23 +169,23 @@
         "n": 4,
         "trusted": true,
         "median_v24": 653.0,
-        "median_views": 898.5,
-        "mean_views": 887,
+        "median_views": 905.0,
+        "mean_views": 890,
         "median_ig_watch_s": 8.850000000000001,
-        "median_watch_pct": 9.9,
+        "median_watch_pct": 10.9,
         "median_shares_per_1k": 0.0
       }
     ],
     "voice": [
       {
         "group": "clone",
-        "n": 13,
+        "n": 14,
         "trusted": true,
         "median_v24": 1267.0,
-        "median_views": 1375.0,
-        "mean_views": 1437,
-        "median_ig_watch_s": 10.9,
-        "median_watch_pct": 12.9,
+        "median_views": 1297.5,
+        "mean_views": 1472,
+        "median_ig_watch_s": 10.65,
+        "median_watch_pct": 12.850000000000001,
         "median_shares_per_1k": 0.0
       },
       {
@@ -203,13 +203,13 @@
     "length_band": [
       {
         "group": "50-70s",
-        "n": 5,
+        "n": 6,
         "trusted": true,
         "median_v24": 1322.0,
-        "median_views": 1578.0,
-        "mean_views": 1902,
-        "median_ig_watch_s": 11.3,
-        "median_watch_pct": 18.6,
+        "median_views": 1476.5,
+        "mean_views": 1905,
+        "median_ig_watch_s": 10.55,
+        "median_watch_pct": 17.85,
         "median_shares_per_1k": 0.0
       },
       {
@@ -217,8 +217,8 @@
         "n": 8,
         "trusted": true,
         "median_v24": 671.0,
-        "median_views": 1042.5,
-        "mean_views": 1146,
+        "median_views": 1048.0,
+        "mean_views": 1148,
         "median_ig_watch_s": 10.65,
         "median_watch_pct": 12.8,
         "median_shares_per_1k": 0.0
@@ -238,7 +238,7 @@
   },
   "voice_trial": {
     "status": "kept",
-    "videos_made": 13,
+    "videos_made": 14,
     "videos_72h": 5,
     "needed": 5,
     "trial": {
@@ -262,12 +262,12 @@
       "started": "2026-11-19",
       "status": "dropped",
       "videos_made": 4,
-      "videos_72h": 2,
+      "videos_72h": 3,
       "needed": 4,
       "test": {
-        "v72": 874.0,
-        "ig_watch_s": 10.350000000000001,
-        "skip_pct": 47.0
+        "v72": 1209.0,
+        "ig_watch_s": 9.3,
+        "skip_pct": 44.0
       },
       "before": {
         "v72": 1404.0,
@@ -283,12 +283,12 @@
       "started": "2026-11-19",
       "status": "dropped",
       "videos_made": 4,
-      "videos_72h": 2,
+      "videos_72h": 3,
       "needed": 4,
       "test": {
-        "v72": 874.0,
-        "ig_watch_s": 10.350000000000001,
-        "skip_pct": 47.0
+        "v72": 1209.0,
+        "ig_watch_s": 9.3,
+        "skip_pct": 44.0
       },
       "before": {
         "v72": 1404.0,
@@ -303,18 +303,18 @@
       "kind": "format",
       "started": "2026-11-23",
       "status": "running",
-      "videos_made": 1,
+      "videos_made": 2,
       "videos_72h": 0,
       "needed": 5,
       "test": {
         "v72": null,
-        "ig_watch_s": 21.4,
-        "skip_pct": 29.1
+        "ig_watch_s": 15.4,
+        "skip_pct": 33.85
       },
       "before": {
-        "v72": 1404.0,
+        "v72": 1209.0,
         "ig_watch_s": 10.9,
-        "skip_pct": 48.9
+        "skip_pct": 44.0
       },
       "verdict": "waiting"
     },
@@ -324,26 +324,26 @@
       "kind": "format",
       "started": "2026-11-23",
       "status": "running",
-      "videos_made": 1,
+      "videos_made": 2,
       "videos_72h": 0,
       "needed": 5,
       "test": {
         "v72": null,
-        "ig_watch_s": 21.4,
-        "skip_pct": 29.1
+        "ig_watch_s": 15.4,
+        "skip_pct": 33.85
       },
       "before": {
-        "v72": 1404.0,
+        "v72": 1209.0,
         "ig_watch_s": 10.9,
-        "skip_pct": 48.9
+        "skip_pct": 44.0
       },
       "verdict": "waiting"
     }
   ],
   "top": [
+    "curious-2026-11-23-fog-lights-en",
     "curious-2026-11-06-escalator-brush-en",
-    "curious-2026-11-17-two-flush-buttons-en",
-    "curious-2026-11-07-microwave-mesh-en"
+    "curious-2026-11-17-two-flush-buttons-en"
   ],
   "bottom": [
     "curious-2026-11-22-lift-door-en",
@@ -669,7 +669,7 @@
       "ig_watch_s": 22.3,
       "yt_watch_s": 33.0,
       "tests": [],
-      "youtube_watch_pct": 38.5,
+      "youtube_watch_pct": 38.6,
       "instagram_watch_pct": 26.1,
       "facebook_watch_pct": 9.7
     },
@@ -692,7 +692,7 @@
       "ig_watch_s": 10.9,
       "yt_watch_s": 40.0,
       "tests": [],
-      "youtube_watch_pct": 46.9,
+      "youtube_watch_pct": 46.8,
       "instagram_watch_pct": 12.8,
       "facebook_watch_pct": 2.3
     },
@@ -720,7 +720,7 @@
       ],
       "youtube_watch_pct": 34.9,
       "instagram_watch_pct": 12.9,
-      "facebook_watch_pct": 0.9
+      "facebook_watch_pct": 1.5
     },
     {
       "id": "curious-2026-11-20-key-lock-en",
@@ -730,7 +730,7 @@
       "hook_style": "curiosity",
       "duration": 85.42,
       "late_min": -5,
-      "views": 1464.0,
+      "views": 1465.0,
       "v24": 1321.0,
       "v72": 1462.0,
       "watch_pct": 10.9,
@@ -744,7 +744,7 @@
         "2026-11-19-why-claim-title",
         "2026-11-19-scene2-answer"
       ],
-      "youtube_watch_pct": 25.9,
+      "youtube_watch_pct": 26.4,
       "instagram_watch_pct": 10.9,
       "facebook_watch_pct": 9.0
     },
@@ -756,21 +756,21 @@
       "hook_style": "curiosity",
       "duration": 88.47,
       "late_min": -2,
-      "views": 1209.0,
+      "views": 1220.0,
       "v24": 762.0,
       "v72": 1209.0,
       "watch_pct": 8.5,
       "skip_pct": 30.3,
       "follows": null,
-      "likes_per_1k": 5.8,
+      "likes_per_1k": 6.6,
       "shares_per_1k": 0.0,
       "ig_watch_s": 7.5,
-      "yt_watch_s": 42.0,
+      "yt_watch_s": 35.0,
       "tests": [
         "2026-11-19-why-claim-title",
         "2026-11-19-scene2-answer"
       ],
-      "youtube_watch_pct": 47.6,
+      "youtube_watch_pct": 39.6,
       "instagram_watch_pct": 8.5,
       "facebook_watch_pct": 3.7
     },
@@ -782,23 +782,23 @@
       "hook_style": "curiosity",
       "duration": 76.94,
       "late_min": -2,
-      "views": 588.0,
+      "views": 590.0,
       "v24": 544.0,
-      "v72": 588.0,
-      "watch_pct": 8.9,
+      "v72": 590.0,
+      "watch_pct": 10.9,
       "skip_pct": 35.5,
       "follows": null,
       "likes_per_1k": 6.8,
       "shares_per_1k": 0.0,
       "ig_watch_s": 8.4,
-      "yt_watch_s": null,
+      "yt_watch_s": 19.0,
       "tests": [
         "2026-11-19-why-claim-title",
         "2026-11-19-scene2-answer"
       ],
-      "youtube_watch_pct": null,
+      "youtube_watch_pct": 25.0,
       "instagram_watch_pct": 10.9,
-      "facebook_watch_pct": 6.9
+      "facebook_watch_pct": 7.0
     },
     {
       "id": "curious-2026-11-23-fog-lights-en",
@@ -808,23 +808,49 @@
       "hook_style": "curiosity",
       "duration": 62.45,
       "late_min": -2,
-      "views": 3986.0,
-      "v24": 3986.0,
+      "views": 5312.0,
+      "v24": 5312.0,
       "v72": null,
-      "watch_pct": 27.0,
-      "skip_pct": 29.1,
+      "watch_pct": 26.65,
+      "skip_pct": 29.3,
       "follows": null,
-      "likes_per_1k": 3.8,
+      "likes_per_1k": 5.3,
       "shares_per_1k": 0.0,
-      "ig_watch_s": 21.4,
+      "ig_watch_s": 21.3,
       "yt_watch_s": null,
       "tests": [
         "2026-11-23-short-share",
         "2026-11-23-trend-audio"
       ],
       "youtube_watch_pct": null,
-      "instagram_watch_pct": 34.3,
-      "facebook_watch_pct": 19.7
+      "instagram_watch_pct": 34.0,
+      "facebook_watch_pct": 19.3
+    },
+    {
+      "id": "curious-2026-11-24-mirror-tab-en",
+      "date": "2026-11-24",
+      "bucket": "seen-but-missed",
+      "hook": "WHAT'S THIS MIRROR TAB?",
+      "hook_style": "curiosity",
+      "duration": 58.07,
+      "late_min": -2,
+      "views": 594.0,
+      "v24": null,
+      "v72": null,
+      "watch_pct": 12.6,
+      "skip_pct": 38.4,
+      "follows": null,
+      "likes_per_1k": 3.4,
+      "shares_per_1k": 0.0,
+      "ig_watch_s": 9.5,
+      "yt_watch_s": null,
+      "tests": [
+        "2026-11-23-short-share",
+        "2026-11-23-trend-audio"
+      ],
+      "youtube_watch_pct": null,
+      "instagram_watch_pct": 16.4,
+      "facebook_watch_pct": 8.8
     }
   ]
 }

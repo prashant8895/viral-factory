@@ -1,0 +1,178 @@
+{
+  "id": "curious-2026-11-25-toothpaste-square",
+  "channel": "curious",
+  "languages": [
+    "en"
+  ],
+  "publish": false,
+  "date": "2026-11-25",
+  "slot": "23:30",
+  "bucket": "seen-but-missed",
+  "hook_style": "curiosity",
+  "picture_style": "illustration",
+  "seed": 11252,
+  "tests": [
+    "2026-11-23-short-share",
+    "2026-11-23-trend-audio"
+  ],
+  "hook_text": "WHAT'S THIS TOOTHPASTE *SQUARE*?",
+  "keywords": [
+    "toothpaste color code",
+    "what does the square on toothpaste mean",
+    "toothpaste eye mark"
+  ],
+  "sources": [
+    "https://www.colgate.com/en-us/oral-health/selecting-dental-products/what-is-a-toothpaste-color-code",
+    "https://www.mentalfloss.com/article/630094/what-the-color-codes-on-toothpaste-tubes-mean",
+    "https://science.feedback.org/review/color-toothpaste-tubes-guide-machines-toothpaste-production-arent-secret-codes-toothpaste-ingredient-safety/"
+  ],
+  "scenes": [
+    {
+      "visual": "huge close-up illustration of the flat crimped end of a plain white toothpaste tube held between a relaxed thumb and fingertip, one small solid square printed right next to the crimped edge painted bright warm orange as the brightest thing in the frame, the tube end big in the middle of the frame between 35 and 65 percent of the height, plain soft cool blue bathroom background, no text, no logos, no brand",
+      "narration": "Check the end of your toothpaste tube. Why's there a tiny coloured *square*?",
+      "delivery": "curious",
+      "beat": "hook",
+      "motion": "push",
+      "sfx": "boom",
+      "overlays": []
+    },
+    {
+      "visual": "illustration seen from above of four plain white toothpaste tubes lying side by side on a simple cool blue bathroom counter, each tube with one small square printed by its crimped end in a different colour: green, blue, red and black, the four tubes big across the middle of the frame between 35 and 65 percent of the height, simple uncluttered background, no text, no logos, no brand",
+      "narration": "People say green means natural. Black? Chemicals. That's a *myth*. The square's for a *machine*.",
+      "delivery": "light",
+      "beat": "loop",
+      "headline": "IT'S A *MYTH*",
+      "motion": "drift_right",
+      "sfx": "crash",
+      "overlays": []
+    },
+    {
+      "visual": "2D animation: a toothpaste tube on its side, cap on the left, its right end still OPEN (orange rim, OPEN END arrow); a dashed orange 'dotted line' slides back and forth across the end with a question mark, then WHERE?",
+      "narration": "Okay, so. This end starts *open*. A machine seals it, like cutting along a dotted line. Where's the *line*?",
+      "delivery": "explain",
+      "beat": "explain",
+      "headline": "STEP 1/3: IT'S *OPEN*",
+      "motion": "push",
+      "sfx": "whoosh",
+      "overlays": [],
+      "anim": "anims/tube-seal.html",
+      "anim_params": {
+        "mode": "open",
+        "label": "WHERE?"
+      }
+    },
+    {
+      "visual": "close-up side-view illustration inside a clean, bright factory: a short row of plain white toothpaste tubes standing upright in a moving holder, a small grey sensor box above them shining one thin bright warm orange light beam down onto the nearest tube, the beam the brightest thing in the frame, the tubes and beam big in the middle of the frame between 30 and 65 percent of the height, simple cool blue-grey background, no people, no text, no logos",
+      "narration": "Here's the thing. The machine has no *eyes*. Just a tiny light *beam*, watching each tube go by...",
+      "delivery": "explain",
+      "beat": "rehook",
+      "headline": "STEP 2/3: A *BEAM*",
+      "motion": "push",
+      "sfx": "riser",
+      "overlays": []
+    },
+    {
+      "visual": "2D animation: a light sensor shines a beam down on a tube sliding left; readout PLAIN... until the orange square reaches the beam, which flashes orange (FOUND IT!), jaws press the open end flat, the counter TUBES SEALED climbs 0 to 1, a second tube follows to 2, SEAL HERE",
+      "narration": "Now watch. Plain tube, plain tube... then the square hits the beam. <short pause> And the machine knows: *this* is the line.",
+      "delivery": "build",
+      "beat": "explain",
+      "headline": "STEP 3/3: *FOUND* IT",
+      "motion": "push",
+      "sfx": "ding",
+      "overlays": [],
+      "anim": "anims/tube-seal.html",
+      "anim_params": {
+        "mode": "beam",
+        "label": "SEAL HERE"
+      }
+    },
+    {
+      "visual": "close-up illustration of a relaxed hand squeezing a plain white toothpaste tube over a toothbrush at a simple bathroom sink, the small square at the crimped end of the tube glowing bright warm orange as the brightest thing in the frame, the tube and hand big in the middle of the frame between 30 and 65 percent of the height, calm cool blue bathroom, no text, no logos, no brand",
+      "narration": "So that square? It's the machine's *dotted line*. Not an ingredient code. Send this to the friend who thinks green means natural.",
+      "delivery": "reveal",
+      "beat": "payoff",
+      "share": true,
+      "headline": "THE *CUT* LINE",
+      "motion": "pull",
+      "sfx": "sparkle",
+      "overlays": []
+    },
+    {
+      "visual": "2D animation: yesterday's fastest right answers",
+      "shoutout": true,
+      "anim": "anims/shoutout.html",
+      "narration": "Yesterday's answer: A, three hundred and thirty metres. These legends got it first.",
+      "narration_none": "It was A, three hundred and thirty metres... nobody cracked it. Let's see you beat today's.",
+      "delivery": "warm",
+      "headline": "*SHOUTOUT*",
+      "motion": "push",
+      "sfx": "sparkle",
+      "overlays": []
+    },
+    {
+      "visual": "2D animation: today's quiz (this or that, two famous films)",
+      "quiz": true,
+      "anim": "anims/quiz.html",
+      "narration": "Quick one: the first Harry Potter film, or Shrek... which came out first? Comment your guess.",
+      "delivery": "curious",
+      "headline": "THIS OR *THAT*",
+      "motion": "push",
+      "sfx": "pop",
+      "overlays": []
+    }
+  ],
+  "youtube": {
+    "title": "What's the toothpaste color code really for? #shorts",
+    "description": "What does the square on toothpaste mean? It's not a toothpaste color code for what's inside: green doesn't mean natural and black doesn't mean chemicals. It's called an eye mark. At the factory the end of the tube starts out open, and a light sensor watches each tube go by. When the coloured square reaches the beam, the machine knows exactly where to seal and cut the end. It's a dotted line for the machine, not a message for you.\n\nToday's quiz (This or That Wednesday): which came out first? A) The first Harry Potter film B) Shrek. Comment your guess 👇\nNext video: Why QR codes have three squares\n\nSources: Colgate, Mental Floss, Science Feedback\nAI visuals\n#shorts #didyouknow #toothpaste",
+    "tags": [
+      "toothpaste color code",
+      "what does the square on toothpaste mean",
+      "toothpaste eye mark",
+      "toothpaste tube square",
+      "toothpaste myth",
+      "eye mark",
+      "packaging",
+      "how it works",
+      "did you know",
+      "science facts",
+      "everyday science",
+      "the more you know"
+    ]
+  },
+  "instagram": {
+    "caption": "Is the toothpaste color code real? What's that square for? 🪥\nWhat does the square on toothpaste mean? It's a toothpaste eye mark: a light sensor spots it so the machine knows exactly where to seal and cut the tube. Nothing to do with what's inside.\nSend this to the friend who thinks green means natural.\n\nSources: Colgate, Mental Floss, Science Feedback\nAI visuals\n#ohthatswhy #toothpaste #packaging #howitworks #didyouknow\n\nToday's quiz (This or That Wednesday): which came out first? A) The first Harry Potter film B) Shrek. Comment your guess 👇\nNext video: Why QR codes have three squares"
+  },
+  "facebook": {
+    "description": "Is the toothpaste color code real? Nope: the little square is an eye mark for the factory machine. A light beam spots it so the machine knows exactly where to seal and cut the tube. Green doesn't mean natural, black doesn't mean chemicals. Send this to the friend who thinks green means natural. AI visuals.\n\nToday's quiz (This or That Wednesday): which came out first? A) The first Harry Potter film B) Shrek. Comment your guess 👇\nNext video: Why QR codes have three squares"
+  },
+  "quiz": {
+    "theme": "THIS OR THAT WEDNESDAY",
+    "kind": "pop culture",
+    "next_topic": "why every QR code has three big corner squares",
+    "next_title": "Why QR codes have three squares",
+    "question": "Which came out first?",
+    "options": {
+      "A": "The first Harry Potter film",
+      "B": "Shrek"
+    },
+    "answer": "B",
+    "keywords": {
+      "A": [
+        "harry",
+        "potter",
+        "harry potter",
+        "philosopher",
+        "sorcerer"
+      ],
+      "B": [
+        "shrek",
+        "ogre"
+      ]
+    },
+    "sources": [
+      "https://comicbook.com/movies/news/shrek-released-19-years-ago-today-may-18-2001",
+      "https://www.npr.org/2021/11/16/1056172849/yer-a-relic-harry-the-first-harry-potter-movie-premiered-exactly-20-years-ago",
+      "https://www.history.com/this-day-in-history/november-16/first-harry-potter-film-opens"
+    ]
+  }
+}

@@ -1,0 +1,105 @@
+<!doctype html><html><head><meta charset="utf-8">
+<style>html,body{margin:0;background:#16233a}canvas{display:block}</style></head><body>
+<canvas id="c" width="1080" height="1920"></canvas>
+<script>
+// The coloured square (eye mark) on a toothpaste tube. Clouds-Short style: dark navy, one object
+// (a tube lying on its side, cap on the left, open end on the right), one orange number.
+// params.mode:
+//  "open": the tube pops in with its right end OPEN (orange rim + "OPEN END" arrow); then a dashed
+//          orange "dotted line" slides back and forth across the end, searching, with a "?";
+//          params.label pops at the end (default "WHERE?").
+//  "beam": a sensor at the top shines a thin light beam down onto the tube. The tube slides left
+//          under it: the readout says "PLAIN... PLAIN..." until the coloured square reaches the
+//          beam; the beam flashes orange (FOUND IT), the tube stops, two jaws press the open end
+//          flat into a sealed crimp, and the counter TUBES SEALED goes 0 -> 1; a second tube follows
+//          and seals too (-> 2). params.label pops at the end (default "SEAL HERE").
+// Keeps the top fifth (0-384) and the caption band (1344-1632) empty.
+const c=document.getElementById('c'),x=c.getContext('2d'),W=1080,H=1920;
+const NAVY='#16233a',YEL='#ffd23f',ORA='#ff9f1c',WHITE='#f4f1e8',TEAL='#3fc1c9',GREY='#5b6b86',GREEN='#5fd068';
+const clamp=(v,a=0,b=1)=>Math.max(a,Math.min(b,v)), prog=(t,a,b)=>clamp((t-a)/(b-a));
+const ease=t=>1-Math.pow(1-clamp(t),3), back=t=>{t=clamp(t);const s=1.7;return 1+(s+1)*Math.pow(t-1,3)+s*Math.pow(t-1,2)};
+function txt(s,px,py,size,col){x.font=`700 ${size}px Anton, Impact, sans-serif`;x.textAlign='center';x.textBaseline='middle';
+  x.lineWidth=size*0.14;x.lineJoin='round';x.strokeStyle='rgba(0,0,0,.55)';x.strokeText(s,px,py);x.fillStyle=col;x.fillText(s,px,py)}
+function pop(s,px,py,str,size,col){if(s<=0)return;x.save();x.translate(px,py);x.scale(s,s);txt(str,0,0,size,col);x.restore()}
+function bg(){x.fillStyle=NAVY;x.fillRect(0,0,W,H)}
+
+const TY=930, TH=270, TL=700;        // tube centre line, height, body length (cap to end)
+// Tube with its open/sealed end at ex (right side). seal: 0 = round open end, 1 = pressed flat.
+function tube(ex,seal,glowSq){
+  const left=ex-TL, top=TY-TH/2;
+  x.save();
+  // cap
+  x.fillStyle=TEAL;x.beginPath();x.roundRect(left-90,TY-62,96,124,18);x.fill();
+  // shoulder + body
+  x.fillStyle=WHITE;const pin=seal*80, ne=ex-70;
+  x.beginPath();x.moveTo(left,TY-62);x.lineTo(left+60,top);x.lineTo(ne,top);x.lineTo(ex,top+pin);
+  x.lineTo(ex,top+TH-pin);x.lineTo(ne,top+TH);x.lineTo(left+60,top+TH);x.lineTo(left,TY+62);x.closePath();x.fill();
+  // print stripe
+  x.fillStyle='rgba(63,193,201,.55)';x.fillRect(left+120,TY-36,TL-320,72);
+  // coloured square (eye mark) near the open end
+  const sx=ex-140, sy=top+24;
+  x.fillStyle=ORA;if(glowSq){x.shadowColor=ORA;x.shadowBlur=50}x.fillRect(sx,sy,46,46);x.shadowBlur=0;
+  // open end rim, or crimp ridges once sealed
+  if(seal<0.98){x.strokeStyle=ORA;x.lineWidth=8;x.beginPath();x.ellipse(ex,TY,26*(1-seal)+3,TH/2-pin,0,0,7);x.stroke()}
+  if(seal>0.5){x.strokeStyle='rgba(22,35,58,.45)';x.lineWidth=4;for(let i=0;i<5;i++){x.beginPath();x.moveTo(ex-8-i*12,top+pin+8);x.lineTo(ex-8-i*12,top+TH-pin-8);x.stroke()}}
+  x.restore();
+  return [sx+23,sy+23];
+}
+function dashed(px,al){x.save();x.globalAlpha=al;x.strokeStyle=ORA;x.lineWidth=10;x.setLineDash([26,18]);
+  x.beginPath();x.moveTo(px,TY-TH/2-70);x.lineTo(px,TY+TH/2+70);x.stroke();x.restore()}
+
+function drawOpen(t,p,P){bg();
+  const s=back(prog(p,0,0.15));const ex=540+TL/2;
+  x.save();x.translate(540,TY);x.scale(0.6+0.4*s,0.6+0.4*s);x.translate(-540,-TY);tube(ex,0,false);x.restore();
+  if(p>0.15){const k=back(prog(p,0.15,0.28));
+    x.save();x.globalAlpha=clamp(k);x.strokeStyle=YEL;x.lineWidth=8;x.beginPath();x.moveTo(ex-40,560);x.lineTo(ex+10,TY-TH/2-30);x.stroke();
+    x.beginPath();x.moveTo(ex+10,TY-TH/2-30);x.lineTo(ex-30,TY-TH/2-60);x.moveTo(ex+10,TY-TH/2-30);x.lineTo(ex+30,TY-TH/2-75);x.stroke();x.restore();
+    pop(k,ex-120,520,'OPEN END',84,YEL)}
+  if(p>0.42){const a=ease(prog(p,0.42,0.5));const px=ex-60-150*(0.5+0.5*Math.sin((p-0.42)*22));dashed(px,a);
+    pop(back(prog(p,0.5,0.6)),px,TY+TH/2+130,'?',120,ORA)}
+  if(p>0.78)pop(back(prog(p,0.78,0.88)),540,1270,P.label||'WHERE?',96,YEL);
+}
+
+const BX=460;                         // x of the light beam
+function sensor(hot){x.save();x.fillStyle=GREY;x.beginPath();x.roundRect(BX-90,450,180,120,20);x.fill();
+  x.fillStyle=hot?ORA:TEAL;x.beginPath();x.arc(BX,570,18,0,7);x.fill();x.restore();txt('LIGHT SENSOR',BX+300,510,46,WHITE)}
+function beam(hot,yEnd){x.save();x.strokeStyle=hot?ORA:TEAL;x.globalAlpha=hot?1:0.8;x.lineWidth=hot?14:7;x.shadowColor=x.strokeStyle;x.shadowBlur=hot?40:16;
+  x.beginPath();x.moveTo(BX,590);x.lineTo(BX,yEnd);x.stroke();x.restore()}
+function jaws(ex,k){x.save();x.fillStyle='#8c9ab3';const gap=(TH/2+90)-(k*170);
+  x.fillRect(ex-75,TY-gap-80,95,80);x.fillRect(ex-75,TY+gap,95,80);x.restore()}
+function drawBeam(t,p,P){bg();
+  // tube 1 arrives at its stop (square under the beam) at p=0.48; tube 2 from 0.7 to 0.86
+  const stopEx=BX+140-23;
+  let ex1, ex2=null;
+  ex1 = stopEx + (1-ease(prog(p,0.02,0.48)))*1150*(1-0) ;
+  if(p>0.48) ex1=stopEx;
+  if(p>0.66){ex1=stopEx-ease(prog(p,0.66,0.74))*900; ex2=stopEx+(1-ease(prog(p,0.68,0.86)))*1100}
+  const found1=p>=0.47&&p<0.66, found2=ex2!==null&&p>=0.85;
+  const hot=found1||found2;
+  sensor(hot);
+  const seal1=ease(prog(p,0.55,0.62)), seal2=ease(prog(p,0.9,0.96));
+  tube(ex1,seal1,found1);
+  if(ex2!==null)tube(ex2,seal2,found2);
+  beam(hot,TY-TH/2+(hot?20:0));
+  if(found1&&p<0.66){x.save();x.strokeStyle=YEL;x.lineWidth=7;x.globalAlpha=1-prog(p,0.56,0.64);x.beginPath();x.arc(BX,TY-TH/2+45,60+50*prog(p,0.47,0.56),0,7);x.stroke();x.restore()}
+  if(p>0.5&&p<0.64)jaws(stopEx,seal1);
+  if(p>0.87&&p<0.98)jaws(stopEx,seal2);
+  // readout
+  let read='PLAIN...', col=WHITE;
+  if(p<0.03)read='';
+  if(hot){read='FOUND IT!';col=ORA}
+  if(read)txt(read,BX,TY+TH/2+120,74,col);
+  // the one moving number
+  const n=(p>=0.6?1:0)+(p>=0.95?1:0);
+  txt('TUBES SEALED',820,700,44,WHITE);pop(1+0.25*Math.max(0,1-Math.abs(p-0.6)*30)+0.25*Math.max(0,1-Math.abs(p-0.95)*30),820,800,String(n),130,ORA);
+  if(p>0.62&&p<0.74)pop(back(prog(p,0.62,0.7)),540,1270,P.label||'SEAL HERE',90,GREEN);
+  if(p>0.96)pop(back(prog(p,0.96,1)),540,1270,P.label||'SEAL HERE',90,GREEN);
+}
+window.draw=function(t,dur,P){
+  P=Object.assign({mode:'open'},P||{});
+  const p=t/Math.max(dur,0.1);
+  x.setTransform(1,0,0,1,0,0);x.globalAlpha=1;x.shadowBlur=0;x.setLineDash([]);
+  if(P.mode==='beam')drawBeam(t,p,P);else drawOpen(t,p,P);
+};
+window.draw(0,6,{});
+</script></body></html>

@@ -1,0 +1,54 @@
+{
+  "id": "curious-2026-11-25-toothpaste-square-en",
+  "channel": "curious-en",
+  "date": "2026-11-25",
+  "slot": "23:30",
+  "publish": true,
+  "bucket": "seen-but-missed",
+  "episode": null,
+  "hook_text": "WHAT'S THIS TOOTHPASTE *SQUARE*?",
+  "hook_style": "curiosity",
+  "release": "job-curious-2026-11-25-toothpaste-square-en",
+  "duration": 61.34,
+  "quiz": {
+    "theme": "THIS OR THAT WEDNESDAY",
+    "kind": "pop culture",
+    "next_topic": "why every QR code has three big corner squares",
+    "next_title": "Why QR codes have three squares",
+    "question": "Which came out first?",
+    "options": {
+      "A": "The first Harry Potter film",
+      "B": "Shrek"
+    },
+    "answer": "B",
+    "keywords": {
+      "A": [
+        "harry",
+        "potter",
+        "harry potter",
+        "philosopher",
+        "sorcerer"
+      ],
+      "B": [
+        "shrek",
+        "ogre"
+      ]
+    },
+    "sources": [
+      "https://comicbook.com/movies/news/shrek-released-19-years-ago-today-may-18-2001",
+      "https://www.npr.org/2021/11/16/1056172849/yer-a-relic-harry-the-first-harry-potter-movie-premiered-exactly-20-years-ago",
+      "https://www.history.com/this-day-in-history/november-16/first-harry-potter-film-opens"
+    ]
+  },
+  "shoutouts": {
+    "from": "curious-2026-11-24-mirror-tab-en",
+    "names": []
+  },
+  "tests": [
+    "2026-11-23-short-share",
+    "2026-11-23-trend-audio"
+  ],
+  "trend_audio": true,
+  "picture_style": "illustration",
+  "voice": "clone"
+}

@@ -29,7 +29,7 @@
   "scenes": [
     {
       "visual": "huge close-up illustration of a plain square QR code printed on a small white card standing on a wooden cafe table, the three big corner squares of the code painted bright warm orange as the brightest thing in the frame, the rest of the code dark navy dots, the card big in the middle of the frame between 30 and 65 percent of the height, plain soft cool blue background, no text, no logos, no brand",
-      "narration": "Every QR code has three big corner squares. So why *three*?",
+      "narration": "Every QR code has three big corner squares. Why *three*?",
       "delivery": "curious",
       "beat": "hook",
       "motion": "push",
@@ -54,7 +54,7 @@
     },
     {
       "visual": "illustration over the shoulder of a relaxed hand holding a smartphone, its camera pointed at a plain QR code card on a wooden cafe table, the phone screen showing a blurry cloud of tiny dark dots with three small squares at its corners glowing bright warm orange as the brightest thing in the frame, phone and card big in the middle of the frame between 30 and 65 percent of the height, simple cool blue background, no text, no logos, no brand",
-      "narration": "To your camera, it's a mess of dots. The squares show it *where* to look... and that empty corner? A *clue*.",
+      "narration": "To your camera, it's just dots. The squares show it *where* to look... and that empty corner? A *clue*.",
       "delivery": "explain",
       "beat": "loop",
       "headline": "WHERE'S THE *CODE*?",
@@ -95,7 +95,7 @@
     },
     {
       "visual": "illustration of a messy stack of open magazines and newspapers on a simple desk, a relaxed hand holding a big magnifying glass over one page, the magnifying glass rim bright warm orange as the brightest thing in the frame, pages showing only soft grey blocks and abstract shapes, everything big in the middle of the frame between 30 and 65 percent of the height, plain cool blue background, no readable text, no logos, no people's faces",
-      "narration": "But here's the wild part. Its makers checked magazines for a beat that *almost never* appears. So nothing fools it.",
+      "narration": "Here's the wild part. Its makers checked magazines for a beat that *almost never* appears. So nothing fools it.",
       "delivery": "build",
       "beat": "rehook",
       "headline": "STEP 2/3: *NEVER* SEEN",
@@ -114,7 +114,7 @@
     },
     {
       "visual": "2D animation: a whole QR code, its three corner squares glow orange and a yellow L joins them, the empty fourth corner gets a dashed ring and a question mark; then the code turns from 0 to 180 degrees with the angle counter climbing, then THIS WAY UP",
-      "narration": "Okay, why not four? Three make an *L*. And an L only looks right one way up...",
+      "narration": "Why not four? Three make an *L*. And an L only looks right one way up...",
       "delivery": "build",
       "beat": "explain",
       "headline": "STEP 3/3: AN *L*",
@@ -129,7 +129,7 @@
     },
     {
       "visual": "illustration of a plain QR code card standing upright on a wooden cafe table on the left, its three big corner squares bright warm orange as the brightest thing in the frame, and on the right a relaxed hand holding a smartphone turned upside down, the phone screen facing the viewer and showing the same QR code upside down with a soft green glow around it, card and phone both big in the middle of the frame between 30 and 60 percent of the height, nothing important in the lower third, simple cool blue background, no text, no logos, no brand",
-      "narration": "<short pause> That empty corner tells your phone which way is up. Even *upside down*. Send this to the friend who spins every menu.",
+      "narration": "<short pause> That empty corner tells your phone which way is up. Even *upside down*. Send this to whoever spins every menu.",
       "delivery": "reveal",
       "beat": "payoff",
       "share": true,

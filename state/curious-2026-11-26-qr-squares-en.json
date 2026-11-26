@@ -1,0 +1,60 @@
+{
+  "id": "curious-2026-11-26-qr-squares-en",
+  "channel": "curious-en",
+  "date": "2026-11-26",
+  "slot": "23:30",
+  "publish": true,
+  "bucket": "how it works",
+  "episode": null,
+  "hook_text": "WHY THREE QR *SQUARES*?",
+  "hook_style": "curiosity",
+  "release": "job-curious-2026-11-26-qr-squares-en",
+  "duration": 59.59,
+  "quiz": {
+    "theme": "ODD ONE OUT THURSDAY",
+    "kind": "general knowledge",
+    "next_topic": "why a shop receipt turns black when you scratch it",
+    "next_title": "Why your receipt turns black",
+    "question": "Which one isn't a mammal?",
+    "options": {
+      "A": "Dolphin",
+      "B": "Bat",
+      "C": "Penguin"
+    },
+    "answer": "C",
+    "keywords": {
+      "A": [
+        "dolphin"
+      ],
+      "B": [
+        "bat"
+      ],
+      "C": [
+        "penguin"
+      ]
+    },
+    "sources": [
+      "https://www.worldatlas.com/articles/are-penguins-mammals.html",
+      "https://www.discoverwildlife.com/animal-facts/bat-bird-difference",
+      "https://a-z-animals.com/animals/penguin/are-penguins-mammals/"
+    ]
+  },
+  "shoutouts": {
+    "from": "curious-2026-11-25-toothpaste-square-en",
+    "names": [
+      {
+        "name": "@Gargiwatchesvideos",
+        "platform": "youtube",
+        "time": "2026-11-26T02:34:47Z",
+        "comment_id": "UgyowEutVr2Gw85LDOx4AaABAg"
+      }
+    ]
+  },
+  "tests": [
+    "2026-11-23-short-share",
+    "2026-11-23-trend-audio"
+  ],
+  "trend_audio": true,
+  "picture_style": "illustration",
+  "voice": "clone"
+}

@@ -4,7 +4,7 @@
   "languages": [
     "en"
   ],
-  "publish": false,
+  "publish": true,
   "date": "2026-11-26",
   "slot": "23:30",
   "bucket": "how it works",
@@ -34,7 +34,23 @@
       "beat": "hook",
       "motion": "push",
       "sfx": "boom",
-      "overlays": []
+      "overlays": [
+        {
+          "type": "ring",
+          "x": 0.375,
+          "y": 0.5,
+          "r": 0.07,
+          "on": "corner"
+        },
+        {
+          "type": "ring",
+          "x": 0.405,
+          "y": 0.685,
+          "r": 0.07,
+          "on": "three"
+        }
+      ],
+      "image": "jobs/curious/pics/curious-2026-11-26-qr-squares/s1.jpg"
     },
     {
       "visual": "illustration over the shoulder of a relaxed hand holding a smartphone, its camera pointed at a plain QR code card on a wooden cafe table, the phone screen showing a blurry cloud of tiny dark dots with three small squares at its corners glowing bright warm orange as the brightest thing in the frame, phone and card big in the middle of the frame between 30 and 65 percent of the height, simple cool blue background, no text, no logos, no brand",
@@ -44,7 +60,23 @@
       "headline": "WHERE'S THE *CODE*?",
       "motion": "drift_right",
       "sfx": "whoosh",
-      "overlays": []
+      "overlays": [
+        {
+          "type": "ring",
+          "x": 0.513,
+          "y": 0.571,
+          "r": 0.05,
+          "on": "squares"
+        },
+        {
+          "type": "ring",
+          "x": 0.635,
+          "y": 0.55,
+          "r": 0.05,
+          "on": "corner"
+        }
+      ],
+      "image": "jobs/curious/pics/curious-2026-11-26-qr-squares/s2.jpg"
     },
     {
       "visual": "2D animation: one big QR corner square on a white card; an orange scan line sweeps through its middle and each dark and light run lights up, the readout counting 1 . 1 . 3 . 1 . 1, then THE BEAT",
@@ -69,7 +101,16 @@
       "headline": "STEP 2/3: *NEVER* SEEN",
       "motion": "push",
       "sfx": "riser",
-      "overlays": []
+      "overlays": [
+        {
+          "type": "ring",
+          "x": 0.615,
+          "y": 0.635,
+          "r": 0.15,
+          "on": "almost"
+        }
+      ],
+      "image": "jobs/curious/pics/curious-2026-11-26-qr-squares/s4.jpg"
     },
     {
       "visual": "2D animation: a whole QR code, its three corner squares glow orange and a yellow L joins them, the empty fourth corner gets a dashed ring and a question mark; then the code turns from 0 to 180 degrees with the angle counter climbing, then THIS WAY UP",
@@ -95,7 +136,22 @@
       "headline": "ANY *ANGLE*",
       "motion": "pull",
       "sfx": "sparkle",
-      "overlays": []
+      "overlays": [
+        {
+          "type": "ring",
+          "x": 0.662,
+          "y": 0.474,
+          "r": 0.06,
+          "on": "corner"
+        },
+        {
+          "type": "tick",
+          "x": 0.72,
+          "y": 0.56,
+          "on": "upside"
+        }
+      ],
+      "image": "jobs/curious/pics/curious-2026-11-26-qr-squares/s6.jpg"
     },
     {
       "visual": "2D animation: yesterday's fastest right answers",

@@ -56,5 +56,24 @@
   ],
   "trend_audio": true,
   "picture_style": "illustration",
-  "voice": "clone"
+  "voice": "clone",
+  "platforms": {
+    "youtube": {
+      "id": "01C25K-JsUg",
+      "url": "https://youtube.com/shorts/01C25K-JsUg",
+      "privacy": "public",
+      "posted_at": "2026-11-26T23:28+05:30"
+    },
+    "instagram": {
+      "id": "18019943102960643",
+      "url": "https://www.instagram.com/reel/DgNstH_h5h3/",
+      "posted_at": "2026-11-26T23:30+05:30"
+    },
+    "facebook": {
+      "id": "1122672600759958",
+      "url": "https://www.facebook.com/reel/1122672600759958",
+      "posted_at": "2026-11-26T23:30+05:30"
+    }
+  },
+  "errors": {}
 }

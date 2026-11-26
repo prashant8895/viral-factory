@@ -1,0 +1,106 @@
+<!doctype html><html><head><meta charset="utf-8">
+<style>html,body{margin:0;background:#16233a}canvas{display:block}</style></head><body>
+<canvas id="c" width="1080" height="1920"></canvas>
+<script>
+// Why a QR code has three big corner squares. Clouds-Short style: dark navy, one object, one orange number.
+// params.mode:
+//  "beat": one big corner square (finder pattern) alone. A scan line sweeps left to right through its
+//          middle; each dark/light run it crosses lights up and its width pops in the readout below:
+//          1 . 1 . 3 . 1 . 1 (the current one big and orange). params.label pops at the end (default "THE BEAT").
+//  "turn": a whole QR code; the three corner squares glow orange and an L joins them; the empty corner
+//          gets a ring and "?". Then the code turns 0 -> 90 -> 180 degrees (the one moving number) while the
+//          L keeps showing which way is up. params.label pops at the end (default "THIS WAY UP").
+// Keeps the top fifth (0-384) and the caption band (1344-1632) empty.
+const c=document.getElementById('c'),x=c.getContext('2d'),W=1080,H=1920;
+const NAVY='#16233a',YEL='#ffd23f',ORA='#ff9f1c',WHITE='#f4f1e8',TEAL='#3fc1c9',DARK='#0d1626';
+const clamp=(v,a=0,b=1)=>Math.max(a,Math.min(b,v)), prog=(t,a,b)=>clamp((t-a)/(b-a));
+const ease=t=>1-Math.pow(1-clamp(t),3), back=t=>{t=clamp(t);const s=1.7;return 1+(s+1)*Math.pow(t-1,3)+s*Math.pow(t-1,2)};
+function txt(s,px,py,size,col){x.font=`700 ${size}px Anton, Impact, sans-serif`;x.textAlign='center';x.textBaseline='middle';
+  x.lineWidth=size*0.14;x.lineJoin='round';x.strokeStyle='rgba(0,0,0,.55)';x.strokeText(s,px,py);x.fillStyle=col;x.fillText(s,px,py)}
+function pop(s,px,py,str,size,col){if(s<=0)return;x.save();x.translate(px,py);x.scale(s,s);txt(str,0,0,size,col);x.restore()}
+function bg(){x.fillStyle=NAVY;x.fillRect(0,0,W,H)}
+
+// finder pattern 7x7 at (ox,oy), cell m
+function finder(ox,oy,m,col){x.fillStyle=col;x.fillRect(ox,oy,7*m,7*m);x.fillStyle=WHITE;x.fillRect(ox+m,oy+m,5*m,5*m);
+  x.fillStyle=col;x.fillRect(ox+2*m,oy+2*m,3*m,3*m)}
+
+// ---------- beat ----------
+const RUNS=[[1,1],[1,0],[3,1],[1,0],[1,1]]; // [width, dark?]
+function drawBeat(t,p,P){bg();
+  const m=88, size=7*m, ox=540-size/2, oy=520;
+  const s=back(prog(p,0,0.12));
+  x.save();x.translate(540,oy+size/2);x.scale(0.6+0.4*s,0.6+0.4*s);x.translate(-540,-(oy+size/2));
+  // white quiet zone card
+  x.fillStyle=WHITE;x.beginPath();x.roundRect(ox-40,oy-40,size+80,size+80,24);x.fill();
+  finder(ox,oy,m,DARK);
+  x.restore();
+  // scan line sweeps 0.18 -> 0.78
+  const k=prog(p,0.18,0.78), sx=ox+k*size, cy=oy+size/2;
+  if(p>0.16){
+    // runs crossed so far: highlight
+    let acc=0,cur=-1;
+    for(let i=0;i<5;i++){const w=RUNS[i][0]*m, a=ox+acc*m;
+      if(sx>a){cur=i;x.save();x.globalAlpha=0.85;x.fillStyle=RUNS[i][1]?ORA:YEL;x.fillRect(a,cy-22,Math.min(w,sx-a),44);x.restore()}
+      acc+=RUNS[i][0]}
+    x.save();x.strokeStyle=ORA;x.lineWidth=8;x.shadowColor=ORA;x.shadowBlur=30;
+    x.beginPath();x.moveTo(ox-70,cy);x.lineTo(Math.max(ox-70,sx),cy);x.stroke();x.restore();
+    x.save();x.fillStyle=ORA;x.beginPath();x.arc(Math.max(ox-70,sx),cy,16,0,7);x.fill();x.restore();
+    // readout: 1 . 1 . 3 . 1 . 1
+    const ry=1250, gap=150;
+    for(let i=0;i<5;i++){if(i>cur)break;const px=540+(i-2)*gap;
+      const big=(i===cur&&p<0.8);
+      pop(big?1.25:1,px,ry,String(RUNS[i][0]),110,big?ORA:WHITE);
+      if(i<4&&i<cur)txt('·',px+gap/2,ry,90,TEAL)}
+  }
+  if(p>0.84)pop(back(prog(p,0.84,0.94)),540,420,P.label||'THE BEAT',100,YEL);
+}
+
+// ---------- turn ----------
+// 21x21 code, deterministic data dots
+function rnd(i){const v=Math.sin(i*12.9898+78.233)*43758.5453;return v-Math.floor(v)}
+function isFinderZone(r,cc){return (r<8&&cc<8)||(r<8&&cc>12)||(r>12&&cc<8)}
+function qr(cx,cy,m,ang,glow){
+  const N=21,size=N*m;
+  x.save();x.translate(cx,cy);x.rotate(ang);x.translate(-size/2,-size/2);
+  x.fillStyle=WHITE;x.beginPath();x.roundRect(-2*m,-2*m,size+4*m,size+4*m,20);x.fill();
+  x.fillStyle=DARK;
+  for(let r=0;r<N;r++)for(let cc=0;cc<N;cc++){if(isFinderZone(r,cc))continue;if(rnd(r*N+cc)>0.52)x.fillRect(cc*m,r*m,m,m)}
+  const col=glow?ORA:DARK;
+  if(glow){x.shadowColor=ORA;x.shadowBlur=40}
+  finder(0,0,m,col);finder(14*m,0,m,col);finder(0,14*m,m,col);
+  x.shadowBlur=0;
+  x.restore();
+}
+function rot(px,py,cx,cy,a){const dx=px-cx,dy=py-cy;return [cx+dx*Math.cos(a)-dy*Math.sin(a),cy+dx*Math.sin(a)+dy*Math.cos(a)]}
+function drawTurn(t,p,P){bg();
+  const m=24,N=21,size=N*m,cx=540,cy=830;
+  const s=back(prog(p,0,0.12));
+  const ang=Math.PI*ease(prog(p,0.5,0.86));
+  const glow=p>0.14;
+  x.save();x.translate(cx,cy);x.scale(0.6+0.4*s,0.6+0.4*s);x.translate(-cx,-cy);
+  qr(cx,cy,m,ang,glow);
+  x.restore();
+  const half=size/2, c3=3.5*m;
+  const TLc=rot(cx-half+c3,cy-half+c3,cx,cy,ang), TRc=rot(cx+half-c3,cy-half+c3,cx,cy,ang), BLc=rot(cx-half+c3,cy+half-c3,cx,cy,ang), BRc=rot(cx+half-c3,cy+half-c3,cx,cy,ang);
+  if(p>0.2){const k=ease(prog(p,0.2,0.32));
+    x.save();x.strokeStyle=YEL;x.lineWidth=12;x.lineCap='round';x.lineJoin='round';x.globalAlpha=k;
+    x.beginPath();x.moveTo(TRc[0],TRc[1]);x.lineTo(TLc[0],TLc[1]);x.lineTo(BLc[0],BLc[1]);x.stroke();x.restore();
+    pop(back(prog(p,0.24,0.34)),TLc[0]+(TRc[0]-TLc[0])*0.5+(BLc[0]-TLc[0])*0.5,TLc[1]+(TRc[1]-TLc[1])*0.5+(BLc[1]-TLc[1])*0.5,'L',150,YEL)}
+  if(p>0.34){const k=back(prog(p,0.34,0.44));
+    x.save();x.strokeStyle=ORA;x.lineWidth=9;x.globalAlpha=clamp(k);x.setLineDash([22,14]);
+    x.beginPath();x.arc(BRc[0],BRc[1],80*clamp(k,0,1.2),0,7);x.stroke();x.restore();
+    pop(k,BRc[0],BRc[1],'?',110,ORA)}
+  // the one moving number: angle
+  const deg=Math.round(180*ease(prog(p,0.5,0.86)));
+  pop(1+0.15*(p>0.5&&p<0.86?1:0),540,1295,deg+'° TURNED',66,ORA);
+  if(p>0.88)pop(back(prog(p,0.88,0.97)),540,440,P.label||'THIS WAY UP',96,YEL);
+}
+
+window.draw=function(t,dur,P){
+  P=Object.assign({mode:'beat'},P||{});
+  const p=t/Math.max(dur,0.1);
+  x.setTransform(1,0,0,1,0,0);x.globalAlpha=1;x.shadowBlur=0;x.setLineDash([]);
+  if(P.mode==='turn')drawTurn(t,p,P);else drawBeat(t,p,P);
+};
+window.draw(0,6,{});
+</script></body></html>

@@ -1,0 +1,135 @@
+{
+  "id": "curious-2026-11-26-qr-squares",
+  "channel": "curious",
+  "languages": ["en"],
+  "publish": false,
+  "date": "2026-11-26",
+  "slot": "23:30",
+  "bucket": "how it works",
+  "hook_style": "curiosity",
+  "picture_style": "illustration",
+  "seed": 11262,
+  "tests": ["2026-11-23-short-share", "2026-11-23-trend-audio"],
+  "hook_text": "WHY THREE QR *SQUARES*?",
+  "keywords": ["why do qr codes have three squares", "qr code corner squares", "qr code finder pattern"],
+  "sources": [
+    "https://bgr.com/2214938/qr-code-finder-squares-explained/",
+    "https://maketecheasier.com/qr-code-corner-position-markers/",
+    "https://www.uniqode.com/blog/qr-code-basics/qr-code-history"
+  ],
+  "scenes": [
+    {
+      "visual": "huge close-up illustration of a plain square QR code printed on a small white card standing on a wooden cafe table, the three big corner squares of the code painted bright warm orange as the brightest thing in the frame, the rest of the code dark navy dots, the card big in the middle of the frame between 30 and 65 percent of the height, plain soft cool blue background, no text, no logos, no brand",
+      "narration": "Every QR code has three big corner squares. So why *three*?",
+      "delivery": "curious",
+      "beat": "hook",
+      "motion": "push",
+      "sfx": "boom",
+      "overlays": []
+    },
+    {
+      "visual": "illustration over the shoulder of a relaxed hand holding a smartphone, its camera pointed at a plain QR code card on a wooden cafe table, the phone screen showing a blurry cloud of tiny dark dots with three small squares at its corners glowing bright warm orange as the brightest thing in the frame, phone and card big in the middle of the frame between 30 and 65 percent of the height, simple cool blue background, no text, no logos, no brand",
+      "narration": "To your camera, it's a mess of dots. The squares show it *where* to look... and that empty corner? A *clue*.",
+      "delivery": "explain",
+      "beat": "loop",
+      "headline": "WHERE'S THE *CODE*?",
+      "motion": "drift_right",
+      "sfx": "whoosh",
+      "overlays": []
+    },
+    {
+      "visual": "2D animation: one big QR corner square on a white card; an orange scan line sweeps through its middle and each dark and light run lights up, the readout counting 1 . 1 . 3 . 1 . 1, then THE BEAT",
+      "narration": "Draw a line through one: dark, light, *thick* dark, light, dark. One, one, three, one, one. Like a drum beat.",
+      "delivery": "explain",
+      "beat": "explain",
+      "headline": "STEP 1/3: A *BEAT*",
+      "motion": "push",
+      "sfx": "tick",
+      "overlays": [],
+      "anim": "anims/qr.html",
+      "anim_params": {"mode": "beat", "label": "THE BEAT"}
+    },
+    {
+      "visual": "illustration of a messy stack of open magazines and newspapers on a simple desk, a relaxed hand holding a big magnifying glass over one page, the magnifying glass rim bright warm orange as the brightest thing in the frame, pages showing only soft grey blocks and abstract shapes, everything big in the middle of the frame between 30 and 65 percent of the height, plain cool blue background, no readable text, no logos, no people's faces",
+      "narration": "But here's the wild part. Its makers checked magazines for a beat that *almost never* appears. So nothing fools it.",
+      "delivery": "build",
+      "beat": "rehook",
+      "headline": "STEP 2/3: *NEVER* SEEN",
+      "motion": "push",
+      "sfx": "riser",
+      "overlays": []
+    },
+    {
+      "visual": "2D animation: a whole QR code, its three corner squares glow orange and a yellow L joins them, the empty fourth corner gets a dashed ring and a question mark; then the code turns from 0 to 180 degrees with the angle counter climbing, then THIS WAY UP",
+      "narration": "Okay, why not four? Three make an *L*. And an L only looks right one way up...",
+      "delivery": "build",
+      "beat": "explain",
+      "headline": "STEP 3/3: AN *L*",
+      "motion": "push",
+      "sfx": "ding",
+      "overlays": [],
+      "anim": "anims/qr.html",
+      "anim_params": {"mode": "turn", "label": "THIS WAY UP"}
+    },
+    {
+      "visual": "illustration of a relaxed hand holding a smartphone upside down above a plain QR code card on a wooden cafe table, the three corner squares of the code bright warm orange as the brightest thing in the frame, a soft green glow on the phone screen, phone and card big in the middle of the frame between 30 and 65 percent of the height, simple cool blue background, no text, no logos, no brand",
+      "narration": "<short pause> That empty corner tells your phone which way is up. Even *upside down*. Send this to the friend who spins every menu.",
+      "delivery": "reveal",
+      "beat": "payoff",
+      "share": true,
+      "headline": "ANY *ANGLE*",
+      "motion": "pull",
+      "sfx": "sparkle",
+      "overlays": []
+    },
+    {
+      "visual": "2D animation: yesterday's fastest right answers",
+      "shoutout": true,
+      "anim": "anims/shoutout.html",
+      "narration": "Yesterday's answer: B, Shrek. These legends got it first.",
+      "narration_none": "It was B, Shrek... nobody cracked it. Let's see you beat today's.",
+      "delivery": "warm",
+      "headline": "*SHOUTOUT*",
+      "motion": "push",
+      "sfx": "sparkle",
+      "overlays": []
+    },
+    {
+      "visual": "2D animation: today's quiz (odd one out, three animals)",
+      "quiz": true,
+      "anim": "anims/quiz.html",
+      "narration": "Odd one out: dolphin, bat or penguin. Which one isn't a mammal? Comment your guess.",
+      "delivery": "curious",
+      "headline": "ODD ONE *OUT*",
+      "motion": "push",
+      "sfx": "pop",
+      "overlays": []
+    }
+  ],
+  "youtube": {
+    "title": "Why do QR codes have three squares? #shorts",
+    "description": "Why do QR codes have three squares? Those big QR code corner squares are called finder patterns. Draw a line through one and you get dark, light, thick dark, light, dark: a 1:1:3:1:1 rhythm that almost never turns up in printed pictures or text, so your camera can find the code fast. And because there are only three, they make an L: the empty fourth corner tells your phone which way is up, so it reads from any angle, even upside down. QR codes were made in 1994 by a Denso Wave team led by Masahiro Hara to track car parts.\n\nToday's quiz (Odd One Out Thursday): which one isn't a mammal? A) Dolphin B) Bat C) Penguin. Comment your guess 👇\nNext video: Why your receipt turns black\n\nSources: BGR, Make Tech Easier, Uniqode\nAI visuals\n#shorts #didyouknow #qrcode",
+    "tags": ["why do qr codes have three squares", "qr code corner squares", "qr code finder pattern", "qr code", "qr code squares", "how qr codes work", "technology", "how it works", "did you know", "science facts", "everyday science", "the more you know"]
+  },
+  "instagram": {
+    "caption": "Why do QR codes have three squares? 📱\nThose QR code corner squares are a finder pattern: a dark-light rhythm your camera spots instantly, and the empty fourth corner tells it which way is up.\nSend this to the friend who spins every menu before scanning.\n\nSources: BGR, Make Tech Easier, Uniqode\nAI visuals\n#ohthatswhy #qrcode #technology #howitworks #didyouknow\n\nToday's quiz (Odd One Out Thursday): which one isn't a mammal? A) Dolphin B) Bat C) Penguin. Comment your guess 👇\nNext video: Why your receipt turns black"
+  },
+  "facebook": {
+    "description": "Why do QR codes have three squares? Each corner square is a finder pattern with a dark-light rhythm that almost never appears anywhere else, so your camera finds the code fast. Three make an L, and the empty corner tells your phone which way is up, even upside down. Send this to the friend who spins every menu before scanning. AI visuals.\n\nToday's quiz (Odd One Out Thursday): which one isn't a mammal? A) Dolphin B) Bat C) Penguin. Comment your guess 👇\nNext video: Why your receipt turns black"
+  },
+  "quiz": {
+    "theme": "ODD ONE OUT THURSDAY",
+    "kind": "general knowledge",
+    "next_topic": "why a shop receipt turns black when you scratch it",
+    "next_title": "Why your receipt turns black",
+    "question": "Which one isn't a mammal?",
+    "options": {"A": "Dolphin", "B": "Bat", "C": "Penguin"},
+    "answer": "C",
+    "keywords": {"A": ["dolphin"], "B": ["bat"], "C": ["penguin"]},
+    "sources": [
+      "https://www.worldatlas.com/articles/are-penguins-mammals.html",
+      "https://www.discoverwildlife.com/animal-facts/bat-bird-difference",
+      "https://a-z-animals.com/animals/penguin/are-penguins-mammals/"
+    ]
+  }
+}

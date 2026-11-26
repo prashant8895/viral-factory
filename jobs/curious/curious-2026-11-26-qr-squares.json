@@ -1,7 +1,9 @@
 {
   "id": "curious-2026-11-26-qr-squares",
   "channel": "curious",
-  "languages": ["en"],
+  "languages": [
+    "en"
+  ],
   "publish": false,
   "date": "2026-11-26",
   "slot": "23:30",
@@ -9,9 +11,16 @@
   "hook_style": "curiosity",
   "picture_style": "illustration",
   "seed": 11262,
-  "tests": ["2026-11-23-short-share", "2026-11-23-trend-audio"],
+  "tests": [
+    "2026-11-23-short-share",
+    "2026-11-23-trend-audio"
+  ],
   "hook_text": "WHY THREE QR *SQUARES*?",
-  "keywords": ["why do qr codes have three squares", "qr code corner squares", "qr code finder pattern"],
+  "keywords": [
+    "why do qr codes have three squares",
+    "qr code corner squares",
+    "qr code finder pattern"
+  ],
   "sources": [
     "https://bgr.com/2214938/qr-code-finder-squares-explained/",
     "https://maketecheasier.com/qr-code-corner-position-markers/",
@@ -47,7 +56,10 @@
       "sfx": "tick",
       "overlays": [],
       "anim": "anims/qr.html",
-      "anim_params": {"mode": "beat", "label": "THE BEAT"}
+      "anim_params": {
+        "mode": "beat",
+        "label": "THE BEAT"
+      }
     },
     {
       "visual": "illustration of a messy stack of open magazines and newspapers on a simple desk, a relaxed hand holding a big magnifying glass over one page, the magnifying glass rim bright warm orange as the brightest thing in the frame, pages showing only soft grey blocks and abstract shapes, everything big in the middle of the frame between 30 and 65 percent of the height, plain cool blue background, no readable text, no logos, no people's faces",
@@ -69,10 +81,13 @@
       "sfx": "ding",
       "overlays": [],
       "anim": "anims/qr.html",
-      "anim_params": {"mode": "turn", "label": "THIS WAY UP"}
+      "anim_params": {
+        "mode": "turn",
+        "label": "THIS WAY UP"
+      }
     },
     {
-      "visual": "illustration of a relaxed hand holding a smartphone upside down above a plain QR code card on a wooden cafe table, the three corner squares of the code bright warm orange as the brightest thing in the frame, a soft green glow on the phone screen, phone and card big in the middle of the frame between 30 and 65 percent of the height, simple cool blue background, no text, no logos, no brand",
+      "visual": "illustration of a plain QR code card standing upright on a wooden cafe table on the left, its three big corner squares bright warm orange as the brightest thing in the frame, and on the right a relaxed hand holding a smartphone turned upside down, the phone screen facing the viewer and showing the same QR code upside down with a soft green glow around it, card and phone both big in the middle of the frame between 30 and 60 percent of the height, nothing important in the lower third, simple cool blue background, no text, no logos, no brand",
       "narration": "<short pause> That empty corner tells your phone which way is up. Even *upside down*. Send this to the friend who spins every menu.",
       "delivery": "reveal",
       "beat": "payoff",
@@ -109,7 +124,20 @@
   "youtube": {
     "title": "Why do QR codes have three squares? #shorts",
     "description": "Why do QR codes have three squares? Those big QR code corner squares are called finder patterns. Draw a line through one and you get dark, light, thick dark, light, dark: a 1:1:3:1:1 rhythm that almost never turns up in printed pictures or text, so your camera can find the code fast. And because there are only three, they make an L: the empty fourth corner tells your phone which way is up, so it reads from any angle, even upside down. QR codes were made in 1994 by a Denso Wave team led by Masahiro Hara to track car parts.\n\nToday's quiz (Odd One Out Thursday): which one isn't a mammal? A) Dolphin B) Bat C) Penguin. Comment your guess 👇\nNext video: Why your receipt turns black\n\nSources: BGR, Make Tech Easier, Uniqode\nAI visuals\n#shorts #didyouknow #qrcode",
-    "tags": ["why do qr codes have three squares", "qr code corner squares", "qr code finder pattern", "qr code", "qr code squares", "how qr codes work", "technology", "how it works", "did you know", "science facts", "everyday science", "the more you know"]
+    "tags": [
+      "why do qr codes have three squares",
+      "qr code corner squares",
+      "qr code finder pattern",
+      "qr code",
+      "qr code squares",
+      "how qr codes work",
+      "technology",
+      "how it works",
+      "did you know",
+      "science facts",
+      "everyday science",
+      "the more you know"
+    ]
   },
   "instagram": {
     "caption": "Why do QR codes have three squares? 📱\nThose QR code corner squares are a finder pattern: a dark-light rhythm your camera spots instantly, and the empty fourth corner tells it which way is up.\nSend this to the friend who spins every menu before scanning.\n\nSources: BGR, Make Tech Easier, Uniqode\nAI visuals\n#ohthatswhy #qrcode #technology #howitworks #didyouknow\n\nToday's quiz (Odd One Out Thursday): which one isn't a mammal? A) Dolphin B) Bat C) Penguin. Comment your guess 👇\nNext video: Why your receipt turns black"
@@ -123,9 +151,23 @@
     "next_topic": "why a shop receipt turns black when you scratch it",
     "next_title": "Why your receipt turns black",
     "question": "Which one isn't a mammal?",
-    "options": {"A": "Dolphin", "B": "Bat", "C": "Penguin"},
+    "options": {
+      "A": "Dolphin",
+      "B": "Bat",
+      "C": "Penguin"
+    },
     "answer": "C",
-    "keywords": {"A": ["dolphin"], "B": ["bat"], "C": ["penguin"]},
+    "keywords": {
+      "A": [
+        "dolphin"
+      ],
+      "B": [
+        "bat"
+      ],
+      "C": [
+        "penguin"
+      ]
+    },
     "sources": [
       "https://www.worldatlas.com/articles/are-penguins-mammals.html",
       "https://www.discoverwildlife.com/animal-facts/bat-bird-difference",

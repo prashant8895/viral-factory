@@ -94,6 +94,28 @@
       ],
       "rollback": "prompts/script.md step 5e and the playbook 'YouTube cut' row: mark them paused (jobs may keep yt fields; the render ignores them when off).",
       "note_2026_11_28": "Prashant: the half-sentence loop ending sounded like the video was cut off. From 28 Nov the cut ends on a complete closing sentence plus a 1.5 s hold; video 1 (receipt) used the old ending."
+    },
+    {
+      "id": "2026-11-28-ig-no-quiz",
+      "change": "Instagram only: post the short 30-45 s cut (no quiz card, no shoutout, share line kept) with a caption that has no quiz and no ask to comment; Facebook keeps the full video with the quiz",
+      "kind": "format",
+      "platforms": [
+        "instagram"
+      ],
+      "started": "2026-11-28",
+      "videos": 5,
+      "metric": "Instagram only: views at 72 h above the 120 median of the 7 videos before (x1.10+), seconds watched not more than 15% worse, likes per 1k up",
+      "status": "running",
+      "rec": "Prashant 2026-11-28 (chat): 'Instagram videos have gone for a toss. No likes, no new followers. Do something about it'",
+      "why": "Instagram breakouts all came before 13 Nov (2,135 / 1,253 / 602); since the quiz and 'comment A or B, first 3 right get a shoutout' started on 13 Nov, 0 of 14 videos passed 240 views, even fog lights (21 s watched, 29% skip) and two flush buttons (22 s). Meta's engagement-bait rules demote posts that ask for specific comments or reward them.",
+      "note": "Starts while short-share and trend-audio are still waiting for their 72 h verdicts (both have their 5 videos made); Prashant asked for action now.",
+      "switch": [
+        {
+          "file": "channels/curious-en/channel.json",
+          "path": "instagram_cut.on",
+          "off": false
+        }
+      ]
     }
   ]
 }

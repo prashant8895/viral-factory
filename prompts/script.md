@@ -6,7 +6,7 @@
 > them; say "lift (elevator)" style once when British/American words differ. Whole video 55–65 s
 > (render refuses over 65 s), one explicit share line after the reveal, hashtags per the playbook
 > table, bold picture style dropped (back to the 12–18 Nov illustrations). Tests
-> `2026-11-23-short-share`, `2026-11-23-trend-audio` and (from 2026-11-27) `2026-11-27-youtube-cut` go in every job's `tests`.
+> `2026-11-23-short-share`, `2026-11-23-trend-audio`, (from 2026-11-27) `2026-11-27-youtube-cut` and (from 2026-11-28) `2026-11-28-ig-no-quiz` go in every job's `tests`.
 >
 > 2026-11-27 (owner): EACH PLATFORM ON ITS OWN. Facebook and Instagram keep the full video as before; YouTube
 > gets its own 30–45 s looping cut from the same job (step 5e). Judge every platform only on its own numbers.
@@ -193,6 +193,14 @@ skip it until Prashant restarts it.
    the kept scenes to ~42 s of voice. Judge YouTube only on YouTube numbers, Instagram and Facebook only on theirs
    (`metrics/report.md` → "Each platform on its own"); when the platforms disagree, tune each platform's
    own version and never change Facebook's to suit another platform.
+5f. INSTAGRAM GETS THE SHORT CUT TOO (Prashant 2026-11-28, test `2026-11-28-ig-no-quiz`, put it in every
+   job's `tests` while `channels/curious-en/channel.json` → `instagram_cut.on` is true): Instagram reach went
+   flat the day the quiz started (13 Nov: "comment A or B, first 3 right get a shoutout" = engagement bait to
+   Meta). Instagram now posts the same 30–45 s cut as YouTube (no quiz card, no shoutout), and the render
+   strips the quiz and every "comment" line from the Instagram caption. So: the cut MUST keep the share line
+   (render-checked): leave the share scene in, or end the last `yt_narration` on it ("So heat is the pen.
+   Send this to whoever doodles on receipts with a nail."). Still write the Instagram caption with the quiz
+   as before (it's the fallback if the cut fails). Facebook keeps the full video and the quiz, unchanged.
 5d. ATTENTION (Prashant, 2026-11-18; playbook "Pictures and colours that stop the thumb"):
    scene 1's picture is the pitch's `first_frame`; in every picture the key part is the brightest
    thing in one warm accent colour, big and close; a face or hand where it fits; something new on

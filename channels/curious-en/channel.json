@@ -106,5 +106,11 @@
     "need_loop_line": true,
     "test": "2026-11-27-youtube-cut",
     "note": "Owner 2026-11-27: judge and tune each platform on its own; two versions per topic are fine. YouTube gets its own 30-45 s cut from the same pictures and voice (no shoutout, no quiz card, ends on a line that loops back into the opening). Instagram and Facebook keep the full 55-65 s video unchanged. Made by factory/render.py youtube_cut, posted by factory/publish.py, judged on YouTube numbers only (factory/analyze.py)."
+  },
+  "instagram_cut": {
+    "on": true,
+    "since": "2026-11-28",
+    "test": "2026-11-28-ig-no-quiz",
+    "note": "Prashant 2026-11-28 ('Instagram has gone for a toss, do something'): Instagram reach went flat the day the quiz started (13 Nov, 'Comment A or B, first 3 right get a shoutout'): 0 of 14 videos past 240 views since, 3 of 12 before, even with hit-level hold. Meta demotes comment bait. While on, Instagram posts the short cut (same file as YouTube: no quiz card, no shoutout, share line kept) with a caption that has no quiz and no ask to comment. Facebook keeps the full video. Made by factory/render.py, posted by factory/publish.py."
   }
 }

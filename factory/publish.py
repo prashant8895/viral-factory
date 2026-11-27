@@ -66,12 +66,22 @@ def publish(s: dict) -> dict:
         try:
             print(f"[{s['channel']}/{s['id']}] posting to {name}", flush=True)
             # YouTube gets its own shorter cut when the render made one (owner 2026-11-27)
-            cut = video.parent / meta["youtube_video"] if name == "youtube" and meta.get("youtube_video") else None
-            res = platforms.UPLOADERS[name](p, cut if cut and cut.exists() else video, meta)
+            # and Instagram posts that same cut while test 2026-11-28-ig-no-quiz runs (Prashant 2026-11-28)
+            key = {"youtube": "youtube_video", "instagram": "instagram_video"}.get(name)
+            cut = video.parent / meta[key] if key and meta.get(key) else None
+            m = meta
+            if cut and cut.exists() and name == "instagram":
+                m = {**meta, "video_url": meta.get("video_url", "").rsplit("/", 1)[0] + "/" + meta[key]
+                     if meta.get("video_url") else None}
+            elif cut and not cut.exists() and name == "instagram":
+                # full video goes out instead, so the caption must carry the quiz again
+                m = {**meta, "instagram": {**meta["instagram"], "caption": meta["instagram"].get("caption_full",
+                                                                                           meta["instagram"]["caption"])}}
+            res = platforms.UPLOADERS[name](p, cut if cut and cut.exists() else video, m)
             if cut and cut.exists():
-                res["cut"] = "youtube"
+                res["cut"] = "short"
             elif cut:
-                print("  YouTube cut missing from the release: posting the full video instead", flush=True)
+                print(f"  {name} cut missing from the release: posting the full video instead", flush=True)
             res["posted_at"] = datetime.now(IST).isoformat(timespec="minutes")
             s["platforms"][name] = res
             s["errors"].pop(name, None)

@@ -132,6 +132,7 @@ def collect() -> list[dict]:
             "tests": st.get("tests") or [],
             "yt_duration": _f((st.get("youtube_cut") or {}).get("duration")) or dur,
             "yt_cut": bool(st.get("youtube_cut")),
+            "ig_cut": bool(st.get("instagram_cut")),
             "follows": tot("follows"),
             "platforms": plat,
             "yt_pct_seen": any(_f(r.get("yt_avg_view_pct")) is not None for r in vrows),
@@ -169,10 +170,11 @@ def _on(v: dict, name: str) -> dict | None:
     p = v["platforms"].get(name)
     if not p or p.get("views") is None:
         return None
-    dur = v["yt_duration"] if name == "youtube" else v["duration"]
+    short = (name == "youtube" and v["yt_cut"]) or (name == "instagram" and v.get("ig_cut"))
+    dur = v["yt_duration"] if short else v["duration"]
     return {**{k: v[k] for k in ("id", "date", "hook", "bucket", "hook_style", "picture_style", "voice",
                                   "tests", "hours", "yt_cut")},
-            "duration": dur, "length_band": _band(dur), "cut": "youtube cut" if name == "youtube" and v["yt_cut"] else "full video",
+            "duration": dur, "length_band": _band(dur), "cut": "short cut" if short else "full video",
             "views": p["views"], "v24": p["v24"], "v72": p["v72"], "watch_pct": p["watch_pct"],
             "watch_s": p["watch_s"], "ig_watch_s": p["watch_s"], "skip_pct": p.get("skip_pct"),
             "shares_per_1k": round(1000 * p["shares"] / p["views"], 1) if p.get("shares") is not None and p["views"] else None}

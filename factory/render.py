@@ -298,6 +298,29 @@ def _cut_cfg(job: dict) -> dict:
     return cfg if cfg.get("on") and str(job.get("date") or "") >= cfg.get("since", "9999") else {}
 
 
+def _ig_cut_cfg(job: dict) -> dict:
+    """channel.json "instagram_cut" (Prashant 2026-11-28, test 2026-11-28-ig-no-quiz): Instagram reach
+    went flat the day the quiz started (13 Nov: "Comment A or B, first 3 right get a shoutout"), which
+    Meta treats as engagement bait. While on, Instagram gets the short cut (no quiz card, no shoutout)
+    and a caption without the quiz or any ask to comment. Facebook keeps the full video."""
+    try:
+        cfg = channels.load(job["channel"].split("/")[0]).get("instagram_cut") or {}
+    except Exception:
+        return {}
+    return cfg if cfg.get("on") and str(job.get("date") or "") >= cfg.get("since", "9999") else {}
+
+
+def ig_caption(caption: str) -> str:
+    """The Instagram caption without the quiz block and without any 'comment ...' ask."""
+    keep = []
+    for line in caption.split("\n"):
+        low = line.lower()
+        if "quiz" in low or "comment" in low:
+            continue
+        keep.append(line)
+    return re.sub(r"\n{3,}", "\n\n", "\n".join(keep)).strip()
+
+
 def youtube_cut(job: dict) -> dict | None:
     """The YouTube-only version of a job (owner 2026-11-27: judge and tune each platform on its own).
 
@@ -331,6 +354,11 @@ def youtube_cut(job: dict) -> dict | None:
         # Prashant 2026-11-28: ending mid-sentence ("...that's why, when you") sounds like the video
         # broke. The closing line is a complete sentence; the replay into line 1 does the looping.
         raise ValueError(f'The YouTube cut must end on a complete sentence, never mid-sentence: {end[-50:]!r}')
+    if _ig_cut_cfg(job):
+        said = " ".join(tts.caption_text(s.get("narration", "")) for s in scenes).lower()
+        if not re.search(r"\b(send|share)\b", said):
+            raise ValueError('Instagram posts the short cut now (test 2026-11-28-ig-no-quiz): keep the share '
+                             'line in it ("Send this to the friend who...") in the share scene or the last yt_narration')
     cut = {**json.loads(json.dumps(job)), "scenes": scenes, "cut": "youtube"}
     cut.pop("quiz", None)
     return cut
@@ -355,10 +383,17 @@ def render_youtube_cut(cut: dict, img_dir: Path | None) -> None:
     dur = json.loads((final.parent / "meta.json").read_text())["duration"]
     meta = json.loads((main_dir / "meta.json").read_text())
     meta["youtube_video"], meta["youtube_duration"] = "youtube.mp4", dur
+    ig = _ig_cut_cfg(cut)
+    if ig:  # test 2026-11-28-ig-no-quiz: Instagram posts the same short cut, quiz-free caption
+        meta["instagram_video"] = "youtube.mp4"
+        meta["instagram"]["caption_full"] = meta["instagram"]["caption"]
+        meta["instagram"]["caption"] = ig_caption(meta["instagram"]["caption"])
     (main_dir / "meta.json").write_text(json.dumps(meta, indent=2))
     sf = ROOT / "state" / f"{cut['id']}.json"
     st = json.loads(sf.read_text())
     st["youtube_cut"] = {"duration": dur, "scenes": len(cut["scenes"])}
+    if ig:
+        st["instagram_cut"] = {"duration": dur, "test": ig.get("test")}
     sf.write_text(json.dumps(st, indent=2))
     print(f"YouTube cut: {main_dir / 'youtube.mp4'} ({dur} s)")
 

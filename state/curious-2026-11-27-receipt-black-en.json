@@ -1,0 +1,60 @@
+{
+  "id": "curious-2026-11-27-receipt-black-en",
+  "channel": "curious-en",
+  "date": "2026-11-27",
+  "slot": "23:30",
+  "publish": true,
+  "bucket": "how it works",
+  "episode": null,
+  "hook_text": "WHY DOES MY RECEIPT GO *BLACK*?",
+  "hook_style": "curiosity",
+  "release": "job-curious-2026-11-27-receipt-black-en",
+  "duration": 62.34,
+  "quiz": {
+    "theme": "FINISH THE FACT FRIDAY",
+    "kind": "pop culture",
+    "next_topic": "why fizzy drink bottles stand on five little feet",
+    "next_title": "Why fizzy bottles have feet",
+    "question": "The Mona Lisa hangs in Paris, in the...",
+    "options": {
+      "A": "Louvre",
+      "B": "Mus\u00e9e d'Orsay",
+      "C": "Centre Pompidou"
+    },
+    "answer": "A",
+    "keywords": {
+      "A": [
+        "louvre"
+      ],
+      "B": [
+        "orsay"
+      ],
+      "C": [
+        "pompidou"
+      ]
+    },
+    "sources": [
+      "https://www.louvre.fr/en/oeuvre-notices/mona-lisa-portrait-lisa-gherardini-wife-francesco-del-giocondo",
+      "https://www.euronews.com/2019/10/08/mona-lisa-returned-to-original-home-in-the-louvre-after-causing-visitor-jam"
+    ]
+  },
+  "shoutouts": {
+    "from": "curious-2026-11-26-qr-squares-en",
+    "names": [
+      {
+        "name": "@Gargiwatchesvideos",
+        "platform": "youtube",
+        "time": "2026-11-27T02:15:05Z",
+        "comment_id": "UgwRGISC3TFAmU6HFch4AaABAg"
+      }
+    ]
+  },
+  "tests": [
+    "2026-11-23-short-share",
+    "2026-11-23-trend-audio",
+    "2026-11-27-youtube-cut"
+  ],
+  "trend_audio": true,
+  "picture_style": "illustration",
+  "voice": "clone"
+}

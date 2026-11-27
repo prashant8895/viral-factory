@@ -1,17 +1,17 @@
 # Oh That's Why: numbers review
 
-Updated 27 Nov 2026, 04:43 IST. English page, 23 videos, 38,175 views in total (YouTube 14,045, Instagram 6,754, Facebook 17,376). Median watch 16% (9.8 s on Instagram, 24 s on YouTube), median shares 0 per 1k views.
+Updated 27 Nov 2026, 06:43 IST. English page, 23 videos, 38,216 views in total (YouTube 14,084, Instagram 6,755, Facebook 17,377). Median watch 16% (9.8 s on Instagram, 24 s on YouTube), median shares 0 per 1k views.
 
 Hindi page (paused 12 Nov): 7 videos, 867 views in total.
 
 ## What to do next
 
-- bucket: 'seen-but-missed' beats 'how it works' (1,736 vs 1,056 median views, 2,371 vs 1,489 average, 8 vs 10 videos). Lean towards 'seen-but-missed'.
-- picture_style: 'illustration' beats 'illustration-bold' (1,476 vs 911 median views, 2,035 vs 896 average, 12 vs 4 videos). Lean towards 'illustration'.
-- voice: 'clone' leads on median views (1,304 vs 973) but not on average (1,750 vs 1,453): it lifts the weak videos, not the hits. No change yet.
-- length_band: '50-70s' beats '40-50s' (1,476 vs 973 median views, 2,349 vs 1,453 average, 8 vs 7 videos). Lean towards '50-70s'.
+- bucket: 'seen-but-missed' beats 'how it works' (1,736 vs 1,056 median views, 2,375 vs 1,489 average, 8 vs 10 videos). Lean towards 'seen-but-missed'.
+- picture_style: 'illustration' beats 'illustration-bold' (1,476 vs 911 median views, 2,038 vs 896 average, 12 vs 4 videos). Lean towards 'illustration'.
+- voice: 'clone' leads on median views (1,304 vs 973) but not on average (1,753 vs 1,453): it lifts the weak videos, not the hits. No change yet.
+- length_band: '50-70s' beats '40-50s' (1,476 vs 973 median views, 2,354 vs 1,453 average, 8 vs 7 videos). Lean towards '50-70s'.
 - People watch a median 10 s on Instagram and 24 s on YouTube whatever the video's length. The first real answer must land inside those first 10 s; judge hold by seconds watched and skip rate, not watch % (watch % drops on its own when videos get longer). Length itself is set by the playbook, not by this rule.
-- Top videos so far: WHAT'S THIS TOOTHPASTE SQUARE? (seen-but-missed, 6,585 views); WHY ARE FOG LIGHTS SO LOW? (how it works, 5,349 views); IT'S NOT A SHOE CLEANER! (seen-but-missed, 3,188 views). Pitch more topics like these.
+- Top videos so far: WHAT'S THIS TOOTHPASTE SQUARE? (seen-but-missed, 6,621 views); WHY ARE FOG LIGHTS SO LOW? (how it works, 5,349 views); IT'S NOT A SHOE CLEANER! (seen-but-missed, 3,188 views). Pitch more topics like these.
 - Weakest: WHY LIFT DOORS SPOT YOUR HAND (how it works, 590); WINTER HAZE? NOT JUST FOG (india everyday, 438); WHY IT'S HOTTER THAN BOILING (how it works, 286). Avoid these angles unless a new twist.
 - Voice trial (clone): 16/5 videos made, 5 at 72 h, verdict: keep.
 - Test '2026-11-23-short-share' (Whole video 55-65 s (115-135 spoken words incl. the quiz, 6-8 scenes, quiz card 7 s) plus one explicit 'send this to the friend who...' line right after the reveal and as caption line 3): 4/5 videos, 1 at 72 h, verdict: waiting.
@@ -25,8 +25,8 @@ Hindi page (paused 12 Nov): 7 videos, 867 views in total.
 
 | Date | Hook | Bucket | Hook style | Len | Late | 24 h | 72 h | Now | Watch YT / IG / FB | Sec watched IG / YT | IG skip | Shares/1k | Follows | Views YT | IG | FB |
 |---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
-| 2026-11-26 | WHY THREE QR SQUARES? | how it works | curiosity | 60s | -2m | – | – | 325 | – / 15% / 4.7% | 9.2 s / – | 50% | 0 | – | 12 | 109 | 204 |
-| 2026-11-25 | WHAT'S THIS TOOTHPASTE SQUARE? | seen-but-missed | curiosity | 61s | -2m | 6,585 | – | 6,585 | – / 12% / 20% | 7.5 s / – | 45% | 0 | – | 393 | 119 | 6,073 |
+| 2026-11-26 | WHY THREE QR SQUARES? | how it works | curiosity | 60s | -2m | – | – | 330 | – / 16% / 4.7% | 9.3 s / – | 50% | 0 | – | 16 | 110 | 204 |
+| 2026-11-25 | WHAT'S THIS TOOTHPASTE SQUARE? | seen-but-missed | curiosity | 61s | -2m | 6,585 | – | 6,621 | – / 12% / 20% | 7.5 s / – | 45% | 0 | – | 428 | 119 | 6,074 |
 | 2026-11-24 | WHAT'S THIS MIRROR TAB? | seen-but-missed | curiosity | 58s | -2m | 772 | 1,003 | 1,003 | 34% / 16% / 9.1% | 9.6 s / 20 s | 38% | 0 | – | 589 | 120 | 294 |
 | 2026-11-23 | WHY ARE FOG LIGHTS SO LOW? | how it works | curiosity | 62s | -2m | 5,312 | 5,349 | 5,349 | 32% / 34% / 19% | 21 s / 20 s | 29% | 0.2 | – | 36 | 169 | 5,144 |
 | 2026-11-22 | WHY LIFT DOORS SPOT YOUR HAND | how it works | curiosity | 77s | -2m | 544 | 590 | 590 | 32% / 11% / 7% | 8.4 s / 24 s | 36% | 0 | – | 243 | 170 | 177 |
@@ -69,7 +69,7 @@ Hindi page (paused 12 Nov): 7 videos, 867 views in total.
 
 | Group | Videos | Median 24 h | Median views | Average views | Watch | IG sec | Shares/1k |
 |---|---|---|---|---|---|---|---|
-| seen-but-missed | 8 | 1,537 | 1,736 | 2,371 | 24% | 12 s | 0 |
+| seen-but-missed | 8 | 1,537 | 1,736 | 2,375 | 24% | 12 s | 0 |
 | myth busted (too few) | 1 | 1,322 | 1,375 | 1,375 | 12% | 8.3 s | 0 |
 | how it works | 10 | 762 | 1,056 | 1,489 | 13% | 11 s | 0 |
 | why does it happen (too few) | 2 | 753 | 929 | 929 | 13% | 4.2 s | 0 |
@@ -81,7 +81,7 @@ Hindi page (paused 12 Nov): 7 videos, 867 views in total.
 | Group | Videos | Median 24 h | Median views | Average views | Watch | IG sec | Shares/1k |
 |---|---|---|---|---|---|---|---|
 | none (too few) | 1 | 2,206 | 3,423 | 3,423 | 42% | 18 s | 2.6 |
-| curiosity | 16 | 1,267 | 1,304 | 1,750 | 14% | 10 s | 0 |
+| curiosity | 16 | 1,267 | 1,304 | 1,753 | 14% | 10 s | 0 |
 | question | 4 | 1,078 | 1,284 | 1,334 | 23% | 9.5 s | 0 |
 | myth (too few) | 2 | 450 | 707 | 707 | 17% | 7.1 s | 0 |
 
@@ -89,7 +89,7 @@ Hindi page (paused 12 Nov): 7 videos, 867 views in total.
 
 | Group | Videos | Median 24 h | Median views | Average views | Watch | IG sec | Shares/1k |
 |---|---|---|---|---|---|---|---|
-| illustration | 12 | 1,322 | 1,476 | 2,035 | 16% | 11 s | 0 |
+| illustration | 12 | 1,322 | 1,476 | 2,038 | 16% | 11 s | 0 |
 | photo | 7 | 808 | 973 | 1,453 | 24% | 9.8 s | 0 |
 | illustration-bold | 4 | 653 | 911 | 896 | 11% | 8.9 s | 0 |
 
@@ -97,13 +97,13 @@ Hindi page (paused 12 Nov): 7 videos, 867 views in total.
 
 | Group | Videos | Median 24 h | Median views | Average views | Watch | IG sec | Shares/1k |
 |---|---|---|---|---|---|---|---|
-| clone | 16 | 1,267 | 1,304 | 1,750 | 14% | 10 s | 0 |
+| clone | 16 | 1,267 | 1,304 | 1,753 | 14% | 10 s | 0 |
 | kokoro | 7 | 808 | 973 | 1,453 | 24% | 9.8 s | 0 |
 
 ## By length band
 
 | Group | Videos | Median 24 h | Median views | Average views | Watch | IG sec | Shares/1k |
 |---|---|---|---|---|---|---|---|
-| 50-70s | 8 | 1,322 | 1,476 | 2,349 | 17% | 9.7 s | 0 |
+| 50-70s | 8 | 1,322 | 1,476 | 2,354 | 17% | 9.7 s | 0 |
 | 70s+ | 8 | 671 | 1,056 | 1,152 | 13% | 11 s | 0 |
 | 40-50s | 7 | 808 | 973 | 1,453 | 24% | 9.8 s | 0 |

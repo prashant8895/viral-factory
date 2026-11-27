@@ -144,7 +144,8 @@ jobs:
             # one release per finished video (a two-language job makes two)
             for vid in $(cat out/produced.txt); do
               gh release delete "job-$vid" -y --cleanup-tag 2>/dev/null || true
-              gh release create "job-$vid" out/$vid/final.mp4 out/$vid/thumb.jpg out/$vid/meta.json \
+              extra=""; [ -f "out/$vid/youtube.mp4" ] && extra="out/$vid/youtube.mp4"  # YouTube-only cut
+              gh release create "job-$vid" out/$vid/final.mp4 out/$vid/thumb.jpg out/$vid/meta.json $extra \
                 --title "$vid" --notes "Rendered from $f" --prerelease
             done
           done

@@ -6,7 +6,8 @@ machine-readable insights that the morning ideas and the script writer must read
 Runs right after every metrics pull (metrics.yml), so the feedback loop is:
 post -> metrics -> analyze -> insights.json -> next pitches/scripts -> post.
 
-What it measures, per video (all platforms of one page added up):
+What it measures, per video (all platforms added up, AND each platform on its own since
+2026-11-27: every rule and test verdict is also given per platform):
 - views at ~24 h and ~72 h (closest check to that age), and latest
 - watch %: Instagram average watch time / video length (YouTube too, once the
   analytics scope is on the token)
@@ -129,6 +130,8 @@ def collect() -> list[dict]:
             "ig_watch_s": (plat.get("instagram") or {}).get("watch_s"),
             "yt_watch_s": (plat.get("youtube") or {}).get("watch_s"),
             "tests": st.get("tests") or [],
+            "yt_duration": _f((st.get("youtube_cut") or {}).get("duration")) or dur,
+            "yt_cut": bool(st.get("youtube_cut")),
             "follows": tot("follows"),
             "platforms": plat,
             "yt_pct_seen": any(_f(r.get("yt_avg_view_pct")) is not None for r in vrows),
@@ -150,6 +153,98 @@ def _group(videos, key):
                     "median_watch_pct": _median([v["watch_pct"] for v in vs]),
                     "median_shares_per_1k": _median([v["shares_per_1k"] for v in vs])})
     return sorted(out, key=lambda x: -(x["median_views"] or 0))
+
+
+PNAME = {"youtube": "YouTube", "instagram": "Instagram", "facebook": "Facebook"}
+
+
+def _band(d) -> str:
+    d = d or 0
+    return "<40s" if d < 40 else "40-50s" if d <= 50 else "50-70s" if d <= 70 else "70s+"
+
+
+def _on(v: dict, name: str) -> dict | None:
+    """One video as seen on one platform only (owner 2026-11-27: judge every platform on its own
+    numbers; what works on Facebook may not work on YouTube). None if it has no numbers there."""
+    p = v["platforms"].get(name)
+    if not p or p.get("views") is None:
+        return None
+    dur = v["yt_duration"] if name == "youtube" else v["duration"]
+    return {**{k: v[k] for k in ("id", "date", "hook", "bucket", "hook_style", "picture_style", "voice",
+                                  "tests", "hours", "yt_cut")},
+            "duration": dur, "length_band": _band(dur), "cut": "youtube cut" if name == "youtube" and v["yt_cut"] else "full video",
+            "views": p["views"], "v24": p["v24"], "v72": p["v72"], "watch_pct": p["watch_pct"],
+            "watch_s": p["watch_s"], "ig_watch_s": p["watch_s"], "skip_pct": p.get("skip_pct"),
+            "shares_per_1k": round(1000 * p["shares"] / p["views"], 1) if p.get("shares") is not None and p["views"] else None}
+
+
+def _lean_rules(vids: list[dict], keys: tuple) -> list[str]:
+    """'Lean towards' rules from groups of 3+ videos that lead on both median and average views."""
+    groups = {k: _group(vids, k) for k in keys}
+    wins: dict[frozenset, list] = {}  # leads won by the very same set of videos changed together: report once
+    for key in keys:
+        trusted = [g for g in groups[key] if g["trusted"] and g["median_views"]]
+        if len(trusted) < 2:
+            continue
+        best, worst = trusted[0], trusted[-1]
+        if best["median_views"] >= 1.25 * worst["median_views"] and (best["mean_views"] or 0) >= 1.25 * (worst["mean_views"] or 1):
+            ids = frozenset(v["id"] for v in vids if str(v[key]) == best["group"])
+            wins.setdefault(ids, []).append((key, best, worst))
+    rules = []
+    for ids, ws in wins.items():
+        key, best, worst = ws[0]
+        if len(ws) == 1:
+            rules.append(f"{key}: '{best['group']}' beats '{worst['group']}' ({_fmt(best['median_views'])} vs "
+                         f"{_fmt(worst['median_views'])} median views, {best['n']} vs {worst['n']} videos).")
+        else:
+            dates = sorted(v["date"] for v in vids if v["id"] in ids)
+            rules.append(f"The {len(ids)} videos of {dates[0]} to {dates[-1]} lead ({_fmt(best['median_views'])} vs "
+                         f"{_fmt(worst['median_views'])} median views), but they were {', '.join(repr(w[1]['group']) for w in ws)} "
+                         f"all at once ({', '.join(w[0] for w in ws)}), so we can't tell which one did it.")
+    return rules
+
+
+def platform_review(live: list[dict], name: str) -> dict:
+    vids = [x for x in (_on(v, name) for v in live) if x]
+    ripe = [v for v in vids if v["hours"] >= 24]
+    ranked = sorted(ripe, key=lambda v: -(v["v72"] or v["views"]))
+    recent = [v for v in vids if v["hours"] >= 24][-5:]
+    before = [v for v in vids if v["hours"] >= 24][-12:-5]
+    out = {"videos": len(vids), "total_views": sum(v["views"] for v in vids),
+           "median_views": _median([v["v72"] or v["views"] for v in ripe]),
+           "median_watch_s": _median([v["watch_s"] for v in vids]),
+           "median_watch_pct": _median([v["watch_pct"] for v in vids]),
+           "last5_median": _median([v["v72"] or v["views"] for v in recent]),
+           "prev7_median": _median([v["v72"] or v["views"] for v in before]),
+           "top": [f"{v['hook']} ({_fmt(v['v72'] or v['views'])})" for v in ranked[:3]],
+           "bottom": [f"{v['hook']} ({_fmt(v['v72'] or v['views'])})" for v in ranked[-3:]] if len(ranked) > 3 else [],
+           "rules": _lean_rules(vids, ("bucket", "hook_style", "picture_style", "voice", "length_band", "cut")),
+           "groups": {k: _group(vids, k) for k in ("bucket", "length_band", "cut")}}
+    a, b = out["last5_median"], out["prev7_median"]
+    if a is not None and b and (a < 0.7 * b or a > 1.3 * b):
+        out["rules"].insert(0, f"{PNAME[name]} is {'DOWN' if a < b else 'UP'}: last 5 videos median "
+                               f"{_fmt(a)} views vs {_fmt(b)} for the 7 before them.")
+    return out
+
+
+def _test_on(t: dict, live: list[dict], name: str) -> dict:
+    """A test judged on one platform's numbers: views at 72 h, seconds watched, and skip rate
+    (Instagram) or watch % (YouTube, Facebook)."""
+    vids = [x for x in (_on(v, name) for v in live) if x]
+    need, tid = int(t.get("videos", 5)), t["id"]
+    tagged = [v for v in vids if tid in v["tests"]]
+    ripe = [v for v in tagged if v["hours"] >= 72][:need]
+    before = [v for v in vids if (v["date"] or "") < t.get("started", "") and v["hours"] >= 72][-7:]
+    third = "skip_pct" if name == "instagram" else "watch_pct"
+    m = lambda vs, k: _median([v[k] for v in vs])  # noqa: E731
+    a = {k: m(ripe or tagged, k) for k in ("v72", "watch_s", third)}
+    b = {k: m(before, k) for k in ("v72", "watch_s", third)}
+    res = {"test": a, "before": b, "videos_72h": len(ripe), "verdict": "waiting"}
+    if len(ripe) >= need and before:
+        ok = lambda k, hi: a[k] is not None and b[k] is not None and (a[k] >= 0.9 * b[k] if hi else a[k] <= 1.1 * b[k])  # noqa: E731
+        wins = sum([ok("v72", True), ok("watch_s", True), ok(third, third != "skip_pct")])
+        res["verdict"] = "keep" if wins >= 2 else "revert"
+    return res
 
 
 def _fmt(x, suffix=""):
@@ -283,11 +378,36 @@ def main() -> None:
             res["verdict"] = "keep" if wins >= 2 else "revert"
             res["why"] = (f"{wins} of 3 checks held up (views at 72 h, Instagram seconds watched, Instagram skip; "
                           f"each within 10% of the {len(before)} videos before it)")
+        # Per platform (owner 2026-11-27). A test scoped to some platforms is judged only there.
+        scope = t.get("platforms") or list(MAIN)
+        res["platforms"] = scope
+        res["by_platform"] = {n: _test_on(t, live, n) for n in scope}
+        if t.get("platforms"):
+            res["verdict"] = ("waiting" if t.get("status") != "running" or any(r["verdict"] == "waiting" for r in res["by_platform"].values())
+                              else "keep" if all(r["verdict"] == "keep" for r in res["by_platform"].values()) else "revert")
         tests_out.append(res)
     running = [t for t in tlist if t.get("status") == "running"]
-    if len(running) > 2:
-        flags.append(f"{len(running)} tests running at once ({', '.join(t['id'] for t in running)}): "
-                     "max is 2, or we can't tell which change did what.")
+    for n in MAIN:  # max 2 tests touching one platform at once, or we can't tell which change did what
+        here = [t["id"] for t in running if n in (t.get("platforms") or MAIN)]
+        if len(here) > 2:
+            flags.append(f"{len(here)} tests running on {PNAME[n]} at once ({', '.join(here)}): max is 2 per platform.")
+    reviews = {n: platform_review(live, n) for n in MAIN}
+    for key in ("length_band", "bucket"):  # where the platforms want different things, say so plainly
+        bests = {}
+        for n in MAIN:
+            gs = [g for g in reviews[n]["groups"][key] if g["trusted"] and g["median_views"]]
+            if len(gs) >= 2:
+                bests[n] = gs[0]["group"]
+        if len(set(bests.values())) > 1:
+            rules.append(f"{key}: the platforms disagree (" + ", ".join(f"{PNAME[n]} best: '{g}'" for n, g in bests.items())
+                         + "). Don't follow the all-platform rule blindly: YouTube has its own cut, so tune that cut "
+                         "for YouTube and the full video for Instagram and Facebook.")
+    for n in MAIN:
+        r = reviews[n]
+        for line in r["rules"]:
+            rules.append(f"{PNAME[n]} only: {line}")
+        if r["top"]:
+            rules.append(f"{PNAME[n]} best: " + "; ".join(r["top"]) + (f". Weakest: " + "; ".join(r["bottom"]) if r["bottom"] else "") + ".")
     for t in tests_out:
         if t["status"] == "running":
             rules.append(f"Test '{t['id']}' ({t['change']}): {t['videos_made']}/{t['needed']} videos, "
@@ -297,7 +417,7 @@ def main() -> None:
                 "total_views": sum(v["views"] for v in live), "platform_views": plat_tot,
                 "median_watch_pct": wp, "median_shares_per_1k": sp,
                 "median_ig_watch_s": igs, "median_yt_watch_s": yts,
-                "rules": rules, "flags": flags, "groups": groups, "voice_trial": vt, "tests": tests_out,
+                "rules": rules, "flags": flags, "groups": groups, "by_platform": reviews, "voice_trial": vt, "tests": tests_out,
                 "top": [v["id"] for v in top], "bottom": [v["id"] for v in bottom],
                 "per_video": [{k: v[k] for k in ("id", "date", "bucket", "hook", "hook_style", "duration", "late_min",
                                                  "views", "v24", "v72", "watch_pct", "skip_pct", "follows",
@@ -315,7 +435,28 @@ def main() -> None:
          f"median shares {_fmt(sp)} per 1k views.", ""]
     if hi:
         L += [f"Hindi page (paused 12 Nov): {len(hi)} videos, {_fmt(sum(v['views'] for v in hi))} views in total.", ""]
-    L += ["## What to do next", ""] + [f"- {r}" for r in rules or ["Not enough videos yet for trusted rules (need 3+ per group)."]]
+    L += ["## Each platform on its own", "",
+          "Judge every change per platform: a format can win on Facebook and lose on YouTube. YouTube gets its "
+          "own shorter cut (playbook \"YouTube cut\"); Instagram and Facebook get the full video.", "",
+          "| Platform | Videos | Total views | Median views (72 h) | Last 5 / 7 before | Sec watched | Watch % |",
+          "|---|---|---|---|---|---|---|"]
+    for n in MAIN:
+        r = reviews[n]
+        L.append(f"| {PNAME[n]} | {r['videos']} | {_fmt(r['total_views'])} | {_fmt(r['median_views'])} | "
+                 f"{_fmt(r['last5_median'])} / {_fmt(r['prev7_median'])} | {_fmt(r['median_watch_s'], ' s')} | {_fmt(r['median_watch_pct'], '%')} |")
+    for n in MAIN:
+        r = reviews[n]
+        L += ["", f"### {PNAME[n]}", ""] + [f"- {x}" for x in r["rules"] or ["No trusted difference yet (need 3+ videos per group)."]]
+        if r["top"]:
+            L.append("- Best: " + "; ".join(r["top"]))
+        if r["bottom"]:
+            L.append("- Weakest: " + "; ".join(r["bottom"]))
+        for key in ("length_band", "bucket", "cut"):
+            gs = r["groups"][key]
+            if len(gs) > 1:
+                L.append(f"- By {key.replace('_', ' ')}: " + "; ".join(f"{g['group']} {_fmt(g['median_views'])} median views, "
+                         f"{_fmt(g['median_watch_pct'], '%')} watched ({g['n']}{'' if g['trusted'] else ', too few'})" for g in gs))
+    L += ["", "## What to do next", ""] + [f"- {r}" for r in rules or ["Not enough videos yet for trusted rules (need 3+ per group)."]]
     if flags:
         L += ["", "## Problems in the data or posting", ""] + [f"- {f}" for f in flags]
     L += ["", "## Every video", "",
@@ -344,6 +485,17 @@ def main() -> None:
             L.append(f"| {t['id']} | {t['change']} | {t['started']} | {t['videos_made']} ({t['videos_72h']}/{t['needed']}) | "
                      f"{_fmt(a['v72'])} / {_fmt(b['v72'])} | {_fmt(a['ig_watch_s'], ' s')} / {_fmt(b['ig_watch_s'], ' s')} | "
                      f"{_fmt(a['skip_pct'], '%')} / {_fmt(b['skip_pct'], '%')} | {t['status'] if t['status'] != 'running' else t['verdict']} |")
+        L += ["", "Per platform (72 h views, seconds watched, IG skip or watch %; test / before):", ""]
+        for t in tests_out:
+            if t["status"] != "running":
+                continue
+            parts = []
+            for n, r in t["by_platform"].items():
+                a, b = r["test"], r["before"]
+                third = "skip_pct" if n == "instagram" else "watch_pct"
+                parts.append(f"{PNAME[n]} {_fmt(a['v72'])}/{_fmt(b['v72'])} views, {_fmt(a['watch_s'], ' s')}/{_fmt(b['watch_s'], ' s')}, "
+                             f"{_fmt(a[third], '%')}/{_fmt(b[third], '%')}: **{r['verdict']}**")
+            L.append(f"- {t['id']}: " + "; ".join(parts))
     for key, gs in groups.items():
         L += ["", f"## By {key.replace('_', ' ')}", "", "| Group | Videos | Median 24 h | Median views | Average views | Watch | IG sec | Shares/1k |",
               "|---|---|---|---|---|---|---|---|"]

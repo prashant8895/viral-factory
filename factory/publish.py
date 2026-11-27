@@ -65,7 +65,13 @@ def publish(s: dict) -> dict:
             continue
         try:
             print(f"[{s['channel']}/{s['id']}] posting to {name}", flush=True)
-            res = platforms.UPLOADERS[name](p, video, meta)
+            # YouTube gets its own shorter cut when the render made one (owner 2026-11-27)
+            cut = video.parent / meta["youtube_video"] if name == "youtube" and meta.get("youtube_video") else None
+            res = platforms.UPLOADERS[name](p, cut if cut and cut.exists() else video, meta)
+            if cut and cut.exists():
+                res["cut"] = "youtube"
+            elif cut:
+                print("  YouTube cut missing from the release: posting the full video instead", flush=True)
             res["posted_at"] = datetime.now(IST).isoformat(timespec="minutes")
             s["platforms"][name] = res
             s["errors"].pop(name, None)

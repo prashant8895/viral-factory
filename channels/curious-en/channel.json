@@ -98,5 +98,13 @@
     "note": "Instagram Audio API: at posting time the top trending licensed track (GET /ig_audio, no search_query) is attached muted (audio_volume 0, our voice 100), so the Reel also lists under that sound. If Instagram refuses it, the Reel posts with its own sound. The chosen track is saved in state platforms.instagram.audio."
   },
   "slot_since": "2026-11-23",
-  "slot_note": "2026-11-23 (owner): global page, so posts go out at 23:30 IST = 18:00 UTC = 6 PM UK / 7 PM Central Europe / 1 PM US East / 10 AM US West, while India is still in its late-night scroll. Was 19:00 IST (8:30 AM US East, 1:30 PM UK). From slot_since the render uses this slot whatever the job or pitch doc says."
+  "slot_note": "2026-11-23 (owner): global page, so posts go out at 23:30 IST = 18:00 UTC = 6 PM UK / 7 PM Central Europe / 1 PM US East / 10 AM US West, while India is still in its late-night scroll. Was 19:00 IST (8:30 AM US East, 1:30 PM UK). From slot_since the render uses this slot whatever the job or pitch doc says.",
+  "youtube_cut": {
+    "on": true,
+    "since": "2026-11-27",
+    "max_seconds": 45,
+    "need_loop_line": true,
+    "test": "2026-11-27-youtube-cut",
+    "note": "Owner 2026-11-27: judge and tune each platform on its own; two versions per topic are fine. YouTube gets its own 30-45 s cut from the same pictures and voice (no shoutout, no quiz card, ends on a line that loops back into the opening). Instagram and Facebook keep the full 55-65 s video unchanged. Made by factory/render.py youtube_cut, posted by factory/publish.py, judged on YouTube numbers only (factory/analyze.py)."
+  }
 }

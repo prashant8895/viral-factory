@@ -10,6 +10,7 @@ import json
 import os
 import random
 import re
+import shutil
 import sys
 from pathlib import Path
 
@@ -265,7 +266,10 @@ def render(job_path: Path) -> list[Path]:
     langs = job.pop("languages", None)
     produced = []
     if not langs:
+        cut = youtube_cut(job)
         produced.append(render_one(job))
+        if cut:
+            render_youtube_cut(cut, None)
     else:
         # Only languages whose page is still live get rendered (Hindi paused 2026-11-12).
         # Old jobs may still carry {"en": ..., "hi": ...} fields; those resolve fine.
@@ -277,15 +281,106 @@ def render(job_path: Path) -> list[Path]:
         for lang in live:
             one = _pick(job, lang, known)
             one["id"], one["channel"], one["language"] = f"{job['id']}-{lang}", f"{job['channel']}-{lang}", lang
+            cut = youtube_cut(one)  # built before render_one changes the scenes (shoutout names)
             produced.append(render_one(one, shared))
+            if cut:
+                render_youtube_cut(cut, shared)
     (ROOT / "out" / "produced.txt").write_text("\n".join(p.parent.name for p in produced) + "\n")
     return produced
 
 
+def _cut_cfg(job: dict) -> dict:
+    """channel.json "youtube_cut" (owner 2026-11-27): YouTube gets its own shorter cut when it's on."""
+    try:
+        cfg = channels.load(job["channel"]).get("youtube_cut") or {}
+    except Exception:
+        return {}
+    return cfg if cfg.get("on") and str(job.get("date") or "") >= cfg.get("since", "9999") else {}
+
+
+def youtube_cut(job: dict) -> dict | None:
+    """The YouTube-only version of a job (owner 2026-11-27: judge and tune each platform on its own).
+
+    Why: YouTube viewers watch ~22-25 s whatever the length, and YouTube ranks Shorts on how much of
+    the video is watched and replayed. Our 40-45 s videos got 54-105% viewed there, the 60-88 s ones
+    26-40%, and the 7 s quiz card at the end is dead air few YouTube viewers reach. So the cut keeps
+    the same pictures, animations and (cached) voice, drops the shoutout and quiz card, drops scenes
+    marked "yt": false, swaps in a scene's "yt_narration" where given, and ends on a line that runs
+    straight back into the opening so the Short loops. Instagram and Facebook keep the full video."""
+    cfg = _cut_cfg(job)
+    if not cfg:
+        return None
+    scenes = []
+    for i, s in enumerate(job["scenes"]):
+        if s.get("quiz") or s.get("shoutout") or s.get("yt") is False:
+            continue
+        s = json.loads(json.dumps(s))
+        s["_img"] = i  # pictures are stored by their index in the full video
+        if s.get("yt_narration"):
+            s["narration"] = s["yt_narration"]
+        if s.get("yt_delivery"):
+            s["delivery"] = s["yt_delivery"]
+        scenes.append(s)
+    if len(scenes) < 3:
+        raise ValueError("The YouTube cut needs at least 3 scenes; don't mark that many scenes \"yt\": false")
+    if not scenes[-1].get("yt_narration") and cfg.get("need_loop_line", True):
+        raise ValueError('The last scene of the YouTube cut needs a "yt_narration": a closing line that runs '
+                         'straight back into the opening question so the Short loops (playbook "YouTube cut")')
+    cut = {**json.loads(json.dumps(job)), "scenes": scenes, "cut": "youtube"}
+    cut.pop("quiz", None)
+    return cut
+
+
+def render_youtube_cut(cut: dict, img_dir: Path | None) -> None:
+    """Render the YouTube cut next to the full video: out/<id>/youtube.mp4, recorded in meta.json and
+    the state file so the publisher posts it to YouTube and the numbers review knows its length.
+    If the cut fails to render, the full video still goes out everywhere (YouTube included)."""
+    main_dir = ROOT / "out" / cut["id"]
+    try:
+        final = render_one(cut, img_dir or main_dir / "work")
+    except Exception as e:  # never lose the day's video over the extra cut
+        print(f"YouTube cut failed, YouTube gets the full video: {type(e).__name__}: {e}", flush=True)
+        try:
+            from . import notify
+            notify.main("fail", f"YouTube cut failed: {cut['id']}", f"YouTube gets the full video instead. {type(e).__name__}: {e}"[:400])
+        except Exception:
+            pass
+        return
+    shutil.copyfile(final, main_dir / "youtube.mp4")
+    dur = json.loads((final.parent / "meta.json").read_text())["duration"]
+    meta = json.loads((main_dir / "meta.json").read_text())
+    meta["youtube_video"], meta["youtube_duration"] = "youtube.mp4", dur
+    (main_dir / "meta.json").write_text(json.dumps(meta, indent=2))
+    sf = ROOT / "state" / f"{cut['id']}.json"
+    st = json.loads(sf.read_text())
+    st["youtube_cut"] = {"duration": dur, "scenes": len(cut["scenes"])}
+    sf.write_text(json.dumps(st, indent=2))
+    print(f"YouTube cut: {main_dir / 'youtube.mp4'} ({dur} s)")
+
+
 def render_one(job: dict, img_dir: Path | None = None) -> Path:
+    is_cut = job.get("cut") == "youtube"
+    if is_cut:
+        return _render_cut(job, img_dir)
     check_job(job)
     ch = channels.load(job["channel"])
     shout = quiz.apply(job)  # yesterday's fastest right answers (or the scene is dropped)
+    return _render(job, ch, img_dir, shout)
+
+
+def _render_cut(job: dict, img_dir: Path | None) -> Path:
+    ch = channels.load(job["channel"])
+    cap = float(_cut_cfg(job).get("max_seconds", 45))
+    words = sum(len(tts.caption_text(s["narration"]).split()) for s in job["scenes"])
+    if words > cap * 2.5:
+        raise ValueError(f"YouTube cut has {words} spoken words; at our pace that's over {cap:.0f} s. Mark a "
+                         f'tease or aside scene "yt": false or give it a shorter "yt_narration"')
+    job = {**job, "id": f"{job['id']}/youtube"}
+    return _render(job, ch, img_dir, None, cap=cap)
+
+
+def _render(job: dict, ch: dict, img_dir: Path | None, shout, cap: float | None = None) -> Path:
+    is_cut = cap is not None
     if job.get("quiz") and job["scenes"][-1].get("quiz"):
         q, eng = job["quiz"], ch.get("engagement") or {}
         job["scenes"][-1].setdefault("anim", "anims/quiz.html")
@@ -347,7 +442,11 @@ def render_one(job: dict, img_dir: Path | None = None) -> Path:
                              f"content scenes by ~{(floor - scene_audio[-1].duration) * 2.6:.0f} words.")
         print(f"[quiz] on screen {scene_audio[-1].duration:.1f} s", flush=True)
     total = sum(a.duration for a in scene_audio)
-    if total > _max_seconds(job, ch) + 0.5:
+    if is_cut and total > cap + 0.5:
+        raise ValueError(f"YouTube cut runs {total:.1f} s; it is capped at {cap:.0f} s (YouTube viewers watch "
+                         f"~23 s, so shorter = more of it seen). Cut about {(total - cap) * 2.4:.0f} words with "
+                         f'"yt": false on a tease scene or a shorter "yt_narration"')
+    if not is_cut and total > _max_seconds(job, ch) + 0.5:
         raise ValueError(f"Video runs {total:.1f} s; the playbook caps it at {_max_seconds(job, ch):.0f} s "
                          f"(test 2026-11-23-short-share: our only Instagram breakouts were 43-54 s). Cut about "
                          f"{(total - _max_seconds(job, ch)) * 2.4:.0f} words from tease/aside lines, never a how-it-works step.")
@@ -365,7 +464,7 @@ def render_one(job: dict, img_dir: Path | None = None) -> Path:
 
         print(f"[scene {i + 1}] picture", flush=True)
         (img_dir or work).mkdir(parents=True, exist_ok=True)
-        img = (img_dir or work) / f"img_{i}.jpg"
+        img = (img_dir or work) / f"img_{scene.get('_img', i)}.jpg"
         if not img.exists():
             visuals.make_image(job, scene, i, img, cast, ch["dir"] / "cast")
 
@@ -421,6 +520,9 @@ def render_one(job: dict, img_dir: Path | None = None) -> Path:
     if ta.get("on") and str(job.get("date") or "") >= ta.get("since", "9999"):
         meta["instagram"]["trend_audio"] = {"audio_volume": int(ta.get("audio_volume", 0))}
     (out_dir / "meta.json").write_text(json.dumps(meta, indent=2))
+    if is_cut:  # the full video's state file and meta.json describe this cut (render_youtube_cut)
+        print(f"done: {final} ({meta['duration']} s)")
+        return final
 
     # State file: tells the publisher when and where this video goes.
     state_dir = ROOT / "state"

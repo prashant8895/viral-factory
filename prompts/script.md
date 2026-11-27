@@ -6,7 +6,10 @@
 > them; say "lift (elevator)" style once when British/American words differ. Whole video 55–65 s
 > (render refuses over 65 s), one explicit share line after the reveal, hashtags per the playbook
 > table, bold picture style dropped (back to the 12–18 Nov illustrations). Tests
-> `2026-11-23-short-share` and `2026-11-23-trend-audio` go in every job's `tests`.
+> `2026-11-23-short-share`, `2026-11-23-trend-audio` and (from 2026-11-27) `2026-11-27-youtube-cut` go in every job's `tests`.
+>
+> 2026-11-27 (owner): EACH PLATFORM ON ITS OWN. Facebook and Instagram keep the full video as before; YouTube
+> gets its own 30–45 s looping cut from the same job (step 5e). Judge every platform only on its own numbers.
 >
 > 2026-11-12 (Prashant): ENGLISH ONLY. The Hindi page is paused everywhere (YouTube, Instagram,
 > Facebook): never write Hindi text, never put "hi" in `languages`. Voice is Gemini (set in
@@ -153,13 +156,25 @@ skip it until Prashant restarts it.
    hashtags (#shorts #didyouknow + 1 topic tag) because YouTube shows the first 3 above the title;
    `youtube.tags` = the search phrases + topic words + the niche set (render keeps 15).
    Never tag accounts that aren't in the video. No "comment X to get Y" bait (the quiz is a real question, which is fine).
+5e. YOUTUBE CUT (owner 2026-11-27; playbook section 5 "YouTube cut"; test `2026-11-27-youtube-cut`, put
+   it in every job's `tests`): YouTube gets its own 30–45 s cut, made by the render from the same job.
+   Instagram and Facebook keep the full video exactly as before: write the full script first, by every
+   rule above, then add the cut on top. The cut leaves out the shoutout and quiz scenes by itself. Mark
+   tease/aside scenes `"yt": false` (or give a shorter `"yt_narration"`) until the kept scenes are
+   80–105 spoken words; never drop a how-it-works step or scene 1. The last kept scene MUST get a
+   `"yt_narration"` (render refuses without it): the reveal, then a half-sentence that flows straight back
+   into line 1 so the Short loops; give it a `"yt_delivery"` if the tone changes. Keep the share line if
+   it fits. Read the loop out loud (last line straight into line 1) and fix it until it sounds like one
+   sentence. Judge YouTube only on YouTube numbers, Instagram and Facebook only on theirs
+   (`metrics/report.md` → "Each platform on its own"); when the platforms disagree, tune each platform's
+   own version and never change Facebook's to suit another platform.
 5d. ATTENTION (Prashant, 2026-11-18; playbook "Pictures and colours that stop the thumb"):
    scene 1's picture is the pitch's `first_frame`; in every picture the key part is the brightest
    thing in one warm accent colour, big and close; a face or hand where it fits; something new on
    screen every 2–3 s (cut, zoom, arrow, highlight); how-it-works headlines count the steps
    ("STEP 1/3"). Write each `visual` with that colour and framing in plain words. Hooks follow
-   "Pitching like the best hook writers". Running tests (`data/tests.json`): `2026-11-23-short-share` (55–65 s + share line) and
-   `2026-11-23-trend-audio` (Instagram adds a muted trending track at posting time; nothing to
+   "Pitching like the best hook writers". Running tests (`data/tests.json`): `2026-11-23-short-share` (55–65 s + share line),
+   `2026-11-27-youtube-cut` (5e, YouTube only) and `2026-11-23-trend-audio` (Instagram adds a muted trending track at posting time; nothing to
    write in the job). The 19 Nov title and scene-2 tests were dropped on 2026-11-22.
 5b. PICTURES (paid, about Rs 3 each, so think before you spend):
    - Write each picture scene's `visual` as an ILLUSTRATION, not a photo: "illustration of ...",

@@ -1,5 +1,5 @@
 {
-  "_about": "Approved Morning Slate changes, each judged by factory/analyze.py against the videos before it. Written by the script run when Prashant approves a recommendation. Max 2 running at once. status: running | kept | reverted | dropped. Videos carry the id in their job's \"tests\" list.",
+  "_about": "Approved Morning Slate changes, each judged by factory/analyze.py against the videos before it. Written by the script run when Prashant approves a recommendation. Max 2 running per platform at once (a test with \"platforms\" only touches and is judged on those platforms). status: running | kept | reverted | dropped. Videos carry the id in their job's \"tests\" list.",
   "tests": [
     {
       "id": "2026-11-19-why-claim-title",
@@ -44,6 +44,19 @@
       "metric": "Instagram views at 24 h above the 129 median of 12-22 Nov (Instagram only; YouTube/Facebook unchanged act as control)",
       "status": "running",
       "rec": "owner 2026-11-22 (chat)"
+    },
+    {
+      "id": "2026-11-27-youtube-cut",
+      "change": "YouTube only: its own 30-45 s cut of the same video (no shoutout or quiz card, closing line loops back into the opening); Instagram and Facebook keep the full video",
+      "kind": "format",
+      "platforms": [
+        "youtube"
+      ],
+      "started": "2026-11-27",
+      "videos": 5,
+      "metric": "YouTube only: views at 72 h above the 507 median of the 7 videos before, YouTube watch % 60%+ (was 32-40% on the full video), seconds watched not below 20 s",
+      "status": "running",
+      "rec": "owner 2026-11-27 (chat): keep Facebook the same, boost YouTube, separate versions per platform are fine"
     }
   ]
 }

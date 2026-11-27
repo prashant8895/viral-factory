@@ -1,8 +1,46 @@
 # Oh That's Why: numbers review
 
-Updated 27 Nov 2026, 06:43 IST. English page, 23 videos, 38,216 views in total (YouTube 14,084, Instagram 6,755, Facebook 17,377). Median watch 16% (9.8 s on Instagram, 24 s on YouTube), median shares 0 per 1k views.
+Updated 27 Nov 2026, 11:15 IST. English page, 23 videos, 38,216 views in total (YouTube 14,084, Instagram 6,755, Facebook 17,377). Median watch 16% (9.8 s on Instagram, 24 s on YouTube), median shares 0 per 1k views.
 
 Hindi page (paused 12 Nov): 7 videos, 867 views in total.
+
+## Each platform on its own
+
+Judge every change per platform: a format can win on Facebook and lose on YouTube. YouTube gets its own shorter cut (playbook "YouTube cut"); Instagram and Facebook get the full video.
+
+| Platform | Videos | Total views | Median views (72 h) | Last 5 / 7 before | Sec watched | Watch % |
+|---|---|---|---|---|---|---|
+| YouTube | 23 | 14,084 | 538 | 428 / 507 | 24 s | 39% |
+| Instagram | 23 | 6,755 | 151 | 129 / 120 | 9.8 s | 16% |
+| Facebook | 23 | 17,377 | 227 | 294 / 225 | 5.3 s | 8% |
+
+### YouTube
+
+- bucket: 'seen-but-missed' beats 'how it works' (824 vs 354 median views, 8 vs 10 videos).
+- hook_style: 'question' beats 'curiosity' (941 vs 392 median views, 4 vs 16 videos).
+- The 7 videos of 2026-11-06 to 2026-11-11 lead (650 vs 300 median views), but they were 'photo', 'kokoro', '40-50s' all at once (picture_style, voice, length_band), so we can't tell which one did it.
+- Best: HOW DO SHOP TAGS WORK? (1,312); WHY THIS MESH? (1,289); PLANE WINDOW HOLE? (1,249)
+- Weakest: WHY IT'S HOTTER THAN BOILING (176); WINTER HAZE? NOT JUST FOG (64); WHY ARE FOG LIGHTS SO LOW? (36)
+- By length band: 40-50s 650 median views, 54% watched (7); 70s+ 434 median views, 35% watched (8); 50-70s 376 median views, 37% watched (8)
+- By bucket: myth busted 1,025 median views, 36% watched (1, too few); seen-but-missed 824 median views, 43% watched (8); why does it happen 610 median views, 52% watched (2, too few); how it works 354 median views, 34% watched (10); careful health 236 median views, 58% watched (1, too few); india everyday 62 median views, 38% watched (1, too few)
+
+### Instagram
+
+- hook_style: 'question' beats 'curiosity' (212 vs 124 median views, 4 vs 16 videos).
+- The 7 videos of 2026-11-06 to 2026-11-11 lead (203 vs 118 median views), but they were 'photo', 'kokoro', '40-50s' all at once (picture_style, voice, length_band), so we can't tell which one did it.
+- Best: IT'S NOT A SHOE CLEANER! (2,129); BACK WINDOW LINES? (1,250); WHY THIS MESH? (602)
+- Weakest: WHY IT'S HOTTER THAN BOILING (108); WHY ONLY YOUR KEY WORKS (45); WHY DO STARS TWINKLE? (8)
+- By length band: 40-50s 203 median views, 24% watched (7); 70s+ 144 median views, 13% watched (8); 50-70s 120 median views, 17% watched (8)
+- By bucket: careful health 220 median views, 18% watched (1, too few); seen-but-missed 168 median views, 24% watched (8); india everyday 145 median views, 24% watched (1, too few); how it works 144 median views, 13% watched (10); myth busted 114 median views, 12% watched (1, too few); why does it happen 88 median views, 10% watched (2, too few)
+
+### Facebook
+
+- Facebook is UP: last 5 videos median 294 views vs 225 for the 7 before them.
+- length_band: '50-70s' beats '70s+' (265 vs 210 median views, 8 vs 8 videos).
+- Best: WHAT'S THIS TOOTHPASTE SQUARE? (6,074); WHY ARE FOG LIGHTS SO LOW? (5,144); WHY ONLY YOUR KEY WORKS (1,068)
+- Weakest: WHY LIFT DOORS SPOT YOUR HAND (177); NO BATTERY. HOW DOES IT PAY? (131); WHY IT'S HOTTER THAN BOILING (2)
+- By length band: 50-70s 265 median views, 8.4% watched (8); 40-50s 228 median views, 14% watched (7); 70s+ 210 median views, 4.9% watched (8)
+- By bucket: seen-but-missed 238 median views, 13% watched (8); myth busted 236 median views, 5.6% watched (1, too few); india everyday 234 median views, 14% watched (1, too few); why does it happen 231 median views, 11% watched (2, too few); how it works 210 median views, 5.3% watched (10); careful health 191 median views, 8% watched (1, too few)
 
 ## What to do next
 
@@ -14,6 +52,17 @@ Hindi page (paused 12 Nov): 7 videos, 867 views in total.
 - Top videos so far: WHAT'S THIS TOOTHPASTE SQUARE? (seen-but-missed, 6,621 views); WHY ARE FOG LIGHTS SO LOW? (how it works, 5,349 views); IT'S NOT A SHOE CLEANER! (seen-but-missed, 3,188 views). Pitch more topics like these.
 - Weakest: WHY LIFT DOORS SPOT YOUR HAND (how it works, 590); WINTER HAZE? NOT JUST FOG (india everyday, 438); WHY IT'S HOTTER THAN BOILING (how it works, 286). Avoid these angles unless a new twist.
 - Voice trial (clone): 16/5 videos made, 5 at 72 h, verdict: keep.
+- length_band: the platforms disagree (YouTube best: '40-50s', Instagram best: '40-50s', Facebook best: '50-70s'). Don't follow the all-platform rule blindly: YouTube has its own cut, so tune that cut for YouTube and the full video for Instagram and Facebook.
+- YouTube only: bucket: 'seen-but-missed' beats 'how it works' (824 vs 354 median views, 8 vs 10 videos).
+- YouTube only: hook_style: 'question' beats 'curiosity' (941 vs 392 median views, 4 vs 16 videos).
+- YouTube only: The 7 videos of 2026-11-06 to 2026-11-11 lead (650 vs 300 median views), but they were 'photo', 'kokoro', '40-50s' all at once (picture_style, voice, length_band), so we can't tell which one did it.
+- YouTube best: HOW DO SHOP TAGS WORK? (1,312); WHY THIS MESH? (1,289); PLANE WINDOW HOLE? (1,249). Weakest: WHY IT'S HOTTER THAN BOILING (176); WINTER HAZE? NOT JUST FOG (64); WHY ARE FOG LIGHTS SO LOW? (36).
+- Instagram only: hook_style: 'question' beats 'curiosity' (212 vs 124 median views, 4 vs 16 videos).
+- Instagram only: The 7 videos of 2026-11-06 to 2026-11-11 lead (203 vs 118 median views), but they were 'photo', 'kokoro', '40-50s' all at once (picture_style, voice, length_band), so we can't tell which one did it.
+- Instagram best: IT'S NOT A SHOE CLEANER! (2,129); BACK WINDOW LINES? (1,250); WHY THIS MESH? (602). Weakest: WHY IT'S HOTTER THAN BOILING (108); WHY ONLY YOUR KEY WORKS (45); WHY DO STARS TWINKLE? (8).
+- Facebook only: Facebook is UP: last 5 videos median 294 views vs 225 for the 7 before them.
+- Facebook only: length_band: '50-70s' beats '70s+' (265 vs 210 median views, 8 vs 8 videos).
+- Facebook best: WHAT'S THIS TOOTHPASTE SQUARE? (6,074); WHY ARE FOG LIGHTS SO LOW? (5,144); WHY ONLY YOUR KEY WORKS (1,068). Weakest: WHY LIFT DOORS SPOT YOUR HAND (177); NO BATTERY. HOW DOES IT PAY? (131); WHY IT'S HOTTER THAN BOILING (2).
 - Test '2026-11-23-short-share' (Whole video 55-65 s (115-135 spoken words incl. the quiz, 6-8 scenes, quiz card 7 s) plus one explicit 'send this to the friend who...' line right after the reveal and as caption line 3): 4/5 videos, 1 at 72 h, verdict: waiting.
 - Test '2026-11-23-trend-audio' (Instagram only: today's top trending licensed track from the Instagram Audio API attached muted (audio_volume 0) under our voice): 4/5 videos, 1 at 72 h, verdict: waiting.
 
@@ -64,6 +113,11 @@ Hindi page (paused 12 Nov): 7 videos, 867 views in total.
 | 2026-11-19-scene2-answer | Scene 2 gives one real piece of the answer (first step of the chain) before teasing the rest; never a tease-only scene | 2026-11-19 | 4 (4/4) | 900 / 1,404 | 8.9 s / 11 s | 40% / 46% | dropped |
 | 2026-11-23-short-share | Whole video 55-65 s (115-135 spoken words incl. the quiz, 6-8 scenes, quiz card 7 s) plus one explicit 'send this to the friend who...' line right after the reveal and as caption line 3 | 2026-11-23 | 4 (1/5) | 5,349 / 875 | 21 s / 11 s | 29% / 37% | waiting |
 | 2026-11-23-trend-audio | Instagram only: today's top trending licensed track from the Instagram Audio API attached muted (audio_volume 0) under our voice | 2026-11-23 | 4 (1/5) | 5,349 / 875 | 21 s / 11 s | 29% / 37% | waiting |
+
+Per platform (72 h views, seconds watched, IG skip or watch %; test / before):
+
+- 2026-11-23-short-share: YouTube 36/354 views, 20 s/30 s, 32%/34%: **waiting**; Instagram 169/129 views, 21 s/11 s, 29%/37%: **waiting**; Facebook 5,144/208 views, 12 s/5 s, 19%/5.9%: **waiting**
+- 2026-11-23-trend-audio: YouTube 36/354 views, 20 s/30 s, 32%/34%: **waiting**; Instagram 169/129 views, 21 s/11 s, 29%/37%: **waiting**; Facebook 5,144/208 views, 12 s/5 s, 19%/5.9%: **waiting**
 
 ## By bucket
 

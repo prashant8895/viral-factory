@@ -64,7 +64,8 @@
           "on": "wrote"
         }
       ],
-      "image": "jobs/curious/pics/curious-2026-11-27-receipt-black/s2.jpg"
+      "image": "jobs/curious/pics/curious-2026-11-27-receipt-black/s2.jpg",
+      "yt_narration": "The till has no *ink*. So what wrote on it?"
     },
     {
       "visual": "2D animation: a magnified slice of receipt paper; a glassy solid coating holds clear dye specks and acid specks kept apart; a hot dot slides over, the coating melts, each dye speck meets its acid speck and turns black; counter BLACK SPOTS 0 to 4, then HEAT = BLACK",
@@ -125,7 +126,7 @@
     {
       "visual": "illustration of a plain white shop receipt lying on a wooden cafe table, a warm coffee mug resting on one corner of it with soft steam rising, the paper under and around the mug turned smoky black in a soft round patch, the mug's glazed rim bright warm orange as the brightest thing in the frame, receipt and mug big in the middle of the frame between 30 and 60 percent of the height, nothing important in the lower third, simple cool blue background, no readable text, no logos, no brand",
       "narration": "<short pause> So heat is the *pen*, even a hot mug. Send this to whoever doodles on receipts with a nail.",
-      "yt_narration": "<short pause> So heat is the *pen*. Any heat at all. That's why, when you",
+      "yt_narration": "<short pause> So heat is the *pen*. That's why, when you",
       "delivery": "reveal",
       "beat": "payoff",
       "share": true,

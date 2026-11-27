@@ -147,8 +147,9 @@ skip it until Prashant restarts it.
    - The quiz scene's narration READS THE QUESTION AND OPTIONS OUT (14–20 words: "Quick one:
      the tallest building on Earth... Burj Khalifa, Shanghai Tower, or Tokyo Skytree? Comment your guess.").
      The card shows "NEXT VIDEO: <next_title>" by itself; say tomorrow's topic only if it still
-     fits in the 20 words. The render holds the card at least 7 s (refuses under 6 s), so keep
-     everything before it to ~58 s.
+     fits in the 20 words. The render holds the card at least 7 s AND always 3 s after the last
+     spoken word (Prashant 2026-11-28: the receipt video stopped 0.3 s after "Comment your guess"),
+     so keep the quiz line short (14–18 words, at most one "...") and everything before it to ~52 s.
    Instagram caption ends with the quiz ("Today's quiz: ...? A) ... B) ... C) ... Comment your
    guess 👇", then "Next video: <next_title>"); YouTube and Facebook descriptions too.
    Total 115–135 words.
@@ -184,10 +185,12 @@ skip it until Prashant restarts it.
    rule above, then add the cut on top. The cut leaves out the shoutout and quiz scenes by itself. Mark
    tease/aside scenes `"yt": false` (or give a shorter `"yt_narration"`) until the kept scenes are
    80–105 spoken words; never drop a how-it-works step or scene 1. The last kept scene MUST get a
-   `"yt_narration"` (render refuses without it): the reveal, then a half-sentence that flows straight back
-   into line 1 so the Short loops; give it a `"yt_delivery"` if the tone changes. Keep the share line if
-   it fits. Read the loop out loud (last line straight into line 1) and fix it until it sounds like one
-   sentence. Judge YouTube only on YouTube numbers, Instagram and Facebook only on theirs
+   `"yt_narration"` (render refuses without it): the reveal as a COMPLETE, calm closing sentence that
+   echoes the opening question, so a replay into line 1 feels natural ("So heat is the pen. Any heat at
+   all."). NEVER end mid-sentence (Prashant 2026-11-28: "...that's why, when you" sounded like the video
+   broke; the render refuses a last line that doesn't end in . ! or ?). Give it a `"yt_delivery"` if the
+   tone changes. Keep the share line if it fits. The render adds a 1.5 s hold after the last word, so keep
+   the kept scenes to ~42 s of voice. Judge YouTube only on YouTube numbers, Instagram and Facebook only on theirs
    (`metrics/report.md` → "Each platform on its own"); when the platforms disagree, tune each platform's
    own version and never change Facebook's to suit another platform.
 5d. ATTENTION (Prashant, 2026-11-18; playbook "Pictures and colours that stop the thumb"):

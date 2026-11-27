@@ -326,6 +326,11 @@ def youtube_cut(job: dict) -> dict | None:
     if not scenes[-1].get("yt_narration") and cfg.get("need_loop_line", True):
         raise ValueError('The last scene of the YouTube cut needs a "yt_narration": a closing line that runs '
                          'straight back into the opening question so the Short loops (playbook "YouTube cut")')
+    end = tts.caption_text(scenes[-1].get("narration", "")).replace("*", "").strip()
+    if not re.search(r"[.!?]['\"’”)]*$", end):
+        # Prashant 2026-11-28: ending mid-sentence ("...that's why, when you") sounds like the video
+        # broke. The closing line is a complete sentence; the replay into line 1 does the looping.
+        raise ValueError(f'The YouTube cut must end on a complete sentence, never mid-sentence: {end[-50:]!r}')
     cut = {**json.loads(json.dumps(job)), "scenes": scenes, "cut": "youtube"}
     cut.pop("quiz", None)
     return cut
@@ -379,6 +384,11 @@ def _render_cut(job: dict, img_dir: Path | None) -> Path:
     return _render(job, ch, img_dir, None, cap=cap)
 
 
+def _spoken_end(sa) -> float:
+    """Seconds into a scene's audio where the last word ends (the whole clip if no timings)."""
+    return max((w.end for w in sa.words), default=sa.duration)
+
+
 def _render(job: dict, ch: dict, img_dir: Path | None, shout, cap: float | None = None) -> Path:
     is_cut = cap is not None
     if job.get("quiz") and job["scenes"][-1].get("quiz"):
@@ -428,11 +438,15 @@ def _render(job: dict, ch: dict, img_dir: Path | None, shout, cap: float | None 
         # Prashant 2026-11-21: the quiz card was gone before anyone could read it. Hold it on
         # screen (silence after the voice, music keeps going) for at least quiz_min_seconds,
         # as far as the 90 s Facebook limit allows.
+        # Prashant 2026-11-28: the receipt video stopped 0.3 s after "Comment your guess": the
+        # question took ~10 s to read, so the 7 s minimum added nothing. Now the card ALWAYS stays
+        # up for quiz_tail_seconds after the last spoken word, however long the reading is.
         eng = ch.get("engagement") or {}
         want = float(eng.get("quiz_min_seconds", 9))
         q_a = scene_audio[-1]
         rest = sum(a.duration for a in scene_audio[:-1])
-        target = min(want, _max_seconds(job, ch) - rest)
+        tail = float(eng.get("quiz_tail_seconds", 3.0))
+        target = max(min(want, _max_seconds(job, ch) - rest), _spoken_end(q_a) + tail)
         if target > q_a.duration:
             scene_audio[-1] = tts.pad_to(q_a, target)
         floor = float(eng.get("quiz_floor_seconds", 7))
@@ -441,6 +455,13 @@ def _render(job: dict, ch: dict, img_dir: Path | None, shout, cap: float | None 
                              f"{floor:.0f}+, ideally {want:.0f}); the rest runs {rest:.1f} s. Trim the "
                              f"content scenes by ~{(floor - scene_audio[-1].duration) * 2.6:.0f} words.")
         print(f"[quiz] on screen {scene_audio[-1].duration:.1f} s", flush=True)
+    if scene_audio and not job["scenes"][-1].get("quiz"):
+        # Every video ends with a beat of picture and music after the last word, never on the word
+        # itself (Prashant 2026-11-28: "the video ended abruptly"). The YouTube cut ends here too.
+        hold = float(ch.get("end_hold_seconds", 1.5))
+        last = scene_audio[-1]
+        if last.duration < _spoken_end(last) + hold:
+            scene_audio[-1] = tts.pad_to(last, _spoken_end(last) + hold)
     total = sum(a.duration for a in scene_audio)
     if is_cut and total > cap + 0.5:
         raise ValueError(f"YouTube cut runs {total:.1f} s; it is capped at {cap:.0f} s (YouTube viewers watch "

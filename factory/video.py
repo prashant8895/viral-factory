@@ -317,6 +317,12 @@ def check_audio(video: Path, scenes: list[SceneAudio]) -> None:
             if rms < 10 ** (-40 / 20):  # quieter than -40 dB while a word should be heard
                 silent.append(f"scene {k + 1} '{w.text}' at {t0 + w.start:.1f}s")
         t0 += s.duration
+    # 4. the video must not stop on the last word (Prashant 2026-11-28: "ended abruptly")
+    last_word = max((sum(x.duration for x in scenes[:k]) + w.end for k, s in enumerate(scenes) for w in s.words),
+                    default=0.0)
+    if last_word and total - last_word < 1.0:
+        raise RuntimeError(f"Audio check: the video ends {total - last_word:.2f} s after the last word "
+                           f"(needs 1 s+ of hold, or it sounds cut off)")
     if spoken and len(silent) > max(2, spoken // 20):
         raise RuntimeError(f"Audio check: {len(silent)} of {spoken} words are silent: " + "; ".join(silent[:6]))
     print(f"[audio check] ok: {heard:.1f} s of sound, no holes, {spoken - len(silent)}/{spoken} words heard",

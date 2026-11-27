@@ -1,98 +1,99 @@
 {
-  "_about": "Every change to how we make videos is a test here (owner 2026-11-27: if it works keep it, else roll back). factory/analyze.py judges each running test per platform: views at 72 h vs the 7 videos before it started, divided by the change on platforms the test doesn't touch (control), must be x1.10+ with seconds watched and skip/watch % no more than 15% worse; 3+ videos at 24 h under 60% of before = early harm stop. factory/experiments.py then keeps it or flips its `switch` values back automatically and sets needs_undo when `rollback` text needs the script run. Max 2 running per platform. status: running | kept | reverted | dropped. Videos carry the id in their job's \"tests\" list.",
-  "tests": [
+ "_about": "Every change to how we make videos is a test here (owner 2026-11-27: if it works keep it, else roll back). factory/analyze.py judges each running test per platform: views at 72 h vs the 7 videos before it started, divided by the change on platforms the test doesn't touch (control), must be x1.10+ with seconds watched and skip/watch % no more than 15% worse; 3+ videos at 24 h under 60% of before = early harm stop. factory/experiments.py then keeps it or flips its `switch` values back automatically and sets needs_undo when `rollback` text needs the script run. Max 2 running per platform. status: running | kept | reverted | dropped. Videos carry the id in their job's \"tests\" list.",
+ "tests": [
+  {
+   "id": "2026-11-19-why-claim-title",
+   "change": "YouTube title and opening headline lead with the surprising fact as a 'Why...' claim, search phrase kept in the title",
+   "kind": "today",
+   "started": "2026-11-19",
+   "videos": 4,
+   "metric": "YouTube views at 24 h above our 556 median",
+   "status": "dropped",
+   "rec": "curious-2026-11-18#1",
+   "ended": "2026-11-22",
+   "note": "Dropped early on 2026-11-22 (owner's call): early numbers negative (cooker whistle 286 at 72 h vs 1,404 before; YouTube 24 h 99-425 vs 556 target; IG 7.6-11.4 s vs 15 s target) and it ran mixed with the bold picture style, so no clean verdict. Make room for the reach tests."
+  },
+  {
+   "id": "2026-11-19-scene2-answer",
+   "change": "Scene 2 gives one real piece of the answer (first step of the chain) before teasing the rest; never a tease-only scene",
+   "kind": "today",
+   "started": "2026-11-19",
+   "videos": 4,
+   "metric": "Instagram seconds watched from 11 s to 15 s+, skip under 40%",
+   "status": "dropped",
+   "rec": "curious-2026-11-18#2",
+   "ended": "2026-11-22",
+   "note": "Dropped early on 2026-11-22 (owner's call): early numbers negative (cooker whistle 286 at 72 h vs 1,404 before; YouTube 24 h 99-425 vs 556 target; IG 7.6-11.4 s vs 15 s target) and it ran mixed with the bold picture style, so no clean verdict. Make room for the reach tests."
+  },
+  {
+   "id": "2026-11-23-short-share",
+   "change": "Whole video 55-65 s (115-135 spoken words incl. the quiz, 6-8 scenes, quiz card 7 s) plus one explicit 'send this to the friend who...' line right after the reveal and as caption line 3",
+   "kind": "format",
+   "started": "2026-11-23",
+   "videos": 5,
+   "metric": "Instagram skip under 35%, Instagram seconds watched 15 s+, shares per 1k 2+, views at 72 h above the 1,404 median",
+   "status": "running",
+   "rec": "owner 2026-11-22 (chat)",
+   "platforms": [
+    "instagram",
+    "facebook"
+   ],
+   "scope_note": "Judged on Instagram + Facebook only from 2026-11-27: YouTube now gets its own cut (test 2026-11-27-youtube-cut).",
+   "switch": [
     {
-      "id": "2026-11-19-why-claim-title",
-      "change": "YouTube title and opening headline lead with the surprising fact as a 'Why...' claim, search phrase kept in the title",
-      "kind": "today",
-      "started": "2026-11-19",
-      "videos": 4,
-      "metric": "YouTube views at 24 h above our 556 median",
-      "status": "dropped",
-      "rec": "curious-2026-11-18#1",
-      "ended": "2026-11-22",
-      "note": "Dropped early on 2026-11-22 (owner's call): early numbers negative (cooker whistle 286 at 72 h vs 1,404 before; YouTube 24 h 99-425 vs 556 target; IG 7.6-11.4 s vs 15 s target) and it ran mixed with the bold picture style, so no clean verdict. Make room for the reach tests."
+     "file": "channels/curious-en/channel.json",
+     "path": "engagement.share_ask.since",
+     "off": "9999-12-31"
     },
     {
-      "id": "2026-11-19-scene2-answer",
-      "change": "Scene 2 gives one real piece of the answer (first step of the chain) before teasing the rest; never a tease-only scene",
-      "kind": "today",
-      "started": "2026-11-19",
-      "videos": 4,
-      "metric": "Instagram seconds watched from 11 s to 15 s+, skip under 40%",
-      "status": "dropped",
-      "rec": "curious-2026-11-18#2",
-      "ended": "2026-11-22",
-      "note": "Dropped early on 2026-11-22 (owner's call): early numbers negative (cooker whistle 286 at 72 h vs 1,404 before; YouTube 24 h 99-425 vs 556 target; IG 7.6-11.4 s vs 15 s target) and it ran mixed with the bold picture style, so no clean verdict. Make room for the reach tests."
-    },
-    {
-      "id": "2026-11-23-short-share",
-      "change": "Whole video 55-65 s (115-135 spoken words incl. the quiz, 6-8 scenes, quiz card 7 s) plus one explicit 'send this to the friend who...' line right after the reveal and as caption line 3",
-      "kind": "format",
-      "started": "2026-11-23",
-      "videos": 5,
-      "metric": "Instagram skip under 35%, Instagram seconds watched 15 s+, shares per 1k 2+, views at 72 h above the 1,404 median",
-      "status": "running",
-      "rec": "owner 2026-11-22 (chat)",
-      "platforms": [
-        "instagram",
-        "facebook"
-      ],
-      "scope_note": "Judged on Instagram + Facebook only from 2026-11-27: YouTube now gets its own cut (test 2026-11-27-youtube-cut).",
-      "switch": [
-        {
-          "file": "channels/curious-en/channel.json",
-          "path": "engagement.share_ask.since",
-          "off": "9999-12-31"
-        },
-        {
-          "file": "channels/curious-en/channel.json",
-          "path": "engagement.max_seconds.since",
-          "off": "9999-12-31"
-        }
-      ],
-      "rollback": "prompts/script.md + playbook: full video back to the pre-23-Nov length (60-89 s is fine, Prashant 2026-11-18; spoken words up to ~170), drop the 'send this to the friend who...' scene and caption line 3."
-    },
-    {
-      "id": "2026-11-23-trend-audio",
-      "change": "Instagram only: today's top trending licensed track from the Instagram Audio API attached muted (audio_volume 0) under our voice",
-      "kind": "format",
-      "started": "2026-11-23",
-      "videos": 5,
-      "metric": "Instagram views at 24 h above the 129 median of 12-22 Nov (Instagram only; YouTube/Facebook unchanged act as control)",
-      "status": "running",
-      "rec": "owner 2026-11-22 (chat)",
-      "platforms": [
-        "instagram"
-      ],
-      "switch": [
-        {
-          "file": "channels/curious-en/channel.json",
-          "path": "instagram_trend_audio.on",
-          "off": false
-        }
-      ]
-    },
-    {
-      "id": "2026-11-27-youtube-cut",
-      "change": "YouTube only: its own 30-45 s cut of the same video (no shoutout or quiz card, closing line loops back into the opening); Instagram and Facebook keep the full video",
-      "kind": "format",
-      "platforms": [
-        "youtube"
-      ],
-      "started": "2026-11-27",
-      "videos": 5,
-      "metric": "YouTube only: views at 72 h above the 507 median of the 7 videos before, YouTube watch % 60%+ (was 32-40% on the full video), seconds watched not below 20 s",
-      "status": "running",
-      "rec": "owner 2026-11-27 (chat): keep Facebook the same, boost YouTube, separate versions per platform are fine",
-      "switch": [
-        {
-          "file": "channels/curious-en/channel.json",
-          "path": "youtube_cut.on",
-          "off": false
-        }
-      ],
-      "rollback": "prompts/script.md step 5e and the playbook 'YouTube cut' row: mark them paused (jobs may keep yt fields; the render ignores them when off)."
+     "file": "channels/curious-en/channel.json",
+     "path": "engagement.max_seconds.since",
+     "off": "9999-12-31"
     }
-  ]
+   ],
+   "rollback": "prompts/script.md + playbook: full video back to the pre-23-Nov length (60-89 s is fine, Prashant 2026-11-18; spoken words up to ~170), drop the 'send this to the friend who...' scene and caption line 3."
+  },
+  {
+   "id": "2026-11-23-trend-audio",
+   "change": "Instagram only: today's top trending licensed track from the Instagram Audio API attached muted (audio_volume 0) under our voice",
+   "kind": "format",
+   "started": "2026-11-23",
+   "videos": 5,
+   "metric": "Instagram views at 24 h above the 129 median of 12-22 Nov (Instagram only; YouTube/Facebook unchanged act as control)",
+   "status": "running",
+   "rec": "owner 2026-11-22 (chat)",
+   "platforms": [
+    "instagram"
+   ],
+   "switch": [
+    {
+     "file": "channels/curious-en/channel.json",
+     "path": "instagram_trend_audio.on",
+     "off": false
+    }
+   ]
+  },
+  {
+   "id": "2026-11-27-youtube-cut",
+   "change": "YouTube only: its own 30-45 s cut of the same video (no shoutout or quiz card, closing line loops back into the opening); Instagram and Facebook keep the full video",
+   "kind": "format",
+   "platforms": [
+    "youtube"
+   ],
+   "started": "2026-11-27",
+   "videos": 5,
+   "metric": "YouTube only: views at 72 h above the 507 median of the 7 videos before, YouTube watch % 60%+ (was 32-40% on the full video), seconds watched not below 20 s",
+   "status": "running",
+   "rec": "owner 2026-11-27 (chat): keep Facebook the same, boost YouTube, separate versions per platform are fine",
+   "switch": [
+    {
+     "file": "channels/curious-en/channel.json",
+     "path": "youtube_cut.on",
+     "off": false
+    }
+   ],
+   "rollback": "prompts/script.md step 5e and the playbook 'YouTube cut' row: mark them paused (jobs may keep yt fields; the render ignores them when off).",
+   "note_2026_11_28": "Prashant: the half-sentence loop ending sounded like the video was cut off. From 28 Nov the cut ends on a complete closing sentence plus a 1.5 s hold; video 1 (receipt) used the old ending."
+  }
+ ]
 }

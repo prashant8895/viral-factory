@@ -56,5 +56,9 @@
   ],
   "trend_audio": true,
   "picture_style": "illustration",
-  "voice": "clone"
+  "voice": "clone",
+  "youtube_cut": {
+    "duration": 42.08,
+    "scenes": 6
+  }
 }

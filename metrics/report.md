@@ -1,6 +1,6 @@
 # Oh That's Why: numbers review
 
-Updated 27 Nov 2026, 11:31 IST. English page, 23 videos, 38,348 views in total (YouTube 14,203, Instagram 6,755, Facebook 17,390). Median watch 16% (9.8 s on Instagram, 24 s on YouTube), median shares 0 per 1k views.
+Updated 27 Nov 2026, 11:32 IST. English page, 23 videos, 38,348 views in total (YouTube 14,203, Instagram 6,755, Facebook 17,390). Median watch 16% (9.8 s on Instagram, 24 s on YouTube), median shares 0 per 1k views.
 
 Hindi page (paused 12 Nov): 7 videos, 867 views in total.
 
@@ -30,8 +30,8 @@ Judge every change per platform: a format can win on Facebook and lose on YouTub
 - Hit: PLANE WINDOW HOLE? (1,249). Why: no signal stands out. Content: line 1 talks to the viewer about something THEY do or have seen ('You've been...', 'You've seen these...'); title is a plain searchable question ('Why do airplane windows have holes?'); busts a common belief (the video says what people wrongly think); about a car part or a household object people own
 - Hit: WHY ARE TYRES BLACK? (1,230). Why: seconds watched 45 vs 24 typical; % of the video watched 105.4 vs 39.2 typical; % still watching at 10% 157.2 vs 83.1 typical; % still watching at the end 65 vs 10 typical. Content: line 1 is a direct Why/How/What question; title carries a twist in CAPS ('NOT a shoe cleaner', 'They started WHITE'); about a car part or a household object people own; under 50 s
 - Hit: WHY TWO FLUSH BUTTONS? (1,192). Why: seconds watched 33 vs 24 typical; % of views from search 5.6 vs 2.9 typical. Content: title is a plain searchable question ('Why do airplane windows have holes?'); busts a common belief (the video says what people wrongly think); about a car part or a household object people own
-- **Recommendation:** YouTube reach follows % of views from the Shorts feed (rank correlation +0.51 over 21 videos). Every YouTube hit had % of views from the Shorts feed at least 90.1 (typical 95.2). Aim each YouTube version at that.
-- **Recommendation:** YouTube reach follows engaged views % (rank correlation +0.40 over 21 videos). Every YouTube hit had engaged views % at least 51.9 (typical 55.1). Aim each YouTube version at that.
+- **Recommendation:** YouTube reach depends on the platform's own feed picking the video up (% of views from the Shorts feed goes with views, rank correlation +0.51); videos it drops end up living off search. So the lever is what the feed judges in the first seconds (the next point), not the title or tags.
+- **Recommendation:** YouTube reach follows engaged views % (rank correlation +0.40 over 21 videos): its hits had a median 57.5 vs 52.65 for the rest. Aim each YouTube version at 57.5+.
 - **Recommendation:** YouTube hits share this: about a car part or a household object people own (100% of hits vs 65% of the rest). Do more of it on YouTube.
 
 - By length band: 40-50s 650 median views, 54% watched (7); 70s+ 434 median views, 35% watched (8); 50-70s 426 median views, 37% watched (8)
@@ -50,8 +50,8 @@ Judge every change per platform: a format can win on Facebook and lose on YouTub
 - Hit: IT'S NOT A SHOE CLEANER! (2,129). Why: skip rate (first 3 s) 33.9 vs 45.2 typical; seconds watched 17.9 vs 10.1 typical. Content: line 1 talks to the viewer about something THEY do or have seen ('You've been...', 'You've seen these...'); line 1 is a bold claim or myth-bust ('X is NOT...', '...wrong your whole life'); title carries a twist in CAPS ('NOT a shoe cleaner', 'They started WHITE'); busts a common belief (the video says what people wrongly think); under 50 s
 - Hit: BACK WINDOW LINES? (1,250). Why: skip rate (first 3 s) 30.6 vs 45.2 typical; seconds watched 20 vs 10.1 typical; likes per 1k views 33.5 vs 5.75 typical. Content: line 1 talks to the viewer about something THEY do or have seen ('You've been...', 'You've seen these...'); title is a plain searchable question ('Why do airplane windows have holes?'); about a car part or a household object people own
 - Hit: WHY THIS MESH? (602). Why: likes per 1k views 13.3 vs 5.75 typical. Content: line 1 is a direct Why/How/What question; title is a plain searchable question ('Why do airplane windows have holes?'); about a car part or a household object people own; under 50 s
-- **Recommendation:** Instagram reach follows seconds watched (rank correlation +0.45 over 22 videos). Every Instagram hit had seconds watched at least 11.7 (typical 10.1). Aim each Instagram version at that.
-- **Recommendation:** Instagram reach follows likes per 1k views (rank correlation +0.44 over 22 videos). Every Instagram hit had likes per 1k views at least 6.6 (typical 5.75). Aim each Instagram version at that.
+- **Recommendation:** Instagram reach follows seconds watched (rank correlation +0.45 over 22 videos): its hits had a median 17.9 vs 9.8 for the rest. Aim each Instagram version at 17.9+.
+- **Recommendation:** Instagram reach follows likes per 1k views (rank correlation +0.44 over 22 videos): its hits had a median 13.3 vs 0 for the rest. Aim each Instagram version at 13.3+.
 - **Recommendation:** Instagram hits share this: line 1 talks to the viewer about something THEY do or have seen ('You've been...', 'You've seen these...') (67% of hits vs 26% of the rest). Do more of it on Instagram.
 - **Recommendation:** Instagram hits share this: under 50 s (67% of hits vs 26% of the rest). Do more of it on Instagram.
 
@@ -72,7 +72,7 @@ Judge every change per platform: a format can win on Facebook and lose on YouTub
 - Hit: WHY ARE FOG LIGHTS SO LOW? (5,144). Why: seconds watched 12 vs 5.3 typical; likes per 1k views 5.1 vs 3.8 typical. Content: line 1 is a direct Why/How/What question; title is a plain searchable question ('Why do airplane windows have holes?'); busts a common belief (the video says what people wrongly think); about a car part or a household object people own
 - Hit: WHY ONLY YOUR KEY WORKS (1,068). Why: seconds watched 7.7 vs 5.3 typical. Content: line 1 talks to the viewer about something THEY do or have seen ('You've been...', 'You've seen these...'); title carries a twist in CAPS ('NOT a shoe cleaner', 'They started WHITE'); about a car part or a household object people own
 - Hit: WHY TWO FLUSH BUTTONS? (972). Why: seconds watched 8.3 vs 5.3 typical. Content: title is a plain searchable question ('Why do airplane windows have holes?'); busts a common belief (the video says what people wrongly think); about a car part or a household object people own
-- **Recommendation:** Facebook reach follows seconds watched (rank correlation +0.56 over 22 videos). Every Facebook hit had seconds watched at least 7.7 (typical 5.3). Aim each Facebook version at that.
+- **Recommendation:** Facebook reach follows seconds watched (rank correlation +0.56 over 22 videos): its hits had a median 10.15 vs 4.7 for the rest. Aim each Facebook version at 10.15+.
 - **Recommendation:** Facebook hits share this: about a car part or a household object people own (100% of hits vs 67% of the rest). Do more of it on Facebook.
 
 - By length band: 50-70s 265 median views, 8.4% watched (8); 40-50s 228 median views, 14% watched (7); 70s+ 210 median views, 4.9% watched (8)
@@ -88,14 +88,14 @@ Judge every change per platform: a format can win on Facebook and lose on YouTub
 - Top videos so far: WHAT'S THIS TOOTHPASTE SQUARE? (seen-but-missed, 6,728 views); WHY ARE FOG LIGHTS SO LOW? (how it works, 5,349 views); IT'S NOT A SHOE CLEANER! (seen-but-missed, 3,188 views). Pitch more topics like these.
 - Weakest: WHY LIFT DOORS SPOT YOUR HAND (how it works, 590); WINTER HAZE? NOT JUST FOG (india everyday, 438); WHY IT'S HOTTER THAN BOILING (how it works, 286). Avoid these angles unless a new twist.
 - Voice trial (clone): 16/5 videos made, 5 at 72 h, verdict: keep.
-- Recommendation for YouTube: YouTube reach follows % of views from the Shorts feed (rank correlation +0.51 over 21 videos). Every YouTube hit had % of views from the Shorts feed at least 90.1 (typical 95.2). Aim each YouTube version at that.
-- Recommendation for YouTube: YouTube reach follows engaged views % (rank correlation +0.40 over 21 videos). Every YouTube hit had engaged views % at least 51.9 (typical 55.1). Aim each YouTube version at that.
+- Recommendation for YouTube: YouTube reach depends on the platform's own feed picking the video up (% of views from the Shorts feed goes with views, rank correlation +0.51); videos it drops end up living off search. So the lever is what the feed judges in the first seconds (the next point), not the title or tags.
+- Recommendation for YouTube: YouTube reach follows engaged views % (rank correlation +0.40 over 21 videos): its hits had a median 57.5 vs 52.65 for the rest. Aim each YouTube version at 57.5+.
 - Recommendation for YouTube: YouTube hits share this: about a car part or a household object people own (100% of hits vs 65% of the rest). Do more of it on YouTube.
-- Recommendation for Instagram: Instagram reach follows seconds watched (rank correlation +0.45 over 22 videos). Every Instagram hit had seconds watched at least 11.7 (typical 10.1). Aim each Instagram version at that.
-- Recommendation for Instagram: Instagram reach follows likes per 1k views (rank correlation +0.44 over 22 videos). Every Instagram hit had likes per 1k views at least 6.6 (typical 5.75). Aim each Instagram version at that.
+- Recommendation for Instagram: Instagram reach follows seconds watched (rank correlation +0.45 over 22 videos): its hits had a median 17.9 vs 9.8 for the rest. Aim each Instagram version at 17.9+.
+- Recommendation for Instagram: Instagram reach follows likes per 1k views (rank correlation +0.44 over 22 videos): its hits had a median 13.3 vs 0 for the rest. Aim each Instagram version at 13.3+.
 - Recommendation for Instagram: Instagram hits share this: line 1 talks to the viewer about something THEY do or have seen ('You've been...', 'You've seen these...') (67% of hits vs 26% of the rest). Do more of it on Instagram.
 - Recommendation for Instagram: Instagram hits share this: under 50 s (67% of hits vs 26% of the rest). Do more of it on Instagram.
-- Recommendation for Facebook: Facebook reach follows seconds watched (rank correlation +0.56 over 22 videos). Every Facebook hit had seconds watched at least 7.7 (typical 5.3). Aim each Facebook version at that.
+- Recommendation for Facebook: Facebook reach follows seconds watched (rank correlation +0.56 over 22 videos): its hits had a median 10.15 vs 4.7 for the rest. Aim each Facebook version at 10.15+.
 - Recommendation for Facebook: Facebook hits share this: about a car part or a household object people own (100% of hits vs 67% of the rest). Do more of it on Facebook.
 - length_band: the platforms disagree (YouTube best: '40-50s', Instagram best: '40-50s', Facebook best: '50-70s'). Don't follow the all-platform rule blindly: YouTube has its own cut, so tune that cut for YouTube and the full video for Instagram and Facebook.
 - YouTube only: bucket: 'seen-but-missed' beats 'how it works' (824 vs 354 median views, 8 vs 10 videos).

@@ -1,5 +1,5 @@
 {
-  "updated": "2026-11-27T11:31+05:30",
+  "updated": "2026-11-27T11:32+05:30",
   "videos": 23,
   "total_views": 38348.0,
   "platform_views": {
@@ -20,14 +20,14 @@
     "Top videos so far: WHAT'S THIS TOOTHPASTE SQUARE? (seen-but-missed, 6,728 views); WHY ARE FOG LIGHTS SO LOW? (how it works, 5,349 views); IT'S NOT A SHOE CLEANER! (seen-but-missed, 3,188 views). Pitch more topics like these.",
     "Weakest: WHY LIFT DOORS SPOT YOUR HAND (how it works, 590); WINTER HAZE? NOT JUST FOG (india everyday, 438); WHY IT'S HOTTER THAN BOILING (how it works, 286). Avoid these angles unless a new twist.",
     "Voice trial (clone): 16/5 videos made, 5 at 72 h, verdict: keep.",
-    "Recommendation for YouTube: YouTube reach follows % of views from the Shorts feed (rank correlation +0.51 over 21 videos). Every YouTube hit had % of views from the Shorts feed at least 90.1 (typical 95.2). Aim each YouTube version at that.",
-    "Recommendation for YouTube: YouTube reach follows engaged views % (rank correlation +0.40 over 21 videos). Every YouTube hit had engaged views % at least 51.9 (typical 55.1). Aim each YouTube version at that.",
+    "Recommendation for YouTube: YouTube reach depends on the platform's own feed picking the video up (% of views from the Shorts feed goes with views, rank correlation +0.51); videos it drops end up living off search. So the lever is what the feed judges in the first seconds (the next point), not the title or tags.",
+    "Recommendation for YouTube: YouTube reach follows engaged views % (rank correlation +0.40 over 21 videos): its hits had a median 57.5 vs 52.65 for the rest. Aim each YouTube version at 57.5+.",
     "Recommendation for YouTube: YouTube hits share this: about a car part or a household object people own (100% of hits vs 65% of the rest). Do more of it on YouTube.",
-    "Recommendation for Instagram: Instagram reach follows seconds watched (rank correlation +0.45 over 22 videos). Every Instagram hit had seconds watched at least 11.7 (typical 10.1). Aim each Instagram version at that.",
-    "Recommendation for Instagram: Instagram reach follows likes per 1k views (rank correlation +0.44 over 22 videos). Every Instagram hit had likes per 1k views at least 6.6 (typical 5.75). Aim each Instagram version at that.",
+    "Recommendation for Instagram: Instagram reach follows seconds watched (rank correlation +0.45 over 22 videos): its hits had a median 17.9 vs 9.8 for the rest. Aim each Instagram version at 17.9+.",
+    "Recommendation for Instagram: Instagram reach follows likes per 1k views (rank correlation +0.44 over 22 videos): its hits had a median 13.3 vs 0 for the rest. Aim each Instagram version at 13.3+.",
     "Recommendation for Instagram: Instagram hits share this: line 1 talks to the viewer about something THEY do or have seen ('You've been...', 'You've seen these...') (67% of hits vs 26% of the rest). Do more of it on Instagram.",
     "Recommendation for Instagram: Instagram hits share this: under 50 s (67% of hits vs 26% of the rest). Do more of it on Instagram.",
-    "Recommendation for Facebook: Facebook reach follows seconds watched (rank correlation +0.56 over 22 videos). Every Facebook hit had seconds watched at least 7.7 (typical 5.3). Aim each Facebook version at that.",
+    "Recommendation for Facebook: Facebook reach follows seconds watched (rank correlation +0.56 over 22 videos): its hits had a median 10.15 vs 4.7 for the rest. Aim each Facebook version at 10.15+.",
     "Recommendation for Facebook: Facebook hits share this: about a car part or a household object people own (100% of hits vs 67% of the rest). Do more of it on Facebook.",
     "length_band: the platforms disagree (YouTube best: '40-50s', Instagram best: '40-50s', Facebook best: '50-70s'). Don't follow the all-platform rule blindly: YouTube has its own cut, so tune that cut for YouTube and the full video for Instagram and Facebook.",
     "YouTube only: bucket: 'seen-but-missed' beats 'how it works' (824 vs 354 median views, 8 vs 10 videos).",
@@ -541,8 +541,8 @@
           }
         ],
         "recommendations": [
-          "YouTube reach follows % of views from the Shorts feed (rank correlation +0.51 over 21 videos). Every YouTube hit had % of views from the Shorts feed at least 90.1 (typical 95.2). Aim each YouTube version at that.",
-          "YouTube reach follows engaged views % (rank correlation +0.40 over 21 videos). Every YouTube hit had engaged views % at least 51.9 (typical 55.1). Aim each YouTube version at that.",
+          "YouTube reach depends on the platform's own feed picking the video up (% of views from the Shorts feed goes with views, rank correlation +0.51); videos it drops end up living off search. So the lever is what the feed judges in the first seconds (the next point), not the title or tags.",
+          "YouTube reach follows engaged views % (rank correlation +0.40 over 21 videos): its hits had a median 57.5 vs 52.65 for the rest. Aim each YouTube version at 57.5+.",
           "YouTube hits share this: about a car part or a household object people own (100% of hits vs 65% of the rest). Do more of it on YouTube."
         ],
         "features_in_hits": [
@@ -782,8 +782,8 @@
           }
         ],
         "recommendations": [
-          "Instagram reach follows seconds watched (rank correlation +0.45 over 22 videos). Every Instagram hit had seconds watched at least 11.7 (typical 10.1). Aim each Instagram version at that.",
-          "Instagram reach follows likes per 1k views (rank correlation +0.44 over 22 videos). Every Instagram hit had likes per 1k views at least 6.6 (typical 5.75). Aim each Instagram version at that.",
+          "Instagram reach follows seconds watched (rank correlation +0.45 over 22 videos): its hits had a median 17.9 vs 9.8 for the rest. Aim each Instagram version at 17.9+.",
+          "Instagram reach follows likes per 1k views (rank correlation +0.44 over 22 videos): its hits had a median 13.3 vs 0 for the rest. Aim each Instagram version at 13.3+.",
           "Instagram hits share this: line 1 talks to the viewer about something THEY do or have seen ('You've been...', 'You've seen these...') (67% of hits vs 26% of the rest). Do more of it on Instagram.",
           "Instagram hits share this: under 50 s (67% of hits vs 26% of the rest). Do more of it on Instagram."
         ],
@@ -1041,7 +1041,7 @@
           }
         ],
         "recommendations": [
-          "Facebook reach follows seconds watched (rank correlation +0.56 over 22 videos). Every Facebook hit had seconds watched at least 7.7 (typical 5.3). Aim each Facebook version at that.",
+          "Facebook reach follows seconds watched (rank correlation +0.56 over 22 videos): its hits had a median 10.15 vs 4.7 for the rest. Aim each Facebook version at 10.15+.",
           "Facebook hits share this: about a car part or a household object people own (100% of hits vs 67% of the rest). Do more of it on Facebook."
         ],
         "features_in_hits": [

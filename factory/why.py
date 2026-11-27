@@ -39,6 +39,9 @@ SIGNALS = {
                  "replays_per_1k": ("replays per 1k views", True)},
 }
 
+# Signals that are a RESULT of distribution, not something a script can aim at: they explain, they don't instruct.
+OUTCOMES = {"yt_src_shorts_pct", "yt_src_search_pct"}
+
 FEATURES = {
     "opener_you": "line 1 talks to the viewer about something THEY do or have seen ('You've been...', 'You've seen these...')",
     "opener_question": "line 1 is a direct Why/How/What question",
@@ -200,9 +203,25 @@ def review(name: str, rows: list[dict]) -> dict:
     res["features_in_hits"] = [{"feature": f, "hits": round(hr, 2), "others": round(rr, 2)} for f, _, hr, rr in feat_lines]
     # recommendations
     strong = [d for d in res["drivers"] if d["strength"] >= 0.4]
-    for d in strong[:2]:
+    for d in [d for d in strong if d["signal"] in OUTCOMES][:1]:
+        res["recommendations"].append(
+            f"{NAME[name]} reach depends on the platform's own feed picking the video up ({d['label']} goes with views, "
+            f"rank correlation {d['rho']:+.2f}); videos it drops end up living off search. So the lever is what the feed "
+            f"judges in the first seconds (the next point), not the title or tags.")
+    for d in [d for d in strong if d["signal"] not in OUTCOMES][:2]:
         k, (label, up) = d["signal"], sig[d["signal"]]
-        vals = [h.get(k) for h in hits if h.get(k) is not None]
+        hv = [h.get(k) for h in hits if h.get(k) is not None]
+        rv = [r.get(k) for r in rows if r not in hits and r.get(k) is not None]
+        if hv and rv:
+            hm, rm = _median(hv), _median(rv)
+            if (up and hm <= rm) or (not up and hm >= rm):
+                continue  # goes with views overall, but the hits weren't better on it: no target
+            res["recommendations"].append(
+                f"{NAME[name]} reach follows {label} (rank correlation {d['rho']:+.2f} over {d['n']} videos): its hits "
+                f"had a median {hm:g} vs {rm:g} for the rest. Aim each {NAME[name]} version at {hm:g}+"
+                + ("" if up else " or less") + ".")
+    for d in []:
+        vals = []
         if vals:
             target = min(vals) if up else max(vals)
             res["recommendations"].append(

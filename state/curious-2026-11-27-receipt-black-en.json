@@ -60,5 +60,25 @@
   "youtube_cut": {
     "duration": 42.08,
     "scenes": 6
-  }
+  },
+  "platforms": {
+    "youtube": {
+      "id": "RCixDBtR2lo",
+      "url": "https://youtube.com/shorts/RCixDBtR2lo",
+      "privacy": "public",
+      "cut": "youtube",
+      "posted_at": "2026-11-27T23:28+05:30"
+    },
+    "instagram": {
+      "id": "17968659804208618",
+      "url": "https://www.instagram.com/reel/DgQRiCRN7W0/",
+      "posted_at": "2026-11-27T23:31+05:30"
+    },
+    "facebook": {
+      "id": "2684325148670674",
+      "url": "https://www.facebook.com/reel/2684325148670674",
+      "posted_at": "2026-11-27T23:31+05:30"
+    }
+  },
+  "errors": {}
 }

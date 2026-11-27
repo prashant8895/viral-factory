@@ -1,6 +1,6 @@
 # Oh That's Why: numbers review
 
-Updated 27 Nov 2026, 11:15 IST. English page, 23 videos, 38,216 views in total (YouTube 14,084, Instagram 6,755, Facebook 17,377). Median watch 16% (9.8 s on Instagram, 24 s on YouTube), median shares 0 per 1k views.
+Updated 27 Nov 2026, 11:26 IST. English page, 23 videos, 38,216 views in total (YouTube 14,084, Instagram 6,755, Facebook 17,377). Median watch 16% (9.8 s on Instagram, 24 s on YouTube), median shares 0 per 1k views.
 
 Hindi page (paused 12 Nov): 7 videos, 867 views in total.
 
@@ -21,6 +21,17 @@ Judge every change per platform: a format can win on Facebook and lose on YouTub
 - The 7 videos of 2026-11-06 to 2026-11-11 lead (650 vs 300 median views), but they were 'photo', 'kokoro', '40-50s' all at once (picture_style, voice, length_band), so we can't tell which one did it.
 - Best: HOW DO SHOP TAGS WORK? (1,312); WHY THIS MESH? (1,289); PLANE WINDOW HOLE? (1,249)
 - Weakest: WHY IT'S HOTTER THAN BOILING (176); WINTER HAZE? NOT JUST FOG (64); WHY ARE FOG LIGHTS SO LOW? (36)
+
+#### Why it works on YouTube
+
+- What moves with views here (rank correlation, + = more of it, more views): % of the video watched +0.35; seconds watched +0.30; likes per 1k views +0.12; comments per 1k -0.33
+- Hit: HOW DO SHOP TAGS WORK? (1,312). Why: no signal stands out. Content: title is a plain searchable question ('Why do airplane windows have holes?'); about a car part or a household object people own
+- Hit: WHY THIS MESH? (1,289). Why: % of the video watched 54.3 vs 39.2 typical; likes per 1k views 30.2 vs 18.15 typical. Content: line 1 is a direct Why/How/What question; title is a plain searchable question ('Why do airplane windows have holes?'); about a car part or a household object people own; under 50 s
+- Hit: PLANE WINDOW HOLE? (1,249). Why: no signal stands out. Content: line 1 talks to the viewer about something THEY do or have seen ('You've been...', 'You've seen these...'); title is a plain searchable question ('Why do airplane windows have holes?'); busts a common belief (the video says what people wrongly think); about a car part or a household object people own
+- Hit: WHY ARE TYRES BLACK? (1,230). Why: seconds watched 45 vs 24 typical; % of the video watched 105.4 vs 39.2 typical. Content: line 1 is a direct Why/How/What question; title carries a twist in CAPS ('NOT a shoe cleaner', 'They started WHITE'); about a car part or a household object people own; under 50 s
+- Hit: WHY TWO FLUSH BUTTONS? (1,192). Why: seconds watched 33 vs 24 typical. Content: title is a plain searchable question ('Why do airplane windows have holes?'); busts a common belief (the video says what people wrongly think); about a car part or a household object people own
+- **Recommendation:** YouTube hits share this: about a car part or a household object people own (100% of hits vs 65% of the rest). Do more of it on YouTube.
+
 - By length band: 40-50s 650 median views, 54% watched (7); 70s+ 434 median views, 35% watched (8); 50-70s 376 median views, 37% watched (8)
 - By bucket: myth busted 1,025 median views, 36% watched (1, too few); seen-but-missed 824 median views, 43% watched (8); why does it happen 610 median views, 52% watched (2, too few); how it works 354 median views, 34% watched (10); careful health 236 median views, 58% watched (1, too few); india everyday 62 median views, 38% watched (1, too few)
 
@@ -30,6 +41,18 @@ Judge every change per platform: a format can win on Facebook and lose on YouTub
 - The 7 videos of 2026-11-06 to 2026-11-11 lead (203 vs 118 median views), but they were 'photo', 'kokoro', '40-50s' all at once (picture_style, voice, length_band), so we can't tell which one did it.
 - Best: IT'S NOT A SHOE CLEANER! (2,129); BACK WINDOW LINES? (1,250); WHY THIS MESH? (602)
 - Weakest: WHY IT'S HOTTER THAN BOILING (108); WHY ONLY YOUR KEY WORKS (45); WHY DO STARS TWINKLE? (8)
+
+#### Why it works on Instagram
+
+- What moves with views here (rank correlation, + = more of it, more views): seconds watched +0.45; likes per 1k views +0.44; shares per 1k views +0.42; skip rate (first 3 s) -0.27; saves per 1k views +0.21
+- Hit: IT'S NOT A SHOE CLEANER! (2,129). Why: skip rate (first 3 s) 33.9 vs 45.2 typical; seconds watched 17.9 vs 10.1 typical. Content: line 1 talks to the viewer about something THEY do or have seen ('You've been...', 'You've seen these...'); line 1 is a bold claim or myth-bust ('X is NOT...', '...wrong your whole life'); title carries a twist in CAPS ('NOT a shoe cleaner', 'They started WHITE'); busts a common belief (the video says what people wrongly think); under 50 s
+- Hit: BACK WINDOW LINES? (1,250). Why: skip rate (first 3 s) 30.6 vs 45.2 typical; seconds watched 20 vs 10.1 typical; likes per 1k views 33.5 vs 5.75 typical. Content: line 1 talks to the viewer about something THEY do or have seen ('You've been...', 'You've seen these...'); title is a plain searchable question ('Why do airplane windows have holes?'); about a car part or a household object people own
+- Hit: WHY THIS MESH? (602). Why: likes per 1k views 13.3 vs 5.75 typical. Content: line 1 is a direct Why/How/What question; title is a plain searchable question ('Why do airplane windows have holes?'); about a car part or a household object people own; under 50 s
+- **Recommendation:** Instagram reach follows seconds watched (rank correlation +0.45 over 22 videos). Every Instagram hit had seconds watched at least 11.7 (typical 10.1). Aim each Instagram version at that.
+- **Recommendation:** Instagram reach follows likes per 1k views (rank correlation +0.44 over 22 videos). Every Instagram hit had likes per 1k views at least 6.6 (typical 5.75). Aim each Instagram version at that.
+- **Recommendation:** Instagram hits share this: line 1 talks to the viewer about something THEY do or have seen ('You've been...', 'You've seen these...') (67% of hits vs 26% of the rest). Do more of it on Instagram.
+- **Recommendation:** Instagram hits share this: under 50 s (67% of hits vs 26% of the rest). Do more of it on Instagram.
+
 - By length band: 40-50s 203 median views, 24% watched (7); 70s+ 144 median views, 13% watched (8); 50-70s 120 median views, 17% watched (8)
 - By bucket: careful health 220 median views, 18% watched (1, too few); seen-but-missed 168 median views, 24% watched (8); india everyday 145 median views, 24% watched (1, too few); how it works 144 median views, 13% watched (10); myth busted 114 median views, 12% watched (1, too few); why does it happen 88 median views, 10% watched (2, too few)
 
@@ -39,6 +62,17 @@ Judge every change per platform: a format can win on Facebook and lose on YouTub
 - length_band: '50-70s' beats '70s+' (265 vs 210 median views, 8 vs 8 videos).
 - Best: WHAT'S THIS TOOTHPASTE SQUARE? (6,074); WHY ARE FOG LIGHTS SO LOW? (5,144); WHY ONLY YOUR KEY WORKS (1,068)
 - Weakest: WHY LIFT DOORS SPOT YOUR HAND (177); NO BATTERY. HOW DOES IT PAY? (131); WHY IT'S HOTTER THAN BOILING (2)
+
+#### Why it works on Facebook
+
+- What moves with views here (rank correlation, + = more of it, more views): seconds watched +0.56; likes per 1k views +0.06
+- Hit: WHAT'S THIS TOOTHPASTE SQUARE? (6,074). Why: seconds watched 12.6 vs 5.3 typical; likes per 1k views 6.9 vs 3.8 typical. Content: line 1 talks to the viewer about something THEY do or have seen ('You've been...', 'You've seen these...'); title is a plain searchable question ('Why do airplane windows have holes?'); busts a common belief (the video says what people wrongly think); about a car part or a household object people own
+- Hit: WHY ARE FOG LIGHTS SO LOW? (5,144). Why: seconds watched 12 vs 5.3 typical; likes per 1k views 5.1 vs 3.8 typical. Content: line 1 is a direct Why/How/What question; title is a plain searchable question ('Why do airplane windows have holes?'); busts a common belief (the video says what people wrongly think); about a car part or a household object people own
+- Hit: WHY ONLY YOUR KEY WORKS (1,068). Why: seconds watched 7.7 vs 5.3 typical. Content: line 1 talks to the viewer about something THEY do or have seen ('You've been...', 'You've seen these...'); title carries a twist in CAPS ('NOT a shoe cleaner', 'They started WHITE'); about a car part or a household object people own
+- Hit: WHY TWO FLUSH BUTTONS? (972). Why: seconds watched 8.3 vs 5.3 typical. Content: title is a plain searchable question ('Why do airplane windows have holes?'); busts a common belief (the video says what people wrongly think); about a car part or a household object people own
+- **Recommendation:** Facebook reach follows seconds watched (rank correlation +0.56 over 22 videos). Every Facebook hit had seconds watched at least 7.7 (typical 5.3). Aim each Facebook version at that.
+- **Recommendation:** Facebook hits share this: about a car part or a household object people own (100% of hits vs 67% of the rest). Do more of it on Facebook.
+
 - By length band: 50-70s 265 median views, 8.4% watched (8); 40-50s 228 median views, 14% watched (7); 70s+ 210 median views, 4.9% watched (8)
 - By bucket: seen-but-missed 238 median views, 13% watched (8); myth busted 236 median views, 5.6% watched (1, too few); india everyday 234 median views, 14% watched (1, too few); why does it happen 231 median views, 11% watched (2, too few); how it works 210 median views, 5.3% watched (10); careful health 191 median views, 8% watched (1, too few)
 
@@ -52,6 +86,13 @@ Judge every change per platform: a format can win on Facebook and lose on YouTub
 - Top videos so far: WHAT'S THIS TOOTHPASTE SQUARE? (seen-but-missed, 6,621 views); WHY ARE FOG LIGHTS SO LOW? (how it works, 5,349 views); IT'S NOT A SHOE CLEANER! (seen-but-missed, 3,188 views). Pitch more topics like these.
 - Weakest: WHY LIFT DOORS SPOT YOUR HAND (how it works, 590); WINTER HAZE? NOT JUST FOG (india everyday, 438); WHY IT'S HOTTER THAN BOILING (how it works, 286). Avoid these angles unless a new twist.
 - Voice trial (clone): 16/5 videos made, 5 at 72 h, verdict: keep.
+- Recommendation for YouTube: YouTube hits share this: about a car part or a household object people own (100% of hits vs 65% of the rest). Do more of it on YouTube.
+- Recommendation for Instagram: Instagram reach follows seconds watched (rank correlation +0.45 over 22 videos). Every Instagram hit had seconds watched at least 11.7 (typical 10.1). Aim each Instagram version at that.
+- Recommendation for Instagram: Instagram reach follows likes per 1k views (rank correlation +0.44 over 22 videos). Every Instagram hit had likes per 1k views at least 6.6 (typical 5.75). Aim each Instagram version at that.
+- Recommendation for Instagram: Instagram hits share this: line 1 talks to the viewer about something THEY do or have seen ('You've been...', 'You've seen these...') (67% of hits vs 26% of the rest). Do more of it on Instagram.
+- Recommendation for Instagram: Instagram hits share this: under 50 s (67% of hits vs 26% of the rest). Do more of it on Instagram.
+- Recommendation for Facebook: Facebook reach follows seconds watched (rank correlation +0.56 over 22 videos). Every Facebook hit had seconds watched at least 7.7 (typical 5.3). Aim each Facebook version at that.
+- Recommendation for Facebook: Facebook hits share this: about a car part or a household object people own (100% of hits vs 67% of the rest). Do more of it on Facebook.
 - length_band: the platforms disagree (YouTube best: '40-50s', Instagram best: '40-50s', Facebook best: '50-70s'). Don't follow the all-platform rule blindly: YouTube has its own cut, so tune that cut for YouTube and the full video for Instagram and Facebook.
 - YouTube only: bucket: 'seen-but-missed' beats 'how it works' (824 vs 354 median views, 8 vs 10 videos).
 - YouTube only: hook_style: 'question' beats 'curiosity' (941 vs 392 median views, 4 vs 16 videos).
@@ -65,6 +106,7 @@ Judge every change per platform: a format can win on Facebook and lose on YouTub
 - Facebook best: WHAT'S THIS TOOTHPASTE SQUARE? (6,074); WHY ARE FOG LIGHTS SO LOW? (5,144); WHY ONLY YOUR KEY WORKS (1,068). Weakest: WHY LIFT DOORS SPOT YOUR HAND (177); NO BATTERY. HOW DOES IT PAY? (131); WHY IT'S HOTTER THAN BOILING (2).
 - Test '2026-11-23-short-share' (Whole video 55-65 s (115-135 spoken words incl. the quiz, 6-8 scenes, quiz card 7 s) plus one explicit 'send this to the friend who...' line right after the reveal and as caption line 3): 4/5 videos, 1 at 72 h, verdict: waiting.
 - Test '2026-11-23-trend-audio' (Instagram only: today's top trending licensed track from the Instagram Audio API attached muted (audio_volume 0) under our voice): 4/5 videos, 1 at 72 h, verdict: waiting.
+- Test '2026-11-27-youtube-cut' (YouTube only: its own 30-45 s cut of the same video (no shoutout or quiz card, closing line loops back into the opening); Instagram and Facebook keep the full video): 0/5 videos, 0 at 72 h, verdict: waiting.
 
 ## Problems in the data or posting
 
@@ -113,11 +155,13 @@ Judge every change per platform: a format can win on Facebook and lose on YouTub
 | 2026-11-19-scene2-answer | Scene 2 gives one real piece of the answer (first step of the chain) before teasing the rest; never a tease-only scene | 2026-11-19 | 4 (4/4) | 900 / 1,404 | 8.9 s / 11 s | 40% / 46% | dropped |
 | 2026-11-23-short-share | Whole video 55-65 s (115-135 spoken words incl. the quiz, 6-8 scenes, quiz card 7 s) plus one explicit 'send this to the friend who...' line right after the reveal and as caption line 3 | 2026-11-23 | 4 (1/5) | 5,349 / 875 | 21 s / 11 s | 29% / 37% | waiting |
 | 2026-11-23-trend-audio | Instagram only: today's top trending licensed track from the Instagram Audio API attached muted (audio_volume 0) under our voice | 2026-11-23 | 4 (1/5) | 5,349 / 875 | 21 s / 11 s | 29% / 37% | waiting |
+| 2026-11-27-youtube-cut | YouTube only: its own 30-45 s cut of the same video (no shoutout or quiz card, closing line loops back into the opening); Instagram and Facebook keep the full video | 2026-11-27 | 0 (0/5) | – / 1,209 | – / 11 s | – / 37% | waiting |
 
 Per platform (72 h views, seconds watched, IG skip or watch %; test / before):
 
-- 2026-11-23-short-share: YouTube 36/354 views, 20 s/30 s, 32%/34%: **waiting**; Instagram 169/129 views, 21 s/11 s, 29%/37%: **waiting**; Facebook 5,144/208 views, 12 s/5 s, 19%/5.9%: **waiting**
-- 2026-11-23-trend-audio: YouTube 36/354 views, 20 s/30 s, 32%/34%: **waiting**; Instagram 169/129 views, 21 s/11 s, 29%/37%: **waiting**; Facebook 5,144/208 views, 12 s/5 s, 19%/5.9%: **waiting**
+- 2026-11-23-short-share: Instagram 169/129 views, 21 s/11 s, 29%/37%: **waiting**; Facebook 5,144/208 views, 12 s/5 s, 19%/5.9%: **waiting**
+- 2026-11-23-trend-audio: Instagram 169/129 views, 21 s/11 s, 29%/37%: **waiting**
+- 2026-11-27-youtube-cut: YouTube –/349 views, –/30 s, –/34%: **waiting**
 
 ## By bucket
 

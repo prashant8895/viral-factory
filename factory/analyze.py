@@ -228,23 +228,63 @@ def platform_review(live: list[dict], name: str) -> dict:
 
 
 def _test_on(t: dict, live: list[dict], name: str) -> dict:
-    """A test judged on one platform's numbers: views at 72 h, seconds watched, and skip rate
-    (Instagram) or watch % (YouTube, Facebook)."""
+    """One test on one platform: tagged videos vs the 7 videos (72 h old) before it started.
+    Views (the main measure), seconds watched, and skip rate (Instagram) or watch % (YouTube,
+    Facebook) as guard rails. Early numbers (24 h) feed the harm stop."""
     vids = [x for x in (_on(v, name) for v in live) if x]
     need, tid = int(t.get("videos", 5)), t["id"]
     tagged = [v for v in vids if tid in v["tests"]]
     ripe = [v for v in tagged if v["hours"] >= 72][:need]
+    early = [v for v in tagged if v["hours"] >= 24]
     before = [v for v in vids if (v["date"] or "") < t.get("started", "") and v["hours"] >= 72][-7:]
     third = "skip_pct" if name == "instagram" else "watch_pct"
     m = lambda vs, k: _median([v[k] for v in vs])  # noqa: E731
     a = {k: m(ripe or tagged, k) for k in ("v72", "watch_s", third)}
     b = {k: m(before, k) for k in ("v72", "watch_s", third)}
-    res = {"test": a, "before": b, "videos_72h": len(ripe), "verdict": "waiting"}
-    if len(ripe) >= need and before:
-        ok = lambda k, hi: a[k] is not None and b[k] is not None and (a[k] >= 0.9 * b[k] if hi else a[k] <= 1.1 * b[k])  # noqa: E731
-        wins = sum([ok("v72", True), ok("watch_s", True), ok(third, third != "skip_pct")])
-        res["verdict"] = "keep" if wins >= 2 else "revert"
-    return res
+    a24, b24 = m(early, "v24"), m(before, "v24")
+    return {"test": a, "before": b, "videos_72h": len(ripe), "videos_24h": len(early), "need": need,
+            "third": third, "ready": len(ripe) >= need and bool(before),
+            "lift": round(a["v72"] / b["v72"], 2) if a["v72"] and b["v72"] else None,
+            "lift24": round(a24 / b24, 2) if a24 and b24 and len(early) >= 3 else None,
+            "verdict": "waiting"}
+
+
+WORKS = 1.10   # a change must lift views on its platform by 10%+ (after the control) to be kept
+HARM = 0.60    # 3+ videos at 24 h under 60% of before (after the control) = stop early
+GUARD = 0.85   # and seconds watched / skip / watch % may not get more than 15% worse
+
+
+def judge_test(t: dict, by: dict, control: dict) -> tuple[str, str]:
+    """Keep only what WORKS, roll back the rest (owner 2026-11-27).
+
+    Each platform is judged against its OWN videos before the test started. The untouched
+    platforms are shown for context only, not divided out: our numbers show the platforms move
+    independently (Facebook went 24x on two videos that did nothing on YouTube), so one platform
+    is no fair control for another. Noise is handled by the 5-video median and the 10% bar."""
+    ctrl_lifts = [r["lift"] for r in control.values() if r.get("lift")]
+    ctrl = ctrl24 = 1.0
+    why, works, harm = [], 0, False
+    for n, r in by.items():
+        if r.get("lift24") is not None and r["lift24"] / ctrl24 < HARM:
+            harm = True
+            why.append(f"{PNAME[n]} 24 h views {r['lift24']:.0%} of before: harm stop")
+    if harm and t.get("status") == "running":
+        return "revert", "; ".join(why)
+    if not all(r["ready"] for r in by.values()):
+        return "waiting", ""
+    for n, r in by.items():
+        a, b, third = r["test"], r["before"], r["third"]
+        adj = (r["lift"] or 0) / ctrl
+        guard_ok = all(
+            a[k] is None or b[k] is None or (a[k] >= GUARD * b[k] if k != "skip_pct" else a[k] <= b[k] / GUARD)
+            for k in ("watch_s", third))
+        ok = adj >= WORKS and guard_ok
+        works += ok
+        r["adj_lift"], r["verdict"] = round(adj, 2), "keep" if ok else "revert"
+        why.append(f"{PNAME[n]} views x{adj:.2f} vs before" + (f" (untouched platforms x{_median(ctrl_lifts):.2f}, context only)" if ctrl_lifts else "")
+                   + ("" if guard_ok else ", watch/skip got worse") + (": works" if ok else ": doesn't work"))
+    verdict = "keep" if works * 2 >= len(by) and all(r.get("adj_lift", 0) >= 0.8 for r in by.values()) else "revert"
+    return verdict, "; ".join(why)
 
 
 def _fmt(x, suffix=""):
@@ -368,23 +408,15 @@ def main() -> None:
                "status": t.get("status"), "videos_made": len(tagged), "videos_72h": len(ripe), "needed": need,
                "test": {k: m(ripe or tagged, k) for k in ("v72", "ig_watch_s", "skip_pct")},
                "before": {k: m(before, k) for k in ("v72", "ig_watch_s", "skip_pct")}, "verdict": "waiting"}
-        if t.get("status") == "running" and len(ripe) >= need and before:
-            a, b = res["test"], res["before"]
-            wins = sum([
-                a["v72"] is not None and b["v72"] is not None and a["v72"] >= 0.9 * b["v72"],
-                a["ig_watch_s"] is not None and b["ig_watch_s"] is not None and a["ig_watch_s"] >= 0.9 * b["ig_watch_s"],
-                a["skip_pct"] is not None and b["skip_pct"] is not None and a["skip_pct"] <= 1.1 * b["skip_pct"],
-            ])
-            res["verdict"] = "keep" if wins >= 2 else "revert"
-            res["why"] = (f"{wins} of 3 checks held up (views at 72 h, Instagram seconds watched, Instagram skip; "
-                          f"each within 10% of the {len(before)} videos before it)")
-        # Per platform (owner 2026-11-27). A test scoped to some platforms is judged only there.
+        # Verdict per platform (owner 2026-11-27): keep only what works, roll back the rest.
+        # A test scoped to some platforms is judged only there, with the others as control.
         scope = t.get("platforms") or list(MAIN)
         res["platforms"] = scope
         res["by_platform"] = {n: _test_on(t, live, n) for n in scope}
-        if t.get("platforms"):
-            res["verdict"] = ("waiting" if t.get("status") != "running" or any(r["verdict"] == "waiting" for r in res["by_platform"].values())
-                              else "keep" if all(r["verdict"] == "keep" for r in res["by_platform"].values()) else "revert")
+        control = {n: _test_on(t, live, n) for n in MAIN if n not in scope}
+        verdict, why_line = judge_test(t, res["by_platform"], control)
+        if t.get("status") == "running":
+            res["verdict"], res["why"] = verdict, why_line
         tests_out.append(res)
     running = [t for t in tlist if t.get("status") == "running"]
     for n in MAIN:  # max 2 tests touching one platform at once, or we can't tell which change did what
@@ -392,6 +424,16 @@ def main() -> None:
         if len(here) > 2:
             flags.append(f"{len(here)} tests running on {PNAME[n]} at once ({', '.join(here)}): max is 2 per platform.")
     reviews = {n: platform_review(live, n) for n in MAIN}
+    # Why each platform's hits worked + what to do on that platform (factory/why.py)
+    from . import why
+    hist = OUT / "history.csv"
+    newest: dict = {}
+    for r in (csv.DictReader(hist.open()) if hist.exists() else []):
+        newest[(r["id"], r["platform"])] = r
+    for n in MAIN:
+        reviews[n]["why"] = why.review(n, why.per_platform_rows(live, n, newest))
+        for x in reviews[n]["why"]["recommendations"]:
+            rules.append(f"Recommendation for {PNAME[n]}: {x}")
     for key in ("length_band", "bucket"):  # where the platforms want different things, say so plainly
         bests = {}
         for n in MAIN:
@@ -451,6 +493,7 @@ def main() -> None:
             L.append("- Best: " + "; ".join(r["top"]))
         if r["bottom"]:
             L.append("- Weakest: " + "; ".join(r["bottom"]))
+        L += [""] + why.report_lines(n, r["why"]) + [""]
         for key in ("length_band", "bucket", "cut"):
             gs = r["groups"][key]
             if len(gs) > 1:

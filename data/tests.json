@@ -1,5 +1,5 @@
 {
-  "_about": "Approved Morning Slate changes, each judged by factory/analyze.py against the videos before it. Written by the script run when Prashant approves a recommendation. Max 2 running per platform at once (a test with \"platforms\" only touches and is judged on those platforms). status: running | kept | reverted | dropped. Videos carry the id in their job's \"tests\" list.",
+  "_about": "Every change to how we make videos is a test here (owner 2026-11-27: if it works keep it, else roll back). factory/analyze.py judges each running test per platform: views at 72 h vs the 7 videos before it started, divided by the change on platforms the test doesn't touch (control), must be x1.10+ with seconds watched and skip/watch % no more than 15% worse; 3+ videos at 24 h under 60% of before = early harm stop. factory/experiments.py then keeps it or flips its `switch` values back automatically and sets needs_undo when `rollback` text needs the script run. Max 2 running per platform. status: running | kept | reverted | dropped. Videos carry the id in their job's \"tests\" list.",
   "tests": [
     {
       "id": "2026-11-19-why-claim-title",
@@ -33,7 +33,25 @@
       "videos": 5,
       "metric": "Instagram skip under 35%, Instagram seconds watched 15 s+, shares per 1k 2+, views at 72 h above the 1,404 median",
       "status": "running",
-      "rec": "owner 2026-11-22 (chat)"
+      "rec": "owner 2026-11-22 (chat)",
+      "platforms": [
+        "instagram",
+        "facebook"
+      ],
+      "scope_note": "Judged on Instagram + Facebook only from 2026-11-27: YouTube now gets its own cut (test 2026-11-27-youtube-cut).",
+      "switch": [
+        {
+          "file": "channels/curious-en/channel.json",
+          "path": "engagement.share_ask.since",
+          "off": "9999-12-31"
+        },
+        {
+          "file": "channels/curious-en/channel.json",
+          "path": "engagement.max_seconds.since",
+          "off": "9999-12-31"
+        }
+      ],
+      "rollback": "prompts/script.md + playbook: full video back to the pre-23-Nov length (60-89 s is fine, Prashant 2026-11-18; spoken words up to ~170), drop the 'send this to the friend who...' scene and caption line 3."
     },
     {
       "id": "2026-11-23-trend-audio",
@@ -43,7 +61,17 @@
       "videos": 5,
       "metric": "Instagram views at 24 h above the 129 median of 12-22 Nov (Instagram only; YouTube/Facebook unchanged act as control)",
       "status": "running",
-      "rec": "owner 2026-11-22 (chat)"
+      "rec": "owner 2026-11-22 (chat)",
+      "platforms": [
+        "instagram"
+      ],
+      "switch": [
+        {
+          "file": "channels/curious-en/channel.json",
+          "path": "instagram_trend_audio.on",
+          "off": false
+        }
+      ]
     },
     {
       "id": "2026-11-27-youtube-cut",
@@ -56,7 +84,15 @@
       "videos": 5,
       "metric": "YouTube only: views at 72 h above the 507 median of the 7 videos before, YouTube watch % 60%+ (was 32-40% on the full video), seconds watched not below 20 s",
       "status": "running",
-      "rec": "owner 2026-11-27 (chat): keep Facebook the same, boost YouTube, separate versions per platform are fine"
+      "rec": "owner 2026-11-27 (chat): keep Facebook the same, boost YouTube, separate versions per platform are fine",
+      "switch": [
+        {
+          "file": "channels/curious-en/channel.json",
+          "path": "youtube_cut.on",
+          "off": false
+        }
+      ],
+      "rollback": "prompts/script.md step 5e and the playbook 'YouTube cut' row: mark them paused (jobs may keep yt fields; the render ignores them when off)."
     }
   ]
 }

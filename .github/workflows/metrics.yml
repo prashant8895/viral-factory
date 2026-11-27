@@ -9,6 +9,7 @@ on:
 
 permissions:
   contents: write
+  issues: write  # test results (kept / rolled back) are sent as issues
 
 concurrency:
   group: repo-writes
@@ -41,9 +42,13 @@ jobs:
           python-version: "3.12"
       - run: pip install requests
       - run: python -m factory.metrics
+      - name: Keep what works, roll back what doesn't (tests in data/tests.json)
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: python -m factory.experiments
       - name: Save metrics
         run: |
           git config user.name "video-factory"
           git config user.email "actions@github.com"
-          git add metrics
+          git add metrics data/tests.json channels/*/channel.json
           git diff --cached --quiet || (git commit -m "Metrics" && git pull --rebase && git push)

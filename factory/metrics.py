@@ -35,6 +35,14 @@ def main() -> None:
             print(f"YouTube retention not available for {key}:", str(e)[:200])
             for vid in ids:
                 yt.setdefault(vid, {}).setdefault("error", "youtube analytics: " + str(e)[:150])
+        try:  # why signals: traffic source, retention curve, engaged views (recent videos only)
+            recent = [s["platforms"]["youtube"]["id"] for s in states if s["channel"] == key
+                      and "youtube" in s["platforms"] and s.get("date")
+                      and (now - datetime.fromisoformat(f"{s['date']}T00:00").replace(tzinfo=IST)).days <= 30]
+            for vid, extra in platforms.youtube_why(prefix({"channel": key}), recent, start).items():
+                yt.setdefault(vid, {}).update(extra)
+        except Exception as e:
+            print(f"YouTube why-signals not available for {key}:", str(e)[:200])
 
     for s in states:
         for name, post in s["platforms"].items():
@@ -63,7 +71,11 @@ def main() -> None:
     fields = ["checked", "channel", "id", "bucket", "hook", "hook_style", "slot", "platform", "hours_live", "views", "likes",
               "comments", "shares", "saved", "reach", "ig_reels_avg_watch_time", "blue_reels_play_count",
               "post_video_avg_time_watched", "yt_avg_view_pct", "yt_avg_view_sec", "subs_gained", "reels_skip_rate",
-              "ig_reels_video_view_total_time", "reposts", "follows", "fb_insights_error", "privacy", "error"]
+              "ig_reels_video_view_total_time", "reposts", "follows", "fb_insights_error", "privacy", "error",
+              # "why" signals (2026-11-27)
+              "profile_visits", "total_interactions", "yt_src_shorts_pct", "yt_src_search_pct", "yt_src_other_pct",
+              "yt_ret_10", "yt_ret_50", "yt_ret_end", "yt_engaged_views", "yt_why_error",
+              "fb_ret_10", "fb_ret_50", "fb_ret_end", "replays"]
     if hist.exists():  # add new columns to an older file without losing rows
         with hist.open() as f:
             old = list(csv.DictReader(f))

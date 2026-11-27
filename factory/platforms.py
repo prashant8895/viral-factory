@@ -234,7 +234,7 @@ def instagram_stats(p: str, media_id: str) -> dict:
     # reels_skip_rate = % who swiped away in the first 3 s (the hook test);
     # ig_reels_video_view_total_time = total ms watched; follows = followers this Reel brought.
     for m in ["views", "reach", "shares", "saved", "ig_reels_avg_watch_time", "reels_skip_rate",
-              "ig_reels_video_view_total_time", "reposts", "follows"]:
+              "ig_reels_video_view_total_time", "reposts", "follows", "profile_visits", "total_interactions"]:
         r = requests.get(f"{base}/{media_id}/insights", params={"metric": m, "access_token": tok},
                          timeout=30).json()
         try:
@@ -270,6 +270,28 @@ def facebook_stats(p: str, video_id: str) -> dict:
                 out["reach"] = val
             else:
                 out[m] = val
+    # Extra "why" signals (2026-11-27). Unknown names are skipped quietly so they never hide the
+    # read_insights error above. Retention graph: share of viewers still watching at each 1/40th.
+    for m in ("post_video_retention_graph", "fb_reels_replay_count", "post_impressions_unique",
+              "post_video_followers"):
+        try:
+            r = requests.get(f"{base}/{video_id}/video_insights", timeout=30,
+                             params={"metric": m, "access_token": tok}).json()
+            val = r["data"][0]["values"][0]["value"]
+        except Exception:
+            continue
+        if m == "post_video_retention_graph" and isinstance(val, dict) and val:
+            curve = {int(k): float(v) for k, v in val.items()}
+            last = max(curve)
+            out["fb_ret_10"] = round(100 * curve.get(round(last * 0.1), 0), 1)
+            out["fb_ret_50"] = round(100 * curve.get(round(last * 0.5), 0), 1)
+            out["fb_ret_end"] = round(100 * curve.get(last, 0), 1)
+        elif m == "post_impressions_unique":
+            out["reach"] = val
+        elif m == "post_video_followers":
+            out["follows"] = val
+        elif m == "fb_reels_replay_count":
+            out["replays"] = val
     if "blue_reels_play_count" in out:
         out["views"] = out["blue_reels_play_count"]
     if not out.get("views"):  # fall back to the public counters on the video itself
@@ -303,6 +325,57 @@ def youtube_retention(p: str, ids: list[str], start: str) -> dict:
     out = {}
     for vid, pct, sec, shares, subs in r.json().get("rows", []):
         out[vid] = {"yt_avg_view_pct": round(pct, 1), "yt_avg_view_sec": sec, "shares": shares, "subs_gained": subs}
+    return out
+
+
+def youtube_why(p: str, ids: list[str], start: str) -> dict:
+    """Per-video "why" signals from YouTube Analytics (2026-11-27), one video at a time:
+    - where the views came from: Shorts feed vs search vs everything else (yt_src_*_pct)
+    - the retention curve: % of viewers still watching at 10%, 50% and the end of the video
+      (yt_ret_10/50/end; over 100 means people rewatched/looped that part)
+    - engaged views (views that weren't an instant swipe-away), when the API offers it.
+    Anything the API refuses is skipped; the numbers review works with what it gets."""
+    import datetime as _dt
+    if not ids:
+        return {}
+    token = _yt_token(p)
+    end = _dt.date.today().isoformat()
+
+    def rep(**params):
+        r = requests.get("https://youtubeanalytics.googleapis.com/v2/reports", timeout=30,
+                         headers={"Authorization": f"Bearer {token}"},
+                         params={"ids": "channel==MINE", "startDate": start, "endDate": end, **params})
+        if r.status_code >= 400:
+            raise RuntimeError(f"HTTP {r.status_code}: {r.text[:150]}")
+        return r.json().get("rows") or []
+
+    out: dict[str, dict] = {}
+    for vid in ids:
+        d = out.setdefault(vid, {})
+        try:
+            src = {k: v for k, v in rep(dimensions="insightTrafficSourceType", metrics="views",
+                                        filters=f"video=={vid}")}
+            tot = sum(src.values())
+            if tot:
+                d["yt_src_shorts_pct"] = round(100 * src.get("SHORTS", 0) / tot, 1)
+                d["yt_src_search_pct"] = round(100 * src.get("YT_SEARCH", 0) / tot, 1)
+                d["yt_src_other_pct"] = round(100 - d["yt_src_shorts_pct"] - d["yt_src_search_pct"], 1)
+        except Exception as e:
+            d["yt_why_error"] = f"traffic source: {e}"[:150]
+        try:
+            curve = {round(float(x), 2): float(y) for x, y in rep(dimensions="elapsedVideoTimeRatio",
+                                                                  metrics="audienceWatchRatio",
+                                                                  filters=f"video=={vid}")}
+            if curve:
+                at = lambda t: curve[min(curve, key=lambda k: abs(k - t))]  # noqa: E731
+                d["yt_ret_10"], d["yt_ret_50"], d["yt_ret_end"] = (round(100 * at(t), 1) for t in (0.1, 0.5, 1.0))
+        except Exception as e:
+            d["yt_why_error"] = (d.get("yt_why_error", "") + f" retention: {e}")[:200]
+    try:
+        for vid, ev in rep(dimensions="video", metrics="engagedViews", filters="video==" + ",".join(ids[:200])):
+            out.setdefault(vid, {})["yt_engaged_views"] = ev
+    except Exception:
+        pass
     return out
 
 

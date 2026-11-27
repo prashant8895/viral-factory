@@ -26,6 +26,28 @@ skip it until Prashant restarts it.
    "kept" or "reverted", commit ("Voice trial: <verdict>") and push-notify Prashant once with the
    numbers line from `metrics/report.md` ("Your voice: ... / Other videos: ..."). Reverted = videos
    go back to the stock Gemini voice automatically.
+0b. TEST RESULTS (owner 2026-11-27: every change is checked; works = keep, else roll back).
+   `factory/experiments.py` (after every metrics pull) already keeps or rolls back tests in
+   `data/tests.json` and flips their `switch` values itself. Here: (1) for every test with
+   `status` "kept" or "reverted" and no `told: true`, push-notify Prashant once ("Test <id>:
+   kept/rolled back. <result>") and set `told: true`; (2) for every test with `needs_undo: true`,
+   undo its `rollback` text in prompts/playbook (strike the rule, add a dated "rolled back" line in
+   playbook section 8), set `needs_undo: false`, and drop its id from today's job `tests`. Commit
+   "Test results" and push. A reverted test is never re-run as-is; a new idea is a new test.
+1c. GET BETTER, PER PLATFORM (owner 2026-11-27). Read `metrics/insights.json` → `by_platform` →
+   `<platform>.why` (`drivers`, `hits` with their reasons, `recommendations`) and the "Each platform
+   on its own" part of `metrics/report.md`. Write each platform's version for what works THERE:
+   YouTube = the YouTube cut (`yt_narration` on any scene, scene 1 included, changes the YouTube
+   version only); Instagram + Facebook = the full video (Facebook stays as it is unless a test says
+   otherwise); titles/captions are per platform anyway. Within the playbook rules, lean on what the
+   platform's hits share (e.g. the opener style its hits used). Anything that goes beyond the
+   playbook rules is a CHANGE and must run as a test: add it to `data/tests.json` with `platforms`,
+   `switch` (a channel.json value to flip back) or `rollback` (plain words), `videos: 5`,
+   `started`, `status: "running"`, `rec` (the recommendation it came from), tag today's job, and
+   say it in the notification. Max 2 tests running per platform. At the noon run, if the slate's
+   recommendations got no answer and a platform has a free test slot, you may start the top
+   `why` recommendation for that platform as a test yourself (Prashant, 2026-11-27: "if it works,
+   great, or else roll back"); never more than one new self-started test a day.
 1. Read today's doc `<page>-<YYYY-MM-DD>` (IST) in the Morning Slate database (ArtifactData,
    url https://claude.ai/artifact/ENWN3tiRkTz9y3qU2iFjqT, collection `pitches`).
    - If `status` is "scripting", "made" or "posted", or `approved.skip` is true: skip this page.

@@ -51,6 +51,11 @@ def _main(kind: str, title: str, body: str) -> None:
             _gh("issue", "create", "--title", title, "--body", msg)
         else:
             _gh("issue", "comment", str(existing), "--body", msg)
+    elif kind == "info":  # a result to read, not a failure (e.g. a test kept or rolled back)
+        if existing is None:
+            _gh("issue", "create", "--title", title, "--body", f"@{owner} {body}{run}")
+        else:
+            _gh("issue", "comment", str(existing), "--body", f"@{owner} {body}{run}")
     elif kind == "fixed" and existing is not None:
         _gh("issue", "close", str(existing), "--comment", f"Fixed on retry. {body}{run}")
 

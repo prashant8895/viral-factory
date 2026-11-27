@@ -82,11 +82,17 @@ Work unattended.
    - `market`: the outside signal, if any ("top 5 curiosity Shorts this week are 25-40 s").
    - `change`: one concrete instruction the script run can follow word for word.
    - `metric`: the number it should move and by how much; `judge`: when ("after 4 videos at 72 h").
-   Rules: never more than 2 tests running at once (`data/tests.json`, status "running"); if 2 are
-   running, only offer "today" tweaks that don't touch what those tests change, or say a test
+   PER PLATFORM (owner 2026-11-27): build them from `insights.json` → `by_platform.<p>.why` (which
+   signal drives reach on that platform, why each hit worked, `recommendations`) and say which
+   platform each one is for (`platforms`: ["youtube"] etc.). What works on one platform is not
+   assumed to work on another. Every recommendation names its `switch` (the channel.json value
+   that turns it off) or `rollback` (plain words), because every approved change runs as a test
+   that `factory/experiments.py` keeps if it works and rolls back if it doesn't.
+   Rules: never more than 2 tests running per platform (`data/tests.json`, status "running"); if 2 are
+   running there, only offer "today" tweaks that don't touch what those tests change, or say a test
    should finish first. Never recommend anything that breaks a hard no or a standing Prashant
-   rule (playbook). If a running test has a verdict in `insights.json` → `tests`, put it first:
-   "Test <id>: keep/revert, <why>" as kind "verdict" so Prashant confirms it.
+   rule (playbook). Test verdicts are applied automatically now (keep if it works, else roll
+   back); report any test that ended since yesterday as a `learned` line, not as a "verdict" item.
 4. Write each page's pitches to the Morning Slate database (ArtifactData, url
    https://claude.ai/artifact/ENWN3tiRkTz9y3qU2iFjqT), collection `pitches`,
    doc id `<page>-<YYYY-MM-DD>` (IST date):

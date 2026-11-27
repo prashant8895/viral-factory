@@ -18,9 +18,13 @@ Work unattended.
    24 h, average watch, shares per 1k views, per language. When each has 5+ videos and one leads
    by 25%+, write `Hook winner: <style>` in Learnings. Also note which search-driven or viewer-asked
    topics beat our own picks.
+3a. PER PLATFORM (owner 2026-11-27): do 2-3 for YouTube, Instagram and Facebook separately
+   (`insights.json` → `by_platform`, report "Each platform on its own"): what each platform's
+   top 2 share and WHY (`why.hits`, `why.drivers`), and one learning per platform.
 3c. Tests: read `insights.json` → `tests` and `data/tests.json`. For each, one line: change,
-   videos so far, numbers vs before, verdict. A verdict goes on Monday's slate as a "verdict"
-   recommendation (never apply a verdict without his yes). Sunday is also when "format"
+   platforms, videos so far, per-platform numbers vs before, verdict. Verdicts are applied
+   automatically (`factory/experiments.py`: works = kept, else rolled back) since 2026-11-27, so
+   report them, don't ask for a yes. Sunday is also when "format"
    recommendations (length, voice, pictures, structure, time) are worth making: 7+ videos.
 4. Append 3–5 dated lines to each page's "Learnings" section: what we saw, what we change.
    Change other sections only if Prashant agreed in a Morning Slate note.

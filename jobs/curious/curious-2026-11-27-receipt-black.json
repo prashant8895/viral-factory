@@ -1,0 +1,149 @@
+{
+  "id": "curious-2026-11-27-receipt-black",
+  "channel": "curious",
+  "languages": ["en"],
+  "publish": false,
+  "date": "2026-11-27",
+  "slot": "23:30",
+  "bucket": "how it works",
+  "hook_style": "curiosity",
+  "picture_style": "illustration",
+  "seed": 11272,
+  "tests": ["2026-11-23-short-share", "2026-11-23-trend-audio", "2026-11-27-youtube-cut"],
+  "hook_text": "WHY DOES MY RECEIPT GO *BLACK*?",
+  "keywords": ["why do receipts turn black", "thermal paper", "receipt printer no ink"],
+  "sources": [
+    "https://en.wikipedia.org/wiki/Thermal_paper",
+    "https://www.chemistryviews.org/?p=41618",
+    "https://www.instituteofmaking.org.uk/materials-library/material/thermal-till-roll",
+    "https://www.mcgill.ca/oss/article/did-you-know-general-science/two-types-erasable-ink-and-why-one-much-cooler-other"
+  ],
+  "scenes": [
+    {
+      "visual": "huge close-up illustration of a relaxed hand holding a plain white shop receipt with soft grey printed lines, a fingertip resting at the end of a fresh thick black scratch line drawn across the paper, the scratch line wrapped in a soft warm orange glow as the brightest thing in the frame, receipt big in the middle of the frame between 30 and 65 percent of the height, plain soft cool blue background, no readable text, no logos, no brand",
+      "narration": "Scratch a receipt with your nail? It goes *black*. Why?",
+      "delivery": "curious",
+      "beat": "hook",
+      "motion": "push",
+      "sfx": "boom",
+      "overlays": []
+    },
+    {
+      "visual": "illustration of a small white receipt printer on a shop counter with its lid flipped open, inside only a plain white paper roll and nothing else, no ink cartridge anywhere, the paper roll's edge glowing bright warm orange as the brightest thing in the frame, a short receipt curling out of the front slot, printer big in the middle of the frame between 30 and 65 percent of the height, simple cool blue background, no text, no logos, no brand",
+      "narration": "Here's the thing. The till has no *ink*. None. So what wrote on it?",
+      "delivery": "light",
+      "beat": "loop",
+      "headline": "NO *INK*?",
+      "motion": "drift_right",
+      "sfx": "whoosh",
+      "overlays": []
+    },
+    {
+      "visual": "2D animation: a magnified slice of receipt paper; a glassy solid coating holds clear dye specks and acid specks kept apart; a hot dot slides over, the coating melts, each dye speck meets its acid speck and turns black; counter BLACK SPOTS 0 to 4, then HEAT = BLACK",
+      "narration": "See, the paper *is* the ink. Invisible ink, really: a clear dye and an acid, kept *apart* in a solid coating.",
+      "delivery": "explain",
+      "beat": "explain",
+      "headline": "STEP 1/3: HIDDEN *INK*",
+      "motion": "push",
+      "sfx": "tick",
+      "overlays": [],
+      "anim": "anims/receipt.html",
+      "anim_params": {"mode": "coat", "label": "HEAT = BLACK"}
+    },
+    {
+      "visual": "cutaway close-up illustration of a receipt printer's print head: a long thin grey bar with a row of tiny square heating dots pressing down on a strip of white paper, three of the dots glowing bright warm orange as the brightest thing in the frame and leaving small black dots on the paper right under them, the bar and paper big in the middle of the frame between 30 and 65 percent of the height, plain dark navy background, no text, no logos",
+      "narration": "Now here's the clever part. The printer has a row of tiny *heaters*. A hot dot melts the coating, dye meets acid... black.",
+      "delivery": "build",
+      "beat": "rehook",
+      "headline": "STEP 2/3: TINY *HEATERS*",
+      "motion": "push",
+      "sfx": "riser",
+      "overlays": []
+    },
+    {
+      "visual": "2D animation: a receipt seen from above; a fingertip rubs back and forth along one line, the line shimmers warm orange and gets darker with every rub until it is black; counter RUBS 0 to 6, then RUB = HEAT",
+      "narration": "And your nail? Rub fast and friction makes *heat*, like rubbing your hands on a cold day. Same trick.",
+      "delivery": "explain",
+      "beat": "explain",
+      "headline": "STEP 3/3: YOUR *NAIL*",
+      "motion": "push",
+      "sfx": "ding",
+      "overlays": [],
+      "anim": "anims/receipt.html",
+      "anim_params": {"mode": "scratch", "label": "RUB = HEAT"}
+    },
+    {
+      "visual": "illustration of a plain white shop receipt lying on a wooden cafe table, a warm coffee mug resting on one corner of it with soft steam rising, the paper under and around the mug turned smoky black in a soft round patch, the mug's glazed rim bright warm orange as the brightest thing in the frame, receipt and mug big in the middle of the frame between 30 and 60 percent of the height, nothing important in the lower third, simple cool blue background, no readable text, no logos, no brand",
+      "narration": "<short pause> So heat is the *pen*, even a hot mug. Send this to whoever doodles on receipts with a nail.",
+      "yt_narration": "<short pause> So heat is the *pen*. Any heat at all. That's why, when you",
+      "delivery": "reveal",
+      "beat": "payoff",
+      "share": true,
+      "headline": "HEAT IS THE *PEN*",
+      "motion": "pull",
+      "sfx": "sparkle",
+      "overlays": []
+    },
+    {
+      "visual": "2D animation: yesterday's fastest right answers",
+      "shoutout": true,
+      "anim": "anims/shoutout.html",
+      "narration": "Yesterday's answer: C, the penguin. These legends got it first.",
+      "narration_none": "It was C, the penguin... nobody cracked it. Let's see you beat today's.",
+      "delivery": "warm",
+      "headline": "*SHOUTOUT*",
+      "motion": "push",
+      "sfx": "sparkle",
+      "overlays": []
+    },
+    {
+      "visual": "2D animation: today's quiz (finish the fact, a famous painting's museum)",
+      "quiz": true,
+      "anim": "anims/quiz.html",
+      "narration": "Finish the fact: the Mona Lisa hangs in Paris, in the... Louvre, Orsay, or Pompidou? Comment your guess.",
+      "delivery": "curious",
+      "headline": "FINISH THE *FACT*",
+      "motion": "push",
+      "sfx": "pop",
+      "overlays": []
+    }
+  ],
+  "youtube": {
+    "title": "Why do receipts turn black when you scratch them? #shorts",
+    "description": "Why do receipts turn black when you scratch them? Shop receipts are thermal paper, and the receipt printer uses no ink. The paper is coated with a colourless dye and an acid, kept apart in a solid layer. The printer's row of tiny heating dots melts the coating in spots, the dye meets the acid and turns black. Rub it fast with a fingernail and friction makes enough heat to do the same thing. A hot mug can darken it too.\n\nToday's quiz (Finish the Fact Friday): the Mona Lisa hangs in Paris, in the... A) Louvre B) Musée d'Orsay C) Centre Pompidou. Comment your guess 👇\nNext video: Why fizzy bottles have feet\n\nSources: Wikipedia (Thermal paper), ChemistryViews, Institute of Making, McGill OSS\nAI visuals\n#shorts #didyouknow #receipt",
+    "tags": [
+      "why do receipts turn black",
+      "thermal paper",
+      "receipt printer no ink",
+      "receipt turns black when scratched",
+      "how receipt printers work",
+      "thermal printer",
+      "receipt",
+      "how it works",
+      "did you know",
+      "science facts",
+      "everyday science",
+      "the more you know"
+    ]
+  },
+  "instagram": {
+    "caption": "Why do receipts turn black when you scratch them? 🧾\nIt's thermal paper: the receipt printer has no ink, it heats a hidden dye in the coating, and the friction from your nail is heat too.\nSend this to whoever doodles on receipts with a nail.\n\nSources: Wikipedia, ChemistryViews, Institute of Making\nAI visuals\n#ohthatswhy #receipt #thermalpaper #howitworks #everydayscience\n\nToday's quiz (Finish the Fact Friday): the Mona Lisa hangs in Paris, in the... A) Louvre B) Musée d'Orsay C) Centre Pompidou. Comment your guess 👇\nNext video: Why fizzy bottles have feet"
+  },
+  "facebook": {
+    "description": "Why do receipts turn black when you scratch them? Receipts are thermal paper: the printer uses no ink, just tiny heaters that melt a coating so a hidden dye meets an acid and turns black. Rub it fast with your nail and friction does the same. Send this to whoever doodles on receipts with a nail. AI visuals.\n\nToday's quiz (Finish the Fact Friday): the Mona Lisa hangs in Paris, in the... A) Louvre B) Musée d'Orsay C) Centre Pompidou. Comment your guess 👇\nNext video: Why fizzy bottles have feet"
+  },
+  "quiz": {
+    "theme": "FINISH THE FACT FRIDAY",
+    "kind": "pop culture",
+    "next_topic": "why fizzy drink bottles stand on five little feet",
+    "next_title": "Why fizzy bottles have feet",
+    "question": "The Mona Lisa hangs in Paris, in the...",
+    "options": {"A": "Louvre", "B": "Musée d'Orsay", "C": "Centre Pompidou"},
+    "answer": "A",
+    "keywords": {"A": ["louvre"], "B": ["orsay"], "C": ["pompidou"]},
+    "sources": [
+      "https://www.louvre.fr/en/oeuvre-notices/mona-lisa-portrait-lisa-gherardini-wife-francesco-del-giocondo",
+      "https://www.euronews.com/2019/10/08/mona-lisa-returned-to-original-home-in-the-louvre-after-causing-visitor-jam"
+    ]
+  }
+}

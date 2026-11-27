@@ -1,0 +1,125 @@
+<!doctype html><html><head><meta charset="utf-8">
+<style>html,body{margin:0;background:#16233a}canvas{display:block}</style></head><body>
+<canvas id="c" width="1080" height="1920"></canvas>
+<script>
+// Thermal receipt paper. Clouds-Short style: dark navy, one object, one orange number.
+// params.mode:
+//  "coat":    a magnified slice of receipt paper: white paper base, and on top a glassy SOLID
+//             coating holding clear dye specks (white rings) and acid specks (teal), kept apart.
+//             A hot dot slides in above and glows orange; under it the coating melts (goes wobbly),
+//             each dye speck slides onto its acid speck and both turn BLACK. Counter "BLACK SPOTS"
+//             climbs 0 -> 4. params.label pops at the end (default "HEAT = BLACK").
+//  "scratch": a receipt seen from above; a fingertip rubs back and forth across it. Each rub warms
+//             the path (orange shimmer) and leaves the line a little darker until it is black.
+//             Counter "RUBS" climbs 0 -> 6. params.label pops at the end (default "RUB = HEAT").
+// Keeps the top fifth (0-384) and the caption band (1344-1632) empty.
+const c=document.getElementById('c'),x=c.getContext('2d'),W=1080,H=1920;
+const NAVY='#16233a',YEL='#ffd23f',ORA='#ff9f1c',WHITE='#f4f1e8',TEAL='#3fc1c9',GREY='#5b6b86',INK='#15151c',SKIN='#f2c9a5';
+const clamp=(v,a=0,b=1)=>Math.max(a,Math.min(b,v)), prog=(t,a,b)=>clamp((t-a)/(b-a));
+const ease=t=>1-Math.pow(1-clamp(t),3), back=t=>{t=clamp(t);const s=1.7;return 1+(s+1)*Math.pow(t-1,3)+s*Math.pow(t-1,2)};
+const mix=(a,b,k)=>a+(b-a)*k;
+function txt(s,px,py,size,col){x.font=`700 ${size}px Anton, Impact, sans-serif`;x.textAlign='center';x.textBaseline='middle';
+  x.lineWidth=size*0.14;x.lineJoin='round';x.strokeStyle='rgba(0,0,0,.55)';x.strokeText(s,px,py);x.fillStyle=col;x.fillText(s,px,py)}
+function pop(s,px,py,str,size,col){if(s<=0)return;x.save();x.translate(px,py);x.scale(s,s);txt(str,0,0,size,col);x.restore()}
+function bg(){x.fillStyle=NAVY;x.fillRect(0,0,W,H)}
+function counter(label,n,bump,px,py){txt(label,px,py,46,WHITE);pop(1+0.3*bump,px,py+105,String(n),130,ORA)}
+
+// ---------- mode "coat" ----------
+const CL=110, CR=970, CT=830, CB=990, PB=1120;   // coating top/bottom, paper bottom
+const PAIRS=[[200,0],[330,1],[460,0],[590,1],[720,0],[850,1]];  // x, row offset
+const HOT=[2,3,4,5].map(i=>i);                      // pairs that sit under the hot dot path
+function drawCoat(t,p,P){bg();
+  const intro=back(prog(p,0,0.12));
+  x.save();x.translate(540,(CT+PB)/2);x.scale(0.7+0.3*intro,0.7+0.3*intro);x.translate(-540,-(CT+PB)/2);
+  // paper base
+  x.fillStyle=WHITE;x.beginPath();x.roundRect(CL,CB,CR-CL,PB-CB,14);x.fill();
+  txt('PAPER',540,(CB+PB)/2,52,GREY);
+  // hot dot travels from left to right across pairs 2..5 between p .3 and .8
+  const hx=mix(380,900,ease(prog(p,0.3,0.82)));
+  const heatOn=p>0.26;
+  // coating (solid glassy layer, melts where the dot has been)
+  x.fillStyle='rgba(120,190,230,.28)';x.strokeStyle='rgba(160,210,240,.8)';x.lineWidth=5;
+  x.beginPath();x.moveTo(CL,CB);
+  for(let px=CL;px<=CR;px+=10){
+    const melted=heatOn&&px>380&&px<hx+60;
+    const wob=melted?10*Math.sin(px/26+t*9):0;
+    x.lineTo(px,CT+wob);
+  }
+  x.lineTo(CR,CB);x.closePath();x.fill();x.stroke();
+  // specks
+  let black=0;
+  PAIRS.forEach(([px,row],i)=>{
+    const py=CT+60+row*50;
+    const under=i>=2&&heatOn&&hx>px-40;
+    const k=under?ease(prog(hx,px-40,px+40)):0;
+    if(k>0.95)black++;
+    // acid speck (teal square) stays; dye speck (white ring) slides onto it
+    const ax=px+40, dx=mix(px-40,ax-14,k);
+    if(k<0.95){x.fillStyle=TEAL;x.fillRect(ax-20,py-20,40,40);
+      x.strokeStyle=WHITE;x.lineWidth=7;x.beginPath();x.arc(dx,py,22,0,7);x.stroke();}
+    if(k>0.6){x.save();x.globalAlpha=prog(k,0.6,1);x.fillStyle=INK;x.beginPath();x.arc(ax-6,py,34,0,7);x.fill();x.restore()}
+  });
+  x.restore();
+  // legend (before heat)
+  if(p<0.3){const a=ease(prog(p,0.08,0.16));x.save();x.globalAlpha=a;
+    x.strokeStyle=WHITE;x.lineWidth=7;x.beginPath();x.arc(250,560,24,0,7);x.stroke();txt('CLEAR DYE',420,560,56,WHITE);
+    x.fillStyle=TEAL;x.fillRect(640,538,44,44);txt('ACID',790,560,56,TEAL);
+    txt('KEPT APART',540,680,70,YEL);x.restore()}
+  // hot dot
+  if(heatOn){const a=ease(prog(p,0.26,0.32));x.save();x.globalAlpha=a;
+    x.fillStyle=GREY;x.beginPath();x.roundRect(hx-70,560,140,110,18);x.fill();
+    x.shadowColor=ORA;x.shadowBlur=60;x.fillStyle=ORA;x.beginPath();x.arc(hx,690,38,0,7);x.fill();x.shadowBlur=0;
+    for(let i=0;i<3;i++){const o=((t*2+i/3)%1);x.globalAlpha=a*(1-o);x.strokeStyle=ORA;x.lineWidth=6;
+      x.beginPath();x.moveTo(hx-30+i*30,730+o*60);x.lineTo(hx-30+i*30,760+o*60);x.stroke()}
+    x.restore();txt('HOT DOT',hx,500,56,ORA)}
+  if(p>0.3){txt('BLACK SPOTS',300,1175,44,WHITE);pop(1,300,1262,String(black),110,ORA)}
+  if(p>0.86)pop(back(prog(p,0.86,0.95)),730,1240,P.label||'HEAT = BLACK',80,YEL);
+}
+
+// ---------- mode "scratch" ----------
+const RL=110, RR=720, RT=440, RB=1180;   // receipt, seen from above
+function receipt(){x.save();x.fillStyle=WHITE;x.beginPath();x.moveTo(RL,RT);
+  for(let px=RL;px<=RR;px+=37)x.lineTo(px,RT+((px/37)%2?0:14));
+  x.lineTo(RR,RB);x.lineTo(RL,RB);x.closePath();x.fill();
+  x.fillStyle='rgba(91,107,134,.55)';
+  for(let i=0;i<6;i++){x.fillRect(RL+70,RT+70+i*62,i%2?300:440,22)}
+  x.restore()}
+function finger(fx,fy){x.save();x.translate(fx,fy);x.rotate(-0.5);
+  x.fillStyle=SKIN;x.beginPath();x.roundRect(-55,-10,110,330,55);x.fill();
+  x.fillStyle='#fbe3d3';x.strokeStyle='#d9a98a';x.lineWidth=4;x.beginPath();x.roundRect(-38,4,76,90,34);x.fill();x.stroke();
+  x.restore()}
+function drawScratch(t,p,P){bg();
+  const intro=back(prog(p,0,0.12));
+  x.save();x.translate(415,810);x.scale(0.7+0.3*intro,0.7+0.3*intro);x.translate(-415,-810);
+  receipt();
+  // the scratch path: a wavy line across the lower part of the receipt
+  const y0=980, L=RL+80, R=RR-80;
+  const N=6, rp=prog(p,0.18,0.8);          // 6 rubs between p .18 and .8
+  const rubs=Math.min(N,Math.floor(rp*N+1e-6)), sub=(rp*N)%1;
+  const darkness=clamp((rubs+(p<0.8?sub:0))/N);
+  if(p>0.18){
+    // warm shimmer
+    x.save();x.globalAlpha=0.35+0.25*Math.sin(t*10);x.strokeStyle=ORA;x.lineWidth=60;x.lineCap='round';x.shadowColor=ORA;x.shadowBlur=40;
+    x.beginPath();x.moveTo(L,y0);x.lineTo(R,y0);x.stroke();x.restore();
+    // the mark gets darker each rub
+    x.save();x.strokeStyle=`rgba(21,21,28,${0.15+0.85*darkness})`;x.lineWidth=26;x.lineCap='round';
+    x.beginPath();x.moveTo(L,y0);x.lineTo(R,y0);x.stroke();x.restore();
+  }
+  // finger tip position: back and forth
+  let fx=R+60, fy=y0-30;
+  if(p>0.12&&p<0.82){const ph=(rp*N)%1; const dir=Math.floor(rp*N)%2;fx=dir?mix(R,L,ph):mix(L,R,ph);}
+  else if(p>=0.82)fx=mix(R,R+200,ease(prog(p,0.82,0.9)));
+  finger(fx,fy-40);
+  x.restore();
+  txt('RUBS',890,620,50,WHITE);pop(1,890,740,String(rubs),140,ORA);
+  if(p>0.86)pop(back(prog(p,0.86,0.95)),540,1260,P.label||'RUB = HEAT',90,YEL);
+}
+
+window.draw=function(t,dur,P){
+  P=Object.assign({mode:'coat'},P||{});
+  const p=t/Math.max(dur,0.1);
+  x.setTransform(1,0,0,1,0,0);x.globalAlpha=1;x.shadowBlur=0;x.setLineDash([]);
+  if(P.mode==='scratch')drawScratch(t,p,P);else drawCoat(t,p,P);
+};
+window.draw(0,6,{});
+</script></body></html>

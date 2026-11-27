@@ -1,25 +1,27 @@
 {
-  "updated": "2026-11-27T11:26+05:30",
+  "updated": "2026-11-27T11:31+05:30",
   "videos": 23,
-  "total_views": 38216.0,
+  "total_views": 38348.0,
   "platform_views": {
-    "youtube": 14084.0,
+    "youtube": 14203.0,
     "instagram": 6755.0,
-    "facebook": 17377.0
+    "facebook": 17390.0
   },
   "median_watch_pct": 16.35,
   "median_shares_per_1k": 0.0,
   "median_ig_watch_s": 9.8,
   "median_yt_watch_s": 24.0,
   "rules": [
-    "bucket: 'seen-but-missed' beats 'how it works' (1,736 vs 1,056 median views, 2,375 vs 1,489 average, 8 vs 10 videos). Lean towards 'seen-but-missed'.",
-    "picture_style: 'illustration' beats 'illustration-bold' (1,476 vs 911 median views, 2,038 vs 896 average, 12 vs 4 videos). Lean towards 'illustration'.",
-    "voice: 'clone' leads on median views (1,304 vs 973) but not on average (1,753 vs 1,453): it lifts the weak videos, not the hits. No change yet.",
-    "length_band: '50-70s' beats '40-50s' (1,476 vs 973 median views, 2,354 vs 1,453 average, 8 vs 7 videos). Lean towards '50-70s'.",
+    "bucket: 'seen-but-missed' beats 'how it works' (1,736 vs 1,056 median views, 2,389 vs 1,492 average, 8 vs 10 videos). Lean towards 'seen-but-missed'.",
+    "picture_style: 'illustration' beats 'illustration-bold' (1,476 vs 911 median views, 2,049 vs 896 average, 12 vs 4 videos). Lean towards 'illustration'.",
+    "voice: 'clone' leads on median views (1,304 vs 973) but not on average (1,761 vs 1,453): it lifts the weak videos, not the hits. No change yet.",
+    "length_band: '50-70s' beats '40-50s' (1,476 vs 973 median views, 2,370 vs 1,453 average, 8 vs 7 videos). Lean towards '50-70s'.",
     "People watch a median 10 s on Instagram and 24 s on YouTube whatever the video's length. The first real answer must land inside those first 10 s; judge hold by seconds watched and skip rate, not watch % (watch % drops on its own when videos get longer). Length itself is set by the playbook, not by this rule.",
-    "Top videos so far: WHAT'S THIS TOOTHPASTE SQUARE? (seen-but-missed, 6,621 views); WHY ARE FOG LIGHTS SO LOW? (how it works, 5,349 views); IT'S NOT A SHOE CLEANER! (seen-but-missed, 3,188 views). Pitch more topics like these.",
+    "Top videos so far: WHAT'S THIS TOOTHPASTE SQUARE? (seen-but-missed, 6,728 views); WHY ARE FOG LIGHTS SO LOW? (how it works, 5,349 views); IT'S NOT A SHOE CLEANER! (seen-but-missed, 3,188 views). Pitch more topics like these.",
     "Weakest: WHY LIFT DOORS SPOT YOUR HAND (how it works, 590); WINTER HAZE? NOT JUST FOG (india everyday, 438); WHY IT'S HOTTER THAN BOILING (how it works, 286). Avoid these angles unless a new twist.",
     "Voice trial (clone): 16/5 videos made, 5 at 72 h, verdict: keep.",
+    "Recommendation for YouTube: YouTube reach follows % of views from the Shorts feed (rank correlation +0.51 over 21 videos). Every YouTube hit had % of views from the Shorts feed at least 90.1 (typical 95.2). Aim each YouTube version at that.",
+    "Recommendation for YouTube: YouTube reach follows engaged views % (rank correlation +0.40 over 21 videos). Every YouTube hit had engaged views % at least 51.9 (typical 55.1). Aim each YouTube version at that.",
     "Recommendation for YouTube: YouTube hits share this: about a car part or a household object people own (100% of hits vs 65% of the rest). Do more of it on YouTube.",
     "Recommendation for Instagram: Instagram reach follows seconds watched (rank correlation +0.45 over 22 videos). Every Instagram hit had seconds watched at least 11.7 (typical 10.1). Aim each Instagram version at that.",
     "Recommendation for Instagram: Instagram reach follows likes per 1k views (rank correlation +0.44 over 22 videos). Every Instagram hit had likes per 1k views at least 6.6 (typical 5.75). Aim each Instagram version at that.",
@@ -29,7 +31,7 @@
     "Recommendation for Facebook: Facebook hits share this: about a car part or a household object people own (100% of hits vs 67% of the rest). Do more of it on Facebook.",
     "length_band: the platforms disagree (YouTube best: '40-50s', Instagram best: '40-50s', Facebook best: '50-70s'). Don't follow the all-platform rule blindly: YouTube has its own cut, so tune that cut for YouTube and the full video for Instagram and Facebook.",
     "YouTube only: bucket: 'seen-but-missed' beats 'how it works' (824 vs 354 median views, 8 vs 10 videos).",
-    "YouTube only: hook_style: 'question' beats 'curiosity' (941 vs 392 median views, 4 vs 16 videos).",
+    "YouTube only: hook_style: 'question' beats 'curiosity' (941 vs 434 median views, 4 vs 16 videos).",
     "YouTube only: The 7 videos of 2026-11-06 to 2026-11-11 lead (650 vs 300 median views), but they were 'photo', 'kokoro', '40-50s' all at once (picture_style, voice, length_band), so we can't tell which one did it.",
     "YouTube best: HOW DO SHOP TAGS WORK? (1,312); WHY THIS MESH? (1,289); PLANE WINDOW HOLE? (1,249). Weakest: WHY IT'S HOTTER THAN BOILING (176); WINTER HAZE? NOT JUST FOG (64); WHY ARE FOG LIGHTS SO LOW? (36).",
     "Instagram only: hook_style: 'question' beats 'curiosity' (212 vs 124 median views, 4 vs 16 videos).",
@@ -37,7 +39,7 @@
     "Instagram best: IT'S NOT A SHOE CLEANER! (2,129); BACK WINDOW LINES? (1,250); WHY THIS MESH? (602). Weakest: WHY IT'S HOTTER THAN BOILING (108); WHY ONLY YOUR KEY WORKS (45); WHY DO STARS TWINKLE? (8).",
     "Facebook only: Facebook is UP: last 5 videos median 294 views vs 225 for the 7 before them.",
     "Facebook only: length_band: '50-70s' beats '70s+' (265 vs 210 median views, 8 vs 8 videos).",
-    "Facebook best: WHAT'S THIS TOOTHPASTE SQUARE? (6,074); WHY ARE FOG LIGHTS SO LOW? (5,144); WHY ONLY YOUR KEY WORKS (1,068). Weakest: WHY LIFT DOORS SPOT YOUR HAND (177); NO BATTERY. HOW DOES IT PAY? (131); WHY IT'S HOTTER THAN BOILING (2).",
+    "Facebook best: WHAT'S THIS TOOTHPASTE SQUARE? (6,082); WHY ARE FOG LIGHTS SO LOW? (5,144); WHY ONLY YOUR KEY WORKS (1,068). Weakest: WHY LIFT DOORS SPOT YOUR HAND (177); NO BATTERY. HOW DOES IT PAY? (131); WHY IT'S HOTTER THAN BOILING (2).",
     "Test '2026-11-23-short-share' (Whole video 55-65 s (115-135 spoken words incl. the quiz, 6-8 scenes, quiz card 7 s) plus one explicit 'send this to the friend who...' line right after the reveal and as caption line 3): 4/5 videos, 1 at 72 h, verdict: waiting.",
     "Test '2026-11-23-trend-audio' (Instagram only: today's top trending licensed track from the Instagram Audio API attached muted (audio_volume 0) under our voice): 4/5 videos, 1 at 72 h, verdict: waiting.",
     "Test '2026-11-27-youtube-cut' (YouTube only: its own 30-45 s cut of the same video (no shoutout or quiz card, closing line loops back into the opening); Instagram and Facebook keep the full video): 0/5 videos, 0 at 72 h, verdict: waiting."
@@ -53,7 +55,7 @@
         "trusted": true,
         "median_v24": 1537.0,
         "median_views": 1736.0,
-        "mean_views": 2375,
+        "mean_views": 2389,
         "median_ig_watch_s": 11.5,
         "median_watch_pct": 23.65,
         "median_shares_per_1k": 0.0
@@ -73,9 +75,9 @@
         "group": "how it works",
         "n": 10,
         "trusted": true,
-        "median_v24": 762.0,
+        "median_v24": 671.0,
         "median_views": 1056.0,
-        "mean_views": 1489,
+        "mean_views": 1492,
         "median_ig_watch_s": 10.65,
         "median_watch_pct": 12.8,
         "median_shares_per_1k": 0.0
@@ -130,9 +132,9 @@
         "group": "curiosity",
         "n": 16,
         "trusted": true,
-        "median_v24": 1267.0,
+        "median_v24": 1019.5,
         "median_views": 1303.5,
-        "mean_views": 1753,
+        "mean_views": 1761,
         "median_ig_watch_s": 10.100000000000001,
         "median_watch_pct": 13.9,
         "median_shares_per_1k": 0.0
@@ -165,9 +167,9 @@
         "group": "illustration",
         "n": 12,
         "trusted": true,
-        "median_v24": 1322.0,
+        "median_v24": 1294.5,
         "median_views": 1476.5,
-        "mean_views": 2038,
+        "mean_views": 2049,
         "median_ig_watch_s": 10.65,
         "median_watch_pct": 16.425,
         "median_shares_per_1k": 0.0
@@ -200,9 +202,9 @@
         "group": "clone",
         "n": 16,
         "trusted": true,
-        "median_v24": 1267.0,
+        "median_v24": 1019.5,
         "median_views": 1303.5,
-        "mean_views": 1753,
+        "mean_views": 1761,
         "median_ig_watch_s": 10.100000000000001,
         "median_watch_pct": 13.9,
         "median_shares_per_1k": 0.0
@@ -224,9 +226,9 @@
         "group": "50-70s",
         "n": 8,
         "trusted": true,
-        "median_v24": 1322.0,
+        "median_v24": 1294.5,
         "median_views": 1476.5,
-        "mean_views": 2354,
+        "mean_views": 2370,
         "median_ig_watch_s": 9.7,
         "median_watch_pct": 16.8,
         "median_shares_per_1k": 0.0
@@ -258,11 +260,11 @@
   "by_platform": {
     "youtube": {
       "videos": 23,
-      "total_views": 14084.0,
-      "median_views": 538.0,
+      "total_views": 14203.0,
+      "median_views": 548.0,
       "median_watch_s": 24.0,
       "median_watch_pct": 39.2,
-      "last5_median": 428.0,
+      "last5_median": 527.0,
       "prev7_median": 507.0,
       "top": [
         "HOW DO SHOP TAGS WORK? (1,312)",
@@ -276,7 +278,7 @@
       ],
       "rules": [
         "bucket: 'seen-but-missed' beats 'how it works' (824 vs 354 median views, 8 vs 10 videos).",
-        "hook_style: 'question' beats 'curiosity' (941 vs 392 median views, 4 vs 16 videos).",
+        "hook_style: 'question' beats 'curiosity' (941 vs 434 median views, 4 vs 16 videos).",
         "The 7 videos of 2026-11-06 to 2026-11-11 lead (650 vs 300 median views), but they were 'photo', 'kokoro', '40-50s' all at once (picture_style, voice, length_band), so we can't tell which one did it."
       ],
       "groups": {
@@ -298,7 +300,7 @@
             "trusted": true,
             "median_v24": 377.0,
             "median_views": 824.5,
-            "mean_views": 802,
+            "mean_views": 814,
             "median_ig_watch_s": 23.0,
             "median_watch_pct": 43.1,
             "median_shares_per_1k": 0.0
@@ -318,9 +320,9 @@
             "group": "how it works",
             "n": 10,
             "trusted": true,
-            "median_v24": 213.0,
+            "median_v24": 207.0,
             "median_views": 354.5,
-            "mean_views": 512,
+            "mean_views": 514,
             "median_ig_watch_s": 28.0,
             "median_watch_pct": 34.3,
             "median_shares_per_1k": 0.0
@@ -375,9 +377,9 @@
             "group": "50-70s",
             "n": 8,
             "trusted": true,
-            "median_v24": 361.0,
-            "median_views": 376.0,
-            "mean_views": 488,
+            "median_v24": 314.5,
+            "median_views": 425.5,
+            "mean_views": 503,
             "median_ig_watch_s": 23.0,
             "median_watch_pct": 37.35,
             "median_shares_per_1k": 0.0
@@ -388,9 +390,9 @@
             "group": "full video",
             "n": 23,
             "trusted": true,
-            "median_v24": 347.0,
-            "median_views": 511.0,
-            "mean_views": 612,
+            "median_v24": 333.0,
+            "median_views": 527.0,
+            "mean_views": 618,
             "median_ig_watch_s": 24.0,
             "median_watch_pct": 39.2,
             "median_shares_per_1k": 0.0
@@ -399,8 +401,22 @@
       },
       "why": {
         "videos": 22,
-        "median_views": 538.0,
+        "median_views": 548.0,
         "drivers": [
+          {
+            "signal": "yt_src_shorts_pct",
+            "label": "% of views from the Shorts feed",
+            "rho": 0.51,
+            "n": 21,
+            "strength": 0.51
+          },
+          {
+            "signal": "engaged_pct",
+            "label": "engaged views %",
+            "rho": 0.4,
+            "n": 21,
+            "strength": 0.4
+          },
           {
             "signal": "watch_pct",
             "label": "% of the video watched",
@@ -416,18 +432,39 @@
             "strength": 0.3
           },
           {
+            "signal": "yt_ret_10",
+            "label": "% still watching at 10%",
+            "rho": 0.29,
+            "n": 21,
+            "strength": 0.29
+          },
+          {
             "signal": "likes_per_1k",
             "label": "likes per 1k views",
-            "rho": 0.12,
+            "rho": 0.1,
             "n": 22,
-            "strength": 0.12
+            "strength": 0.1
+          },
+          {
+            "signal": "yt_ret_end",
+            "label": "% still watching at the end",
+            "rho": -0.1,
+            "n": 21,
+            "strength": -0.1
+          },
+          {
+            "signal": "yt_src_search_pct",
+            "label": "% of views from search",
+            "rho": -0.31,
+            "n": 21,
+            "strength": -0.31
           },
           {
             "signal": "comments_per_1k",
             "label": "comments per 1k",
-            "rho": -0.33,
+            "rho": -0.32,
             "n": 22,
-            "strength": -0.33
+            "strength": -0.32
           }
         ],
         "hits": [
@@ -435,7 +472,9 @@
             "id": "curious-2026-11-15-shop-tag-v2-en",
             "hook": "HOW DO SHOP TAGS WORK?",
             "views": 1312.0,
-            "signals": [],
+            "signals": [
+              "% of views from search 7.9 vs 2.9 typical"
+            ],
             "features": [
               "title is a plain searchable question ('Why do airplane windows have holes?')",
               "about a car part or a household object people own"
@@ -447,7 +486,8 @@
             "views": 1289.0,
             "signals": [
               "% of the video watched 54.3 vs 39.2 typical",
-              "likes per 1k views 30.2 vs 18.15 typical"
+              "likes per 1k views 30.2 vs 18.15 typical",
+              "% still watching at 10% 108 vs 83.1 typical"
             ],
             "features": [
               "line 1 is a direct Why/How/What question",
@@ -474,7 +514,9 @@
             "views": 1230.0,
             "signals": [
               "seconds watched 45 vs 24 typical",
-              "% of the video watched 105.4 vs 39.2 typical"
+              "% of the video watched 105.4 vs 39.2 typical",
+              "% still watching at 10% 157.2 vs 83.1 typical",
+              "% still watching at the end 65 vs 10 typical"
             ],
             "features": [
               "line 1 is a direct Why/How/What question",
@@ -488,7 +530,8 @@
             "hook": "WHY TWO FLUSH BUTTONS?",
             "views": 1192.0,
             "signals": [
-              "seconds watched 33 vs 24 typical"
+              "seconds watched 33 vs 24 typical",
+              "% of views from search 5.6 vs 2.9 typical"
             ],
             "features": [
               "title is a plain searchable question ('Why do airplane windows have holes?')",
@@ -498,6 +541,8 @@
           }
         ],
         "recommendations": [
+          "YouTube reach follows % of views from the Shorts feed (rank correlation +0.51 over 21 videos). Every YouTube hit had % of views from the Shorts feed at least 90.1 (typical 95.2). Aim each YouTube version at that.",
+          "YouTube reach follows engaged views % (rank correlation +0.40 over 21 videos). Every YouTube hit had engaged views % at least 51.9 (typical 55.1). Aim each YouTube version at that.",
           "YouTube hits share this: about a car part or a household object people own (100% of hits vs 65% of the rest). Do more of it on YouTube."
         ],
         "features_in_hits": [
@@ -570,7 +615,7 @@
             "group": "how it works",
             "n": 10,
             "trusted": true,
-            "median_v24": 149.0,
+            "median_v24": 139.0,
             "median_views": 143.5,
             "mean_views": 142,
             "median_ig_watch_s": 10.65,
@@ -627,7 +672,7 @@
             "group": "50-70s",
             "n": 8,
             "trusted": true,
-            "median_v24": 120.0,
+            "median_v24": 119.5,
             "median_views": 119.5,
             "mean_views": 267,
             "median_ig_watch_s": 9.7,
@@ -640,7 +685,7 @@
             "group": "full video",
             "n": 23,
             "trusted": true,
-            "median_v24": 146.0,
+            "median_v24": 143.0,
             "median_views": 145.0,
             "mean_views": 294,
             "median_ig_watch_s": 9.8,
@@ -758,14 +803,14 @@
     },
     "facebook": {
       "videos": 23,
-      "total_views": 17377.0,
+      "total_views": 17390.0,
       "median_views": 227.0,
       "median_watch_s": 5.3,
       "median_watch_pct": 8.0,
       "last5_median": 294.0,
       "prev7_median": 225.0,
       "top": [
-        "WHAT'S THIS TOOTHPASTE SQUARE? (6,074)",
+        "WHAT'S THIS TOOTHPASTE SQUARE? (6,082)",
         "WHY ARE FOG LIGHTS SO LOW? (5,144)",
         "WHY ONLY YOUR KEY WORKS (1,068)"
       ],
@@ -786,7 +831,7 @@
             "trusted": true,
             "median_v24": 291.0,
             "median_views": 238.5,
-            "mean_views": 988,
+            "mean_views": 989,
             "median_ig_watch_s": 5.75,
             "median_watch_pct": 13.350000000000001,
             "median_shares_per_1k": 0.0
@@ -828,9 +873,9 @@
             "group": "how it works",
             "n": 10,
             "trusted": true,
-            "median_v24": 208.0,
-            "median_views": 209.5,
-            "mean_views": 835,
+            "median_v24": 208.5,
+            "median_views": 210.0,
+            "mean_views": 836,
             "median_ig_watch_s": 4.15,
             "median_watch_pct": 5.300000000000001,
             "median_shares_per_1k": 0.0
@@ -852,9 +897,9 @@
             "group": "50-70s",
             "n": 8,
             "trusted": true,
-            "median_v24": 291.0,
+            "median_v24": 263.5,
             "median_views": 265.0,
-            "mean_views": 1598,
+            "mean_views": 1600,
             "median_ig_watch_s": 4.85,
             "median_watch_pct": 8.4,
             "median_shares_per_1k": 0.0
@@ -887,7 +932,7 @@
             "group": "full video",
             "n": 23,
             "trusted": true,
-            "median_v24": 223.5,
+            "median_v24": 223.0,
             "median_views": 226.0,
             "mean_views": 756,
             "median_ig_watch_s": 5.3,
@@ -908,6 +953,27 @@
             "strength": 0.56
           },
           {
+            "signal": "fb_ret_10",
+            "label": "% still watching at 10%",
+            "rho": 0.3,
+            "n": 21,
+            "strength": 0.3
+          },
+          {
+            "signal": "replays_per_1k",
+            "label": "replays per 1k views",
+            "rho": 0.29,
+            "n": 22,
+            "strength": 0.29
+          },
+          {
+            "signal": "fb_ret_50",
+            "label": "% still watching at half way",
+            "rho": 0.21,
+            "n": 21,
+            "strength": 0.21
+          },
+          {
             "signal": "likes_per_1k",
             "label": "likes per 1k views",
             "rho": 0.06,
@@ -919,9 +985,10 @@
           {
             "id": "curious-2026-11-25-toothpaste-square-en",
             "hook": "WHAT'S THIS TOOTHPASTE SQUARE?",
-            "views": 6074.0,
+            "views": 6082.0,
             "signals": [
               "seconds watched 12.6 vs 5.3 typical",
+              "% still watching at half way 21.3 vs 16.7 typical",
               "likes per 1k views 6.9 vs 3.8 typical"
             ],
             "features": [
@@ -1036,7 +1103,7 @@
           "test": {
             "v72": 296.0,
             "watch_s": 27.0,
-            "watch_pct": 33.25
+            "watch_pct": 32.849999999999994
           },
           "before": {
             "v72": 507.0,
@@ -1127,7 +1194,7 @@
           "test": {
             "v72": 296.0,
             "watch_s": 27.0,
-            "watch_pct": 33.25
+            "watch_pct": 32.849999999999994
           },
           "before": {
             "v72": 507.0,
@@ -1375,7 +1442,7 @@
       "v72": 3188.0,
       "watch_pct": 41.9,
       "skip_pct": 33.9,
-      "follows": null,
+      "follows": 0,
       "likes_per_1k": 6.4,
       "shares_per_1k": 2.6,
       "ig_watch_s": 17.9,
@@ -1398,7 +1465,7 @@
       "v72": 1891.0,
       "watch_pct": 28.7,
       "skip_pct": 41.1,
-      "follows": null,
+      "follows": 0,
       "likes_per_1k": 22.6,
       "shares_per_1k": 0.5,
       "ig_watch_s": 11.7,
@@ -1421,7 +1488,7 @@
       "v72": 980.0,
       "watch_pct": 10.7,
       "skip_pct": 67.5,
-      "follows": null,
+      "follows": 0,
       "likes_per_1k": 12.3,
       "shares_per_1k": 0.0,
       "ig_watch_s": 4.3,
@@ -1444,7 +1511,7 @@
       "v72": 1681.0,
       "watch_pct": 41.7,
       "skip_pct": 55.1,
-      "follows": null,
+      "follows": 0,
       "likes_per_1k": 16.0,
       "shares_per_1k": 0.0,
       "ig_watch_s": 17.9,
@@ -1467,7 +1534,7 @@
       "v72": 647.0,
       "watch_pct": 18.2,
       "skip_pct": 70.8,
-      "follows": null,
+      "follows": 0,
       "likes_per_1k": 10.8,
       "shares_per_1k": 0.0,
       "ig_watch_s": 7.3,
@@ -1490,7 +1557,7 @@
       "v72": 438.0,
       "watch_pct": 23.6,
       "skip_pct": 50.0,
-      "follows": null,
+      "follows": 0,
       "likes_per_1k": 9.1,
       "shares_per_1k": 0.0,
       "ig_watch_s": 9.8,
@@ -1513,7 +1580,7 @@
       "v72": 888.0,
       "watch_pct": 15.9,
       "skip_pct": 55.6,
-      "follows": null,
+      "follows": 0,
       "likes_per_1k": 18.1,
       "shares_per_1k": 0.0,
       "ig_watch_s": 4.1,
@@ -1536,7 +1603,7 @@
       "v72": 1585.0,
       "watch_pct": 18.6,
       "skip_pct": 45.4,
-      "follows": null,
+      "follows": 0,
       "likes_per_1k": 16.5,
       "shares_per_1k": 0.0,
       "ig_watch_s": 11.3,
@@ -1559,7 +1626,7 @@
       "v72": 1792.0,
       "watch_pct": 36.9,
       "skip_pct": 30.6,
-      "follows": null,
+      "follows": 0,
       "likes_per_1k": 28.0,
       "shares_per_1k": 2.2,
       "ig_watch_s": 20.0,
@@ -1582,7 +1649,7 @@
       "v72": 791.0,
       "watch_pct": 17.1,
       "skip_pct": 46.3,
-      "follows": null,
+      "follows": 0,
       "likes_per_1k": 6.4,
       "shares_per_1k": 0.0,
       "ig_watch_s": 9.8,
@@ -1605,7 +1672,7 @@
       "v72": 1404.0,
       "watch_pct": 12.2,
       "skip_pct": 58.7,
-      "follows": null,
+      "follows": 0,
       "likes_per_1k": 10.2,
       "shares_per_1k": 0.0,
       "ig_watch_s": 8.3,
@@ -1628,7 +1695,7 @@
       "v72": 1773.0,
       "watch_pct": 12.8,
       "skip_pct": 48.9,
-      "follows": null,
+      "follows": 0,
       "likes_per_1k": 17.8,
       "shares_per_1k": 1.1,
       "ig_watch_s": 10.4,
@@ -1651,7 +1718,7 @@
       "v72": 605.0,
       "watch_pct": 14.9,
       "skip_pct": 37.4,
-      "follows": null,
+      "follows": 1.0,
       "likes_per_1k": 14.9,
       "shares_per_1k": 8.3,
       "ig_watch_s": 12.7,
@@ -1674,7 +1741,7 @@
       "v72": 2334.0,
       "watch_pct": 26.1,
       "skip_pct": 37.0,
-      "follows": null,
+      "follows": 3.0,
       "likes_per_1k": 9.0,
       "shares_per_1k": 0.0,
       "ig_watch_s": 22.3,
@@ -1697,7 +1764,7 @@
       "v72": 875.0,
       "watch_pct": 12.8,
       "skip_pct": 49.3,
-      "follows": null,
+      "follows": 0,
       "likes_per_1k": 19.3,
       "shares_per_1k": 0.0,
       "ig_watch_s": 10.9,
@@ -1720,7 +1787,7 @@
       "v72": 286.0,
       "watch_pct": 12.9,
       "skip_pct": 44.0,
-      "follows": null,
+      "follows": 0,
       "likes_per_1k": 17.3,
       "shares_per_1k": 0.0,
       "ig_watch_s": 11.4,
@@ -1746,7 +1813,7 @@
       "v72": 1462.0,
       "watch_pct": 10.9,
       "skip_pct": 50.0,
-      "follows": null,
+      "follows": 2.0,
       "likes_per_1k": 3.4,
       "shares_per_1k": 0.0,
       "ig_watch_s": 9.3,
@@ -1772,7 +1839,7 @@
       "v72": 1209.0,
       "watch_pct": 8.5,
       "skip_pct": 30.3,
-      "follows": null,
+      "follows": 0,
       "likes_per_1k": 6.5,
       "shares_per_1k": 0.0,
       "ig_watch_s": 7.5,
@@ -1781,7 +1848,7 @@
         "2026-11-19-why-claim-title",
         "2026-11-19-scene2-answer"
       ],
-      "youtube_watch_pct": 39.6,
+      "youtube_watch_pct": 39.7,
       "instagram_watch_pct": 8.5,
       "facebook_watch_pct": 3.7
     },
@@ -1798,7 +1865,7 @@
       "v72": 590.0,
       "watch_pct": 10.9,
       "skip_pct": 35.5,
-      "follows": null,
+      "follows": 0,
       "likes_per_1k": 6.8,
       "shares_per_1k": 0.0,
       "ig_watch_s": 8.4,
@@ -1807,7 +1874,7 @@
         "2026-11-19-why-claim-title",
         "2026-11-19-scene2-answer"
       ],
-      "youtube_watch_pct": 32.2,
+      "youtube_watch_pct": 31.4,
       "instagram_watch_pct": 10.9,
       "facebook_watch_pct": 7.0
     },
@@ -1824,7 +1891,7 @@
       "v72": 5349.0,
       "watch_pct": 32.2,
       "skip_pct": 29.3,
-      "follows": null,
+      "follows": 5.0,
       "likes_per_1k": 5.2,
       "shares_per_1k": 0.2,
       "ig_watch_s": 21.3,
@@ -1850,7 +1917,7 @@
       "v72": 1003.0,
       "watch_pct": 16.5,
       "skip_pct": 38.1,
-      "follows": null,
+      "follows": 0,
       "likes_per_1k": 3.0,
       "shares_per_1k": 0.0,
       "ig_watch_s": 9.6,
@@ -1871,13 +1938,13 @@
       "hook_style": "curiosity",
       "duration": 61.34,
       "late_min": -2,
-      "views": 6621.0,
+      "views": 6728.0,
       "v24": 6585.0,
       "v72": null,
       "watch_pct": 16.35,
       "skip_pct": 45.0,
-      "follows": null,
-      "likes_per_1k": 7.1,
+      "follows": 0,
+      "likes_per_1k": 7.0,
       "shares_per_1k": 0.0,
       "ig_watch_s": 7.5,
       "yt_watch_s": null,
@@ -1897,13 +1964,13 @@
       "hook_style": "curiosity",
       "duration": 59.59,
       "late_min": -2,
-      "views": 330.0,
-      "v24": null,
+      "views": 355.0,
+      "v24": 355.0,
       "v72": null,
       "watch_pct": 10.15,
       "skip_pct": 50.0,
-      "follows": null,
-      "likes_per_1k": 3.0,
+      "follows": 0,
+      "likes_per_1k": 5.6,
       "shares_per_1k": 0.0,
       "ig_watch_s": 9.3,
       "yt_watch_s": null,

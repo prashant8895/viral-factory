@@ -1,17 +1,27 @@
 {
   "id": "curious-2026-11-27-receipt-black",
   "channel": "curious",
-  "languages": ["en"],
-  "publish": false,
+  "languages": [
+    "en"
+  ],
+  "publish": true,
   "date": "2026-11-27",
   "slot": "23:30",
   "bucket": "how it works",
   "hook_style": "curiosity",
   "picture_style": "illustration",
   "seed": 11272,
-  "tests": ["2026-11-23-short-share", "2026-11-23-trend-audio", "2026-11-27-youtube-cut"],
+  "tests": [
+    "2026-11-23-short-share",
+    "2026-11-23-trend-audio",
+    "2026-11-27-youtube-cut"
+  ],
   "hook_text": "WHY DOES MY RECEIPT GO *BLACK*?",
-  "keywords": ["why do receipts turn black", "thermal paper", "receipt printer no ink"],
+  "keywords": [
+    "why do receipts turn black",
+    "thermal paper",
+    "receipt printer no ink"
+  ],
   "sources": [
     "https://en.wikipedia.org/wiki/Thermal_paper",
     "https://www.chemistryviews.org/?p=41618",
@@ -26,7 +36,16 @@
       "beat": "hook",
       "motion": "push",
       "sfx": "boom",
-      "overlays": []
+      "overlays": [
+        {
+          "type": "ring",
+          "x": 0.48,
+          "y": 0.555,
+          "r": 0.13,
+          "on": "black"
+        }
+      ],
+      "image": "jobs/curious/pics/curious-2026-11-27-receipt-black/s1.jpg"
     },
     {
       "visual": "illustration of a small white receipt printer on a shop counter with its lid flipped open, inside only a plain white paper roll and nothing else, no ink cartridge anywhere, the paper roll's edge glowing bright warm orange as the brightest thing in the frame, a short receipt curling out of the front slot, printer big in the middle of the frame between 30 and 65 percent of the height, simple cool blue background, no text, no logos, no brand",
@@ -36,7 +55,16 @@
       "headline": "NO *INK*?",
       "motion": "drift_right",
       "sfx": "whoosh",
-      "overlays": []
+      "overlays": [
+        {
+          "type": "ring",
+          "x": 0.53,
+          "y": 0.56,
+          "r": 0.11,
+          "on": "wrote"
+        }
+      ],
+      "image": "jobs/curious/pics/curious-2026-11-27-receipt-black/s2.jpg"
     },
     {
       "visual": "2D animation: a magnified slice of receipt paper; a glassy solid coating holds clear dye specks and acid specks kept apart; a hot dot slides over, the coating melts, each dye speck meets its acid speck and turns black; counter BLACK SPOTS 0 to 4, then HEAT = BLACK",
@@ -48,7 +76,10 @@
       "sfx": "tick",
       "overlays": [],
       "anim": "anims/receipt.html",
-      "anim_params": {"mode": "coat", "label": "HEAT = BLACK"}
+      "anim_params": {
+        "mode": "coat",
+        "label": "HEAT = BLACK"
+      }
     },
     {
       "visual": "cutaway close-up illustration of a receipt printer's print head: a long thin grey bar with a row of tiny square heating dots pressing down on a strip of white paper, three of the dots glowing bright warm orange as the brightest thing in the frame and leaving small black dots on the paper right under them, the bar and paper big in the middle of the frame between 30 and 65 percent of the height, plain dark navy background, no text, no logos",
@@ -58,7 +89,23 @@
       "headline": "STEP 2/3: TINY *HEATERS*",
       "motion": "push",
       "sfx": "riser",
-      "overlays": []
+      "overlays": [
+        {
+          "type": "ring",
+          "x": 0.54,
+          "y": 0.635,
+          "r": 0.08,
+          "on": "heaters"
+        },
+        {
+          "type": "ring",
+          "x": 0.57,
+          "y": 0.66,
+          "r": 0.045,
+          "on": "black"
+        }
+      ],
+      "image": "jobs/curious/pics/curious-2026-11-27-receipt-black/s4.jpg"
     },
     {
       "visual": "2D animation: a receipt seen from above; a fingertip rubs back and forth along one line, the line shimmers warm orange and gets darker with every rub until it is black; counter RUBS 0 to 6, then RUB = HEAT",
@@ -70,7 +117,10 @@
       "sfx": "ding",
       "overlays": [],
       "anim": "anims/receipt.html",
-      "anim_params": {"mode": "scratch", "label": "RUB = HEAT"}
+      "anim_params": {
+        "mode": "scratch",
+        "label": "RUB = HEAT"
+      }
     },
     {
       "visual": "illustration of a plain white shop receipt lying on a wooden cafe table, a warm coffee mug resting on one corner of it with soft steam rising, the paper under and around the mug turned smoky black in a soft round patch, the mug's glazed rim bright warm orange as the brightest thing in the frame, receipt and mug big in the middle of the frame between 30 and 60 percent of the height, nothing important in the lower third, simple cool blue background, no readable text, no logos, no brand",
@@ -82,7 +132,16 @@
       "headline": "HEAT IS THE *PEN*",
       "motion": "pull",
       "sfx": "sparkle",
-      "overlays": []
+      "overlays": [
+        {
+          "type": "ring",
+          "x": 0.55,
+          "y": 0.52,
+          "r": 0.13,
+          "on": "pen"
+        }
+      ],
+      "image": "jobs/curious/pics/curious-2026-11-27-receipt-black/s6.jpg"
     },
     {
       "visual": "2D animation: yesterday's fastest right answers",
@@ -138,9 +197,23 @@
     "next_topic": "why fizzy drink bottles stand on five little feet",
     "next_title": "Why fizzy bottles have feet",
     "question": "The Mona Lisa hangs in Paris, in the...",
-    "options": {"A": "Louvre", "B": "Musée d'Orsay", "C": "Centre Pompidou"},
+    "options": {
+      "A": "Louvre",
+      "B": "Musée d'Orsay",
+      "C": "Centre Pompidou"
+    },
     "answer": "A",
-    "keywords": {"A": ["louvre"], "B": ["orsay"], "C": ["pompidou"]},
+    "keywords": {
+      "A": [
+        "louvre"
+      ],
+      "B": [
+        "orsay"
+      ],
+      "C": [
+        "pompidou"
+      ]
+    },
     "sources": [
       "https://www.louvre.fr/en/oeuvre-notices/mona-lisa-portrait-lisa-gherardini-wife-francesco-del-giocondo",
       "https://www.euronews.com/2019/10/08/mona-lisa-returned-to-original-home-in-the-louvre-after-causing-visitor-jam"

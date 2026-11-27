@@ -1,5 +1,5 @@
 {
-  "updated": "2026-11-27T08:15+05:30",
+  "updated": "2026-11-27T13:22+05:30",
   "errors": {
     "curious-en/instagram/curious-2026-11-15-shop-tag-en": "400: {\"error\":{\"message\":\"Unsupported get request. Object with ID '18144591316612679' does not exist, cannot be loaded due to missing permissions, or does not support this operation. Please read the Graph API documentation at https://developers.facebook.com/docs/graph-api\",\"code\":100,\"type\":\"GraphMe"
   },
@@ -10,13 +10,13 @@
       "text": "c",
       "time": "2026-11-27T02:15:05Z",
       "likes": 0,
-      "has_our_reply": false,
+      "has_our_reply": true,
       "platform": "youtube",
       "channel": "curious-en",
       "video": "curious-2026-11-26-qr-squares-en",
       "hook": "WHY THREE QR *SQUARES*?",
       "post_id": "01C25K-JsUg",
-      "replied": false
+      "replied": true
     },
     {
       "comment_id": "UgyowEutVr2Gw85LDOx4AaABAg",
@@ -226,20 +226,6 @@
       "video": "curious-2026-11-14-wrinkly-fingers-en",
       "hook": "WHY *WRINKLY* FINGERS?",
       "post_id": "9vIdVmF0HGk",
-      "replied": true
-    },
-    {
-      "comment_id": "UgzgV188boEtjH8Z3VN4AaABAg",
-      "author": "@Gargiwatchesvideos",
-      "text": "B",
-      "time": "2026-11-13T11:12:34Z",
-      "likes": 0,
-      "has_our_reply": true,
-      "platform": "youtube",
-      "channel": "curious-en",
-      "video": "curious-2026-11-13-fuel-arrow-en",
-      "hook": "WHY'S THIS *ARROW* HERE?",
-      "post_id": "5SDWoGeTAtQ",
       "replied": true
     }
   ]

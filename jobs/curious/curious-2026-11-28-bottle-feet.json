@@ -1,0 +1,188 @@
+{
+  "id": "curious-2026-11-28-bottle-feet",
+  "channel": "curious",
+  "languages": [
+    "en"
+  ],
+  "publish": false,
+  "date": "2026-11-28",
+  "slot": "23:30",
+  "bucket": "seen-but-missed",
+  "hook_style": "curiosity",
+  "picture_style": "illustration",
+  "seed": 11282,
+  "tests": [
+    "2026-11-23-short-share",
+    "2026-11-23-trend-audio",
+    "2026-11-27-youtube-cut",
+    "2026-11-28-ig-no-quiz",
+    "2026-11-28-fb-wrong-belief"
+  ],
+  "hook_text": "WHY DO BOTTLES HAVE *FEET*?",
+  "keywords": [
+    "soda bottle bottom",
+    "why do fizzy drink bottles have feet",
+    "plastic bottle pressure"
+  ],
+  "sources": [
+    "https://patents.google.com/patent/US3727783A/en",
+    "https://www.vienna.at/ever-noticed-this-is-why-the-bottom-of-pet-bottles-looks-like-this/10397873",
+    "https://www.chemedx.org/blog/what-pressure-inside-bottle-soda",
+    "https://leancrew.com/all-this/2025/04/plastic-bottles-and-pressure-vessels/",
+    "https://www.rac.co.uk/drive/advice/tyres/how-to-convert-bar-to-psi"
+  ],
+  "scenes": [
+    {
+      "visual": "huge close-up illustration of a relaxed hand holding a clear plastic fizzy drink bottle upside down, filled with dark cola, its bottom facing the viewer showing five rounded little feet in a star pattern, the five feet glowing bright warm orange as the brightest thing in the frame, bottle bottom big in the middle of the frame between 30 and 65 percent of the height, plain soft cool blue background, no label text, no logos, no brand",
+      "narration": "Flip a fizzy bottle over. See those five little *feet*? Why are they there?",
+      "delivery": "curious",
+      "beat": "hook",
+      "motion": "push",
+      "sfx": "boom",
+      "overlays": []
+    },
+    {
+      "visual": "illustration of two clear plastic bottles lying on their sides next to each other on a plain table, bottoms facing the viewer: on the left a still water bottle with a completely flat plain bottom, on the right a cola bottle with a bottom made of five rounded feet glowing bright warm orange as the brightest thing in the frame, both bottles big and filling the middle of the frame between 30 and 65 percent of the height, simple cool blue background, no label text, no logos, no brand",
+      "narration": "Here's the thing. A water bottle's base is *flat*. The difference? The *gas* inside... pushing.",
+      "yt_narration": "A water bottle's base is *flat*. The difference? *Gas*... pushing out.",
+      "delivery": "light",
+      "beat": "loop",
+      "headline": "WATER IS *FLAT*",
+      "motion": "drift_right",
+      "sfx": "whoosh",
+      "overlays": []
+    },
+    {
+      "visual": "2D animation: a sealed fizzy bottle seen from the side, dashed outline, bubbles rising; orange arrows push outward on every wall and the base, growing as counter PUSH (PSI) climbs 0 to 35, then LIKE A CAR TYRE",
+      "narration": "Okay, so that fizz is gas, squeezed in tight. It pushes on the whole bottle... about as hard as a car *tyre*.",
+      "delivery": "explain",
+      "beat": "explain",
+      "headline": "STEP 1/3: THE *PUSH*",
+      "motion": "push",
+      "sfx": "tick",
+      "overlays": [],
+      "anim": "anims/bottle-feet.html",
+      "anim_params": {
+        "mode": "push",
+        "psi": 35,
+        "label": "LIKE A|CAR TYRE"
+      }
+    },
+    {
+      "visual": "illustration of a clear plastic cola bottle standing on a kitchen table, its flat bottom swollen outward into a round dome so the bottle tilts and rocks to one side, small curved motion lines beside it, the bulging dome bottom glowing bright warm orange as the brightest thing in the frame, a round blown-up balloon floating in the background, bottle big in the middle of the frame between 30 and 65 percent of the height, simple cool blue background, no label text, no logos, no brand",
+      "narration": "But here's the catch. Pressure pushes things *round*, like a balloon. So a flat base would bulge... and *wobble*.",
+      "delivery": "build",
+      "beat": "rehook",
+      "headline": "STEP 2/3: FLAT *FAILS*",
+      "motion": "push",
+      "sfx": "boing",
+      "overlays": []
+    },
+    {
+      "visual": "2D animation: side profile of the bottle's base on a table; a flat base morphs into curves with feet, arrows bend along the curves, feet glow where they touch the table; then a bottom view where five orange lobes pop in, counter FEET 0 to 5, then CURVES TAKE THE PUSH",
+      "narration": "So the base is made curvy on purpose. The curves *take* the push, and five bumps become feet.",
+      "delivery": "explain",
+      "beat": "explain",
+      "headline": "STEP 3/3: FIVE *FEET*",
+      "motion": "push",
+      "sfx": "ding",
+      "overlays": [],
+      "anim": "anims/bottle-feet.html",
+      "anim_params": {
+        "mode": "feet",
+        "label": "CURVES TAKE THE PUSH"
+      }
+    },
+    {
+      "visual": "illustration of a clear plastic cola bottle standing perfectly straight and steady on a wooden kitchen table, seen from a low angle at table height so its five rounded feet are clearly visible touching the table, the five feet glowing bright warm orange as the brightest thing in the frame, a friendly hand reaching in from the side about to pick it up, bottle big in the middle of the frame between 25 and 65 percent of the height, nothing important in the lower third, simple cool blue background, no label text, no logos, no brand",
+      "narration": "<short pause> So those feet let a *pressure* tank stand straight. Send this to whoever shakes the cola first.",
+      "yt_narration": "<short pause> So those five feet let a *pressure* tank stand straight. Send this to whoever shakes the cola first.",
+      "delivery": "reveal",
+      "beat": "payoff",
+      "share": true,
+      "headline": "A *PRESSURE* TANK",
+      "motion": "pull",
+      "sfx": "sparkle",
+      "overlays": []
+    },
+    {
+      "visual": "2D animation: yesterday's fastest right answers",
+      "shoutout": true,
+      "anim": "anims/shoutout.html",
+      "narration": "Yesterday's answer: A, the Louvre. These legends got it first.",
+      "narration_none": "It was A, the Louvre... nobody cracked it. Let's see you beat today's.",
+      "delivery": "warm",
+      "headline": "*SHOUTOUT*",
+      "motion": "push",
+      "sfx": "sparkle",
+      "overlays": []
+    },
+    {
+      "visual": "2D animation: today's quiz (showbiz, who sang a famous disco hit)",
+      "quiz": true,
+      "anim": "anims/quiz.html",
+      "narration": "Showbiz Saturday: who sang Dancing Queen? Queen, ABBA, or the Bee Gees? Comment your guess.",
+      "delivery": "curious",
+      "headline": "SHOWBIZ *SATURDAY*",
+      "motion": "push",
+      "sfx": "pop",
+      "overlays": []
+    }
+  ],
+  "youtube": {
+    "title": "Why does a soda bottle bottom have feet? #shorts",
+    "description": "Why does a soda bottle bottom have five little feet? Fizzy drinks are packed with gas that pushes on the bottle about as hard as the air in a car tyre. Pressure pushes plastic towards round, like a balloon, so a flat bottom would bulge out and the bottle would wobble. That's why still water bottles can be flat, but fizzy drink bottles get a curvy 'petaloid' base: the curves take the push and five bumps become the feet it stands on.\n\nToday's quiz (Showbiz Saturday): who sang Dancing Queen? A) Queen B) ABBA C) Bee Gees. Comment your guess 👇\nNext video: Why bridges have metal teeth\n\nSources: DuPont patent US3727783A, Alpla via APA/Vienna.at, ChemEdX, RAC\nAI visuals\n#shorts #didyouknow #sodabottle",
+    "tags": [
+      "soda bottle bottom",
+      "why do fizzy drink bottles have feet",
+      "plastic bottle pressure",
+      "why are soda bottles not flat on the bottom",
+      "petaloid base",
+      "bumps on bottom of plastic bottle",
+      "soda bottle",
+      "how it works",
+      "did you know",
+      "science facts",
+      "everyday science",
+      "the more you know"
+    ]
+  },
+  "instagram": {
+    "caption": "You've held hundreds of them: why does a soda bottle bottom have five little feet? 🥤\nWhy do fizzy drink bottles have feet? The gas inside pushes as hard as a car tyre, and plastic bottle pressure would bulge a flat bottom into a wobbly dome, so the curves take the push and five bumps become feet.\nSend this to whoever always shakes the cola first.\n\nSources: DuPont patent US3727783A, Alpla (APA), ChemEdX\nAI visuals\n#ohthatswhy #sodabottle #plasticbottle #howitworks #everydayscience\n\nToday's quiz (Showbiz Saturday): who sang Dancing Queen? A) Queen B) ABBA C) Bee Gees. Comment your guess 👇\nNext video: Why bridges have metal teeth"
+  },
+  "facebook": {
+    "description": "Most people think the bumps under a soda bottle bottom are just for looks. So why does every fizzy bottle stand on five little feet?\nThe gas inside pushes about as hard as the air in a car tyre. A flat bottom would bulge out and wobble, so the base is curvy: the curves take the push and five bumps become feet. Send this to whoever always shakes the cola first. AI visuals.\n\nToday's quiz (Showbiz Saturday): who sang Dancing Queen? A) Queen B) ABBA C) Bee Gees. Comment your guess 👇\nNext video: Why bridges have metal teeth"
+  },
+  "quiz": {
+    "theme": "SHOWBIZ SATURDAY",
+    "kind": "pop culture",
+    "next_topic": "why every bridge has metal teeth across the road",
+    "next_title": "Why bridges have metal teeth",
+    "question": "Who sang Dancing Queen?",
+    "options": {
+      "A": "Queen",
+      "B": "ABBA",
+      "C": "Bee Gees"
+    },
+    "answer": "B",
+    "keywords": {
+      "A": [
+        "queen band",
+        "freddie",
+        "mercury"
+      ],
+      "B": [
+        "abba"
+      ],
+      "C": [
+        "bee gees",
+        "bee",
+        "gees"
+      ]
+    },
+    "sources": [
+      "https://en.wikipedia.org/wiki/Dancing_Queen",
+      "https://abbasite.com/articles/dancing-queen"
+    ]
+  }
+}

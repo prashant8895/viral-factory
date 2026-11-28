@@ -116,6 +116,22 @@
           "off": false
         }
       ]
+    },
+    {
+      "id": "2026-11-28-fb-wrong-belief",
+      "change": "Facebook caption only: line 1 states the common wrong belief about the object in plain words, then the question (e.g. 'Most people think the bumps under a soda bottle bottom are just for looks. So why...?'). Instagram and YouTube captions unchanged.",
+      "kind": "today",
+      "platforms": [
+        "facebook"
+      ],
+      "started": "2026-11-28",
+      "videos": 4,
+      "metric": "Facebook views at 72 h at least x1.10 the last 7 Facebook videos, seconds watched not lower",
+      "status": "running",
+      "rec": "curious-2026-11-28#1",
+      "why": "Facebook reach follows seconds watched (rank +0.55 over 23 videos; hits 10.2 s vs 4.4 s typical), and both Facebook breakouts (toothpaste square, fog lights) open by naming what people wrongly think about something they own.",
+      "note": "Self-started at the noon run (no answer on the slate by noon; Facebook had one free test slot). Prashant 2026-11-27: 'if it works, great, or else roll back'.",
+      "rollback": "Facebook caption goes back to line 1 = the hook question (playbook 'Caption (IG/FB)')"
     }
   ]
 }

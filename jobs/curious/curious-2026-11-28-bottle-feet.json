@@ -34,7 +34,7 @@
   "scenes": [
     {
       "visual": "huge close-up illustration of a relaxed hand holding a clear plastic fizzy drink bottle upside down, filled with dark cola, its bottom facing the viewer showing five rounded little feet in a star pattern, the five feet glowing bright warm orange as the brightest thing in the frame, bottle bottom big in the middle of the frame between 30 and 65 percent of the height, plain soft cool blue background, no label text, no logos, no brand",
-      "narration": "Flip a fizzy bottle over. See those five little *feet*? Why are they there?",
+      "narration": "Flip a fizzy bottle over. See those five little *feet*? Why?",
       "delivery": "curious",
       "beat": "hook",
       "motion": "push",
@@ -52,7 +52,7 @@
     },
     {
       "visual": "illustration of two clear plastic bottles lying on their sides next to each other on a plain table, bottoms facing the viewer: on the left a still water bottle with a completely flat plain bottom, on the right a cola bottle with a bottom made of five rounded feet glowing bright warm orange as the brightest thing in the frame, both bottles big and filling the middle of the frame between 30 and 65 percent of the height, simple cool blue background, no label text, no logos, no brand",
-      "narration": "Here's the thing. A water bottle's base is *flat*. The difference? The *gas* inside... pushing.",
+      "narration": "A water bottle's base is *flat*. The difference? The *gas* inside... pushing.",
       "yt_narration": "A water bottle's base is *flat*. The difference? *Gas*... pushing out.",
       "delivery": "light",
       "beat": "loop",
@@ -79,7 +79,7 @@
     },
     {
       "visual": "2D animation: a sealed fizzy bottle seen from the side, dashed outline, bubbles rising; orange arrows push outward on every wall and the base, growing as counter PUSH (PSI) climbs 0 to 35, then LIKE A CAR TYRE",
-      "narration": "Okay, so that fizz is gas, squeezed in tight. It pushes on the whole bottle... about as hard as a car *tyre*.",
+      "narration": "That fizz is gas, squeezed in tight. It pushes on the whole bottle... about as hard as a car *tyre*.",
       "delivery": "explain",
       "beat": "explain",
       "headline": "STEP 1/3: THE *PUSH*",
@@ -95,7 +95,7 @@
     },
     {
       "visual": "illustration of a clear plastic cola bottle standing on a kitchen table, its flat bottom swollen outward into a round dome so the bottle tilts and rocks to one side, small curved motion lines beside it, the bulging dome bottom glowing bright warm orange as the brightest thing in the frame, a round blown-up balloon floating in the background, bottle big in the middle of the frame between 30 and 65 percent of the height, simple cool blue background, no label text, no logos, no brand",
-      "narration": "But here's the catch. Pressure pushes things *round*, like a balloon. So a flat base would bulge... and *wobble*.",
+      "narration": "But here's the catch. Pressure pushes things *round*, like a balloon. A flat base would bulge... and *wobble*.",
       "delivery": "build",
       "beat": "rehook",
       "headline": "STEP 2/3: FLAT *FAILS*",
@@ -120,7 +120,7 @@
     },
     {
       "visual": "2D animation: side profile of the bottle's base on a table; a flat base morphs into curves with feet, arrows bend along the curves, feet glow where they touch the table; then a bottom view where five orange lobes pop in, counter FEET 0 to 5, then CURVES TAKE THE PUSH",
-      "narration": "So the base is made curvy on purpose. The curves *take* the push, and five bumps become feet.",
+      "narration": "So the base is curvy on purpose. The curves *take* the push, and five bumps become feet.",
       "delivery": "explain",
       "beat": "explain",
       "headline": "STEP 3/3: FIVE *FEET*",
@@ -165,7 +165,7 @@
       "shoutout": true,
       "anim": "anims/shoutout.html",
       "narration": "Yesterday's answer: A, the Louvre. These legends got it first.",
-      "narration_none": "It was A, the Louvre... nobody cracked it. Let's see you beat today's.",
+      "narration_none": "It was A, the Louvre... nobody cracked it.",
       "delivery": "warm",
       "headline": "*SHOUTOUT*",
       "motion": "push",
@@ -176,7 +176,7 @@
       "visual": "2D animation: today's quiz (showbiz, who sang a famous disco hit)",
       "quiz": true,
       "anim": "anims/quiz.html",
-      "narration": "Showbiz Saturday: who sang Dancing Queen? Queen, ABBA, or the Bee Gees? Comment your guess.",
+      "narration": "Who sang Dancing Queen? Queen, ABBA, or Bee Gees? Comment your guess.",
       "delivery": "curious",
       "headline": "SHOWBIZ *SATURDAY*",
       "motion": "push",

@@ -4,7 +4,7 @@
   "languages": [
     "en"
   ],
-  "publish": false,
+  "publish": true,
   "date": "2026-11-28",
   "slot": "23:30",
   "bucket": "seen-but-missed",
@@ -39,7 +39,16 @@
       "beat": "hook",
       "motion": "push",
       "sfx": "boom",
-      "overlays": []
+      "overlays": [
+        {
+          "type": "ring",
+          "x": 0.47,
+          "y": 0.4,
+          "r": 0.16,
+          "on": "feet"
+        }
+      ],
+      "image": "jobs/curious/pics/curious-2026-11-28-bottle-feet/s1.jpg"
     },
     {
       "visual": "illustration of two clear plastic bottles lying on their sides next to each other on a plain table, bottoms facing the viewer: on the left a still water bottle with a completely flat plain bottom, on the right a cola bottle with a bottom made of five rounded feet glowing bright warm orange as the brightest thing in the frame, both bottles big and filling the middle of the frame between 30 and 65 percent of the height, simple cool blue background, no label text, no logos, no brand",
@@ -50,7 +59,23 @@
       "headline": "WATER IS *FLAT*",
       "motion": "drift_right",
       "sfx": "whoosh",
-      "overlays": []
+      "overlays": [
+        {
+          "type": "ring",
+          "x": 0.28,
+          "y": 0.59,
+          "r": 0.11,
+          "on": "flat"
+        },
+        {
+          "type": "ring",
+          "x": 0.69,
+          "y": 0.6,
+          "r": 0.11,
+          "on": "gas"
+        }
+      ],
+      "image": "jobs/curious/pics/curious-2026-11-28-bottle-feet/s2.jpg"
     },
     {
       "visual": "2D animation: a sealed fizzy bottle seen from the side, dashed outline, bubbles rising; orange arrows push outward on every wall and the base, growing as counter PUSH (PSI) climbs 0 to 35, then LIKE A CAR TYRE",
@@ -76,7 +101,22 @@
       "headline": "STEP 2/3: FLAT *FAILS*",
       "motion": "push",
       "sfx": "boing",
-      "overlays": []
+      "overlays": [
+        {
+          "type": "arrow",
+          "x": 0.55,
+          "y": 0.65,
+          "dir": "down",
+          "on": "bulge"
+        },
+        {
+          "type": "cross",
+          "x": 0.45,
+          "y": 0.47,
+          "on": "wobble"
+        }
+      ],
+      "image": "jobs/curious/pics/curious-2026-11-28-bottle-feet/s4.jpg"
     },
     {
       "visual": "2D animation: side profile of the bottle's base on a table; a flat base morphs into curves with feet, arrows bend along the curves, feet glow where they touch the table; then a bottom view where five orange lobes pop in, counter FEET 0 to 5, then CURVES TAKE THE PUSH",
@@ -103,7 +143,22 @@
       "headline": "A *PRESSURE* TANK",
       "motion": "pull",
       "sfx": "sparkle",
-      "overlays": []
+      "overlays": [
+        {
+          "type": "arrow",
+          "x": 0.5,
+          "y": 0.62,
+          "dir": "down",
+          "on": "feet"
+        },
+        {
+          "type": "tick",
+          "x": 0.5,
+          "y": 0.36,
+          "on": "straight"
+        }
+      ],
+      "image": "jobs/curious/pics/curious-2026-11-28-bottle-feet/s6.jpg"
     },
     {
       "visual": "2D animation: yesterday's fastest right answers",

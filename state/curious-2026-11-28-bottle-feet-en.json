@@ -63,5 +63,26 @@
   "instagram_cut": {
     "duration": 45.12,
     "test": "2026-11-28-ig-no-quiz"
-  }
+  },
+  "platforms": {
+    "youtube": {
+      "id": "pbHqoQkS79I",
+      "url": "https://youtube.com/shorts/pbHqoQkS79I",
+      "privacy": "public",
+      "cut": "short",
+      "posted_at": "2026-11-28T23:28+05:30"
+    },
+    "instagram": {
+      "id": "18200516323361666",
+      "url": "https://www.instagram.com/reel/DgS2HZiB3OR/",
+      "cut": "short",
+      "posted_at": "2026-11-28T23:29+05:30"
+    },
+    "facebook": {
+      "id": "1447847257010666",
+      "url": "https://www.facebook.com/reel/1447847257010666",
+      "posted_at": "2026-11-28T23:29+05:30"
+    }
+  },
+  "errors": {}
 }

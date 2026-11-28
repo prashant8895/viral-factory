@@ -1,0 +1,67 @@
+{
+  "id": "curious-2026-11-28-bottle-feet-en",
+  "channel": "curious-en",
+  "date": "2026-11-28",
+  "slot": "23:30",
+  "publish": true,
+  "bucket": "seen-but-missed",
+  "episode": null,
+  "hook_text": "WHY DO BOTTLES HAVE *FEET*?",
+  "hook_style": "curiosity",
+  "release": "job-curious-2026-11-28-bottle-feet-en",
+  "duration": 63.6,
+  "quiz": {
+    "theme": "SHOWBIZ SATURDAY",
+    "kind": "pop culture",
+    "next_topic": "why every bridge has metal teeth across the road",
+    "next_title": "Why bridges have metal teeth",
+    "question": "Who sang Dancing Queen?",
+    "options": {
+      "A": "Queen",
+      "B": "ABBA",
+      "C": "Bee Gees"
+    },
+    "answer": "B",
+    "keywords": {
+      "A": [
+        "queen band",
+        "freddie",
+        "mercury"
+      ],
+      "B": [
+        "abba"
+      ],
+      "C": [
+        "bee gees",
+        "bee",
+        "gees"
+      ]
+    },
+    "sources": [
+      "https://en.wikipedia.org/wiki/Dancing_Queen",
+      "https://abbasite.com/articles/dancing-queen"
+    ]
+  },
+  "shoutouts": {
+    "from": "curious-2026-11-27-receipt-black-en",
+    "names": []
+  },
+  "tests": [
+    "2026-11-23-short-share",
+    "2026-11-23-trend-audio",
+    "2026-11-27-youtube-cut",
+    "2026-11-28-ig-no-quiz",
+    "2026-11-28-fb-wrong-belief"
+  ],
+  "trend_audio": true,
+  "picture_style": "illustration",
+  "voice": "clone",
+  "youtube_cut": {
+    "duration": 45.12,
+    "scenes": 6
+  },
+  "instagram_cut": {
+    "duration": 45.12,
+    "test": "2026-11-28-ig-no-quiz"
+  }
+}
